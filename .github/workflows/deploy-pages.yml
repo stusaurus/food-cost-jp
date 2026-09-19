@@ -34,15 +34,30 @@ jobs:
       - name: Test unit conversion
         run: python -m unittest discover -s tests -v
 
-      - name: Build site from Rakuten API
+      - name: Build live site or safe setup page
         env:
           RAKUTEN_APPLICATION_ID: ${{ secrets.RAKUTEN_APPLICATION_ID }}
           RAKUTEN_ACCESS_KEY: ${{ secrets.RAKUTEN_ACCESS_KEY }}
           RAKUTEN_AFFILIATE_ID: ${{ secrets.RAKUTEN_AFFILIATE_ID }}
           GA_MEASUREMENT_ID: ${{ secrets.GA_MEASUREMENT_ID }}
-        run: python scripts/build_site.py
+        run: |
+          if [ -n "$RAKUTEN_APPLICATION_ID" ] && [ -n "$RAKUTEN_ACCESS_KEY" ]; then
+            python scripts/build_site.py
+          else
+            mkdir -p site
+            cat > site/index.html <<'HTML'
+          <!doctype html>
+          <html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+          <meta name="robots" content="noindex,nofollow"><title>食品コスパ比較｜準備中</title>
+          <style>body{margin:0;background:#f7f8f5;color:#1e2521;font-family:-apple-system,BlinkMacSystemFont,"Noto Sans JP",sans-serif}.wrap{max-width:720px;margin:80px auto;padding:0 22px}.card{background:#fff;border:1px solid #dfe5df;border-radius:18px;padding:24px}h1{margin-top:0}.tag{color:#25724a;font-weight:800;font-size:12px}</style>
+          </head><body><main class="wrap"><div class="card"><div class="tag">FOOD COST</div><h1>食品コスパ比較を準備中です</h1><p>容量・本数・食数・送料をそろえ、1kg・1L・1食・100gあたりで比較できるサイトを構築しています。</p><p>楽天API設定後に自動で比較データへ切り替わります。</p></div></main></body></html>
+          HTML
+            printf 'User-agent: *\nDisallow: /\n' > site/robots.txt
+          fi
 
       - uses: actions/configure-pages@v5
+        with:
+          enablement: true
 
       - uses: actions/upload-pages-artifact@v3
         with:
