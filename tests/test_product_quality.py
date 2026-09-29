@@ -69,9 +69,9 @@ class ProductQualityTests(unittest.TestCase):
     def test_normal_products_are_accepted(self):
         cases = [
             ("pack-rice", "パックご飯 200g×24食"),
-            ("rice", "新潟県産 米 5kg"),
-            ("carbonated-water", "強炭酸水 500ml×24本"),
-            ("oatmeal", "オートミール 1kg"),
+            ("rice", "新潟県産 米 5kg 米びつ当番プレゼント"),
+            ("carbonated-water", "VOX 強炭酸水 500ml 24本 コーラフレーバー ハイボール用"),
+            ("oatmeal", "オートミール 2kg 製パン材料にも"),
         ]
         for category, title in cases:
             with self.subTest(category=category, title=title):
@@ -96,10 +96,25 @@ class ProductQualityTests(unittest.TestCase):
         self.assertEqual(q["count"], 80)
         self.assertFalse(quantity_conflict("サトウのごはん 200g×5食×16袋 80食", "pack-rice", q))
 
+        exact = "【80食】サトウのごはん 銀シャリ 5食パック (200g×5食)×16袋入"
+        q = parse_quantity(exact, "pack-rice")
+        self.assertEqual(q["count"], 80)
+        self.assertFalse(quantity_conflict(exact, "pack-rice", q))
+
         q = parse_quantity("強炭酸水 500ml×24本×2ケース 計48本", "carbonated-water")
         self.assertEqual(q["count"], 48)
         self.assertEqual(q["total_volume_ml"], 24000)
         self.assertFalse(quantity_conflict("強炭酸水 500ml×24本×2ケース 計48本", "carbonated-water", q))
+
+    def test_adjacent_counts_are_parsed_when_unambiguous(self):
+        title = "炭酸水 500ml 48本 (24本×2ケース)"
+        q = parse_quantity(title, "carbonated-water")
+        self.assertEqual(q["count"], 48)
+        self.assertFalse(quantity_conflict(title, "carbonated-water", q))
+
+        q = parse_quantity("有機オートミール 1kg 3袋", "oatmeal")
+        self.assertEqual(q["count"], 3)
+        self.assertEqual(q["total_weight_g"], 3000)
 
     def test_non_quantity_choices_do_not_force_rejection(self):
         q = parse_quantity("選べるラベルレス 強炭酸水 500ml×24本", "carbonated-water")
