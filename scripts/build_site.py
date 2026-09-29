@@ -80,6 +80,7 @@ def parse_quantity(title: str, category_id: str):
                 "total_weight_g": grams * count,
                 "unit_weight_g": grams,
                 "count": count,
+                "component_counts": [inner_count, outer_count],
                 "confidence": 0.997,
                 "evidence": nested[0].group(0),
             }
@@ -207,6 +208,7 @@ def parse_quantity(title: str, category_id: str):
                 "total_volume_ml": amount * count,
                 "unit_volume_ml": amount,
                 "count": count,
+                "component_counts": [int(m.group(3)), int(m.group(4))],
                 "confidence": 0.997,
                 "evidence": m.group(0),
             }
