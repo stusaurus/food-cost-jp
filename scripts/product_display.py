@@ -85,7 +85,7 @@ def clean_display_name(name: str) -> str:
 
     # Bare exact promotion prefixes. Unknown/mixed wording is intentionally kept.
     bare = re.compile(
-        r"^\s*(?:(?:送料無料|送料込み|本日限定|本日限り|お買い物マラソン|"
+        r"^\s*(?:(?:送料無料|送料込み|本日限定|本日限り|お買い物マラソン|食いしんぼう祭|イーグルス勝利|"
         r"楽天(?:スーパー)?SALE|スーパーSALE|タイムセール|SALE|セール中?)"
         r"\s*[!！★☆＋+・|｜:：\-/／]*\s*)+",
         re.I,
@@ -105,5 +105,6 @@ def clean_display_name(name: str) -> str:
     if candidate.strip():
         text = candidate
 
+    text = re.sub(r"(?<!\S)送料無料(?![※(（])", " ", text)
     cleaned = re.sub(r"\s+", " ", text).strip()
     return cleaned or original
