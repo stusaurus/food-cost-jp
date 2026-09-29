@@ -517,7 +517,7 @@ h1{font-size:clamp(28px,7vw,46px);line-height:1.18;margin:8px 0 12px}h2{font-siz
 .grid{display:grid;gap:12px;margin:22px 0}.card,.explain,.summary{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:18px;text-decoration:none}
 .category-card{display:block;position:relative;transition:transform .15s ease,border-color .15s ease,box-shadow .15s ease}.category-card:hover{transform:translateY(-2px);border-color:#bfd2c5;box-shadow:0 8px 24px #1d442b12}
 .category-name{font-size:18px;font-weight:900}.category-price{font-size:26px;line-height:1.15;color:var(--brand);font-weight:950;margin:9px 0 2px}.category-meta{font-size:12px;color:var(--muted)}.category-go{display:inline-block;margin-top:10px;font-size:12px;font-weight:900;color:var(--brand)}
-.section{margin:30px 0 46px}.toolbar{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0}.toolbar select{min-height:42px;border:1px solid var(--line);border-radius:11px;background:#fff;padding:0 11px;font-weight:700}
+.section{margin:30px 0 46px}.toolbar{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0}.toolbar select,.toolbar input{min-height:42px;border:1px solid var(--line);border-radius:11px;background:#fff;padding:0 11px;font-weight:700}.toolbar input{flex:1;min-width:220px}.toolbar input::placeholder{color:#88928c;font-weight:600}
 .summary{margin:20px 0 12px}.summary-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.summary-item{background:#f7faf7;border-radius:13px;padding:12px}.summary-k{font-size:11px;color:var(--muted);font-weight:800}.summary-v{font-size:20px;font-weight:950;color:var(--brand);margin-top:2px}
 .table{overflow:auto;background:#fff;border:1px solid var(--line);border-radius:16px}table{border-collapse:collapse;width:100%;min-width:800px}
 th,td{padding:11px;border-bottom:1px solid #e8ece8;text-align:left;font-size:12px;vertical-align:top}th{background:#f1f5f2;font-size:11px;color:#536058}
@@ -526,7 +526,7 @@ th,td{padding:11px;border-bottom:1px solid #e8ece8;text-align:left;font-size:12p
 .unit{font-size:20px;font-weight:950;color:var(--brand);white-space:nowrap}.unit-label{font-size:10px;color:var(--muted);font-weight:700}.secondary-unit{font-size:11px;color:#536058;margin-top:3px}
 .tag{display:inline-block;border-radius:999px;padding:3px 7px;font-size:10px;font-weight:800;margin:2px 2px 0 0}.ok{background:var(--brand-soft);color:var(--brand)}.warn{background:var(--warm);color:var(--warm-ink)}
 .cta{display:inline-flex;justify-content:center;align-items:center;min-height:40px;padding:0 11px;border-radius:10px;background:var(--brand);color:#fff;text-decoration:none;font-weight:900;white-space:nowrap}
-.guide-list{margin:10px 0 0;padding-left:20px}.guide-list li{margin:7px 0}.fine{font-size:11px;color:var(--muted)}
+.guide-list{margin:10px 0 0;padding-left:20px}.guide-list li{margin:7px 0}.fine{font-size:11px;color:var(--muted)}.other-categories{display:flex;gap:8px;flex-wrap:wrap}.other-categories a{border:1px solid var(--line);background:#fff;border-radius:999px;padding:8px 11px;text-decoration:none;font-size:12px;font-weight:800}.empty-filter{display:none;background:#fff;border:1px dashed var(--line);border-radius:14px;padding:18px;color:var(--muted);text-align:center}
 footer{background:#fff;border-top:1px solid var(--line);padding:30px 0 42px;color:var(--muted);font-size:11px}
 @media(min-width:720px){.grid{grid-template-columns:1fr 1fr}}
 @media(max-width:719px){
@@ -534,7 +534,7 @@ footer{background:#fff;border-top:1px solid var(--line);padding:30px 0 42px;colo
  .table{overflow:visible;background:transparent;border:0}table,tbody{display:block;width:100%;min-width:0}thead{display:none}tr{display:grid;grid-template-columns:76px 1fr;gap:0 12px;background:#fff;border:1px solid var(--line);border-radius:16px;margin:10px 0;padding:13px;box-shadow:0 2px 8px #13291b08}
  td{display:block;border:0;padding:3px 0;font-size:12px;min-width:0}td[data-cell="rank"]{grid-column:1/-1;padding-bottom:5px}td[data-cell="image"]{grid-column:1;grid-row:2 / span 4}td[data-cell="product"],td[data-cell="quantity"],td[data-cell="price"],td[data-cell="unit"],td[data-cell="cta"]{grid-column:2}
  td[data-cell="product"]{padding-top:0}.product-img{width:72px;height:72px}.product-name{font-size:14px}.unit{font-size:23px;margin-top:3px}td[data-cell="quantity"]::before{content:"内容量  ";font-weight:800;color:var(--muted)}td[data-cell="price"]::before{content:"商品価格  ";font-weight:800;color:var(--muted)}
- td[data-cell="cta"]{margin-top:8px}.cta{width:100%;min-height:46px}.toolbar select{flex:1;min-width:0}.section{margin:24px 0 36px}
+ td[data-cell="cta"]{margin-top:8px}.cta{width:100%;min-height:46px}.toolbar select,.toolbar input{flex:1;min-width:0;width:100%}.section{margin:24px 0 36px}
 }"""
 
 
@@ -559,11 +559,27 @@ document.querySelectorAll('[data-sort]').forEach(s=>s.addEventListener('change',
   rows.forEach((r,i)=>{r.querySelector('[data-rank]').textContent=i+1;body.appendChild(r)});
   send('comparison_sort',{category_id:s.dataset.category,comparison_metric:m})
 }));
+const applyFilters=root=>{
+  const size=root.querySelector('[data-filter]')?.value||'all';
+  const term=(root.querySelector('[data-search]')?.value||'').trim().toLowerCase();
+  let shown=0;
+  root.querySelectorAll('tbody tr').forEach(r=>{
+    const sizeOk=size==='all'||r.dataset.bucket===size;
+    const textOk=!term||(r.dataset.searchText||'').includes(term);
+    r.hidden=!(sizeOk&&textOk);
+    if(!r.hidden)shown++;
+  });
+  const empty=root.querySelector('[data-empty-filter]');
+  if(empty)empty.style.display=shown?'none':'block';
+};
 document.querySelectorAll('[data-filter]').forEach(s=>s.addEventListener('change',()=>{
-  const root=s.closest('[data-comparison]');
-  root.querySelectorAll('tbody tr').forEach(r=>r.hidden=s.value!=='all'&&r.dataset.bucket!==s.value);
+  const root=s.closest('[data-comparison]');applyFilters(root);
   send('comparison_filter_use',{category_id:s.dataset.category,filter_value:s.value})
-}))
+}));
+document.querySelectorAll('[data-search]').forEach(input=>input.addEventListener('change',()=>{
+  const root=input.closest('[data-comparison]');applyFilters(root);
+  send('comparison_search_use',{category_id:input.dataset.category,search_term:input.value.trim()})
+}));
 })();"""
 
 
@@ -601,8 +617,9 @@ def rows_html(items: list[dict], category: dict) -> str:
             for key, value in item["unit_prices"].items()
         )
         rank_html = f'<span class="rank top">{rank}</span>' if rank <= 3 else f'<span class="rank">{rank}</span>'
+        search_text = html.escape((item["name"] + " " + item["shop"]).lower(), quote=True)
         rows.append(
-            f"""<tr data-bucket="{bucket(item, category['id'])}" {attrs}>
+            f"""<tr data-bucket="{bucket(item, category['id'])}" data-search-text="{search_text}" {attrs}>
 <td data-cell="rank" data-rank>{rank_html}</td>
 <td data-cell="image">{image}</td>
 <td data-cell="product"><strong class="product-name">{html.escape(item['name'])}</strong><div class="shop">{html.escape(item['shop'])}</div>{shipping} {promo}</td>
@@ -636,6 +653,7 @@ def comparison_table(items: list[dict], category: dict, title: str, note: str) -
 <h2>{html.escape(title)}</h2>
 <p class="sub">{html.escape(note)}</p>
 <div class="toolbar">
+<input type="search" data-search data-category="{category['id']}" placeholder="商品名・ショップ名で絞る" aria-label="{html.escape(category['name'])}の商品名・ショップ名で絞る">
 <select data-sort data-category="{category['id']}">{''.join(options)}</select>
 <select data-filter data-category="{category['id']}">
 <option value="all">容量・数量すべて</option>
@@ -643,6 +661,7 @@ def comparison_table(items: list[dict], category: dict, title: str, note: str) -
 <option value="large">{html.escape(category['filter_large'])}</option>
 </select>
 </div>
+<div class="empty-filter" data-empty-filter>条件に合う商品がありません。検索語や容量条件を変えてください。</div>
 <div class="table"><table>
 <thead><tr><th>順</th><th></th><th>商品</th><th>数量</th><th>商品価格</th><th>単価</th><th>販売先</th></tr></thead>
 <tbody>{rows_html(items, category)}</tbody>
@@ -682,6 +701,18 @@ def guide_html(category: dict) -> str:
     return f"""<section class="section explain">
 <h2>{category['emoji']} {html.escape(category['name'])}を比べるコツ</h2>
 <ul class="guide-list">{points}</ul>
+</section>"""
+
+
+def other_categories_html(current_id: str) -> str:
+    links = "".join(
+        f'<a href="../{category["id"]}/">{category["emoji"]} {html.escape(category["name"])}</a>'
+        for category in CATEGORIES
+        if category["id"] != current_id
+    )
+    return f"""<section class="section">
+<h2>ほかの食品も単価で比べる</h2>
+<div class="other-categories">{links}</div>
 </section>"""
 
 
@@ -730,6 +761,7 @@ def category_page(category: dict, included: list[dict], other: list[dict], updat
         + "</div>"
     )
     parts.append(guide_html(category))
+    parts.append(other_categories_html(category["id"]))
     parts.append(
         """<section class="section explain">
 <h2>このランキングのルール</h2>
