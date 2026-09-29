@@ -27,6 +27,7 @@ class ProductDisplayTests(unittest.TestCase):
             "300円OFFクーポンあり★食いしんぼう祭 ",
             "【クーポンあり】",
             "【総額100万ポイントが当たる！】",
+            "【全品P3倍 9/30(水)～10/1(木)24時迄】",
             "【トップページにクーポンバナー】",
         ]
         for prefix in prefixes:
