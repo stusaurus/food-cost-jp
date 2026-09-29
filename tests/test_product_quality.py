@@ -141,6 +141,15 @@ class ProductQualityTests(unittest.TestCase):
         self.assertEqual(item["name"], "アイリス パックご飯 180g×24食")
         self.assertEqual(item["quantity"]["count"], 24)
 
+    def test_rice_package_rejects_conflicting_size_variants(self):
+        self.assertIsNotNone(parse_quantity("令和8年産 米 10kg (5kg×2袋)", "rice"))
+        self.assertIsNone(
+            parse_quantity(
+                "在庫処分 5kg×2袋 米 あきたこまち 10kg 20kg 27kg",
+                "rice",
+            )
+        )
+
     def test_quantity_signature_separates_size_variants(self):
         a = parse_quantity("強炭酸水 500ml×24本", "carbonated-water")
         b = parse_quantity("強炭酸水 1000ml×12本", "carbonated-water")
