@@ -15,8 +15,8 @@ REQUIRED = {
 EXCLUDED = {
     "pack-rice": re.compile(r"おかゆ|お粥|雑炊|リゾット|チャーハン|炒飯|ピラフ|赤飯|おこわ|炊き込み|カレー|もち麦|雑穀|ふるさと納税|返礼品", re.I),
     "rice": re.compile(r"パック\s*(?:ご飯|ごはん)|包装米飯|米粉|米油|米びつ|炊飯器|甘酒|麹|こうじ|せんべい|煎餅|おかき|餅|もち米|ふるさと納税|返礼品", re.I),
-    "carbonated-water": re.compile(r"コーラ|サイダー|ジュース|果汁|チューハイ|酎ハイ|サワー|ビール|酒|ワイン|シロップ|炭酸メーカー|ソーダメーカー|ソーダストリーム|ガスシリンダ|カートリッジ|ふるさと納税|返礼品", re.I),
-    "oatmeal": re.compile(r"クッキー|ビスケット|グラノーラ|ミューズリー|シリアルバー|プロテインバー|パン|ケーキ|スープ|リゾット|離乳食|ふるさと納税|返礼品", re.I),
+    "carbonated-water": re.compile(r"シロップ|炭酸メーカー|ソーダメーカー|ソーダストリーム|ガスシリンダ|ガスボンベ|カートリッジ|ふるさと納税|返礼品", re.I),
+    "oatmeal": re.compile(r"クッキー|ビスケット|シリアルバー|プロテインバー|パン|ケーキ|スープ|リゾット|ふるさと納税|返礼品", re.I),
 }
 
 COMMON_EXCLUDED = re.compile(
@@ -55,6 +55,8 @@ def category_rejection(category_id: str, title: str):
 def quantity_conflict(title: str, category_id: str, quantity: dict) -> bool:
     """Reject visible secondary pack counts that the parser did not account for."""
     text = normalize(title)
+    # Purchase-threshold gifts are not package quantity (e.g. 2個以上購入で特典).
+    text = re.sub(r"\d+\s*個以上購入で[^】\]]*(?=[】\]]|$)", " ", text)
     evidence = normalize(quantity.get("evidence") or "")
     if evidence:
         text = text.replace(evidence, " ", 1)
