@@ -9,9 +9,18 @@ import time
 import unicodedata
 import urllib.parse
 import urllib.request
+from collections import Counter
 from datetime import datetime
 from pathlib import Path
 from zoneinfo import ZoneInfo
+
+from product_display import clean_display_name
+from product_quality import (
+    category_rejection,
+    product_fingerprint,
+    quantity_conflict,
+    quantity_signature,
+)
 
 SITE_ID = "food_cost_jp"
 SITE_URL = "https://stusaurus.github.io/food-cost-jp/"
@@ -31,7 +40,7 @@ CATEGORIES = [
 
 LIMITED_RE = re.compile(r"(?:定期購入(?:のみ)?|定期便(?:のみ)?|初回限定|会員限定|新規限定)")
 PROMO_RE = re.compile(r"(?:クーポン|セール|SALE|タイムセール|ポイント\s*\d+倍|お買い物マラソン)", re.I)
-SELECTABLE_RE = re.compile(r"(?:選べる|容量を選択|サイズを選択|個数を選択|\d+\s*(?:kg|g|ml|L)\s*[~/〜]\s*\d+)", re.I)
+SELECTABLE_RE = re.compile(r"(?:選べる|よりどり|お好み|(?:容量|サイズ|個数|種類|品種|フレーバー)を?選択|\d+\s*(?:kg|g|ml|L)\s*[~/〜～-]\s*\d+)", re.I)
 
 
 def norm(text: str) -> str:
@@ -191,33 +200,45 @@ def fetch(query: str) -> list[dict]:
     return payload.get("items") or payload.get("Items") or []
 
 
-def normalize_item(raw: dict, category: dict):
+def normalize_item_with_reason(raw: dict, category: dict):
     item = raw.get("Item", raw) if isinstance(raw, dict) else {}
-    name = str(item.get("itemName") or "").strip()
+    raw_name = str(item.get("itemName") or "").strip()
     try:
         price = int(float(item.get("itemPrice") or 0))
     except (TypeError, ValueError):
-        return None
+        return None, "invalid_price"
 
-    if not name or price <= 0 or LIMITED_RE.search(norm(name)):
-        return None
+    if not raw_name:
+        return None, "missing_title"
+    if price <= 0:
+        return None, "invalid_price"
+    if LIMITED_RE.search(norm(raw_name)):
+        return None, "limited_purchase"
 
-    quantity = parse_quantity(name, category["id"])
+    category_reason = category_rejection(category["id"], raw_name)
+    if category_reason:
+        return None, category_reason
+
+    quantity = parse_quantity(raw_name, category["id"])
     if not quantity or quantity.get("confidence", 0) < 0.90:
-        return None
+        return None, "ambiguous_quantity"
+    if quantity_conflict(raw_name, category["id"], quantity):
+        return None, "set_count_conflict"
 
     prices = unit_prices(price, quantity, category["id"])
     if category["primary"] not in prices:
-        return None
+        return None, "unit_price_unavailable"
 
     postage_included = str(item.get("postageFlag")) == "0"
     url = str(item.get("affiliateUrl") or item.get("itemUrl") or "")
     if not url:
-        return None
+        return None, "missing_url"
 
+    display_name = clean_display_name(raw_name)
     return {
         "id": str(item.get("itemCode") or url)[:180],
-        "name": name,
+        "raw_name": raw_name,
+        "name": display_name,
         "price": price,
         "shop": str(item.get("shopName") or ""),
         "url": url,
@@ -226,8 +247,13 @@ def normalize_item(raw: dict, category: dict):
         "shipping_status": "included" if postage_included else "extra_or_unknown",
         "quantity": quantity,
         "unit_prices": prices,
-        "promotion_mentioned": bool(PROMO_RE.search(norm(name))),
-    }
+        "promotion_mentioned": bool(PROMO_RE.search(norm(raw_name))),
+    }, None
+
+
+def normalize_item(raw: dict, category: dict):
+    item, _ = normalize_item_with_reason(raw, category)
+    return item
 
 
 def collect(category: dict):
@@ -240,25 +266,82 @@ def collect(category: dict):
         except Exception as exc:
             print(f"fetch failed {category['id']} {query}: {exc}", file=sys.stderr)
 
-    normalized = [x for x in (normalize_item(row, category) for row in rows) if x]
+    reasons = Counter()
+    rejection_samples = {}
+    cleaned_examples = []
+    normalized = []
+    for row in rows:
+        item, reason = normalize_item_with_reason(row, category)
+        if reason:
+            reasons[reason] += 1
+            raw = row.get("Item", row) if isinstance(row, dict) else {}
+            title = str(raw.get("itemName") or "").strip()
+            rejection_samples.setdefault(reason, [])
+            if title and len(rejection_samples[reason]) < 3:
+                rejection_samples[reason].append(title)
+            continue
+        if item["raw_name"] != item["name"] and len(cleaned_examples) < 12:
+            cleaned_examples.append({
+                "before": item["raw_name"],
+                "after": item["name"],
+            })
+        normalized.append(item)
 
-    seen = set()
-    unique = []
+    # Query overlap: same Rakuten listing may be returned by multiple search terms.
+    exact_seen = set()
+    exact_unique = []
+    exact_duplicates = 0
     for item in normalized:
         key = (item["id"], item["price"])
-        if key in seen:
+        if key in exact_seen:
+            exact_duplicates += 1
             continue
-        seen.add(key)
+        exact_seen.add(key)
+        exact_unique.append(item)
+
+    # Practical duplicates: same shop + cleaned product identity + same parsed
+    # quantity. Keep the cheaper listing; do not merge across different shops.
+    practical_seen = set()
+    unique = []
+    practical_duplicates = 0
+    for item in sorted(exact_unique, key=lambda x: (x["price"], x["id"])):
+        fingerprint = product_fingerprint(item["name"])
+        pkey = (
+            item["shop"].strip().lower(),
+            fingerprint,
+            quantity_signature(category["id"], item["quantity"]),
+            item["shipping_status"],
+        )
+        if fingerprint and pkey in practical_seen:
+            practical_duplicates += 1
+            continue
+        practical_seen.add(pkey)
         unique.append(item)
 
-    key = lambda item: (
+    sort_key = lambda item: (
         item["unit_prices"][category["primary"]],
         item["price"],
     )
-    included = sorted([x for x in unique if x["postage_included"]], key=key)[:30]
-    other = sorted([x for x in unique if not x["postage_included"]], key=key)[:20]
-    return included, other
+    included_all = sorted([x for x in unique if x["postage_included"]], key=sort_key)
+    other_all = sorted([x for x in unique if not x["postage_included"]], key=sort_key)
+    included = included_all[:30]
+    other = other_all[:20]
 
+    audit = {
+        "fetched": len(rows),
+        "normalized": len(normalized),
+        "exact_duplicates": exact_duplicates,
+        "practical_duplicates": practical_duplicates,
+        "accepted_unique": len(unique),
+        "included_available": len(included_all),
+        "shipping_unknown_available": len(other_all),
+        "displayed_included": len(included),
+        "displayed_shipping_unknown": len(other),
+        "reasons": dict(reasons),
+        "cleaned_examples": cleaned_examples,
+        "rejection_samples": rejection_samples,
+    }
+    return included, other, audit
 
 def yen(value):
     if value is None:
@@ -551,11 +634,16 @@ def main():
     export = {"generated_at": updated.isoformat(), "categories": {}}
 
     for category in CATEGORIES:
-        included, other = collect(category)
+        included, other, audit = collect(category)
         results[category["id"]] = (included, other)
         export["categories"][category["id"]] = {
             "included": included,
             "shipping_unknown": other,
+            "quality_audit": {
+                key: value
+                for key, value in audit.items()
+                if key not in {"cleaned_examples", "rejection_samples"}
+            },
         }
 
         target = OUT / "categories" / category["id"]
@@ -565,6 +653,29 @@ def main():
             encoding="utf-8",
         )
         print(category["id"], len(included), len(other))
+        print(
+            "AUDIT",
+            category["id"],
+            json.dumps({
+                key: value
+                for key, value in audit.items()
+                if key not in {"cleaned_examples", "rejection_samples"}
+            }, ensure_ascii=False, sort_keys=True),
+        )
+        for example in audit["cleaned_examples"]:
+            print(
+                "CLEANED",
+                category["id"],
+                json.dumps(example, ensure_ascii=False),
+            )
+        for reason, samples in sorted(audit["rejection_samples"].items()):
+            for sample in samples:
+                print(
+                    "EXCLUDE",
+                    category["id"],
+                    reason,
+                    json.dumps(sample, ensure_ascii=False),
+                )
 
     (OUT / "index.html").write_text(home_page(results, updated), encoding="utf-8")
     (OUT / "data").mkdir(exist_ok=True)
