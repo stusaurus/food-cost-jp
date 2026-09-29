@@ -23,6 +23,8 @@ class ProductDisplayTests(unittest.TestCase):
             "＼お買い物マラソン／【ポイント10倍】",
             "送料無料！ ",
             "【楽天スーパーSALE】",
+            "クーポンで300円OFF★先着順 ",
+            "300円OFFクーポンあり★食いしんぼう祭 ",
         ]
         for prefix in prefixes:
             with self.subTest(prefix=prefix):
@@ -88,6 +90,21 @@ class ProductQualityTests(unittest.TestCase):
         q = parse_quantity("パックご飯 24食 200g×24食", "pack-rice")
         self.assertIsNotNone(q)
         self.assertFalse(quantity_conflict("パックご飯 24食 200g×24食", "pack-rice", q))
+
+    def test_explicit_nested_cases_are_counted(self):
+        q = parse_quantity("サトウのごはん 200g×5食×16袋 80食", "pack-rice")
+        self.assertEqual(q["count"], 80)
+        self.assertFalse(quantity_conflict("サトウのごはん 200g×5食×16袋 80食", "pack-rice", q))
+
+        q = parse_quantity("強炭酸水 500ml×24本×2ケース 計48本", "carbonated-water")
+        self.assertEqual(q["count"], 48)
+        self.assertEqual(q["total_volume_ml"], 24000)
+        self.assertFalse(quantity_conflict("強炭酸水 500ml×24本×2ケース 計48本", "carbonated-water", q))
+
+    def test_non_quantity_choices_do_not_force_rejection(self):
+        q = parse_quantity("選べるラベルレス 強炭酸水 500ml×24本", "carbonated-water")
+        self.assertIsNotNone(q)
+        self.assertEqual(q["count"], 24)
 
     def test_normalize_uses_raw_title_for_quantity_and_clean_title_for_display(self):
         category = next(c for c in CATEGORIES if c["id"] == "pack-rice")
