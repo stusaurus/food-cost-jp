@@ -87,9 +87,11 @@ def quantity_conflict(title: str, category_id: str, quantity: dict) -> bool:
         for v in re.findall(rf"(?<!\d)(\d+)\s*(?:{units})", text, flags=re.I)
         if int(v) > 1
     ]
-    # Repeated wording of the already parsed count is harmless; a different
-    # visible count means an outer case/set or variant that would change total.
-    return any(value != expected for value in visible)
+    # Repeated wording of the already parsed total or one of the explicitly
+    # parsed nested components is harmless; any other count is ambiguous.
+    allowed = {expected}
+    allowed.update(int(v) for v in quantity.get("component_counts", []) if int(v) > 0)
+    return any(value not in allowed for value in visible)
 
 
 def quantity_signature(category_id: str, quantity: dict):
