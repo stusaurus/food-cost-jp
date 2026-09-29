@@ -84,6 +84,23 @@ def parse_quantity(title: str, category_id: str):
                 "evidence": nested[0].group(0),
             }
 
+        direct = list(re.finditer(
+            r"(\d+(?:\.\d+)?)\s*g\s*[)）\]』】]*\s*x?\s*(\d+)\s*(?:食|個|パック)",
+            text,
+            re.I,
+        ))
+        direct_signatures = {(float(m.group(1)), int(m.group(2))) for m in direct}
+        if len(direct_signatures) == 1:
+            grams, count = next(iter(direct_signatures))
+            if grams > 0 and count > 0:
+                return {
+                    "total_weight_g": grams * count,
+                    "unit_weight_g": grams,
+                    "count": count,
+                    "confidence": 0.96,
+                    "evidence": direct[0].group(0),
+                }
+
         matches = list(re.finditer(
             r"(\d+(?:\.\d+)?)\s*g\s*x\s*(\d+)\s*(?:食|個|パック)",
             text,
@@ -123,6 +140,28 @@ def parse_quantity(title: str, category_id: str):
                 "unit_weight_g": amount,
                 "count": count,
                 "confidence": 0.99,
+                "evidence": m.group(0),
+            }
+
+        adjacent = list(re.finditer(
+            r"(?<![A-Za-z0-9.])(\d+(?:\.\d+)?)\s*(kg|g)\s+(\d+)\s*(?:袋|個|パック)(?!以上)(?:セット)?",
+            text,
+            re.I,
+        ))
+        if adjacent:
+            signatures = {(m.group(1), m.group(2).lower(), m.group(3)) for m in adjacent}
+            if len(signatures) != 1:
+                return None
+            m = adjacent[0]
+            amount = float(m.group(1)) * (1000 if m.group(2).lower() == "kg" else 1)
+            count = int(m.group(3))
+            if amount <= 0 or count <= 0:
+                return None
+            return {
+                "total_weight_g": amount * count,
+                "unit_weight_g": amount,
+                "count": count,
+                "confidence": 0.95,
                 "evidence": m.group(0),
             }
 
@@ -171,6 +210,25 @@ def parse_quantity(title: str, category_id: str):
                 "confidence": 0.997,
                 "evidence": m.group(0),
             }
+
+        direct = list(re.finditer(
+            r"(?<![A-Za-z0-9.])(\d+(?:\.\d+)?)\s*(ml|l)\s*x?\s*(\d+)\s*(?:本|個|缶)",
+            text,
+            re.I,
+        ))
+        direct_signatures = {(m.group(1), m.group(2).lower(), m.group(3)) for m in direct}
+        if len(direct_signatures) == 1:
+            m = direct[0]
+            amount = float(m.group(1)) * (1000 if m.group(2).lower() == "l" else 1)
+            count = int(m.group(3))
+            if amount > 0 and count > 0:
+                return {
+                    "total_volume_ml": amount * count,
+                    "unit_volume_ml": amount,
+                    "count": count,
+                    "confidence": 0.96,
+                    "evidence": m.group(0),
+                }
 
         matches = list(re.finditer(
             r"(?<![A-Za-z0-9.])(\d+(?:\.\d+)?)\s*(ml|l)\s*x\s*(\d+)\s*(?:本|個|缶|パック|ケース|箱)?",
