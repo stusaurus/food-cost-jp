@@ -14,9 +14,9 @@ REQUIRED = {
 
 EXCLUDED = {
     "pack-rice": re.compile(r"おかゆ|お粥|雑炊|リゾット|チャーハン|炒飯|ピラフ|赤飯|おこわ|炊き込み|カレー|もち麦|雑穀|ふるさと納税|返礼品", re.I),
-    "rice": re.compile(r"パック\s*(?:ご飯|ごはん)|包装米飯|米粉|米油|米びつ|炊飯器|甘酒|麹|こうじ|せんべい|煎餅|おかき|餅|もち米|ふるさと納税|返礼品", re.I),
+    "rice": re.compile(r"パック\s*(?:ご飯|ごはん)|包装米飯|米粉|米油|米びつ(?!当番)|炊飯器|甘酒|麹|こうじ|せんべい|煎餅|おかき|餅|もち米|ふるさと納税|返礼品", re.I),
     "carbonated-water": re.compile(r"シロップ|炭酸メーカー|ソーダメーカー|ソーダストリーム|ガスシリンダ|ガスボンベ|カートリッジ|ふるさと納税|返礼品", re.I),
-    "oatmeal": re.compile(r"クッキー|ビスケット|シリアルバー|プロテインバー|パン|ケーキ|スープ|リゾット|ふるさと納税|返礼品", re.I),
+    "oatmeal": re.compile(r"クッキー|ビスケット|シリアルバー|プロテインバー|スープ|リゾット|ふるさと納税|返礼品", re.I),
 }
 
 COMMON_EXCLUDED = re.compile(
@@ -61,6 +61,20 @@ def quantity_conflict(title: str, category_id: str, quantity: dict) -> bool:
     if evidence:
         text = text.replace(evidence, " ", 1)
 
+    expected = int(quantity.get("count") or 1)
+    # A remaining inner-pack decomposition is harmless when it exactly
+    # reconciles to the parsed total, e.g. 48本 (24本×2ケース).
+    if category_id == "carbonated-water":
+        def remove_consistent_case(match):
+            inner, outer = int(match.group(1)), int(match.group(2))
+            return " " if inner * outer == expected else match.group(0)
+        text = re.sub(
+            r"(\d+)\s*本(?:入)?\s*x\s*(\d+)\s*(?:ケース|箱|セット)",
+            remove_consistent_case,
+            text,
+            flags=re.I,
+        )
+
     if category_id == "pack-rice":
         units = r"食|個|パック|ケース|箱|セット|袋"
     elif category_id == "carbonated-water":
@@ -73,7 +87,6 @@ def quantity_conflict(title: str, category_id: str, quantity: dict) -> bool:
         for v in re.findall(rf"(?<!\d)(\d+)\s*(?:{units})", text, flags=re.I)
         if int(v) > 1
     ]
-    expected = int(quantity.get("count") or 1)
     # Repeated wording of the already parsed count is harmless; a different
     # visible count means an outer case/set or variant that would change total.
     return any(value != expected for value in visible)
