@@ -60,6 +60,10 @@ class PresentationTests(unittest.TestCase):
         self.assertIn("炭酸水を比べるコツ", html)
         self.assertIn('data-cell="unit"', html)
         self.assertIn("楽天で価格を見る →", html)
+        self.assertIn("商品名・ショップ名で絞る", html)
+        self.assertIn('data-search-text=', html)
+        self.assertIn("ほかの食品も単価で比べる", html)
+        self.assertIn("パックご飯", html)
 
     def test_home_page_shows_best_price_and_count(self):
         results = {}
@@ -73,6 +77,17 @@ class PresentationTests(unittest.TestCase):
         self.assertIn("ランキングを見る →", html)
         self.assertIn("毎回楽天から再取得", html)
         self.assertIn("販売数量を一意に確定できない商品はランキングから除外", html)
+
+    def test_search_filter_tracking_is_present(self):
+        category = next(c for c in CATEGORIES if c["id"] == "pack-rice")
+        html = category_page(
+            category,
+            [sample_item("pack-rice")],
+            [],
+            datetime(2026, 9, 30, 7, 0, tzinfo=ZoneInfo("Asia/Tokyo")),
+        )
+        self.assertIn("comparison_search_use", html)
+        self.assertIn("条件に合う商品がありません", html)
 
 
 if __name__ == "__main__":
