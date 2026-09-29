@@ -25,6 +25,8 @@ Actions > Secrets and variables > Actions で以下を登録します。
 - `RAKUTEN_AFFILIATE_ID`（推奨）
 - `GA_MEASUREMENT_ID`（GA4を使う場合）
 
+楽天Web Serviceの `RAKUTEN_APPLICATION_ID` / `RAKUTEN_ACCESS_KEY` は食品サイト専用アプリの値を使用し、`RAKUTEN_AFFILIATE_ID` は他サイトと共通で運用します。
+
 ## GitHub Pages
 Settings > Pages > Build and deployment > Source を `GitHub Actions` にします。
 
