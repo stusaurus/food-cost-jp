@@ -6,8 +6,8 @@ import unicodedata
 
 
 REQUIRED = {
-    "pack-rice": re.compile(r"パック\s*(?:ご飯|ごはん)|包装米飯|レンジ.{0,8}(?:ご飯|ごはん)|レトルト.{0,8}(?:ご飯|ごはん)", re.I),
-    "rice": re.compile(r"(?:無洗米|白米|玄米|精米|新米|お米|\b米\b|米\s*\d)", re.I),
+    "pack-rice": re.compile(r"パック\s*(?:ご飯|ごはん)|(?:ご飯|ごはん)パック|パックライス|サトウのごはん|おいしいごはん|包装米飯|レンジ.{0,8}(?:ご飯|ごはん)|レトルト.{0,8}(?:ご飯|ごはん)", re.I),
+    "rice": re.compile(r"米|無洗米|白米|玄米|精米|新米", re.I),
     "carbonated-water": re.compile(r"炭酸水|強炭酸|天然炭酸|スパークリング(?:ウォーター|水)", re.I),
     "oatmeal": re.compile(r"オートミール|オーツ麦|オート麦", re.I),
 }
