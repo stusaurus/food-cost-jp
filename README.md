@@ -33,7 +33,7 @@ Settings > Pages > Build and deployment > Source を `GitHub Actions` にしま�
 `.github/workflows/deploy-pages.yml` は main 更新時と毎日 05:30 JST にサイトを再生成します。
 
 ## Analytics
-日用品版と共通化しやすいイベント名を使います。
+日用品版と共通化しやすいイベント名を使います。GA4の測定IDは `GA_MEASUREMENT_ID` からビルド時に注入します。
 
 - `affiliate_click`
 - `product_result_click`
