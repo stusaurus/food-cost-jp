@@ -32,10 +32,10 @@ AFFILIATE_ID = os.getenv("RAKUTEN_AFFILIATE_ID", "").strip()
 GA_ID = os.getenv("GA_MEASUREMENT_ID", "").strip()
 
 CATEGORIES = [
-    {"id":"pack-rice","name":"パックご飯","emoji":"🍚","queries":["パックご飯 200g","パックご飯 180g"],"primary":"per_serving","primary_label":"1食あたり","secondary":"per_100g","secondary_label":"100gあたり","intro":"食数と内容量をそろえ、24食・40食などの箱違いを公平に比較します。"},
-    {"id":"rice","name":"米","emoji":"🌾","queries":["米 5kg 送料無料","米 10kg 送料無料"],"primary":"per_kg","primary_label":"1kgあたり","secondary":None,"secondary_label":None,"intro":"5kg・10kgなど総重量が違う商品を1kgあたりへ換算します。"},
-    {"id":"carbonated-water","name":"炭酸水","emoji":"🫧","queries":["炭酸水 500ml 24本","炭酸水 500ml 48本","炭酸水 1L"],"primary":"per_liter","primary_label":"1Lあたり","secondary":"per_bottle","secondary_label":"1本あたり","intro":"500ml・1L・24本・48本などを1Lあたりと1本あたりへ換算します。"},
-    {"id":"oatmeal","name":"オートミール","emoji":"🥣","queries":["オートミール 1kg","オートミール 2kg"],"primary":"per_100g","primary_label":"100gあたり","secondary":"per_kg","secondary_label":"1kgあたり","intro":"1kg袋・複数袋セットを100gあたりと1kgあたりへ換算します。"},
+    {"id":"pack-rice","name":"パックご飯","emoji":"🍚","queries":["パックご飯 200g","パックご飯 180g"],"primary":"per_serving","primary_label":"1食あたり","secondary":"per_100g","secondary_label":"100gあたり","intro":"食数と内容量をそろえ、24食・40食などの箱違いを公平に比較します。","filter_small":"24食以下","filter_large":"25食以上","guide":["1食あたりだけでなく、1食のグラム数も確認すると実際の満足度を比べやすくなります。","40食・80食などの大箱は単価が下がりやすい一方、保管場所も必要です。","容量や食数を一意に確定できない選択式商品はランキングから外しています。"]},
+    {"id":"rice","name":"米","emoji":"🌾","queries":["米 5kg 送料無料","米 10kg 送料無料"],"primary":"per_kg","primary_label":"1kgあたり","secondary":None,"secondary_label":None,"intro":"5kg・10kgなど総重量が違う商品を1kgあたりへ換算します。","filter_small":"5kg以下","filter_large":"5kg超","guide":["5kgと10kgでは商品価格より1kgあたりを見ると比較しやすくなります。","銘柄・産年・精米方法は価格差の理由になるため、商品名の情報はできるだけ残しています。","5kg／10kg／20kgなど購入量が選択式で確定できない商品は除外しています。"]},
+    {"id":"carbonated-water","name":"炭酸水","emoji":"🫧","queries":["炭酸水 500ml 24本","炭酸水 500ml 48本","炭酸水 1L"],"primary":"per_liter","primary_label":"1Lあたり","secondary":"per_bottle","secondary_label":"1本あたり","intro":"500ml・1L・24本・48本などを1Lあたりと1本あたりへ換算します。","filter_small":"600ml以下","filter_large":"700ml以上","guide":["持ち歩き中心なら1本あたり、自宅利用なら1Lあたりの単価を見ると選びやすくなります。","24本×2ケースなど明確な箱数は合計本数へ換算して比較します。","通常のミネラルウォーターや炭酸メーカー用品は炭酸水ランキングへ混ぜません。"]},
+    {"id":"oatmeal","name":"オートミール","emoji":"🥣","queries":["オートミール 1kg","オートミール 2kg"],"primary":"per_100g","primary_label":"100gあたり","secondary":"per_kg","secondary_label":"1kgあたり","intro":"1kg袋・複数袋セットを100gあたりと1kgあたりへ換算します。","filter_small":"1kg以下","filter_large":"1kg超","guide":["袋サイズが違っても100gあたりへ換算すると価格差を比較しやすくなります。","複数袋セットは総重量へ換算し、セット数が曖昧な商品は除外しています。","ロールドオーツ・クイックオーツなどタイプは商品名で確認できるよう残しています。"]},
 ]
 
 LIMITED_RE = re.compile(r"(?:定期購入(?:のみ)?|定期便(?:のみ)?|初回限定|会員限定|新規限定)")
@@ -504,28 +504,38 @@ gtag('config','{safe}',{{site_id:'{SITE_ID}'}});
 
 
 CSS = """*{box-sizing:border-box}
-body{margin:0;background:#f7f8f5;color:#1e2521;font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Noto Sans JP",sans-serif;line-height:1.65}
-a{color:inherit}.wrap{width:min(1060px,calc(100% - 28px));margin:auto}
-header{background:#fff;border-bottom:1px solid #dfe5df;padding:28px 0 20px}
-.brand{font-size:12px;font-weight:900;color:#25724a;text-decoration:none}
-h1{font-size:clamp(28px,7vw,44px);line-height:1.2;margin:8px 0}
-.lead,.sub,.note{color:#667069}
-.nav{position:sticky;top:0;background:#fffffff0;border-bottom:1px solid #dfe5df;z-index:10}
-.nav .wrap{display:flex;gap:8px;overflow:auto;padding:9px 14px}
-.nav a{white-space:nowrap;text-decoration:none;border:1px solid #dfe5df;border-radius:999px;padding:7px 11px;background:#fff;font-size:12px;font-weight:700}
-.grid{display:grid;gap:10px;margin:20px 0}
-.card,.explain{background:#fff;border:1px solid #dfe5df;border-radius:16px;padding:16px;text-decoration:none}
-.section{margin:28px 0 42px}.toolbar{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}
-.toolbar select{min-height:40px;border:1px solid #dfe5df;border-radius:10px;background:#fff;padding:0 10px}
-.table{overflow:auto;background:#fff;border:1px solid #dfe5df;border-radius:15px}
-table{border-collapse:collapse;width:100%;min-width:760px}
-th,td{padding:10px;border-bottom:1px solid #e6ebe6;text-align:left;font-size:12px;vertical-align:top}
-th{background:#f2f6f3}.unit{font-size:18px;font-weight:900;color:#25724a}
-.tag{display:inline-block;border-radius:999px;padding:3px 7px;font-size:10px;font-weight:800}
-.ok{background:#eef7f1;color:#25724a}.warn{background:#fff4dc;color:#8a5a13}
-.cta{display:inline-flex;justify-content:center;align-items:center;min-height:38px;padding:0 10px;border-radius:9px;background:#25724a;color:#fff;text-decoration:none;font-weight:800;white-space:nowrap}
-footer{background:#fff;border-top:1px solid #dfe5df;padding:28px 0 40px;color:#667069;font-size:11px}
-@media(min-width:720px){.grid{grid-template-columns:1fr 1fr}}"""
+:root{--bg:#f5f7f4;--panel:#fff;--ink:#18201b;--muted:#657068;--line:#dfe6e0;--brand:#176a43;--brand-soft:#eaf5ee;--warm:#fff4df;--warm-ink:#855a16}
+html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Noto Sans JP",sans-serif;line-height:1.65}
+a{color:inherit}.wrap{width:min(1080px,calc(100% - 28px));margin:auto}
+header{background:linear-gradient(180deg,#fff 0%,#f8fbf8 100%);border-bottom:1px solid var(--line);padding:30px 0 24px}
+.brand{font-size:12px;font-weight:900;letter-spacing:.08em;color:var(--brand);text-decoration:none}
+h1{font-size:clamp(28px,7vw,46px);line-height:1.18;margin:8px 0 12px}h2{font-size:clamp(21px,4vw,28px);line-height:1.35}
+.lead{font-size:clamp(15px,2.4vw,18px);max-width:760px}.lead,.sub,.note{color:var(--muted)}.note{font-size:12px}
+.hero-tags{display:flex;gap:7px;flex-wrap:wrap;margin:16px 0 6px}.hero-tag{font-size:11px;font-weight:800;background:var(--brand-soft);color:var(--brand);border-radius:999px;padding:5px 9px}
+.nav{position:sticky;top:0;background:#ffffffed;border-bottom:1px solid var(--line);z-index:10;backdrop-filter:blur(10px)}
+.nav .wrap{display:flex;gap:8px;overflow:auto;padding:9px 14px}.nav a{white-space:nowrap;text-decoration:none;border:1px solid var(--line);border-radius:999px;padding:7px 11px;background:#fff;font-size:12px;font-weight:700}
+.grid{display:grid;gap:12px;margin:22px 0}.card,.explain,.summary{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:18px;text-decoration:none}
+.category-card{display:block;position:relative;transition:transform .15s ease,border-color .15s ease,box-shadow .15s ease}.category-card:hover{transform:translateY(-2px);border-color:#bfd2c5;box-shadow:0 8px 24px #1d442b12}
+.category-name{font-size:18px;font-weight:900}.category-price{font-size:26px;line-height:1.15;color:var(--brand);font-weight:950;margin:9px 0 2px}.category-meta{font-size:12px;color:var(--muted)}.category-go{display:inline-block;margin-top:10px;font-size:12px;font-weight:900;color:var(--brand)}
+.section{margin:30px 0 46px}.toolbar{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0}.toolbar select{min-height:42px;border:1px solid var(--line);border-radius:11px;background:#fff;padding:0 11px;font-weight:700}
+.summary{margin:20px 0 12px}.summary-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.summary-item{background:#f7faf7;border-radius:13px;padding:12px}.summary-k{font-size:11px;color:var(--muted);font-weight:800}.summary-v{font-size:20px;font-weight:950;color:var(--brand);margin-top:2px}
+.table{overflow:auto;background:#fff;border:1px solid var(--line);border-radius:16px}table{border-collapse:collapse;width:100%;min-width:800px}
+th,td{padding:11px;border-bottom:1px solid #e8ece8;text-align:left;font-size:12px;vertical-align:top}th{background:#f1f5f2;font-size:11px;color:#536058}
+.product-name{display:block;font-size:13px;line-height:1.45}.shop{color:var(--muted);margin:4px 0 6px}.product-img{width:72px;height:72px;object-fit:contain;border-radius:10px;background:#fff}
+.rank{font-size:15px;font-weight:950}.rank.top{display:inline-flex;width:29px;height:29px;align-items:center;justify-content:center;border-radius:50%;background:var(--brand);color:#fff}
+.unit{font-size:20px;font-weight:950;color:var(--brand);white-space:nowrap}.unit-label{font-size:10px;color:var(--muted);font-weight:700}.secondary-unit{font-size:11px;color:#536058;margin-top:3px}
+.tag{display:inline-block;border-radius:999px;padding:3px 7px;font-size:10px;font-weight:800;margin:2px 2px 0 0}.ok{background:var(--brand-soft);color:var(--brand)}.warn{background:var(--warm);color:var(--warm-ink)}
+.cta{display:inline-flex;justify-content:center;align-items:center;min-height:40px;padding:0 11px;border-radius:10px;background:var(--brand);color:#fff;text-decoration:none;font-weight:900;white-space:nowrap}
+.guide-list{margin:10px 0 0;padding-left:20px}.guide-list li{margin:7px 0}.fine{font-size:11px;color:var(--muted)}
+footer{background:#fff;border-top:1px solid var(--line);padding:30px 0 42px;color:var(--muted);font-size:11px}
+@media(min-width:720px){.grid{grid-template-columns:1fr 1fr}}
+@media(max-width:719px){
+ .wrap{width:min(100% - 20px,1080px)}header{padding:24px 0 18px}.summary-grid{grid-template-columns:1fr 1fr}.summary-item:first-child{grid-column:1/-1}
+ .table{overflow:visible;background:transparent;border:0}table,tbody{display:block;width:100%;min-width:0}thead{display:none}tr{display:grid;grid-template-columns:76px 1fr;gap:0 12px;background:#fff;border:1px solid var(--line);border-radius:16px;margin:10px 0;padding:13px;box-shadow:0 2px 8px #13291b08}
+ td{display:block;border:0;padding:3px 0;font-size:12px;min-width:0}td[data-cell="rank"]{grid-column:1/-1;padding-bottom:5px}td[data-cell="image"]{grid-column:1;grid-row:2 / span 4}td[data-cell="product"],td[data-cell="quantity"],td[data-cell="price"],td[data-cell="unit"],td[data-cell="cta"]{grid-column:2}
+ td[data-cell="product"]{padding-top:0}.product-img{width:72px;height:72px}.product-name{font-size:14px}.unit{font-size:23px;margin-top:3px}td[data-cell="quantity"]::before{content:"内容量  ";font-weight:800;color:var(--muted)}td[data-cell="price"]::before{content:"商品価格  ";font-weight:800;color:var(--muted)}
+ td[data-cell="cta"]{margin-top:8px}.cta{width:100%;min-height:46px}.toolbar select{flex:1;min-width:0}.section{margin:24px 0 36px}
+}"""
 
 
 JS = """(()=>{
@@ -577,11 +587,11 @@ def rows_html(items: list[dict], category: dict) -> str:
         secondary_metric = category["secondary"]
         primary = item["unit_prices"][primary_metric]
         secondary = (
-            f'<div>{html.escape(category["secondary_label"])} {yen(item["unit_prices"].get(secondary_metric))}</div>'
+            f'<div class="secondary-unit">{html.escape(category["secondary_label"])} {yen(item["unit_prices"].get(secondary_metric))}</div>'
             if secondary_metric else ""
         )
         image = (
-            f'<img src="{html.escape(item["image"], quote=True)}" alt="" width="64" height="64" loading="lazy" style="object-fit:contain">'
+            f'<img class="product-img" src="{html.escape(item["image"], quote=True)}" alt="" width="72" height="72" loading="lazy">'
             if item["image"] else ""
         )
         shipping = '<span class="tag ok">送料込み</span>' if item["postage_included"] else '<span class="tag warn">送料別・要確認</span>'
@@ -590,18 +600,19 @@ def rows_html(items: list[dict], category: dict) -> str:
             f'data-{key}="{value:.6f}"'
             for key, value in item["unit_prices"].items()
         )
+        rank_html = f'<span class="rank top">{rank}</span>' if rank <= 3 else f'<span class="rank">{rank}</span>'
         rows.append(
             f"""<tr data-bucket="{bucket(item, category['id'])}" {attrs}>
-<td data-rank>{rank}</td>
-<td>{image}</td>
-<td><strong>{html.escape(item['name'])}</strong><div>{html.escape(item['shop'])}</div>{shipping} {promo}</td>
-<td>{html.escape(quantity_text(item, category['id']))}</td>
-<td>¥{item['price']:,}</td>
-<td class="unit">{yen(primary)}<div style="font-size:11px;color:#667069">{html.escape(category['primary_label'])}</div>{secondary}</td>
-<td><a class="cta" href="{html.escape(item['url'], quote=True)}" target="_blank" rel="nofollow sponsored noopener"
+<td data-cell="rank" data-rank>{rank_html}</td>
+<td data-cell="image">{image}</td>
+<td data-cell="product"><strong class="product-name">{html.escape(item['name'])}</strong><div class="shop">{html.escape(item['shop'])}</div>{shipping} {promo}</td>
+<td data-cell="quantity">{html.escape(quantity_text(item, category['id']))}</td>
+<td data-cell="price">¥{item['price']:,}</td>
+<td data-cell="unit"><div class="unit">{yen(primary)}</div><div class="unit-label">{html.escape(category['primary_label'])}</div>{secondary}</td>
+<td data-cell="cta"><a class="cta" href="{html.escape(item['url'], quote=True)}" target="_blank" rel="nofollow sponsored noopener"
  data-affiliate="rakuten" data-category="{category['id']}" data-product-id="{html.escape(item['id'], quote=True)}"
  data-product-name="{html.escape(item['name'], quote=True)}" data-rank="{rank}" data-metric="{primary_metric}"
- data-unit-price="{primary:.6f}" data-shipping="{item['shipping_status']}">楽天で価格を見る</a></td>
+ data-unit-price="{primary:.6f}" data-shipping="{item['shipping_status']}">楽天で価格を見る →</a></td>
 </tr>"""
         )
     return "".join(rows)
@@ -628,8 +639,8 @@ def comparison_table(items: list[dict], category: dict, title: str, note: str) -
 <select data-sort data-category="{category['id']}">{''.join(options)}</select>
 <select data-filter data-category="{category['id']}">
 <option value="all">容量・数量すべて</option>
-<option value="small">少量側</option>
-<option value="large">大容量側</option>
+<option value="small">{html.escape(category['filter_small'])}</option>
+<option value="large">{html.escape(category['filter_large'])}</option>
 </select>
 </div>
 <div class="table"><table>
@@ -652,6 +663,28 @@ def page_head(title: str, description: str, canonical: str) -> str:
 </head><body>"""
 
 
+def category_summary(category: dict, included: list[dict], other: list[dict]) -> str:
+    all_items = included + other
+    if not all_items:
+        return ""
+    primary = category["primary"]
+    best = included[0]["unit_prices"][primary] if included else min(x["unit_prices"][primary] for x in all_items)
+    return f"""<section class="summary" aria-label="比較サマリー">
+<div class="summary-grid">
+<div class="summary-item"><div class="summary-k">送料込み最安</div><div class="summary-v">{yen(best)}</div><div class="fine">{html.escape(category['primary_label'])}</div></div>
+<div class="summary-item"><div class="summary-k">送料込み掲載</div><div class="summary-v">{len(included)}件</div></div>
+<div class="summary-item"><div class="summary-k">送料別参考</div><div class="summary-v">{len(other)}件</div></div>
+</div></section>"""
+
+
+def guide_html(category: dict) -> str:
+    points = "".join(f"<li>{html.escape(point)}</li>" for point in category["guide"])
+    return f"""<section class="section explain">
+<h2>{category['emoji']} {html.escape(category['name'])}を比べるコツ</h2>
+<ul class="guide-list">{points}</ul>
+</section>"""
+
+
 def category_page(category: dict, included: list[dict], other: list[dict], updated: datetime) -> str:
     parts = [
         page_head(
@@ -665,6 +698,7 @@ def category_page(category: dict, included: list[dict], other: list[dict], updat
 <a class="brand" href="../../">食品コスパ比較</a>
 <h1>{category["emoji"]} {category["name"]}を{category["primary_label"]}で比較</h1>
 <p class="lead">{category["intro"]}</p>
+<div class="hero-tags"><span class="hero-tag">送料込みを優先</span><span class="hero-tag">数量曖昧は除外</span><span class="hero-tag">クーポン未反映</span></div>
 <p class="note">最終価格確認: {updated:%Y-%m-%d %H:%M} JST。最新価格は販売ページで確認してください。</p>
 </div></header>
 <nav class="nav"><div class="wrap">
@@ -674,6 +708,7 @@ def category_page(category: dict, included: list[dict], other: list[dict], updat
 </div></nav>
 <main class="wrap">"""
     )
+    parts.append(category_summary(category, included, other))
     parts.append(
         '<div id="included">'
         + comparison_table(
@@ -694,10 +729,12 @@ def category_page(category: dict, included: list[dict], other: list[dict], updat
         )
         + "</div>"
     )
+    parts.append(guide_html(category))
     parts.append(
         """<section class="section explain">
-<strong>比較ルール</strong>
+<h2>このランキングのルール</h2>
 <p>数量を安全に読み取れる商品だけを掲載し、定期購入・初回限定などは通常価格ランキングから除外します。クーポン・ポイントは通常単価へ差し引きません。</p>
+<p class="fine">送料込みは楽天APIの送料フラグを基準にし、地域別の追加送料などは販売ページで最終確認してください。</p>
 </section></main>"""
     )
     parts.append(
@@ -720,7 +757,8 @@ def home_page(results: dict, updated: datetime) -> str:
         f"""<header><div class="wrap">
 <span class="brand">FOOD COST</span>
 <h1>食品は「いくら」より<br>「1単位いくら」で比べる。</h1>
-<p class="lead">容量・本数・食数・セット数をそろえ、送料込みで比べられる商品を先に表示します。</p>
+<p class="lead">容量・本数・食数・セット数をそろえて、同じものさしで比較。商品価格だけでは見えにくい「本当に安い」を探せます。</p>
+<div class="hero-tags"><span class="hero-tag">送料込みを優先</span><span class="hero-tag">数量曖昧は除外</span><span class="hero-tag">毎回楽天から再取得</span></div>
 <p class="note">最終価格確認: {updated:%Y-%m-%d %H:%M} JST</p>
 </div></header>
 <main class="wrap"><section class="grid">"""
@@ -733,16 +771,24 @@ def home_page(results: dict, updated: datetime) -> str:
             if best is not None else "比較データを準備中"
         )
         parts.append(
-            f"""<a class="card" href="categories/{category['id']}/">
-<strong>{category['emoji']} {category['name']}</strong>
-<p>{html.escape(message)}<br>{html.escape(category['intro'])}</p>
+            f"""<a class="card category-card" href="categories/{category['id']}/">
+<div class="category-name">{category['emoji']} {category['name']}</div>
+<div class="category-price">{html.escape(message.replace('取得商品では ', ''))}</div>
+<div class="category-meta">送料込み {len(included)}件を比較中</div>
+<p>{html.escape(category['intro'])}</p>
+<span class="category-go">ランキングを見る →</span>
 </a>"""
         )
     parts.append(
         """</section>
 <section class="section explain">
-<strong>このサイトの比較ルール</strong>
+<h2>このサイトの比較ルール</h2>
 <p>送料込み確認済みを主ランキングにし、送料別は別枠。容量・数量が曖昧な商品は無理に計算しません。定期便・初回限定価格も通常ランキングへ混ぜません。</p>
+<ul class="guide-list">
+<li>容量やセット数を同じ単位に換算して比較</li>
+<li>クーポンやポイントは通常単価へ勝手に差し引かない</li>
+<li>販売数量を一意に確定できない商品はランキングから除外</li>
+</ul>
 </section></main>"""
     )
     parts.append(
