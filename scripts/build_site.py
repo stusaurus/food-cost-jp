@@ -40,7 +40,7 @@ CATEGORIES = [
 
 LIMITED_RE = re.compile(r"(?:定期購入(?:のみ)?|定期便(?:のみ)?|初回限定|会員限定|新規限定)")
 PROMO_RE = re.compile(r"(?:クーポン|セール|SALE|タイムセール|ポイント\s*\d+倍|お買い物マラソン)", re.I)
-SELECTABLE_RE = re.compile(r"(?:選べる|よりどり|お好み|(?:容量|サイズ|個数|種類|品種|フレーバー)を?選択|\d+\s*(?:kg|g|ml|L)\s*[~/〜～-]\s*\d+)", re.I)
+SELECTABLE_RE = re.compile(r"(?:(?:容量|サイズ|個数|数量|本数|袋数|食数|セット数|重量|内容量)を?選択|\d+\s*(?:kg|g|ml|L)\s*[~/〜～-]\s*\d+)", re.I)
 
 
 def norm(text: str) -> str:
@@ -60,6 +60,30 @@ def parse_quantity(title: str, category_id: str):
         return None
 
     if category_id == "pack-rice":
+        nested = list(re.finditer(
+            r"(\d+(?:\.\d+)?)\s*g\s*x\s*(\d+)\s*(?:食|個|パック)\s*\)?\s*x\s*(\d+)\s*(?:袋|箱|ケース|セット)",
+            text,
+            re.I,
+        ))
+        if nested:
+            signatures = {
+                (float(m.group(1)), int(m.group(2)), int(m.group(3)))
+                for m in nested
+            }
+            if len(signatures) != 1:
+                return None
+            grams, inner_count, outer_count = next(iter(signatures))
+            count = inner_count * outer_count
+            if grams <= 0 or count <= 0:
+                return None
+            return {
+                "total_weight_g": grams * count,
+                "unit_weight_g": grams,
+                "count": count,
+                "confidence": 0.997,
+                "evidence": nested[0].group(0),
+            }
+
         matches = list(re.finditer(
             r"(\d+(?:\.\d+)?)\s*g\s*x\s*(\d+)\s*(?:食|個|パック)",
             text,
@@ -123,6 +147,31 @@ def parse_quantity(title: str, category_id: str):
         }
 
     if category_id == "carbonated-water":
+        nested = list(re.finditer(
+            r"(?<![A-Za-z0-9.])(\d+(?:\.\d+)?)\s*(ml|l)\s*x\s*(\d+)\s*(?:本|個|缶|パック)\s*x\s*(\d+)\s*(?:ケース|箱|セット)",
+            text,
+            re.I,
+        ))
+        if nested:
+            signatures = {
+                (m.group(1), m.group(2).lower(), m.group(3), m.group(4))
+                for m in nested
+            }
+            if len(signatures) != 1:
+                return None
+            m = nested[0]
+            amount = float(m.group(1)) * (1000 if m.group(2).lower() == "l" else 1)
+            count = int(m.group(3)) * int(m.group(4))
+            if amount <= 0 or count <= 0:
+                return None
+            return {
+                "total_volume_ml": amount * count,
+                "unit_volume_ml": amount,
+                "count": count,
+                "confidence": 0.997,
+                "evidence": m.group(0),
+            }
+
         matches = list(re.finditer(
             r"(?<![A-Za-z0-9.])(\d+(?:\.\d+)?)\s*(ml|l)\s*x\s*(\d+)\s*(?:本|個|缶|パック|ケース|箱)?",
             text,
