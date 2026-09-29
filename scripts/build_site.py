@@ -136,6 +136,26 @@ def parse_quantity(title: str, category_id: str):
             count = int(m.group(3))
             if amount <= 0 or count <= 0:
                 return None
+
+            # For rice, reject listing titles that advertise additional package
+            # sizes inconsistent with the explicit pack relation. Example:
+            # "5kg×2袋 ... 10kg 20kg 27kg" is a size-selection page, not a
+            # safely fixed 10kg listing.
+            if category_id == "rice":
+                total = amount * count
+                allowed = {round(amount, 3), round(total, 3)}
+                for wm in re.finditer(
+                    r"(?<![A-Za-z0-9.])(\d+(?:\.\d+)?)\s*(kg|g)",
+                    text,
+                    re.I,
+                ):
+                    grams = float(wm.group(1)) * (1000 if wm.group(2).lower() == "kg" else 1)
+                    suffix = text[wm.end():wm.end() + 8]
+                    if re.match(r"\s*(?:当り|あたり|当たり)", suffix):
+                        continue
+                    if round(grams, 3) not in allowed:
+                        return None
+
             return {
                 "total_weight_g": amount * count,
                 "unit_weight_g": amount,
