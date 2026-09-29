@@ -14,9 +14,9 @@ PROMO = re.compile(
     r"|(?:クーポン|coupon)(?:利用)?で?\s*(?:最大\s*)?[\d,]+\s*(?:円|%)\s*(?:OFF|オフ|引き?)?"
     r"|(?:ポイント\s*|P\s*)(?:最大\s*)?\d+\s*倍"
     r"|\d+\s*時間限定|本日(?:限定|限り)|期間限定|数量限定"
-    r"|お買い物マラソン|マラソン(?:中|期間中|限定)"
+    r"|お買い物マラソン|マラソン(?:中|期間中|限定)|食いしんぼう祭|イーグルス勝利"
     r"|楽天(?:スーパー)?SALE|スーパーSALE|タイムセール|SALE|セール(?:中|開催中)?"
-    r"|送料無料|送料込み|クーポン対象|エントリーで",
+    r"|送料無料|送料込み|クーポン対象|エントリーで|最強配送|最短翌日お届け|365日出荷",
     re.I,
 )
 DATE = re.compile(
@@ -32,6 +32,7 @@ EVENT_NOISE = re.compile(
 )
 LEADING_LABEL = re.compile(r"^\s*(?:【([^】]+)】|\[([^\]]+)\]|＼([^／]+)／|\(([^)]+)\))\s*")
 TRAILING_LABEL = re.compile(r"\s*(?:【([^】]+)】|\[([^\]]+)\]|＼([^／]+)／|\(([^)]+)\))\s*$")
+ANY_LABEL = re.compile(r"(?:【([^】]+)】|\[([^\]]+)\]|＼([^／]+)／)")
 
 
 def _nfkc(text: str) -> str:
@@ -75,6 +76,13 @@ def clean_display_name(name: str) -> str:
             break
         text = remainder
 
+    # Promotion-only bracket labels are safe to remove even when an identity
+    # label such as 【新米】 appears before them.
+    def strip_label(match: re.Match) -> str:
+        return " " if promotion_only(_promotion_group(match)) else match.group(0)
+
+    text = ANY_LABEL.sub(strip_label, text)
+
     # Bare exact promotion prefixes. Unknown/mixed wording is intentionally kept.
     bare = re.compile(
         r"^\s*(?:(?:送料無料|送料込み|本日限定|本日限り|お買い物マラソン|"
@@ -87,11 +95,15 @@ def clean_display_name(name: str) -> str:
     # A leading standalone numeric coupon phrase is safe to remove only when it
     # is followed by clear punctuation/whitespace and real product text remains.
     coupon_prefix = re.compile(
-        r"^\s*(?:最大\s*)?[\d,]+\s*(?:円|%)\s*(?:OFF|オフ|引き?)"
-        r"(?:\s*クーポン)?\s*[!！★☆＋+・|｜:：\-/／]*\s+",
+        r"^\s*(?:(?:クーポン(?:利用)?で?\s*)?(?:最大\s*)?[\d,]+\s*(?:円|%)\s*(?:OFF|オフ|引き?)"
+        r"(?:\s*クーポン(?:あり|対象)?)?|(?:最大\s*)?[\d,]+\s*(?:円|%)\s*(?:OFF|オフ|引き?)\s*クーポン(?:あり)?)"
+        r"\s*(?:★?\s*(?:先着順?|食いしんぼう祭|イーグルス勝利))?"
+        r"\s*[!！★☆＋+・|｜:：\-/／]*\s*",
         re.I,
     )
-    text = coupon_prefix.sub("", text)
+    candidate = coupon_prefix.sub("", text)
+    if candidate.strip():
+        text = candidate
 
     cleaned = re.sub(r"\s+", " ", text).strip()
     return cleaned or original
