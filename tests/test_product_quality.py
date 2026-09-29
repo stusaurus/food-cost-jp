@@ -25,6 +25,9 @@ class ProductDisplayTests(unittest.TestCase):
             "【楽天スーパーSALE】",
             "クーポンで300円OFF★先着順 ",
             "300円OFFクーポンあり★食いしんぼう祭 ",
+            "【クーポンあり】",
+            "【総額100万ポイントが当たる！】",
+            "【トップページにクーポンバナー】",
         ]
         for prefix in prefixes:
             with self.subTest(prefix=prefix):
