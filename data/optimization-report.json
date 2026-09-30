@@ -1,0 +1,113 @@
+{
+  "generated_at": "2026-09-30T20:22:37.461215+09:00",
+  "site_id": "food_cost_jp",
+  "inventory": {
+    "pack-rice": {
+      "name": "パックご飯",
+      "included_count": 19,
+      "shipping_unknown_count": 2,
+      "history_ready_count": 0,
+      "history_ready_rate": 0.0
+    },
+    "rice": {
+      "name": "米",
+      "included_count": 16,
+      "shipping_unknown_count": 1,
+      "history_ready_count": 0,
+      "history_ready_rate": 0.0
+    },
+    "carbonated-water": {
+      "name": "炭酸水",
+      "included_count": 18,
+      "shipping_unknown_count": 19,
+      "history_ready_count": 0,
+      "history_ready_rate": 0.0
+    },
+    "oatmeal": {
+      "name": "オートミール",
+      "included_count": 26,
+      "shipping_unknown_count": 20,
+      "history_ready_count": 0,
+      "history_ready_rate": 0.0
+    }
+  },
+  "price_history": {
+    "ready_count": 0,
+    "included_count": 79,
+    "ready_rate": 0.0,
+    "deal_count": 0
+  },
+  "auto_seo": {
+    "minimum_products": 3,
+    "published_count": 6,
+    "pages": [
+      {
+        "slug": "pack-rice-40plus-cost",
+        "category_id": "pack-rice",
+        "matched_count": 11,
+        "title": "パックご飯40食以上のコスパ比較"
+      },
+      {
+        "slug": "carbonated-water-500ml-24-cost",
+        "category_id": "carbonated-water",
+        "matched_count": 8,
+        "title": "炭酸水500ml前後24本のコスパ比較"
+      },
+      {
+        "slug": "carbonated-water-500ml-48-cost",
+        "category_id": "carbonated-water",
+        "matched_count": 4,
+        "title": "炭酸水500ml前後48本のコスパ比較"
+      },
+      {
+        "slug": "carbonated-water-1l-cost",
+        "category_id": "carbonated-water",
+        "matched_count": 6,
+        "title": "炭酸水1L前後のコスパ比較"
+      },
+      {
+        "slug": "rice-musenmai-cost",
+        "category_id": "rice",
+        "matched_count": 6,
+        "title": "無洗米のコスパ比較"
+      },
+      {
+        "slug": "oatmeal-rolled-cost",
+        "category_id": "oatmeal",
+        "matched_count": 8,
+        "title": "ロールドオーツのコスパ比較"
+      }
+    ]
+  },
+  "analytics": {
+    "ga4_configured": true,
+    "affiliate_event": "affiliate_click",
+    "dimensions": [
+      "click_position",
+      "cta_variant",
+      "category_id",
+      "rank",
+      "comparison_metric",
+      "page_path"
+    ],
+    "search_console_build_ingestion": false
+  },
+  "priority_queue": [
+    {
+      "type": "price_history",
+      "priority": 2,
+      "coverage": 0.0,
+      "action": "自動更新を継続し価格履歴の母数を増やす"
+    },
+    {
+      "type": "cta_measurement",
+      "priority": 3,
+      "action": "GA4でcta_variant×click_positionのaffiliate_clickを比較"
+    },
+    {
+      "type": "search_console",
+      "priority": 4,
+      "action": "Search Console接続時に自動SEOページの表示回数・CTR・順位を取り込み評価"
+    }
+  ]
+}
