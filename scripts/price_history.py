@@ -115,6 +115,10 @@ def apply_price_history(
 
         observed_dates = {p["date"] for p in valid_points}
         observed_dates.add(today_text)
+        series_30 = [
+            {"date": p["date"], "price": int(p["price"]), "unit": float(p["unit"])}
+            for p in prior_30
+        ] + [{"date": today_text, "price": current_price, "unit": current_unit}]
         item["price_history"] = {
             "observed_days": len(observed_dates),
             "previous_date": previous["date"] if previous else None,
@@ -126,6 +130,7 @@ def apply_price_history(
             "percent_delta": percent_delta,
             "lowest_30d_unit": low_30_unit,
             "is_30d_low": is_30d_low,
+            "series_30d": series_30,
         }
 
         valid_points = [p for p in valid_points if p["date"] != today_text]
