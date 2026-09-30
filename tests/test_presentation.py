@@ -85,7 +85,7 @@ class PresentationTests(unittest.TestCase):
         self.assertIn('class="hero-art-grid"', html)
         self.assertIn('category-card rice', html)
         self.assertIn('category-card carbonated-water', html)
-        self.assertIn("3回選ぶだけ。あなた向けの比較へ。", html)
+        self.assertIn("2回選ぶだけ。あなた向けの比較へ。", html)
         self.assertIn('data-finder-category="rice"', html)
         self.assertIn('data-finder-purpose="cheap"', html)
         self.assertIn('data-finder-purpose="small"', html)
