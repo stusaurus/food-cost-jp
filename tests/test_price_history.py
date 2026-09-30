@@ -7,7 +7,15 @@ import unittest
 sys.path.insert(0, str(Path(__file__).parents[1] / "scripts"))
 
 from price_history import apply_price_history, load_price_history, save_price_history
-from build_site import CATEGORIES, product_brand, product_identity_html, today_deals_html
+from build_site import (
+    CATEGORIES,
+    deals_page,
+    price_signal,
+    product_brand,
+    product_identity_html,
+    sparkline_svg,
+    today_deals_html,
+)
 
 
 def category(category_id):
@@ -58,6 +66,7 @@ class PriceHistoryTests(unittest.TestCase):
         self.assertEqual(info["price_delta"], -500)
         self.assertEqual(info["previous_label"], "昨日比")
         self.assertTrue(info["is_30d_low"])
+        self.assertEqual(len(info["series_30d"]), 2)
         self.assertAlmostEqual(info["percent_delta"], -16.6666666, places=4)
 
     def test_quantity_change_resets_comparison(self):
@@ -104,6 +113,42 @@ class PriceHistoryTests(unittest.TestCase):
         self.assertIn("アイリスオーヤマ", rendered)
         self.assertIn("合計5kg", rendered)
         self.assertIn("spec-chip", rendered)
+
+
+    def test_price_signal_and_sparkline_use_observed_history(self):
+        history = {"version": 1, "products": {}}
+        first = rice_item(3000)
+        apply_price_history(history, category("rice"), [first], date(2026, 9, 30))
+        self.assertEqual(price_signal(first)[0], "履歴蓄積中")
+        self.assertIn("履歴を蓄積中", sparkline_svg(first))
+
+        second = rice_item(2500)
+        apply_price_history(history, category("rice"), [second], date(2026, 10, 1))
+        label, tone, reason = price_signal(second)
+        self.assertEqual(label, "買い時寄り")
+        self.assertEqual(tone, "buy")
+        self.assertIn("30日内の最安水準", reason)
+        graph = sparkline_svg(second)
+        self.assertIn("<polyline", graph)
+        self.assertIn("30日価格推移", graph)
+
+    def test_deals_page_only_collects_real_price_drops(self):
+        history = {"version": 1, "products": {}}
+        first = rice_item(3000)
+        apply_price_history(history, category("rice"), [first], date(2026, 9, 30))
+        second = rice_item(2500)
+        apply_price_history(history, category("rice"), [second], date(2026, 10, 1))
+        results = {c["id"]: ([], []) for c in CATEGORIES}
+        results["rice"] = ([second], [])
+        rendered = deals_page(
+            results,
+            __import__("datetime").datetime(2026, 10, 1, 7, 0),
+        )
+        self.assertIn("今日のお買い得だけを見る", rendered)
+        self.assertIn("実際に値下がりした商品 1件", rendered)
+        self.assertIn("昨日比 ¥500安い", rendered)
+        self.assertIn("買い時寄り", rendered)
+        self.assertIn("未来の価格を予測するものではありません", rendered)
 
 
 if __name__ == "__main__":
