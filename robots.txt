@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://stusaurus.github.io/food-cost-jp/sitemap.xml

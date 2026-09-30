@@ -1,0 +1,1172 @@
+<!doctype html><html lang="ja"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>食品コスパ比較｜容量・数量・送料をそろえて単価比較</title>
+<meta name="description" content="米、パックご飯、炭酸水、オートミールを1kg・1L・1食・100gあたりへ換算し、送料条件を分けて比較します。">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://stusaurus.github.io/food-cost-jp/">
+<style>*{box-sizing:border-box}
+:root{--bg:#f7f4ec;--panel:#fffdf8;--ink:#17211a;--muted:#687068;--line:#e4e0d4;--brand:#246b49;--brand2:#173f31;--brand-soft:#e8f2e9;--warm:#fff0cf;--warm-ink:#825719;--shadow:0 18px 50px rgba(50,60,45,.10)}
+html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(circle at 10% 0,#fff9e9 0,transparent 30%),var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Noto Sans JP",sans-serif;line-height:1.65}
+a{color:inherit}.wrap{width:min(1120px,calc(100% - 28px));margin:auto}
+header{position:relative;overflow:hidden;background:linear-gradient(135deg,#fffdf7 0%,#edf7ee 55%,#fff2d8 100%);border-bottom:1px solid var(--line);padding:42px 0 34px}
+header:after{content:"";position:absolute;right:-90px;top:-120px;width:320px;height:320px;border-radius:50%;background:#ffffff70}
+.hero-layout{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(320px,.95fr);gap:28px;align-items:center;position:relative;z-index:1}
+.brand{font-size:12px;font-weight:950;letter-spacing:.12em;color:var(--brand);text-decoration:none}.eyebrow{display:inline-block;background:#fff;border:1px solid #dce8dd;border-radius:999px;padding:5px 10px;font-size:11px;font-weight:900;color:var(--brand)}
+h1{font-size:clamp(32px,6vw,58px);line-height:1.08;margin:12px 0 16px;letter-spacing:-.035em}h2{font-size:clamp(22px,4vw,30px);line-height:1.3;letter-spacing:-.02em}
+.lead{font-size:clamp(15px,2.2vw,19px);max-width:720px}.lead,.sub,.note{color:var(--muted)}.note{font-size:12px}
+.hero-tags{display:flex;gap:7px;flex-wrap:wrap;margin:18px 0 8px}.hero-tag{font-size:11px;font-weight:850;background:#fff;color:var(--brand);border:1px solid #dce8dd;border-radius:999px;padding:6px 10px}
+.hero-art-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;transform:rotate(1.5deg)}.hero-art-item{min-height:150px;border-radius:28px;display:flex;align-items:center;justify-content:center;box-shadow:var(--shadow);border:1px solid #ffffffbb}.hero-art-item.rice{background:#f3e8b9}.hero-art-item.pack-rice{background:#ffe0bf}.hero-art-item.carbonated-water{background:#d8f2fa}.hero-art-item.oatmeal{background:#ead6be}.food-art{display:block;width:min(100%,250px);height:auto}.food-art.compact{width:min(100%,180px)}
+.nav{position:sticky;top:0;background:#fffdf8ed;border-bottom:1px solid var(--line);z-index:10;backdrop-filter:blur(12px)}.nav .wrap{display:flex;gap:8px;overflow:auto;padding:9px 14px}.nav a{white-space:nowrap;text-decoration:none;border:1px solid var(--line);border-radius:999px;padding:7px 11px;background:#fff;font-size:12px;font-weight:800}
+.section-kicker{font-size:11px;letter-spacing:.12em;font-weight:950;color:var(--brand);text-transform:uppercase}.grid{display:grid;gap:16px;margin:26px 0}.card,.explain,.summary{background:var(--panel);border:1px solid var(--line);border-radius:22px;padding:20px;text-decoration:none;box-shadow:0 8px 24px rgba(50,60,45,.04)}
+.category-card{display:grid;grid-template-columns:155px 1fr;gap:18px;align-items:center;position:relative;overflow:hidden;transition:transform .16s ease,box-shadow .16s ease}.category-card:hover{transform:translateY(-4px);box-shadow:var(--shadow)}.category-card.rice{background:linear-gradient(135deg,#fffdf7,#f3e8b9)}.category-card.pack-rice{background:linear-gradient(135deg,#fffdf7,#ffe0bf)}.category-card.carbonated-water{background:linear-gradient(135deg,#fffdf7,#d8f2fa)}.category-card.oatmeal{background:linear-gradient(135deg,#fffdf7,#ead6be)}
+.category-art{height:150px;display:flex;align-items:center;justify-content:center}.category-copy{min-width:0}.category-name{font-size:19px;font-weight:950}.category-price{font-size:28px;line-height:1.12;color:var(--brand2);font-weight:950;margin:8px 0 2px}.category-meta{font-size:12px;color:var(--muted);font-weight:750}.category-go{display:inline-flex;margin-top:10px;font-size:12px;font-weight:950;color:#fff;background:var(--brand);padding:8px 12px;border-radius:999px}
+.section{margin:34px 0 52px}.toolbar{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0}.toolbar select,.toolbar input{min-height:44px;border:1px solid var(--line);border-radius:12px;background:#fff;padding:0 12px;font-weight:750}.toolbar input{flex:1;min-width:220px}.toolbar input::placeholder{color:#8b918c;font-weight:600}
+.summary{margin:22px 0 14px}.summary-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.summary-item{background:#f5f8f2;border:1px solid #e2e9df;border-radius:16px;padding:14px}.summary-k{font-size:11px;color:var(--muted);font-weight:850}.summary-v{font-size:23px;font-weight:950;color:var(--brand);margin-top:3px}
+.podium-section{background:linear-gradient(135deg,#173f31,#2b7754);color:#fff;border-radius:28px;padding:26px;box-shadow:var(--shadow)}.podium-section .sub{color:#dcebe2}.podium-section .section-kicker{color:#d9f1df}.podium-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.podium-card{background:#fff;color:var(--ink);border-radius:20px;padding:15px;display:flex;flex-direction:column;min-width:0}.podium-card.rank-1{transform:translateY(-5px);box-shadow:0 14px 32px rgba(0,0,0,.18)}.podium-head{display:flex;align-items:center;gap:6px;font-size:12px;font-weight:950}.podium-medal{font-size:23px}.podium-media{height:115px;display:flex;align-items:center;justify-content:center;margin:8px 0}.podium-img{max-width:100%;max-height:110px;object-fit:contain}.podium-name{font-size:13px;line-height:1.45;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}.podium-unit{font-size:28px;color:var(--brand);font-weight:950;margin-top:10px}.podium-label,.podium-detail{font-size:11px;color:var(--muted)}.podium-detail{margin:6px 0 10px}.podium-cta{margin-top:auto}
+.table{overflow:auto;background:#fff;border:1px solid var(--line);border-radius:18px}table{border-collapse:collapse;width:100%;min-width:800px}th,td{padding:11px;border-bottom:1px solid #ebe9e0;text-align:left;font-size:12px;vertical-align:top}th{background:#f3f5ef;font-size:11px;color:#56615a}
+.product-name{display:block;font-size:13px;line-height:1.45}.shop{color:var(--muted);margin:4px 0 6px}.product-img{width:72px;height:72px;object-fit:contain;border-radius:12px;background:#fff}.rank{font-size:15px;font-weight:950}.rank.top{display:inline-flex;width:30px;height:30px;align-items:center;justify-content:center;border-radius:50%;background:var(--brand);color:#fff}.unit{font-size:20px;font-weight:950;color:var(--brand);white-space:nowrap}.unit-label{font-size:10px;color:var(--muted);font-weight:750}.secondary-unit{font-size:11px;color:#536058;margin-top:3px}
+.tag{display:inline-block;border-radius:999px;padding:3px 7px;font-size:10px;font-weight:850;margin:2px 2px 0 0}.ok{background:var(--brand-soft);color:var(--brand)}.warn{background:var(--warm);color:var(--warm-ink)}.cta{display:inline-flex;justify-content:center;align-items:center;min-height:40px;padding:0 11px;border-radius:11px;background:var(--brand);color:#fff;text-decoration:none;font-weight:900;white-space:nowrap}
+.guide-list{margin:10px 0 0;padding-left:20px}.guide-list li{margin:7px 0}.fine{font-size:11px;color:var(--muted)}.other-categories{display:flex;gap:8px;flex-wrap:wrap}.other-categories a{border:1px solid var(--line);background:#fff;border-radius:999px;padding:8px 11px;text-decoration:none;font-size:12px;font-weight:850}.empty-filter{display:none;background:#fff;border:1px dashed var(--line);border-radius:14px;padding:18px;color:var(--muted);text-align:center}
+.flow-section{padding:28px;border-radius:28px;background:#fffdf8;border:1px solid var(--line);box-shadow:var(--shadow)}.flow-grid{display:grid;grid-template-columns:1fr 42px 1fr 42px 1fr;align-items:stretch;gap:8px;margin-top:18px}.flow-card{border-radius:18px;background:#f7f6ef;padding:18px}.flow-card strong{display:block;font-size:15px}.flow-card p{font-size:12px;color:var(--muted);margin-bottom:0}.flow-icon{font-size:30px;margin-bottom:8px}.flow-arrow{display:flex;align-items:center;justify-content:center;color:var(--brand);font-size:26px;font-weight:950}
+.category-hero-art{background:#fff;border:1px solid #ffffffaa;border-radius:26px;min-height:245px;display:flex;align-items:center;justify-content:center;box-shadow:var(--shadow)}
+.finder{background:linear-gradient(135deg,#fffdf8,#f2f7ec);border:1px solid var(--line);border-radius:30px;padding:28px;box-shadow:var(--shadow)}.finder-step{display:grid;grid-template-columns:38px 1fr;gap:12px;align-items:start;margin-top:20px}.finder-number{width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:var(--brand);color:#fff;font-weight:950}.finder-options{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}.finder-options button{border:1px solid var(--line);background:#fff;border-radius:16px;padding:10px 14px;font-weight:850;cursor:pointer;color:var(--ink);transition:.15s}.finder-options button:hover,.finder-options button.selected{border-color:var(--brand);box-shadow:0 8px 22px rgba(36,107,73,.12);transform:translateY(-1px)}.finder-category{display:flex;align-items:center;gap:8px}.finder-art{width:52px;height:42px;display:inline-flex;align-items:center;justify-content:center}.finder-art .food-art{max-width:58px;max-height:46px}.finder-step-muted{opacity:.52;transition:.15s}.finder-step-muted.active{opacity:1}.finder-result{margin-top:22px;background:var(--brand2);color:#fff;border-radius:20px;padding:16px;display:flex;align-items:center;justify-content:space-between;gap:18px}.finder-result[hidden]{display:none}.finder-result-label{display:block;font-size:10px;font-weight:900;color:#cde4d7;letter-spacing:.08em}.finder-result strong{display:block;font-size:18px;margin-top:2px}.finder-result p{margin:3px 0 0;color:#dcebe2;font-size:12px}.finder-go{background:#fff;color:var(--brand2);border-radius:12px;padding:11px 14px;text-decoration:none;font-weight:950;white-space:nowrap}.best{background:#ffe7a6;color:#725000}.top-badge{background:#e9edf8;color:#43527a}.lifestyle{background:#eee9ff;color:#58488d}.product-badges{margin-top:4px}.podium-badges{min-height:24px;margin-top:4px}.podium-diff{display:inline-block;align-self:flex-start;margin-top:7px;background:#eef5ee;color:var(--brand);border-radius:999px;padding:3px 7px;font-size:10px;font-weight:900}
+
+.hero-visual{position:relative;min-height:350px;display:flex;align-items:center;justify-content:center}.hero-visual .guide-mascot{width:min(90%,330px);filter:drop-shadow(0 20px 25px rgba(23,63,49,.13))}.guide-mascot.compact{width:95px;height:auto}.mascot-bubble{position:absolute;right:8px;top:12px;background:#fff;border:1px solid #dce8dd;border-radius:20px 20px 20px 5px;padding:12px 15px;font-size:12px;line-height:1.4;box-shadow:0 12px 28px rgba(40,60,45,.08);z-index:2}.hero-food-chip{position:absolute;background:#fff;border:1px solid #e2e6dd;border-radius:999px;padding:7px 11px;font-size:12px;font-weight:900;box-shadow:0 10px 24px rgba(50,60,45,.08)}.chip-rice{left:4%;top:18%}.chip-water{right:2%;bottom:26%}.chip-pack{left:0;bottom:24%}.chip-oats{right:8%;top:31%}
+.finder-intro{display:flex;align-items:center;justify-content:space-between;gap:18px}.finder-guide{display:flex;align-items:center;gap:4px;font-size:11px;font-weight:900;color:var(--brand)}.finder-stage{margin-top:18px}.finder-stage[hidden],.finder-picks[hidden]{display:none}.finder-question{display:flex;align-items:center;gap:10px}.finder-question>span{display:inline-flex;width:34px;height:34px;border-radius:50%;align-items:center;justify-content:center;background:var(--brand2);color:#fff;font-size:11px;font-weight:950}.finder-question>strong{font-size:20px}.finder-category-options button{min-width:180px}.finder-purpose-options button{display:flex;align-items:center;gap:9px;font-size:20px;text-align:left}.finder-purpose-options button span{display:flex;flex-direction:column}.finder-purpose-options button strong{font-size:14px}.finder-purpose-options button small{font-size:10px;color:var(--muted);font-weight:700}.finder-back{border:0;background:transparent;color:var(--brand);font-weight:850;padding:0;margin-bottom:12px;cursor:pointer}.finder-picks{margin-top:8px}.finder-picks-head span{display:block;font-size:10px;font-weight:950;color:var(--brand);letter-spacing:.08em}.finder-picks-head strong{font-size:20px}.finder-products{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:14px}.finder-product{display:grid;grid-template-rows:110px 1fr;background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden}.finder-product-media{display:flex;align-items:center;justify-content:center;padding:8px;background:#fafbf7}.finder-product-media img{max-width:100%;max-height:100px;object-fit:contain}.finder-product-copy{position:relative;padding:13px;display:flex;flex-direction:column}.finder-product-copy>strong{font-size:12px;line-height:1.45;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}.finder-product-rank{position:absolute;right:10px;top:-18px;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:var(--brand);color:#fff;font-weight:950}.finder-product-price{font-size:22px;font-weight:950;color:var(--brand);margin-top:10px}.finder-product-price small{font-size:10px;color:var(--muted)}.finder-product-meta{font-size:10px;color:var(--muted);margin:4px 0 7px}.finder-why{font-size:10px;color:#536058;background:#f3f7f2;border-radius:9px;padding:6px 7px;margin-bottom:9px}.finder-why span{display:inline-block;font-weight:950;color:var(--brand);margin-right:5px}.finder-product-copy .cta{margin-top:auto}.finder-all{display:inline-flex;margin-top:12px;color:var(--brand);font-weight:900;text-decoration:none}
+.more-products{margin:28px 0 40px}.more-products>summary{list-style:none;cursor:pointer;background:#fff;border:1px solid var(--line);border-radius:16px;padding:15px 18px;font-weight:950;display:flex;align-items:center;justify-content:space-between;box-shadow:0 5px 16px rgba(50,60,45,.04)}.more-products>summary::-webkit-details-marker{display:none}.more-products[open]>summary span{transform:rotate(45deg)}.more-products .comparison-inner{margin-top:12px}.comparison-inner>h2{margin-top:0}.after-top3{margin-top:-10px}.guide-with-mascot{display:grid;grid-template-columns:1fr 120px;gap:20px;align-items:center}.guide-mini{display:flex;justify-content:center}
+.intent-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}.intent-card{display:flex;flex-direction:column;gap:5px;background:#fff;border:1px solid var(--line);border-radius:18px;padding:16px;text-decoration:none;transition:.15s}.intent-card:hover{transform:translateY(-2px);box-shadow:var(--shadow)}.intent-card span{font-weight:950}.intent-card small{color:var(--muted);line-height:1.45}.intent-card b{color:var(--brand);font-size:12px;margin-top:4px}.faq-section{background:#fffdf8;border:1px solid var(--line);border-radius:24px;padding:24px}.faq-item{border-top:1px solid var(--line);padding:12px 0}.faq-item:first-of-type{border-top:0}.faq-item summary{cursor:pointer;font-weight:900}.faq-item p{color:var(--muted);margin:8px 0 0}
+footer{background:#fff;border-top:1px solid var(--line);padding:30px 0 42px;color:var(--muted);font-size:11px}
+@media(min-width:760px){.grid{grid-template-columns:1fr 1fr}}
+@media(max-width:759px){
+ .wrap{width:min(100% - 20px,1120px)}header{padding:25px 0 20px}.hero-layout{grid-template-columns:1fr;gap:18px}.hero-art-grid{grid-template-columns:1fr 1fr;gap:8px}.hero-art-item{min-height:105px;border-radius:20px}.hero-art-item .food-art{max-height:100px}.category-hero-art{min-height:180px}.category-hero-art .food-art{max-height:175px}
+ .grid{grid-template-columns:1fr}.category-card{grid-template-columns:105px 1fr;padding:14px}.category-art{height:110px}.category-art .food-art{max-height:105px}.category-price{font-size:24px}
+ .podium-grid{grid-template-columns:1fr}.podium-card.rank-1{transform:none}.summary-grid{grid-template-columns:1fr 1fr}.summary-item:first-child{grid-column:1/-1}.flow-grid{grid-template-columns:1fr}.flow-arrow{transform:rotate(90deg);height:24px}.finder{padding:20px 15px}.finder-options{display:grid;grid-template-columns:1fr 1fr}.finder-options button{width:100%;text-align:left}.finder-result{align-items:stretch;flex-direction:column}.finder-go{text-align:center}
+ .intent-grid{grid-template-columns:1fr}.hero-visual{min-height:245px}.hero-visual .guide-mascot{width:240px}.mascot-bubble{right:0;top:0}.hero-food-chip{font-size:10px;padding:5px 8px}.finder-intro{align-items:flex-start}.finder-guide span{display:none}.finder-products{grid-template-columns:1fr}.finder-product{grid-template-columns:92px 1fr;grid-template-rows:auto}.finder-product-media{min-height:120px}.finder-product-copy>strong{-webkit-line-clamp:2}.guide-with-mascot{grid-template-columns:1fr 80px;gap:10px}.guide-mini .guide-mascot{width:75px} .table{overflow:visible;background:transparent;border:0}table,tbody{display:block;width:100%;min-width:0}thead{display:none}tr{display:grid;grid-template-columns:76px 1fr;gap:0 12px;background:#fff;border:1px solid var(--line);border-radius:16px;margin:10px 0;padding:13px;box-shadow:0 2px 8px #13291b08}
+ td{display:block;border:0;padding:3px 0;font-size:12px;min-width:0}td[data-cell="rank"]{grid-column:1/-1;padding-bottom:5px}td[data-cell="image"]{grid-column:1;grid-row:2 / span 4}td[data-cell="product"],td[data-cell="quantity"],td[data-cell="price"],td[data-cell="unit"],td[data-cell="cta"]{grid-column:2}
+ td[data-cell="product"]{padding-top:0}.product-img{width:72px;height:72px}.product-name{font-size:14px}.unit{font-size:23px;margin-top:3px}td[data-cell="quantity"]::before{content:"内容量  ";font-weight:800;color:var(--muted)}td[data-cell="price"]::before{content:"商品価格  ";font-weight:800;color:var(--muted)}td[data-cell="cta"]{margin-top:8px}.cta{width:100%;min-height:46px}.toolbar select,.toolbar input{flex:1;min-width:0;width:100%}.section{margin:26px 0 38px}
+}</style>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-GFVSZ8YDQ5"></script>
+<script>
+window.dataLayer=window.dataLayer||[];
+function gtag(){dataLayer.push(arguments)}
+gtag('js',new Date());
+gtag('config','G-GFVSZ8YDQ5',{site_id:'food_cost_jp'});
+</script>
+
+</head><body><header><div class="wrap hero-layout">
+<div>
+<span class="brand">FOOD COST</span>
+<div class="eyebrow">かしこく買うための食品比較</div>
+<h1>値札より、<br>「ほんとの単価」を見よう。</h1>
+<p class="lead">容量・本数・食数・セット数を同じものさしにそろえて比較。家計にうれしい商品を、数字だけでなく見た目でも探しやすくしました。</p>
+<div class="hero-tags"><span class="hero-tag">送料込みを優先</span><span class="hero-tag">数量曖昧は除外</span><span class="hero-tag">楽天価格を再取得</span></div>
+<p class="note">最終価格確認: 2026-09-30 18:55 JST</p>
+</div>
+<div class="hero-visual" aria-hidden="true">
+<div class="mascot-bubble">同じ単位にそろえて<br><strong>安い順にするよ</strong></div>
+<svg class="guide-mascot" viewBox="0 0 300 260" role="img" aria-label="食品コスパ比較の案内役" xmlns="http://www.w3.org/2000/svg">
+<ellipse cx="150" cy="232" rx="92" ry="15" fill="#173F31" opacity=".08"/>
+<path d="M69 91h153l-15 103c-2 14-14 24-28 24h-58c-14 0-26-10-28-24L69 91Z" fill="#F4D88A" stroke="#315A43" stroke-width="7"/>
+<path d="M104 90c4-35 88-35 92 0" fill="none" stroke="#315A43" stroke-width="8" stroke-linecap="round"/>
+<rect x="111" y="118" width="78" height="69" rx="14" fill="#FFFDF8" stroke="#315A43" stroke-width="6"/>
+<rect x="126" y="132" width="48" height="15" rx="5" fill="#DDEDDC"/>
+<circle cx="131" cy="163" r="6" fill="#6FA37E"/><circle cx="150" cy="163" r="6" fill="#6FA37E"/><circle cx="169" cy="163" r="6" fill="#6FA37E"/>
+<circle cx="122" cy="104" r="6" fill="#315A43"/><circle cx="180" cy="104" r="6" fill="#315A43"/>
+<path d="M139 108c6 8 16 8 22 0" fill="none" stroke="#315A43" stroke-width="5" stroke-linecap="round"/>
+<circle cx="61" cy="55" r="24" fill="#DDF4E5"/><text x="61" y="63" text-anchor="middle" font-size="22">¥</text>
+<circle cx="236" cy="56" r="25" fill="#DDF3FA"/><text x="236" y="64" text-anchor="middle" font-size="22">÷</text>
+<path d="M82 61c14 7 21 16 25 27M216 63c-12 8-19 16-23 27" fill="none" stroke="#9EC4AA" stroke-width="4" stroke-linecap="round"/>
+</svg>
+<div class="hero-food-chip chip-rice">🌾 1kg</div>
+<div class="hero-food-chip chip-water">🫧 1L</div>
+<div class="hero-food-chip chip-pack">🍚 1食</div>
+<div class="hero-food-chip chip-oats">🥣 100g</div>
+</div>
+</div></header>
+<main class="wrap">
+<section class="section finder" data-finder>
+<div class="finder-intro">
+<div>
+<div class="section-kicker">QUICK FINDER</div>
+<h2>2回選ぶだけ。候補まで出します。</h2>
+<p class="sub">食品と買い方を選ぶと、今の楽天データからおすすめ候補を表示します。</p>
+</div>
+<div class="finder-guide"><svg class="guide-mascot compact" viewBox="0 0 300 260" role="img" aria-label="食品コスパ比較の案内役" xmlns="http://www.w3.org/2000/svg">
+<ellipse cx="150" cy="232" rx="92" ry="15" fill="#173F31" opacity=".08"/>
+<path d="M69 91h153l-15 103c-2 14-14 24-28 24h-58c-14 0-26-10-28-24L69 91Z" fill="#F4D88A" stroke="#315A43" stroke-width="7"/>
+<path d="M104 90c4-35 88-35 92 0" fill="none" stroke="#315A43" stroke-width="8" stroke-linecap="round"/>
+<rect x="111" y="118" width="78" height="69" rx="14" fill="#FFFDF8" stroke="#315A43" stroke-width="6"/>
+<rect x="126" y="132" width="48" height="15" rx="5" fill="#DDEDDC"/>
+<circle cx="131" cy="163" r="6" fill="#6FA37E"/><circle cx="150" cy="163" r="6" fill="#6FA37E"/><circle cx="169" cy="163" r="6" fill="#6FA37E"/>
+<circle cx="122" cy="104" r="6" fill="#315A43"/><circle cx="180" cy="104" r="6" fill="#315A43"/>
+<path d="M139 108c6 8 16 8 22 0" fill="none" stroke="#315A43" stroke-width="5" stroke-linecap="round"/>
+<circle cx="61" cy="55" r="24" fill="#DDF4E5"/><text x="61" y="63" text-anchor="middle" font-size="22">¥</text>
+<circle cx="236" cy="56" r="25" fill="#DDF3FA"/><text x="236" y="64" text-anchor="middle" font-size="22">÷</text>
+<path d="M82 61c14 7 21 16 25 27M216 63c-12 8-19 16-23 27" fill="none" stroke="#9EC4AA" stroke-width="4" stroke-linecap="round"/>
+</svg><span>選んでみて</span></div>
+</div>
+<div class="finder-stage" data-finder-category-stage>
+<div class="finder-question"><span>Q1</span><strong>何を買う？</strong></div>
+<div class="finder-options finder-category-options"><button class="finder-category pack-rice" type="button"
+ data-finder-category="pack-rice" data-finder-name="パックご飯">
+<span class="finder-art"><svg viewBox="0 0 240 180" role="img" aria-hidden="true" focusable="false" class="food-art compact" xmlns="http://www.w3.org/2000/svg">
+<ellipse cx="121" cy="151" rx="82" ry="12" fill="#000" opacity=".06"/>
+<rect x="48" y="72" width="144" height="70" rx="18" fill="#FFF0DD" stroke="#B8793D" stroke-width="5"/>
+<rect x="61" y="54" width="118" height="39" rx="14" fill="#fff" stroke="#B8793D" stroke-width="5"/>
+<path d="M75 79c16-24 73-24 91 0" fill="#fff" stroke="#D4B08B" stroke-width="4"/>
+<circle cx="91" cy="71" r="5" fill="#F0E5D8"/><circle cx="113" cy="64" r="5" fill="#F0E5D8"/><circle cx="137" cy="69" r="5" fill="#F0E5D8"/><circle cx="154" cy="76" r="4" fill="#F0E5D8"/>
+<path d="M79 111h82" stroke="#E3B87F" stroke-width="6" stroke-linecap="round"/>
+<path d="M85 126h58" stroke="#E3B87F" stroke-width="6" stroke-linecap="round"/>
+<path d="M183 37c11 9 11 20 0 29M198 28c14 13 14 31 0 44" fill="none" stroke="#F2B56E" stroke-width="5" stroke-linecap="round"/>
+</svg></span>
+<span>🍚 パックご飯</span>
+</button><button class="finder-category rice" type="button"
+ data-finder-category="rice" data-finder-name="米">
+<span class="finder-art"><svg viewBox="0 0 240 180" role="img" aria-hidden="true" focusable="false" class="food-art compact" xmlns="http://www.w3.org/2000/svg">
+<ellipse cx="122" cy="151" rx="78" ry="12" fill="#000" opacity=".06"/>
+<path d="M67 45h94l13 99H54L67 45Z" fill="#FFF8DE" stroke="#8A7130" stroke-width="5"/>
+<path d="M73 45c8-18 74-18 82 0" fill="#F1D978" stroke="#8A7130" stroke-width="5"/>
+<path d="M91 92c18-21 44-21 62 0-16 11-47 11-62 0Z" fill="#fff" stroke="#8A7130" stroke-width="4"/>
+<path d="M122 69c-8 13-12 24-10 34M125 68c8 13 12 24 10 34" stroke="#84A657" stroke-width="4" stroke-linecap="round"/>
+<text x="120" y="126" text-anchor="middle" font-size="18" font-weight="800" fill="#66531F">おこめ</text>
+<circle cx="48" cy="65" r="11" fill="#D8E8B5"/><circle cx="183" cy="75" r="8" fill="#F2D870"/>
+</svg></span>
+<span>🌾 米</span>
+</button><button class="finder-category carbonated-water" type="button"
+ data-finder-category="carbonated-water" data-finder-name="炭酸水">
+<span class="finder-art"><svg viewBox="0 0 240 180" role="img" aria-hidden="true" focusable="false" class="food-art compact" xmlns="http://www.w3.org/2000/svg">
+<ellipse cx="120" cy="154" rx="72" ry="10" fill="#000" opacity=".06"/>
+<path d="M89 51h52l9 91c1 8-5 14-13 14H93c-8 0-14-6-13-14l9-91Z" fill="#DCF7FF" stroke="#4C9CB8" stroke-width="5"/>
+<rect x="96" y="30" width="38" height="28" rx="8" fill="#8AD5EA" stroke="#4C9CB8" stroke-width="5"/>
+<rect x="95" y="82" width="48" height="38" rx="12" fill="#fff" opacity=".8"/>
+<circle cx="109" cy="101" r="7" fill="#7ED5EF"/><circle cx="129" cy="94" r="5" fill="#7ED5EF"/><circle cx="124" cy="113" r="4" fill="#7ED5EF"/>
+<circle cx="171" cy="51" r="10" fill="#B9ECFA"/><circle cx="188" cy="78" r="6" fill="#B9ECFA"/><circle cx="58" cy="73" r="8" fill="#B9ECFA"/>
+</svg></span>
+<span>🫧 炭酸水</span>
+</button><button class="finder-category oatmeal" type="button"
+ data-finder-category="oatmeal" data-finder-name="オートミール">
+<span class="finder-art"><svg viewBox="0 0 240 180" role="img" aria-hidden="true" focusable="false" class="food-art compact" xmlns="http://www.w3.org/2000/svg">
+<ellipse cx="120" cy="151" rx="79" ry="11" fill="#000" opacity=".06"/>
+<path d="M57 88h126c-5 42-25 62-63 62S62 130 57 88Z" fill="#F7E2C5" stroke="#9A7045" stroke-width="5"/>
+<path d="M70 87c12-25 90-25 102 0" fill="#DDBB8B" stroke="#9A7045" stroke-width="5"/>
+<ellipse cx="93" cy="79" rx="10" ry="6" fill="#F8EACF"/><ellipse cx="119" cy="74" rx="11" ry="6" fill="#F8EACF"/><ellipse cx="145" cy="80" rx="9" ry="5" fill="#F8EACF"/>
+<path d="M164 34c-13 15-25 36-32 58" stroke="#717B61" stroke-width="7" stroke-linecap="round"/>
+<circle cx="169" cy="30" r="8" fill="#A9B68E"/>
+</svg></span>
+<span>🥣 オートミール</span>
+</button></div>
+</div>
+<div class="finder-stage" data-finder-purpose-stage hidden>
+<button class="finder-back" type="button" data-finder-back>← 食品を選び直す</button>
+<div class="finder-question"><span>Q2</span><strong data-finder-question-title>どんな買い方？</strong></div>
+<div class="finder-options finder-purpose-options">
+<button type="button" data-finder-purpose="cheap">💰 <span><strong>単価重視</strong><small>とにかく安い順で</small></span></button>
+<button type="button" data-finder-purpose="small">🧺 <span><strong>少量で</strong><small>置き場所・買いやすさ重視</small></span></button>
+<button type="button" data-finder-purpose="large">📦 <span><strong>まとめ買い</strong><small>大容量から選ぶ</small></span></button>
+<button type="button" data-finder-purpose="budget">💴 <span><strong>支払総額を抑える</strong><small>まず安く買える商品から</small></span></button>
+<button type="button" data-finder-purpose="storage">🏠 <span><strong>保管しやすさ</strong><small>置き場所を取りにくい量から</small></span></button>
+</div>
+</div>
+<div class="finder-stage finder-result-stage" data-finder-result-stage hidden>
+<button class="finder-back" type="button" data-finder-reset>← もう一度選ぶ</button>
+<div class="finder-picks" data-finder-picks="pack-rice:cheap" hidden>
+<div class="finder-picks-head"><span>あなた向け</span><strong>🍚 パックご飯 × 単価重視</strong></div>
+<div class="finder-products"><article class="finder-product">
+<div class="finder-product-media"><img src="https://thumbnail.image.rakuten.co.jp/@0_mall/irisplaza-r/cabinet/12351902/imgrc0123303035.jpg?_ex=128x128" alt="" loading="lazy"></div>
+<div class="finder-product-copy">
+<span class="finder-product-rank">1</span>
+<strong>【公式】 パックご飯 150g ×40食 レトルトご飯 パックごはん 備蓄用 アイリスオーヤマ 米 お米 ひとり暮らし 非常食 防災 仕送り ご飯 低温製法米 低温製法米のおいしいごはん</strong>
+<div class="finder-product-price">¥130 <small>1食あたり</small></div>
+<div class="finder-product-meta">合計6kg / 40個・食 ・ ¥5,180</div>
+<div class="finder-why"><span>なぜ？</span>この条件で単価が安い候補</div>
+<a class="cta" href="https://hb.afl.rakuten.co.jp/hgc/g00t3zto.7cx6m5be.g00t3zto.7cx6n748/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Firisplaza-r%2F1901912%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Firisplaza-r%2Fi%2F10000902%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" target="_blank" rel="nofollow sponsored noopener"
+ data-affiliate="rakuten" data-position="quick_finder_result" data-category="pack-rice" data-product-id="irisplaza-r:10000902"
+ data-product-name="【公式】 パックご飯 150g ×40食 レトルトご飯 パックごはん 備蓄用 アイリスオーヤマ 米 お米 ひとり暮らし 非常食 防災 仕送り ご飯 低温製法米 低温製法米のおいしいごはん" data-rank="1" data-metric="per_serving"
+ data-unit-price="129.500000" data-shipping="included">楽天で確認 →</a>
+</div></article><article class="finder-product">
+<div class="finder-product-media"><img src="https://thumbnail.image.rakuten.co.jp/@0_mall/irisplaza-r/cabinet/11073544/12380730/imgrc0112473666.jpg?_ex=128x128" alt="" loading="lazy"></div>
+<div class="finder-product-copy">
+<span class="finder-product-rank">2</span>
+<strong>【公式】 パックご飯 180g ×80食 レトルトご飯 パックごはん 備蓄用 米 お米 ひとり暮らし 非常食 防災 仕送り ご飯 低温製法米</strong>
+<div class="finder-product-price">¥131 <small>1食あたり</small></div>
+<div class="finder-product-meta">合計14.4kg / 80個・食 ・ ¥10,480</div>
+<div class="finder-why"><span>なぜ？</span>上位の高コスパ候補</div>
+<a class="cta" href="https://hb.afl.rakuten.co.jp/hgc/g00t3zto.7cx6m5be.g00t3zto.7cx6n748/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Firisplaza-r%2F310489%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Firisplaza-r%2Fi%2F10105218%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" target="_blank" rel="nofollow sponsored noopener"
+ data-affiliate="rakuten" data-position="quick_finder_result" data-category="pack-rice" data-product-id="irisplaza-r:10105218"
+ data-product-name="【公式】 パックご飯 180g ×80食 レトルトご飯 パックごはん 備蓄用 米 お米 ひとり暮らし 非常食 防災 仕送り ご飯 低温製法米" data-rank="2" data-metric="per_serving"
+ data-unit-price="131.000000" data-shipping="included">楽天で確認 →</a>
+</div></article><article class="finder-product">
+<div class="finder-product-media"><img src="https://thumbnail.image.rakuten.co.jp/@0_mall/kurashikenkou/cabinet/jisyakura/310489.jpg?_ex=128x128" alt="" loading="lazy"></div>
+<div class="finder-product-copy">
+<span class="finder-product-rank">3</span>
+<strong>米 パックご飯 180g ×80食 大容量 ご飯パック パックごはん レトルトご飯 パック米 パックライス パック 備蓄 米 ご飯 米 お米 白米 非常食 防災 保存食 低温製法米のおいしいごはん アイリスオーヤマ アイリスフーズ こめ</strong>
+<div class="finder-product-price">¥131 <small>1食あたり</small></div>
+<div class="finder-product-meta">合計14.4kg / 80個・食 ・ ¥10,480</div>
+<div class="finder-why"><span>なぜ？</span>上位の高コスパ候補</div>
+<a class="cta" href="https://hb.afl.rakuten.co.jp/hgc/g00qhoao.7cx6m91b.g00qhoao.7cx6n00f/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fkurashikenkou%2F310489%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Fkurashikenkou%2Fi%2F10180939%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" target="_blank" rel="nofollow sponsored noopener"
+ data-affiliate="rakuten" data-position="quick_finder_result" data-category="pack-rice" data-product-id="kurashikenkou:10180939"
+ data-product-name="米 パックご飯 180g ×80食 大容量 ご飯パック パックごはん レトルトご飯 パック米 パックライス パック 備蓄 米 ご飯 米 お米 白米 非常食 防災 保存食 低温製法米のおいしいごはん アイリスオーヤマ アイリスフーズ こめ" data-rank="3" data-metric="per_serving"
+ data-unit-price="131.000000" data-shipping="included">楽天で確認 →</a>
+</div></article></div>
+<a class="finder-all" href="categories/pack-rice/?pick=cheap#included">この条件の商品を全部見る →</a>
+</div><div class="finder-picks" data-finder-picks="pack-rice:small" hidden>
+<div class="finder-picks-head"><span>あなた向け</span><strong>🍚 パックご飯 × 少量で買いたい</strong></div>
+<div class="finder-products"><article class="finder-product">
+<div class="finder-product-media"><img src="https://thumbnail.image.rakuten.co.jp/@0_mall/irisplaza-r/cabinet/11073544/12380730/imgrc0112473668.jpg?_ex=128x128" alt="" loading="lazy"></div>
+<div class="finder-product-copy">
+<span class="finder-product-rank">1</span>
+<strong>パックご飯 180g ×24食 レトルトご飯 パックごはん 備蓄用 アイリスオーヤマ 米 お米 ひとり暮らし 非常食 防災 仕送り ご飯 低温製法米 低温製法米のおいしいごはんパックご飯 180g ×24食</strong>
+<div class="finder-product-price">¥146 <small>1食あたり</small></div>
+<div class="finder-product-meta">合計4.32kg / 24個・食 ・ ¥3,500</div>
+<div class="finder-why"><span>なぜ？</span>少量側の中で単価が安い候補</div>
+<a class="cta" href="https://hb.afl.rakuten.co.jp/hgc/g00t3zto.7cx6m5be.g00t3zto.7cx6n748/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Firisplaza-r%2F1901107-cp%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Firisplaza-r%2Fi%2F10173835%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" target="_blank" rel="nofollow sponsored noopener"
+ data-affiliate="rakuten" data-position="quick_finder_result" data-category="pack-rice" data-product-id="irisplaza-r:10173835"
+ data-product-name="パックご飯 180g ×24食 レトルトご飯 パックごはん 備蓄用 アイリスオーヤマ 米 お米 ひとり暮らし 非常食 防災 仕送り ご飯 低温製法米 低温製法米のおいしいごはんパックご飯 180g ×24食" data-rank="1" data-metric="per_serving"
+ data-unit-price="145.833333" data-shipping="included">楽天で確認 →</a>
+</div></article><article class="finder-product">
+<div class="finder-product-media"><img src="https://thumbnail.image.rakuten.co.jp/@0_mall/irisplaza-r/cabinet/11073544/12380730/imgrc0112473870.jpg?_ex=128x128" alt="" loading="lazy"></div>
+<div class="finder-product-copy">
+<span class="finder-product-rank">2</span>
+<strong>【公式】 パックご飯 200g ×10食 レトルトご飯 パックごはん 備蓄用 米 お米 ひとり暮らし 非常食 防災 仕送り ご飯 低温製法米 低温製法米のおいしいごはん</strong>
+<div class="finder-product-price">¥198 <small>1食あたり</small></div>
+<div class="finder-product-meta">合計2kg / 10個・食 ・ ¥1,980</div>
+<div class="finder-why"><span>なぜ？</span>少量側の中で単価が安い候補</div>
+<a class="cta" href="https://hb.afl.rakuten.co.jp/hgc/g00t3zto.7cx6m5be.g00t3zto.7cx6n748/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Firisplaza-r%2F310716%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Firisplaza-r%2Fi%2F10152530%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" target="_blank" rel="nofollow sponsored noopener"
+ data-affiliate="rakuten" data-position="quick_finder_result" data-category="pack-rice" data-product-id="irisplaza-r:10152530"
+ data-product-name="【公式】 パックご飯 200g ×10食 レトルトご飯 パックごはん 備蓄用 米 お米 ひとり暮らし 非常食 防災 仕送り ご飯 低温製法米 低温製法米のおいしいごはん" data-rank="2" data-metric="per_serving"
+ data-unit-price="198.000000" data-shipping="included">楽天で確認 →</a>
+</div></article><article class="finder-product">
+<div class="finder-product-media"><img src="https://thumbnail.image.rakuten.co.jp/@0_mall/yunotani/cabinet/reto_can/rnfg24_1.jpg?_ex=128x128" alt="" loading="lazy"></div>
+<div class="finder-product-copy">
+<span class="finder-product-rank">3</span>
+<strong>『ふんわりごはん（1食200g）』×24食セット レトルトご飯 南魚沼産こしひかり「特別栽培米」使用</strong>
+<div class="finder-product-price">¥258 <small>1食あたり</small></div>
+<div class="finder-product-meta">合計4.8kg / 24個・食 ・ ¥6,200</div>
+<div class="finder-why"><span>なぜ？</span>少量側の中で単価が安い候補</div>
+<a class="cta" href="https://hb.afl.rakuten.co.jp/hgc/g00to7zo.7cx6md89.g00to7zo.7cx6n6d7/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fyunotani%2Ffg-24%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Fyunotani%2Fi%2F10000061%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" target="_blank" rel="nofollow sponsored noopener"
+ data-affiliate="rakuten" data-position="quick_finder_result" data-category="pack-rice" data-product-id="yunotani:10000061"
+ data-product-name="『ふんわりごはん（1食200g）』×24食セット レトルトご飯 南魚沼産こしひかり「特別栽培米」使用" data-rank="3" data-metric="per_serving"
+ data-unit-price="258.333333" data-shipping="included">楽天で確認 →</a>
+</div></article></div>
+<a class="finder-all" href="categories/pack-rice/?pick=small#included">この条件の商品を全部見る →</a>
+</div><div class="finder-picks" data-finder-picks="pack-rice:large" hidden>
+<div class="finder-picks-head"><span>あなた向け</span><strong>🍚 パックご飯 × まとめ買い</strong></div>
+<div class="finder-products"><article class="finder-product">
+<div class="finder-product-media"><img src="https://thumbnail.image.rakuten.co.jp/@0_mall/irisplaza-r/cabinet/12351902/imgrc0123303035.jpg?_ex=128x128" alt="" loading="lazy"></div>
+<div class="finder-product-copy">
+<span class="finder-product-rank">1</span>
+<strong>【公式】 パックご飯 150g ×40食 レトルトご飯 パックごはん 備蓄用 アイリスオーヤマ 米 お米 ひとり暮らし 非常食 防災 仕送り ご飯 低温製法米 低温製法米のおいしいごはん</strong>
+<div class="finder-product-price">¥130 <small>1食あたり</small></div>
+<div class="finder-product-meta">合計6kg / 40個・食 ・ ¥5,180</div>
+<div class="finder-why"><span>なぜ？</span>大容量側の中で単価が安い候補</div>
+<a class="cta" href="https://hb.afl.rakuten.co.jp/hgc/g00t3zto.7cx6m5be.g00t3zto.7cx6n748/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Firisplaza-r%2F1901912%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Firisplaza-r%2Fi%2F10000902%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" target="_blank" rel="nofollow sponsored noopener"
+ data-affiliate="rakuten" data-position="quick_finder_result" data-category="pack-rice" data-product-id="irisplaza-r:10000902"
+ data-product-name="【公式】 パックご飯 150g ×40食 レトルトご飯 パックごはん 備蓄用 アイリスオーヤマ 米 お米 ひとり暮らし 非常食 防災 仕送り ご飯 低温製法米 低温製法米のおいしいごはん" data-rank="1" data-metric="per_serving"
+ data-unit-price="129.500000" data-shipping="included">楽天で確認 →</a>
+</div></article><article class="finder-product">
+<div class="finder-product-media"><img src="https://thumbnail.image.rakuten.co.jp/@0_mall/irisplaza-r/cabinet/11073544/12380730/imgrc0112473666.jpg?_ex=128x128" alt="" loading="lazy"></div>
+<div class="finder-product-copy">
+<span class="finder-product-rank">2</span>
+<strong>【公式】 パックご飯 180g ×80食 レトルトご飯 パックごはん 備蓄用 米 お米 ひとり暮らし 非常食 防災 仕送り ご飯 低温製法米</strong>
+<div class="finder-product-price">¥131 <small>1食あたり</small></div>
+<div class="finder-product-meta">合計14.4kg / 80個・食 ・ ¥10,480</div>
+<div class="finder-why"><span>なぜ？</span>大容量側の中で単価が安い候補</div>
+<a class="cta" href="https://hb.afl.rakuten.co.jp/hgc/g00t3zto.7cx6m5be.g00t3zto.7cx6n748/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Firisplaza-r%2F310489%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Firisplaza-r%2Fi%2F10105218%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" target="_blank" rel="nofollow sponsored noopener"
+ data-affiliate="rakuten" data-position="quick_finder_result" data-category="pack-rice" data-product-id="irisplaza-r:10105218"
+ data-product-name="【公式】 パックご飯 180g ×80食 レトルトご飯 パックごはん 備蓄用 米 お米 ひとり暮らし 非常食 防災 仕送り ご飯 低温製法米" data-rank="2" data-metric="per_serving"
+ data-unit-price="131.000000" data-shipping="included">楽天で確認 →</a>
+</div></article><article class="finder-product">
+<div class="finder-product-media"><img src="https://thumbnail.image.rakuten.co.jp/@0_mall/kurashikenkou/cabinet/jisyakura/310489.jpg?_ex=128x128" alt="" loading="lazy"></div>
+<div class="finder-product-copy">
+<span class="finder-product-rank">3</span>
+<strong>米 パックご飯 180g ×80食 大容量 ご飯パック パックごはん レトルトご飯 パック米 パックライス パック 備蓄 米 ご飯 米 お米 白米 非常食 防災 保存食 低温製法米のおいしいごはん アイリスオーヤマ アイリスフーズ こめ</strong>
+<div class="finder-product-price">¥131 <small>1食あたり</small></div>
+<div class="finder-product-meta">合計14.4kg / 80個・食 ・ ¥10,480</div>
+<div class="finder-why"><span>なぜ？</span>大容量側の中で単価が安い候補</div>
+<a class="cta" href="https://hb.afl.rakuten.co.jp/hgc/g00qhoao.7cx6m91b.g00qhoao.7cx6n00f/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fkurashikenkou%2F310489%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Fkurashikenkou%2Fi%2F10180939%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" target="_blank" rel="nofollow sponsored noopener"
+ data-affiliate="rakuten" data-position="quick_finder_result" data-category="pack-rice" data-product-id="kurashikenkou:10180939"
+ data-product-name="米 パックご飯 180g ×80食 大容量 ご飯パック パックごはん レトルトご飯 パック米 パックライス パック 備蓄 米 ご飯 米 お米 白米 非常食 防災 保存食 低温製法米のおいしいごはん アイリスオーヤマ アイリスフーズ こめ" data-rank="3" data-metric="per_serving"
+ data-unit-price="131.000000" data-shipping="included">楽天で確認 →</a>
+</div></article></div>
+<a class="finder-all" href="categories/pack-rice/?pick=large#included">この条件の商品を全部見る →</a>
+</div><div class="finder-picks" data-finder-picks="pack-rice:budget" hidden>
+<div class="finder-picks-head"><span>あなた向け</span><strong>🍚 パックご飯 × 支払総額を抑える</strong></div>
+<div class="finder-products"><article class="finder-product">
+<div class="finder-product-media"><img src="https://thumbnail.image.rakuten.co.jp/@0_mall/irisplaza-r/cabinet/11073544/12380730/imgrc0112473870.jpg?_ex=128x128" alt="" loading="lazy"></div>
+<div class="finder-product-copy">
+<span class="finder-product-rank">1</span>
+<strong>【公式】 パックご飯 200g ×10食 レトルトご飯 パックごはん 備蓄用 米 お米 ひとり暮らし 非常食 防災 仕送り ご飯 低温製法米 低温製法米のおいしいごはん</strong>
+<div class="finder-product-price">¥198 <small>1食あたり</small></div>
+<div class="finder-product-meta">合計2kg / 10個・食 ・ ¥1,980</div>
+<div class="finder-why"><span>なぜ？</span>支払総額を抑えやすい候補</div>
+<a class="cta" href="https://hb.afl.rakuten.co.jp/hgc/g00t3zto.7cx6m5be.g00t3zto.7cx6n748/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Firisplaza-r%2F310716%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Firisplaza-r%2Fi%2F10152530%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" target="_blank" rel="nofollow sponsored noopener"
+ data-affiliate="rakuten" data-position="quick_finder_result" data-category="pack-rice" data-product-id="irisplaza-r:10152530"
+ data-product-name="【公式】 パックご飯 200g ×10食 レトルトご飯 パックごはん 備蓄用 米 お米 ひとり暮らし 非常食 防災 仕送り ご飯 低温製法米 低温製法米のおいしいごはん" data-rank="1" data-metric="per_serving"
+ data-unit-price="198.000000" data-shipping="included">楽天で確認 →</a>
+</div></article><article class="finder-product">
+<div class="finder-product-media"><img src="https://thumbnail.image.rakuten.co.jp/@0_mall/irisplaza-r/cabinet/11073544/12380730/imgrc0112473668.jpg?_ex=128x128" alt="" loading="lazy"></div>
+<div class="finder-product-copy">
+<span class="finder-product-rank">2</span>
+<strong>パックご飯 180g ×24食 レトルトご飯 パックごはん 備蓄用 アイリスオーヤマ 米 お米 ひとり暮らし 非常食 防災 仕送り ご飯 低温製法米 低温製法米のおいしいごはんパックご飯 180g ×24食</strong>
+<div class="finder-product-price">¥146 <small>1食あたり</small></div>
+<div class="finder-product-meta">合計4.32kg / 24個・食 ・ ¥3,500</div>
+<div class="finder-why"><span>なぜ？</span>商品価格が低めの候補</div>
+<a class="cta" href="https://hb.afl.rakuten.co.jp/hgc/g00t3zto.7cx6m5be.g00t3zto.7cx6n748/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Firisplaza-r%2F1901107-cp%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Firisplaza-r%2Fi%2F10173835%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" target="_blank" rel="nofollow sponsored noopener"
+ data-affiliate="rakuten" data-position="quick_finder_result" data-category="pack-rice" data-product-id="irisplaza-r:10173835"
+ data-product-name="パックご飯 180g ×24食 レトルトご飯 パックごはん 備蓄用 アイリスオーヤマ 米 お米 ひとり暮らし 非常食 防災 仕送り ご飯 低温製法米 低温製法米のおいしいごはんパックご飯 180g ×24食" data-rank="2" data-metric="per_serving"
+ data-unit-price="145.833333" data-shipping="included">楽天で確認 →</a>
+</div></article><article class="finder-product">
+<div class="finder-product-media"><img src="https://thumbnail.image.rakuten.co.jp/@0_mall/beisia/cabinet/chibac/4549944099665.jpg?_ex=128x128" alt="" loading="lazy"></div>
+<div class="finder-product-copy">
+<span class="finder-product-rank">3</span>
+<strong>ベイシア 国産ブレンド米 （180g×6パック入）×6個 ケース販売 まとめ買い | 国産 ブレンド米 米 パックご飯 レトルトご飯 一人暮らし 時短 簡単 ご飯 まとめ買い</strong>
+<div class="finder-product-price">¥746 <small>1食あたり</small></div>
+<div class="finder-product-meta">合計1.08kg / 6個・食 ・ ¥4,476</div>
+<div class="finder-why"><span>なぜ？</span>商品価格が低めの候補</div>
+<a class="cta" href="https://hb.afl.rakuten.co.jp/hgc/g00s0vmo.7cx6mf25.g00s0vmo.7cx6n1c3/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbeisia%2F4549944099665%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Fbeisia%2Fi%2F10152808%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" target="_blank" rel="nofollow sponsored noopener"
+ data-affiliate="rakuten" data-position="quick_finder_result" data-category="pack-rice" data-product-id="beisia:10152808"
+ data-product-name="ベイシア 国産ブレンド米 （180g×6パック入）×6個 ケース販売 まとめ買い | 国産 ブレンド米 米 パックご飯 レトルトご飯 一人暮らし 時短 簡単 ご飯 まとめ買い" data-rank="3" data-metric="per_serving"
+ data-unit-price="746.000000" data-shipping="included">楽天で確認 →</a>
+</div></article></div>
+<a class="finder-all" href="categories/pack-rice/?pick=budget#included">この条件の商品を全部見る →</a>
+</div><div class="finder-picks" data-finder-picks="pack-rice:storage" hidden>
+<div class="finder-picks-head"><span>あなた向け</span><strong>🍚 パックご飯 × 保管しやすさ重視</strong></div>
+<div class="finder-products"><article class="finder-product">
+<div class="finder-product-media"><img src="https://thumbnail.image.rakuten.co.jp/@0_mall/irisplaza-r/cabinet/11073544/12380730/imgrc0112473870.jpg?_ex=128x128" alt="" loading="lazy"></div>
+<div class="finder-product-copy">
+<span class="finder-product-rank">1</span>
+<strong>【公式】 パックご飯 200g ×10食 レトルトご飯 パックごはん 備蓄用 米 お米 ひとり暮らし 非常食 防災 仕送り ご飯 低温製法米 低温製法米のおいしいごはん</strong>
+<div class="finder-product-price">¥198 <small>1食あたり</small></div>
+<div class="finder-product-meta">合計2kg / 10個・食 ・ ¥1,980</div>
+<div class="finder-why"><span>なぜ？</span>保管しやすい少量側から選定</div>
+<a class="cta" href="https://hb.afl.rakuten.co.jp/hgc/g00t3zto.7cx6m5be.g00t3zto.7cx6n748/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Firisplaza-r%2F310716%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Firisplaza-r%2Fi%2F10152530%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" target="_blank" rel="nofollow sponsored noopener"
+ data-affiliate="rakuten" data-position="quick_finder_result" data-category="pack-rice" data-product-id="irisplaza-r:10152530"
+ data-product-name="【公式】 パックご飯 200g ×10食 レトルトご飯 パックごはん 備蓄用 米 お米 ひとり暮らし 非常食 防災 仕送り ご飯 低温製法米 低温製法米のおいしいごはん" data-rank="1" data-metric="per_serving"
+ data-unit-price="198.000000" data-shipping="included">楽天で確認 →</a>
+</div></article><article class="finder-product">
+<div class="finder-product-media"><img src="https://thumbnail.image.rakuten.co.jp/@0_mall/irisplaza-r/cabinet/11073544/12380730/imgrc0112473668.jpg?_ex=128x128" alt="" loading="lazy"></div>
+<div class="finder-product-copy">
+<span class="finder-product-rank">2</span>
+<strong>パックご飯 180g ×24食 レトルトご飯 パックごはん 備蓄用 アイリスオーヤマ 米 お米 ひとり暮らし 非常食 防災 仕送り ご飯 低温製法米 低温製法米のおいしいごはんパックご飯 180g ×24食</strong>
+<div class="finder-product-price">¥146 <small>1食あたり</small></div>
+<div class="finder-product-meta">合計4.32kg / 24個・食 ・ ¥3,500</div>
+<div class="finder-why"><span>なぜ？</span>置き場所を取りにくい候補</div>
+<a class="cta" href="https://hb.afl.rakuten.co.jp/hgc/g00t3zto.7cx6m5be.g00t3zto.7cx6n748/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Firisplaza-r%2F1901107-cp%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Firisplaza-r%2Fi%2F10173835%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" target="_blank" rel="nofollow sponsored noopener"
+ data-affiliate="rakuten" data-position="quick_finder_result" data-category="pack-rice" data-product-id="irisplaza-r:10173835"
+ data-product-name="パックご飯 180g ×24食 レトルトご飯 パックごはん 備蓄用 アイリスオーヤマ 米 お米 ひとり暮らし 非常食 防災 仕送り ご飯 低温製法米 低温製法米のおいしいごはんパックご飯 180g ×24食" data-rank="2" data-metric="per_serving"
+ data-unit-price="145.833333" data-shipping="included">楽天で確認 →</a>
+</div></article><article class="finder-product">
+<div class="finder-product-media"><img src="https://thumbnail.image.rakuten.co.jp/@0_mall/beisia/cabinet/chibac/4549944099665.jpg?_ex=128x128" alt="" loading="lazy"></div>
+<div class="finder-product-copy">
+<span class="finder-product-rank">3</span>
+<strong>ベイシア 国産ブレンド米 （180g×6パック入）×6個 ケース販売 まとめ買い | 国産 ブレンド米 米 パックご飯 レトルトご飯 一人暮らし 時短 簡単 ご飯 まとめ買い</strong>
+<div class="finder-product-price">¥746 <small>1食あたり</small></div>
+<div class="finder-product-meta">合計1.08kg / 6個・食 ・ ¥4,476</div>
+<div class="finder-why"><span>なぜ？</span>置き場所を取りにくい候補</div>
+<a class="cta" href="https://hb.afl.rakuten.co.jp/hgc/g00s0vmo.7cx6mf25.g00s0vmo.7cx6n1c3/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbeisia%2F4549944099665%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Fbeisia%2Fi%2F10152808%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" target="_blank" rel="nofollow sponsored noopener"
+ data-affiliate="rakuten" data-position="quick_finder_result" data-category="pack-rice" data-product-id="beisia:10152808"
+ data-product-name="ベイシア 国産ブレンド米 （180g×6パック入）×6個 ケース販売 まとめ買い | 国産 ブレンド米 米 パックご飯 レトルトご飯 一人暮らし 時短 簡単 ご飯 まとめ買い" data-rank="3" data-metric="per_serving"
+ data-unit-price="746.000000" data-shipping="included">楽天で確認 →</a>
+</div></article></div>
+<a class="finder-all" href="categories/pack-rice/?pick=storage#included">この条件の商品を全部見る →</a>
+</div><div class="finder-picks" data-finder-picks="rice:cheap" hidden>
+<div class="finder-picks-head"><span>あなた向け</span><strong>🌾 米 × 単価重視</strong></div>
+<div class="finder-products"><article class="finder-product">
+<div class="finder-product-media"><img src="https://thumbnail.image.rakuten.co.jp/@0_mall/rs-takeo/cabinet/06994046/sato_burendo30_1.jpg?_ex=128x128" alt="" loading="lazy"></div>
+<div class="finder-product-copy">
+<span class="finder-product-rank">1</span>
+<strong>ブレンド米 30kg(10kg×3袋) 国内産複数原料米 白米</strong>
+<div class="finder-product-price">¥333 <small>1kgあたり</small></div>
+<div class="finder-product-meta">合計30kg / 3個・食 ・ ¥9,980</div>
+<div class="finder-why"><span>なぜ？</span>この条件で単価が安い候補</div>
+<a class="cta" href="https://hb.afl.rakuten.co.jp/hgc/g00ryp3o.7cx6m08e.g00ryp3o.7cx6n152/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Frs-takeo%2F10001001%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Frs-takeo%2Fi%2F10000132%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" target="_blank" rel="nofollow sponsored noopener"
+ data-affiliate="rakuten" data-position="quick_finder_result" data-category="rice" data-product-id="rs-takeo:10000132"
+ data-product-name="ブレンド米 30kg(10kg×3袋) 国内産複数原料米 白米" data-rank="1" data-metric="per_kg"
+ data-unit-price="332.666667" data-shipping="included">楽天で確認 →</a>
+</div></article><article class="finder-product">
+<div class="finder-product-media"><img src="https://thumbnail.image.rakuten.co.jp/@0_mall/fuchigami/cabinet/rakurip/kome/hoho-saisyu-10.jpg?_ex=128x128" alt="" loading="lazy"></div>
+<div class="finder-product-copy">
+<span class="finder-product-rank">2</span>
+<strong>【7年産】 米 10kg 令和7年産米入り 訳あり ほほえみ米 お米マイスター厳選米 米 10kg 白米 10kg お米 10kg 無洗米 10キロ 西日本産 こめたつ 備蓄用 あす楽</strong>
+<div class="finder-product-price">¥368 <small>1kgあたり</small></div>
+<div class="finder-product-meta">合計10kg ・ ¥3,680</div>
+<div class="finder-why"><span>なぜ？</span>上位の高コスパ候補</div>
+<a class="cta" href="https://hb.afl.rakuten.co.jp/hgc/g00rxaro.7cx6m798.g00rxaro.7cx6n2f7/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Ffuchigami%2F10000061%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Ffuchigami%2Fi%2F10000061%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" target="_blank" rel="nofollow sponsored noopener"
+ data-affiliate="rakuten" data-position="quick_finder_result" data-category="rice" data-product-id="fuchigami:10000061"
+ data-product-name="【7年産】 米 10kg 令和7年産米入り 訳あり ほほえみ米 お米マイスター厳選米 米 10kg 白米 10kg お米 10kg 無洗米 10キロ 西日本産 こめたつ 備蓄用 あす楽" data-rank="2" data-metric="per_kg"
+ data-unit-price="368.000000" data-shipping="included">楽天で確認 →</a>
+</div></article><article class="finder-product">
+<div class="finder-product-media"><img src="https://thumbnail.image.rakuten.co.jp/@0_mall/rs-takeo/cabinet/06994046/imgrc0077424039.jpg?_ex=128x128" alt="" loading="lazy"></div>
+<div class="finder-product-copy">
+<span class="finder-product-rank">3</span>
+<strong>ブレンド米 10kg 国内産複数原料米 白米</strong>
+<div class="finder-product-price">¥368 <small>1kgあたり</small></div>
+<div class="finder-product-meta">合計10kg ・ ¥3,680</div>
+<div class="finder-why"><span>なぜ？</span>上位の高コスパ候補</div>
+<a class="cta" href="https://hb.afl.rakuten.co.jp/hgc/g00ryp3o.7cx6m08e.g00ryp3o.7cx6n152/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Frs-takeo%2F10000019%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Frs-takeo%2Fi%2F10000019%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" target="_blank" rel="nofollow sponsored noopener"
+ data-affiliate="rakuten" data-position="quick_finder_result" data-category="rice" data-product-id="rs-takeo:10000019"
+ data-product-name="ブレンド米 10kg 国内産複数原料米 白米" data-rank="3" data-metric="per_kg"
+ data-unit-price="368.000000" data-shipping="included">楽天で確認 →</a>
+</div></article></div>
+<a class="finder-all" href="categories/rice/?pick=cheap#included">この条件の商品を全部見る →</a>
+</div><div class="finder-picks" data-finder-picks="rice:small" hidden>
+<div class="finder-picks-head"><span>あなた向け</span><strong>🌾 米 × 少量で買いたい</strong></div>
+<div class="finder-products"><article class="finder-product">
+<div class="finder-product-media"><img src="https://thumbnail.image.rakuten.co.jp/@0_mall/rs-takeo/cabinet/06994046/sato_burendo30_1.jpg?_ex=128x128" alt="" loading="lazy"></div>
+<div class="finder-product-copy">
+<span class="finder-product-rank">1</span>
+<strong>ブレンド米 30kg(10kg×3袋) 国内産複数原料米 白米</strong>
+<div class="finder-product-price">¥333 <small>1kgあたり</small></div>
+<div class="finder-product-meta">合計30kg / 3個・食 ・ ¥9,980</div>
+<div class="finder-why"><span>なぜ？</span>少量側の中で単価が安い候補</div>
+<a class="cta" href="https://hb.afl.rakuten.co.jp/hgc/g00ryp3o.7cx6m08e.g00ryp3o.7cx6n152/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Frs-takeo%2F10001001%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Frs-takeo%2Fi%2F10000132%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" target="_blank" rel="nofollow sponsored noopener"
+ data-affiliate="rakuten" data-position="quick_finder_result" data-category="rice" data-product-id="rs-takeo:10000132"
+ data-product-name="ブレンド米 30kg(10kg×3袋) 国内産複数原料米 白米" data-rank="1" data-metric="per_kg"
+ data-unit-price="332.666667" data-shipping="included">楽天で確認 →</a>
+</div></article><article class="finder-product">
+<div class="finder-product-media"><img src="https://thumbnail.image.rakuten.co.jp/@0_mall/fuchigami/cabinet/rakurip/kome/hoho-saisyu-10.jpg?_ex=128x128" alt="" loading="lazy"></div>
+<div class="finder-product-copy">
+<span class="finder-product-rank">2</span>
+<strong>【7年産】 米 10kg 令和7年産米入り 訳あり ほほえみ米 お米マイスター厳選米 米 10kg 白米 10kg お米 10kg 無洗米 10キロ 西日本産 こめたつ 備蓄用 あす楽</strong>
+<div class="finder-product-price">¥368 <small>1kgあたり</small></div>
+<div class="finder-product-meta">合計10kg ・ ¥3,680</div>
+<div class="finder-why"><span>なぜ？</span>少量側の中で単価が安い候補</div>
+<a class="cta" href="https://hb.afl.rakuten.co.jp/hgc/g00rxaro.7cx6m798.g00rxaro.7cx6n2f7/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Ffuchigami%2F10000061%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Ffuchigami%2Fi%2F10000061%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" target="_blank" rel="nofollow sponsored noopener"
+ data-affiliate="rakuten" data-position="quick_finder_result" data-category="rice" data-product-id="fuchigami:10000061"
+ data-product-name="【7年産】 米 10kg 令和7年産米入り 訳あり ほほえみ米 お米マイスター厳選米 米 10kg 白米 10kg お米 10kg 無洗米 10キロ 西日本産 こめたつ 備蓄用 あす楽" data-rank="2" data-metric="per_kg"
+ data-unit-price="368.000000" data-shipping="included">楽天で確認 →</a>
+</div></article><article class="finder-product">
+<div class="finder-product-media"><img src="https://thumbnail.image.rakuten.co.jp/@0_mall/rs-takeo/cabinet/06994046/imgrc0077424039.jpg?_ex=128x128" alt="" loading="lazy"></div>
+<div class="finder-product-copy">
+<span class="finder-product-rank">3</span>
+<strong>ブレンド米 10kg 国内産複数原料米 白米</strong>
+<div class="finder-product-price">¥368 <small>1kgあたり</small></div>
+<div class="finder-product-meta">合計10kg ・ ¥3,680</div>
+<div class="finder-why"><span>なぜ？</span>少量側の中で単価が安い候補</div>
+<a class="cta" href="https://hb.afl.rakuten.co.jp/hgc/g00ryp3o.7cx6m08e.g00ryp3o.7cx6n152/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Frs-takeo%2F10000019%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Frs-takeo%2Fi%2F10000019%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" target="_blank" rel="nofollow sponsored noopener"
+ data-affiliate="rakuten" data-position="quick_finder_result" data-category="rice" data-product-id="rs-takeo:10000019"
+ data-product-name="ブレンド米 10kg 国内産複数原料米 白米" data-rank="3" data-metric="per_kg"
+ data-unit-price="368.000000" data-shipping="included">楽天で確認 →</a>
+</div></article></div>
+<a class="finder-all" href="categories/rice/?pick=small#included">この条件の商品を全部見る →</a>
+</div><div class="finder-picks" data-finder-picks="rice:large" hidden>
+<div class="finder-picks-head"><span>あなた向け</span><strong>🌾 米 × まとめ買い</strong></div>
+<div class="finder-products"><article class="finder-product">
+<div class="finder-product-media"><img src="https://thumbnail.image.rakuten.co.jp/@0_mall/rs-takeo/cabinet/06994046/sato_burendo30_1.jpg?_ex=128x128" alt="" loading="lazy"></div>
+<div class="finder-product-copy">
+<span class="finder-product-rank">1</span>
+<strong>ブレンド米 30kg(10kg×3袋) 国内産複数原料米 白米</strong>
+<div class="finder-product-price">¥333 <small>1kgあたり</small></div>
+<div class="finder-product-meta">合計30kg / 3個・食 ・ ¥9,980</div>
+<div class="finder-why"><span>なぜ？</span>大容量側の中で単価が安い候補</div>
+<a class="cta" href="https://hb.afl.rakuten.co.jp/hgc/g00ryp3o.7cx6m08e.g00ryp3o.7cx6n152/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Frs-takeo%2F10001001%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Frs-takeo%2Fi%2F10000132%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" target="_blank" rel="nofollow sponsored noopener"
+ data-affiliate="rakuten" data-position="quick_finder_result" data-category="rice" data-product-id="rs-takeo:10000132"
+ data-product-name="ブレンド米 30kg(10kg×3袋) 国内産複数原料米 白米" data-rank="1" data-metric="per_kg"
+ data-unit-price="332.666667" data-shipping="included">楽天で確認 →</a>
+</div></article><article class="finder-product">
+<div class="finder-product-media"><img src="https://thumbnail.image.rakuten.co.jp/@0_mall/fuchigami/cabinet/rakurip/kome/hoho-saisyu-10.jpg?_ex=128x128" alt="" loading="lazy"></div>
+<div class="finder-product-copy">
+<span class="finder-product-rank">2</span>
+<strong>【7年産】 米 10kg 令和7年産米入り 訳あり ほほえみ米 お米マイスター厳選米 米 10kg 白米 10kg お米 10kg 無洗米 10キロ 西日本産 こめたつ 備蓄用 あす楽</strong>
+<div class="finder-product-price">¥368 <small>1kgあたり</small></div>
+<div class="finder-product-meta">合計10kg ・ ¥3,680</div>
+<div class="finder-why"><span>なぜ？</span>大容量側の中で単価が安い候補</div>
+<a class="cta" href="https://hb.afl.rakuten.co.jp/hgc/g00rxaro.7cx6m798.g00rxaro.7cx6n2f7/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Ffuchigami%2F10000061%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Ffuchigami%2Fi%2F10000061%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" target="_blank" rel="nofollow sponsored noopener"
+ data-affiliate="rakuten" data-position="quick_finder_result" data-category="rice" data-product-id="fuchigami:10000061"
+ data-product-name="【7年産】 米 10kg 令和7年産米入り 訳あり ほほえみ米 お米マイスター厳選米 米 10kg 白米 10kg お米 10kg 無洗米 10キロ 西日本産 こめたつ 備蓄用 あす楽" data-rank="2" data-metric="per_kg"
+ data-unit-price="368.000000" data-shipping="included">楽天で確認 →</a>
+</div></article><article class="finder-product">
+<div class="finder-product-media"><img src="https://thumbnail.image.rakuten.co.jp/@0_mall/rs-takeo/cabinet/06994046/imgrc0077424039.jpg?_ex=128x128" alt="" loading="lazy"></div>
+<div class="finder-product-copy">
+<span class="finder-product-rank">3</span>
+<strong>ブレンド米 10kg 国内産複数原料米 白米</strong>
+<div class="finder-product-price">¥368 <small>1kgあたり</small></div>
+<div class="finder-product-meta">合計10kg ・ ¥3,680</div>
+<div class="finder-why"><span>なぜ？</span>大容量側の中で単価が安い候補</div>
+<a class="cta" href="https://hb.afl.rakuten.co.jp/hgc/g00ryp3o.7cx6m08e.g00ryp3o.7cx6n152/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Frs-takeo%2F10000019%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Frs-takeo%2Fi%2F10000019%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" target="_blank" rel="nofollow sponsored noopener"
+ data-affiliate="rakuten" data-position="quick_finder_result" data-category="rice" data-product-id="rs-takeo:10000019"
+ data-product-name="ブレンド米 10kg 国内産複数原料米 白米" data-rank="3" data-metric="per_kg"
+ data-unit-price="368.000000" data-shipping="included">楽天で確認 →</a>
+</div></article></div>
+<a class="finder-all" href="categories/rice/?pick=large#included">この条件の商品を全部見る →</a>
+</div><div class="finder-picks" data-finder-picks="rice:budget" hidden>
+<div class="finder-picks-head"><span>あなた向け</span><strong>🌾 米 × 支払総額を抑える</strong></div>
+<div class="finder-products"><article class="finder-product">
+<div class="finder-product-media"><img src="https://thumbnail.image.rakuten.co.jp/@0_mall/fuchigami/cabinet/rakurip/kome/hoho-saisyu-10.jpg?_ex=128x128" alt="" loading="lazy"></div>
+<div class="finder-product-copy">
+<span class="finder-product-rank">1</span>
+<strong>【7年産】 米 10kg 令和7年産米入り 訳あり ほほえみ米 お米マイスター厳選米 米 10kg 白米 10kg お米 10kg 無洗米 10キロ 西日本産 こめたつ 備蓄用 あす楽</strong>
+<div class="finder-product-price">¥368 <small>1kgあたり</small></div>
+<div class="finder-product-meta">合計10kg ・ ¥3,680</div>
+<div class="finder-why"><span>なぜ？</span>支払総額を抑えやすい候補</div>
+<a class="cta" href="https://hb.afl.rakuten.co.jp/hgc/g00rxaro.7cx6m798.g00rxaro.7cx6n2f7/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Ffuchigami%2F10000061%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Ffuchigami%2Fi%2F10000061%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" target="_blank" rel="nofollow sponsored noopener"
+ data-affiliate="rakuten" data-position="quick_finder_result" data-category="rice" data-product-id="fuchigami:10000061"
+ data-product-name="【7年産】 米 10kg 令和7年産米入り 訳あり ほほえみ米 お米マイスター厳選米 米 10kg 白米 10kg お米 10kg 無洗米 10キロ 西日本産 こめたつ 備蓄用 あす楽" data-rank="1" data-metric="per_kg"
+ data-unit-price="368.000000" data-shipping="included">楽天で確認 →</a>
+</div></article><article class="finder-product">
+<div class="finder-product-media"><img src="https://thumbnail.image.rakuten.co.jp/@0_mall/rs-takeo/cabinet/06994046/imgrc0077424039.jpg?_ex=128x128" alt="" loading="lazy"></div>
+<div class="finder-product-copy">
+<span class="finder-product-rank">2</span>
+<strong>ブレンド米 10kg 国内産複数原料米 白米</strong>
+<div class="finder-product-price">¥368 <small>1kgあたり</small></div>
+<div class="finder-product-meta">合計10kg ・ ¥3,680</div>
+<div class="finder-why"><span>なぜ？</span>商品価格が低めの候補</div>
+<a class="cta" href="https://hb.afl.rakuten.co.jp/hgc/g00ryp3o.7cx6m08e.g00ryp3o.7cx6n152/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Frs-takeo%2F10000019%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Frs-takeo%2Fi%2F10000019%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" target="_blank" rel="nofollow sponsored noopener"
+ data-affiliate="rakuten" data-position="quick_finder_result" data-category="rice" data-product-id="rs-takeo:10000019"
+ data-product-name="ブレンド米 10kg 国内産複数原料米 白米" data-rank="2" data-metric="per_kg"
+ data-unit-price="368.000000" data-shipping="included">楽天で確認 →</a>
+</div></article><article class="finder-product">
+<div class="finder-product-media"><img src="https://thumbnail.image.rakuten.co.jp/@0_mall/anzai-rice/cabinet/02207291/03108143/r7-t10.jpg?_ex=128x128" alt="" loading="lazy"></div>
+<div class="finder-product-copy">
+<span class="finder-product-rank">3</span>
+<strong>10kg お米 白米 安い 訳あり ブレンド米 『国内産たんぼだより白米10kg』</strong>
+<div class="finder-product-price">¥378 <small>1kgあたり</small></div>
+<div class="finder-product-meta">合計10kg ・ ¥3,780</div>
+<div class="finder-why"><span>なぜ？</span>商品価格が低めの候補</div>
+<a class="cta" href="https://hb.afl.rakuten.co.jp/hgc/g00qemeo.7cx6me7c.g00qemeo.7cx6n1cb/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fanzai-rice%2Ftanbo10%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Fanzai-rice%2Fi%2F10000437%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" target="_blank" rel="nofollow sponsored noopener"
+ data-affiliate="rakuten" data-position="quick_finder_result" data-category="rice" data-product-id="anzai-rice:10000437"
+ data-product-name="10kg お米 白米 安い 訳あり ブレンド米 『国内産たんぼだより白米10kg』" data-rank="3" data-metric="per_kg"
+ data-unit-price="378.000000" data-shipping="included">楽天で確認 →</a>
+</div></article></div>
+<a class="finder-all" href="categories/rice/?pick=budget#included">この条件の商品を全部見る →</a>
+</div><div class="finder-picks" data-finder-picks="rice:storage" hidden>
+<div class="finder-picks-head"><span>あなた向け</span><strong>🌾 米 × 保管しやすさ重視</strong></div>
+<div class="finder-products"><article class="finder-product">
+<div class="finder-product-media"><img src="https://thumbnail.image.rakuten.co.jp/@0_mall/rs-takeo/cabinet/06994046/sato_burendo30_1.jpg?_ex=128x128" alt="" loading="lazy"></div>
+<div class="finder-product-copy">
+<span class="finder-product-rank">1</span>
+<strong>ブレンド米 30kg(10kg×3袋) 国内産複数原料米 白米</strong>
+<div class="finder-product-price">¥333 <small>1kgあたり</small></div>
+<div class="finder-product-meta">合計30kg / 3個・食 ・ ¥9,980</div>
+<div class="finder-why"><span>なぜ？</span>保管しやすい少量側から選定</div>
+<a class="cta" href="https://hb.afl.rakuten.co.jp/hgc/g00ryp3o.7cx6m08e.g00ryp3o.7cx6n152/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Frs-takeo%2F10001001%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Frs-takeo%2Fi%2F10000132%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" target="_blank" rel="nofollow sponsored noopener"
+ data-affiliate="rakuten" data-position="quick_finder_result" data-category="rice" data-product-id="rs-takeo:10000132"
+ data-product-name="ブレンド米 30kg(10kg×3袋) 国内産複数原料米 白米" data-rank="1" data-metric="per_kg"
+ data-unit-price="332.666667" data-shipping="included">楽天で確認 →</a>
+</div></article><article class="finder-product">
+<div class="finder-product-media"><img src="https://thumbnail.image.rakuten.co.jp/@0_mall/fuchigami/cabinet/rakurip/kome/hoho-saisyu-10.jpg?_ex=128x128" alt="" loading="lazy"></div>
+<div class="finder-product-copy">
+<span class="finder-product-rank">2</span>
+<strong>【7年産】 米 10kg 令和7年産米入り 訳あり ほほえみ米 お米マイスター厳選米 米 10kg 白米 10kg お米 10kg 無洗米 10キロ 西日本産 こめたつ 備蓄用 あす楽</strong>
+<div class="finder-product-price">¥368 <small>1kgあたり</small></div>
+<div class="finder-product-meta">合計10kg ・ ¥3,680</div>
+<div class="finder-why"><span>なぜ？</span>置き場所を取りにくい候補</div>
+<a class="cta" href="https://hb.afl.rakuten.co.jp/hgc/g00rxaro.7cx6m798.g00rxaro.7cx6n2f7/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Ffuchigami%2F10000061%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Ffuchigami%2Fi%2F10000061%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" target="_blank" rel="nofollow sponsored noopener"
+ data-affiliate="rakuten" data-position="quick_finder_result" data-category="rice" data-product-id="fuchigami:10000061"
+ data-product-name="【7年産】 米 10kg 令和7年産米入り 訳あり ほほえみ米 お米マイスター厳選米 米 10kg 白米 10kg お米 10kg 無洗米 10キロ 西日本産 こめたつ 備蓄用 あす楽" data-rank="2" data-metric="per_kg"
+ data-unit-price="368.000000" data-shipping="included">楽天で確認 →</a>
+</div></article><article class="finder-product">
+<div class="finder-product-media"><img src="https://thumbnail.image.rakuten.co.jp/@0_mall/rs-takeo/cabinet/06994046/imgrc0077424039.jpg?_ex=128x128" alt="" loading="lazy"></div>
+<div class="finder-product-copy">
+<span class="finder-product-rank">3</span>
+<strong>ブレンド米 10kg 国内産複数原料米 白米</strong>
+<div class="finder-product-price">¥368 <small>1kgあたり</small></div>
+<div class="finder-product-meta">合計10kg ・ ¥3,680</div>
+<div class="finder-why"><span>なぜ？</span>置き場所を取りにくい候補</div>
+<a class="cta" href="https://hb.afl.rakuten.co.jp/hgc/g00ryp3o.7cx6m08e.g00ryp3o.7cx6n152/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Frs-takeo%2F10000019%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Frs-takeo%2Fi%2F10000019%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" target="_blank" rel="nofollow sponsored noopener"
+ data-affiliate="rakuten" data-position="quick_finder_result" data-category="rice" data-product-id="rs-takeo:10000019"
+ data-product-name="ブレンド米 10kg 国内産複数原料米 白米" data-rank="3" data-metric="per_kg"
+ data-unit-price="368.000000" data-shipping="included">楽天で確認 →</a>
+</div></article></div>
+<a class="finder-all" href="categories/rice/?pick=storage#included">この条件の商品を全部見る →</a>
+</div><div class="finder-picks" data-finder-picks="carbonated-water:cheap" hidden>
+<div class="finder-picks-head"><span>あなた向け</span><strong>🫧 炭酸水 × 単価重視</strong></div>
+<div class="finder-products"><article class="finder-product">
+<div class="finder-product-media"><img src="https://thumbnail.image.rakuten.co.jp/@0_mall/kurashikenkou/cabinet/jisyakura2/311521.jpg?_ex=128x128" alt="" loading="lazy"></div>
+<div class="finder-product-copy">
+<span class="finder-product-rank">1</span>
+<strong>【訳あり商品】炭酸水 1L 15本 強炭酸水 炭酸 飲料 富士山の強炭酸水 ラベルレス ケース 水 ミネラルウォーター ゼロカロリー 糖類ゼロ 無糖 無果汁 富士山の強炭酸水 1L ラベルレス プレーン レモン アイリスオーヤマ</strong>
+<div class="finder-product-price">¥66.7 <small>1Lあたり</small></div>
+<div class="finder-product-meta">1000ml×15本 / 合計15L ・ ¥1,000</div>
+<div class="finder-why"><span>なぜ？</span>この条件で単価が安い候補</div>
+<a class="cta" href="https://hb.afl.rakuten.co.jp/hgc/g00qhoao.7cx6m91b.g00qhoao.7cx6n00f/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fkurashikenkou%2F311521%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Fkurashikenkou%2Fi%2F10217349%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" target="_blank" rel="nofollow sponsored noopener"
+ data-affiliate="rakuten" data-position="quick_finder_result" data-category="carbonated-water" data-product-id="kurashikenkou:10217349"
+ data-product-name="【訳あり商品】炭酸水 1L 15本 強炭酸水 炭酸 飲料 富士山の強炭酸水 ラベルレス ケース 水 ミネラルウォーター ゼロカロリー 糖類ゼロ 無糖 無果汁 富士山の強炭酸水 1L ラベルレス プレーン レモン アイリスオーヤマ" data-rank="1" data-metric="per_liter"
+ data-unit-price="66.666667" data-shipping="included">楽天で確認 →</a>
+</div></article><article class="finder-product">
+<div class="finder-product-media"><img src="https://thumbnail.image.rakuten.co.jp/@0_mall/s-kodawari/cabinet/eigyouyou1/311521_b.jpg?_ex=128x128" alt="" loading="lazy"></div>
+<div class="finder-product-copy">
+<span class="finder-product-rank">2</span>
+<strong>炭酸水 1L 15本 選べるラベルレス 強炭酸水 アイリスオーヤマ 無糖 プレーン レモン フレーバー 国産 天然水 ソーダ 割り材 まとめ買い 1000ml 炭酸飲料 ゼロカロリー クリスタルスパーク CRYSTALSPARK 富士山の強炭酸水 *無果汁 糖類ゼロ 飲料</strong>
+<div class="finder-product-price">¥105 <small>1Lあたり</small></div>
+<div class="finder-product-meta">1000ml×15本 / 合計15L ・ ¥1,580</div>
+<div class="finder-why"><span>なぜ？</span>上位の高コスパ候補</div>
+<a class="cta" href="https://hb.afl.rakuten.co.jp/hgc/g00tux1o.7cx6mb61.g00tux1o.7cx6n3ef/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fs-kodawari%2F311521%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Fs-kodawari%2Fi%2F10005268%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" target="_blank" rel="nofollow sponsored noopener"
+ data-affiliate="rakuten" data-position="quick_finder_result" data-category="carbonated-water" data-product-id="s-kodawari:10005268"
+ data-product-name="炭酸水 1L 15本 選べるラベルレス 強炭酸水 アイリスオーヤマ 無糖 プレーン レモン フレーバー 国産 天然水 ソーダ 割り材 まとめ買い 1000ml 炭酸飲料 ゼロカロリー クリスタルスパーク CRYSTALSPARK 富士山の強炭酸水 *無果汁 糖類ゼロ 飲料" data-rank="2" data-metric="per_liter"
+ data-unit-price="105.333333" data-shipping="included">楽天で確認 →</a>
+</div></article><article class="finder-product">
+<div class="finder-product-media"><img src="https://thumbnail.image.rakuten.co.jp/@0_mall/enetroom/cabinet/tenposupport07/311521_a.jpg?_ex=128x128" alt="" loading="lazy"></div>
+<div class="finder-product-copy">
+<span class="finder-product-rank">3</span>
+<strong>[最大1,000円OFFクーポン/くらしにプラス] 炭酸水 1L 15本 選べるラベルレス 強炭酸水 アイリスオーヤマ 無糖 プレーン レモン フレーバー 天然水 ソーダ 割り材 まとめ買い 1000ml 炭酸飲料 ゼロカロリー クリスタルスパーク CRYSTALSPARK 富士山の強炭酸水 *</strong>
+<div class="finder-product-price">¥112 <small>1Lあたり</small></div>
+<div class="finder-product-meta">1000ml×15本 / 合計15L ・ ¥1,680</div>
+<div class="finder-why"><span>なぜ？</span>上位の高コスパ候補</div>
+<a class="cta" href="https://hb.afl.rakuten.co.jp/hgc/g00prkeo.7cx6mad8.g00prkeo.7cx6n8a5/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fenetroom%2F311521%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Fenetroom%2Fi%2F10199647%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" target="_blank" rel="nofollow sponsored noopener"
+ data-affiliate="rakuten" data-position="quick_finder_result" data-category="carbonated-water" data-product-id="enetroom:10199647"
+ data-product-name="[最大1,000円OFFクーポン/くらしにプラス] 炭酸水 1L 15本 選べるラベルレス 強炭酸水 アイリスオーヤマ 無糖 プレーン レモン フレーバー 天然水 ソーダ 割り材 まとめ買い 1000ml 炭酸飲料 ゼロカロリー クリスタルスパーク CRYSTALSPARK 富士山の強炭酸水 *" data-rank="3" data-metric="per_liter"
+ data-unit-price="112.000000" data-shipping="included">楽天で確認 →</a>
+</div></article></div>
+<a class="finder-all" href="categories/carbonated-water/?pick=cheap#included">この条件の商品を全部見る →</a>
+</div><div class="finder-picks" data-finder-picks="carbonated-water:small" hidden>
+<div class="finder-picks-head"><span>あなた向け</span><strong>🫧 炭酸水 × 少量で買いたい</strong></div>
+<div class="finder-products"><article class="finder-product">
+<div class="finder-product-media"><img src="https://thumbnail.image.rakuten.co.jp/@0_mall/kurashikenkou/cabinet/jisyakura2/ranking_310791.jpg?_ex=128x128" alt="" loading="lazy"></div>
+<div class="finder-product-copy">
+<span class="finder-product-rank">1</span>
+<strong>炭酸水 500ml 24本 選べるラベルレス 強炭酸水 アイリスオーヤマ 無糖 プレーン レモン フレーバー 天然水 ソーダ カロリーゼロ 割り材 まとめ買い 炭酸飲料 クリスタルスパーク CRYSTALSPARK 富士山の強炭酸水 * 【代引き不可】</strong>
+<div class="finder-product-price">¥118 <small>1Lあたり</small></div>
+<div class="finder-product-meta">500ml×24本 / 合計12L ・ ¥1,420</div>
+<div class="finder-why"><span>なぜ？</span>少量側の中で単価が安い候補</div>
+<a class="cta" href="https://hb.afl.rakuten.co.jp/hgc/g00qhoao.7cx6m91b.g00qhoao.7cx6n00f/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fkurashikenkou%2F310791%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Fkurashikenkou%2Fi%2F10201356%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" target="_blank" rel="nofollow sponsored noopener"
+ data-affiliate="rakuten" data-position="quick_finder_result" data-category="carbonated-water" data-product-id="kurashikenkou:10201356"
+ data-product-name="炭酸水 500ml 24本 選べるラベルレス 強炭酸水 アイリスオーヤマ 無糖 プレーン レモン フレーバー 天然水 ソーダ カロリーゼロ 割り材 まとめ買い 炭酸飲料 クリスタルスパーク CRYSTALSPARK 富士山の強炭酸水 * 【代引き不可】" data-rank="1" data-metric="per_liter"
+ data-unit-price="118.333333" data-shipping="included">楽天で確認 →</a>
+</div></article><article class="finder-product">
+<div class="finder-product-media"><img src="https://thumbnail.image.rakuten.co.jp/@0_mall/irisplaza-r/cabinet/talent/crystalspark/312012_rg.jpg?_ex=128x128" alt="" loading="lazy"></div>
+<div class="finder-product-copy">
+<span class="finder-product-rank">2</span>
+<strong>【公式】炭酸水 500ml 48本 (24本入×2箱) 強炭酸水 アイリスオーヤマ クリスタルスパーク 炭酸 レモン マスカット ラムネ グレープ 和梨 ジンジャーエール フレーバー プレーン 無糖 天然水 アイリスフーズ ペットボトル</strong>
+<div class="finder-product-price">¥123 <small>1Lあたり</small></div>
+<div class="finder-product-meta">500ml×48本 / 合計24L ・ ¥2,960</div>
+<div class="finder-why"><span>なぜ？</span>少量側の中で単価が安い候補</div>
+<a class="cta" href="https://hb.afl.rakuten.co.jp/hgc/g00t3zto.7cx6m5be.g00t3zto.7cx6n748/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Firisplaza-r%2F312012%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Firisplaza-r%2Fi%2F10158173%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" target="_blank" rel="nofollow sponsored noopener"
+ data-affiliate="rakuten" data-position="quick_finder_result" data-category="carbonated-water" data-product-id="irisplaza-r:10158173"
+ data-product-name="【公式】炭酸水 500ml 48本 (24本入×2箱) 強炭酸水 アイリスオーヤマ クリスタルスパーク 炭酸 レモン マスカット ラムネ グレープ 和梨 ジンジャーエール フレーバー プレーン 無糖 天然水 アイリスフーズ ペットボトル" data-rank="2" data-metric="per_liter"
+ data-unit-price="123.333333" data-shipping="included">楽天で確認 →</a>
+</div></article><article class="finder-product">
+<div class="finder-product-media"><img src="https://thumbnail.image.rakuten.co.jp/@0_mall/k-home/cabinet/thum/naosi/syoumou_set/310791_thumb.jpg?_ex=128x128" alt="" loading="lazy"></div>
+<div class="finder-product-copy">
+<span class="finder-product-rank">3</span>
+<strong>【24本セット】 炭酸水 500ml 24本 強炭酸水 プレーン レモン グレープフルーツ 500ml×24本 ラベルレス 炭酸 強炭酸水500ml ケース CRYSTALSPARK クリスタルスパーク アイリスオーヤマ 【代引き不可】</strong>
+<div class="finder-product-price">¥127 <small>1Lあたり</small></div>
+<div class="finder-product-meta">500ml×24本 / 合計12L ・ ¥1,520</div>
+<div class="finder-why"><span>なぜ？</span>少量側の中で単価が安い候補</div>
+<a class="cta" href="https://hb.afl.rakuten.co.jp/hgc/g00rqlbo.7cx6mdc3.g00rqlbo.7cx6n70f/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fk-home%2F310791%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Fk-home%2Fi%2F10084344%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" target="_blank" rel="nofollow sponsored noopener"
+ data-affiliate="rakuten" data-position="quick_finder_result" data-category="carbonated-water" data-product-id="k-home:10084344"
+ data-product-name="【24本セット】 炭酸水 500ml 24本 強炭酸水 プレーン レモン グレープフルーツ 500ml×24本 ラベルレス 炭酸 強炭酸水500ml ケース CRYSTALSPARK クリスタルスパーク アイリスオーヤマ 【代引き不可】" data-rank="3" data-metric="per_liter"
+ data-unit-price="126.666667" data-shipping="included">楽天で確認 →</a>
+</div></article></div>
+<a class="finder-all" href="categories/carbonated-water/?pick=small#included">この条件の商品を全部見る →</a>
+</div><div class="finder-picks" data-finder-picks="carbonated-water:large" hidden>
+<div class="finder-picks-head"><span>あなた向け</span><strong>🫧 炭酸水 × まとめ買い</strong></div>
+<div class="finder-products"><article class="finder-product">
+<div class="finder-product-media"><img src="https://thumbnail.image.rakuten.co.jp/@0_mall/kurashikenkou/cabinet/jisyakura2/311521.jpg?_ex=128x128" alt="" loading="lazy"></div>
+<div class="finder-product-copy">
+<span class="finder-product-rank">1</span>
+<strong>【訳あり商品】炭酸水 1L 15本 強炭酸水 炭酸 飲料 富士山の強炭酸水 ラベルレス ケース 水 ミネラルウォーター ゼロカロリー 糖類ゼロ 無糖 無果汁 富士山の強炭酸水 1L ラベルレス プレーン レモン アイリスオーヤマ</strong>
+<div class="finder-product-price">¥66.7 <small>1Lあたり</small></div>
+<div class="finder-product-meta">1000ml×15本 / 合計15L ・ ¥1,000</div>
+<div class="finder-why"><span>なぜ？</span>大容量側の中で単価が安い候補</div>
+<a class="cta" href="https://hb.afl.rakuten.co.jp/hgc/g00qhoao.7cx6m91b.g00qhoao.7cx6n00f/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fkurashikenkou%2F311521%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Fkurashikenkou%2Fi%2F10217349%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" target="_blank" rel="nofollow sponsored noopener"
+ data-affiliate="rakuten" data-position="quick_finder_result" data-category="carbonated-water" data-product-id="kurashikenkou:10217349"
+ data-product-name="【訳あり商品】炭酸水 1L 15本 強炭酸水 炭酸 飲料 富士山の強炭酸水 ラベルレス ケース 水 ミネラルウォーター ゼロカロリー 糖類ゼロ 無糖 無果汁 富士山の強炭酸水 1L ラベルレス プレーン レモン アイリスオーヤマ" data-rank="1" data-metric="per_liter"
+ data-unit-price="66.666667" data-shipping="included">楽天で確認 →</a>
+</div></article><article class="finder-product">
+<div class="finder-product-media"><img src="https://thumbnail.image.rakuten.co.jp/@0_mall/s-kodawari/cabinet/eigyouyou1/311521_b.jpg?_ex=128x128" alt="" loading="lazy"></div>
+<div class="finder-product-copy">
+<span class="finder-product-rank">2</span>
+<strong>炭酸水 1L 15本 選べるラベルレス 強炭酸水 アイリスオーヤマ 無糖 プレーン レモン フレーバー 国産 天然水 ソーダ 割り材 まとめ買い 1000ml 炭酸飲料 ゼロカロリー クリスタルスパーク CRYSTALSPARK 富士山の強炭酸水 *無果汁 糖類ゼロ 飲料</strong>
+<div class="finder-product-price">¥105 <small>1Lあたり</small></div>
+<div class="finder-product-meta">1000ml×15本 / 合計15L ・ ¥1,580</div>
+<div class="finder-why"><span>なぜ？</span>大容量側の中で単価が安い候補</div>
+<a class="cta" href="https://hb.afl.rakuten.co.jp/hgc/g00tux1o.7cx6mb61.g00tux1o.7cx6n3ef/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fs-kodawari%2F311521%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Fs-kodawari%2Fi%2F10005268%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" target="_blank" rel="nofollow sponsored noopener"
+ data-affiliate="rakuten" data-position="quick_finder_result" data-category="carbonated-water" data-product-id="s-kodawari:10005268"
+ data-product-name="炭酸水 1L 15本 選べるラベルレス 強炭酸水 アイリスオーヤマ 無糖 プレーン レモン フレーバー 国産 天然水 ソーダ 割り材 まとめ買い 1000ml 炭酸飲料 ゼロカロリー クリスタルスパーク CRYSTALSPARK 富士山の強炭酸水 *無果汁 糖類ゼロ 飲料" data-rank="2" data-metric="per_liter"
+ data-unit-price="105.333333" data-shipping="included">楽天で確認 →</a>
+</div></article><article class="finder-product">
+<div class="finder-product-media"><img src="https://thumbnail.image.rakuten.co.jp/@0_mall/enetroom/cabinet/tenposupport07/311521_a.jpg?_ex=128x128" alt="" loading="lazy"></div>
+<div class="finder-product-copy">
+<span class="finder-product-rank">3</span>
+<strong>[最大1,000円OFFクーポン/くらしにプラス] 炭酸水 1L 15本 選べるラベルレス 強炭酸水 アイリスオーヤマ 無糖 プレーン レモン フレーバー 天然水 ソーダ 割り材 まとめ買い 1000ml 炭酸飲料 ゼロカロリー クリスタルスパーク CRYSTALSPARK 富士山の強炭酸水 *</strong>
+<div class="finder-product-price">¥112 <small>1Lあたり</small></div>
+<div class="finder-product-meta">1000ml×15本 / 合計15L ・ ¥1,680</div>
+<div class="finder-why"><span>なぜ？</span>大容量側の中で単価が安い候補</div>
+<a class="cta" href="https://hb.afl.rakuten.co.jp/hgc/g00prkeo.7cx6mad8.g00prkeo.7cx6n8a5/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fenetroom%2F311521%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Fenetroom%2Fi%2F10199647%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" target="_blank" rel="nofollow sponsored noopener"
+ data-affiliate="rakuten" data-position="quick_finder_result" data-category="carbonated-water" data-product-id="enetroom:10199647"
+ data-product-name="[最大1,000円OFFクーポン/くらしにプラス] 炭酸水 1L 15本 選べるラベルレス 強炭酸水 アイリスオーヤマ 無糖 プレーン レモン フレーバー 天然水 ソーダ 割り材 まとめ買い 1000ml 炭酸飲料 ゼロカロリー クリスタルスパーク CRYSTALSPARK 富士山の強炭酸水 *" data-rank="3" data-metric="per_liter"
+ data-unit-price="112.000000" data-shipping="included">楽天で確認 →</a>
+</div></article></div>
+<a class="finder-all" href="categories/carbonated-water/?pick=large#included">この条件の商品を全部見る →</a>
+</div><div class="finder-picks" data-finder-picks="carbonated-water:budget" hidden>
+<div class="finder-picks-head"><span>あなた向け</span><strong>🫧 炭酸水 × 支払総額を抑える</strong></div>
+<div class="finder-products"><article class="finder-product">
+<div class="finder-product-media"><img src="https://thumbnail.image.rakuten.co.jp/@0_mall/kurashikenkou/cabinet/jisyakura2/311521.jpg?_ex=128x128" alt="" loading="lazy"></div>
+<div class="finder-product-copy">
+<span class="finder-product-rank">1</span>
+<strong>【訳あり商品】炭酸水 1L 15本 強炭酸水 炭酸 飲料 富士山の強炭酸水 ラベルレス ケース 水 ミネラルウォーター ゼロカロリー 糖類ゼロ 無糖 無果汁 富士山の強炭酸水 1L ラベルレス プレーン レモン アイリスオーヤマ</strong>
+<div class="finder-product-price">¥66.7 <small>1Lあたり</small></div>
+<div class="finder-product-meta">1000ml×15本 / 合計15L ・ ¥1,000</div>
+<div class="finder-why"><span>なぜ？</span>支払総額を抑えやすい候補</div>
+<a class="cta" href="https://hb.afl.rakuten.co.jp/hgc/g00qhoao.7cx6m91b.g00qhoao.7cx6n00f/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fkurashikenkou%2F311521%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Fkurashikenkou%2Fi%2F10217349%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" target="_blank" rel="nofollow sponsored noopener"
+ data-affiliate="rakuten" data-position="quick_finder_result" data-category="carbonated-water" data-product-id="kurashikenkou:10217349"
+ data-product-name="【訳あり商品】炭酸水 1L 15本 強炭酸水 炭酸 飲料 富士山の強炭酸水 ラベルレス ケース 水 ミネラルウォーター ゼロカロリー 糖類ゼロ 無糖 無果汁 富士山の強炭酸水 1L ラベルレス プレーン レモン アイリスオーヤマ" data-rank="1" data-metric="per_liter"
+ data-unit-price="66.666667" data-shipping="included">楽天で確認 →</a>
+</div></article><article class="finder-product">
+<div class="finder-product-media"><img src="https://thumbnail.image.rakuten.co.jp/@0_mall/kurashikenkou/cabinet/jisyakura2/ranking_310791.jpg?_ex=128x128" alt="" loading="lazy"></div>
+<div class="finder-product-copy">
+<span class="finder-product-rank">2</span>
+<strong>炭酸水 500ml 24本 選べるラベルレス 強炭酸水 アイリスオーヤマ 無糖 プレーン レモン フレーバー 天然水 ソーダ カロリーゼロ 割り材 まとめ買い 炭酸飲料 クリスタルスパーク CRYSTALSPARK 富士山の強炭酸水 * 【代引き不可】</strong>
+<div class="finder-product-price">¥118 <small>1Lあたり</small></div>
+<div class="finder-product-meta">500ml×24本 / 合計12L ・ ¥1,420</div>
+<div class="finder-why"><span>なぜ？</span>商品価格が低めの候補</div>
+<a class="cta" href="https://hb.afl.rakuten.co.jp/hgc/g00qhoao.7cx6m91b.g00qhoao.7cx6n00f/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fkurashikenkou%2F310791%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Fkurashikenkou%2Fi%2F10201356%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" target="_blank" rel="nofollow sponsored noopener"
+ data-affiliate="rakuten" data-position="quick_finder_result" data-category="carbonated-water" data-product-id="kurashikenkou:10201356"
+ data-product-name="炭酸水 500ml 24本 選べるラベルレス 強炭酸水 アイリスオーヤマ 無糖 プレーン レモン フレーバー 天然水 ソーダ カロリーゼロ 割り材 まとめ買い 炭酸飲料 クリスタルスパーク CRYSTALSPARK 富士山の強炭酸水 * 【代引き不可】" data-rank="2" data-metric="per_liter"
+ data-unit-price="118.333333" data-shipping="included">楽天で確認 →</a>
+</div></article><article class="finder-product">
+<div class="finder-product-media"><img src="https://thumbnail.image.rakuten.co.jp/@0_mall/k-home/cabinet/thum/naosi/syoumou_set/310791_thumb.jpg?_ex=128x128" alt="" loading="lazy"></div>
+<div class="finder-product-copy">
+<span class="finder-product-rank">3</span>
+<strong>【24本セット】 炭酸水 500ml 24本 強炭酸水 プレーン レモン グレープフルーツ 500ml×24本 ラベルレス 炭酸 強炭酸水500ml ケース CRYSTALSPARK クリスタルスパーク アイリスオーヤマ 【代引き不可】</strong>
+<div class="finder-product-price">¥127 <small>1Lあたり</small></div>
+<div class="finder-product-meta">500ml×24本 / 合計12L ・ ¥1,520</div>
+<div class="finder-why"><span>なぜ？</span>商品価格が低めの候補</div>
+<a class="cta" href="https://hb.afl.rakuten.co.jp/hgc/g00rqlbo.7cx6mdc3.g00rqlbo.7cx6n70f/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fk-home%2F310791%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Fk-home%2Fi%2F10084344%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" target="_blank" rel="nofollow sponsored noopener"
+ data-affiliate="rakuten" data-position="quick_finder_result" data-category="carbonated-water" data-product-id="k-home:10084344"
+ data-product-name="【24本セット】 炭酸水 500ml 24本 強炭酸水 プレーン レモン グレープフルーツ 500ml×24本 ラベルレス 炭酸 強炭酸水500ml ケース CRYSTALSPARK クリスタルスパーク アイリスオーヤマ 【代引き不可】" data-rank="3" data-metric="per_liter"
+ data-unit-price="126.666667" data-shipping="included">楽天で確認 →</a>
+</div></article></div>
+<a class="finder-all" href="categories/carbonated-water/?pick=budget#included">この条件の商品を全部見る →</a>
+</div><div class="finder-picks" data-finder-picks="carbonated-water:storage" hidden>
+<div class="finder-picks-head"><span>あなた向け</span><strong>🫧 炭酸水 × 保管しやすさ重視</strong></div>
+<div class="finder-products"><article class="finder-product">
+<div class="finder-product-media"><img src="https://thumbnail.image.rakuten.co.jp/@0_mall/kurashikenkou/cabinet/jisyakura2/ranking_310791.jpg?_ex=128x128" alt="" loading="lazy"></div>
+<div class="finder-product-copy">
+<span class="finder-product-rank">1</span>
+<strong>炭酸水 500ml 24本 選べるラベルレス 強炭酸水 アイリスオーヤマ 無糖 プレーン レモン フレーバー 天然水 ソーダ カロリーゼロ 割り材 まとめ買い 炭酸飲料 クリスタルスパーク CRYSTALSPARK 富士山の強炭酸水 * 【代引き不可】</strong>
+<div class="finder-product-price">¥118 <small>1Lあたり</small></div>
+<div class="finder-product-meta">500ml×24本 / 合計12L ・ ¥1,420</div>
+<div class="finder-why"><span>なぜ？</span>保管しやすい少量側から選定</div>
+<a class="cta" href="https://hb.afl.rakuten.co.jp/hgc/g00qhoao.7cx6m91b.g00qhoao.7cx6n00f/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fkurashikenkou%2F310791%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Fkurashikenkou%2Fi%2F10201356%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" target="_blank" rel="nofollow sponsored noopener"
+ data-affiliate="rakuten" data-position="quick_finder_result" data-category="carbonated-water" data-product-id="kurashikenkou:10201356"
+ data-product-name="炭酸水 500ml 24本 選べるラベルレス 強炭酸水 アイリスオーヤマ 無糖 プレーン レモン フレーバー 天然水 ソーダ カロリーゼロ 割り材 まとめ買い 炭酸飲料 クリスタルスパーク CRYSTALSPARK 富士山の強炭酸水 * 【代引き不可】" data-rank="1" data-metric="per_liter"
+ data-unit-price="118.333333" data-shipping="included">楽天で確認 →</a>
+</div></article><article class="finder-product">
+<div class="finder-product-media"><img src="https://thumbnail.image.rakuten.co.jp/@0_mall/k-home/cabinet/thum/naosi/syoumou_set/310791_thumb.jpg?_ex=128x128" alt="" loading="lazy"></div>
+<div class="finder-product-copy">
+<span class="finder-product-rank">2</span>
+<strong>【24本セット】 炭酸水 500ml 24本 強炭酸水 プレーン レモン グレープフルーツ 500ml×24本 ラベルレス 炭酸 強炭酸水500ml ケース CRYSTALSPARK クリスタルスパーク アイリスオーヤマ 【代引き不可】</strong>
+<div class="finder-product-price">¥127 <small>1Lあたり</small></div>
+<div class="finder-product-meta">500ml×24本 / 合計12L ・ ¥1,520</div>
+<div class="finder-why"><span>なぜ？</span>置き場所を取りにくい候補</div>
+<a class="cta" href="https://hb.afl.rakuten.co.jp/hgc/g00rqlbo.7cx6mdc3.g00rqlbo.7cx6n70f/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fk-home%2F310791%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Fk-home%2Fi%2F10084344%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" target="_blank" rel="nofollow sponsored noopener"
+ data-affiliate="rakuten" data-position="quick_finder_result" data-category="carbonated-water" data-product-id="k-home:10084344"
+ data-product-name="【24本セット】 炭酸水 500ml 24本 強炭酸水 プレーン レモン グレープフルーツ 500ml×24本 ラベルレス 炭酸 強炭酸水500ml ケース CRYSTALSPARK クリスタルスパーク アイリスオーヤマ 【代引き不可】" data-rank="2" data-metric="per_liter"
+ data-unit-price="126.666667" data-shipping="included">楽天で確認 →</a>
+</div></article><article class="finder-product">
+<div class="finder-product-media"><img src="https://thumbnail.image.rakuten.co.jp/@0_mall/irisplaza-r/cabinet/talent/crystalspark/312012_rg.jpg?_ex=128x128" alt="" loading="lazy"></div>
+<div class="finder-product-copy">
+<span class="finder-product-rank">3</span>
+<strong>【公式】炭酸水 500ml 48本 (24本入×2箱) 強炭酸水 アイリスオーヤマ クリスタルスパーク 炭酸 レモン マスカット ラムネ グレープ 和梨 ジンジャーエール フレーバー プレーン 無糖 天然水 アイリスフーズ ペットボトル</strong>
+<div class="finder-product-price">¥123 <small>1Lあたり</small></div>
+<div class="finder-product-meta">500ml×48本 / 合計24L ・ ¥2,960</div>
+<div class="finder-why"><span>なぜ？</span>置き場所を取りにくい候補</div>
+<a class="cta" href="https://hb.afl.rakuten.co.jp/hgc/g00t3zto.7cx6m5be.g00t3zto.7cx6n748/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Firisplaza-r%2F312012%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Firisplaza-r%2Fi%2F10158173%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" target="_blank" rel="nofollow sponsored noopener"
+ data-affiliate="rakuten" data-position="quick_finder_result" data-category="carbonated-water" data-product-id="irisplaza-r:10158173"
+ data-product-name="【公式】炭酸水 500ml 48本 (24本入×2箱) 強炭酸水 アイリスオーヤマ クリスタルスパーク 炭酸 レモン マスカット ラムネ グレープ 和梨 ジンジャーエール フレーバー プレーン 無糖 天然水 アイリスフーズ ペットボトル" data-rank="3" data-metric="per_liter"
+ data-unit-price="123.333333" data-shipping="included">楽天で確認 →</a>
+</div></article></div>
+<a class="finder-all" href="categories/carbonated-water/?pick=storage#included">この条件の商品を全部見る →</a>
+</div><div class="finder-picks" data-finder-picks="oatmeal:cheap" hidden>
+<div class="finder-picks-head"><span>あなた向け</span><strong>🥣 オートミール × 単価重視</strong></div>
+<div class="finder-products"><article class="finder-product">
+<div class="finder-product-media"><img src="https://thumbnail.image.rakuten.co.jp/@0_mall/slow-foods/cabinet/oatmeal/imgrc0118352263.jpg?_ex=128x128" alt="" loading="lazy"></div>
+<div class="finder-product-copy">
+<span class="finder-product-rank">1</span>
+<strong>1g当り0.84円 超！超コスパ！ 直売価格 6600g (2.2Kg×3袋) プレミアム オートミール 大容量★化学農薬不使用★化学肥料不使用栽培 送料無料(沖縄県は他商品との同梱時、送料がかかる場合があります)</strong>
+<div class="finder-product-price">¥85.0 <small>100gあたり</small></div>
+<div class="finder-product-meta">合計6.6kg / 3個・食 ・ ¥5,609</div>
+<div class="finder-why"><span>なぜ？</span>この条件で単価が安い候補</div>
+<a class="cta" href="https://hb.afl.rakuten.co.jp/hgc/g00q07so.7cx6m06d.g00q07so.7cx6ne8c/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fslow-foods%2F10003596%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Fslow-foods%2Fi%2F10003596%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" target="_blank" rel="nofollow sponsored noopener"
+ data-affiliate="rakuten" data-position="quick_finder_result" data-category="oatmeal" data-product-id="slow-foods:10003596"
+ data-product-name="1g当り0.84円 超！超コスパ！ 直売価格 6600g (2.2Kg×3袋) プレミアム オートミール 大容量★化学農薬不使用★化学肥料不使用栽培 送料無料(沖縄県は他商品との同梱時、送料がかかる場合があります)" data-rank="1" data-metric="per_100g"
+ data-unit-price="84.984848" data-shipping="included">楽天で確認 →</a>
+</div></article><article class="finder-product">
+<div class="finder-product-media"><img src="https://thumbnail.image.rakuten.co.jp/@0_mall/slow-foods/cabinet/oatmeal/06161932/imgrc0119030618.gif?_ex=128x128" alt="" loading="lazy"></div>
+<div class="finder-product-copy">
+<span class="finder-product-rank">2</span>
+<strong>熱湯50秒で出来上がります。 2.2KG×3袋 ★化学農薬不使用★化学肥料不使用栽培 粒を小さくしたタイプ プレミアム インスタント オートミール アメリカOTCO認定無添加(化学添加物不使用)</strong>
+<div class="finder-product-price">¥89.9 <small>100gあたり</small></div>
+<div class="finder-product-meta">合計6.6kg / 3個・食 ・ ¥5,933</div>
+<div class="finder-why"><span>なぜ？</span>上位の高コスパ候補</div>
+<a class="cta" href="https://hb.afl.rakuten.co.jp/hgc/g00q07so.7cx6m06d.g00q07so.7cx6ne8c/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fslow-foods%2F10003761%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Fslow-foods%2Fi%2F10003761%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" target="_blank" rel="nofollow sponsored noopener"
+ data-affiliate="rakuten" data-position="quick_finder_result" data-category="oatmeal" data-product-id="slow-foods:10003761"
+ data-product-name="熱湯50秒で出来上がります。 2.2KG×3袋 ★化学農薬不使用★化学肥料不使用栽培 粒を小さくしたタイプ プレミアム インスタント オートミール アメリカOTCO認定無添加(化学添加物不使用)" data-rank="2" data-metric="per_100g"
+ data-unit-price="89.893939" data-shipping="included">楽天で確認 →</a>
+</div></article><article class="finder-product">
+<div class="finder-product-media"><img src="https://thumbnail.image.rakuten.co.jp/@0_mall/keyroom-hida/cabinet/10846981/imgrc0083745777.jpg?_ex=128x128" alt="" loading="lazy"></div>
+<div class="finder-product-copy">
+<span class="finder-product-rank">3</span>
+<strong>【KEYROOMの日！最大2000円OFF】 クエーカー オールドファッション オートミール 1.2kg 12個 QUAKER オーツ麦 えん麦 燕麦 大容量 オーストラリア産 穀物100% シリアル フレーク 全粒 シリアル 輸入菓子 ランキング ポイント消化 福袋</strong>
+<div class="finder-product-price">¥96.4 <small>100gあたり</small></div>
+<div class="finder-product-meta">合計14.4kg / 12個・食 ・ ¥13,880</div>
+<div class="finder-why"><span>なぜ？</span>上位の高コスパ候補</div>
+<a class="cta" href="https://hb.afl.rakuten.co.jp/hgc/g00tw89o.7cx6m23c.g00tw89o.7cx6n420/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fkeyroom-hida%2Fkeyroom-10000969%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Fkeyroom-hida%2Fi%2F10000897%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" target="_blank" rel="nofollow sponsored noopener"
+ data-affiliate="rakuten" data-position="quick_finder_result" data-category="oatmeal" data-product-id="keyroom-hida:10000897"
+ data-product-name="【KEYROOMの日！最大2000円OFF】 クエーカー オールドファッション オートミール 1.2kg 12個 QUAKER オーツ麦 えん麦 燕麦 大容量 オーストラリア産 穀物100% シリアル フレーク 全粒 シリアル 輸入菓子 ランキング ポイント消化 福袋" data-rank="3" data-metric="per_100g"
+ data-unit-price="96.388889" data-shipping="included">楽天で確認 →</a>
+</div></article></div>
+<a class="finder-all" href="categories/oatmeal/?pick=cheap#included">この条件の商品を全部見る →</a>
+</div><div class="finder-picks" data-finder-picks="oatmeal:small" hidden>
+<div class="finder-picks-head"><span>あなた向け</span><strong>🥣 オートミール × 少量で買いたい</strong></div>
+<div class="finder-products"><article class="finder-product">
+<div class="finder-product-media"><img src="https://thumbnail.image.rakuten.co.jp/@0_mall/nuthyougo/cabinet/item161-1000.jpg?_ex=128x128" alt="" loading="lazy"></div>
+<div class="finder-product-copy">
+<span class="finder-product-rank">1</span>
+<strong>オートミール 1kg クイックオーツ オーツ麦 燕麦 高品質 業務用 食物繊維 鉄分 カルシウム 不溶性 水溶性 ダイエット 筋トレ 置き換え食品 ヘルシー 健康 保存便利チャック付き袋使用『無添加・無塩・植物油不使用』</strong>
+<div class="finder-product-price">¥106 <small>100gあたり</small></div>
+<div class="finder-product-meta">合計1kg ・ ¥1,060</div>
+<div class="finder-why"><span>なぜ？</span>少量側の中で単価が安い候補</div>
+<a class="cta" href="https://hb.afl.rakuten.co.jp/hgc/g00trtso.7cx6m07f.g00trtso.7cx6n586/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fnuthyougo%2Fitem163%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Fnuthyougo%2Fi%2F10000174%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" target="_blank" rel="nofollow sponsored noopener"
+ data-affiliate="rakuten" data-position="quick_finder_result" data-category="oatmeal" data-product-id="nuthyougo:10000174"
+ data-product-name="オートミール 1kg クイックオーツ オーツ麦 燕麦 高品質 業務用 食物繊維 鉄分 カルシウム 不溶性 水溶性 ダイエット 筋トレ 置き換え食品 ヘルシー 健康 保存便利チャック付き袋使用『無添加・無塩・植物油不使用』" data-rank="1" data-metric="per_100g"
+ data-unit-price="106.000000" data-shipping="included">楽天で確認 →</a>
+</div></article><article class="finder-product">
+<div class="finder-product-media"><img src="https://thumbnail.image.rakuten.co.jp/@0_mall/nuthyougo/cabinet/item165-1000.jpg?_ex=128x128" alt="" loading="lazy"></div>
+<div class="finder-product-copy">
+<span class="finder-product-rank">2</span>
+<strong>オートミール 1kg オーツ麦 ロールドオーツ 燕麦 高品質 業務用 食物繊維 鉄分 カルシウム 不溶性 水溶性 ダイエット 筋トレ 置き換え食品 ヘルシー 健康 保存便利チャック付き袋使用『無添加・無塩・植物油不使用』</strong>
+<div class="finder-product-price">¥106 <small>100gあたり</small></div>
+<div class="finder-product-meta">合計1kg ・ ¥1,060</div>
+<div class="finder-why"><span>なぜ？</span>少量側の中で単価が安い候補</div>
+<a class="cta" href="https://hb.afl.rakuten.co.jp/hgc/g00trtso.7cx6m07f.g00trtso.7cx6n586/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fnuthyougo%2Fitem166%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Fnuthyougo%2Fi%2F10000177%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" target="_blank" rel="nofollow sponsored noopener"
+ data-affiliate="rakuten" data-position="quick_finder_result" data-category="oatmeal" data-product-id="nuthyougo:10000177"
+ data-product-name="オートミール 1kg オーツ麦 ロールドオーツ 燕麦 高品質 業務用 食物繊維 鉄分 カルシウム 不溶性 水溶性 ダイエット 筋トレ 置き換え食品 ヘルシー 健康 保存便利チャック付き袋使用『無添加・無塩・植物油不使用』" data-rank="2" data-metric="per_100g"
+ data-unit-price="106.000000" data-shipping="included">楽天で確認 →</a>
+</div></article><article class="finder-product">
+<div class="finder-product-media"><img src="https://thumbnail.image.rakuten.co.jp/@0_mall/nuthyougo/cabinet/item165-1000.jpg?_ex=128x128" alt="" loading="lazy"></div>
+<div class="finder-product-copy">
+<span class="finder-product-rank">3</span>
+<strong>オートミール 1kg ロールドオーツ オーツ麦 燕麦 高品質 業務用 食物繊維 鉄分 カルシウム 不溶性 水溶性 ダイエット 筋トレ 置き換え食品 ヘルシー 健康 保存便利チャック付き袋使用『無添加・無塩・植物油不使用』</strong>
+<div class="finder-product-price">¥106 <small>100gあたり</small></div>
+<div class="finder-product-meta">合計1kg ・ ¥1,060</div>
+<div class="finder-why"><span>なぜ？</span>少量側の中で単価が安い候補</div>
+<a class="cta" href="https://hb.afl.rakuten.co.jp/hgc/g00trtso.7cx6m07f.g00trtso.7cx6n586/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fnuthyougo%2F7-1000%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Fnuthyougo%2Fi%2F10000199%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" target="_blank" rel="nofollow sponsored noopener"
+ data-affiliate="rakuten" data-position="quick_finder_result" data-category="oatmeal" data-product-id="nuthyougo:10000199"
+ data-product-name="オートミール 1kg ロールドオーツ オーツ麦 燕麦 高品質 業務用 食物繊維 鉄分 カルシウム 不溶性 水溶性 ダイエット 筋トレ 置き換え食品 ヘルシー 健康 保存便利チャック付き袋使用『無添加・無塩・植物油不使用』" data-rank="3" data-metric="per_100g"
+ data-unit-price="106.000000" data-shipping="included">楽天で確認 →</a>
+</div></article></div>
+<a class="finder-all" href="categories/oatmeal/?pick=small#included">この条件の商品を全部見る →</a>
+</div><div class="finder-picks" data-finder-picks="oatmeal:large" hidden>
+<div class="finder-picks-head"><span>あなた向け</span><strong>🥣 オートミール × まとめ買い</strong></div>
+<div class="finder-products"><article class="finder-product">
+<div class="finder-product-media"><img src="https://thumbnail.image.rakuten.co.jp/@0_mall/slow-foods/cabinet/oatmeal/imgrc0118352263.jpg?_ex=128x128" alt="" loading="lazy"></div>
+<div class="finder-product-copy">
+<span class="finder-product-rank">1</span>
+<strong>1g当り0.84円 超！超コスパ！ 直売価格 6600g (2.2Kg×3袋) プレミアム オートミール 大容量★化学農薬不使用★化学肥料不使用栽培 送料無料(沖縄県は他商品との同梱時、送料がかかる場合があります)</strong>
+<div class="finder-product-price">¥85.0 <small>100gあたり</small></div>
+<div class="finder-product-meta">合計6.6kg / 3個・食 ・ ¥5,609</div>
+<div class="finder-why"><span>なぜ？</span>大容量側の中で単価が安い候補</div>
+<a class="cta" href="https://hb.afl.rakuten.co.jp/hgc/g00q07so.7cx6m06d.g00q07so.7cx6ne8c/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fslow-foods%2F10003596%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Fslow-foods%2Fi%2F10003596%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" target="_blank" rel="nofollow sponsored noopener"
+ data-affiliate="rakuten" data-position="quick_finder_result" data-category="oatmeal" data-product-id="slow-foods:10003596"
+ data-product-name="1g当り0.84円 超！超コスパ！ 直売価格 6600g (2.2Kg×3袋) プレミアム オートミール 大容量★化学農薬不使用★化学肥料不使用栽培 送料無料(沖縄県は他商品との同梱時、送料がかかる場合があります)" data-rank="1" data-metric="per_100g"
+ data-unit-price="84.984848" data-shipping="included">楽天で確認 →</a>
+</div></article><article class="finder-product">
+<div class="finder-product-media"><img src="https://thumbnail.image.rakuten.co.jp/@0_mall/slow-foods/cabinet/oatmeal/06161932/imgrc0119030618.gif?_ex=128x128" alt="" loading="lazy"></div>
+<div class="finder-product-copy">
+<span class="finder-product-rank">2</span>
+<strong>熱湯50秒で出来上がります。 2.2KG×3袋 ★化学農薬不使用★化学肥料不使用栽培 粒を小さくしたタイプ プレミアム インスタント オートミール アメリカOTCO認定無添加(化学添加物不使用)</strong>
+<div class="finder-product-price">¥89.9 <small>100gあたり</small></div>
+<div class="finder-product-meta">合計6.6kg / 3個・食 ・ ¥5,933</div>
+<div class="finder-why"><span>なぜ？</span>大容量側の中で単価が安い候補</div>
+<a class="cta" href="https://hb.afl.rakuten.co.jp/hgc/g00q07so.7cx6m06d.g00q07so.7cx6ne8c/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fslow-foods%2F10003761%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Fslow-foods%2Fi%2F10003761%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" target="_blank" rel="nofollow sponsored noopener"
+ data-affiliate="rakuten" data-position="quick_finder_result" data-category="oatmeal" data-product-id="slow-foods:10003761"
+ data-product-name="熱湯50秒で出来上がります。 2.2KG×3袋 ★化学農薬不使用★化学肥料不使用栽培 粒を小さくしたタイプ プレミアム インスタント オートミール アメリカOTCO認定無添加(化学添加物不使用)" data-rank="2" data-metric="per_100g"
+ data-unit-price="89.893939" data-shipping="included">楽天で確認 →</a>
+</div></article><article class="finder-product">
+<div class="finder-product-media"><img src="https://thumbnail.image.rakuten.co.jp/@0_mall/keyroom-hida/cabinet/10846981/imgrc0083745777.jpg?_ex=128x128" alt="" loading="lazy"></div>
+<div class="finder-product-copy">
+<span class="finder-product-rank">3</span>
+<strong>【KEYROOMの日！最大2000円OFF】 クエーカー オールドファッション オートミール 1.2kg 12個 QUAKER オーツ麦 えん麦 燕麦 大容量 オーストラリア産 穀物100% シリアル フレーク 全粒 シリアル 輸入菓子 ランキング ポイント消化 福袋</strong>
+<div class="finder-product-price">¥96.4 <small>100gあたり</small></div>
+<div class="finder-product-meta">合計14.4kg / 12個・食 ・ ¥13,880</div>
+<div class="finder-why"><span>なぜ？</span>大容量側の中で単価が安い候補</div>
+<a class="cta" href="https://hb.afl.rakuten.co.jp/hgc/g00tw89o.7cx6m23c.g00tw89o.7cx6n420/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fkeyroom-hida%2Fkeyroom-10000969%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Fkeyroom-hida%2Fi%2F10000897%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" target="_blank" rel="nofollow sponsored noopener"
+ data-affiliate="rakuten" data-position="quick_finder_result" data-category="oatmeal" data-product-id="keyroom-hida:10000897"
+ data-product-name="【KEYROOMの日！最大2000円OFF】 クエーカー オールドファッション オートミール 1.2kg 12個 QUAKER オーツ麦 えん麦 燕麦 大容量 オーストラリア産 穀物100% シリアル フレーク 全粒 シリアル 輸入菓子 ランキング ポイント消化 福袋" data-rank="3" data-metric="per_100g"
+ data-unit-price="96.388889" data-shipping="included">楽天で確認 →</a>
+</div></article></div>
+<a class="finder-all" href="categories/oatmeal/?pick=large#included">この条件の商品を全部見る →</a>
+</div><div class="finder-picks" data-finder-picks="oatmeal:budget" hidden>
+<div class="finder-picks-head"><span>あなた向け</span><strong>🥣 オートミール × 支払総額を抑える</strong></div>
+<div class="finder-products"><article class="finder-product">
+<div class="finder-product-media"><img src="https://thumbnail.image.rakuten.co.jp/@0_mall/nuthyougo/cabinet/item161-1000.jpg?_ex=128x128" alt="" loading="lazy"></div>
+<div class="finder-product-copy">
+<span class="finder-product-rank">1</span>
+<strong>オートミール 1kg クイックオーツ オーツ麦 燕麦 高品質 業務用 食物繊維 鉄分 カルシウム 不溶性 水溶性 ダイエット 筋トレ 置き換え食品 ヘルシー 健康 保存便利チャック付き袋使用『無添加・無塩・植物油不使用』</strong>
+<div class="finder-product-price">¥106 <small>100gあたり</small></div>
+<div class="finder-product-meta">合計1kg ・ ¥1,060</div>
+<div class="finder-why"><span>なぜ？</span>支払総額を抑えやすい候補</div>
+<a class="cta" href="https://hb.afl.rakuten.co.jp/hgc/g00trtso.7cx6m07f.g00trtso.7cx6n586/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fnuthyougo%2Fitem163%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Fnuthyougo%2Fi%2F10000174%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" target="_blank" rel="nofollow sponsored noopener"
+ data-affiliate="rakuten" data-position="quick_finder_result" data-category="oatmeal" data-product-id="nuthyougo:10000174"
+ data-product-name="オートミール 1kg クイックオーツ オーツ麦 燕麦 高品質 業務用 食物繊維 鉄分 カルシウム 不溶性 水溶性 ダイエット 筋トレ 置き換え食品 ヘルシー 健康 保存便利チャック付き袋使用『無添加・無塩・植物油不使用』" data-rank="1" data-metric="per_100g"
+ data-unit-price="106.000000" data-shipping="included">楽天で確認 →</a>
+</div></article><article class="finder-product">
+<div class="finder-product-media"><img src="https://thumbnail.image.rakuten.co.jp/@0_mall/nuthyougo/cabinet/item165-1000.jpg?_ex=128x128" alt="" loading="lazy"></div>
+<div class="finder-product-copy">
+<span class="finder-product-rank">2</span>
+<strong>オートミール 1kg オーツ麦 ロールドオーツ 燕麦 高品質 業務用 食物繊維 鉄分 カルシウム 不溶性 水溶性 ダイエット 筋トレ 置き換え食品 ヘルシー 健康 保存便利チャック付き袋使用『無添加・無塩・植物油不使用』</strong>
+<div class="finder-product-price">¥106 <small>100gあたり</small></div>
+<div class="finder-product-meta">合計1kg ・ ¥1,060</div>
+<div class="finder-why"><span>なぜ？</span>商品価格が低めの候補</div>
+<a class="cta" href="https://hb.afl.rakuten.co.jp/hgc/g00trtso.7cx6m07f.g00trtso.7cx6n586/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fnuthyougo%2Fitem166%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Fnuthyougo%2Fi%2F10000177%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" target="_blank" rel="nofollow sponsored noopener"
+ data-affiliate="rakuten" data-position="quick_finder_result" data-category="oatmeal" data-product-id="nuthyougo:10000177"
+ data-product-name="オートミール 1kg オーツ麦 ロールドオーツ 燕麦 高品質 業務用 食物繊維 鉄分 カルシウム 不溶性 水溶性 ダイエット 筋トレ 置き換え食品 ヘルシー 健康 保存便利チャック付き袋使用『無添加・無塩・植物油不使用』" data-rank="2" data-metric="per_100g"
+ data-unit-price="106.000000" data-shipping="included">楽天で確認 →</a>
+</div></article><article class="finder-product">
+<div class="finder-product-media"><img src="https://thumbnail.image.rakuten.co.jp/@0_mall/nuthyougo/cabinet/item165-1000.jpg?_ex=128x128" alt="" loading="lazy"></div>
+<div class="finder-product-copy">
+<span class="finder-product-rank">3</span>
+<strong>オートミール 1kg ロールドオーツ オーツ麦 燕麦 高品質 業務用 食物繊維 鉄分 カルシウム 不溶性 水溶性 ダイエット 筋トレ 置き換え食品 ヘルシー 健康 保存便利チャック付き袋使用『無添加・無塩・植物油不使用』</strong>
+<div class="finder-product-price">¥106 <small>100gあたり</small></div>
+<div class="finder-product-meta">合計1kg ・ ¥1,060</div>
+<div class="finder-why"><span>なぜ？</span>商品価格が低めの候補</div>
+<a class="cta" href="https://hb.afl.rakuten.co.jp/hgc/g00trtso.7cx6m07f.g00trtso.7cx6n586/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fnuthyougo%2F7-1000%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Fnuthyougo%2Fi%2F10000199%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" target="_blank" rel="nofollow sponsored noopener"
+ data-affiliate="rakuten" data-position="quick_finder_result" data-category="oatmeal" data-product-id="nuthyougo:10000199"
+ data-product-name="オートミール 1kg ロールドオーツ オーツ麦 燕麦 高品質 業務用 食物繊維 鉄分 カルシウム 不溶性 水溶性 ダイエット 筋トレ 置き換え食品 ヘルシー 健康 保存便利チャック付き袋使用『無添加・無塩・植物油不使用』" data-rank="3" data-metric="per_100g"
+ data-unit-price="106.000000" data-shipping="included">楽天で確認 →</a>
+</div></article></div>
+<a class="finder-all" href="categories/oatmeal/?pick=budget#included">この条件の商品を全部見る →</a>
+</div><div class="finder-picks" data-finder-picks="oatmeal:storage" hidden>
+<div class="finder-picks-head"><span>あなた向け</span><strong>🥣 オートミール × 保管しやすさ重視</strong></div>
+<div class="finder-products"><article class="finder-product">
+<div class="finder-product-media"><img src="https://thumbnail.image.rakuten.co.jp/@0_mall/nuthyougo/cabinet/item161-1000.jpg?_ex=128x128" alt="" loading="lazy"></div>
+<div class="finder-product-copy">
+<span class="finder-product-rank">1</span>
+<strong>オートミール 1kg クイックオーツ オーツ麦 燕麦 高品質 業務用 食物繊維 鉄分 カルシウム 不溶性 水溶性 ダイエット 筋トレ 置き換え食品 ヘルシー 健康 保存便利チャック付き袋使用『無添加・無塩・植物油不使用』</strong>
+<div class="finder-product-price">¥106 <small>100gあたり</small></div>
+<div class="finder-product-meta">合計1kg ・ ¥1,060</div>
+<div class="finder-why"><span>なぜ？</span>保管しやすい少量側から選定</div>
+<a class="cta" href="https://hb.afl.rakuten.co.jp/hgc/g00trtso.7cx6m07f.g00trtso.7cx6n586/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fnuthyougo%2Fitem163%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Fnuthyougo%2Fi%2F10000174%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" target="_blank" rel="nofollow sponsored noopener"
+ data-affiliate="rakuten" data-position="quick_finder_result" data-category="oatmeal" data-product-id="nuthyougo:10000174"
+ data-product-name="オートミール 1kg クイックオーツ オーツ麦 燕麦 高品質 業務用 食物繊維 鉄分 カルシウム 不溶性 水溶性 ダイエット 筋トレ 置き換え食品 ヘルシー 健康 保存便利チャック付き袋使用『無添加・無塩・植物油不使用』" data-rank="1" data-metric="per_100g"
+ data-unit-price="106.000000" data-shipping="included">楽天で確認 →</a>
+</div></article><article class="finder-product">
+<div class="finder-product-media"><img src="https://thumbnail.image.rakuten.co.jp/@0_mall/nuthyougo/cabinet/item165-1000.jpg?_ex=128x128" alt="" loading="lazy"></div>
+<div class="finder-product-copy">
+<span class="finder-product-rank">2</span>
+<strong>オートミール 1kg オーツ麦 ロールドオーツ 燕麦 高品質 業務用 食物繊維 鉄分 カルシウム 不溶性 水溶性 ダイエット 筋トレ 置き換え食品 ヘルシー 健康 保存便利チャック付き袋使用『無添加・無塩・植物油不使用』</strong>
+<div class="finder-product-price">¥106 <small>100gあたり</small></div>
+<div class="finder-product-meta">合計1kg ・ ¥1,060</div>
+<div class="finder-why"><span>なぜ？</span>置き場所を取りにくい候補</div>
+<a class="cta" href="https://hb.afl.rakuten.co.jp/hgc/g00trtso.7cx6m07f.g00trtso.7cx6n586/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fnuthyougo%2Fitem166%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Fnuthyougo%2Fi%2F10000177%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" target="_blank" rel="nofollow sponsored noopener"
+ data-affiliate="rakuten" data-position="quick_finder_result" data-category="oatmeal" data-product-id="nuthyougo:10000177"
+ data-product-name="オートミール 1kg オーツ麦 ロールドオーツ 燕麦 高品質 業務用 食物繊維 鉄分 カルシウム 不溶性 水溶性 ダイエット 筋トレ 置き換え食品 ヘルシー 健康 保存便利チャック付き袋使用『無添加・無塩・植物油不使用』" data-rank="2" data-metric="per_100g"
+ data-unit-price="106.000000" data-shipping="included">楽天で確認 →</a>
+</div></article><article class="finder-product">
+<div class="finder-product-media"><img src="https://thumbnail.image.rakuten.co.jp/@0_mall/nuthyougo/cabinet/item165-1000.jpg?_ex=128x128" alt="" loading="lazy"></div>
+<div class="finder-product-copy">
+<span class="finder-product-rank">3</span>
+<strong>オートミール 1kg ロールドオーツ オーツ麦 燕麦 高品質 業務用 食物繊維 鉄分 カルシウム 不溶性 水溶性 ダイエット 筋トレ 置き換え食品 ヘルシー 健康 保存便利チャック付き袋使用『無添加・無塩・植物油不使用』</strong>
+<div class="finder-product-price">¥106 <small>100gあたり</small></div>
+<div class="finder-product-meta">合計1kg ・ ¥1,060</div>
+<div class="finder-why"><span>なぜ？</span>置き場所を取りにくい候補</div>
+<a class="cta" href="https://hb.afl.rakuten.co.jp/hgc/g00trtso.7cx6m07f.g00trtso.7cx6n586/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fnuthyougo%2F7-1000%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Fnuthyougo%2Fi%2F10000199%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" target="_blank" rel="nofollow sponsored noopener"
+ data-affiliate="rakuten" data-position="quick_finder_result" data-category="oatmeal" data-product-id="nuthyougo:10000199"
+ data-product-name="オートミール 1kg ロールドオーツ オーツ麦 燕麦 高品質 業務用 食物繊維 鉄分 カルシウム 不溶性 水溶性 ダイエット 筋トレ 置き換え食品 ヘルシー 健康 保存便利チャック付き袋使用『無添加・無塩・植物油不使用』" data-rank="3" data-metric="per_100g"
+ data-unit-price="106.000000" data-shipping="included">楽天で確認 →</a>
+</div></article></div>
+<a class="finder-all" href="categories/oatmeal/?pick=storage#included">この条件の商品を全部見る →</a>
+</div>
+</div>
+</section>
+<section class="section">
+<div class="section-kicker">CHOOSE A CATEGORY</div>
+<h2>まず、比べたい食品を選ぶ。</h2>
+<section class="grid"><a class="card category-card pack-rice" href="categories/pack-rice/">
+<div class="category-art"><svg viewBox="0 0 240 180" role="img" aria-hidden="true" focusable="false" class="food-art compact" xmlns="http://www.w3.org/2000/svg">
+<ellipse cx="121" cy="151" rx="82" ry="12" fill="#000" opacity=".06"/>
+<rect x="48" y="72" width="144" height="70" rx="18" fill="#FFF0DD" stroke="#B8793D" stroke-width="5"/>
+<rect x="61" y="54" width="118" height="39" rx="14" fill="#fff" stroke="#B8793D" stroke-width="5"/>
+<path d="M75 79c16-24 73-24 91 0" fill="#fff" stroke="#D4B08B" stroke-width="4"/>
+<circle cx="91" cy="71" r="5" fill="#F0E5D8"/><circle cx="113" cy="64" r="5" fill="#F0E5D8"/><circle cx="137" cy="69" r="5" fill="#F0E5D8"/><circle cx="154" cy="76" r="4" fill="#F0E5D8"/>
+<path d="M79 111h82" stroke="#E3B87F" stroke-width="6" stroke-linecap="round"/>
+<path d="M85 126h58" stroke="#E3B87F" stroke-width="6" stroke-linecap="round"/>
+<path d="M183 37c11 9 11 20 0 29M198 28c14 13 14 31 0 44" fill="none" stroke="#F2B56E" stroke-width="5" stroke-linecap="round"/>
+</svg></div>
+<div class="category-copy">
+<div class="category-name">🍚 パックご飯</div>
+<div class="category-price">1食あたり ¥130〜</div>
+<div class="category-meta">送料込み 18件を比較中</div>
+<p>食数と内容量をそろえ、24食・40食などの箱違いを公平に比較します。</p>
+<span class="category-go">ランキングを見る →</span>
+</div>
+</a><a class="card category-card rice" href="categories/rice/">
+<div class="category-art"><svg viewBox="0 0 240 180" role="img" aria-hidden="true" focusable="false" class="food-art compact" xmlns="http://www.w3.org/2000/svg">
+<ellipse cx="122" cy="151" rx="78" ry="12" fill="#000" opacity=".06"/>
+<path d="M67 45h94l13 99H54L67 45Z" fill="#FFF8DE" stroke="#8A7130" stroke-width="5"/>
+<path d="M73 45c8-18 74-18 82 0" fill="#F1D978" stroke="#8A7130" stroke-width="5"/>
+<path d="M91 92c18-21 44-21 62 0-16 11-47 11-62 0Z" fill="#fff" stroke="#8A7130" stroke-width="4"/>
+<path d="M122 69c-8 13-12 24-10 34M125 68c8 13 12 24 10 34" stroke="#84A657" stroke-width="4" stroke-linecap="round"/>
+<text x="120" y="126" text-anchor="middle" font-size="18" font-weight="800" fill="#66531F">おこめ</text>
+<circle cx="48" cy="65" r="11" fill="#D8E8B5"/><circle cx="183" cy="75" r="8" fill="#F2D870"/>
+</svg></div>
+<div class="category-copy">
+<div class="category-name">🌾 米</div>
+<div class="category-price">1kgあたり ¥333〜</div>
+<div class="category-meta">送料込み 12件を比較中</div>
+<p>5kg・10kgなど総重量が違う商品を1kgあたりへ換算します。</p>
+<span class="category-go">ランキングを見る →</span>
+</div>
+</a><a class="card category-card carbonated-water" href="categories/carbonated-water/">
+<div class="category-art"><svg viewBox="0 0 240 180" role="img" aria-hidden="true" focusable="false" class="food-art compact" xmlns="http://www.w3.org/2000/svg">
+<ellipse cx="120" cy="154" rx="72" ry="10" fill="#000" opacity=".06"/>
+<path d="M89 51h52l9 91c1 8-5 14-13 14H93c-8 0-14-6-13-14l9-91Z" fill="#DCF7FF" stroke="#4C9CB8" stroke-width="5"/>
+<rect x="96" y="30" width="38" height="28" rx="8" fill="#8AD5EA" stroke="#4C9CB8" stroke-width="5"/>
+<rect x="95" y="82" width="48" height="38" rx="12" fill="#fff" opacity=".8"/>
+<circle cx="109" cy="101" r="7" fill="#7ED5EF"/><circle cx="129" cy="94" r="5" fill="#7ED5EF"/><circle cx="124" cy="113" r="4" fill="#7ED5EF"/>
+<circle cx="171" cy="51" r="10" fill="#B9ECFA"/><circle cx="188" cy="78" r="6" fill="#B9ECFA"/><circle cx="58" cy="73" r="8" fill="#B9ECFA"/>
+</svg></div>
+<div class="category-copy">
+<div class="category-name">🫧 炭酸水</div>
+<div class="category-price">1Lあたり ¥66.7〜</div>
+<div class="category-meta">送料込み 12件を比較中</div>
+<p>500ml・1L・24本・48本などを1Lあたりと1本あたりへ換算します。</p>
+<span class="category-go">ランキングを見る →</span>
+</div>
+</a><a class="card category-card oatmeal" href="categories/oatmeal/">
+<div class="category-art"><svg viewBox="0 0 240 180" role="img" aria-hidden="true" focusable="false" class="food-art compact" xmlns="http://www.w3.org/2000/svg">
+<ellipse cx="120" cy="151" rx="79" ry="11" fill="#000" opacity=".06"/>
+<path d="M57 88h126c-5 42-25 62-63 62S62 130 57 88Z" fill="#F7E2C5" stroke="#9A7045" stroke-width="5"/>
+<path d="M70 87c12-25 90-25 102 0" fill="#DDBB8B" stroke="#9A7045" stroke-width="5"/>
+<ellipse cx="93" cy="79" rx="10" ry="6" fill="#F8EACF"/><ellipse cx="119" cy="74" rx="11" ry="6" fill="#F8EACF"/><ellipse cx="145" cy="80" rx="9" ry="5" fill="#F8EACF"/>
+<path d="M164 34c-13 15-25 36-32 58" stroke="#717B61" stroke-width="7" stroke-linecap="round"/>
+<circle cx="169" cy="30" r="8" fill="#A9B68E"/>
+</svg></div>
+<div class="category-copy">
+<div class="category-name">🥣 オートミール</div>
+<div class="category-price">100gあたり ¥85.0〜</div>
+<div class="category-meta">送料込み 26件を比較中</div>
+<p>1kg袋・複数袋セットを100gあたりと1kgあたりへ換算します。</p>
+<span class="category-go">ランキングを見る →</span>
+</div>
+</a></section></section><section class="section intent-section">
+<div class="section-kicker">POPULAR SEARCHES</div>
+<h2>よく比べられる条件から探す。</h2>
+<div class="intent-grid"><a class="intent-card" href="guides/pack-rice-200g-cost/">
+<span>パックご飯200g前後のコスパ比較</span><small>180〜210g前後のパックご飯から、送料込みで比較できる商品を1食あたりの単価で見ます。</small><b>比較を見る →</b>
+</a><a class="intent-card" href="guides/pack-rice-bulk-cost/">
+<span>パックご飯まとめ買いのコスパ比較</span><small>25食以上のまとめ買い向け商品を中心に、1食あたりの単価と総額を比べます。</small><b>比較を見る →</b>
+</a><a class="intent-card" href="guides/rice-5kg-cost/">
+<span>米5kgのコスパ比較</span><small>5kg前後の米を送料込みでそろえ、商品価格だけでなく1kgあたりの単価で比べます。</small><b>比較を見る →</b>
+</a><a class="intent-card" href="guides/rice-10kg-cost/">
+<span>米10kgのコスパ比較</span><small>10kg前後の米を1kgあたりへ換算し、まとめ買い時の価格差を見やすくします。</small><b>比較を見る →</b>
+</a><a class="intent-card" href="guides/carbonated-water-24-cost/">
+<span>炭酸水24本のコスパ比較</span><small>24本セットの炭酸水を中心に、1Lあたりと1本あたりの両方で比べます。</small><b>比較を見る →</b>
+</a><a class="intent-card" href="guides/carbonated-water-48-cost/">
+<span>炭酸水48本のコスパ比較</span><small>48本前後の大容量セットを中心に、まとめ買い時の単価を比べます。</small><b>比較を見る →</b>
+</a><a class="intent-card" href="guides/oatmeal-1kg-cost/">
+<span>オートミール1kgのコスパ比較</span><small>1kg前後のオートミールを100gあたりへ換算し、袋価格だけでは分からない差を比べます。</small><b>比較を見る →</b>
+</a><a class="intent-card" href="guides/oatmeal-bulk-cost/">
+<span>オートミール大容量のコスパ比較</span><small>1kg超の大容量商品を中心に、100gあたり・1kgあたりの単価を比べます。</small><b>比較を見る →</b>
+</a></div>
+</section><section class="section flow-section">
+<div class="section-kicker">HOW IT WORKS</div>
+<h2>値札だけでは分からない「本当の安さ」を3ステップで。</h2>
+<div class="flow-grid">
+<div class="flow-card"><div class="flow-icon">🧾</div><strong>1. 商品情報を取得</strong><p>価格・容量・個数・送料条件を楽天の商品情報から確認。</p></div>
+<div class="flow-arrow">→</div>
+<div class="flow-card"><div class="flow-icon">⚖️</div><strong>2. 同じ単位にそろえる</strong><p>1食・1kg・1L・100gあたりへ換算して比較できる形に。</p></div>
+<div class="flow-arrow">→</div>
+<div class="flow-card"><div class="flow-icon">🏆</div><strong>3. 安い順で見る</strong><p>数量が曖昧な商品は外し、送料込みの商品を先にランキング。</p></div>
+</div>
+</section><section class="section explain">
+<h2>このサイトの比較ルール</h2>
+<p>送料込み確認済みを主ランキングにし、送料別は別枠。容量・数量が曖昧な商品は無理に計算しません。定期便・初回限定価格も通常ランキングへ混ぜません。</p>
+<ul class="guide-list">
+<li>容量やセット数を同じ単位に換算して比較</li>
+<li>クーポンやポイントは通常単価へ勝手に差し引かない</li>
+<li>販売数量を一意に確定できない商品はランキングから除外</li>
+</ul>
+</section></main><script>(()=>{
+const K='food_cost_operator_test_v1',p=new URLSearchParams(location.search);
+let op=false;
+try{op=localStorage.getItem(K)==='1'}catch(e){}
+if(p.get('test')==='1'||p.get('test')==='0'){
+  op=p.get('test')==='1';
+  try{op?localStorage.setItem(K,'1'):localStorage.removeItem(K)}catch(e){}
+  const u=new URL(location.href);u.searchParams.delete('test');history.replaceState(history.state,'',u.href)
+}
+const send=(n,x={})=>{if(typeof gtag==='function')gtag('event',n,{site_id:'food_cost_jp',...(op?{operator_test:'1'}:{}),...x})};
+document.addEventListener('click',e=>{
+  const a=e.target.closest('a[data-affiliate]');if(!a)return;
+  const x={affiliate:'rakuten',conversion_source:'category',category_id:a.dataset.category,product_id:a.dataset.productId,product_name:a.dataset.productName,rank:a.dataset.rank,comparison_metric:a.dataset.metric,unit_price:Number(a.dataset.unitPrice||0),shipping_status:a.dataset.shipping,click_position:a.dataset.position||'comparison_table',link_url:a.href};
+  send('product_result_click',x);send('affiliate_click',x)
+});
+document.querySelectorAll('[data-sort]').forEach(s=>s.addEventListener('change',()=>{
+  const root=s.closest('[data-comparison]'),body=root.querySelector('tbody'),rows=[...body.querySelectorAll('tr')],m=s.value;
+  rows.sort((a,b)=>Number(a.dataset[m]||Infinity)-Number(b.dataset[m]||Infinity));
+  rows.forEach((r,i)=>{r.querySelector('[data-rank]').textContent=i+1;body.appendChild(r)});
+  send('comparison_sort',{category_id:s.dataset.category,comparison_metric:m})
+}));
+const applyFilters=root=>{
+  const size=root.querySelector('[data-filter]')?.value||'all';
+  const term=(root.querySelector('[data-search]')?.value||'').trim().toLowerCase();
+  let shown=0;
+  root.querySelectorAll('tbody tr').forEach(r=>{
+    const sizeOk=size==='all'||r.dataset.bucket===size;
+    const textOk=!term||(r.dataset.searchText||'').includes(term);
+    r.hidden=!(sizeOk&&textOk);
+    if(!r.hidden)shown++;
+  });
+  const empty=root.querySelector('[data-empty-filter]');
+  if(empty)empty.style.display=shown?'none':'block';
+};
+document.querySelectorAll('[data-filter]').forEach(s=>s.addEventListener('change',()=>{
+  const root=s.closest('[data-comparison]');applyFilters(root);
+  send('comparison_filter_use',{category_id:s.dataset.category,filter_value:s.value})
+}));
+document.querySelectorAll('[data-search]').forEach(input=>input.addEventListener('change',()=>{
+  const root=input.closest('[data-comparison]');applyFilters(root);
+  send('comparison_search_use',{category_id:input.dataset.category,search_term:input.value.trim()})
+}));
+const finder=document.querySelector('[data-finder]');
+if(finder){
+  let category='';
+  const categoryStage=finder.querySelector('[data-finder-category-stage]');
+  const purposeStage=finder.querySelector('[data-finder-purpose-stage]');
+  const resultStage=finder.querySelector('[data-finder-result-stage]');
+  const qTitle=finder.querySelector('[data-finder-question-title]');
+  const show=el=>{if(el)el.hidden=false};
+  const hide=el=>{if(el)el.hidden=true};
+  const reset=()=>{
+    category='';
+    show(categoryStage);hide(purposeStage);hide(resultStage);
+    finder.querySelectorAll('.selected').forEach(x=>x.classList.remove('selected'));
+    finder.querySelectorAll('[data-finder-picks]').forEach(x=>x.hidden=true)
+  };
+  finder.querySelectorAll('[data-finder-category]').forEach(btn=>btn.addEventListener('click',()=>{
+    category=btn.dataset.finderCategory;
+    finder.querySelectorAll('[data-finder-category]').forEach(x=>x.classList.toggle('selected',x===btn));
+    qTitle.textContent=btn.dataset.finderName+'は、どう買いたい？';
+    hide(categoryStage);show(purposeStage);hide(resultStage);
+    send('quick_finder_category',{category_id:category})
+  }));
+  finder.querySelectorAll('[data-finder-purpose]').forEach(btn=>btn.addEventListener('click',()=>{
+    if(!category)return;
+    const purpose=btn.dataset.finderPurpose;
+    finder.querySelectorAll('[data-finder-picks]').forEach(panel=>panel.hidden=panel.dataset.finderPicks!==category+':'+purpose);
+    hide(categoryStage);hide(purposeStage);show(resultStage);
+    send('quick_finder_complete',{category_id:category,finder_purpose:purpose})
+  }));
+  finder.querySelector('[data-finder-back]')?.addEventListener('click',reset);
+  finder.querySelector('[data-finder-reset]')?.addEventListener('click',reset);
+}
+const pick=new URLSearchParams(location.search).get('pick');
+if(pick&&document.querySelector('[data-comparison]')){
+  const root=document.querySelector('[data-comparison]');
+  const filter=root.querySelector('[data-filter]');
+  const sort=root.querySelector('[data-sort]');
+  if(filter&&(pick==='small'||pick==='large'))filter.value=pick;
+  if(filter&&pick==='storage')filter.value='small';
+  if(sort&&(pick==='budget'||pick==='storage')){sort.value='price';sort.dispatchEvent(new Event('change'))}
+  const details=root.closest('details');if(details)details.open=true;
+  applyFilters(root);
+  send('quick_finder_landing',{category_id:filter?.dataset.category||'',finder_purpose:pick})
+}
+})();</script>
+<footer><div class="wrap">当サイトは楽天アフィリエイトを利用しています。</div></footer>
+</body></html>
