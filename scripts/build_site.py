@@ -556,6 +556,65 @@ def hero_illustrations() -> str:
     return f'<div class="hero-art-grid" aria-hidden="true">{items}</div>'
 
 
+def guide_mascot(compact: bool = False) -> str:
+    cls = "guide-mascot compact" if compact else "guide-mascot"
+    return f"""<svg class="{cls}" viewBox="0 0 300 260" role="img" aria-label="食品コスパ比較の案内役" xmlns="http://www.w3.org/2000/svg">
+<ellipse cx="150" cy="232" rx="92" ry="15" fill="#173F31" opacity=".08"/>
+<path d="M69 91h153l-15 103c-2 14-14 24-28 24h-58c-14 0-26-10-28-24L69 91Z" fill="#F4D88A" stroke="#315A43" stroke-width="7"/>
+<path d="M104 90c4-35 88-35 92 0" fill="none" stroke="#315A43" stroke-width="8" stroke-linecap="round"/>
+<rect x="111" y="118" width="78" height="69" rx="14" fill="#FFFDF8" stroke="#315A43" stroke-width="6"/>
+<rect x="126" y="132" width="48" height="15" rx="5" fill="#DDEDDC"/>
+<circle cx="131" cy="163" r="6" fill="#6FA37E"/><circle cx="150" cy="163" r="6" fill="#6FA37E"/><circle cx="169" cy="163" r="6" fill="#6FA37E"/>
+<circle cx="122" cy="104" r="6" fill="#315A43"/><circle cx="180" cy="104" r="6" fill="#315A43"/>
+<path d="M139 108c6 8 16 8 22 0" fill="none" stroke="#315A43" stroke-width="5" stroke-linecap="round"/>
+<circle cx="61" cy="55" r="24" fill="#DDF4E5"/><text x="61" y="63" text-anchor="middle" font-size="22">¥</text>
+<circle cx="236" cy="56" r="25" fill="#DDF3FA"/><text x="236" y="64" text-anchor="middle" font-size="22">÷</text>
+<path d="M82 61c14 7 21 16 25 27M216 63c-12 8-19 16-23 27" fill="none" stroke="#9EC4AA" stroke-width="4" stroke-linecap="round"/>
+</svg>"""
+
+
+def hero_visual() -> str:
+    return f"""<div class="hero-visual" aria-hidden="true">
+<div class="mascot-bubble">同じ単位にそろえて<br><strong>安い順にするよ</strong></div>
+{guide_mascot()}
+<div class="hero-food-chip chip-rice">🌾 1kg</div>
+<div class="hero-food-chip chip-water">🫧 1L</div>
+<div class="hero-food-chip chip-pack">🍚 1食</div>
+<div class="hero-food-chip chip-oats">🥣 100g</div>
+</div>"""
+
+
+def finder_pick_items(items: list[dict], category: dict, purpose: str) -> list[dict]:
+    if purpose == "small":
+        picked = [x for x in items if bucket(x, category["id"]) == "small"]
+    elif purpose == "large":
+        picked = [x for x in items if bucket(x, category["id"]) == "large"]
+    else:
+        picked = list(items)
+    return picked[:3] if picked else list(items[:3])
+
+
+def finder_product_card(item: dict, category: dict, position: int) -> str:
+    primary = item["unit_prices"][category["primary"]]
+    image = (
+        f'<img src="{html.escape(item["image"], quote=True)}" alt="" loading="lazy">'
+        if item["image"] else category_illustration(category["id"], True)
+    )
+    return f"""<article class="finder-product">
+<div class="finder-product-media">{image}</div>
+<div class="finder-product-copy">
+<span class="finder-product-rank">{position}</span>
+<strong>{html.escape(item["name"])}</strong>
+<div class="finder-product-price">{yen(primary)} <small>{html.escape(category["primary_label"])}</small></div>
+<div class="finder-product-meta">{html.escape(quantity_text(item, category["id"]))} ・ ¥{item["price"]:,}</div>
+<a class="cta" href="{html.escape(item["url"], quote=True)}" target="_blank" rel="nofollow sponsored noopener"
+ data-affiliate="rakuten" data-position="quick_finder_result" data-category="{category['id']}" data-product-id="{html.escape(item['id'], quote=True)}"
+ data-product-name="{html.escape(item['name'], quote=True)}" data-rank="{position}" data-metric="{category['primary']}"
+ data-unit-price="{primary:.6f}" data-shipping="{item['shipping_status']}">楽天で確認 →</a>
+</div></article>"""
+
+
+
 def top3_html(items: list[dict], category: dict) -> str:
     if not items:
         return ""
