@@ -9,6 +9,7 @@ sys.path.insert(0, str(Path(__file__).parents[1] / "scripts"))
 from price_history import apply_price_history, load_price_history, save_price_history
 from build_site import (
     CATEGORIES,
+    cta_copy,
     deals_page,
     price_signal,
     compact_product_name,
@@ -69,6 +70,10 @@ class PriceHistoryTests(unittest.TestCase):
         self.assertEqual(info["previous_label"], "昨日比")
         self.assertTrue(info["is_30d_low"])
         self.assertEqual(len(info["series_30d"]), 2)
+        self.assertEqual(len(info["series_7d"]), 2)
+        self.assertEqual(info["trend_7d"], "down")
+        self.assertEqual(info["highest_30d_unit"], 600)
+        self.assertEqual(info["lowest_7d_unit"], 500)
         self.assertAlmostEqual(info["percent_delta"], -16.6666666, places=4)
 
     def test_quantity_change_resets_comparison(self):
@@ -132,10 +137,12 @@ class PriceHistoryTests(unittest.TestCase):
         self.assertIn("30日内の最安水準", reason)
         graph = sparkline_svg(second)
         self.assertIn("<polyline", graph)
-        self.assertIn("30日価格履歴", graph)
-        self.assertIn("現在", graph)
-        self.assertIn("30日最安", graph)
-        self.assertIn("前回", graph)
+        self.assertIn('data-history-range="7日"', graph)
+        self.assertIn('data-history-range="30日"', graph)
+        self.assertIn("最近下落", graph)
+        self.assertIn("最安", graph)
+        self.assertIn("最高", graph)
+        self.assertIn("値幅", graph)
 
     def test_deals_page_only_collects_real_price_drops(self):
         history = {"version": 1, "products": {}}
@@ -173,6 +180,21 @@ class PriceHistoryTests(unittest.TestCase):
         self.assertIn("../data/products.json", rendered)
         self.assertIn("food_cost_saved_v1", rendered)
         self.assertIn('data-watch-filter="drop"', rendered)
+
+
+    def test_cta_copy_changes_by_price_state_and_context(self):
+        history = {"version": 1, "products": {}}
+        first = rice_item(3000)
+        apply_price_history(history, category("rice"), [first], date(2026, 9, 30))
+        self.assertEqual(cta_copy(first, "top3", 1)[1], "rank1")
+        self.assertEqual(cta_copy(first, "finder", 2)[1], "finder")
+        self.assertEqual(cta_copy(first, "table", 5)[1], "standard")
+
+        second = rice_item(2500)
+        apply_price_history(history, category("rice"), [second], date(2026, 10, 1))
+        label, variant = cta_copy(second, "table", 4)
+        self.assertEqual(variant, "history_low")
+        self.assertIn("30日最安", label)
 
 
 if __name__ == "__main__":
