@@ -77,7 +77,11 @@ class GuideTests(unittest.TestCase):
         html = guide_page(spec, category, [item("rice", grams=10000)], NOW)
         self.assertIn("guides/rice-5kg-cost/", html)
         self.assertIn('"@type": "FAQPage"', html)
+        self.assertIn('"@type": "BreadcrumbList"', html)
+        self.assertIn('"@type": "ItemList"', html)
         self.assertIn("よくある質問", html)
+        self.assertIn('data-open-saved', html)
+        self.assertIn('data-compare-bar', html)
         self.assertIn("現在、条件に一致する掲載候補はありません", html)
         self.assertIn("別サイズの商品で穴埋めせず", html)
 
