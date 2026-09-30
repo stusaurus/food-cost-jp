@@ -634,6 +634,149 @@ def price_history_badges(item: dict) -> str:
     return "".join(parts)
 
 
+def price_signal(item: dict) -> tuple[str, str, str]:
+    history = item.get("price_history") or {}
+    observed = int(history.get("observed_days") or 0)
+    if observed < 2:
+        return "履歴蓄積中", "neutral", "2回以上の取得後に履歴ベースで判定します。"
+
+    series = history.get("series_30d") or []
+    current_unit = float(series[-1]["unit"]) if series else None
+    low = history.get("lowest_30d_unit")
+    delta = history.get("price_delta")
+
+    if history.get("is_30d_low") and delta is not None and delta < 0:
+        return "買い時寄り", "buy", "値下がりし、30日内の最安水準です。"
+    if delta is not None and delta < 0:
+        return "買い時寄り", "buy", "前回取得時より価格が下がっています。"
+    if current_unit is not None and low:
+        premium = (current_unit - float(low)) / float(low)
+        if premium >= 0.05:
+            return "様子見寄り", "wait", "30日内の最安水準より5%以上高い状態です。"
+    return "相場圏", "neutral", "直近履歴では大きな割高・値下がりは確認できません。"
+
+
+def sparkline_svg(item: dict) -> str:
+    history = item.get("price_history") or {}
+    series = history.get("series_30d") or []
+    values = [float(point.get("unit") or 0) for point in series if point.get("unit") is not None]
+    if len(values) < 2:
+        return '<div class="sparkline-empty">履歴を蓄積中</div>'
+    width, height, pad = 120.0, 36.0, 3.0
+    lo, hi = min(values), max(values)
+    span = hi - lo
+    points = []
+    for idx, value in enumerate(values):
+        x = pad + (width - pad * 2) * idx / max(1, len(values) - 1)
+        y = height / 2 if span < 1e-9 else pad + (height - pad * 2) * (hi - value) / span
+        points.append(f"{x:.1f},{y:.1f}")
+    _, tone, _ = price_signal(item)
+    return f"""<div class="sparkline-wrap">
+<svg class="sparkline {tone}" viewBox="0 0 120 36" role="img" aria-label="30日価格推移">
+<polyline points="{' '.join(points)}" fill="none" vector-effect="non-scaling-stroke"/>
+</svg><span>30日推移</span></div>"""
+
+
+def price_signal_html(item: dict) -> str:
+    label, tone, reason = price_signal(item)
+    return f"""<div class="buy-signal {tone}">
+<span>{html.escape(label)}</span><small>{html.escape(reason)}</small>
+</div>"""
+
+
+def deal_entries(results: dict) -> tuple[list[tuple], bool]:
+    deals = []
+    has_history = False
+    for category in CATEGORIES:
+        included, _ = results.get(category["id"], ([], []))
+        for item in included:
+            history = item.get("price_history") or {}
+            if history.get("previous_price") is not None:
+                has_history = True
+            delta = history.get("price_delta")
+            if delta is None or delta >= 0:
+                continue
+            percent = abs(float(history.get("percent_delta") or 0))
+            deals.append((
+                0 if history.get("is_30d_low") else 1,
+                -percent,
+                delta,
+                category,
+                item,
+            ))
+    deals.sort(key=lambda x: (x[0], x[1], x[2], x[4]["unit_prices"][x[3]["primary"]]))
+    return deals, has_history
+
+
+def deal_card_html(category: dict, item: dict, position: str = "today_deal") -> str:
+    history = item["price_history"]
+    primary = item["unit_prices"][category["primary"]]
+    image = (
+        f'<img src="{html.escape(item["image"], quote=True)}" alt="" loading="lazy">'
+        if item["image"] else category_illustration(category["id"], True)
+    )
+    label = history.get("previous_label") or "前回比"
+    return f"""<article class="deal-card">
+<div class="deal-media">{image}</div>
+<div class="deal-copy">
+<div class="deal-top"><span>{category["emoji"]} {html.escape(category["name"])}</span>{price_history_badges(item)}</div>
+{product_identity_html(item, category, "deal-name")}
+<div class="deal-price-row"><span class="deal-was">¥{history["previous_price"]:,}</span><strong>¥{item["price"]:,}</strong></div>
+<div class="deal-saving">{html.escape(label)} ¥{abs(int(history["price_delta"])):,}安い</div>
+<div class="deal-unit">{yen(primary)} <small>{html.escape(category["primary_label"])}</small></div>
+{sparkline_svg(item)}
+{price_signal_html(item)}
+{product_action_buttons(item, category, primary)}
+<a class="cta" href="{html.escape(item["url"], quote=True)}" target="_blank" rel="nofollow sponsored noopener"
+ data-affiliate="rakuten" data-position="{html.escape(position, quote=True)}" data-category="{category['id']}" data-product-id="{html.escape(item['id'], quote=True)}"
+ data-product-name="{html.escape(item['name'], quote=True)}" data-rank="" data-metric="{category['primary']}"
+ data-unit-price="{primary:.6f}" data-shipping="{item['shipping_status']}">値下がり商品を見る →</a>
+</div></article>"""
+
+
+def deals_page(results: dict, updated: datetime) -> str:
+    deals, has_history = deal_entries(results)
+    head = page_head(
+        "今日のお買い得｜食品コスパ比較",
+        "前回取得時より実際に値下がりした食品だけを、価格履歴と単価で確認できます。",
+        f"{SITE_URL}deals/",
+        breadcrumb_json_ld([
+            ("食品コスパ比較", SITE_URL),
+            ("今日のお買い得", f"{SITE_URL}deals/"),
+        ]),
+    )
+    if deals:
+        cards = "".join(deal_card_html(category, item, "deals_page") for _, _, _, category, item in deals)
+        body = f"""<section class="section deal-section">
+<div class="section-kicker">TODAY'S DEALS</div>
+<h2>実際に値下がりした商品 {len(deals)}件</h2>
+<p class="sub">同じ楽天商品IDかつ同じ容量構成だけを過去価格と比較しています。</p>
+<div class="deal-grid">{cards}</div>
+</section>"""
+    else:
+        message = (
+            "価格履歴を蓄積中です。翌日以降の更新から値下がり判定が育っていきます。"
+            if not has_history else
+            "前回取得価格より下がった商品はありません。無理に『お買い得』を作らず、値下がりが確認できた時だけ掲載します。"
+        )
+        body = f"""<section class="section explain"><h2>現在、掲載できる値下がり商品はありません</h2>
+<p>{html.escape(message)}</p></section>"""
+    return head + f"""<header><div class="wrap hero-layout">
+<div><a class="brand" href="../">食品コスパ比較</a><div class="eyebrow">PRICE HISTORY</div>
+<h1>今日のお買い得だけを見る。</h1>
+<p class="lead">単価ランキングとは別に、前回取得時より実際に安くなった商品だけを集めます。</p>
+<p class="note">最終価格確認: {updated:%Y-%m-%d %H:%M} JST</p></div>
+<div class="category-hero-art">{guide_mascot()}</div></div></header>
+<main class="wrap">{body}
+<section class="section explain"><h2>「今は安め」の判定について</h2>
+<p>未来の価格を予測するものではありません。実測履歴だけを使い、値下がり・30日内最安水準・過去30日との差から表示します。</p>
+<p><a class="finder-go" href="../">トップへ戻る →</a></p></section>
+{utility_panels_html()}</main><script>{JS}</script>
+<footer><div class="wrap">当サイトは楽天アフィリエイトを利用しています。価格は取得時点の参考情報です。</div></footer>
+</body></html>"""
+
+
+
 def today_deals_html(results: dict) -> str:
     deals, has_history = deal_entries(results)
     if not deals:
