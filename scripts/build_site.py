@@ -638,6 +638,7 @@ def finder_product_card(item: dict, category: dict, position: int, purpose: str)
 <div class="finder-product-price">{yen(primary)} <small>{html.escape(category["primary_label"])}</small></div>
 <div class="finder-product-meta">{html.escape(quantity_text(item, category["id"]))} ・ ¥{item["price"]:,}</div>
 <div class="finder-why"><span>なぜ？</span>{html.escape(reason)}</div>
+{product_action_buttons(item, category, primary)}
 <a class="cta" href="{html.escape(item["url"], quote=True)}" target="_blank" rel="nofollow sponsored noopener"
  data-affiliate="rakuten" data-position="quick_finder_result" data-category="{category['id']}" data-product-id="{html.escape(item['id'], quote=True)}"
  data-product-name="{html.escape(item['name'], quote=True)}" data-rank="{position}" data-metric="{category['primary']}"
@@ -738,6 +739,7 @@ def utility_panels_html() -> str:
 <div class="section-kicker">SAVED</div><h2>あとで見る</h2>
 <div data-saved-list></div>
 </div></div>
+<div class="site-toast" data-toast hidden></div>
 <div class="utility-modal" data-compare-modal hidden>
 <div class="utility-sheet utility-sheet-wide">
 <button class="utility-close" type="button" data-close-compare>×</button>
@@ -902,7 +904,7 @@ h1{font-size:clamp(32px,6vw,58px);line-height:1.08;margin:12px 0 16px;letter-spa
 .product-actions{display:flex;gap:6px;flex-wrap:wrap;margin:7px 0}.utility-btn{border:1px solid #d7ded7;background:#fff;color:#405048;border-radius:999px;padding:6px 9px;font-size:10px;font-weight:850;cursor:pointer}.utility-btn.active{background:var(--brand-soft);border-color:#9fc4aa;color:var(--brand)}.podium-card .product-actions{margin-top:9px}.podium-card .utility-btn{flex:1}
 .saved-fab{position:fixed;right:16px;bottom:18px;z-index:24;border:0;background:#fff;color:var(--brand2);box-shadow:0 10px 30px rgba(20,40,28,.18);border-radius:999px;padding:11px 15px;font-weight:950;cursor:pointer}.saved-fab span{display:inline-flex;min-width:20px;height:20px;align-items:center;justify-content:center;background:var(--brand);color:#fff;border-radius:50%;font-size:10px;margin-left:4px}
 .compare-bar{position:fixed;left:50%;bottom:16px;transform:translateX(-50%);z-index:23;width:min(760px,calc(100% - 150px));background:var(--brand2);color:#fff;border-radius:18px;padding:10px 12px;display:flex;align-items:center;gap:10px;box-shadow:0 16px 36px rgba(18,39,29,.25)}.compare-bar[hidden]{display:none}.compare-bar>div:first-child{min-width:95px}.compare-bar strong{display:block;font-size:11px}.compare-bar [data-compare-summary]{font-size:10px;color:#cfe1d5}.compare-bar-items{display:flex;gap:5px;overflow:hidden;flex:1}.compare-chip{max-width:150px;background:#ffffff18;border-radius:999px;padding:5px 8px;font-size:10px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.compare-open,.compare-clear{border:0;border-radius:10px;padding:8px 10px;font-weight:900;cursor:pointer}.compare-open{background:#fff;color:var(--brand2)}.compare-clear{background:transparent;color:#d7e5dc}
-.utility-modal{position:fixed;inset:0;background:#10211899;z-index:40;padding:20px;display:flex;align-items:flex-end;justify-content:center}.utility-modal[hidden]{display:none}.utility-sheet{position:relative;width:min(620px,100%);max-height:82vh;overflow:auto;background:#fffdf8;border-radius:24px 24px 12px 12px;padding:24px;box-shadow:0 24px 60px rgba(0,0,0,.25)}.utility-sheet-wide{width:min(920px,100%)}.utility-close{position:absolute;right:16px;top:14px;border:0;background:#eef3ed;width:34px;height:34px;border-radius:50%;font-size:22px;cursor:pointer}.saved-item{display:grid;grid-template-columns:58px 1fr auto;gap:10px;align-items:center;border-top:1px solid var(--line);padding:10px 0}.saved-item img{width:54px;height:54px;object-fit:contain}.saved-item strong{font-size:12px;line-height:1.4}.saved-item small{display:block;color:var(--muted)}.saved-item button{border:0;background:transparent;color:#8a4b45;cursor:pointer}.utility-empty{padding:24px 0;color:var(--muted);text-align:center}.compare-table{width:100%;overflow:auto}.compare-table table{min-width:620px}.compare-table th:first-child{position:sticky;left:0;background:#f3f5ef;z-index:1}.compare-table td:first-child{font-weight:900;background:#fffdf8}.compare-table a{color:var(--brand);font-weight:900}
+.utility-modal{position:fixed;inset:0;background:#10211899;z-index:40;padding:20px;display:flex;align-items:flex-end;justify-content:center}.utility-modal[hidden]{display:none}.utility-sheet{position:relative;width:min(620px,100%);max-height:82vh;overflow:auto;background:#fffdf8;border-radius:24px 24px 12px 12px;padding:24px;box-shadow:0 24px 60px rgba(0,0,0,.25)}.utility-sheet-wide{width:min(920px,100%)}.utility-close{position:absolute;right:16px;top:14px;border:0;background:#eef3ed;width:34px;height:34px;border-radius:50%;font-size:22px;cursor:pointer}.saved-item{display:grid;grid-template-columns:58px 1fr auto;gap:10px;align-items:center;border-top:1px solid var(--line);padding:10px 0}.saved-item img{width:54px;height:54px;object-fit:contain}.saved-item strong{font-size:12px;line-height:1.4}.saved-item small{display:block;color:var(--muted)}.saved-item button{border:0;background:transparent;color:#8a4b45;cursor:pointer}.site-toast{position:fixed;left:50%;bottom:95px;transform:translateX(-50%);z-index:60;background:#17211a;color:#fff;border-radius:999px;padding:9px 14px;font-size:11px;font-weight:850;box-shadow:0 10px 28px rgba(0,0,0,.22)}.site-toast[hidden]{display:none}.utility-empty{padding:24px 0;color:var(--muted);text-align:center}.compare-table{width:100%;overflow:auto}.compare-table table{min-width:620px}.compare-table th:first-child{position:sticky;left:0;background:#f3f5ef;z-index:1}.compare-table td:first-child{font-weight:900;background:#fffdf8}.compare-table a{color:var(--brand);font-weight:900}
 .faq-section{background:#fffdf8;border:1px solid var(--line);border-radius:24px;padding:24px}.faq-item{border-top:1px solid var(--line);padding:12px 0}.faq-item:first-of-type{border-top:0}.faq-item summary{cursor:pointer;font-weight:900}.faq-item p{color:var(--muted);margin:8px 0 0}
 footer{background:#fff;border-top:1px solid var(--line);padding:30px 0 42px;color:var(--muted);font-size:11px}
 @media(min-width:760px){.grid{grid-template-columns:1fr 1fr}}
@@ -1191,7 +1193,13 @@ def guide_page(spec: dict, category: dict, items: list[dict], updated: datetime)
         f"{spec['title']}｜食品コスパ比較",
         spec["intro"],
         canonical,
-        faq_json_ld(faqs),
+        faq_json_ld(faqs)
+        + breadcrumb_json_ld([
+            ("食品コスパ比較", SITE_URL),
+            (category["name"], f"{SITE_URL}categories/{category['id']}/"),
+            (spec["title"], canonical),
+        ])
+        + item_list_json_ld(picked, category),
     )
     cards = top3_html(picked, category) if picked else """<section class="section explain">
 <h2>現在、条件に一致する掲載候補はありません</h2>
@@ -1223,6 +1231,7 @@ def guide_page(spec: dict, category: dict, items: list[dict], updated: datetime)
 {more}
 {faq_html(faqs)}
 <section class="section explain"><h2>もっと広く比較する</h2><p><a class="finder-go" href="../../categories/{category['id']}/">{category['emoji']} {html.escape(category['name'])}の全ランキングを見る →</a></p></section>
+{utility_panels_html()}
 </main><script>{JS}</script>
 <footer><div class="wrap">当サイトは楽天アフィリエイトを利用しています。価格は取得時点の参考情報です。</div></footer>
 </body></html>"""
@@ -1436,7 +1445,9 @@ def home_page(results: dict, updated: datetime) -> str:
 <li>クーポンやポイントは通常単価へ勝手に差し引かない</li>
 <li>販売数量を一意に確定できない商品はランキングから除外</li>
 </ul>
-</section></main>"""
+</section>
+{utility_panels_html()}
+</main>"""
     )
     parts.append(
         f"""<script>{JS}</script>
