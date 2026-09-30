@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-30T20:22:37.461215+09:00",
+  "generated_at": "2026-09-30T23:15:02.561669+09:00",
   "site_id": "food_cost_jp",
   "inventory": {
     "pack-rice": {
@@ -11,14 +11,14 @@
     },
     "rice": {
       "name": "米",
-      "included_count": 16,
-      "shipping_unknown_count": 1,
+      "included_count": 19,
+      "shipping_unknown_count": 2,
       "history_ready_count": 0,
       "history_ready_rate": 0.0
     },
     "carbonated-water": {
       "name": "炭酸水",
-      "included_count": 18,
+      "included_count": 16,
       "shipping_unknown_count": 19,
       "history_ready_count": 0,
       "history_ready_rate": 0.0
@@ -33,7 +33,7 @@
   },
   "price_history": {
     "ready_count": 0,
-    "included_count": 79,
+    "included_count": 80,
     "ready_rate": 0.0,
     "deal_count": 0
   },
@@ -50,7 +50,7 @@
       {
         "slug": "carbonated-water-500ml-24-cost",
         "category_id": "carbonated-water",
-        "matched_count": 8,
+        "matched_count": 6,
         "title": "炭酸水500ml前後24本のコスパ比較"
       },
       {
@@ -68,7 +68,7 @@
       {
         "slug": "rice-musenmai-cost",
         "category_id": "rice",
-        "matched_count": 6,
+        "matched_count": 8,
         "title": "無洗米のコスパ比較"
       },
       {

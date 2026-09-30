@@ -442,6 +442,19 @@
       "product_id": "soukaidrink:10014152",
       "quantity_key": "{\"count\":24,\"total_volume_ml\":12000.0,\"unit_volume_ml\":500.0}"
     },
+    "carbonated-water|voltsparkling:10000002": {
+      "category_id": "carbonated-water",
+      "name": "【公式】VOLT 強炭酸 炭酸水 強炭酸水 500ml×24本 無糖 プレーン 炭酸水 スパークリングウォーター (一部地域を除く)箱買い ケース買い まとめ買い 割材 ハイボール レモンサワー 美容 常温保存 長期保存 サーフビバレッジ",
+      "points": [
+        {
+          "date": "2026-09-30",
+          "price": 1380,
+          "unit": 115.0
+        }
+      ],
+      "product_id": "voltsparkling:10000002",
+      "quantity_key": "{\"count\":24,\"total_volume_ml\":12000.0,\"unit_volume_ml\":500.0}"
+    },
     "carbonated-water|voltsparkling:10000005": {
       "category_id": "carbonated-water",
       "name": "【最安値挑戦中】【公式】VOLT 強炭酸 炭酸水 強炭酸水 1l×12本 1000ml 1リットル 無糖 プレーン 炭酸水 スパークリングウォーター (一部地域を除く) 箱買い ケース買い まとめ買い 割材 ハイボール レモンサワー 美容 常温保存 長期保存",
@@ -1495,6 +1508,19 @@
       "product_id": "hseason:10000260",
       "quantity_key": "{\"count\":2,\"total_weight_g\":10000.0,\"unit_weight_g\":5000.0}"
     },
+    "rice|imagi:10000084": {
+      "category_id": "rice",
+      "name": "新米入荷 新潟県産 こしいぶき 10kg(5kg×2袋) 令和8年産 米 (北海道、九州、沖縄除く)",
+      "points": [
+        {
+          "date": "2026-09-30",
+          "price": 5650,
+          "unit": 565.0
+        }
+      ],
+      "product_id": "imagi:10000084",
+      "quantity_key": "{\"count\":2,\"total_weight_g\":10000.0,\"unit_weight_g\":5000.0}"
+    },
     "rice|kawasaki-beikoku:10000016": {
       "category_id": "rice",
       "name": "新米 令和8年産 北海道産 ゆめぴりか 10kg (5kg×2袋セット)＜白米＞ 【北海道米 送料込み 米 お米 真空パック選択可】",
@@ -1506,6 +1532,19 @@
         }
       ],
       "product_id": "kawasaki-beikoku:10000016",
+      "quantity_key": "{\"count\":2,\"total_weight_g\":10000.0,\"unit_weight_g\":5000.0}"
+    },
+    "rice|komean-sugasawa:10000125": {
+      "category_id": "rice",
+      "name": "令和8年産 新米入荷！無洗米 あきたこまち 10kg(5kg×2）おいしい♪手間なし♪簡単♪ 千葉県産 本州・四国 【当店オススメ】【売れ筋】※九州・北海道発送不可※",
+      "points": [
+        {
+          "date": "2026-09-30",
+          "price": 4999,
+          "unit": 499.9
+        }
+      ],
+      "product_id": "komean-sugasawa:10000125",
       "quantity_key": "{\"count\":2,\"total_weight_g\":10000.0,\"unit_weight_g\":5000.0}"
     },
     "rice|kyusyukome:10000047": {
@@ -1571,6 +1610,19 @@
         }
       ],
       "product_id": "okomeabe:10000376",
+      "quantity_key": "{\"count\":1,\"total_weight_g\":5000.0,\"unit_weight_g\":5000.0}"
+    },
+    "rice|rice-smile:10000004": {
+      "category_id": "rice",
+      "name": "米 5kg 令和7年産米入り 訳あり 【産直の米】 お米マイスター厳選米 米 5kg 白米 5kg お米 5kg 米 5キロ 低温精米 産地直送 (北海道・沖縄・離島は別途送料追加)",
+      "points": [
+        {
+          "date": "2026-09-30",
+          "price": 2280,
+          "unit": 456.0
+        }
+      ],
+      "product_id": "rice-smile:10000004",
       "quantity_key": "{\"count\":1,\"total_weight_g\":5000.0,\"unit_weight_g\":5000.0}"
     },
     "rice|rs-takeo:10000019": {
