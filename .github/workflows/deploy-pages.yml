@@ -57,19 +57,20 @@ jobs:
 
       - name: Sync generated site to main for branch-based Pages fallback
         run: |
-          rm -rf categories guides deals data
+          rm -rf categories guides deals saved data
           rm -f index.html robots.txt sitemap.xml .nojekyll
           cp site/index.html ./index.html
           cp -R site/categories ./categories
           if [ -d site/guides ]; then cp -R site/guides ./guides; fi
           if [ -d site/deals ]; then cp -R site/deals ./deals; fi
+          if [ -d site/saved ]; then cp -R site/saved ./saved; fi
           if [ -d site/data ]; then cp -R site/data ./data; fi
           cp site/robots.txt ./robots.txt
           cp site/sitemap.xml ./sitemap.xml
           touch .nojekyll
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add index.html categories guides deals data robots.txt sitemap.xml .nojekyll
+          git add index.html categories guides deals saved data robots.txt sitemap.xml .nojekyll
           if ! git diff --cached --quiet; then
             git commit -m "Publish generated food comparison site"
             git push origin HEAD:main
