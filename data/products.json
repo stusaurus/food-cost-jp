@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-30T19:21:07.167870+09:00",
+  "generated_at": "2026-09-30T19:31:28.997814+09:00",
   "categories": {
     "pack-rice": {
       "included": [
@@ -523,28 +523,6 @@
     "rice": {
       "included": [
         {
-          "id": "rs-takeo:10000132",
-          "raw_name": "送料無料 ブレンド米 30kg(10kg×3袋) 国内産複数原料米 白米",
-          "name": "ブレンド米 30kg(10kg×3袋) 国内産複数原料米 白米",
-          "price": 9980,
-          "shop": "有限会社 佐藤米穀商店楽天市場店",
-          "url": "https://hb.afl.rakuten.co.jp/hgc/g00ryp3o.7cx6m08e.g00ryp3o.7cx6n152/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Frs-takeo%2F10001001%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Frs-takeo%2Fi%2F10000132%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
-          "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/rs-takeo/cabinet/06994046/sato_burendo30_1.jpg?_ex=128x128",
-          "postage_included": true,
-          "shipping_status": "included",
-          "quantity": {
-            "total_weight_g": 30000.0,
-            "unit_weight_g": 10000.0,
-            "count": 3,
-            "confidence": 0.99,
-            "evidence": "10kgx3袋"
-          },
-          "unit_prices": {
-            "per_kg": 332.6666666666667
-          },
-          "promotion_mentioned": false
-        },
-        {
           "id": "rs-takeo:10000019",
           "raw_name": "送料無料 ブレンド米 10kg 国内産複数原料米 白米",
           "name": "ブレンド米 10kg 国内産複数原料米 白米",
@@ -967,17 +945,17 @@
       ],
       "quality_audit": {
         "fetched": 60,
-        "normalized": 26,
+        "normalized": 25,
         "exact_duplicates": 6,
         "practical_duplicates": 0,
-        "accepted_unique": 20,
-        "included_available": 19,
+        "accepted_unique": 19,
+        "included_available": 18,
         "shipping_unknown_available": 1,
-        "displayed_included": 19,
+        "displayed_included": 18,
         "displayed_shipping_unknown": 1,
         "reasons": {
-          "wrong_product_type": 5,
           "ambiguous_quantity": 24,
+          "wrong_product_type": 6,
           "limited_purchase": 5
         }
       }
@@ -1077,29 +1055,6 @@
           "promotion_mentioned": false
         },
         {
-          "id": "irisplaza-r:10158174",
-          "raw_name": "[エントリーでポイント最大10倍/スタンプラリー]炭酸水 500ml 24本 アイリスオーヤマ 強炭酸水 選べる ラベルレス プレーン レモン ラムネ グレープソーダ ジンジャーエール 和梨 フレーバー 天然水 無糖 ペットボトル 炭酸飲料 アイリスフーズ クリスタルスパーク *",
-          "name": "[エントリーでポイント最大10倍/スタンプラリー]炭酸水 500ml 24本 アイリスオーヤマ 強炭酸水 選べる ラベルレス プレーン レモン ラムネ グレープソーダ ジンジャーエール 和梨 フレーバー 天然水 無糖 ペットボトル 炭酸飲料 アイリスフーズ クリスタルスパーク *",
-          "price": 1420,
-          "shop": "アイリスオーヤマ公式 楽天市場店",
-          "url": "https://hb.afl.rakuten.co.jp/hgc/g00t3zto.7cx6m5be.g00t3zto.7cx6n748/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Firisplaza-r%2F312010%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Firisplaza-r%2Fi%2F10158174%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
-          "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/irisplaza-r/cabinet/talent/crystalspark/312010_312012_rg.jpg?_ex=128x128",
-          "postage_included": true,
-          "shipping_status": "included",
-          "quantity": {
-            "total_volume_ml": 12000.0,
-            "unit_volume_ml": 500.0,
-            "count": 24,
-            "confidence": 0.96,
-            "evidence": "500ml 24本"
-          },
-          "unit_prices": {
-            "per_liter": 118.33333333333333,
-            "per_bottle": 59.166666666666664
-          },
-          "promotion_mentioned": false
-        },
-        {
           "id": "kurashikenkou:10201356",
           "raw_name": "《1本当たり59.2円～！》 炭酸水 500ml 24本 選べるラベルレス 強炭酸水 アイリスオーヤマ 無糖 プレーン レモン フレーバー 天然水 ソーダ カロリーゼロ 割り材 まとめ買い 炭酸飲料 クリスタルスパーク CRYSTALSPARK 富士山の強炭酸水 * 【代引き不可】",
           "name": "炭酸水 500ml 24本 選べるラベルレス 強炭酸水 アイリスオーヤマ 無糖 プレーン レモン フレーバー 天然水 ソーダ カロリーゼロ 割り材 まとめ買い 炭酸飲料 クリスタルスパーク CRYSTALSPARK 富士山の強炭酸水 * 【代引き不可】",
@@ -1169,52 +1124,6 @@
           "promotion_mentioned": true
         },
         {
-          "id": "rakutenoriginal-daily:10000001",
-          "raw_name": "【楽天オリジナル】炭酸水 500ml×24本 [プレーン ソーダ 割り材 炭酸飲料 スパークリング 炭酸] まとめ買い 水 業務用 家庭用 大容量 オフィス ハイボール用 宅飲み　500ml 24本",
-          "name": "【楽天オリジナル】炭酸水 500ml×24本 [プレーン ソーダ 割り材 炭酸飲料 スパークリング 炭酸] まとめ買い 水 業務用 家庭用 大容量 オフィス ハイボール用 宅飲み 500ml 24本",
-          "price": 1450,
-          "shop": "楽天オリジナル",
-          "url": "https://hb.afl.rakuten.co.jp/hgc/g00uqzro.7cx6m99a.g00uqzro.7cx6n201/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Frakutenoriginal-daily%2Fro-b-002%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Frakutenoriginal-daily%2Fi%2F10000001%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
-          "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/rakutenoriginal-daily/cabinet/item/water/ro-b-002_e_v2.jpg?_ex=128x128",
-          "postage_included": true,
-          "shipping_status": "included",
-          "quantity": {
-            "total_volume_ml": 12000.0,
-            "unit_volume_ml": 500.0,
-            "count": 24,
-            "confidence": 0.96,
-            "evidence": "500mlx24本"
-          },
-          "unit_prices": {
-            "per_liter": 120.83333333333333,
-            "per_bottle": 60.416666666666664
-          },
-          "promotion_mentioned": false
-        },
-        {
-          "id": "irisplaza-r:10133643",
-          "raw_name": "[300円OFFクーポン/食いしんぼう祭]【公式】 炭酸水 500ml 送料無料 24本 強炭酸水 レモン グレープフルーツ 水 ミネラルウォーター 500ml×24本 富士山の強炭酸水500ml",
-          "name": "【公式】 炭酸水 500ml 24本 強炭酸水 レモン グレープフルーツ 水 ミネラルウォーター 500ml×24本 富士山の強炭酸水500ml",
-          "price": 1480,
-          "shop": "アイリスオーヤマ公式 楽天市場店",
-          "url": "https://hb.afl.rakuten.co.jp/hgc/g00t3zto.7cx6m5be.g00t3zto.7cx6n748/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Firisplaza-r%2F310791%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Firisplaza-r%2Fi%2F10133643%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
-          "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/irisplaza-r/cabinet/11073544/12096888/311102.jpg?_ex=128x128",
-          "postage_included": true,
-          "shipping_status": "included",
-          "quantity": {
-            "total_volume_ml": 12000.0,
-            "unit_volume_ml": 500.0,
-            "count": 24,
-            "confidence": 0.96,
-            "evidence": "500mlx24本"
-          },
-          "unit_prices": {
-            "per_liter": 123.33333333333333,
-            "per_bottle": 61.666666666666664
-          },
-          "promotion_mentioned": true
-        },
-        {
           "id": "irisplaza-r:10158173",
           "raw_name": "【公式】炭酸水 500ml 48本 送料無料 (24本入×2箱) 強炭酸水 アイリスオーヤマ クリスタルスパーク 炭酸 レモン マスカット ラムネ グレープ 和梨　ジンジャーエール　フレーバー プレーン 無糖 天然水 アイリスフーズ ペットボトル",
           "name": "【公式】炭酸水 500ml 48本 (24本入×2箱) 強炭酸水 アイリスオーヤマ クリスタルスパーク 炭酸 レモン マスカット ラムネ グレープ 和梨 ジンジャーエール フレーバー プレーン 無糖 天然水 アイリスフーズ ペットボトル",
@@ -1261,52 +1170,6 @@
           "promotion_mentioned": false
         },
         {
-          "id": "liquor-boss:10002740",
-          "raw_name": "【先着300円OFFクーポン】【最強配送】【送料無料】サンガリア 伊賀の天然水 強炭酸水 500ml×24本/1ケース炭酸 ペット プレーン 無糖 まとめ買い 割材 国産 ハイボール ウイスキー 焼酎 日本酒 ワイン 梅酒",
-          "name": "サンガリア 伊賀の天然水 強炭酸水 500ml×24本/1ケース炭酸 ペット プレーン 無糖 まとめ買い 割材 国産 ハイボール ウイスキー 焼酎 日本酒 ワイン 梅酒",
-          "price": 1760,
-          "shop": "リカーBOSS 楽天市場店",
-          "url": "https://hb.afl.rakuten.co.jp/hgc/g00rryxo.7cx6m2bd.g00rryxo.7cx6n495/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fliquor-boss%2F13223%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fliquor-boss%2Fi%2F10002740%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
-          "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/liquor-boss/cabinet/260911/13223.jpg?_ex=128x128",
-          "postage_included": true,
-          "shipping_status": "included",
-          "quantity": {
-            "total_volume_ml": 12000.0,
-            "unit_volume_ml": 500.0,
-            "count": 24,
-            "confidence": 0.96,
-            "evidence": "500mlx24本"
-          },
-          "unit_prices": {
-            "per_liter": 146.66666666666666,
-            "per_bottle": 73.33333333333333
-          },
-          "promotion_mentioned": true
-        },
-        {
-          "id": "likaman:10024007",
-          "raw_name": "サンガリア 伊賀の天然水 強炭酸水 500ml 24本 送料無料 ケース PET ペットボトル スパークリング GLY 予約 2026/10月上旬以降発送予定",
-          "name": "サンガリア 伊賀の天然水 強炭酸水 500ml 24本 ケース PET ペットボトル スパークリング GLY 予約 2026/10月上旬以降発送予定",
-          "price": 1909,
-          "shop": "お酒の専門店 リカマン楽天市場店",
-          "url": "https://hb.afl.rakuten.co.jp/hgc/g00qo2ro.7cx6me4a.g00qo2ro.7cx6n6c0/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Flikaman%2F914648-24%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Flikaman%2Fi%2F10024007%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
-          "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/likaman/cabinet/cart-img/06103861/914648-24.jpg?_ex=128x128",
-          "postage_included": true,
-          "shipping_status": "included",
-          "quantity": {
-            "total_volume_ml": 12000.0,
-            "unit_volume_ml": 500.0,
-            "count": 24,
-            "confidence": 0.96,
-            "evidence": "500ml 24本"
-          },
-          "unit_prices": {
-            "per_liter": 159.08333333333334,
-            "per_bottle": 79.54166666666667
-          },
-          "promotion_mentioned": false
-        },
-        {
           "id": "agri-support:10028412",
           "raw_name": "ウィルキンソン 炭酸水 500ml*48本 炭酸水 タンサン【送料無料】",
           "name": "ウィルキンソン 炭酸水 500ml*48本 炭酸水 タンサン",
@@ -1326,29 +1189,6 @@
           "unit_prices": {
             "per_liter": 166.625,
             "per_bottle": 83.3125
-          },
-          "promotion_mentioned": false
-        },
-        {
-          "id": "rakuten24:11109860",
-          "raw_name": "ウィルキンソン タンサン ラベルレスボトル(500ml×24本入)【ウィルキンソン】[炭酸水 炭酸]",
-          "name": "ウィルキンソン タンサン ラベルレスボトル(500ml×24本入)【ウィルキンソン】[炭酸水 炭酸]",
-          "price": 2307,
-          "shop": "楽天24",
-          "url": "https://hb.afl.rakuten.co.jp/hgc/g00r136o.7cx6meef.g00r136o.7cx6n891/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Frakuten24%2F4514603420906%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Frakuten24%2Fi%2F11109860%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
-          "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/rakuten24/cabinet/906/4514603420906.jpg?_ex=128x128",
-          "postage_included": true,
-          "shipping_status": "included",
-          "quantity": {
-            "total_volume_ml": 12000.0,
-            "unit_volume_ml": 500.0,
-            "count": 24,
-            "confidence": 0.96,
-            "evidence": "500mlx24本"
-          },
-          "unit_prices": {
-            "per_liter": 192.25,
-            "per_bottle": 96.125
           },
           "promotion_mentioned": false
         },
@@ -1605,33 +1445,6 @@
           "promotion_mentioned": false
         },
         {
-          "id": "izmic-ec:10163398",
-          "raw_name": "《ラベルレス》イズミック SODA (ソーダ) 天然水 強炭酸水 500ml×24本×2ケース (48本) 飲料【送料無料※一部地域は除く】シリカ25mg/本 イズミックソーダ 炭酸 タンサン オリジナルPB",
-          "name": "《ラベルレス》イズミック SODA (ソーダ) 天然水 強炭酸水 500ml×24本×2ケース (48本) 飲料【送料無料※一部地域は除く】シリカ25mg/本 イズミックソーダ 炭酸 タンサン オリジナルPB",
-          "price": 2780,
-          "shop": "イズミックワールド",
-          "url": "https://hb.afl.rakuten.co.jp/hgc/g00pjp9o.7cx6mc74.g00pjp9o.7cx6na23/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fizmic-ec%2F662441-02%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fizmic-ec%2Fi%2F10163398%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
-          "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/izmic-ec/cabinet/662441-02-1.jpg?_ex=128x128",
-          "postage_included": false,
-          "shipping_status": "extra_or_unknown",
-          "quantity": {
-            "total_volume_ml": 24000.0,
-            "unit_volume_ml": 500.0,
-            "count": 48,
-            "component_counts": [
-              24,
-              2
-            ],
-            "confidence": 0.997,
-            "evidence": "500mlx24本x2ケース"
-          },
-          "unit_prices": {
-            "per_liter": 115.83333333333333,
-            "per_bottle": 57.916666666666664
-          },
-          "promotion_mentioned": false
-        },
-        {
           "id": "lifedrinkcompany:10000004",
           "raw_name": "300円OFFクーポンあり★食いしんぼう祭【フレーバー・ラベルレス選べる】炭酸水 500ml 24本 送料無料※一部地域除く 強炭酸 炭酸 無糖 OZA SODA プレーン レモン ピンクグレープフルーツ ライム ラベルレス 割り材 まとめ買い ライフドリンクカンパニー LIFEDRINK　ZAO SODA",
           "name": "【フレーバー・ラベルレス選べる】炭酸水 500ml 24本 送料無料※一部地域除く 強炭酸 炭酸 無糖 OZA SODA プレーン レモン ピンクグレープフルーツ ライム ラベルレス 割り材 まとめ買い ライフドリンクカンパニー LIFEDRINK ZAO SODA",
@@ -1653,33 +1466,6 @@
             "per_bottle": 59.541666666666664
           },
           "promotion_mentioned": true
-        },
-        {
-          "id": "izmic-ec:10088166",
-          "raw_name": "【特売】炭酸水 サンガリア 伊賀の天然水 強炭酸水 500ml×24本×2ケース (48本) 飲料【送料無料※一部地域は除く】",
-          "name": "炭酸水 サンガリア 伊賀の天然水 強炭酸水 500ml×24本×2ケース (48本) 飲料【送料無料※一部地域は除く】",
-          "price": 3068,
-          "shop": "イズミックワールド",
-          "url": "https://hb.afl.rakuten.co.jp/hgc/g00pjp9o.7cx6mc74.g00pjp9o.7cx6na23/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fizmic-ec%2F635163-02%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fizmic-ec%2Fi%2F10088166%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
-          "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/izmic-ec/cabinet/drink2019051002/635163-02.jpg?_ex=128x128",
-          "postage_included": false,
-          "shipping_status": "extra_or_unknown",
-          "quantity": {
-            "total_volume_ml": 24000.0,
-            "unit_volume_ml": 500.0,
-            "count": 48,
-            "component_counts": [
-              24,
-              2
-            ],
-            "confidence": 0.997,
-            "evidence": "500mlx24本x2ケース"
-          },
-          "unit_prices": {
-            "per_liter": 127.83333333333333,
-            "per_bottle": 63.916666666666664
-          },
-          "promotion_mentioned": false
         },
         {
           "id": "soukaidrink:10010908",
@@ -1724,79 +1510,6 @@
           "unit_prices": {
             "per_liter": 137.5,
             "per_bottle": 68.75
-          },
-          "promotion_mentioned": false
-        },
-        {
-          "id": "izmic-ec:10163397",
-          "raw_name": "《ラベルレス》イズミック SODA (ソーダ) 天然水 強炭酸水 500ml×24本×1ケース (24本) 飲料【送料無料※一部地域は除く】シリカ25mg/本 イズミックソーダ 炭酸 タンサン オリジナルPB",
-          "name": "《ラベルレス》イズミック SODA (ソーダ) 天然水 強炭酸水 500ml×24本×1ケース (24本) 飲料【送料無料※一部地域は除く】シリカ25mg/本 イズミックソーダ 炭酸 タンサン オリジナルPB",
-          "price": 1720,
-          "shop": "イズミックワールド",
-          "url": "https://hb.afl.rakuten.co.jp/hgc/g00pjp9o.7cx6mc74.g00pjp9o.7cx6na23/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fizmic-ec%2F662441-01%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fizmic-ec%2Fi%2F10163397%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
-          "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/izmic-ec/cabinet/662441-01-1.jpg?_ex=128x128",
-          "postage_included": false,
-          "shipping_status": "extra_or_unknown",
-          "quantity": {
-            "total_volume_ml": 12000.0,
-            "unit_volume_ml": 500.0,
-            "count": 24,
-            "component_counts": [
-              24,
-              1
-            ],
-            "confidence": 0.997,
-            "evidence": "500mlx24本x1ケース"
-          },
-          "unit_prices": {
-            "per_liter": 143.33333333333334,
-            "per_bottle": 71.66666666666667
-          },
-          "promotion_mentioned": false
-        },
-        {
-          "id": "soukaidrink:10012932",
-          "raw_name": "アイリス CRYSTAL SPARK 富士山の強炭酸水 ラベルレス( 500ml×24本入)【CRYSTALSPARK】[炭酸水 500ml 24本 ラベルレス]",
-          "name": "アイリス CRYSTAL SPARK 富士山の強炭酸水 ラベルレス( 500ml×24本入)【CRYSTALSPARK】[炭酸水 500ml 24本 ラベルレス]",
-          "price": 2176,
-          "shop": "楽天24 ドリンク館",
-          "url": "https://hb.afl.rakuten.co.jp/hgc/g00rzxdo.7cx6mad7.g00rzxdo.7cx6nfc7/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fsoukaidrink%2F4562403562999%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fsoukaidrink%2Fi%2F10012932%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
-          "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/soukaidrink/cabinet/999/4562403562999.jpg?_ex=128x128",
-          "postage_included": false,
-          "shipping_status": "extra_or_unknown",
-          "quantity": {
-            "total_volume_ml": 12000.0,
-            "unit_volume_ml": 500.0,
-            "count": 24,
-            "confidence": 0.96,
-            "evidence": "500mlx24本"
-          },
-          "unit_prices": {
-            "per_liter": 181.33333333333334,
-            "per_bottle": 90.66666666666667
-          },
-          "promotion_mentioned": false
-        },
-        {
-          "id": "soukaidrink:10014152",
-          "raw_name": "伊藤園 強炭酸水 ミネラル ストロング シリカ含有(500ml*24本入)【伊藤園】",
-          "name": "伊藤園 強炭酸水 ミネラル ストロング シリカ含有(500ml*24本入)【伊藤園】",
-          "price": 2188,
-          "shop": "楽天24 ドリンク館",
-          "url": "https://hb.afl.rakuten.co.jp/hgc/g00rzxdo.7cx6mad7.g00rzxdo.7cx6nfc7/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fsoukaidrink%2F4901085637777%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fsoukaidrink%2Fi%2F10014152%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
-          "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/soukaidrink/cabinet/777/4901085637777.jpg?_ex=128x128",
-          "postage_included": false,
-          "shipping_status": "extra_or_unknown",
-          "quantity": {
-            "total_volume_ml": 12000.0,
-            "unit_volume_ml": 500.0,
-            "count": 24,
-            "confidence": 0.96,
-            "evidence": "500mlx24本"
-          },
-          "unit_prices": {
-            "per_liter": 182.33333333333334,
-            "per_bottle": 91.16666666666667
           },
           "promotion_mentioned": false
         },
@@ -1852,19 +1565,19 @@
         }
       ],
       "quality_audit": {
-        "fetched": 90,
-        "normalized": 44,
-        "exact_duplicates": 8,
+        "fetched": 60,
+        "normalized": 26,
+        "exact_duplicates": 1,
         "practical_duplicates": 0,
-        "accepted_unique": 36,
-        "included_available": 18,
-        "shipping_unknown_available": 18,
-        "displayed_included": 18,
-        "displayed_shipping_unknown": 18,
+        "accepted_unique": 25,
+        "included_available": 12,
+        "shipping_unknown_available": 13,
+        "displayed_included": 12,
+        "displayed_shipping_unknown": 13,
         "reasons": {
-          "missing_category_evidence": 18,
-          "ambiguous_quantity": 11,
-          "set_count_conflict": 13,
+          "missing_category_evidence": 10,
+          "set_count_conflict": 11,
+          "ambiguous_quantity": 9,
           "limited_purchase": 1,
           "wrong_product_type": 3
         }
