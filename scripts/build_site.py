@@ -51,6 +51,17 @@ GUIDE_SPECS = [
     {"slug":"oatmeal-bulk-cost","category_id":"oatmeal","title":"オートミール大容量のコスパ比較","h1":"オートミール大容量・まとめ買いを比較","intro":"1kg超の大容量商品を中心に、100gあたり・1kgあたりの単価を比べます。","mode":"large"},
 ]
 
+AUTO_GUIDE_RULES = [
+    {"slug":"pack-rice-24-servings-cost","category_id":"pack-rice","title":"パックご飯24食のコスパ比較","h1":"パックご飯24食を1食あたりで比較","intro":"24食セットのパックご飯が3商品以上あるときだけ自動公開し、1食あたりの単価で比較します。","mode":"pack_count_24","auto":True},
+    {"slug":"pack-rice-40plus-cost","category_id":"pack-rice","title":"パックご飯40食以上のコスパ比較","h1":"パックご飯40食以上の大箱を比較","intro":"40食以上の大箱候補が3商品以上あるときだけ自動公開し、単価と支払総額を比べます。","mode":"pack_count_40plus","auto":True},
+    {"slug":"carbonated-water-500ml-24-cost","category_id":"carbonated-water","title":"炭酸水500ml前後24本のコスパ比較","h1":"炭酸水500ml前後×24本を比較","intro":"450〜600ml・24本の候補が3商品以上あるときだけ自動公開し、1L・1本あたりで比較します。","mode":"water_500_24","auto":True},
+    {"slug":"carbonated-water-500ml-48-cost","category_id":"carbonated-water","title":"炭酸水500ml前後48本のコスパ比較","h1":"炭酸水500ml前後×48本を比較","intro":"450〜600ml・48本の候補が3商品以上あるときだけ自動公開し、まとめ買い単価を比べます。","mode":"water_500_48","auto":True},
+    {"slug":"carbonated-water-1l-cost","category_id":"carbonated-water","title":"炭酸水1L前後のコスパ比較","h1":"炭酸水1L前後を1Lあたりで比較","intro":"900〜1100mlの商品が3商品以上あるときだけ自動公開し、1Lあたりの単価で比較します。","mode":"water_1l","auto":True},
+    {"slug":"rice-musenmai-cost","category_id":"rice","title":"無洗米のコスパ比較","h1":"無洗米を1kgあたりで比較","intro":"商品名から無洗米と確認できる候補が3商品以上あるときだけ自動公開します。","mode":"rice_musenmai","auto":True},
+    {"slug":"oatmeal-rolled-cost","category_id":"oatmeal","title":"ロールドオーツのコスパ比較","h1":"ロールドオーツを100gあたりで比較","intro":"商品名からロールドオーツと確認できる候補が3商品以上あるときだけ自動公開します。","mode":"oats_rolled","auto":True},
+    {"slug":"oatmeal-quick-cost","category_id":"oatmeal","title":"クイックオーツのコスパ比較","h1":"クイックオーツを100gあたりで比較","intro":"商品名からクイックオーツと確認できる候補が3商品以上あるときだけ自動公開します。","mode":"oats_quick","auto":True},
+]
+
 LIMITED_RE = re.compile(r"(?:定期購入(?:のみ)?|定期便(?:のみ)?|初回限定|会員限定|新規限定)")
 PROMO_RE = re.compile(r"(?:クーポン|セール|SALE|タイムセール|ポイント\s*\d+倍|お買い物マラソン)", re.I)
 SELECTABLE_RE = re.compile(r"(?:(?:容量|サイズ|個数|数量|本数|袋数|食数|セット数|重量|内容量)を?選択|\d+\s*(?:kg|g|ml|L)\s*[~/〜～-]\s*\d+)", re.I)
@@ -1579,6 +1590,22 @@ def guide_filter_items(spec: dict, items: list[dict], category: dict) -> list[di
         picked = [x for x in items if int(x["quantity"].get("count") or 0) == 48]
     elif mode == "oats_1kg":
         picked = [x for x in items if 900 <= float(x["quantity"].get("total_weight_g") or 0) <= 1100]
+    elif mode == "pack_count_24":
+        picked = [x for x in items if int(x["quantity"].get("count") or 0) == 24]
+    elif mode == "pack_count_40plus":
+        picked = [x for x in items if int(x["quantity"].get("count") or 0) >= 40]
+    elif mode == "water_500_24":
+        picked = [x for x in items if 450 <= float(x["quantity"].get("unit_volume_ml") or 0) <= 600 and int(x["quantity"].get("count") or 0) == 24]
+    elif mode == "water_500_48":
+        picked = [x for x in items if 450 <= float(x["quantity"].get("unit_volume_ml") or 0) <= 600 and int(x["quantity"].get("count") or 0) == 48]
+    elif mode == "water_1l":
+        picked = [x for x in items if 900 <= float(x["quantity"].get("unit_volume_ml") or 0) <= 1100]
+    elif mode == "rice_musenmai":
+        picked = [x for x in items if "無洗米" in x["name"]]
+    elif mode == "oats_rolled":
+        picked = [x for x in items if re.search(r"ロールド\s*オーツ|ロールドオーツ", x["name"], re.I)]
+    elif mode == "oats_quick":
+        picked = [x for x in items if re.search(r"クイック\s*オーツ|クイックオーツ", x["name"], re.I)]
     else:
         picked = list(items)
     return picked
@@ -1599,6 +1626,111 @@ def guide_faq(spec: dict, category: dict) -> list[tuple[str, str]]:
             "単価だけでなく、保管場所、支払総額、内容量、ブランドなども確認して選ぶのがおすすめです。",
         ),
     ]
+
+
+def eligible_auto_guides(results: dict, min_items: int = 3) -> list[dict]:
+    category_by_id = {category["id"]: category for category in CATEGORIES}
+    eligible = []
+    for spec in AUTO_GUIDE_RULES:
+        category = category_by_id[spec["category_id"]]
+        included, _ = results.get(category["id"], ([], []))
+        matched = guide_filter_items(spec, included, category)
+        if len(matched) >= min_items:
+            enriched = dict(spec)
+            enriched["matched_count"] = len(matched)
+            eligible.append(enriched)
+    return eligible
+
+
+def optimization_report(results: dict, auto_guides: list[dict], updated: datetime) -> dict:
+    category_rows = {}
+    total_included = 0
+    history_ready = 0
+    low_inventory = []
+    for category in CATEGORIES:
+        included, other = results.get(category["id"], ([], []))
+        total_included += len(included)
+        ready = sum(
+            1 for item in included
+            if int((item.get("price_history") or {}).get("observed_days") or 0) >= 2
+        )
+        history_ready += ready
+        category_rows[category["id"]] = {
+            "name": category["name"],
+            "included_count": len(included),
+            "shipping_unknown_count": len(other),
+            "history_ready_count": ready,
+            "history_ready_rate": round(ready / len(included), 4) if included else 0,
+        }
+        if len(included) < 15:
+            low_inventory.append(category["id"])
+
+    deals, _ = deal_entries(results)
+    history_rate = round(history_ready / total_included, 4) if total_included else 0
+    priorities = []
+    if low_inventory:
+        priorities.append({
+            "type": "product_coverage",
+            "priority": 1,
+            "categories": low_inventory,
+            "action": "安全な掲載候補を増やす検索・解析改善を優先",
+        })
+    if history_rate < 0.8:
+        priorities.append({
+            "type": "price_history",
+            "priority": 2,
+            "coverage": history_rate,
+            "action": "自動更新を継続し価格履歴の母数を増やす",
+        })
+    priorities.append({
+        "type": "cta_measurement",
+        "priority": 3,
+        "action": "GA4でcta_variant×click_positionのaffiliate_clickを比較",
+    })
+    priorities.append({
+        "type": "search_console",
+        "priority": 4,
+        "action": "Search Console接続時に自動SEOページの表示回数・CTR・順位を取り込み評価",
+    })
+    return {
+        "generated_at": updated.isoformat(),
+        "site_id": SITE_ID,
+        "inventory": category_rows,
+        "price_history": {
+            "ready_count": history_ready,
+            "included_count": total_included,
+            "ready_rate": history_rate,
+            "deal_count": len(deals),
+        },
+        "auto_seo": {
+            "minimum_products": 3,
+            "published_count": len(auto_guides),
+            "pages": [
+                {
+                    "slug": spec["slug"],
+                    "category_id": spec["category_id"],
+                    "matched_count": spec.get("matched_count", 0),
+                    "title": spec["title"],
+                }
+                for spec in auto_guides
+            ],
+        },
+        "analytics": {
+            "ga4_configured": bool(GA_ID),
+            "affiliate_event": "affiliate_click",
+            "dimensions": [
+                "click_position",
+                "cta_variant",
+                "category_id",
+                "rank",
+                "comparison_metric",
+                "page_path",
+            ],
+            "search_console_build_ingestion": False,
+        },
+        "priority_queue": priorities,
+    }
+
 
 
 def guide_page(spec: dict, category: dict, items: list[dict], updated: datetime) -> str:
@@ -1906,12 +2038,13 @@ def category_page(category: dict, included: list[dict], other: list[dict], updat
     return "".join(parts)
 
 
-def guide_links_html() -> str:
+def guide_links_html(specs: list[dict] | None = None) -> str:
+    specs = specs or GUIDE_SPECS
     links = "".join(
         f"""<a class="intent-card" href="guides/{spec['slug']}/">
 <span>{html.escape(spec['title'])}</span><small>{html.escape(spec['intro'])}</small><b>比較を見る →</b>
 </a>"""
-        for spec in GUIDE_SPECS
+        for spec in specs
     )
     return f"""<section class="section intent-section">
 <div class="section-kicker">POPULAR SEARCHES</div>
@@ -1921,7 +2054,7 @@ def guide_links_html() -> str:
 
 
 
-def home_page(results: dict, updated: datetime) -> str:
+def home_page(results: dict, updated: datetime, guide_specs: list[dict] | None = None) -> str:
     parts = [
         page_head(
             "食品コスパ比較｜容量・数量・送料をそろえて単価比較",
@@ -1971,7 +2104,7 @@ def home_page(results: dict, updated: datetime) -> str:
     parts.append(
         """</section></section>"""
     )
-    parts.append(guide_links_html())
+    parts.append(guide_links_html(guide_specs))
     parts.append(comparison_flow_html())
     parts.append(
         """<section class="section explain">
@@ -2050,7 +2183,9 @@ def main():
                 )
 
     category_by_id = {category["id"]: category for category in CATEGORIES}
-    for spec in GUIDE_SPECS:
+    auto_guides = eligible_auto_guides(results)
+    all_guides = GUIDE_SPECS + auto_guides
+    for spec in all_guides:
         category = category_by_id[spec["category_id"]]
         included, _ = results[category["id"]]
         target = OUT / "guides" / spec["slug"]
@@ -2074,13 +2209,17 @@ def main():
         encoding="utf-8",
     )
 
-    (OUT / "index.html").write_text(home_page(results, updated), encoding="utf-8")
+    (OUT / "index.html").write_text(home_page(results, updated, all_guides), encoding="utf-8")
     (OUT / "data").mkdir(exist_ok=True)
     (OUT / "data" / "products.json").write_text(
         json.dumps(export, ensure_ascii=False, indent=2),
         encoding="utf-8",
     )
     save_price_history(history, OUT / "data" / "price-history.json")
+    (OUT / "data" / "optimization-report.json").write_text(
+        json.dumps(optimization_report(results, auto_guides, updated), ensure_ascii=False, indent=2),
+        encoding="utf-8",
+    )
 
     (OUT / "robots.txt").write_text(
         f"User-agent: *\nAllow: /\nSitemap: {SITE_URL}sitemap.xml\n",
@@ -2092,7 +2231,7 @@ def main():
         for category in CATEGORIES
     ] + [
         f"{SITE_URL}guides/{spec['slug']}/"
-        for spec in GUIDE_SPECS
+        for spec in all_guides
     ]
     sitemap = (
         '<?xml version="1.0" encoding="UTF-8"?>'
