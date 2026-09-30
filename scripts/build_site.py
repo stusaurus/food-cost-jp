@@ -740,8 +740,9 @@ def finder_product_card(item: dict, category: dict, position: int, purpose: str)
 <div class="finder-product-media">{image}</div>
 <div class="finder-product-copy">
 <span class="finder-product-rank">{position}</span>
-<strong>{html.escape(item["name"])}</strong>
+{product_identity_html(item, category, "finder-product-name")}
 <div class="finder-product-price">{yen(primary)} <small>{html.escape(category["primary_label"])}</small></div>
+<div class="trend-row">{price_history_badges(item)}</div>
 <div class="finder-product-meta">{html.escape(quantity_text(item, category["id"]))} ・ ¥{item["price"]:,}</div>
 <div class="finder-why"><span>なぜ？</span>{html.escape(reason)}</div>
 {product_action_buttons(item, category, primary)}
@@ -875,8 +876,9 @@ def top3_html(items: list[dict], category: dict) -> str:
 <div class="podium-head"><span class="podium-medal">{medal[index]}</span><span>{labels[index]}</span></div>
 <div class="podium-badges">{item_badges(item, category, rank)}</div>
 <div class="podium-media">{image}</div>
-<strong class="podium-name">{html.escape(item["name"])}</strong>
+{product_identity_html(item, category, "podium-name")}
 <div class="podium-unit">{yen(primary)}</div>
+<div class="trend-row">{price_history_badges(item)}</div>
 <div class="podium-label">{html.escape(category["primary_label"])}</div>
 <div class="podium-diff">{html.escape(diff_text)}</div>
 <div class="podium-detail">{html.escape(quantity_text(item, category["id"]))} ・ ¥{item["price"]:,}</div>
@@ -1252,7 +1254,7 @@ def rows_html(items: list[dict], category: dict, start_rank: int = 1) -> str:
             f"""<tr data-bucket="{bucket(item, category['id'])}" data-search-text="{search_text}" {attrs}>
 <td data-cell="rank" data-rank>{rank_html}</td>
 <td data-cell="image">{image}</td>
-<td data-cell="product"><strong class="product-name">{html.escape(item['name'])}</strong><div class="shop">{html.escape(item['shop'])}</div><div class="product-badges">{recommendation} {shipping} {promo}</div></td>
+<td data-cell="product">{product_identity_html(item, category)}<div class="shop">{html.escape(item['shop'])}</div><div class="product-badges">{recommendation} {shipping} {promo}</div><div class="trend-row">{price_history_badges(item)}</div></td>
 <td data-cell="quantity">{html.escape(quantity_text(item, category['id']))}</td>
 <td data-cell="price">¥{item['price']:,}</td>
 <td data-cell="unit"><div class="unit">{yen(primary)}</div><div class="unit-label">{html.escape(category['primary_label'])}</div>{secondary}</td>
