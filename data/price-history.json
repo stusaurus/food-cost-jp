@@ -1,0 +1,1449 @@
+{
+  "products": {
+    "carbonated-water|agri-support:10028412": {
+      "category_id": "carbonated-water",
+      "name": "ウィルキンソン 炭酸水 500ml*48本 炭酸水 タンサン",
+      "points": [
+        {
+          "date": "2026-09-30",
+          "price": 3999,
+          "unit": 166.625
+        }
+      ],
+      "product_id": "agri-support:10028412",
+      "quantity_key": "{\"count\":48,\"total_volume_ml\":24000.0,\"unit_volume_ml\":500.0}"
+    },
+    "carbonated-water|beer-the-world:10003336": {
+      "category_id": "carbonated-water",
+      "name": "炭酸水 1L 24本 シリカ32～38mg/L シリカ炭酸水 シリカ水 ラベルレス チェリオ 強炭酸水 1L 24本(12本×2ケース) 1000ml 1,000ml 1リットル 1リッター GLY 予約 2026/10月上旬以降発送予定",
+      "points": [
+        {
+          "date": "2026-09-30",
+          "price": 2862,
+          "unit": 119.25
+        }
+      ],
+      "product_id": "beer-the-world:10003336",
+      "quantity_key": "{\"count\":24,\"total_volume_ml\":24000.0,\"unit_volume_ml\":1000.0}"
+    },
+    "carbonated-water|enetroom:10199647": {
+      "category_id": "carbonated-water",
+      "name": "[最大1,000円OFFクーポン/くらしにプラス] 炭酸水 1L 15本 選べるラベルレス 強炭酸水 アイリスオーヤマ 無糖 プレーン レモン フレーバー 天然水 ソーダ 割り材 まとめ買い 1000ml 炭酸飲料 ゼロカロリー クリスタルスパーク CRYSTALSPARK 富士山の強炭酸水 *",
+      "points": [
+        {
+          "date": "2026-09-30",
+          "price": 1680,
+          "unit": 112.0
+        }
+      ],
+      "product_id": "enetroom:10199647",
+      "quantity_key": "{\"count\":15,\"total_volume_ml\":15000.0,\"unit_volume_ml\":1000.0}"
+    },
+    "carbonated-water|irisplaza-r:10158173": {
+      "category_id": "carbonated-water",
+      "name": "【公式】炭酸水 500ml 48本 (24本入×2箱) 強炭酸水 アイリスオーヤマ クリスタルスパーク 炭酸 レモン マスカット ラムネ グレープ 和梨 ジンジャーエール フレーバー プレーン 無糖 天然水 アイリスフーズ ペットボトル",
+      "points": [
+        {
+          "date": "2026-09-30",
+          "price": 2960,
+          "unit": 123.33333333333333
+        }
+      ],
+      "product_id": "irisplaza-r:10158173",
+      "quantity_key": "{\"count\":48,\"total_volume_ml\":24000.0,\"unit_volume_ml\":500.0}"
+    },
+    "carbonated-water|izmic-ec02:10048323": {
+      "category_id": "carbonated-water",
+      "name": "イズミック SODA（ソーダ) 天然水 イズミックソーダ 強炭酸水 1000ml 1L ×12本×2ケース (24本) 飲料【送料無料※一部地域は除く】 炭酸水 割材 シリカ 約50mg/L ラベルレス",
+      "points": [
+        {
+          "date": "2026-09-30",
+          "price": 2480,
+          "unit": 103.33333333333333
+        }
+      ],
+      "product_id": "izmic-ec02:10048323",
+      "quantity_key": "{\"count\":24,\"total_volume_ml\":24000.0,\"unit_volume_ml\":1000.0}"
+    },
+    "carbonated-water|izmic-ec:10096178": {
+      "category_id": "carbonated-water",
+      "name": "炭酸水 イズミックSODA（ソーダ）天然水 強炭酸水 500ml×24本×2ケース (48本) 飲料【送料無料※一部地域は除く】シリカ25mg/本 イズミックソーダ ラベルレス オリジナルPB 炭酸水 まとめ買い プレーン",
+      "points": [
+        {
+          "date": "2026-09-30",
+          "price": 2780,
+          "unit": 115.83333333333333
+        }
+      ],
+      "product_id": "izmic-ec:10096178",
+      "quantity_key": "{\"count\":48,\"total_volume_ml\":24000.0,\"unit_volume_ml\":500.0}"
+    },
+    "carbonated-water|izmic-ec:10115687": {
+      "category_id": "carbonated-water",
+      "name": "【ラベルレス】イズミック SODA（ソーダ）天然水 強炭酸水 1L シリカ50mg/L 1000ml×12本×2ケース (24本) 飲料【送料無料※一部地域は除く】イズミックソーダ オリジナルPB ストロング シリカ炭酸水 シリカ水 炭酸水 ペットボトル",
+      "points": [
+        {
+          "date": "2026-09-30",
+          "price": 2480,
+          "unit": 103.33333333333333
+        }
+      ],
+      "product_id": "izmic-ec:10115687",
+      "quantity_key": "{\"count\":24,\"total_volume_ml\":24000.0,\"unit_volume_ml\":1000.0}"
+    },
+    "carbonated-water|izmic-ec:10127923": {
+      "category_id": "carbonated-water",
+      "name": "【ラベルレス】イズミック SODA（ソーダ）天然水 強炭酸水 【1L】 シリカ50mg/L 1000ml×12本×2ケース（24本） 飲料【送料無料※一部地域は除く】イズミックソーダ 炭酸水 オリジナルPB シリカ炭酸水 シリカ水 炭酸水 ペットボトル",
+      "points": [
+        {
+          "date": "2026-09-30",
+          "price": 2480,
+          "unit": 103.33333333333333
+        }
+      ],
+      "product_id": "izmic-ec:10127923",
+      "quantity_key": "{\"count\":24,\"total_volume_ml\":24000.0,\"unit_volume_ml\":1000.0}"
+    },
+    "carbonated-water|izmic-ec:10137747": {
+      "category_id": "carbonated-water",
+      "name": "アサヒ ウィルキンソン タンサン 500ml×24 本×2ケース（48本） 飲料【送料無料※一部地域は除く】炭酸水 水 ウィルキンソン",
+      "points": [
+        {
+          "date": "2026-09-30",
+          "price": 4970,
+          "unit": 207.08333333333334
+        }
+      ],
+      "product_id": "izmic-ec:10137747",
+      "quantity_key": "{\"count\":48,\"total_volume_ml\":24000.0,\"unit_volume_ml\":500.0}"
+    },
+    "carbonated-water|izmic-ec:10169892": {
+      "category_id": "carbonated-water",
+      "name": "サンガリア 伊賀の天然水 強炭酸水 ラベルレス 1L 1000ml×12本×2ケース (24本)【送料無料※一部地域は除く】天然水 ミネラルウォーター エコ ラベルなし",
+      "points": [
+        {
+          "date": "2026-09-30",
+          "price": 2670,
+          "unit": 111.25
+        }
+      ],
+      "product_id": "izmic-ec:10169892",
+      "quantity_key": "{\"count\":24,\"total_volume_ml\":24000.0,\"unit_volume_ml\":1000.0}"
+    },
+    "carbonated-water|k-home:10084344": {
+      "category_id": "carbonated-water",
+      "name": "【24本セット】 炭酸水 500ml 24本 強炭酸水 プレーン レモン グレープフルーツ 500ml×24本 ラベルレス 炭酸 強炭酸水500ml ケース CRYSTALSPARK クリスタルスパーク アイリスオーヤマ 【代引き不可】",
+      "points": [
+        {
+          "date": "2026-09-30",
+          "price": 1520,
+          "unit": 126.66666666666667
+        }
+      ],
+      "product_id": "k-home:10084344",
+      "quantity_key": "{\"count\":24,\"total_volume_ml\":12000.0,\"unit_volume_ml\":500.0}"
+    },
+    "carbonated-water|kadenrand:10159822": {
+      "category_id": "carbonated-water",
+      "name": "【選べるラベルレス！】炭酸水 富士山の強炭酸水 1L プレーン レモン ラベルあり (ケース） ラベルレス 1L×15本 強炭酸水 強炭酸 1000ml 1L 富士山 ケース 水 ミネラルウォーター 炭酸 みず 富士山 アイリスオーヤマの富士山天然水 15本 アイリスオーヤマ",
+      "points": [
+        {
+          "date": "2026-09-30",
+          "price": 1680,
+          "unit": 112.0
+        }
+      ],
+      "product_id": "kadenrand:10159822",
+      "quantity_key": "{\"count\":15,\"total_volume_ml\":15000.0,\"unit_volume_ml\":1000.0}"
+    },
+    "carbonated-water|kurashikenkou:10201356": {
+      "category_id": "carbonated-water",
+      "name": "炭酸水 500ml 24本 選べるラベルレス 強炭酸水 アイリスオーヤマ 無糖 プレーン レモン フレーバー 天然水 ソーダ カロリーゼロ 割り材 まとめ買い 炭酸飲料 クリスタルスパーク CRYSTALSPARK 富士山の強炭酸水 * 【代引き不可】",
+      "points": [
+        {
+          "date": "2026-09-30",
+          "price": 1420,
+          "unit": 118.33333333333333
+        }
+      ],
+      "product_id": "kurashikenkou:10201356",
+      "quantity_key": "{\"count\":24,\"total_volume_ml\":12000.0,\"unit_volume_ml\":500.0}"
+    },
+    "carbonated-water|kurashikenkou:10217349": {
+      "category_id": "carbonated-water",
+      "name": "【訳あり商品】炭酸水 1L 15本 強炭酸水 炭酸 飲料 富士山の強炭酸水 ラベルレス ケース 水 ミネラルウォーター ゼロカロリー 糖類ゼロ 無糖 無果汁 富士山の強炭酸水 1L ラベルレス プレーン レモン アイリスオーヤマ",
+      "points": [
+        {
+          "date": "2026-09-30",
+          "price": 1000,
+          "unit": 66.66666666666667
+        }
+      ],
+      "product_id": "kurashikenkou:10217349",
+      "quantity_key": "{\"count\":15,\"total_volume_ml\":15000.0,\"unit_volume_ml\":1000.0}"
+    },
+    "carbonated-water|lifedrinkcompany:10000004": {
+      "category_id": "carbonated-water",
+      "name": "【フレーバー・ラベルレス選べる】炭酸水 500ml 24本 送料無料※一部地域除く 強炭酸 炭酸 無糖 OZA SODA プレーン レモン ピンクグレープフルーツ ライム ラベルレス 割り材 まとめ買い ライフドリンクカンパニー LIFEDRINK ZAO SODA",
+      "points": [
+        {
+          "date": "2026-09-30",
+          "price": 1429,
+          "unit": 119.08333333333333
+        }
+      ],
+      "product_id": "lifedrinkcompany:10000004",
+      "quantity_key": "{\"count\":24,\"total_volume_ml\":12000.0,\"unit_volume_ml\":500.0}"
+    },
+    "carbonated-water|lifedrinkcompany:10000022": {
+      "category_id": "carbonated-water",
+      "name": "炭酸水 500ml 48本 (24本×2ケース) 送料無料※一部地域除く 強炭酸 炭酸 無糖 OZA SODA プレーン レモン ピンクグレープフルーツ ライム 割り材 箱買い まとめ買い ライフドリンクカンパニー LIFEDRINK ZAO SODA",
+      "points": [
+        {
+          "date": "2026-09-30",
+          "price": 2550,
+          "unit": 106.25
+        }
+      ],
+      "product_id": "lifedrinkcompany:10000022",
+      "quantity_key": "{\"count\":48,\"total_volume_ml\":24000.0,\"unit_volume_ml\":500.0}"
+    },
+    "carbonated-water|onestep:10146249": {
+      "category_id": "carbonated-water",
+      "name": "ペリエ 500ml 48本 プレーン 炭酸水 Perrier『送料無料（一部地域除く）』",
+      "points": [
+        {
+          "date": "2026-09-30",
+          "price": 5630,
+          "unit": 234.58333333333334
+        }
+      ],
+      "product_id": "onestep:10146249",
+      "quantity_key": "{\"count\":48,\"total_volume_ml\":24000.0,\"unit_volume_ml\":500.0}"
+    },
+    "carbonated-water|onestep:10146250": {
+      "category_id": "carbonated-water",
+      "name": "サンペレグリノ 炭酸水 SAN PELLEGRINO 500ml×48本 [ 水 ミネラルウォーター 飲料 硬水 炭酸水 ]『送料無料（一部地域除く）』",
+      "points": [
+        {
+          "date": "2026-09-30",
+          "price": 4880,
+          "unit": 203.33333333333334
+        }
+      ],
+      "product_id": "onestep:10146250",
+      "quantity_key": "{\"count\":48,\"total_volume_ml\":24000.0,\"unit_volume_ml\":500.0}"
+    },
+    "carbonated-water|s-kodawari:10005268": {
+      "category_id": "carbonated-water",
+      "name": "炭酸水 1L 15本 選べるラベルレス 強炭酸水 アイリスオーヤマ 無糖 プレーン レモン フレーバー 国産 天然水 ソーダ 割り材 まとめ買い 1000ml 炭酸飲料 ゼロカロリー クリスタルスパーク CRYSTALSPARK 富士山の強炭酸水 *無果汁 糖類ゼロ 飲料",
+      "points": [
+        {
+          "date": "2026-09-30",
+          "price": 1580,
+          "unit": 105.33333333333333
+        }
+      ],
+      "product_id": "s-kodawari:10005268",
+      "quantity_key": "{\"count\":15,\"total_volume_ml\":15000.0,\"unit_volume_ml\":1000.0}"
+    },
+    "carbonated-water|soukaidrink:10008783": {
+      "category_id": "carbonated-water",
+      "name": "ウィルキンソン タンサン レモン(1L×12本入)【ウィルキンソン】[炭酸水 炭酸]",
+      "points": [
+        {
+          "date": "2026-09-30",
+          "price": 2630,
+          "unit": 219.16666666666666
+        }
+      ],
+      "product_id": "soukaidrink:10008783",
+      "quantity_key": "{\"count\":12,\"total_volume_ml\":12000.0,\"unit_volume_ml\":1000.0}"
+    },
+    "carbonated-water|soukaidrink:10010908": {
+      "category_id": "carbonated-water",
+      "name": "伊賀の天然水炭酸水(スパークリング)(1L*24本セット)【サンガリア 天然水炭酸水】",
+      "points": [
+        {
+          "date": "2026-09-30",
+          "price": 3168,
+          "unit": 132.0
+        }
+      ],
+      "product_id": "soukaidrink:10010908",
+      "quantity_key": "{\"count\":24,\"total_volume_ml\":24000.0,\"unit_volume_ml\":1000.0}"
+    },
+    "carbonated-water|voltsparkling:10000005": {
+      "category_id": "carbonated-water",
+      "name": "【最安値挑戦中】【公式】VOLT 強炭酸 炭酸水 強炭酸水 1l×12本 1000ml 1リットル 無糖 プレーン 炭酸水 スパークリングウォーター (一部地域を除く) 箱買い ケース買い まとめ買い 割材 ハイボール レモンサワー 美容 常温保存 長期保存",
+      "points": [
+        {
+          "date": "2026-09-30",
+          "price": 1380,
+          "unit": 115.0
+        }
+      ],
+      "product_id": "voltsparkling:10000005",
+      "quantity_key": "{\"count\":12,\"total_volume_ml\":12000.0,\"unit_volume_ml\":1000.0}"
+    },
+    "carbonated-water|vox-official-store:10000000": {
+      "category_id": "carbonated-water",
+      "name": "【最短翌日お届け┃365日出荷】VOX 強炭酸水 500ml 24本 ラベルレス シリカ 50mg/L 世界最高レベルの炭酸充填量5.0 炭酸水 日本の天然水 ミネラルウォーター 全5種 ストレート シリカ炭酸水 シリカ水 ミント レモン コーラ フレーバー 無糖 ゼロカロリー 国産",
+      "points": [
+        {
+          "date": "2026-09-30",
+          "price": 1650,
+          "unit": 137.5
+        }
+      ],
+      "product_id": "vox-official-store:10000000",
+      "quantity_key": "{\"count\":24,\"total_volume_ml\":12000.0,\"unit_volume_ml\":500.0}"
+    },
+    "carbonated-water|vox-official-store:10000018": {
+      "category_id": "carbonated-water",
+      "name": "【最短翌日お届け┃365日出荷】VOX 強炭酸水 1L ×15本 世界最高レベルの炭酸充填量5.0 炭酸水 軟水 日本の天然水 ナチュラルミネラルウォーター 選べる2種類 ストレート レモンフレーバー 無糖 ゼロカロリー お酒 ハイボール 割材 割り材 ダイエット 健康 国産",
+      "points": [
+        {
+          "date": "2026-09-30",
+          "price": 1640,
+          "unit": 109.33333333333333
+        }
+      ],
+      "product_id": "vox-official-store:10000018",
+      "quantity_key": "{\"count\":15,\"total_volume_ml\":15000.0,\"unit_volume_ml\":1000.0}"
+    },
+    "carbonated-water|whisky:10006882": {
+      "category_id": "carbonated-water",
+      "name": "(10/3 23:59迄) 炭酸水 1L 24本 シリカ32～38mg/L シリカ炭酸水 シリカ水 ラベルレス チェリオ 強炭酸水 1L 24本(12本×2ケース) 1000ml 1,000ml 1リットル GLY 予約 2026/10月上旬以降発送予定",
+      "points": [
+        {
+          "date": "2026-09-30",
+          "price": 2862,
+          "unit": 119.25
+        }
+      ],
+      "product_id": "whisky:10006882",
+      "quantity_key": "{\"count\":24,\"total_volume_ml\":24000.0,\"unit_volume_ml\":1000.0}"
+    },
+    "oatmeal|bokunotamatebakoya:10002951": {
+      "category_id": "oatmeal",
+      "name": "オートミール 「アスリートも大注目の健康食品!オートミール850g」 [ オーツ麦 燕麦 ロールドオーツ 雑穀 シリアル ]",
+      "points": [
+        {
+          "date": "2026-09-30",
+          "price": 1080,
+          "unit": 127.05882352941177
+        }
+      ],
+      "product_id": "bokunotamatebakoya:10002951",
+      "quantity_key": "{\"count\":1,\"total_weight_g\":850.0,\"unit_weight_g\":850.0}"
+    },
+    "oatmeal|bsecond:10011701": {
+      "category_id": "oatmeal",
+      "name": "【楽天カードでポイント4倍！】9/30(水)限定！オートミール オーガニック アリサン 有機オートミール 1kg",
+      "points": [
+        {
+          "date": "2026-09-30",
+          "price": 1890,
+          "unit": 189.0
+        }
+      ],
+      "product_id": "bsecond:10011701",
+      "quantity_key": "{\"count\":1,\"total_weight_g\":1000.0,\"unit_weight_g\":1000.0}"
+    },
+    "oatmeal|burgmarket:10000023": {
+      "category_id": "oatmeal",
+      "name": "アリサン 有機オートミール 1kg 2個セット C35L ALISHAN 1000g 乳製品不使用 ベジタリアン",
+      "points": [
+        {
+          "date": "2026-09-30",
+          "price": 2590,
+          "unit": 129.5
+        }
+      ],
+      "product_id": "burgmarket:10000023",
+      "quantity_key": "{\"count\":2,\"total_weight_g\":2000.0,\"unit_weight_g\":1000.0}"
+    },
+    "oatmeal|cereales:10000139": {
+      "category_id": "oatmeal",
+      "name": "オートミール 2kg 大粒 チャック付き袋【賞味期限2027.4.8~】ロールドオーツ 国内選別 特選 無添加 食物繊維 オーツ麦 国内選別 燕麦 健康素材 低GI ダイエット 低糖質 置き換え 腸内環境改善 製菓 製パン材料",
+      "points": [
+        {
+          "date": "2026-09-30",
+          "price": 1950,
+          "unit": 97.5
+        }
+      ],
+      "product_id": "cereales:10000139",
+      "quantity_key": "{\"count\":1,\"total_weight_g\":2000.0,\"unit_weight_g\":2000.0}"
+    },
+    "oatmeal|eightshop-direct:10000068": {
+      "category_id": "oatmeal",
+      "name": "オートミール クイックオーツ オーツ麦100% 1kg 無添加 オーツ麦 無添加 燕麦 オーツ麦 高品質 オートミール 業務用 食物繊維 鉄分 カルシウム 不溶性 水溶性 ダイエット食品 筋トレ 置き換え食品 ヘルシー 健康 非常食",
+      "points": [
+        {
+          "date": "2026-09-30",
+          "price": 1480,
+          "unit": 148.0
+        }
+      ],
+      "product_id": "eightshop-direct:10000068",
+      "quantity_key": "{\"count\":1,\"total_weight_g\":1000.0,\"unit_weight_g\":1000.0}"
+    },
+    "oatmeal|eruerushop12:10001817": {
+      "category_id": "oatmeal",
+      "name": "クエーカー オールドファッション オートミール 1.2kg 2個",
+      "points": [
+        {
+          "date": "2026-09-30",
+          "price": 2790,
+          "unit": 116.25
+        }
+      ],
+      "product_id": "eruerushop12:10001817",
+      "quantity_key": "{\"count\":2,\"total_weight_g\":2400.0,\"unit_weight_g\":1200.0}"
+    },
+    "oatmeal|firstcontact:10001680": {
+      "category_id": "oatmeal",
+      "name": "クエーカー オールドファッション オートミール 1200g(1.2kg) ×1個",
+      "points": [
+        {
+          "date": "2026-09-30",
+          "price": 1640,
+          "unit": 136.66666666666666
+        }
+      ],
+      "product_id": "firstcontact:10001680",
+      "quantity_key": "{\"count\":1,\"total_weight_g\":1200.0,\"unit_weight_g\":1200.0}"
+    },
+    "oatmeal|healthy-bright:10000638": {
+      "category_id": "oatmeal",
+      "name": "クエーカー オールドファッション オートミール 1200g(1.2kg) ×1個",
+      "points": [
+        {
+          "date": "2026-09-30",
+          "price": 1640,
+          "unit": 136.66666666666666
+        }
+      ],
+      "product_id": "healthy-bright:10000638",
+      "quantity_key": "{\"count\":1,\"total_weight_g\":1200.0,\"unit_weight_g\":1200.0}"
+    },
+    "oatmeal|hiryushop:10008834": {
+      "category_id": "oatmeal",
+      "name": "有機オートミール 1kg x 4袋 アリサン（ALISHAN）",
+      "points": [
+        {
+          "date": "2026-09-30",
+          "price": 3180,
+          "unit": 79.5
+        }
+      ],
+      "product_id": "hiryushop:10008834",
+      "quantity_key": "{\"count\":4,\"total_weight_g\":4000.0,\"unit_weight_g\":1000.0}"
+    },
+    "oatmeal|kenkoumeister:10006531": {
+      "category_id": "oatmeal",
+      "name": "有機オートミール （1kg）【有機JAS認定品】【アリサン】",
+      "points": [
+        {
+          "date": "2026-09-30",
+          "price": 908,
+          "unit": 90.8
+        }
+      ],
+      "product_id": "kenkoumeister:10006531",
+      "quantity_key": "{\"count\":1,\"total_weight_g\":1000.0,\"unit_weight_g\":1000.0}"
+    },
+    "oatmeal|keyroom-hida:10000339": {
+      "category_id": "oatmeal",
+      "name": "【KEYROOMの日！最大2000円OFF】 アリサン オートミール 1kg 3袋 有機オートミール 有機JAS オーツ麦 ホールフード 食物繊維 ミネラル 低GI 朝食 オーガニック オーツ シリアル 燕麦 グラノーラ 有機JAS ランキング 福袋",
+      "points": [
+        {
+          "date": "2026-09-30",
+          "price": 3780,
+          "unit": 126.0
+        }
+      ],
+      "product_id": "keyroom-hida:10000339",
+      "quantity_key": "{\"count\":3,\"total_weight_g\":3000.0,\"unit_weight_g\":1000.0}"
+    },
+    "oatmeal|keyroom-hida:10000579": {
+      "category_id": "oatmeal",
+      "name": "【KEYROOMの日！最大2000円OFF】 クエーカー オールドファッション オートミール 1.2kg QUAKER オーツ麦 えん麦 燕麦 大容量 オーストラリア産 穀物100% シリアル フレーク 全粒 シリアル 輸入菓子 ランキング ポイント消化 福袋",
+      "points": [
+        {
+          "date": "2026-09-30",
+          "price": 2148,
+          "unit": 179.0
+        }
+      ],
+      "product_id": "keyroom-hida:10000579",
+      "quantity_key": "{\"count\":1,\"total_weight_g\":1200.0,\"unit_weight_g\":1200.0}"
+    },
+    "oatmeal|keyroom-hida:10000580": {
+      "category_id": "oatmeal",
+      "name": "【KEYROOMの日！最大2000円OFF】 クエーカー オールドファッション オートミール 1.2kg 2個 QUAKER オーツ麦 えん麦 燕麦 大容量 オーストラリア産 穀物100% シリアル フレーク 全粒 シリアル 輸入菓子 ランキング ポイント消化 福袋",
+      "points": [
+        {
+          "date": "2026-09-30",
+          "price": 3200,
+          "unit": 133.33333333333334
+        }
+      ],
+      "product_id": "keyroom-hida:10000580",
+      "quantity_key": "{\"count\":2,\"total_weight_g\":2400.0,\"unit_weight_g\":1200.0}"
+    },
+    "oatmeal|keyroom-hida:10000581": {
+      "category_id": "oatmeal",
+      "name": "【KEYROOMの日！最大2000円OFF】 クエーカー オールドファッション オートミール 1.2kg 3個 QUAKER オーツ麦 えん麦 燕麦 大容量 オーストラリア産 穀物100% シリアル フレーク 全粒 シリアル 輸入菓子 ランキング ポイント消化 福袋",
+      "points": [
+        {
+          "date": "2026-09-30",
+          "price": 4480,
+          "unit": 124.44444444444444
+        }
+      ],
+      "product_id": "keyroom-hida:10000581",
+      "quantity_key": "{\"count\":3,\"total_weight_g\":3600.0,\"unit_weight_g\":1200.0}"
+    },
+    "oatmeal|keyroom-hida:10000582": {
+      "category_id": "oatmeal",
+      "name": "【KEYROOMの日！最大2000円OFF】 クエーカー オールドファッション オートミール 1.2kg 4個 QUAKER オーツ麦 えん麦 燕麦 大容量 オーストラリア産 穀物100% シリアル フレーク 全粒 シリアル 輸入菓子 ランキング ポイント消化 福袋",
+      "points": [
+        {
+          "date": "2026-09-30",
+          "price": 5480,
+          "unit": 114.16666666666667
+        }
+      ],
+      "product_id": "keyroom-hida:10000582",
+      "quantity_key": "{\"count\":4,\"total_weight_g\":4800.0,\"unit_weight_g\":1200.0}"
+    },
+    "oatmeal|keyroom-hida:10000896": {
+      "category_id": "oatmeal",
+      "name": "【KEYROOMの日！最大2000円OFF】 クエーカー オールドファッション オートミール 1.2kg 6個 QUAKER オーツ麦 えん麦 燕麦 大容量 オーストラリア産 穀物100% シリアル フレーク 全粒 シリアル 輸入菓子 ランキング ポイント消化 福袋",
+      "points": [
+        {
+          "date": "2026-09-30",
+          "price": 7680,
+          "unit": 106.66666666666667
+        }
+      ],
+      "product_id": "keyroom-hida:10000896",
+      "quantity_key": "{\"count\":6,\"total_weight_g\":7200.0,\"unit_weight_g\":1200.0}"
+    },
+    "oatmeal|keyroom-hida:10000897": {
+      "category_id": "oatmeal",
+      "name": "【KEYROOMの日！最大2000円OFF】 クエーカー オールドファッション オートミール 1.2kg 12個 QUAKER オーツ麦 えん麦 燕麦 大容量 オーストラリア産 穀物100% シリアル フレーク 全粒 シリアル 輸入菓子 ランキング ポイント消化 福袋",
+      "points": [
+        {
+          "date": "2026-09-30",
+          "price": 13880,
+          "unit": 96.38888888888889
+        }
+      ],
+      "product_id": "keyroom-hida:10000897",
+      "quantity_key": "{\"count\":12,\"total_weight_g\":14400.0,\"unit_weight_g\":1200.0}"
+    },
+    "oatmeal|kfv-fruit:10000150": {
+      "category_id": "oatmeal",
+      "name": "オーガニック オートミール 無添加 ロールドオーツ 業務用 1kg 有機栽培 離乳食 オートグローツ 元気のたね 元気 オート",
+      "points": [
+        {
+          "date": "2026-09-30",
+          "price": 1580,
+          "unit": 158.0
+        }
+      ],
+      "product_id": "kfv-fruit:10000150",
+      "quantity_key": "{\"count\":1,\"total_weight_g\":1000.0,\"unit_weight_g\":1000.0}"
+    },
+    "oatmeal|kitchen-garden:10005928": {
+      "category_id": "oatmeal",
+      "name": "アリサン 有機オートミール 1kg【朝食】【輸入食品】【アメリカ商品】",
+      "points": [
+        {
+          "date": "2026-09-30",
+          "price": 999,
+          "unit": 99.9
+        }
+      ],
+      "product_id": "kitchen-garden:10005928",
+      "quantity_key": "{\"count\":1,\"total_weight_g\":1000.0,\"unit_weight_g\":1000.0}"
+    },
+    "oatmeal|kyunan:10021241": {
+      "category_id": "oatmeal",
+      "name": "オートミール オーガニック 2kg（250g×8袋）今話題のダイエット食材！アメリカ産の有機オートミール 食物繊維や鉄分が豊富で置き換えにも。|有機オーツ麦 有機オートミール 燕麦 エンバク ロールドオーツ",
+      "points": [
+        {
+          "date": "2026-09-30",
+          "price": 3400,
+          "unit": 170.0
+        }
+      ],
+      "product_id": "kyunan:10021241",
+      "quantity_key": "{\"count\":8,\"total_weight_g\":2000.0,\"unit_weight_g\":250.0}"
+    },
+    "oatmeal|landofharvest:10005560": {
+      "category_id": "oatmeal",
+      "name": "【数量限定・2個以上購入でトートバッグ付】クエーカー インスタントオートミール オリジナル 1Kg シリアル QUAKER 大きいサイズ",
+      "points": [
+        {
+          "date": "2026-09-30",
+          "price": 1198,
+          "unit": 119.8
+        }
+      ],
+      "product_id": "landofharvest:10005560",
+      "quantity_key": "{\"count\":1,\"total_weight_g\":1000.0,\"unit_weight_g\":1000.0}"
+    },
+    "oatmeal|landofharvest:10005571": {
+      "category_id": "oatmeal",
+      "name": "【数量限定・2個以上購入でトートバッグ付】クエーカー オールドファッションオートミール 1.2kgシリアル QUAKER 大きいサイズ",
+      "points": [
+        {
+          "date": "2026-09-30",
+          "price": 1298,
+          "unit": 108.16666666666667
+        }
+      ],
+      "product_id": "landofharvest:10005571",
+      "quantity_key": "{\"count\":1,\"total_weight_g\":1200.0,\"unit_weight_g\":1200.0}"
+    },
+    "oatmeal|mart-in:10019502": {
+      "category_id": "oatmeal",
+      "name": "アリサン 有機オートミール (1kg×4袋)",
+      "points": [
+        {
+          "date": "2026-09-30",
+          "price": 3800,
+          "unit": 95.0
+        }
+      ],
+      "product_id": "mart-in:10019502",
+      "quantity_key": "{\"count\":4,\"total_weight_g\":4000.0,\"unit_weight_g\":1000.0}"
+    },
+    "oatmeal|marusanpantry:10000039": {
+      "category_id": "oatmeal",
+      "name": "オートミール 1kg",
+      "points": [
+        {
+          "date": "2026-09-30",
+          "price": 1045,
+          "unit": 104.5
+        }
+      ],
+      "product_id": "marusanpantry:10000039",
+      "quantity_key": "{\"count\":1,\"total_weight_g\":1000.0,\"unit_weight_g\":1000.0}"
+    },
+    "oatmeal|nuthyougo:10000174": {
+      "category_id": "oatmeal",
+      "name": "オートミール 1kg クイックオーツ オーツ麦 燕麦 高品質 業務用 食物繊維 鉄分 カルシウム 不溶性 水溶性 ダイエット 筋トレ 置き換え食品 ヘルシー 健康 保存便利チャック付き袋使用『無添加・無塩・植物油不使用』",
+      "points": [
+        {
+          "date": "2026-09-30",
+          "price": 1060,
+          "unit": 106.0
+        }
+      ],
+      "product_id": "nuthyougo:10000174",
+      "quantity_key": "{\"count\":1,\"total_weight_g\":1000.0,\"unit_weight_g\":1000.0}"
+    },
+    "oatmeal|nuthyougo:10000177": {
+      "category_id": "oatmeal",
+      "name": "オートミール 1kg オーツ麦 ロールドオーツ 燕麦 高品質 業務用 食物繊維 鉄分 カルシウム 不溶性 水溶性 ダイエット 筋トレ 置き換え食品 ヘルシー 健康 保存便利チャック付き袋使用『無添加・無塩・植物油不使用』",
+      "points": [
+        {
+          "date": "2026-09-30",
+          "price": 1060,
+          "unit": 106.0
+        }
+      ],
+      "product_id": "nuthyougo:10000177",
+      "quantity_key": "{\"count\":1,\"total_weight_g\":1000.0,\"unit_weight_g\":1000.0}"
+    },
+    "oatmeal|nuthyougo:10000199": {
+      "category_id": "oatmeal",
+      "name": "オートミール 1kg ロールドオーツ オーツ麦 燕麦 高品質 業務用 食物繊維 鉄分 カルシウム 不溶性 水溶性 ダイエット 筋トレ 置き換え食品 ヘルシー 健康 保存便利チャック付き袋使用『無添加・無塩・植物油不使用』",
+      "points": [
+        {
+          "date": "2026-09-30",
+          "price": 1060,
+          "unit": 106.0
+        }
+      ],
+      "product_id": "nuthyougo:10000199",
+      "quantity_key": "{\"count\":1,\"total_weight_g\":1000.0,\"unit_weight_g\":1000.0}"
+    },
+    "oatmeal|profoods:10000522": {
+      "category_id": "oatmeal",
+      "name": "アリサン 有機オートミール 1kg",
+      "points": [
+        {
+          "date": "2026-09-30",
+          "price": 898,
+          "unit": 89.8
+        }
+      ],
+      "product_id": "profoods:10000522",
+      "quantity_key": "{\"count\":1,\"total_weight_g\":1000.0,\"unit_weight_g\":1000.0}"
+    },
+    "oatmeal|rakuten24:11165842": {
+      "category_id": "oatmeal",
+      "name": "ライスアイランド マルチオートミール(1kg)【ライスアイランド】[オーツ麦 米化 大容量 主食置き換え ダイエット]",
+      "points": [
+        {
+          "date": "2026-09-30",
+          "price": 834,
+          "unit": 83.4
+        }
+      ],
+      "product_id": "rakuten24:11165842",
+      "quantity_key": "{\"count\":1,\"total_weight_g\":1000.0,\"unit_weight_g\":1000.0}"
+    },
+    "oatmeal|rakuten24:11167446": {
+      "category_id": "oatmeal",
+      "name": "ライスアイランド マルチオートミール(1kg*6袋セット)【ライスアイランド】[オーツ麦 米化 大容量 主食置き換え ダイエット]",
+      "points": [
+        {
+          "date": "2026-09-30",
+          "price": 4646,
+          "unit": 77.43333333333334
+        }
+      ],
+      "product_id": "rakuten24:11167446",
+      "quantity_key": "{\"count\":6,\"total_weight_g\":6000.0,\"unit_weight_g\":1000.0}"
+    },
+    "oatmeal|sekamaru:10004087": {
+      "category_id": "oatmeal",
+      "name": "ALISHAN（アリサン） 有機オートミール 1kg オーガニック 食物繊維 砂糖不使用 シリアル グラノーラ ダイエット ロングセラー 乳製品不使用 ベジタリアン",
+      "points": [
+        {
+          "date": "2026-09-30",
+          "price": 980,
+          "unit": 98.0
+        }
+      ],
+      "product_id": "sekamaru:10004087",
+      "quantity_key": "{\"count\":1,\"total_weight_g\":1000.0,\"unit_weight_g\":1000.0}"
+    },
+    "oatmeal|showell:10000470": {
+      "category_id": "oatmeal",
+      "name": "クエーカー オールドファッション オートミール 1.2kg × 2個",
+      "points": [
+        {
+          "date": "2026-09-30",
+          "price": 2650,
+          "unit": 110.41666666666667
+        }
+      ],
+      "product_id": "showell:10000470",
+      "quantity_key": "{\"count\":2,\"total_weight_g\":2400.0,\"unit_weight_g\":1200.0}"
+    },
+    "oatmeal|showell:10000923": {
+      "category_id": "oatmeal",
+      "name": "クエーカー 1kg ×2個セット インスタントオートミール オリジナル",
+      "points": [
+        {
+          "date": "2026-09-30",
+          "price": 2426,
+          "unit": 121.3
+        }
+      ],
+      "product_id": "showell:10000923",
+      "quantity_key": "{\"count\":2,\"total_weight_g\":2000.0,\"unit_weight_g\":1000.0}"
+    },
+    "oatmeal|slow-foods:10000958": {
+      "category_id": "oatmeal",
+      "name": "g当り0.99円！ 超コスパ、 大容量 2.2KG ★化学農薬不使用★化学肥料不使用栽培 プレミアム オートミール おそれいります。原料及び諸経費の高騰により3/26日より価格改定とさせていただきました。",
+      "points": [
+        {
+          "date": "2026-09-30",
+          "price": 2177,
+          "unit": 98.95454545454545
+        }
+      ],
+      "product_id": "slow-foods:10000958",
+      "quantity_key": "{\"count\":1,\"total_weight_g\":2200.0,\"unit_weight_g\":2200.0}"
+    },
+    "oatmeal|slow-foods:10003596": {
+      "category_id": "oatmeal",
+      "name": "1g当り0.84円 超！超コスパ！ 直売価格 6600g (2.2Kg×3袋) プレミアム オートミール 大容量★化学農薬不使用★化学肥料不使用栽培 送料無料(沖縄県は他商品との同梱時、送料がかかる場合があります)",
+      "points": [
+        {
+          "date": "2026-09-30",
+          "price": 5609,
+          "unit": 84.98484848484848
+        }
+      ],
+      "product_id": "slow-foods:10003596",
+      "quantity_key": "{\"count\":3,\"total_weight_g\":6600.0,\"unit_weight_g\":2200.0}"
+    },
+    "oatmeal|slow-foods:10003742": {
+      "category_id": "oatmeal",
+      "name": "★化学農薬不使用★化学肥料不使用栽培 クイック オートミール 大容量 2.2Kg プレミアム 通常タイプの約1/2-1/3の粒にカット ロールドオーツ 明細書不可(領収書は購入履歴ダウンロード可)",
+      "points": [
+        {
+          "date": "2026-09-30",
+          "price": 2199,
+          "unit": 99.95454545454545
+        }
+      ],
+      "product_id": "slow-foods:10003742",
+      "quantity_key": "{\"count\":1,\"total_weight_g\":2200.0,\"unit_weight_g\":2200.0}"
+    },
+    "oatmeal|slow-foods:10003761": {
+      "category_id": "oatmeal",
+      "name": "熱湯50秒で出来上がります。 2.2KG×3袋 ★化学農薬不使用★化学肥料不使用栽培 粒を小さくしたタイプ プレミアム インスタント オートミール アメリカOTCO認定無添加(化学添加物不使用)",
+      "points": [
+        {
+          "date": "2026-09-30",
+          "price": 5933,
+          "unit": 89.89393939393939
+        }
+      ],
+      "product_id": "slow-foods:10003761",
+      "quantity_key": "{\"count\":3,\"total_weight_g\":6600.0,\"unit_weight_g\":2200.0}"
+    },
+    "oatmeal|slow-foods:10004139": {
+      "category_id": "oatmeal",
+      "name": "熱湯50秒で出来上がります。★化学農薬不使用★化学肥料不使用栽培 プレミアム 2.2KG 粒を小さくしたタイプ インスタント オートミール OTCO認定品無添加(化学添加物不使用)送料無料 燕麦",
+      "points": [
+        {
+          "date": "2026-09-30",
+          "price": 2285,
+          "unit": 103.86363636363636
+        }
+      ],
+      "product_id": "slow-foods:10004139",
+      "quantity_key": "{\"count\":1,\"total_weight_g\":2200.0,\"unit_weight_g\":2200.0}"
+    },
+    "oatmeal|slow-foods:10004146": {
+      "category_id": "oatmeal",
+      "name": "★化学農薬不使用★化学肥料不使用栽培 オートミール (900g×2袋)住所変更不可,送料無料 (送料、沖縄県、他の商品と同梱の場合は1000円かかります",
+      "points": [
+        {
+          "date": "2026-09-30",
+          "price": 1899,
+          "unit": 105.5
+        }
+      ],
+      "product_id": "slow-foods:10004146",
+      "quantity_key": "{\"count\":2,\"total_weight_g\":1800.0,\"unit_weight_g\":900.0}"
+    },
+    "oatmeal|tabemon-dikara:10001888": {
+      "category_id": "oatmeal",
+      "name": "オートミール 1kg 日食 オーツ麦 素材にこだわった本格シリアル えん麦 麦 穀物 ロールドオーツ グラノーラ",
+      "points": [
+        {
+          "date": "2026-09-30",
+          "price": 1412,
+          "unit": 141.2
+        }
+      ],
+      "product_id": "tabemon-dikara:10001888",
+      "quantity_key": "{\"count\":1,\"total_weight_g\":1000.0,\"unit_weight_g\":1000.0}"
+    },
+    "oatmeal|tabemon-dikara:10001889": {
+      "category_id": "oatmeal",
+      "name": "オートミール 1kg×3袋 日食 オーツ麦 素材にこだわった本格シリアル えん麦 麦 穀物 ロールドオーツ グラノーラ",
+      "points": [
+        {
+          "date": "2026-09-30",
+          "price": 3924,
+          "unit": 130.8
+        }
+      ],
+      "product_id": "tabemon-dikara:10001889",
+      "quantity_key": "{\"count\":3,\"total_weight_g\":3000.0,\"unit_weight_g\":1000.0}"
+    },
+    "oatmeal|tabemon-dikara:10001890": {
+      "category_id": "oatmeal",
+      "name": "オートミール 1kg×10袋 日食 オーツ麦 素材にこだわった本格シリアル えん麦 麦 穀物 ロールドオーツ グラノーラ",
+      "points": [
+        {
+          "date": "2026-09-30",
+          "price": 12063,
+          "unit": 120.63
+        }
+      ],
+      "product_id": "tabemon-dikara:10001890",
+      "quantity_key": "{\"count\":10,\"total_weight_g\":10000.0,\"unit_weight_g\":1000.0}"
+    },
+    "oatmeal|togetherlyherbaltea:10000596": {
+      "category_id": "oatmeal",
+      "name": "有機オートミール 1kg x 6セット アリサン オーガニック ロールドオーツ",
+      "points": [
+        {
+          "date": "2026-09-30",
+          "price": 5980,
+          "unit": 99.66666666666667
+        }
+      ],
+      "product_id": "togetherlyherbaltea:10000596",
+      "quantity_key": "{\"count\":6,\"total_weight_g\":6000.0,\"unit_weight_g\":1000.0}"
+    },
+    "oatmeal|tomizawa:10000264": {
+      "category_id": "oatmeal",
+      "name": "オートミール / 1kg【 富澤商店 公式 】",
+      "points": [
+        {
+          "date": "2026-09-30",
+          "price": 1235,
+          "unit": 123.5
+        }
+      ],
+      "product_id": "tomizawa:10000264",
+      "quantity_key": "{\"count\":1,\"total_weight_g\":1000.0,\"unit_weight_g\":1000.0}"
+    },
+    "oatmeal|uzumasa:10034063": {
+      "category_id": "oatmeal",
+      "name": "ALISHAN（アリサン） オートミール 1kg",
+      "points": [
+        {
+          "date": "2026-09-30",
+          "price": 999,
+          "unit": 99.9
+        }
+      ],
+      "product_id": "uzumasa:10034063",
+      "quantity_key": "{\"count\":1,\"total_weight_g\":1000.0,\"unit_weight_g\":1000.0}"
+    },
+    "oatmeal|yuukiya0097:10003316": {
+      "category_id": "oatmeal",
+      "name": "オートミール（業務用）1kg ★有機JAS（無農薬・無添加）★1個までコンパクト便可★オーガニックオートミール★グレインミラーズ★アリサン",
+      "points": [
+        {
+          "date": "2026-09-30",
+          "price": 1371,
+          "unit": 137.1
+        }
+      ],
+      "product_id": "yuukiya0097:10003316",
+      "quantity_key": "{\"count\":1,\"total_weight_g\":1000.0,\"unit_weight_g\":1000.0}"
+    },
+    "pack-rice|beisia:10152808": {
+      "category_id": "pack-rice",
+      "name": "ベイシア 国産ブレンド米 （180g×6パック入）×6個 ケース販売 まとめ買い | 国産 ブレンド米 米 パックご飯 レトルトご飯 一人暮らし 時短 簡単 ご飯 まとめ買い",
+      "points": [
+        {
+          "date": "2026-09-30",
+          "price": 4476,
+          "unit": 746.0
+        }
+      ],
+      "product_id": "beisia:10152808",
+      "quantity_key": "{\"count\":6,\"total_weight_g\":1080.0,\"unit_weight_g\":180.0}"
+    },
+    "pack-rice|irisplaza-r:10000903": {
+      "category_id": "pack-rice",
+      "name": "【公式】 パックご飯 180g ×40食 レトルトご飯 パックごはん 備蓄用 アイリスオーヤマ 米 お米 ひとり暮らし 非常食 防災 仕送り ご飯 低温製法米 低温製法米のおいしいごはん",
+      "points": [
+        {
+          "date": "2026-09-30",
+          "price": 5580,
+          "unit": 139.5
+        }
+      ],
+      "product_id": "irisplaza-r:10000903",
+      "quantity_key": "{\"count\":40,\"total_weight_g\":7200.0,\"unit_weight_g\":180.0}"
+    },
+    "pack-rice|irisplaza-r:10097865": {
+      "category_id": "pack-rice",
+      "name": "＼20%ポイントバック☆彡〜10/13迄／【公式】 パックご飯 180g ×30食 レトルトご飯 パックごはん 備蓄用 アイリスオーヤマ 米 お米 ひとり暮らし 非常食 防災 仕送り ご飯 低温製法米 低温製法米のおいしいごはん【iris_dl05】",
+      "points": [
+        {
+          "date": "2026-09-30",
+          "price": 5280,
+          "unit": 176.0
+        }
+      ],
+      "product_id": "irisplaza-r:10097865",
+      "quantity_key": "{\"count\":30,\"total_weight_g\":5400.0,\"unit_weight_g\":180.0}"
+    },
+    "pack-rice|irisplaza-r:10105218": {
+      "category_id": "pack-rice",
+      "name": "【公式】 パックご飯 180g ×80食 レトルトご飯 パックごはん 備蓄用 米 お米 ひとり暮らし 非常食 防災 仕送り ご飯 低温製法米",
+      "points": [
+        {
+          "date": "2026-09-30",
+          "price": 10480,
+          "unit": 131.0
+        }
+      ],
+      "product_id": "irisplaza-r:10105218",
+      "quantity_key": "{\"count\":80,\"total_weight_g\":14400.0,\"unit_weight_g\":180.0}"
+    },
+    "pack-rice|irisplaza-r:10152530": {
+      "category_id": "pack-rice",
+      "name": "【公式】 パックご飯 200g ×10食 レトルトご飯 パックごはん 備蓄用 米 お米 ひとり暮らし 非常食 防災 仕送り ご飯 低温製法米 低温製法米のおいしいごはん",
+      "points": [
+        {
+          "date": "2026-09-30",
+          "price": 1980,
+          "unit": 198.0
+        }
+      ],
+      "product_id": "irisplaza-r:10152530",
+      "quantity_key": "{\"count\":10,\"total_weight_g\":2000.0,\"unit_weight_g\":200.0}"
+    },
+    "pack-rice|irisplaza-r:10152531": {
+      "category_id": "pack-rice",
+      "name": "【公式】 パックご飯 200g ×40食 レトルトご飯 パックごはん 備蓄用 米 お米 ひとり暮らし 非常食 防災 仕送り ご飯 低温製法米 低温製法米のおいしいごはん",
+      "points": [
+        {
+          "date": "2026-09-30",
+          "price": 6600,
+          "unit": 165.0
+        }
+      ],
+      "product_id": "irisplaza-r:10152531",
+      "quantity_key": "{\"count\":40,\"total_weight_g\":8000.0,\"unit_weight_g\":200.0}"
+    },
+    "pack-rice|irisplaza-r:10163997": {
+      "category_id": "pack-rice",
+      "name": "パックご飯 180g 48食 アイリスオーヤマ お米 パックごはん パック レンジ レトルトごはん ご飯 一人暮らし ご飯パック まとめ買い 低温製法米のおいしいごはん 180g×48PA式ケース販売専用 簡単調理 アイリスフーズ[2609]",
+      "points": [
+        {
+          "date": "2026-09-30",
+          "price": 7780,
+          "unit": 162.08333333333334
+        }
+      ],
+      "product_id": "irisplaza-r:10163997",
+      "quantity_key": "{\"count\":48,\"total_weight_g\":8640.0,\"unit_weight_g\":180.0}"
+    },
+    "pack-rice|irisplaza-r:10173835": {
+      "category_id": "pack-rice",
+      "name": "パックご飯 180g ×24食 レトルトご飯 パックごはん 備蓄用 アイリスオーヤマ 米 お米 ひとり暮らし 非常食 防災 仕送り ご飯 低温製法米 低温製法米のおいしいごはんパックご飯 180g ×24食",
+      "points": [
+        {
+          "date": "2026-09-30",
+          "price": 3500,
+          "unit": 145.83333333333334
+        }
+      ],
+      "product_id": "irisplaza-r:10173835",
+      "quantity_key": "{\"count\":24,\"total_weight_g\":4320.0,\"unit_weight_g\":180.0}"
+    },
+    "pack-rice|jism:14398190": {
+      "category_id": "pack-rice",
+      "name": "低温製法米のおいしいごはん 国産米100％（180g×10食）×4袋 アイリスフーズ オイシイゴハン180G10P",
+      "points": [
+        {
+          "date": "2026-09-30",
+          "price": 5398,
+          "unit": 134.95
+        }
+      ],
+      "product_id": "jism:14398190",
+      "quantity_key": "{\"count\":40,\"total_weight_g\":7200.0,\"unit_weight_g\":180.0}"
+    },
+    "pack-rice|kurashikenkou:10157181": {
+      "category_id": "pack-rice",
+      "name": "米 パックご飯 180g ×30食 ご飯パック パックごはん レトルトご飯 パック米 パックライス パック ご飯 米 お米 白米 やわらか 備蓄 非常食 防災 保存食 仕送り 常温保存可 キャンプ 低温製法米のおいしいごはん アイリスオーヤマ こめ",
+      "points": [
+        {
+          "date": "2026-09-30",
+          "price": 4700,
+          "unit": 156.66666666666666
+        }
+      ],
+      "product_id": "kurashikenkou:10157181",
+      "quantity_key": "{\"count\":30,\"total_weight_g\":5400.0,\"unit_weight_g\":180.0}"
+    },
+    "pack-rice|kurashikenkou:10180939": {
+      "category_id": "pack-rice",
+      "name": "米 パックご飯 180g ×80食 大容量 ご飯パック パックごはん レトルトご飯 パック米 パックライス パック 備蓄 米 ご飯 米 お米 白米 非常食 防災 保存食 低温製法米のおいしいごはん アイリスオーヤマ アイリスフーズ こめ",
+      "points": [
+        {
+          "date": "2026-09-30",
+          "price": 10480,
+          "unit": 131.0
+        }
+      ],
+      "product_id": "kurashikenkou:10180939",
+      "quantity_key": "{\"count\":80,\"total_weight_g\":14400.0,\"unit_weight_g\":180.0}"
+    },
+    "pack-rice|kurashikenkou:10219255": {
+      "category_id": "pack-rice",
+      "name": "米 パックご飯 200g ×80食 大容量 ご飯パック パックごはん レトルトご飯 パック米 パック 備蓄 米 ご飯 お米 白米 防災 保存食 仕送り 常温保存可 低温製法米のおいしいごはん アイリスオーヤマ アイリスフーズ こめ",
+      "points": [
+        {
+          "date": "2026-09-30",
+          "price": 11280,
+          "unit": 141.0
+        }
+      ],
+      "product_id": "kurashikenkou:10219255",
+      "quantity_key": "{\"count\":80,\"total_weight_g\":16000.0,\"unit_weight_g\":200.0}"
+    },
+    "pack-rice|kurashikenkou:10219256": {
+      "category_id": "pack-rice",
+      "name": "米 パックご飯 200g ×30食 ご飯パック パックごはん レトルトご飯 パック米 パックライス パック 備蓄 米 ご飯 米 お米 白米 非常食 防災 保存食 仕送り 常温保存可 キャンプ 低温製法米のおいしいごはん アイリスオーヤマ こめ",
+      "points": [
+        {
+          "date": "2026-09-30",
+          "price": 4600,
+          "unit": 153.33333333333334
+        }
+      ],
+      "product_id": "kurashikenkou:10219256",
+      "quantity_key": "{\"count\":30,\"total_weight_g\":6000.0,\"unit_weight_g\":200.0}"
+    },
+    "pack-rice|likaman:10034744": {
+      "category_id": "pack-rice",
+      "name": "【最強翌日配送】サトウのごはん 銀シャリ 5食パック (200g×5食)×8袋入 サトウ食品 レトルトご飯 そのまま おいしいごはん KOB",
+      "points": [
+        {
+          "date": "2026-09-30",
+          "price": 8499,
+          "unit": 212.475
+        }
+      ],
+      "product_id": "likaman:10034744",
+      "quantity_key": "{\"count\":40,\"total_weight_g\":8000.0,\"unit_weight_g\":200.0}"
+    },
+    "pack-rice|likaman:10040020": {
+      "category_id": "pack-rice",
+      "name": "【80食】サトウのごはん 銀シャリ 5食パック (200g×5食)×16袋入 サトウ食品 レトルトご飯 そのまま おいしいごはん カワタキ",
+      "points": [
+        {
+          "date": "2026-09-30",
+          "price": 16300,
+          "unit": 203.75
+        }
+      ],
+      "product_id": "likaman:10040020",
+      "quantity_key": "{\"count\":80,\"total_weight_g\":16000.0,\"unit_weight_g\":200.0}"
+    },
+    "pack-rice|nishinoya-k:10000319": {
+      "category_id": "pack-rice",
+      "name": "敬老の日 プレゼント ギフト 福島県 浜通り 被災12市町村米使用 パックご飯 180g×36食 ふくふくご飯 国産米100％ （沖縄除く） パック飯 パックごはん レトルト ご飯 米 無菌化包装米飯 常温保存 保存食 一人暮らし 仕送り OKOME",
+      "points": [
+        {
+          "date": "2026-09-30",
+          "price": 5940,
+          "unit": 165.0
+        }
+      ],
+      "product_id": "nishinoya-k:10000319",
+      "quantity_key": "{\"count\":36,\"total_weight_g\":6480.0,\"unit_weight_g\":180.0}"
+    },
+    "pack-rice|nouyu:10000006": {
+      "category_id": "pack-rice",
+      "name": "パックごはん180g×40食 秋田米100％のごはん オール秋田県産米使用 パックライス パックご飯",
+      "points": [
+        {
+          "date": "2026-09-30",
+          "price": 4150,
+          "unit": 103.75
+        }
+      ],
+      "product_id": "nouyu:10000006",
+      "quantity_key": "{\"count\":40,\"total_weight_g\":7200.0,\"unit_weight_g\":180.0}"
+    },
+    "pack-rice|rack-kan:10117025": {
+      "category_id": "pack-rice",
+      "name": "パックご飯 200g ×80食 大容量 ご飯パック パックごはん レトルトご飯 パック米 パックライス パック ご飯 米 お米 白米 備蓄 非常食 防災 保存食 仕送り 常温保存可 低温製法米のおいしいごはん アイリスオーヤマ",
+      "points": [
+        {
+          "date": "2026-09-30",
+          "price": 11280,
+          "unit": 141.0
+        }
+      ],
+      "product_id": "rack-kan:10117025",
+      "quantity_key": "{\"count\":80,\"total_weight_g\":16000.0,\"unit_weight_g\":200.0}"
+    },
+    "pack-rice|s-kodawari:10003573": {
+      "category_id": "pack-rice",
+      "name": "パックご飯 米 180g×80食パック アイリスオーヤマ 国産米 レトルトご飯 パックごはんレトルトごはん 備蓄用 防災 常温保存可 保存食 非常食 一人暮らし 仕送り 低温製法米のおいしいごはん アイリスフーズ",
+      "points": [
+        {
+          "date": "2026-09-30",
+          "price": 11800,
+          "unit": 147.5
+        }
+      ],
+      "product_id": "s-kodawari:10003573",
+      "quantity_key": "{\"count\":80,\"total_weight_g\":14400.0,\"unit_weight_g\":180.0}"
+    },
+    "pack-rice|unidy:11096473": {
+      "category_id": "pack-rice",
+      "name": "パックご飯 180g×80食パック アイリスオーヤマ 国産米 レトルトご飯 パックごはんレトルトごはん 備蓄用 防災 常温保存可 保存食 非常食 一人暮らし 仕送り 低温製法米のおいしいごはん アイリスフーズ",
+      "points": [
+        {
+          "date": "2026-09-30",
+          "price": 10480,
+          "unit": 131.0
+        }
+      ],
+      "product_id": "unidy:11096473",
+      "quantity_key": "{\"count\":80,\"total_weight_g\":14400.0,\"unit_weight_g\":180.0}"
+    },
+    "pack-rice|yunotani:10000061": {
+      "category_id": "pack-rice",
+      "name": "『ふんわりごはん（1食200g）』×24食セット レトルトご飯 南魚沼産こしひかり「特別栽培米」使用",
+      "points": [
+        {
+          "date": "2026-09-30",
+          "price": 6200,
+          "unit": 258.3333333333333
+        }
+      ],
+      "product_id": "yunotani:10000061",
+      "quantity_key": "{\"count\":24,\"total_weight_g\":4800.0,\"unit_weight_g\":200.0}"
+    },
+    "rice|adachi-umai:10000130": {
+      "category_id": "rice",
+      "name": "sale セール 値引 割引 限定 特別 お得 新米 米 白米 10kg コシヒカリ 5kg×2袋 愛知県産 令和8年産 コシヒカリ お米 10キロ あす楽 安い 【沖縄、配送不可】",
+      "points": [
+        {
+          "date": "2026-09-30",
+          "price": 5599,
+          "unit": 559.9
+        }
+      ],
+      "product_id": "adachi-umai:10000130",
+      "quantity_key": "{\"count\":2,\"total_weight_g\":10000.0,\"unit_weight_g\":5000.0}"
+    },
+    "rice|anzai-rice:10000437": {
+      "category_id": "rice",
+      "name": "10kg お米 白米 安い 訳あり ブレンド米 『国内産たんぼだより白米10kg』",
+      "points": [
+        {
+          "date": "2026-09-30",
+          "price": 3780,
+          "unit": 378.0
+        }
+      ],
+      "product_id": "anzai-rice:10000437",
+      "quantity_key": "{\"count\":1,\"total_weight_g\":10000.0,\"unit_weight_g\":10000.0}"
+    },
+    "rice|fuchigami:10000003": {
+      "category_id": "rice",
+      "name": "【7年産】 米 10kg 令和7年 熊本県産 ヒノヒカリ ひのひかり 米 10kg 白米 10kg お米 10kg 無洗米 10キロ こめたつ 備蓄用 非常用 あす楽",
+      "points": [
+        {
+          "date": "2026-09-30",
+          "price": 4180,
+          "unit": 418.0
+        }
+      ],
+      "product_id": "fuchigami:10000003",
+      "quantity_key": "{\"count\":1,\"total_weight_g\":10000.0,\"unit_weight_g\":10000.0}"
+    },
+    "rice|fuchigami:10000055": {
+      "category_id": "rice",
+      "name": "米 10kg 令和7年 熊本県産 森のくまさん 米 10kg 白米 10kg お米 10kg 無洗米 10キロ こめたつ 備蓄用 非常用 あす楽",
+      "points": [
+        {
+          "date": "2026-09-30",
+          "price": 4380,
+          "unit": 438.0
+        }
+      ],
+      "product_id": "fuchigami:10000055",
+      "quantity_key": "{\"count\":1,\"total_weight_g\":10000.0,\"unit_weight_g\":10000.0}"
+    },
+    "rice|fuchigami:10000061": {
+      "category_id": "rice",
+      "name": "【7年産】 米 10kg 令和7年産米入り 訳あり ほほえみ米 お米マイスター厳選米 米 10kg 白米 10kg お米 10kg 無洗米 10キロ 西日本産 こめたつ 備蓄用 あす楽",
+      "points": [
+        {
+          "date": "2026-09-30",
+          "price": 3780,
+          "unit": 378.0
+        }
+      ],
+      "product_id": "fuchigami:10000061",
+      "quantity_key": "{\"count\":1,\"total_weight_g\":10000.0,\"unit_weight_g\":10000.0}"
+    },
+    "rice|fujisports-r:10054218": {
+      "category_id": "rice",
+      "name": "お米 コメ 雪若丸 10kg 新米 無洗米 精米 山形県産 令和8年産 5kg×2袋",
+      "points": [
+        {
+          "date": "2026-09-30",
+          "price": 5380,
+          "unit": 538.0
+        }
+      ],
+      "product_id": "fujisports-r:10054218",
+      "quantity_key": "{\"count\":2,\"total_weight_g\":10000.0,\"unit_weight_g\":5000.0}"
+    },
+    "rice|hseason:10000260": {
+      "category_id": "rice",
+      "name": "【7年産】令和7年産 無洗米 山形県産 あきたこまち10kg 5kg×2袋 【SOA受賞】[年間ランキング グルメ大賞]Shop Of The Year 米大賞 ハーベストシーズン[沖縄離島等一部地域は別途送料760円]",
+      "points": [
+        {
+          "date": "2026-09-30",
+          "price": 5749,
+          "unit": 574.9
+        }
+      ],
+      "product_id": "hseason:10000260",
+      "quantity_key": "{\"count\":2,\"total_weight_g\":10000.0,\"unit_weight_g\":5000.0}"
+    },
+    "rice|kawasaki-beikoku:10000016": {
+      "category_id": "rice",
+      "name": "新米 令和8年産 北海道産 ゆめぴりか 10kg (5kg×2袋セット)＜白米＞ 【北海道米 送料込み 米 お米 真空パック選択可】",
+      "points": [
+        {
+          "date": "2026-09-30",
+          "price": 6580,
+          "unit": 658.0
+        }
+      ],
+      "product_id": "kawasaki-beikoku:10000016",
+      "quantity_key": "{\"count\":2,\"total_weight_g\":10000.0,\"unit_weight_g\":5000.0}"
+    },
+    "rice|kyusyukome:10000047": {
+      "category_id": "rice",
+      "name": "【令和7年産九州産】無洗米 洗わんでよかよ 10kg(5kg×2袋) 【沖縄・北海道は別途送料プラス500円】",
+      "points": [
+        {
+          "date": "2026-09-30",
+          "price": 5480,
+          "unit": 548.0
+        }
+      ],
+      "product_id": "kyusyukome:10000047",
+      "quantity_key": "{\"count\":2,\"total_weight_g\":10000.0,\"unit_weight_g\":5000.0}"
+    },
+    "rice|kyusyukome:10000128": {
+      "category_id": "rice",
+      "name": "【令和7年産】九州うまか米 10kg（5kg×2袋） 【沖縄・北海道は別途送料プラス500円】",
+      "points": [
+        {
+          "date": "2026-09-30",
+          "price": 4980,
+          "unit": 498.0
+        }
+      ],
+      "product_id": "kyusyukome:10000128",
+      "quantity_key": "{\"count\":2,\"total_weight_g\":10000.0,\"unit_weight_g\":5000.0}"
+    },
+    "rice|morikawakomeya:10000105": {
+      "category_id": "rice",
+      "name": "米 5kg 「愛媛県産 ひめの凜 5kg」 令和7年産 白米 5キロ ※北海道.東北.沖縄配送不可",
+      "points": [
+        {
+          "date": "2026-09-30",
+          "price": 2990,
+          "unit": 598.0
+        }
+      ],
+      "product_id": "morikawakomeya:10000105",
+      "quantity_key": "{\"count\":1,\"total_weight_g\":5000.0,\"unit_weight_g\":5000.0}"
+    },
+    "rice|okomeabe:10000076": {
+      "category_id": "rice",
+      "name": "お米 10kg 家計応援まんぷく米 5kg×2袋 安い 米 10キロ コメ 白米",
+      "points": [
+        {
+          "date": "2026-09-30",
+          "price": 3780,
+          "unit": 378.0
+        }
+      ],
+      "product_id": "okomeabe:10000076",
+      "quantity_key": "{\"count\":2,\"total_weight_g\":10000.0,\"unit_weight_g\":5000.0}"
+    },
+    "rice|okomeabe:10000376": {
+      "category_id": "rice",
+      "name": "米 5kg 家計応援まんぷく米 5kg×1袋 安い お米 5キロ コメ 白米",
+      "points": [
+        {
+          "date": "2026-09-30",
+          "price": 2280,
+          "unit": 456.0
+        }
+      ],
+      "product_id": "okomeabe:10000376",
+      "quantity_key": "{\"count\":1,\"total_weight_g\":5000.0,\"unit_weight_g\":5000.0}"
+    },
+    "rice|rs-takeo:10000019": {
+      "category_id": "rice",
+      "name": "ブレンド米 10kg 国内産複数原料米 白米",
+      "points": [
+        {
+          "date": "2026-09-30",
+          "price": 3680,
+          "unit": 368.0
+        }
+      ],
+      "product_id": "rs-takeo:10000019",
+      "quantity_key": "{\"count\":1,\"total_weight_g\":10000.0,\"unit_weight_g\":10000.0}"
+    },
+    "rice|rs-takeo:10000165": {
+      "category_id": "rice",
+      "name": "【在庫処分価格！】送料無料 令和7年産 秋田県産 あきたこまち 10kg 白米 米",
+      "points": [
+        {
+          "date": "2026-09-30",
+          "price": 4990,
+          "unit": 499.0
+        }
+      ],
+      "product_id": "rs-takeo:10000165",
+      "quantity_key": "{\"count\":1,\"total_weight_g\":10000.0,\"unit_weight_g\":10000.0}"
+    },
+    "rice|toyorice:10000262": {
+      "category_id": "rice",
+      "name": "無洗米 金芽米 ハイセレクト 9kg(4.5kg×2袋) 国内産10割 無洗米 工場直送 玄米の栄養を残した白米きんめまい ブレンド米 亜糊粉層（あこふんそう）国産玄米",
+      "points": [
+        {
+          "date": "2026-09-30",
+          "price": 7650,
+          "unit": 850.0
+        }
+      ],
+      "product_id": "toyorice:10000262",
+      "quantity_key": "{\"count\":2,\"total_weight_g\":9000.0,\"unit_weight_g\":4500.0}"
+    },
+    "rice|yahagishouten:10000202": {
+      "category_id": "rice",
+      "name": "令和7年産 山形県産 はえぬき 白米10kg【四国・九州への配送は+400円/沖縄・離島への配送は+1,000円加算】",
+      "points": [
+        {
+          "date": "2026-09-30",
+          "price": 4580,
+          "unit": 458.0
+        }
+      ],
+      "product_id": "yahagishouten:10000202",
+      "quantity_key": "{\"count\":1,\"total_weight_g\":10000.0,\"unit_weight_g\":10000.0}"
+    },
+    "rice|yahagishouten:10000204": {
+      "category_id": "rice",
+      "name": "令和7年産 山形県産 ひとめぼれ 白米10kg【四国・九州への配送は+400円/沖縄・離島への配送は+1,000円加算】",
+      "points": [
+        {
+          "date": "2026-09-30",
+          "price": 4580,
+          "unit": 458.0
+        }
+      ],
+      "product_id": "yahagishouten:10000204",
+      "quantity_key": "{\"count\":1,\"total_weight_g\":10000.0,\"unit_weight_g\":10000.0}"
+    },
+    "rice|yama-oatmeal-institute:10000026": {
+      "category_id": "rice",
+      "name": "「新米5kg2,390円〜」令和8年 新米 あきたこまち キヌヒカリ など 選べる 各県こだわりの 銘柄米 極味精米 きわみせいまい 米 お米 白米 離島も含めて全国 単一銘柄米 [ ヒノヒカリ コシヒカリ こしひかり あきたこまち など各種銘柄米]",
+      "points": [
+        {
+          "date": "2026-09-30",
+          "price": 2580,
+          "unit": 516.0
+        }
+      ],
+      "product_id": "yama-oatmeal-institute:10000026",
+      "quantity_key": "{\"count\":1,\"total_weight_g\":5000.0,\"unit_weight_g\":5000.0}"
+    }
+  },
+  "updated_at": "2026-09-30",
+  "version": 1
+}
