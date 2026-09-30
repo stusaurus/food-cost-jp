@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-30T19:51:34.410847+09:00",
+  "generated_at": "2026-09-30T20:01:56.056172+09:00",
   "categories": {
     "pack-rice": {
       "included": [
@@ -1623,8 +1623,8 @@
       ],
       "quality_audit": {
         "fetched": 60,
-        "normalized": 24,
-        "exact_duplicates": 7,
+        "normalized": 23,
+        "exact_duplicates": 6,
         "practical_duplicates": 0,
         "accepted_unique": 17,
         "included_available": 16,
@@ -1633,7 +1633,7 @@
         "displayed_shipping_unknown": 1,
         "reasons": {
           "wrong_product_type": 7,
-          "ambiguous_quantity": 24,
+          "ambiguous_quantity": 25,
           "limited_purchase": 5
         }
       }
