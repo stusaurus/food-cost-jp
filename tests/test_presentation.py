@@ -85,6 +85,11 @@ class PresentationTests(unittest.TestCase):
         self.assertIn('class="hero-art-grid"', html)
         self.assertIn('category-card rice', html)
         self.assertIn('category-card carbonated-water', html)
+        self.assertIn("3回選ぶだけ。あなた向けの比較へ。", html)
+        self.assertIn('data-finder-category="rice"', html)
+        self.assertIn('data-finder-purpose="cheap"', html)
+        self.assertIn('data-finder-purpose="small"', html)
+        self.assertIn('data-finder-purpose="large"', html)
 
     def test_search_filter_tracking_is_present(self):
         category = next(c for c in CATEGORIES if c["id"] == "pack-rice")
@@ -96,6 +101,37 @@ class PresentationTests(unittest.TestCase):
         )
         self.assertIn("comparison_search_use", html)
         self.assertIn("条件に合う商品がありません", html)
+        self.assertIn("quick_finder_landing", html)
+
+    def test_recommendation_badges_and_top3_difference(self):
+        category = next(c for c in CATEGORIES if c["id"] == "pack-rice")
+        items = [sample_item("pack-rice", i) for i in range(1, 4)]
+        items[0]["unit_prices"]["per_serving"] = 90
+        items[1]["unit_prices"]["per_serving"] = 100
+        items[2]["unit_prices"]["per_serving"] = 110
+        html = category_page(
+            category,
+            items,
+            [],
+            datetime(2026, 9, 30, 7, 0, tzinfo=ZoneInfo("Asia/Tokyo")),
+        )
+        self.assertIn("👑 最安候補", html)
+        self.assertIn("TOP3", html)
+        self.assertIn("少量向き", html)
+        self.assertIn("最安との差 +¥10.0", html)
+        self.assertIn("最安との差 +¥20.0", html)
+
+    def test_finder_tracks_and_builds_filtered_links(self):
+        results = {}
+        for category in CATEGORIES:
+            results[category["id"]] = ([sample_item(category["id"])], [])
+        html = home_page(
+            results,
+            datetime(2026, 9, 30, 7, 0, tzinfo=ZoneInfo("Asia/Tokyo")),
+        )
+        self.assertIn("quick_finder_category", html)
+        self.assertIn("quick_finder_complete", html)
+        self.assertIn("'/?pick='+purpose+'#included'", html)
 
 
 if __name__ == "__main__":
