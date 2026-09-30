@@ -36,6 +36,17 @@ CATEGORIES = [
     {"id":"rice","name":"米","emoji":"🌾","queries":["米 5kg 送料無料","米 10kg 送料無料"],"primary":"per_kg","primary_label":"1kgあたり","secondary":None,"secondary_label":None,"intro":"5kg・10kgなど総重量が違う商品を1kgあたりへ換算します。","filter_small":"5kg以下","filter_large":"5kg超","guide":["5kgと10kgでは商品価格より1kgあたりを見ると比較しやすくなります。","銘柄・産年・精米方法は価格差の理由になるため、商品名の情報はできるだけ残しています。","5kg／10kg／20kgなど購入量が選択式で確定できない商品は除外しています。"]},
     {"id":"carbonated-water","name":"炭酸水","emoji":"🫧","queries":["炭酸水 500ml 24本","炭酸水 500ml 48本","炭酸水 1L"],"primary":"per_liter","primary_label":"1Lあたり","secondary":"per_bottle","secondary_label":"1本あたり","intro":"500ml・1L・24本・48本などを1Lあたりと1本あたりへ換算します。","filter_small":"600ml以下","filter_large":"700ml以上","guide":["持ち歩き中心なら1本あたり、自宅利用なら1Lあたりの単価を見ると選びやすくなります。","24本×2ケースなど明確な箱数は合計本数へ換算して比較します。","通常のミネラルウォーターや炭酸メーカー用品は炭酸水ランキングへ混ぜません。"]},
     {"id":"oatmeal","name":"オートミール","emoji":"🥣","queries":["オートミール 1kg","オートミール 2kg"],"primary":"per_100g","primary_label":"100gあたり","secondary":"per_kg","secondary_label":"1kgあたり","intro":"1kg袋・複数袋セットを100gあたりと1kgあたりへ換算します。","filter_small":"1kg以下","filter_large":"1kg超","guide":["袋サイズが違っても100gあたりへ換算すると価格差を比較しやすくなります。","複数袋セットは総重量へ換算し、セット数が曖昧な商品は除外しています。","ロールドオーツ・クイックオーツなどタイプは商品名で確認できるよう残しています。"]},
+] 
+
+GUIDE_SPECS = [
+    {"slug":"pack-rice-200g-cost","category_id":"pack-rice","title":"パックご飯200g前後のコスパ比較","h1":"パックご飯200g前後を1食あたりで比較","intro":"180〜210g前後のパックご飯から、送料込みで比較できる商品を1食あたりの単価で見ます。","mode":"pack_200"},
+    {"slug":"pack-rice-bulk-cost","category_id":"pack-rice","title":"パックご飯まとめ買いのコスパ比較","h1":"パックご飯の大箱・まとめ買いを比較","intro":"25食以上のまとめ買い向け商品を中心に、1食あたりの単価と総額を比べます。","mode":"large"},
+    {"slug":"rice-5kg-cost","category_id":"rice","title":"米5kgのコスパ比較","h1":"米5kg前後を1kgあたりで比較","intro":"5kg前後の米を送料込みでそろえ、商品価格だけでなく1kgあたりの単価で比べます。","mode":"rice_5kg"},
+    {"slug":"rice-10kg-cost","category_id":"rice","title":"米10kgのコスパ比較","h1":"米10kg前後を1kgあたりで比較","intro":"10kg前後の米を1kgあたりへ換算し、まとめ買い時の価格差を見やすくします。","mode":"rice_10kg"},
+    {"slug":"carbonated-water-24-cost","category_id":"carbonated-water","title":"炭酸水24本のコスパ比較","h1":"炭酸水24本を1L・1本あたりで比較","intro":"24本セットの炭酸水を中心に、1Lあたりと1本あたりの両方で比べます。","mode":"count_24"},
+    {"slug":"carbonated-water-48-cost","category_id":"carbonated-water","title":"炭酸水48本のコスパ比較","h1":"炭酸水48本を1L・1本あたりで比較","intro":"48本前後の大容量セットを中心に、まとめ買い時の単価を比べます。","mode":"count_48"},
+    {"slug":"oatmeal-1kg-cost","category_id":"oatmeal","title":"オートミール1kgのコスパ比較","h1":"オートミール1kg前後を100gあたりで比較","intro":"1kg前後のオートミールを100gあたりへ換算し、袋価格だけでは分からない差を比べます。","mode":"oats_1kg"},
+    {"slug":"oatmeal-bulk-cost","category_id":"oatmeal","title":"オートミール大容量のコスパ比較","h1":"オートミール大容量・まとめ買いを比較","intro":"1kg超の大容量商品を中心に、100gあたり・1kgあたりの単価を比べます。","mode":"large"},
 ]
 
 LIMITED_RE = re.compile(r"(?:定期購入(?:のみ)?|定期便(?:のみ)?|初回限定|会員限定|新規限定)")
@@ -785,6 +796,7 @@ h1{font-size:clamp(32px,6vw,58px);line-height:1.08;margin:12px 0 16px;letter-spa
 .hero-visual{position:relative;min-height:350px;display:flex;align-items:center;justify-content:center}.hero-visual .guide-mascot{width:min(90%,330px);filter:drop-shadow(0 20px 25px rgba(23,63,49,.13))}.guide-mascot.compact{width:95px;height:auto}.mascot-bubble{position:absolute;right:8px;top:12px;background:#fff;border:1px solid #dce8dd;border-radius:20px 20px 20px 5px;padding:12px 15px;font-size:12px;line-height:1.4;box-shadow:0 12px 28px rgba(40,60,45,.08);z-index:2}.hero-food-chip{position:absolute;background:#fff;border:1px solid #e2e6dd;border-radius:999px;padding:7px 11px;font-size:12px;font-weight:900;box-shadow:0 10px 24px rgba(50,60,45,.08)}.chip-rice{left:4%;top:18%}.chip-water{right:2%;bottom:26%}.chip-pack{left:0;bottom:24%}.chip-oats{right:8%;top:31%}
 .finder-intro{display:flex;align-items:center;justify-content:space-between;gap:18px}.finder-guide{display:flex;align-items:center;gap:4px;font-size:11px;font-weight:900;color:var(--brand)}.finder-stage{margin-top:18px}.finder-stage[hidden],.finder-picks[hidden]{display:none}.finder-question{display:flex;align-items:center;gap:10px}.finder-question>span{display:inline-flex;width:34px;height:34px;border-radius:50%;align-items:center;justify-content:center;background:var(--brand2);color:#fff;font-size:11px;font-weight:950}.finder-question>strong{font-size:20px}.finder-category-options button{min-width:180px}.finder-purpose-options button{display:flex;align-items:center;gap:9px;font-size:20px;text-align:left}.finder-purpose-options button span{display:flex;flex-direction:column}.finder-purpose-options button strong{font-size:14px}.finder-purpose-options button small{font-size:10px;color:var(--muted);font-weight:700}.finder-back{border:0;background:transparent;color:var(--brand);font-weight:850;padding:0;margin-bottom:12px;cursor:pointer}.finder-picks{margin-top:8px}.finder-picks-head span{display:block;font-size:10px;font-weight:950;color:var(--brand);letter-spacing:.08em}.finder-picks-head strong{font-size:20px}.finder-products{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:14px}.finder-product{display:grid;grid-template-rows:110px 1fr;background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden}.finder-product-media{display:flex;align-items:center;justify-content:center;padding:8px;background:#fafbf7}.finder-product-media img{max-width:100%;max-height:100px;object-fit:contain}.finder-product-copy{position:relative;padding:13px;display:flex;flex-direction:column}.finder-product-copy>strong{font-size:12px;line-height:1.45;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}.finder-product-rank{position:absolute;right:10px;top:-18px;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:var(--brand);color:#fff;font-weight:950}.finder-product-price{font-size:22px;font-weight:950;color:var(--brand);margin-top:10px}.finder-product-price small{font-size:10px;color:var(--muted)}.finder-product-meta{font-size:10px;color:var(--muted);margin:4px 0 7px}.finder-why{font-size:10px;color:#536058;background:#f3f7f2;border-radius:9px;padding:6px 7px;margin-bottom:9px}.finder-why span{display:inline-block;font-weight:950;color:var(--brand);margin-right:5px}.finder-product-copy .cta{margin-top:auto}.finder-all{display:inline-flex;margin-top:12px;color:var(--brand);font-weight:900;text-decoration:none}
 .more-products{margin:28px 0 40px}.more-products>summary{list-style:none;cursor:pointer;background:#fff;border:1px solid var(--line);border-radius:16px;padding:15px 18px;font-weight:950;display:flex;align-items:center;justify-content:space-between;box-shadow:0 5px 16px rgba(50,60,45,.04)}.more-products>summary::-webkit-details-marker{display:none}.more-products[open]>summary span{transform:rotate(45deg)}.more-products .comparison-inner{margin-top:12px}.comparison-inner>h2{margin-top:0}.after-top3{margin-top:-10px}.guide-with-mascot{display:grid;grid-template-columns:1fr 120px;gap:20px;align-items:center}.guide-mini{display:flex;justify-content:center}
+.faq-section{background:#fffdf8;border:1px solid var(--line);border-radius:24px;padding:24px}.faq-item{border-top:1px solid var(--line);padding:12px 0}.faq-item:first-of-type{border-top:0}.faq-item summary{cursor:pointer;font-weight:900}.faq-item p{color:var(--muted);margin:8px 0 0}
 footer{background:#fff;border-top:1px solid var(--line);padding:30px 0 42px;color:var(--muted);font-size:11px}
 @media(min-width:760px){.grid{grid-template-columns:1fr 1fr}}
 @media(max-width:759px){
@@ -982,7 +994,129 @@ def comparison_table(
 {content}
 </details>"""
 
-def page_head(title: str, description: str, canonical: str) -> str:
+def faq_json_ld(faqs: list[tuple[str, str]]) -> str:
+    data = {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": question,
+                "acceptedAnswer": {"@type": "Answer", "text": answer},
+            }
+            for question, answer in faqs
+        ],
+    }
+    return '<script type="application/ld+json">' + json.dumps(data, ensure_ascii=False) + '</script>'
+
+
+def faq_html(faqs: list[tuple[str, str]]) -> str:
+    items = "".join(
+        f"""<details class="faq-item"><summary>{html.escape(question)}</summary><p>{html.escape(answer)}</p></details>"""
+        for question, answer in faqs
+    )
+    return f"""<section class="section faq-section"><div class="section-kicker">FAQ</div><h2>よくある質問</h2>{items}</section>"""
+
+
+def category_faq(category: dict) -> list[tuple[str, str]]:
+    return [
+        (
+            f"{category['name']}は何を基準に並べていますか？",
+            f"送料込み確認済みの商品を、主に{category['primary_label']}が安い順で並べています。",
+        ),
+        (
+            "クーポンやポイントは単価に含めていますか？",
+            "通常価格を公平に比べるため、クーポンやポイントは自動的に単価へ差し引いていません。",
+        ),
+        (
+            "数量が選べる商品はランキングに入りますか？",
+            "購入する容量や個数を商品情報から一意に確定できない場合は、誤比較を防ぐためランキングから除外します。",
+        ),
+    ]
+
+
+def guide_filter_items(spec: dict, items: list[dict], category: dict) -> list[dict]:
+    mode = spec["mode"]
+    if mode == "large":
+        picked = [x for x in items if bucket(x, category["id"]) == "large"]
+    elif mode == "pack_200":
+        picked = [x for x in items if 180 <= float(x["quantity"].get("unit_weight_g") or 0) <= 210]
+    elif mode == "rice_5kg":
+        picked = [x for x in items if 4500 <= float(x["quantity"].get("total_weight_g") or 0) <= 5500]
+    elif mode == "rice_10kg":
+        picked = [x for x in items if 9000 <= float(x["quantity"].get("total_weight_g") or 0) <= 11000]
+    elif mode == "count_24":
+        picked = [x for x in items if int(x["quantity"].get("count") or 0) == 24]
+    elif mode == "count_48":
+        picked = [x for x in items if int(x["quantity"].get("count") or 0) == 48]
+    elif mode == "oats_1kg":
+        picked = [x for x in items if 900 <= float(x["quantity"].get("total_weight_g") or 0) <= 1100]
+    else:
+        picked = list(items)
+    return picked if picked else list(items[:6])
+
+
+def guide_faq(spec: dict, category: dict) -> list[tuple[str, str]]:
+    return [
+        (
+            f"{spec['title']}では何を比べていますか？",
+            f"楽天から取得した商品情報をもとに、数量を確定できる商品だけを{category['primary_label']}へ換算して比較しています。",
+        ),
+        (
+            "送料はランキングにどう反映していますか？",
+            "主ランキングは楽天APIで送料込みと確認できる商品を対象にしています。地域別追加送料などは販売ページで最終確認してください。",
+        ),
+        (
+            "一番上の商品が必ず自分に最適ですか？",
+            "単価だけでなく、保管場所、支払総額、内容量、ブランドなども確認して選ぶのがおすすめです。",
+        ),
+    ]
+
+
+def guide_page(spec: dict, category: dict, items: list[dict], updated: datetime) -> str:
+    picked = guide_filter_items(spec, items, category)
+    faqs = guide_faq(spec, category)
+    canonical = f"{SITE_URL}guides/{spec['slug']}/"
+    head = page_head(
+        f"{spec['title']}｜食品コスパ比較",
+        spec["intro"],
+        canonical,
+        faq_json_ld(faqs),
+    )
+    cards = top3_html(picked, category)
+    more = comparison_table(
+        picked[3:],
+        category,
+        f"ほかの候補を見る（{max(0, len(picked)-3)}件）",
+        "価格や容量条件を確認しながら比較できます。",
+        start_rank=4,
+        collapsed=True,
+    ) if len(picked) > 3 else ""
+    return head + f"""<header><div class="wrap hero-layout">
+<div><a class="brand" href="../../">食品コスパ比較</a>
+<div class="eyebrow">{category['emoji']} 検索テーマ別比較</div>
+<h1>{html.escape(spec['h1'])}</h1>
+<p class="lead">{html.escape(spec['intro'])}</p>
+<div class="hero-tags"><span class="hero-tag">送料込みを優先</span><span class="hero-tag">実データ連動</span><span class="hero-tag">数量曖昧は除外</span></div>
+<p class="note">最終価格確認: {updated:%Y-%m-%d %H:%M} JST</p></div>
+<div class="category-hero-art {category['id']}">{category_illustration(category['id'])}</div>
+</div></header>
+<main class="wrap">
+<section class="section explain"><h2>このページの見方</h2>
+<p>{html.escape(spec['intro'])}</p>
+<p class="fine">商品名・容量・セット数を安全に読み取れない候補は除外し、クーポンやポイントは通常単価へ自動反映しません。</p>
+</section>
+{cards}
+{more}
+{faq_html(faqs)}
+<section class="section explain"><h2>もっと広く比較する</h2><p><a class="finder-go" href="../../categories/{category['id']}/">{category['emoji']} {html.escape(category['name'])}の全ランキングを見る →</a></p></section>
+</main><script>{JS}</script>
+<footer><div class="wrap">当サイトは楽天アフィリエイトを利用しています。価格は取得時点の参考情報です。</div></footer>
+</body></html>"""
+
+
+
+def page_head(title: str, description: str, canonical: str, extra_head: str = "") -> str:
     return f"""<!doctype html><html lang="ja"><head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -992,6 +1126,7 @@ def page_head(title: str, description: str, canonical: str) -> str:
 <link rel="canonical" href="{canonical}">
 <style>{CSS}</style>
 {ga_head()}
+{extra_head}
 </head><body>"""
 
 
