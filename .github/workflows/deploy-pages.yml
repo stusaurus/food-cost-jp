@@ -14,7 +14,7 @@ on:
       - ".github/workflows/deploy-pages.yml"
 
 permissions:
-  contents: read
+  contents: write
   pages: write
   id-token: write
 
@@ -53,6 +53,25 @@ jobs:
           </head><body><main class="wrap"><div class="card"><div class="tag">FOOD COST</div><h1>食品コスパ比較を準備中です</h1><p>容量・本数・食数・送料をそろえ、1kg・1L・1食・100gあたりで比較できるサイトを構築しています。</p><p>楽天API設定後に自動で比較データへ切り替わります。</p></div></main></body></html>
           HTML
             printf 'User-agent: *\nDisallow: /\n' > site/robots.txt
+          fi
+
+      - name: Sync generated site to main for branch-based Pages fallback
+        run: |
+          rm -rf categories guides data
+          rm -f index.html robots.txt sitemap.xml .nojekyll
+          cp site/index.html ./index.html
+          cp -R site/categories ./categories
+          if [ -d site/guides ]; then cp -R site/guides ./guides; fi
+          if [ -d site/data ]; then cp -R site/data ./data; fi
+          cp site/robots.txt ./robots.txt
+          cp site/sitemap.xml ./sitemap.xml
+          touch .nojekyll
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html categories guides data robots.txt sitemap.xml .nojekyll
+          if ! git diff --cached --quiet; then
+            git commit -m "Publish generated food comparison site"
+            git push origin HEAD:main
           fi
 
       - uses: actions/configure-pages@v5
