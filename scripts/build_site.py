@@ -597,6 +597,110 @@ def hero_visual() -> str:
 </div>"""
 
 
+BRAND_HINTS = [
+    "サトウのごはん", "サトウ食品", "アイリスオーヤマ", "アイリスフーズ",
+    "テーブルマーク", "越後製菓", "ウーケ", "ウィルキンソン",
+    "サントリー", "アサヒ", "伊藤園", "友桝飲料", "VOX", "ZAO SODA",
+    "クエーカー", "日本食品製造", "日食", "ケロッグ",
+]
+
+
+def product_brand(name: str) -> str:
+    text = str(name or "")
+    matches = [brand for brand in BRAND_HINTS if brand.lower() in text.lower()]
+    return max(matches, key=len) if matches else ""
+
+
+def product_identity_html(item: dict, category: dict, name_class: str = "product-name") -> str:
+    brand = product_brand(item["name"])
+    brand_html = f'<span class="brand-chip">{html.escape(brand)}</span>' if brand else ""
+    spec = html.escape(quantity_text(item, category["id"]))
+    return f"""<div class="identity-line">{brand_html}<span class="spec-chip">{spec}</span></div>
+<strong class="{name_class}" title="{html.escape(item['name'], quote=True)}">{html.escape(item['name'])}</strong>"""
+
+
+def price_history_badges(item: dict) -> str:
+    history = item.get("price_history") or {}
+    previous = history.get("previous_price")
+    parts = []
+    delta = history.get("price_delta")
+    if previous is not None and delta is not None and delta < 0:
+        label = history.get("previous_label") or "前回比"
+        parts.append(
+            f'<span class="trend-badge drop">↓ ¥{abs(int(delta)):,} {html.escape(label)}</span>'
+        )
+    if history.get("is_30d_low"):
+        parts.append('<span class="trend-badge low">✨ 30日最安</span>')
+    return "".join(parts)
+
+
+def today_deals_html(results: dict) -> str:
+    deals = []
+    has_history = False
+    category_by_id = {category["id"]: category for category in CATEGORIES}
+    for category in CATEGORIES:
+        included, _ = results.get(category["id"], ([], []))
+        for item in included:
+            history = item.get("price_history") or {}
+            if history.get("previous_price") is not None:
+                has_history = True
+            delta = history.get("price_delta")
+            if delta is None or delta >= 0:
+                continue
+            percent = abs(float(history.get("percent_delta") or 0))
+            deals.append((
+                0 if history.get("is_30d_low") else 1,
+                -percent,
+                delta,
+                category,
+                item,
+            ))
+    deals.sort(key=lambda x: (x[0], x[1], x[2], x[4]["unit_prices"][x[3]["primary"]]))
+
+    if not deals:
+        title = "価格履歴を蓄積中です。" if not has_history else "今日の値下がりは見つかりませんでした。"
+        text = (
+            "今日から商品ごとの価格を記録します。翌日以降、同じ容量の商品だけを比較して値下がりを表示します。"
+            if not has_history else
+            "前回取得価格より下がった商品だけをここに表示します。値下がりがない日は無理におすすめを作りません。"
+        )
+        return f"""<section class="section deal-section">
+<div class="section-kicker">TODAY'S DEALS</div><h2>今日のお買い得</h2>
+<div class="deal-empty">{guide_mascot(True)}<div><strong>{title}</strong><p>{text}</p></div></div>
+</section>"""
+
+    cards = []
+    for _, _, _, category, item in deals[:6]:
+        history = item["price_history"]
+        primary = item["unit_prices"][category["primary"]]
+        image = (
+            f'<img src="{html.escape(item["image"], quote=True)}" alt="" loading="lazy">'
+            if item["image"] else category_illustration(category["id"], True)
+        )
+        label = history.get("previous_label") or "前回比"
+        cards.append(f"""<article class="deal-card">
+<div class="deal-media">{image}</div>
+<div class="deal-copy">
+<div class="deal-top"><span>{category["emoji"]} {html.escape(category["name"])}</span>{price_history_badges(item)}</div>
+{product_identity_html(item, category, "deal-name")}
+<div class="deal-price-row"><span class="deal-was">¥{history["previous_price"]:,}</span><strong>¥{item["price"]:,}</strong></div>
+<div class="deal-saving">{html.escape(label)} ¥{abs(int(history["price_delta"])):,}安い</div>
+<div class="deal-unit">{yen(primary)} <small>{html.escape(category["primary_label"])}</small></div>
+{product_action_buttons(item, category, primary)}
+<a class="cta" href="{html.escape(item["url"], quote=True)}" target="_blank" rel="nofollow sponsored noopener"
+ data-affiliate="rakuten" data-position="today_deal" data-category="{category['id']}" data-product-id="{html.escape(item['id'], quote=True)}"
+ data-product-name="{html.escape(item['name'], quote=True)}" data-rank="" data-metric="{category['primary']}"
+ data-unit-price="{primary:.6f}" data-shipping="{item['shipping_status']}">値下がり商品を見る →</a>
+</div></article>""")
+    return f"""<section class="section deal-section">
+<div class="section-kicker">TODAY'S DEALS</div>
+<h2>今日のお買い得</h2>
+<p class="sub">前回取得時より実際に価格が下がった商品だけを表示。容量構成が変わった商品は比較しません。</p>
+<div class="deal-grid">{''.join(cards)}</div>
+</section>"""
+
+
+
 def finder_pick_items(items: list[dict], category: dict, purpose: str) -> list[dict]:
     source = list(items)
     if purpose == "small":
