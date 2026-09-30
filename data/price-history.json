@@ -299,6 +299,19 @@
       "product_id": "liquor-boss:10002740",
       "quantity_key": "{\"count\":24,\"total_volume_ml\":12000.0,\"unit_volume_ml\":500.0}"
     },
+    "carbonated-water|liquor-boss:10004080": {
+      "category_id": "carbonated-water",
+      "name": "サンガリア 伊賀の天然水 強炭酸水 1000ml 1L×12本炭酸 ペット プレーン 無糖 まとめ買い 割材 国産 ハイボール ウイスキー 焼酎 日本酒 ワイン 梅酒",
+      "points": [
+        {
+          "date": "2026-09-30",
+          "price": 1745,
+          "unit": 145.41666666666666
+        }
+      ],
+      "product_id": "liquor-boss:10004080",
+      "quantity_key": "{\"count\":12,\"total_volume_ml\":12000.0,\"unit_volume_ml\":1000.0}"
+    },
     "carbonated-water|onestep:10146249": {
       "category_id": "carbonated-water",
       "name": "ペリエ 500ml 48本 プレーン 炭酸水 Perrier『送料無料（一部地域除く）』",
@@ -390,6 +403,19 @@
       "product_id": "soukaidrink:10010908",
       "quantity_key": "{\"count\":24,\"total_volume_ml\":24000.0,\"unit_volume_ml\":1000.0}"
     },
+    "carbonated-water|soukaidrink:10010909": {
+      "category_id": "carbonated-water",
+      "name": "サンガリア 伊賀の天然水 強炭酸水(1L*24本セット)【伊賀の天然水】",
+      "points": [
+        {
+          "date": "2026-09-30",
+          "price": 3168,
+          "unit": 132.0
+        }
+      ],
+      "product_id": "soukaidrink:10010909",
+      "quantity_key": "{\"count\":24,\"total_volume_ml\":24000.0,\"unit_volume_ml\":1000.0}"
+    },
     "carbonated-water|soukaidrink:10012932": {
       "category_id": "carbonated-water",
       "name": "アイリス CRYSTAL SPARK 富士山の強炭酸水 ラベルレス( 500ml×24本入)【CRYSTALSPARK】[炭酸水 500ml 24本 ラベルレス]",
@@ -467,6 +493,32 @@
       ],
       "product_id": "whisky:10006882",
       "quantity_key": "{\"count\":24,\"total_volume_ml\":24000.0,\"unit_volume_ml\":1000.0}"
+    },
+    "oatmeal|auc-garlic:10001076": {
+      "category_id": "oatmeal",
+      "name": "オートミール（クイックオーツ） 1.2kg 国内製造 NICHIGA(ニチガ) TK0",
+      "points": [
+        {
+          "date": "2026-09-30",
+          "price": 2350,
+          "unit": 195.83333333333334
+        }
+      ],
+      "product_id": "auc-garlic:10001076",
+      "quantity_key": "{\"count\":1,\"total_weight_g\":1200.0,\"unit_weight_g\":1200.0}"
+    },
+    "oatmeal|auc-garlic:10001077": {
+      "category_id": "oatmeal",
+      "name": "オートミール（クイックオーツ） 2.2kg 国内製造 NICHIGA(ニチガ) TK1",
+      "points": [
+        {
+          "date": "2026-09-30",
+          "price": 3390,
+          "unit": 154.0909090909091
+        }
+      ],
+      "product_id": "auc-garlic:10001077",
+      "quantity_key": "{\"count\":1,\"total_weight_g\":2200.0,\"unit_weight_g\":2200.0}"
     },
     "oatmeal|bokunotamatebakoya:10002951": {
       "category_id": "oatmeal",
