@@ -21,11 +21,13 @@ from product_quality import (
     quantity_conflict,
     quantity_signature,
 )
+from price_history import apply_price_history, load_price_history, save_price_history
 
 SITE_ID = "food_cost_jp"
 SITE_URL = "https://stusaurus.github.io/food-cost-jp/"
 API_URL = "https://openapi.rakuten.co.jp/ichibams/api/IchibaItem/Search/20260701"
 OUT = Path("site")
+HISTORY_SOURCE = Path("data/price-history.json")
 APP_ID = os.getenv("RAKUTEN_APPLICATION_ID", "").strip()
 ACCESS_KEY = os.getenv("RAKUTEN_ACCESS_KEY", "").strip()
 AFFILIATE_ID = os.getenv("RAKUTEN_AFFILIATE_ID", "").strip()
