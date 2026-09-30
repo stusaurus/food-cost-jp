@@ -796,14 +796,14 @@ h1{font-size:clamp(32px,6vw,58px);line-height:1.08;margin:12px 0 16px;letter-spa
 .hero-visual{position:relative;min-height:350px;display:flex;align-items:center;justify-content:center}.hero-visual .guide-mascot{width:min(90%,330px);filter:drop-shadow(0 20px 25px rgba(23,63,49,.13))}.guide-mascot.compact{width:95px;height:auto}.mascot-bubble{position:absolute;right:8px;top:12px;background:#fff;border:1px solid #dce8dd;border-radius:20px 20px 20px 5px;padding:12px 15px;font-size:12px;line-height:1.4;box-shadow:0 12px 28px rgba(40,60,45,.08);z-index:2}.hero-food-chip{position:absolute;background:#fff;border:1px solid #e2e6dd;border-radius:999px;padding:7px 11px;font-size:12px;font-weight:900;box-shadow:0 10px 24px rgba(50,60,45,.08)}.chip-rice{left:4%;top:18%}.chip-water{right:2%;bottom:26%}.chip-pack{left:0;bottom:24%}.chip-oats{right:8%;top:31%}
 .finder-intro{display:flex;align-items:center;justify-content:space-between;gap:18px}.finder-guide{display:flex;align-items:center;gap:4px;font-size:11px;font-weight:900;color:var(--brand)}.finder-stage{margin-top:18px}.finder-stage[hidden],.finder-picks[hidden]{display:none}.finder-question{display:flex;align-items:center;gap:10px}.finder-question>span{display:inline-flex;width:34px;height:34px;border-radius:50%;align-items:center;justify-content:center;background:var(--brand2);color:#fff;font-size:11px;font-weight:950}.finder-question>strong{font-size:20px}.finder-category-options button{min-width:180px}.finder-purpose-options button{display:flex;align-items:center;gap:9px;font-size:20px;text-align:left}.finder-purpose-options button span{display:flex;flex-direction:column}.finder-purpose-options button strong{font-size:14px}.finder-purpose-options button small{font-size:10px;color:var(--muted);font-weight:700}.finder-back{border:0;background:transparent;color:var(--brand);font-weight:850;padding:0;margin-bottom:12px;cursor:pointer}.finder-picks{margin-top:8px}.finder-picks-head span{display:block;font-size:10px;font-weight:950;color:var(--brand);letter-spacing:.08em}.finder-picks-head strong{font-size:20px}.finder-products{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:14px}.finder-product{display:grid;grid-template-rows:110px 1fr;background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden}.finder-product-media{display:flex;align-items:center;justify-content:center;padding:8px;background:#fafbf7}.finder-product-media img{max-width:100%;max-height:100px;object-fit:contain}.finder-product-copy{position:relative;padding:13px;display:flex;flex-direction:column}.finder-product-copy>strong{font-size:12px;line-height:1.45;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}.finder-product-rank{position:absolute;right:10px;top:-18px;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:var(--brand);color:#fff;font-weight:950}.finder-product-price{font-size:22px;font-weight:950;color:var(--brand);margin-top:10px}.finder-product-price small{font-size:10px;color:var(--muted)}.finder-product-meta{font-size:10px;color:var(--muted);margin:4px 0 7px}.finder-why{font-size:10px;color:#536058;background:#f3f7f2;border-radius:9px;padding:6px 7px;margin-bottom:9px}.finder-why span{display:inline-block;font-weight:950;color:var(--brand);margin-right:5px}.finder-product-copy .cta{margin-top:auto}.finder-all{display:inline-flex;margin-top:12px;color:var(--brand);font-weight:900;text-decoration:none}
 .more-products{margin:28px 0 40px}.more-products>summary{list-style:none;cursor:pointer;background:#fff;border:1px solid var(--line);border-radius:16px;padding:15px 18px;font-weight:950;display:flex;align-items:center;justify-content:space-between;box-shadow:0 5px 16px rgba(50,60,45,.04)}.more-products>summary::-webkit-details-marker{display:none}.more-products[open]>summary span{transform:rotate(45deg)}.more-products .comparison-inner{margin-top:12px}.comparison-inner>h2{margin-top:0}.after-top3{margin-top:-10px}.guide-with-mascot{display:grid;grid-template-columns:1fr 120px;gap:20px;align-items:center}.guide-mini{display:flex;justify-content:center}
-.faq-section{background:#fffdf8;border:1px solid var(--line);border-radius:24px;padding:24px}.faq-item{border-top:1px solid var(--line);padding:12px 0}.faq-item:first-of-type{border-top:0}.faq-item summary{cursor:pointer;font-weight:900}.faq-item p{color:var(--muted);margin:8px 0 0}
+.intent-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}.intent-card{display:flex;flex-direction:column;gap:5px;background:#fff;border:1px solid var(--line);border-radius:18px;padding:16px;text-decoration:none;transition:.15s}.intent-card:hover{transform:translateY(-2px);box-shadow:var(--shadow)}.intent-card span{font-weight:950}.intent-card small{color:var(--muted);line-height:1.45}.intent-card b{color:var(--brand);font-size:12px;margin-top:4px}.faq-section{background:#fffdf8;border:1px solid var(--line);border-radius:24px;padding:24px}.faq-item{border-top:1px solid var(--line);padding:12px 0}.faq-item:first-of-type{border-top:0}.faq-item summary{cursor:pointer;font-weight:900}.faq-item p{color:var(--muted);margin:8px 0 0}
 footer{background:#fff;border-top:1px solid var(--line);padding:30px 0 42px;color:var(--muted);font-size:11px}
 @media(min-width:760px){.grid{grid-template-columns:1fr 1fr}}
 @media(max-width:759px){
  .wrap{width:min(100% - 20px,1120px)}header{padding:25px 0 20px}.hero-layout{grid-template-columns:1fr;gap:18px}.hero-art-grid{grid-template-columns:1fr 1fr;gap:8px}.hero-art-item{min-height:105px;border-radius:20px}.hero-art-item .food-art{max-height:100px}.category-hero-art{min-height:180px}.category-hero-art .food-art{max-height:175px}
  .grid{grid-template-columns:1fr}.category-card{grid-template-columns:105px 1fr;padding:14px}.category-art{height:110px}.category-art .food-art{max-height:105px}.category-price{font-size:24px}
  .podium-grid{grid-template-columns:1fr}.podium-card.rank-1{transform:none}.summary-grid{grid-template-columns:1fr 1fr}.summary-item:first-child{grid-column:1/-1}.flow-grid{grid-template-columns:1fr}.flow-arrow{transform:rotate(90deg);height:24px}.finder{padding:20px 15px}.finder-options{display:grid;grid-template-columns:1fr 1fr}.finder-options button{width:100%;text-align:left}.finder-result{align-items:stretch;flex-direction:column}.finder-go{text-align:center}
- .hero-visual{min-height:245px}.hero-visual .guide-mascot{width:240px}.mascot-bubble{right:0;top:0}.hero-food-chip{font-size:10px;padding:5px 8px}.finder-intro{align-items:flex-start}.finder-guide span{display:none}.finder-products{grid-template-columns:1fr}.finder-product{grid-template-columns:92px 1fr;grid-template-rows:auto}.finder-product-media{min-height:120px}.finder-product-copy>strong{-webkit-line-clamp:2}.guide-with-mascot{grid-template-columns:1fr 80px;gap:10px}.guide-mini .guide-mascot{width:75px} .table{overflow:visible;background:transparent;border:0}table,tbody{display:block;width:100%;min-width:0}thead{display:none}tr{display:grid;grid-template-columns:76px 1fr;gap:0 12px;background:#fff;border:1px solid var(--line);border-radius:16px;margin:10px 0;padding:13px;box-shadow:0 2px 8px #13291b08}
+ .intent-grid{grid-template-columns:1fr}.hero-visual{min-height:245px}.hero-visual .guide-mascot{width:240px}.mascot-bubble{right:0;top:0}.hero-food-chip{font-size:10px;padding:5px 8px}.finder-intro{align-items:flex-start}.finder-guide span{display:none}.finder-products{grid-template-columns:1fr}.finder-product{grid-template-columns:92px 1fr;grid-template-rows:auto}.finder-product-media{min-height:120px}.finder-product-copy>strong{-webkit-line-clamp:2}.guide-with-mascot{grid-template-columns:1fr 80px;gap:10px}.guide-mini .guide-mascot{width:75px} .table{overflow:visible;background:transparent;border:0}table,tbody{display:block;width:100%;min-width:0}thead{display:none}tr{display:grid;grid-template-columns:76px 1fr;gap:0 12px;background:#fff;border:1px solid var(--line);border-radius:16px;margin:10px 0;padding:13px;box-shadow:0 2px 8px #13291b08}
  td{display:block;border:0;padding:3px 0;font-size:12px;min-width:0}td[data-cell="rank"]{grid-column:1/-1;padding-bottom:5px}td[data-cell="image"]{grid-column:1;grid-row:2 / span 4}td[data-cell="product"],td[data-cell="quantity"],td[data-cell="price"],td[data-cell="unit"],td[data-cell="cta"]{grid-column:2}
  td[data-cell="product"]{padding-top:0}.product-img{width:72px;height:72px}.product-name{font-size:14px}.unit{font-size:23px;margin-top:3px}td[data-cell="quantity"]::before{content:"内容量  ";font-weight:800;color:var(--muted)}td[data-cell="price"]::before{content:"商品価格  ";font-weight:800;color:var(--muted)}td[data-cell="cta"]{margin-top:8px}.cta{width:100%;min-height:46px}.toolbar select,.toolbar input{flex:1;min-width:0;width:100%}.section{margin:26px 0 38px}
 }"""
@@ -1166,11 +1166,13 @@ def other_categories_html(current_id: str) -> str:
 
 
 def category_page(category: dict, included: list[dict], other: list[dict], updated: datetime) -> str:
+    faqs = category_faq(category)
     parts = [
         page_head(
             f"{category['name']}のコスパ比較｜{category['primary_label']}・送料込み",
             f"{category['name']}を{category['primary_label']}へ換算し、容量・セット数・送料条件をそろえて比較します。",
             f"{SITE_URL}categories/{category['id']}/",
+            faq_json_ld(faqs),
         )
     ]
     parts.append(
@@ -1221,6 +1223,7 @@ def category_page(category: dict, included: list[dict], other: list[dict], updat
             + "</div>"
         )
     parts.append(guide_html(category))
+    parts.append(faq_html(faqs))
     parts.append(other_categories_html(category["id"]))
     parts.append(
         """<section class="section explain">
@@ -1235,6 +1238,21 @@ def category_page(category: dict, included: list[dict], other: list[dict], updat
 </body></html>"""
     )
     return "".join(parts)
+
+
+def guide_links_html() -> str:
+    links = "".join(
+        f"""<a class="intent-card" href="guides/{spec['slug']}/">
+<span>{html.escape(spec['title'])}</span><small>{html.escape(spec['intro'])}</small><b>比較を見る →</b>
+</a>"""
+        for spec in GUIDE_SPECS
+    )
+    return f"""<section class="section intent-section">
+<div class="section-kicker">POPULAR SEARCHES</div>
+<h2>よく比べられる条件から探す。</h2>
+<div class="intent-grid">{links}</div>
+</section>"""
+
 
 
 def home_page(results: dict, updated: datetime) -> str:
@@ -1286,6 +1304,7 @@ def home_page(results: dict, updated: datetime) -> str:
     parts.append(
         """</section></section>"""
     )
+    parts.append(guide_links_html())
     parts.append(comparison_flow_html())
     parts.append(
         """<section class="section explain">
@@ -1359,6 +1378,17 @@ def main():
                     json.dumps(sample, ensure_ascii=False),
                 )
 
+    category_by_id = {category["id"]: category for category in CATEGORIES}
+    for spec in GUIDE_SPECS:
+        category = category_by_id[spec["category_id"]]
+        included, _ = results[category["id"]]
+        target = OUT / "guides" / spec["slug"]
+        target.mkdir(parents=True, exist_ok=True)
+        (target / "index.html").write_text(
+            guide_page(spec, category, included, updated),
+            encoding="utf-8",
+        )
+
     (OUT / "index.html").write_text(home_page(results, updated), encoding="utf-8")
     (OUT / "data").mkdir(exist_ok=True)
     (OUT / "data" / "products.json").write_text(
@@ -1374,6 +1404,9 @@ def main():
     urls = [SITE_URL] + [
         f"{SITE_URL}categories/{category['id']}/"
         for category in CATEGORIES
+    ] + [
+        f"{SITE_URL}guides/{spec['slug']}/"
+        for spec in GUIDE_SPECS
     ]
     sitemap = (
         '<?xml version="1.0" encoding="UTF-8"?>'
