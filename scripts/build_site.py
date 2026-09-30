@@ -718,6 +718,27 @@ def price_signal_html(item: dict) -> str:
 </div>"""
 
 
+def cta_copy(item: dict, context: str, rank: int | None = None) -> tuple[str, str]:
+    history = item.get("price_history") or {}
+    delta = history.get("price_delta")
+    if history.get("is_30d_low") and delta is not None and delta < 0:
+        return "30日最安を楽天で確認 →", "history_low"
+    if delta is not None and delta < 0:
+        return "値下がり価格を楽天で確認 →", "price_drop"
+    if context == "top3" and rank == 1:
+        return "最安候補を楽天で確認 →", "rank1"
+    if context == "finder":
+        return "この候補を楽天で確認 →", "finder"
+    if context == "deal":
+        return "値下がり商品を楽天で確認 →", "deal"
+    return "楽天で価格を確認 →", "standard"
+
+
+def cta_attrs(variant: str) -> str:
+    return f'data-cta-variant="{html.escape(variant, quote=True)}"'
+
+
+
 def deal_entries(results: dict) -> tuple[list[tuple], bool]:
     deals = []
     has_history = False
@@ -750,6 +771,7 @@ def deal_card_html(category: dict, item: dict, position: str = "today_deal") -> 
         if item["image"] else category_illustration(category["id"], True)
     )
     label = history.get("previous_label") or "前回比"
+    cta_label, cta_variant = cta_copy(item, "deal")
     return f"""<article class="deal-card">
 <div class="deal-media">{image}</div>
 <div class="deal-copy">
@@ -764,7 +786,7 @@ def deal_card_html(category: dict, item: dict, position: str = "today_deal") -> 
 <a class="cta" href="{html.escape(item["url"], quote=True)}" target="_blank" rel="nofollow sponsored noopener"
  data-affiliate="rakuten" data-position="{html.escape(position, quote=True)}" data-category="{category['id']}" data-product-id="{html.escape(item['id'], quote=True)}"
  data-product-name="{html.escape(item['name'], quote=True)}" data-rank="" data-metric="{category['primary']}"
- data-unit-price="{primary:.6f}" data-shipping="{item['shipping_status']}">値下がり商品を見る →</a>
+ data-unit-price="{primary:.6f}" data-shipping="{item['shipping_status']}" {cta_attrs(cta_variant)}>{html.escape(cta_label)}</a>
 </div></article>"""
 
 
@@ -873,6 +895,7 @@ def finder_product_card(item: dict, category: dict, position: int, purpose: str)
         if item["image"] else category_illustration(category["id"], True)
     )
     reason = recommendation_reason(item, category, purpose, position)
+    cta_label, cta_variant = cta_copy(item, "finder", position)
     return f"""<article class="finder-product">
 <div class="finder-product-media">{image}</div>
 <div class="finder-product-copy">
@@ -888,7 +911,7 @@ def finder_product_card(item: dict, category: dict, position: int, purpose: str)
 <a class="cta" href="{html.escape(item["url"], quote=True)}" target="_blank" rel="nofollow sponsored noopener"
  data-affiliate="rakuten" data-position="quick_finder_result" data-category="{category['id']}" data-product-id="{html.escape(item['id'], quote=True)}"
  data-product-name="{html.escape(item['name'], quote=True)}" data-rank="{position}" data-metric="{category['primary']}"
- data-unit-price="{primary:.6f}" data-shipping="{item['shipping_status']}">楽天で確認 →</a>
+ data-unit-price="{primary:.6f}" data-shipping="{item['shipping_status']}" {cta_attrs(cta_variant)}>{html.escape(cta_label)}</a>
 </div></article>"""
 
 
@@ -1008,6 +1031,7 @@ def top3_html(items: list[dict], category: dict) -> str:
         primary = item["unit_prices"][category["primary"]]
         diff = max(0, primary - best_primary)
         diff_text = "最安" if rank == 1 else f"最安との差 +{yen(diff)}"
+        cta_label, cta_variant = cta_copy(item, "top3", rank)
         image = (
             f'<img class="podium-img" src="{html.escape(item["image"], quote=True)}" alt="" loading="lazy">'
             if item["image"] else category_illustration(category["id"], True)
@@ -1028,7 +1052,7 @@ def top3_html(items: list[dict], category: dict) -> str:
 <a class="cta podium-cta" href="{html.escape(item["url"], quote=True)}" target="_blank" rel="nofollow sponsored noopener"
  data-affiliate="rakuten" data-position="top3_card" data-category="{category['id']}" data-product-id="{html.escape(item['id'], quote=True)}"
  data-product-name="{html.escape(item['name'], quote=True)}" data-rank="{rank}" data-metric="{category['primary']}"
- data-unit-price="{primary:.6f}" data-shipping="{item['shipping_status']}">楽天で確認する →</a>
+ data-unit-price="{primary:.6f}" data-shipping="{item['shipping_status']}" {cta_attrs(cta_variant)}>{html.escape(cta_label)}</a>
 </article>""")
     return f"""<section class="section podium-section">
 <div class="section-kicker">まずはここから</div>
@@ -1184,7 +1208,8 @@ if(p.get('test')==='1'||p.get('test')==='0'){
 const send=(n,x={})=>{if(typeof gtag==='function')gtag('event',n,{site_id:'food_cost_jp',...(op?{operator_test:'1'}:{}),...x})};
 document.addEventListener('click',e=>{
   const a=e.target.closest('a[data-affiliate]');if(!a)return;
-  const x={affiliate:'rakuten',conversion_source:'category',category_id:a.dataset.category,product_id:a.dataset.productId,product_name:a.dataset.productName,rank:a.dataset.rank,comparison_metric:a.dataset.metric,unit_price:Number(a.dataset.unitPrice||0),shipping_status:a.dataset.shipping,click_position:a.dataset.position||'comparison_table',link_url:a.href};
+  const pos=a.dataset.position||'comparison_table';
+  const x={affiliate:'rakuten',conversion_source:pos,category_id:a.dataset.category,product_id:a.dataset.productId,product_name:a.dataset.productName,rank:a.dataset.rank,comparison_metric:a.dataset.metric,unit_price:Number(a.dataset.unitPrice||0),shipping_status:a.dataset.shipping,click_position:pos,cta_variant:a.dataset.ctaVariant||'standard',cta_text:(a.textContent||'').trim(),page_path:location.pathname,link_url:a.href};
   send('product_result_click',x);send('affiliate_click',x)
 });
 document.querySelectorAll('[data-sort]').forEach(s=>s.addEventListener('change',()=>{
@@ -1379,6 +1404,7 @@ def rows_html(items: list[dict], category: dict, start_rank: int = 1) -> str:
         primary_metric = category["primary"]
         secondary_metric = category["secondary"]
         primary = item["unit_prices"][primary_metric]
+        cta_label, cta_variant = cta_copy(item, "table", rank)
         secondary = (
             f'<div class="secondary-unit">{html.escape(category["secondary_label"])} {yen(item["unit_prices"].get(secondary_metric))}</div>'
             if secondary_metric else ""
@@ -1407,7 +1433,7 @@ def rows_html(items: list[dict], category: dict, start_rank: int = 1) -> str:
 <td data-cell="cta">{product_action_buttons(item, category, primary)}<a class="cta" href="{html.escape(item['url'], quote=True)}" target="_blank" rel="nofollow sponsored noopener"
  data-affiliate="rakuten" data-category="{category['id']}" data-product-id="{html.escape(item['id'], quote=True)}"
  data-product-name="{html.escape(item['name'], quote=True)}" data-rank="{rank}" data-metric="{primary_metric}"
- data-unit-price="{primary:.6f}" data-shipping="{item['shipping_status']}">楽天で価格を見る →</a></td>
+ data-unit-price="{primary:.6f}" data-shipping="{item['shipping_status']}" {cta_attrs(cta_variant)}>{html.escape(cta_label)}</a></td>
 </tr>"""
         )
     return "".join(rows)
