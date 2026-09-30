@@ -39,6 +39,19 @@
       "product_id": "enetroom:10199647",
       "quantity_key": "{\"count\":15,\"total_volume_ml\":15000.0,\"unit_volume_ml\":1000.0}"
     },
+    "carbonated-water|irisplaza-r:10133643": {
+      "category_id": "carbonated-water",
+      "name": "【公式】 炭酸水 500ml 24本 強炭酸水 レモン グレープフルーツ 水 ミネラルウォーター 500ml×24本 富士山の強炭酸水500ml",
+      "points": [
+        {
+          "date": "2026-09-30",
+          "price": 1480,
+          "unit": 123.33333333333333
+        }
+      ],
+      "product_id": "irisplaza-r:10133643",
+      "quantity_key": "{\"count\":24,\"total_volume_ml\":12000.0,\"unit_volume_ml\":500.0}"
+    },
     "carbonated-water|irisplaza-r:10158173": {
       "category_id": "carbonated-water",
       "name": "【公式】炭酸水 500ml 48本 (24本入×2箱) 強炭酸水 アイリスオーヤマ クリスタルスパーク 炭酸 レモン マスカット ラムネ グレープ 和梨 ジンジャーエール フレーバー プレーン 無糖 天然水 アイリスフーズ ペットボトル",
@@ -52,6 +65,19 @@
       "product_id": "irisplaza-r:10158173",
       "quantity_key": "{\"count\":48,\"total_volume_ml\":24000.0,\"unit_volume_ml\":500.0}"
     },
+    "carbonated-water|irisplaza-r:10158174": {
+      "category_id": "carbonated-water",
+      "name": "[エントリーでポイント最大10倍/スタンプラリー]炭酸水 500ml 24本 アイリスオーヤマ 強炭酸水 選べる ラベルレス プレーン レモン ラムネ グレープソーダ ジンジャーエール 和梨 フレーバー 天然水 無糖 ペットボトル 炭酸飲料 アイリスフーズ クリスタルスパーク *",
+      "points": [
+        {
+          "date": "2026-09-30",
+          "price": 1420,
+          "unit": 118.33333333333333
+        }
+      ],
+      "product_id": "irisplaza-r:10158174",
+      "quantity_key": "{\"count\":24,\"total_volume_ml\":12000.0,\"unit_volume_ml\":500.0}"
+    },
     "carbonated-water|izmic-ec02:10048323": {
       "category_id": "carbonated-water",
       "name": "イズミック SODA（ソーダ) 天然水 イズミックソーダ 強炭酸水 1000ml 1L ×12本×2ケース (24本) 飲料【送料無料※一部地域は除く】 炭酸水 割材 シリカ 約50mg/L ラベルレス",
@@ -64,6 +90,19 @@
       ],
       "product_id": "izmic-ec02:10048323",
       "quantity_key": "{\"count\":24,\"total_volume_ml\":24000.0,\"unit_volume_ml\":1000.0}"
+    },
+    "carbonated-water|izmic-ec:10088166": {
+      "category_id": "carbonated-water",
+      "name": "炭酸水 サンガリア 伊賀の天然水 強炭酸水 500ml×24本×2ケース (48本) 飲料【送料無料※一部地域は除く】",
+      "points": [
+        {
+          "date": "2026-09-30",
+          "price": 3068,
+          "unit": 127.83333333333333
+        }
+      ],
+      "product_id": "izmic-ec:10088166",
+      "quantity_key": "{\"count\":48,\"total_volume_ml\":24000.0,\"unit_volume_ml\":500.0}"
     },
     "carbonated-water|izmic-ec:10096178": {
       "category_id": "carbonated-water",
@@ -115,6 +154,32 @@
         }
       ],
       "product_id": "izmic-ec:10137747",
+      "quantity_key": "{\"count\":48,\"total_volume_ml\":24000.0,\"unit_volume_ml\":500.0}"
+    },
+    "carbonated-water|izmic-ec:10163397": {
+      "category_id": "carbonated-water",
+      "name": "《ラベルレス》イズミック SODA (ソーダ) 天然水 強炭酸水 500ml×24本×1ケース (24本) 飲料【送料無料※一部地域は除く】シリカ25mg/本 イズミックソーダ 炭酸 タンサン オリジナルPB",
+      "points": [
+        {
+          "date": "2026-09-30",
+          "price": 1720,
+          "unit": 143.33333333333334
+        }
+      ],
+      "product_id": "izmic-ec:10163397",
+      "quantity_key": "{\"count\":24,\"total_volume_ml\":12000.0,\"unit_volume_ml\":500.0}"
+    },
+    "carbonated-water|izmic-ec:10163398": {
+      "category_id": "carbonated-water",
+      "name": "《ラベルレス》イズミック SODA (ソーダ) 天然水 強炭酸水 500ml×24本×2ケース (48本) 飲料【送料無料※一部地域は除く】シリカ25mg/本 イズミックソーダ 炭酸 タンサン オリジナルPB",
+      "points": [
+        {
+          "date": "2026-09-30",
+          "price": 2780,
+          "unit": 115.83333333333333
+        }
+      ],
+      "product_id": "izmic-ec:10163398",
       "quantity_key": "{\"count\":48,\"total_volume_ml\":24000.0,\"unit_volume_ml\":500.0}"
     },
     "carbonated-water|izmic-ec:10169892": {
@@ -208,6 +273,32 @@
       "product_id": "lifedrinkcompany:10000022",
       "quantity_key": "{\"count\":48,\"total_volume_ml\":24000.0,\"unit_volume_ml\":500.0}"
     },
+    "carbonated-water|likaman:10024007": {
+      "category_id": "carbonated-water",
+      "name": "サンガリア 伊賀の天然水 強炭酸水 500ml 24本 ケース PET ペットボトル スパークリング GLY 予約 2026/10月上旬以降発送予定",
+      "points": [
+        {
+          "date": "2026-09-30",
+          "price": 1909,
+          "unit": 159.08333333333334
+        }
+      ],
+      "product_id": "likaman:10024007",
+      "quantity_key": "{\"count\":24,\"total_volume_ml\":12000.0,\"unit_volume_ml\":500.0}"
+    },
+    "carbonated-water|liquor-boss:10002740": {
+      "category_id": "carbonated-water",
+      "name": "サンガリア 伊賀の天然水 強炭酸水 500ml×24本/1ケース炭酸 ペット プレーン 無糖 まとめ買い 割材 国産 ハイボール ウイスキー 焼酎 日本酒 ワイン 梅酒",
+      "points": [
+        {
+          "date": "2026-09-30",
+          "price": 1760,
+          "unit": 146.66666666666666
+        }
+      ],
+      "product_id": "liquor-boss:10002740",
+      "quantity_key": "{\"count\":24,\"total_volume_ml\":12000.0,\"unit_volume_ml\":500.0}"
+    },
     "carbonated-water|onestep:10146249": {
       "category_id": "carbonated-water",
       "name": "ペリエ 500ml 48本 プレーン 炭酸水 Perrier『送料無料（一部地域除く）』",
@@ -233,6 +324,32 @@
       ],
       "product_id": "onestep:10146250",
       "quantity_key": "{\"count\":48,\"total_volume_ml\":24000.0,\"unit_volume_ml\":500.0}"
+    },
+    "carbonated-water|rakuten24:11109860": {
+      "category_id": "carbonated-water",
+      "name": "ウィルキンソン タンサン ラベルレスボトル(500ml×24本入)【ウィルキンソン】[炭酸水 炭酸]",
+      "points": [
+        {
+          "date": "2026-09-30",
+          "price": 2307,
+          "unit": 192.25
+        }
+      ],
+      "product_id": "rakuten24:11109860",
+      "quantity_key": "{\"count\":24,\"total_volume_ml\":12000.0,\"unit_volume_ml\":500.0}"
+    },
+    "carbonated-water|rakutenoriginal-daily:10000001": {
+      "category_id": "carbonated-water",
+      "name": "【楽天オリジナル】炭酸水 500ml×24本 [プレーン ソーダ 割り材 炭酸飲料 スパークリング 炭酸] まとめ買い 水 業務用 家庭用 大容量 オフィス ハイボール用 宅飲み 500ml 24本",
+      "points": [
+        {
+          "date": "2026-09-30",
+          "price": 1450,
+          "unit": 120.83333333333333
+        }
+      ],
+      "product_id": "rakutenoriginal-daily:10000001",
+      "quantity_key": "{\"count\":24,\"total_volume_ml\":12000.0,\"unit_volume_ml\":500.0}"
     },
     "carbonated-water|s-kodawari:10005268": {
       "category_id": "carbonated-water",
@@ -272,6 +389,32 @@
       ],
       "product_id": "soukaidrink:10010908",
       "quantity_key": "{\"count\":24,\"total_volume_ml\":24000.0,\"unit_volume_ml\":1000.0}"
+    },
+    "carbonated-water|soukaidrink:10012932": {
+      "category_id": "carbonated-water",
+      "name": "アイリス CRYSTAL SPARK 富士山の強炭酸水 ラベルレス( 500ml×24本入)【CRYSTALSPARK】[炭酸水 500ml 24本 ラベルレス]",
+      "points": [
+        {
+          "date": "2026-09-30",
+          "price": 2176,
+          "unit": 181.33333333333334
+        }
+      ],
+      "product_id": "soukaidrink:10012932",
+      "quantity_key": "{\"count\":24,\"total_volume_ml\":12000.0,\"unit_volume_ml\":500.0}"
+    },
+    "carbonated-water|soukaidrink:10014152": {
+      "category_id": "carbonated-water",
+      "name": "伊藤園 強炭酸水 ミネラル ストロング シリカ含有(500ml*24本入)【伊藤園】",
+      "points": [
+        {
+          "date": "2026-09-30",
+          "price": 2188,
+          "unit": 182.33333333333334
+        }
+      ],
+      "product_id": "soukaidrink:10014152",
+      "quantity_key": "{\"count\":24,\"total_volume_ml\":12000.0,\"unit_volume_ml\":500.0}"
     },
     "carbonated-water|voltsparkling:10000005": {
       "category_id": "carbonated-water",
@@ -1259,6 +1402,19 @@
         }
       ],
       "product_id": "fuchigami:10000061",
+      "quantity_key": "{\"count\":1,\"total_weight_g\":10000.0,\"unit_weight_g\":10000.0}"
+    },
+    "rice|fuchigami:10000276": {
+      "category_id": "rice",
+      "name": "【7年産】 米 10kg 令和7年 熊本県産 くまさんの輝き 米 10kg 白米 10kg お米 10kg 無洗米 10キロ こめたつ 備蓄用 非常用 あす楽",
+      "points": [
+        {
+          "date": "2026-09-30",
+          "price": 4080,
+          "unit": 408.0
+        }
+      ],
+      "product_id": "fuchigami:10000276",
       "quantity_key": "{\"count\":1,\"total_weight_g\":10000.0,\"unit_weight_g\":10000.0}"
     },
     "rice|fujisports-r:10054218": {
