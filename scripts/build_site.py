@@ -887,7 +887,10 @@ const pick=new URLSearchParams(location.search).get('pick');
 if(pick&&document.querySelector('[data-comparison]')){
   const root=document.querySelector('[data-comparison]');
   const filter=root.querySelector('[data-filter]');
+  const sort=root.querySelector('[data-sort]');
   if(filter&&(pick==='small'||pick==='large'))filter.value=pick;
+  if(filter&&pick==='storage')filter.value='small';
+  if(sort&&(pick==='budget'||pick==='storage')){sort.value='price';sort.dispatchEvent(new Event('change'))}
   const details=root.closest('details');if(details)details.open=true;
   applyFilters(root);
   send('quick_finder_landing',{category_id:filter?.dataset.category||'',finder_purpose:pick})
@@ -1053,7 +1056,7 @@ def guide_filter_items(spec: dict, items: list[dict], category: dict) -> list[di
         picked = [x for x in items if 900 <= float(x["quantity"].get("total_weight_g") or 0) <= 1100]
     else:
         picked = list(items)
-    return picked if picked else list(items[:6])
+    return picked
 
 
 def guide_faq(spec: dict, category: dict) -> list[tuple[str, str]]:
@@ -1083,7 +1086,10 @@ def guide_page(spec: dict, category: dict, items: list[dict], updated: datetime)
         canonical,
         faq_json_ld(faqs),
     )
-    cards = top3_html(picked, category)
+    cards = top3_html(picked, category) if picked else """<section class="section explain">
+<h2>現在、条件に一致する掲載候補はありません</h2>
+<p>別サイズの商品で穴埋めせず、条件に一致する商品を確認できたときだけ掲載します。</p>
+</section>"""
     more = comparison_table(
         picked[3:],
         category,
