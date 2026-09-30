@@ -585,21 +585,40 @@ def hero_visual() -> str:
 
 
 def finder_pick_items(items: list[dict], category: dict, purpose: str) -> list[dict]:
+    source = list(items)
     if purpose == "small":
-        picked = [x for x in items if bucket(x, category["id"]) == "small"]
+        picked = [x for x in source if bucket(x, category["id"]) == "small"]
     elif purpose == "large":
-        picked = [x for x in items if bucket(x, category["id"]) == "large"]
+        picked = [x for x in source if bucket(x, category["id"]) == "large"]
+    elif purpose == "budget":
+        picked = sorted(source, key=lambda x: (x["price"], x["unit_prices"][category["primary"]]))
+    elif purpose == "storage":
+        picked = [x for x in source if bucket(x, category["id"]) == "small"]
+        picked.sort(key=lambda x: (x["price"], x["unit_prices"][category["primary"]]))
     else:
-        picked = list(items)
-    return picked[:3] if picked else list(items[:3])
+        picked = source
+    return picked[:3] if picked else source[:3]
 
 
-def finder_product_card(item: dict, category: dict, position: int) -> str:
+def recommendation_reason(item: dict, category: dict, purpose: str, position: int) -> str:
+    if purpose == "budget":
+        return "支払総額を抑えやすい候補" if position == 1 else "商品価格が低めの候補"
+    if purpose == "storage":
+        return "保管しやすい少量側から選定" if position == 1 else "置き場所を取りにくい候補"
+    if purpose == "small":
+        return "少量側の中で単価が安い候補"
+    if purpose == "large":
+        return "大容量側の中で単価が安い候補"
+    return "この条件で単価が安い候補" if position == 1 else "上位の高コスパ候補"
+
+
+def finder_product_card(item: dict, category: dict, position: int, purpose: str) -> str:
     primary = item["unit_prices"][category["primary"]]
     image = (
         f'<img src="{html.escape(item["image"], quote=True)}" alt="" loading="lazy">'
         if item["image"] else category_illustration(category["id"], True)
     )
+    reason = recommendation_reason(item, category, purpose, position)
     return f"""<article class="finder-product">
 <div class="finder-product-media">{image}</div>
 <div class="finder-product-copy">
@@ -607,6 +626,7 @@ def finder_product_card(item: dict, category: dict, position: int) -> str:
 <strong>{html.escape(item["name"])}</strong>
 <div class="finder-product-price">{yen(primary)} <small>{html.escape(category["primary_label"])}</small></div>
 <div class="finder-product-meta">{html.escape(quantity_text(item, category["id"]))} ・ ¥{item["price"]:,}</div>
+<div class="finder-why"><span>なぜ？</span>{html.escape(reason)}</div>
 <a class="cta" href="{html.escape(item["url"], quote=True)}" target="_blank" rel="nofollow sponsored noopener"
  data-affiliate="rakuten" data-position="quick_finder_result" data-category="{category['id']}" data-product-id="{html.escape(item['id'], quote=True)}"
  data-product-name="{html.escape(item['name'], quote=True)}" data-rank="{position}" data-metric="{category['primary']}"
@@ -662,14 +682,14 @@ def choice_finder_html(results: dict) -> str:
 </button>"""
         for category in CATEGORIES
     )
-    labels = {"cheap": "単価重視", "small": "少量で買いたい", "large": "まとめ買い"}
+    labels = {"cheap": "単価重視", "small": "少量で買いたい", "large": "まとめ買い", "budget": "支払総額を抑える", "storage": "保管しやすさ重視"}
     panels = []
     for category in CATEGORIES:
         included, _ = results[category["id"]]
-        for purpose in ("cheap", "small", "large"):
+        for purpose in ("cheap", "small", "large", "budget", "storage"):
             picks = finder_pick_items(included, category, purpose)
             cards = "".join(
-                finder_product_card(item, category, index)
+                finder_product_card(item, category, index, purpose)
                 for index, item in enumerate(picks, start=1)
             )
             panels.append(f"""<div class="finder-picks" data-finder-picks="{category['id']}:{purpose}" hidden>
@@ -697,6 +717,8 @@ def choice_finder_html(results: dict) -> str:
 <button type="button" data-finder-purpose="cheap">💰 <span><strong>単価重視</strong><small>とにかく安い順で</small></span></button>
 <button type="button" data-finder-purpose="small">🧺 <span><strong>少量で</strong><small>置き場所・買いやすさ重視</small></span></button>
 <button type="button" data-finder-purpose="large">📦 <span><strong>まとめ買い</strong><small>大容量から選ぶ</small></span></button>
+<button type="button" data-finder-purpose="budget">💴 <span><strong>支払総額を抑える</strong><small>まず安く買える商品から</small></span></button>
+<button type="button" data-finder-purpose="storage">🏠 <span><strong>保管しやすさ</strong><small>置き場所を取りにくい量から</small></span></button>
 </div>
 </div>
 <div class="finder-stage finder-result-stage" data-finder-result-stage hidden>
@@ -761,7 +783,7 @@ h1{font-size:clamp(32px,6vw,58px);line-height:1.08;margin:12px 0 16px;letter-spa
 .finder{background:linear-gradient(135deg,#fffdf8,#f2f7ec);border:1px solid var(--line);border-radius:30px;padding:28px;box-shadow:var(--shadow)}.finder-step{display:grid;grid-template-columns:38px 1fr;gap:12px;align-items:start;margin-top:20px}.finder-number{width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:var(--brand);color:#fff;font-weight:950}.finder-options{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}.finder-options button{border:1px solid var(--line);background:#fff;border-radius:16px;padding:10px 14px;font-weight:850;cursor:pointer;color:var(--ink);transition:.15s}.finder-options button:hover,.finder-options button.selected{border-color:var(--brand);box-shadow:0 8px 22px rgba(36,107,73,.12);transform:translateY(-1px)}.finder-category{display:flex;align-items:center;gap:8px}.finder-art{width:52px;height:42px;display:inline-flex;align-items:center;justify-content:center}.finder-art .food-art{max-width:58px;max-height:46px}.finder-step-muted{opacity:.52;transition:.15s}.finder-step-muted.active{opacity:1}.finder-result{margin-top:22px;background:var(--brand2);color:#fff;border-radius:20px;padding:16px;display:flex;align-items:center;justify-content:space-between;gap:18px}.finder-result[hidden]{display:none}.finder-result-label{display:block;font-size:10px;font-weight:900;color:#cde4d7;letter-spacing:.08em}.finder-result strong{display:block;font-size:18px;margin-top:2px}.finder-result p{margin:3px 0 0;color:#dcebe2;font-size:12px}.finder-go{background:#fff;color:var(--brand2);border-radius:12px;padding:11px 14px;text-decoration:none;font-weight:950;white-space:nowrap}.best{background:#ffe7a6;color:#725000}.top-badge{background:#e9edf8;color:#43527a}.lifestyle{background:#eee9ff;color:#58488d}.product-badges{margin-top:4px}.podium-badges{min-height:24px;margin-top:4px}.podium-diff{display:inline-block;align-self:flex-start;margin-top:7px;background:#eef5ee;color:var(--brand);border-radius:999px;padding:3px 7px;font-size:10px;font-weight:900}
 
 .hero-visual{position:relative;min-height:350px;display:flex;align-items:center;justify-content:center}.hero-visual .guide-mascot{width:min(90%,330px);filter:drop-shadow(0 20px 25px rgba(23,63,49,.13))}.guide-mascot.compact{width:95px;height:auto}.mascot-bubble{position:absolute;right:8px;top:12px;background:#fff;border:1px solid #dce8dd;border-radius:20px 20px 20px 5px;padding:12px 15px;font-size:12px;line-height:1.4;box-shadow:0 12px 28px rgba(40,60,45,.08);z-index:2}.hero-food-chip{position:absolute;background:#fff;border:1px solid #e2e6dd;border-radius:999px;padding:7px 11px;font-size:12px;font-weight:900;box-shadow:0 10px 24px rgba(50,60,45,.08)}.chip-rice{left:4%;top:18%}.chip-water{right:2%;bottom:26%}.chip-pack{left:0;bottom:24%}.chip-oats{right:8%;top:31%}
-.finder-intro{display:flex;align-items:center;justify-content:space-between;gap:18px}.finder-guide{display:flex;align-items:center;gap:4px;font-size:11px;font-weight:900;color:var(--brand)}.finder-stage{margin-top:18px}.finder-stage[hidden],.finder-picks[hidden]{display:none}.finder-question{display:flex;align-items:center;gap:10px}.finder-question>span{display:inline-flex;width:34px;height:34px;border-radius:50%;align-items:center;justify-content:center;background:var(--brand2);color:#fff;font-size:11px;font-weight:950}.finder-question>strong{font-size:20px}.finder-category-options button{min-width:180px}.finder-purpose-options button{display:flex;align-items:center;gap:9px;font-size:20px;text-align:left}.finder-purpose-options button span{display:flex;flex-direction:column}.finder-purpose-options button strong{font-size:14px}.finder-purpose-options button small{font-size:10px;color:var(--muted);font-weight:700}.finder-back{border:0;background:transparent;color:var(--brand);font-weight:850;padding:0;margin-bottom:12px;cursor:pointer}.finder-picks{margin-top:8px}.finder-picks-head span{display:block;font-size:10px;font-weight:950;color:var(--brand);letter-spacing:.08em}.finder-picks-head strong{font-size:20px}.finder-products{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:14px}.finder-product{display:grid;grid-template-rows:110px 1fr;background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden}.finder-product-media{display:flex;align-items:center;justify-content:center;padding:8px;background:#fafbf7}.finder-product-media img{max-width:100%;max-height:100px;object-fit:contain}.finder-product-copy{position:relative;padding:13px;display:flex;flex-direction:column}.finder-product-copy>strong{font-size:12px;line-height:1.45;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}.finder-product-rank{position:absolute;right:10px;top:-18px;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:var(--brand);color:#fff;font-weight:950}.finder-product-price{font-size:22px;font-weight:950;color:var(--brand);margin-top:10px}.finder-product-price small{font-size:10px;color:var(--muted)}.finder-product-meta{font-size:10px;color:var(--muted);margin:4px 0 9px}.finder-product-copy .cta{margin-top:auto}.finder-all{display:inline-flex;margin-top:12px;color:var(--brand);font-weight:900;text-decoration:none}
+.finder-intro{display:flex;align-items:center;justify-content:space-between;gap:18px}.finder-guide{display:flex;align-items:center;gap:4px;font-size:11px;font-weight:900;color:var(--brand)}.finder-stage{margin-top:18px}.finder-stage[hidden],.finder-picks[hidden]{display:none}.finder-question{display:flex;align-items:center;gap:10px}.finder-question>span{display:inline-flex;width:34px;height:34px;border-radius:50%;align-items:center;justify-content:center;background:var(--brand2);color:#fff;font-size:11px;font-weight:950}.finder-question>strong{font-size:20px}.finder-category-options button{min-width:180px}.finder-purpose-options button{display:flex;align-items:center;gap:9px;font-size:20px;text-align:left}.finder-purpose-options button span{display:flex;flex-direction:column}.finder-purpose-options button strong{font-size:14px}.finder-purpose-options button small{font-size:10px;color:var(--muted);font-weight:700}.finder-back{border:0;background:transparent;color:var(--brand);font-weight:850;padding:0;margin-bottom:12px;cursor:pointer}.finder-picks{margin-top:8px}.finder-picks-head span{display:block;font-size:10px;font-weight:950;color:var(--brand);letter-spacing:.08em}.finder-picks-head strong{font-size:20px}.finder-products{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:14px}.finder-product{display:grid;grid-template-rows:110px 1fr;background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden}.finder-product-media{display:flex;align-items:center;justify-content:center;padding:8px;background:#fafbf7}.finder-product-media img{max-width:100%;max-height:100px;object-fit:contain}.finder-product-copy{position:relative;padding:13px;display:flex;flex-direction:column}.finder-product-copy>strong{font-size:12px;line-height:1.45;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}.finder-product-rank{position:absolute;right:10px;top:-18px;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:var(--brand);color:#fff;font-weight:950}.finder-product-price{font-size:22px;font-weight:950;color:var(--brand);margin-top:10px}.finder-product-price small{font-size:10px;color:var(--muted)}.finder-product-meta{font-size:10px;color:var(--muted);margin:4px 0 7px}.finder-why{font-size:10px;color:#536058;background:#f3f7f2;border-radius:9px;padding:6px 7px;margin-bottom:9px}.finder-why span{display:inline-block;font-weight:950;color:var(--brand);margin-right:5px}.finder-product-copy .cta{margin-top:auto}.finder-all{display:inline-flex;margin-top:12px;color:var(--brand);font-weight:900;text-decoration:none}
 .more-products{margin:28px 0 40px}.more-products>summary{list-style:none;cursor:pointer;background:#fff;border:1px solid var(--line);border-radius:16px;padding:15px 18px;font-weight:950;display:flex;align-items:center;justify-content:space-between;box-shadow:0 5px 16px rgba(50,60,45,.04)}.more-products>summary::-webkit-details-marker{display:none}.more-products[open]>summary span{transform:rotate(45deg)}.more-products .comparison-inner{margin-top:12px}.comparison-inner>h2{margin-top:0}.after-top3{margin-top:-10px}.guide-with-mascot{display:grid;grid-template-columns:1fr 120px;gap:20px;align-items:center}.guide-mini{display:flex;justify-content:center}
 footer{background:#fff;border-top:1px solid var(--line);padding:30px 0 42px;color:var(--muted);font-size:11px}
 @media(min-width:760px){.grid{grid-template-columns:1fr 1fr}}
