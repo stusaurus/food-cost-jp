@@ -967,9 +967,10 @@ def category_summary(category: dict, included: list[dict], other: list[dict]) ->
 
 def guide_html(category: dict) -> str:
     points = "".join(f"<li>{html.escape(point)}</li>" for point in category["guide"])
-    return f"""<section class="section explain">
-<h2>{category['emoji']} {html.escape(category['name'])}を比べるコツ</h2>
-<ul class="guide-list">{points}</ul>
+    return f"""<section class="section explain guide-with-mascot">
+<div><h2>{category['emoji']} {html.escape(category['name'])}を比べるコツ</h2>
+<ul class="guide-list">{points}</ul></div>
+<div class="guide-mini">{guide_mascot(True)}</div>
 </section>"""
 
 
@@ -1069,10 +1070,10 @@ def home_page(results: dict, updated: datetime) -> str:
 <div class="hero-tags"><span class="hero-tag">送料込みを優先</span><span class="hero-tag">数量曖昧は除外</span><span class="hero-tag">楽天価格を再取得</span></div>
 <p class="note">最終価格確認: {updated:%Y-%m-%d %H:%M} JST</p>
 </div>
-{hero_illustrations()}
+{hero_visual()}
 </div></header>
 <main class="wrap">
-{choice_finder_html()}
+{choice_finder_html(results)}
 <section class="section">
 <div class="section-kicker">CHOOSE A CATEGORY</div>
 <h2>まず、比べたい食品を選ぶ。</h2>
