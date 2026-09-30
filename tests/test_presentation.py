@@ -64,7 +64,7 @@ class PresentationTests(unittest.TestCase):
         self.assertIn("送料込み TOP3", html)
         self.assertIn("4位以下を見る（2件）", html)
         self.assertIn('class="more-products"', html)
-        self.assertIn('data-rank>4', html)
+        self.assertIn('<span class="rank">4</span>', html)
         self.assertIn("600ml以下", html)
         self.assertIn("700ml以上", html)
         self.assertIn("商品名・ショップ名で絞る", html)
