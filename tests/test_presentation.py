@@ -55,6 +55,10 @@ class PresentationTests(unittest.TestCase):
         self.assertIn('.rank.top', CSS)
         self.assertIn('.finder-products', CSS)
         self.assertIn('.more-products', CSS)
+        self.assertIn('.start-grid', CSS)
+        self.assertIn('.service-shortcuts', CSS)
+        self.assertIn('.product-extra', CSS)
+        self.assertIn('.journey-strip', CSS)
 
     def test_category_page_has_top3_and_collapsed_rest(self):
         category = next(c for c in CATEGORIES if c["id"] == "carbonated-water")
@@ -80,6 +84,14 @@ class PresentationTests(unittest.TestCase):
         self.assertIn('data-compare-product', html)
         self.assertIn('data-compare-bar', html)
         self.assertIn('data-open-saved', html)
+        self.assertIn("候補を見る", html)
+        self.assertIn("比較する", html)
+        self.assertIn("あとで見る", html)
+        self.assertIn("../../deals/", html)
+        self.assertIn("../../saved/", html)
+        self.assertIn('data-product-extra', html)
+        self.assertIn('data-start-rank="4"', html)
+        self.assertIn("const base=Number(root.dataset.startRank||1)", html)
 
     def test_home_has_mascot_and_guided_finder(self):
         results = {
@@ -104,6 +116,16 @@ class PresentationTests(unittest.TestCase):
         self.assertIn("food_cost_saved_v1", html)
         self.assertIn("food_cost_compare_v1", html)
         self.assertIn("product_compare_add", html)
+        self.assertIn("今日は、どう探す？", html)
+        self.assertIn('data-start-route="deals"', html)
+        self.assertIn('data-start-route="finder"', html)
+        self.assertIn('data-start-route="categories"', html)
+        self.assertIn('id="quick-finder"', html)
+        self.assertIn('id="categories"', html)
+        self.assertIn("今日のお買い得", html)
+        self.assertIn("マイ保存", html)
+        self.assertIn("home_start_route", html)
+        self.assertIn("product_detail_open", html)
 
     def test_finder_embeds_real_product_recommendations(self):
         results = {
@@ -115,6 +137,7 @@ class PresentationTests(unittest.TestCase):
         self.assertIn('data-finder-picks="rice:small"', html)
         self.assertIn('data-finder-picks="rice:large"', html)
         self.assertIn('data-position="quick_finder_result"', html)
+        self.assertIn('data-product-extra', html)
         self.assertIn("あなた向け", html)
         self.assertIn("この条件の商品を全部見る →", html)
         self.assertIn("quick_finder_category", html)
