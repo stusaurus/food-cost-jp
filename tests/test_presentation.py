@@ -71,7 +71,15 @@ class PresentationTests(unittest.TestCase):
         self.assertIn("炭酸水を比べるコツ", html)
         self.assertIn('class="guide-mascot compact"', html)
         self.assertIn('"@type": "FAQPage"', html)
+        self.assertIn('"@type": "BreadcrumbList"', html)
+        self.assertIn('"@type": "ItemList"', html)
         self.assertIn("よくある質問", html)
+        self.assertIn("PRICE SNAPSHOT", html)
+        self.assertIn("1位と3位の差", html)
+        self.assertIn('data-save-product', html)
+        self.assertIn('data-compare-product', html)
+        self.assertIn('data-compare-bar', html)
+        self.assertIn('data-open-saved', html)
 
     def test_home_has_mascot_and_guided_finder(self):
         results = {
@@ -91,6 +99,11 @@ class PresentationTests(unittest.TestCase):
         self.assertIn('data-finder-purpose="cheap"', html)
         self.assertIn('data-finder-purpose-stage hidden', html)
         self.assertIn('data-finder-result-stage hidden', html)
+        self.assertIn('data-save-product', html)
+        self.assertIn('data-open-saved', html)
+        self.assertIn("food_cost_saved_v1", html)
+        self.assertIn("food_cost_compare_v1", html)
+        self.assertIn("product_compare_add", html)
 
     def test_finder_embeds_real_product_recommendations(self):
         results = {
