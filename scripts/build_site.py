@@ -2004,6 +2004,13 @@ def main():
         encoding="utf-8",
     )
 
+    saved_target = OUT / "saved"
+    saved_target.mkdir(parents=True, exist_ok=True)
+    (saved_target / "index.html").write_text(
+        saved_watch_page(updated),
+        encoding="utf-8",
+    )
+
     (OUT / "index.html").write_text(home_page(results, updated), encoding="utf-8")
     (OUT / "data").mkdir(exist_ok=True)
     (OUT / "data" / "products.json").write_text(
