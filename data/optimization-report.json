@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-30T23:15:49.763904+09:00",
+  "generated_at": "2026-09-30T23:17:24.069970+09:00",
   "site_id": "food_cost_jp",
   "inventory": {
     "pack-rice": {
@@ -11,7 +11,7 @@
     },
     "rice": {
       "name": "米",
-      "included_count": 19,
+      "included_count": 10,
       "shipping_unknown_count": 2,
       "history_ready_count": 0,
       "history_ready_rate": 0.0
@@ -33,7 +33,7 @@
   },
   "price_history": {
     "ready_count": 0,
-    "included_count": 80,
+    "included_count": 71,
     "ready_rate": 0.0,
     "deal_count": 0
   },
@@ -68,7 +68,7 @@
       {
         "slug": "rice-musenmai-cost",
         "category_id": "rice",
-        "matched_count": 8,
+        "matched_count": 4,
         "title": "無洗米のコスパ比較"
       },
       {
@@ -93,6 +93,14 @@
     "search_console_build_ingestion": false
   },
   "priority_queue": [
+    {
+      "type": "product_coverage",
+      "priority": 1,
+      "categories": [
+        "rice"
+      ],
+      "action": "安全な掲載候補を増やす検索・解析改善を優先"
+    },
     {
       "type": "price_history",
       "priority": 2,
