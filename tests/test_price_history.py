@@ -122,7 +122,7 @@ class PriceHistoryTests(unittest.TestCase):
         first = rice_item(3000)
         apply_price_history(history, category("rice"), [first], date(2026, 9, 30))
         self.assertEqual(price_signal(first)[0], "履歴蓄積中")
-        self.assertIn("履歴を蓄積中", sparkline_svg(first))
+        self.assertIn("次回取得後からグラフを表示", sparkline_svg(first))
 
         second = rice_item(2500)
         apply_price_history(history, category("rice"), [second], date(2026, 10, 1))
