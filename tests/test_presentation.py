@@ -42,7 +42,7 @@ def sample_item(category_id: str, rank: int = 1):
 
 class PresentationTests(unittest.TestCase):
     def test_mobile_card_css_exists(self):
-        self.assertIn('@media(max-width:719px)', CSS)
+        self.assertIn('@media(max-width:759px)', CSS)
         self.assertIn('td[data-cell="cta"]', CSS)
         self.assertIn('.rank.top', CSS)
 
@@ -64,6 +64,9 @@ class PresentationTests(unittest.TestCase):
         self.assertIn('data-search-text=', html)
         self.assertIn("ほかの食品も単価で比べる", html)
         self.assertIn("パックご飯", html)
+        self.assertIn("送料込み TOP1", html)
+        self.assertIn('data-position="top3_card"', html)
+        self.assertIn('class="food-art"', html)
 
     def test_home_page_shows_best_price_and_count(self):
         results = {}
@@ -75,8 +78,13 @@ class PresentationTests(unittest.TestCase):
         )
         self.assertIn("送料込み 1件を比較中", html)
         self.assertIn("ランキングを見る →", html)
-        self.assertIn("毎回楽天から再取得", html)
+        self.assertIn("楽天価格を再取得", html)
         self.assertIn("販売数量を一意に確定できない商品はランキングから除外", html)
+        self.assertIn("値札より", html)
+        self.assertIn("HOW IT WORKS", html)
+        self.assertIn('class="hero-art-grid"', html)
+        self.assertIn('category-card rice', html)
+        self.assertIn('category-card carbonated-water', html)
 
     def test_search_filter_tracking_is_present(self):
         category = next(c for c in CATEGORIES if c["id"] == "pack-rice")
