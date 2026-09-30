@@ -677,22 +677,39 @@ def sparkline_svg(item: dict) -> str:
     history = item.get("price_history") or {}
     series = history.get("series_30d") or []
     values = [float(point.get("unit") or 0) for point in series if point.get("unit") is not None]
+    current = values[-1] if values else None
+    low = min(values) if values else None
+    previous = history.get("previous_unit")
+    observed = int(history.get("observed_days") or 0)
+
     if len(values) < 2:
-        return '<div class="sparkline-empty">履歴を蓄積中</div>'
-    width, height, pad = 120.0, 36.0, 3.0
+        current_html = yen(current) if current is not None else "—"
+        return f"""<div class="history-card history-pending">
+<div class="history-head"><strong>価格履歴</strong><span>{observed}回取得</span></div>
+<div class="history-stats"><div><span>現在</span><b>{current_html}</b></div><div><span>30日最安</span><b>蓄積中</b></div><div><span>前回</span><b>—</b></div></div>
+<div class="sparkline-empty">次回取得後からグラフを表示</div></div>"""
+
+    width, height, pad = 180.0, 64.0, 6.0
     lo, hi = min(values), max(values)
     span = hi - lo
     points = []
+    circles = []
     for idx, value in enumerate(values):
         x = pad + (width - pad * 2) * idx / max(1, len(values) - 1)
         y = height / 2 if span < 1e-9 else pad + (height - pad * 2) * (hi - value) / span
         points.append(f"{x:.1f},{y:.1f}")
+        if idx == len(values) - 1:
+            circles.append(f'<circle cx="{x:.1f}" cy="{y:.1f}" r="3.2"/>')
     _, tone, _ = price_signal(item)
-    return f"""<div class="sparkline-wrap">
-<svg class="sparkline {tone}" viewBox="0 0 120 36" role="img" aria-label="30日価格推移">
+    previous_html = yen(previous) if previous is not None else "—"
+    return f"""<div class="history-card">
+<div class="history-head"><strong>30日価格履歴</strong><span>{observed}回取得</span></div>
+<div class="history-stats"><div><span>現在</span><b>{yen(current)}</b></div><div><span>30日最安</span><b>{yen(low)}</b></div><div><span>前回</span><b>{previous_html}</b></div></div>
+<svg class="sparkline {tone}" viewBox="0 0 180 64" role="img" aria-label="30日価格推移">
+<line x1="6" y1="58" x2="174" y2="58" class="spark-grid"/>
 <polyline points="{' '.join(points)}" fill="none" vector-effect="non-scaling-stroke"/>
-</svg><span>30日推移</span></div>"""
-
+{''.join(circles)}
+</svg></div>"""
 
 def price_signal_html(item: dict) -> str:
     label, tone, reason = price_signal(item)
