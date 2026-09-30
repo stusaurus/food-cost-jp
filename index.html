@@ -93,8 +93,27 @@ gtag('config','G-GFVSZ8YDQ5',{site_id:'food_cost_jp'});
 <div class="hero-food-chip chip-oats">🥣 100g</div>
 </div>
 </div></header>
+<nav class="service-shortcuts" aria-label="主要メニュー">
+<a href="https://stusaurus.github.io/food-cost-jp/"><span>⌂</span>トップ</a>
+<a href="https://stusaurus.github.io/food-cost-jp/deals/"><span>↓</span>今日のお買い得</a>
+<a href="https://stusaurus.github.io/food-cost-jp/saved/"><span>♡</span>マイ保存</a>
+</nav>
 <main class="wrap">
-<section class="section finder" data-finder>
+<section class="section start-hub" aria-label="探し方を選ぶ">
+<div class="start-hub-head"><div><div class="section-kicker">START HERE</div><h2>今日は、どう探す？</h2></div><span>迷ったら真ん中の診断がおすすめ</span></div>
+<div class="start-grid">
+<a class="start-card deal-start" href="deals/" data-start-route="deals">
+<div class="start-icon">↓</div><div><small>値下がりから</small><strong>今日のお買い得</strong><p>価格履歴を蓄積中</p></div><b>見る →</b>
+</a>
+<a class="start-card finder-start featured" href="#quick-finder" data-start-route="finder">
+<div class="start-icon">◎</div><div><small>2問で候補まで</small><strong>買い方診断</strong><p>食品と買い方を選ぶだけ</p></div><b>診断する →</b>
+</a>
+<a class="start-card category-start" href="#categories" data-start-route="categories">
+<div class="start-icon">▦</div><div><small>いつもの食品から</small><strong>カテゴリ比較</strong><p>4カテゴリを単価順で</p></div><b>選ぶ →</b>
+</a>
+</div>
+</section>
+<section class="section finder" id="quick-finder" data-finder>
 <div class="finder-intro">
 <div>
 <div class="section-kicker">QUICK FINDER</div>
@@ -1899,7 +1918,7 @@ gtag('config','G-GFVSZ8YDQ5',{site_id:'food_cost_jp'});
 </svg><div><strong>価格履歴を蓄積中です。</strong><p>今日から商品ごとの価格を記録します。翌日以降、同じ容量の商品だけを比較して値下がりを表示します。</p>
 <a class="deal-more" href="deals/">価格履歴ページを見る →</a></div></div>
 </section>
-<section class="section">
+<section class="section" id="categories">
 <div class="section-kicker">CHOOSE A CATEGORY</div>
 <h2>まず、比べたい食品を選ぶ。</h2>
 <section class="grid"><a class="card category-card pack-rice" href="categories/pack-rice/">
@@ -1969,7 +1988,12 @@ gtag('config','G-GFVSZ8YDQ5',{site_id:'food_cost_jp'});
 <p>1kg袋・複数袋セットを100gあたりと1kgあたりへ換算します。</p>
 <span class="category-go">ランキングを見る →</span>
 </div>
-</a></section></section><section class="section intent-section">
+</a></section></section><section class="journey-strip" aria-label="商品の選び方">
+<div><span>1</span><strong>候補を見る</strong><small>単価と総額を確認</small></div>
+<i>→</i><div><span>2</span><strong>比較する</strong><small>最大3商品まで</small></div>
+<i>→</i><div><span>3</span><strong>あとで見る</strong><small>価格変化を追える</small></div>
+<i>→</i><div><span>4</span><strong>楽天で確認</strong><small>購入前に最終価格確認</small></div>
+</section><section class="section intent-section">
 <div class="section-kicker">POPULAR SEARCHES</div>
 <h2>よく比べられる条件から探す。</h2>
 <div class="intent-grid"><a class="intent-card" href="guides/pack-rice-200g-cost/">
@@ -2037,10 +2061,18 @@ document.addEventListener('click',e=>{
   const x={affiliate:'rakuten',conversion_source:pos,category_id:a.dataset.category,product_id:a.dataset.productId,product_name:a.dataset.productName,rank:a.dataset.rank,comparison_metric:a.dataset.metric,unit_price:Number(a.dataset.unitPrice||0),shipping_status:a.dataset.shipping,click_position:pos,cta_variant:a.dataset.ctaVariant||'standard',cta_text:(a.textContent||'').trim(),page_path:location.pathname,link_url:a.href};
   send('product_result_click',x);send('affiliate_click',x)
 });
+document.querySelectorAll('[data-start-route]').forEach(a=>a.addEventListener('click',()=>send('home_start_route',{route:a.dataset.startRoute||''})));
+document.querySelectorAll('[data-product-extra]').forEach(d=>d.addEventListener('toggle',()=>{if(d.open)send('product_detail_open',{page_path:location.pathname})}));
 document.querySelectorAll('[data-sort]').forEach(s=>s.addEventListener('change',()=>{
   const root=s.closest('[data-comparison]'),body=root.querySelector('tbody'),rows=[...body.querySelectorAll('tr')],m=s.value;
   rows.sort((a,b)=>Number(a.dataset[m]||Infinity)-Number(b.dataset[m]||Infinity));
-  rows.forEach((r,i)=>{r.querySelector('[data-rank]').textContent=i+1;body.appendChild(r)});
+  const base=Number(root.dataset.startRank||1);
+  rows.forEach((r,i)=>{
+    const n=base+i,rankCell=r.querySelector('[data-rank]'),rankSpan=rankCell?.querySelector('.rank');
+    if(rankSpan){rankSpan.textContent=n;rankSpan.classList.toggle('top',n<=3)}
+    const link=r.querySelector('a[data-affiliate]');if(link)link.dataset.rank=String(n);
+    body.appendChild(r)
+  });
   send('comparison_sort',{category_id:s.dataset.category,comparison_metric:m})
 }));
 const applyFilters=root=>{

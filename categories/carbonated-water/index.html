@@ -84,6 +84,8 @@ gtag('config','G-GFVSZ8YDQ5',{site_id:'food_cost_jp'});
 <nav class="nav"><div class="wrap">
 <a href="#included">送料込み比較</a>
 <a href="#other">送料別参考</a>
+<a href="../../deals/">今日のお買い得</a>
+<a href="../../saved/">マイ保存</a>
 <a href="../../">トップ</a>
 </div></nav>
 <main class="wrap"><section class="summary" aria-label="比較サマリー">
@@ -91,7 +93,12 @@ gtag('config','G-GFVSZ8YDQ5',{site_id:'food_cost_jp'});
 <div class="summary-item"><div class="summary-k">送料込み最安</div><div class="summary-v">¥66.7</div><div class="fine">1Lあたり</div></div>
 <div class="summary-item"><div class="summary-k">送料込み掲載</div><div class="summary-v">16件</div></div>
 <div class="summary-item"><div class="summary-k">送料別参考</div><div class="summary-v">19件</div></div>
-</div></section><section class="section insight-section">
+</div></section><section class="journey-strip" aria-label="商品の選び方">
+<div><span>1</span><strong>候補を見る</strong><small>単価と総額を確認</small></div>
+<i>→</i><div><span>2</span><strong>比較する</strong><small>最大3商品まで</small></div>
+<i>→</i><div><span>3</span><strong>あとで見る</strong><small>価格変化を追える</small></div>
+<i>→</i><div><span>4</span><strong>楽天で確認</strong><small>購入前に最終価格確認</small></div>
+</section><section class="section insight-section">
 <div class="section-kicker">PRICE SNAPSHOT</div>
 <h2>いまの価格差をひと目で。</h2>
 <div class="insight-grid">
@@ -191,7 +198,7 @@ gtag('config','G-GFVSZ8YDQ5',{site_id:'food_cost_jp'});
 </article></div>
 </section><div id="included" class="after-top3"><details class="more-products" data-more-products>
 <summary>4位以下を見る（13件） <span>＋</span></summary>
-<section class="comparison-inner" data-comparison>
+<section class="comparison-inner" data-comparison data-start-rank="4">
 <h2>4位以下を見る（13件）</h2>
 <p class="sub">必要なときだけ開いて、検索・並び替え・容量条件で絞り込めます。</p>
 <div class="toolbar">
@@ -510,7 +517,7 @@ gtag('config','G-GFVSZ8YDQ5',{site_id:'food_cost_jp'});
 </section>
 </details></div><div id="other"><details class="more-products" data-more-products>
 <summary>送料別の参考商品を見る（19件） <span>＋</span></summary>
-<section class="comparison-inner" data-comparison>
+<section class="comparison-inner" data-comparison data-start-rank="1">
 <h2>送料別の参考商品を見る（19件）</h2>
 <p class="sub">単価は商品価格だけの参考値です。送料額は推測せず、送料込みランキングと混ぜません。</p>
 <div class="toolbar">
@@ -1006,10 +1013,18 @@ document.addEventListener('click',e=>{
   const x={affiliate:'rakuten',conversion_source:pos,category_id:a.dataset.category,product_id:a.dataset.productId,product_name:a.dataset.productName,rank:a.dataset.rank,comparison_metric:a.dataset.metric,unit_price:Number(a.dataset.unitPrice||0),shipping_status:a.dataset.shipping,click_position:pos,cta_variant:a.dataset.ctaVariant||'standard',cta_text:(a.textContent||'').trim(),page_path:location.pathname,link_url:a.href};
   send('product_result_click',x);send('affiliate_click',x)
 });
+document.querySelectorAll('[data-start-route]').forEach(a=>a.addEventListener('click',()=>send('home_start_route',{route:a.dataset.startRoute||''})));
+document.querySelectorAll('[data-product-extra]').forEach(d=>d.addEventListener('toggle',()=>{if(d.open)send('product_detail_open',{page_path:location.pathname})}));
 document.querySelectorAll('[data-sort]').forEach(s=>s.addEventListener('change',()=>{
   const root=s.closest('[data-comparison]'),body=root.querySelector('tbody'),rows=[...body.querySelectorAll('tr')],m=s.value;
   rows.sort((a,b)=>Number(a.dataset[m]||Infinity)-Number(b.dataset[m]||Infinity));
-  rows.forEach((r,i)=>{r.querySelector('[data-rank]').textContent=i+1;body.appendChild(r)});
+  const base=Number(root.dataset.startRank||1);
+  rows.forEach((r,i)=>{
+    const n=base+i,rankCell=r.querySelector('[data-rank]'),rankSpan=rankCell?.querySelector('.rank');
+    if(rankSpan){rankSpan.textContent=n;rankSpan.classList.toggle('top',n<=3)}
+    const link=r.querySelector('a[data-affiliate]');if(link)link.dataset.rank=String(n);
+    body.appendChild(r)
+  });
   send('comparison_sort',{category_id:s.dataset.category,comparison_metric:m})
 }));
 const applyFilters=root=>{

@@ -81,6 +81,11 @@ gtag('config','G-GFVSZ8YDQ5',{site_id:'food_cost_jp'});
 <path d="M183 37c11 9 11 20 0 29M198 28c14 13 14 31 0 44" fill="none" stroke="#F2B56E" stroke-width="5" stroke-linecap="round"/>
 </svg></div>
 </div></header>
+<nav class="service-shortcuts" aria-label="主要メニュー">
+<a href="https://stusaurus.github.io/food-cost-jp/"><span>⌂</span>トップ</a>
+<a href="https://stusaurus.github.io/food-cost-jp/deals/"><span>↓</span>今日のお買い得</a>
+<a href="https://stusaurus.github.io/food-cost-jp/saved/"><span>♡</span>マイ保存</a>
+</nav>
 <main class="wrap">
 <section class="section explain"><h2>このページの見方</h2>
 <p>25食以上のまとめ買い向け商品を中心に、1食あたりの単価と総額を比べます。</p>
@@ -178,7 +183,7 @@ gtag('config','G-GFVSZ8YDQ5',{site_id:'food_cost_jp'});
 </section>
 <details class="more-products" data-more-products>
 <summary>ほかの候補を見る（12件） <span>＋</span></summary>
-<section class="comparison-inner" data-comparison>
+<section class="comparison-inner" data-comparison data-start-rank="4">
 <h2>ほかの候補を見る（12件）</h2>
 <p class="sub">価格や容量条件を確認しながら比較できます。</p>
 <div class="toolbar">
@@ -512,10 +517,18 @@ document.addEventListener('click',e=>{
   const x={affiliate:'rakuten',conversion_source:pos,category_id:a.dataset.category,product_id:a.dataset.productId,product_name:a.dataset.productName,rank:a.dataset.rank,comparison_metric:a.dataset.metric,unit_price:Number(a.dataset.unitPrice||0),shipping_status:a.dataset.shipping,click_position:pos,cta_variant:a.dataset.ctaVariant||'standard',cta_text:(a.textContent||'').trim(),page_path:location.pathname,link_url:a.href};
   send('product_result_click',x);send('affiliate_click',x)
 });
+document.querySelectorAll('[data-start-route]').forEach(a=>a.addEventListener('click',()=>send('home_start_route',{route:a.dataset.startRoute||''})));
+document.querySelectorAll('[data-product-extra]').forEach(d=>d.addEventListener('toggle',()=>{if(d.open)send('product_detail_open',{page_path:location.pathname})}));
 document.querySelectorAll('[data-sort]').forEach(s=>s.addEventListener('change',()=>{
   const root=s.closest('[data-comparison]'),body=root.querySelector('tbody'),rows=[...body.querySelectorAll('tr')],m=s.value;
   rows.sort((a,b)=>Number(a.dataset[m]||Infinity)-Number(b.dataset[m]||Infinity));
-  rows.forEach((r,i)=>{r.querySelector('[data-rank]').textContent=i+1;body.appendChild(r)});
+  const base=Number(root.dataset.startRank||1);
+  rows.forEach((r,i)=>{
+    const n=base+i,rankCell=r.querySelector('[data-rank]'),rankSpan=rankCell?.querySelector('.rank');
+    if(rankSpan){rankSpan.textContent=n;rankSpan.classList.toggle('top',n<=3)}
+    const link=r.querySelector('a[data-affiliate]');if(link)link.dataset.rank=String(n);
+    body.appendChild(r)
+  });
   send('comparison_sort',{category_id:s.dataset.category,comparison_metric:m})
 }));
 const applyFilters=root=>{

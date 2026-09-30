@@ -81,6 +81,11 @@ gtag('config','G-GFVSZ8YDQ5',{site_id:'food_cost_jp'});
 <circle cx="236" cy="56" r="25" fill="#DDF3FA"/><text x="236" y="64" text-anchor="middle" font-size="22">÷</text>
 <path d="M82 61c14 7 21 16 25 27M216 63c-12 8-19 16-23 27" fill="none" stroke="#9EC4AA" stroke-width="4" stroke-linecap="round"/>
 </svg></div></div></header>
+<nav class="service-shortcuts" aria-label="主要メニュー">
+<a href="https://stusaurus.github.io/food-cost-jp/"><span>⌂</span>トップ</a>
+<a href="https://stusaurus.github.io/food-cost-jp/deals/"><span>↓</span>今日のお買い得</a>
+<a href="https://stusaurus.github.io/food-cost-jp/saved/"><span>♡</span>マイ保存</a>
+</nav>
 <main class="wrap"><section class="section explain"><h2>現在、掲載できる値下がり商品はありません</h2>
 <p>価格履歴を蓄積中です。翌日以降の更新から値下がり判定が育っていきます。</p></section>
 <section class="section explain"><h2>「今は安め」の判定について</h2>
@@ -122,10 +127,18 @@ document.addEventListener('click',e=>{
   const x={affiliate:'rakuten',conversion_source:pos,category_id:a.dataset.category,product_id:a.dataset.productId,product_name:a.dataset.productName,rank:a.dataset.rank,comparison_metric:a.dataset.metric,unit_price:Number(a.dataset.unitPrice||0),shipping_status:a.dataset.shipping,click_position:pos,cta_variant:a.dataset.ctaVariant||'standard',cta_text:(a.textContent||'').trim(),page_path:location.pathname,link_url:a.href};
   send('product_result_click',x);send('affiliate_click',x)
 });
+document.querySelectorAll('[data-start-route]').forEach(a=>a.addEventListener('click',()=>send('home_start_route',{route:a.dataset.startRoute||''})));
+document.querySelectorAll('[data-product-extra]').forEach(d=>d.addEventListener('toggle',()=>{if(d.open)send('product_detail_open',{page_path:location.pathname})}));
 document.querySelectorAll('[data-sort]').forEach(s=>s.addEventListener('change',()=>{
   const root=s.closest('[data-comparison]'),body=root.querySelector('tbody'),rows=[...body.querySelectorAll('tr')],m=s.value;
   rows.sort((a,b)=>Number(a.dataset[m]||Infinity)-Number(b.dataset[m]||Infinity));
-  rows.forEach((r,i)=>{r.querySelector('[data-rank]').textContent=i+1;body.appendChild(r)});
+  const base=Number(root.dataset.startRank||1);
+  rows.forEach((r,i)=>{
+    const n=base+i,rankCell=r.querySelector('[data-rank]'),rankSpan=rankCell?.querySelector('.rank');
+    if(rankSpan){rankSpan.textContent=n;rankSpan.classList.toggle('top',n<=3)}
+    const link=r.querySelector('a[data-affiliate]');if(link)link.dataset.rank=String(n);
+    body.appendChild(r)
+  });
   send('comparison_sort',{category_id:s.dataset.category,comparison_metric:m})
 }));
 const applyFilters=root=>{
