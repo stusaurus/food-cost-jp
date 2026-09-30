@@ -646,6 +646,107 @@ def finder_product_card(item: dict, category: dict, position: int, purpose: str)
 
 
 
+def product_action_buttons(item: dict, category: dict, primary: float) -> str:
+    quantity = quantity_text(item, category["id"])
+    attrs = (
+        f'data-product-id="{html.escape(item["id"], quote=True)}" '
+        f'data-product-name="{html.escape(item["name"], quote=True)}" '
+        f'data-product-category="{category["id"]}" '
+        f'data-product-category-name="{html.escape(category["name"], quote=True)}" '
+        f'data-product-price="{item["price"]}" '
+        f'data-product-unit="{primary:.6f}" '
+        f'data-product-unit-label="{html.escape(category["primary_label"], quote=True)}" '
+        f'data-product-quantity="{html.escape(quantity, quote=True)}" '
+        f'data-product-url="{html.escape(item["url"], quote=True)}" '
+        f'data-product-image="{html.escape(item["image"] or "", quote=True)}"'
+    )
+    return f"""<div class="product-actions">
+<button type="button" class="utility-btn" data-save-product {attrs}>♡ あとで見る</button>
+<button type="button" class="utility-btn" data-compare-product {attrs}>＋ 比較する</button>
+</div>"""
+
+
+def category_insights_html(category: dict, items: list[dict]) -> str:
+    if not items:
+        return ""
+    metric = category["primary"]
+    ordered = sorted(items, key=lambda x: x["unit_prices"][metric])
+    best = ordered[0]["unit_prices"][metric]
+    third = ordered[min(2, len(ordered)-1)]["unit_prices"][metric]
+    cheapest_total = min(items, key=lambda x: x["price"])
+    large_items = [x for x in items if bucket(x, category["id"]) == "large"]
+    large_best = min(large_items, key=lambda x: x["unit_prices"][metric]) if large_items else None
+    diff = max(0, third - best)
+    large_html = (
+        f"""<div class="insight-card"><span>📦 大容量側の注目</span><strong>{yen(large_best["unit_prices"][metric])}</strong><small>{html.escape(category["primary_label"])}</small></div>"""
+        if large_best else
+        """<div class="insight-card"><span>📦 大容量側</span><strong>—</strong><small>現在候補なし</small></div>"""
+    )
+    return f"""<section class="section insight-section">
+<div class="section-kicker">PRICE SNAPSHOT</div>
+<h2>いまの価格差をひと目で。</h2>
+<div class="insight-grid">
+<div class="insight-card"><span>🥇 1位と3位の差</span><strong>{yen(diff)}</strong><small>{html.escape(category["primary_label"])}の差</small></div>
+<div class="insight-card"><span>💴 支払総額が低い候補</span><strong>¥{cheapest_total["price"]:,}</strong><small>{html.escape(quantity_text(cheapest_total, category["id"]))}</small></div>
+{large_html}
+</div>
+<p class="fine">単価だけでなく、支払総額や保管量も見て選べます。価格は取得時点の参考値です。</p>
+</section>"""
+
+
+def breadcrumb_json_ld(items: list[tuple[str, str]]) -> str:
+    data = {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {"@type": "ListItem", "position": index, "name": name, "item": url}
+            for index, (name, url) in enumerate(items, start=1)
+        ],
+    }
+    return '<script type="application/ld+json">' + json.dumps(data, ensure_ascii=False) + '</script>'
+
+
+def item_list_json_ld(items: list[dict], category: dict, limit: int = 10) -> str:
+    data = {
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        "name": f"{category['name']}のコスパ比較",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": index,
+                "name": item["name"],
+                "url": item["url"],
+            }
+            for index, item in enumerate(items[:limit], start=1)
+        ],
+    }
+    return '<script type="application/ld+json">' + json.dumps(data, ensure_ascii=False) + '</script>'
+
+
+def utility_panels_html() -> str:
+    return """<button class="saved-fab" type="button" data-open-saved>♡ あとで見る <span data-saved-count>0</span></button>
+<div class="compare-bar" data-compare-bar hidden>
+<div><strong>比較する商品</strong><span data-compare-summary>0/3</span></div>
+<div class="compare-bar-items" data-compare-bar-items></div>
+<button type="button" class="compare-open" data-open-compare>比較を見る</button>
+<button type="button" class="compare-clear" data-clear-compare>クリア</button>
+</div>
+<div class="utility-modal" data-saved-modal hidden>
+<div class="utility-sheet">
+<button class="utility-close" type="button" data-close-saved>×</button>
+<div class="section-kicker">SAVED</div><h2>あとで見る</h2>
+<div data-saved-list></div>
+</div></div>
+<div class="utility-modal" data-compare-modal hidden>
+<div class="utility-sheet utility-sheet-wide">
+<button class="utility-close" type="button" data-close-compare>×</button>
+<div class="section-kicker">COMPARE</div><h2>選んだ商品を比較</h2>
+<div data-compare-table></div>
+</div></div>"""
+
+
+
 def top3_html(items: list[dict], category: dict) -> str:
     if not items:
         return ""
@@ -671,6 +772,7 @@ def top3_html(items: list[dict], category: dict) -> str:
 <div class="podium-label">{html.escape(category["primary_label"])}</div>
 <div class="podium-diff">{html.escape(diff_text)}</div>
 <div class="podium-detail">{html.escape(quantity_text(item, category["id"]))} ・ ¥{item["price"]:,}</div>
+{product_action_buttons(item, category, primary)}
 <a class="cta podium-cta" href="{html.escape(item["url"], quote=True)}" target="_blank" rel="nofollow sponsored noopener"
  data-affiliate="rakuten" data-position="top3_card" data-category="{category['id']}" data-product-id="{html.escape(item['id'], quote=True)}"
  data-product-name="{html.escape(item['name'], quote=True)}" data-rank="{rank}" data-metric="{category['primary']}"
@@ -796,14 +898,19 @@ h1{font-size:clamp(32px,6vw,58px);line-height:1.08;margin:12px 0 16px;letter-spa
 .hero-visual{position:relative;min-height:350px;display:flex;align-items:center;justify-content:center}.hero-visual .guide-mascot{width:min(90%,330px);filter:drop-shadow(0 20px 25px rgba(23,63,49,.13))}.guide-mascot.compact{width:95px;height:auto}.mascot-bubble{position:absolute;right:8px;top:12px;background:#fff;border:1px solid #dce8dd;border-radius:20px 20px 20px 5px;padding:12px 15px;font-size:12px;line-height:1.4;box-shadow:0 12px 28px rgba(40,60,45,.08);z-index:2}.hero-food-chip{position:absolute;background:#fff;border:1px solid #e2e6dd;border-radius:999px;padding:7px 11px;font-size:12px;font-weight:900;box-shadow:0 10px 24px rgba(50,60,45,.08)}.chip-rice{left:4%;top:18%}.chip-water{right:2%;bottom:26%}.chip-pack{left:0;bottom:24%}.chip-oats{right:8%;top:31%}
 .finder-intro{display:flex;align-items:center;justify-content:space-between;gap:18px}.finder-guide{display:flex;align-items:center;gap:4px;font-size:11px;font-weight:900;color:var(--brand)}.finder-stage{margin-top:18px}.finder-stage[hidden],.finder-picks[hidden]{display:none}.finder-question{display:flex;align-items:center;gap:10px}.finder-question>span{display:inline-flex;width:34px;height:34px;border-radius:50%;align-items:center;justify-content:center;background:var(--brand2);color:#fff;font-size:11px;font-weight:950}.finder-question>strong{font-size:20px}.finder-category-options button{min-width:180px}.finder-purpose-options button{display:flex;align-items:center;gap:9px;font-size:20px;text-align:left}.finder-purpose-options button span{display:flex;flex-direction:column}.finder-purpose-options button strong{font-size:14px}.finder-purpose-options button small{font-size:10px;color:var(--muted);font-weight:700}.finder-back{border:0;background:transparent;color:var(--brand);font-weight:850;padding:0;margin-bottom:12px;cursor:pointer}.finder-picks{margin-top:8px}.finder-picks-head span{display:block;font-size:10px;font-weight:950;color:var(--brand);letter-spacing:.08em}.finder-picks-head strong{font-size:20px}.finder-products{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:14px}.finder-product{display:grid;grid-template-rows:110px 1fr;background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden}.finder-product-media{display:flex;align-items:center;justify-content:center;padding:8px;background:#fafbf7}.finder-product-media img{max-width:100%;max-height:100px;object-fit:contain}.finder-product-copy{position:relative;padding:13px;display:flex;flex-direction:column}.finder-product-copy>strong{font-size:12px;line-height:1.45;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}.finder-product-rank{position:absolute;right:10px;top:-18px;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:var(--brand);color:#fff;font-weight:950}.finder-product-price{font-size:22px;font-weight:950;color:var(--brand);margin-top:10px}.finder-product-price small{font-size:10px;color:var(--muted)}.finder-product-meta{font-size:10px;color:var(--muted);margin:4px 0 7px}.finder-why{font-size:10px;color:#536058;background:#f3f7f2;border-radius:9px;padding:6px 7px;margin-bottom:9px}.finder-why span{display:inline-block;font-weight:950;color:var(--brand);margin-right:5px}.finder-product-copy .cta{margin-top:auto}.finder-all{display:inline-flex;margin-top:12px;color:var(--brand);font-weight:900;text-decoration:none}
 .more-products{margin:28px 0 40px}.more-products>summary{list-style:none;cursor:pointer;background:#fff;border:1px solid var(--line);border-radius:16px;padding:15px 18px;font-weight:950;display:flex;align-items:center;justify-content:space-between;box-shadow:0 5px 16px rgba(50,60,45,.04)}.more-products>summary::-webkit-details-marker{display:none}.more-products[open]>summary span{transform:rotate(45deg)}.more-products .comparison-inner{margin-top:12px}.comparison-inner>h2{margin-top:0}.after-top3{margin-top:-10px}.guide-with-mascot{display:grid;grid-template-columns:1fr 120px;gap:20px;align-items:center}.guide-mini{display:flex;justify-content:center}
-.intent-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}.intent-card{display:flex;flex-direction:column;gap:5px;background:#fff;border:1px solid var(--line);border-radius:18px;padding:16px;text-decoration:none;transition:.15s}.intent-card:hover{transform:translateY(-2px);box-shadow:var(--shadow)}.intent-card span{font-weight:950}.intent-card small{color:var(--muted);line-height:1.45}.intent-card b{color:var(--brand);font-size:12px;margin-top:4px}.faq-section{background:#fffdf8;border:1px solid var(--line);border-radius:24px;padding:24px}.faq-item{border-top:1px solid var(--line);padding:12px 0}.faq-item:first-of-type{border-top:0}.faq-item summary{cursor:pointer;font-weight:900}.faq-item p{color:var(--muted);margin:8px 0 0}
+.intent-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}.intent-card{display:flex;flex-direction:column;gap:5px;background:#fff;border:1px solid var(--line);border-radius:18px;padding:16px;text-decoration:none;transition:.15s}.intent-card:hover{transform:translateY(-2px);box-shadow:var(--shadow)}.intent-card span{font-weight:950}.intent-card small{color:var(--muted);line-height:1.45}.intent-card b{color:var(--brand);font-size:12px;margin-top:4px}.insight-section{background:linear-gradient(135deg,#fffdf8,#eef6ee);border:1px solid var(--line);border-radius:24px;padding:24px}.insight-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:14px}.insight-card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:15px}.insight-card span{display:block;font-size:11px;font-weight:850;color:var(--muted)}.insight-card strong{display:block;font-size:25px;color:var(--brand);line-height:1.2;margin-top:5px}.insight-card small{color:var(--muted)}
+.product-actions{display:flex;gap:6px;flex-wrap:wrap;margin:7px 0}.utility-btn{border:1px solid #d7ded7;background:#fff;color:#405048;border-radius:999px;padding:6px 9px;font-size:10px;font-weight:850;cursor:pointer}.utility-btn.active{background:var(--brand-soft);border-color:#9fc4aa;color:var(--brand)}.podium-card .product-actions{margin-top:9px}.podium-card .utility-btn{flex:1}
+.saved-fab{position:fixed;right:16px;bottom:18px;z-index:24;border:0;background:#fff;color:var(--brand2);box-shadow:0 10px 30px rgba(20,40,28,.18);border-radius:999px;padding:11px 15px;font-weight:950;cursor:pointer}.saved-fab span{display:inline-flex;min-width:20px;height:20px;align-items:center;justify-content:center;background:var(--brand);color:#fff;border-radius:50%;font-size:10px;margin-left:4px}
+.compare-bar{position:fixed;left:50%;bottom:16px;transform:translateX(-50%);z-index:23;width:min(760px,calc(100% - 150px));background:var(--brand2);color:#fff;border-radius:18px;padding:10px 12px;display:flex;align-items:center;gap:10px;box-shadow:0 16px 36px rgba(18,39,29,.25)}.compare-bar[hidden]{display:none}.compare-bar>div:first-child{min-width:95px}.compare-bar strong{display:block;font-size:11px}.compare-bar [data-compare-summary]{font-size:10px;color:#cfe1d5}.compare-bar-items{display:flex;gap:5px;overflow:hidden;flex:1}.compare-chip{max-width:150px;background:#ffffff18;border-radius:999px;padding:5px 8px;font-size:10px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.compare-open,.compare-clear{border:0;border-radius:10px;padding:8px 10px;font-weight:900;cursor:pointer}.compare-open{background:#fff;color:var(--brand2)}.compare-clear{background:transparent;color:#d7e5dc}
+.utility-modal{position:fixed;inset:0;background:#10211899;z-index:40;padding:20px;display:flex;align-items:flex-end;justify-content:center}.utility-modal[hidden]{display:none}.utility-sheet{position:relative;width:min(620px,100%);max-height:82vh;overflow:auto;background:#fffdf8;border-radius:24px 24px 12px 12px;padding:24px;box-shadow:0 24px 60px rgba(0,0,0,.25)}.utility-sheet-wide{width:min(920px,100%)}.utility-close{position:absolute;right:16px;top:14px;border:0;background:#eef3ed;width:34px;height:34px;border-radius:50%;font-size:22px;cursor:pointer}.saved-item{display:grid;grid-template-columns:58px 1fr auto;gap:10px;align-items:center;border-top:1px solid var(--line);padding:10px 0}.saved-item img{width:54px;height:54px;object-fit:contain}.saved-item strong{font-size:12px;line-height:1.4}.saved-item small{display:block;color:var(--muted)}.saved-item button{border:0;background:transparent;color:#8a4b45;cursor:pointer}.utility-empty{padding:24px 0;color:var(--muted);text-align:center}.compare-table{width:100%;overflow:auto}.compare-table table{min-width:620px}.compare-table th:first-child{position:sticky;left:0;background:#f3f5ef;z-index:1}.compare-table td:first-child{font-weight:900;background:#fffdf8}.compare-table a{color:var(--brand);font-weight:900}
+.faq-section{background:#fffdf8;border:1px solid var(--line);border-radius:24px;padding:24px}.faq-item{border-top:1px solid var(--line);padding:12px 0}.faq-item:first-of-type{border-top:0}.faq-item summary{cursor:pointer;font-weight:900}.faq-item p{color:var(--muted);margin:8px 0 0}
 footer{background:#fff;border-top:1px solid var(--line);padding:30px 0 42px;color:var(--muted);font-size:11px}
 @media(min-width:760px){.grid{grid-template-columns:1fr 1fr}}
 @media(max-width:759px){
  .wrap{width:min(100% - 20px,1120px)}header{padding:25px 0 20px}.hero-layout{grid-template-columns:1fr;gap:18px}.hero-art-grid{grid-template-columns:1fr 1fr;gap:8px}.hero-art-item{min-height:105px;border-radius:20px}.hero-art-item .food-art{max-height:100px}.category-hero-art{min-height:180px}.category-hero-art .food-art{max-height:175px}
  .grid{grid-template-columns:1fr}.category-card{grid-template-columns:105px 1fr;padding:14px}.category-art{height:110px}.category-art .food-art{max-height:105px}.category-price{font-size:24px}
  .podium-grid{grid-template-columns:1fr}.podium-card.rank-1{transform:none}.summary-grid{grid-template-columns:1fr 1fr}.summary-item:first-child{grid-column:1/-1}.flow-grid{grid-template-columns:1fr}.flow-arrow{transform:rotate(90deg);height:24px}.finder{padding:20px 15px}.finder-options{display:grid;grid-template-columns:1fr 1fr}.finder-options button{width:100%;text-align:left}.finder-result{align-items:stretch;flex-direction:column}.finder-go{text-align:center}
- .intent-grid{grid-template-columns:1fr}.hero-visual{min-height:245px}.hero-visual .guide-mascot{width:240px}.mascot-bubble{right:0;top:0}.hero-food-chip{font-size:10px;padding:5px 8px}.finder-intro{align-items:flex-start}.finder-guide span{display:none}.finder-products{grid-template-columns:1fr}.finder-product{grid-template-columns:92px 1fr;grid-template-rows:auto}.finder-product-media{min-height:120px}.finder-product-copy>strong{-webkit-line-clamp:2}.guide-with-mascot{grid-template-columns:1fr 80px;gap:10px}.guide-mini .guide-mascot{width:75px} .table{overflow:visible;background:transparent;border:0}table,tbody{display:block;width:100%;min-width:0}thead{display:none}tr{display:grid;grid-template-columns:76px 1fr;gap:0 12px;background:#fff;border:1px solid var(--line);border-radius:16px;margin:10px 0;padding:13px;box-shadow:0 2px 8px #13291b08}
+ .insight-grid{grid-template-columns:1fr}.compare-bar{left:10px;right:10px;bottom:72px;transform:none;width:auto;flex-wrap:wrap}.compare-bar-items{order:3;width:100%}.saved-fab{right:10px;bottom:14px}.utility-modal{padding:8px}.utility-sheet{border-radius:22px 22px 8px 8px;padding:20px 15px}.intent-grid{grid-template-columns:1fr}.hero-visual{min-height:245px}.hero-visual .guide-mascot{width:240px}.mascot-bubble{right:0;top:0}.hero-food-chip{font-size:10px;padding:5px 8px}.finder-intro{align-items:flex-start}.finder-guide span{display:none}.finder-products{grid-template-columns:1fr}.finder-product{grid-template-columns:92px 1fr;grid-template-rows:auto}.finder-product-media{min-height:120px}.finder-product-copy>strong{-webkit-line-clamp:2}.guide-with-mascot{grid-template-columns:1fr 80px;gap:10px}.guide-mini .guide-mascot{width:75px} .table{overflow:visible;background:transparent;border:0}table,tbody{display:block;width:100%;min-width:0}thead{display:none}tr{display:grid;grid-template-columns:76px 1fr;gap:0 12px;background:#fff;border:1px solid var(--line);border-radius:16px;margin:10px 0;padding:13px;box-shadow:0 2px 8px #13291b08}
  td{display:block;border:0;padding:3px 0;font-size:12px;min-width:0}td[data-cell="rank"]{grid-column:1/-1;padding-bottom:5px}td[data-cell="image"]{grid-column:1;grid-row:2 / span 4}td[data-cell="product"],td[data-cell="quantity"],td[data-cell="price"],td[data-cell="unit"],td[data-cell="cta"]{grid-column:2}
  td[data-cell="product"]{padding-top:0}.product-img{width:72px;height:72px}.product-name{font-size:14px}.unit{font-size:23px;margin-top:3px}td[data-cell="quantity"]::before{content:"内容量  ";font-weight:800;color:var(--muted)}td[data-cell="price"]::before{content:"商品価格  ";font-weight:800;color:var(--muted)}td[data-cell="cta"]{margin-top:8px}.cta{width:100%;min-height:46px}.toolbar select,.toolbar input{flex:1;min-width:0;width:100%}.section{margin:26px 0 38px}
 }"""
@@ -942,7 +1049,7 @@ def rows_html(items: list[dict], category: dict, start_rank: int = 1) -> str:
 <td data-cell="quantity">{html.escape(quantity_text(item, category['id']))}</td>
 <td data-cell="price">¥{item['price']:,}</td>
 <td data-cell="unit"><div class="unit">{yen(primary)}</div><div class="unit-label">{html.escape(category['primary_label'])}</div>{secondary}</td>
-<td data-cell="cta"><a class="cta" href="{html.escape(item['url'], quote=True)}" target="_blank" rel="nofollow sponsored noopener"
+<td data-cell="cta">{product_action_buttons(item, category, primary)}<a class="cta" href="{html.escape(item['url'], quote=True)}" target="_blank" rel="nofollow sponsored noopener"
  data-affiliate="rakuten" data-category="{category['id']}" data-product-id="{html.escape(item['id'], quote=True)}"
  data-product-name="{html.escape(item['name'], quote=True)}" data-rank="{rank}" data-metric="{primary_metric}"
  data-unit-price="{primary:.6f}" data-shipping="{item['shipping_status']}">楽天で価格を見る →</a></td>
@@ -1178,7 +1285,12 @@ def category_page(category: dict, included: list[dict], other: list[dict], updat
             f"{category['name']}のコスパ比較｜{category['primary_label']}・送料込み",
             f"{category['name']}を{category['primary_label']}へ換算し、容量・セット数・送料条件をそろえて比較します。",
             f"{SITE_URL}categories/{category['id']}/",
-            faq_json_ld(faqs),
+            faq_json_ld(faqs)
+            + breadcrumb_json_ld([
+                ("食品コスパ比較", SITE_URL),
+                (category["name"], f"{SITE_URL}categories/{category['id']}/"),
+            ])
+            + item_list_json_ld(included, category),
         )
     ]
     parts.append(
@@ -1201,6 +1313,7 @@ def category_page(category: dict, included: list[dict], other: list[dict], updat
 <main class="wrap">"""
     )
     parts.append(category_summary(category, included, other))
+    parts.append(category_insights_html(category, included))
     parts.append(top3_html(included, category))
     remaining = included[3:]
     if remaining:
@@ -1236,7 +1349,9 @@ def category_page(category: dict, included: list[dict], other: list[dict], updat
 <h2>このランキングのルール</h2>
 <p>数量を安全に読み取れる商品だけを掲載し、定期購入・初回限定などは通常価格ランキングから除外します。クーポン・ポイントは通常単価へ差し引きません。</p>
 <p class="fine">送料込みは楽天APIの送料フラグを基準にし、地域別の追加送料などは販売ページで最終確認してください。</p>
-</section></main>"""
+</section>
+{utility_panels_html()}
+</main>"""
     )
     parts.append(
         f"""<script>{JS}</script>
