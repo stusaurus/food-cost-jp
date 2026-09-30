@@ -864,9 +864,9 @@ def bucket(item: dict, category_id: str) -> str:
     return "all"
 
 
-def rows_html(items: list[dict], category: dict) -> str:
+def rows_html(items: list[dict], category: dict, start_rank: int = 1) -> str:
     rows = []
-    for rank, item in enumerate(items, start=1):
+    for rank, item in enumerate(items, start=start_rank):
         primary_metric = category["primary"]
         secondary_metric = category["secondary"]
         primary = item["unit_prices"][primary_metric]
@@ -904,9 +904,16 @@ def rows_html(items: list[dict], category: dict) -> str:
     return "".join(rows)
 
 
-def comparison_table(items: list[dict], category: dict, title: str, note: str) -> str:
+def comparison_table(
+    items: list[dict],
+    category: dict,
+    title: str,
+    note: str,
+    start_rank: int = 1,
+    collapsed: bool = False,
+) -> str:
     if not items:
-        return f'<section class="section"><h2>{html.escape(title)}</h2><p class="sub">比較できる商品を取得できませんでした。</p></section>'
+        return ""
 
     options = [
         f'<option value="{category["primary"]}">{category["primary_label"]}が安い順</option>',
@@ -918,7 +925,7 @@ def comparison_table(items: list[dict], category: dict, title: str, note: str) -
             f'<option value="{category["secondary"]}">{category["secondary_label"]}が安い順</option>',
         )
 
-    return f"""<section class="section" data-comparison>
+    content = f"""<section class="comparison-inner" data-comparison>
 <h2>{html.escape(title)}</h2>
 <p class="sub">{html.escape(note)}</p>
 <div class="toolbar">
@@ -933,10 +940,15 @@ def comparison_table(items: list[dict], category: dict, title: str, note: str) -
 <div class="empty-filter" data-empty-filter>条件に合う商品がありません。検索語や容量条件を変えてください。</div>
 <div class="table"><table>
 <thead><tr><th>順</th><th></th><th>商品</th><th>数量</th><th>商品価格</th><th>単価</th><th>販売先</th></tr></thead>
-<tbody>{rows_html(items, category)}</tbody>
+<tbody>{rows_html(items, category, start_rank)}</tbody>
 </table></div>
 </section>"""
-
+    if not collapsed:
+        return content
+    return f"""<details class="more-products" data-more-products>
+<summary>{html.escape(title)} <span>＋</span></summary>
+{content}
+</details>"""
 
 def page_head(title: str, description: str, canonical: str) -> str:
     return f"""<!doctype html><html lang="ja"><head>
@@ -1015,26 +1027,32 @@ def category_page(category: dict, included: list[dict], other: list[dict], updat
     )
     parts.append(category_summary(category, included, other))
     parts.append(top3_html(included, category))
-    parts.append(
-        '<div id="included">'
-        + comparison_table(
-            included,
-            category,
-            f"送料込みで比べられる{category['name']}",
-            f"{category['primary_label']}の安い順。送料込み確認済みの商品だけを順位付けしています。",
+    remaining = included[3:]
+    if remaining:
+        parts.append(
+            '<div id="included" class="after-top3">'
+            + comparison_table(
+                remaining,
+                category,
+                f"4位以下を見る（{len(remaining)}件）",
+                "必要なときだけ開いて、検索・並び替え・容量条件で絞り込めます。",
+                start_rank=4,
+                collapsed=True,
+            )
+            + "</div>"
         )
-        + "</div>"
-    )
-    parts.append(
-        '<div id="other">'
-        + comparison_table(
-            other,
-            category,
-            "送料別・送料条件が別途ある商品",
-            "単価は商品価格だけの参考値です。送料額は推測せず、送料込みランキングと混ぜません。",
+    if other:
+        parts.append(
+            '<div id="other">'
+            + comparison_table(
+                other,
+                category,
+                f"送料別の参考商品を見る（{len(other)}件）",
+                "単価は商品価格だけの参考値です。送料額は推測せず、送料込みランキングと混ぜません。",
+                collapsed=True,
+            )
+            + "</div>"
         )
-        + "</div>"
-    )
     parts.append(guide_html(category))
     parts.append(other_categories_html(category["id"]))
     parts.append(
