@@ -904,6 +904,7 @@ def deals_page(results: dict, updated: datetime) -> str:
 <p class="lead">単価ランキングとは別に、前回取得時より実際に安くなった商品だけを集めます。</p>
 <p class="note">最終価格確認: {updated:%Y-%m-%d %H:%M} JST</p></div>
 <div class="category-hero-art">{guide_mascot()}</div></div></header>
+{service_shortcuts_html()}
 <main class="wrap">{body}
 <section class="section explain"><h2>「今は安め」の判定について</h2>
 <p>未来の価格を予測するものではありません。実測履歴だけを使い、値下がり・30日内最安水準・過去30日との差から表示します。</p>
@@ -1165,7 +1166,7 @@ def choice_finder_html(results: dict) -> str:
 <div class="finder-products">{cards}</div>
 <a class="finder-all" href="categories/{category['id']}/?pick={purpose}#included">この条件の商品を全部見る →</a>
 </div>""")
-    return f"""<section class="section finder" data-finder>
+    return f"""<section class="section finder" id="quick-finder" data-finder>
 <div class="finder-intro">
 <div>
 <div class="section-kicker">QUICK FINDER</div>
@@ -1291,10 +1292,18 @@ document.addEventListener('click',e=>{
   const x={affiliate:'rakuten',conversion_source:pos,category_id:a.dataset.category,product_id:a.dataset.productId,product_name:a.dataset.productName,rank:a.dataset.rank,comparison_metric:a.dataset.metric,unit_price:Number(a.dataset.unitPrice||0),shipping_status:a.dataset.shipping,click_position:pos,cta_variant:a.dataset.ctaVariant||'standard',cta_text:(a.textContent||'').trim(),page_path:location.pathname,link_url:a.href};
   send('product_result_click',x);send('affiliate_click',x)
 });
+document.querySelectorAll('[data-start-route]').forEach(a=>a.addEventListener('click',()=>send('home_start_route',{route:a.dataset.startRoute||''})));
+document.querySelectorAll('[data-product-extra]').forEach(d=>d.addEventListener('toggle',()=>{if(d.open)send('product_detail_open',{page_path:location.pathname})}));
 document.querySelectorAll('[data-sort]').forEach(s=>s.addEventListener('change',()=>{
   const root=s.closest('[data-comparison]'),body=root.querySelector('tbody'),rows=[...body.querySelectorAll('tr')],m=s.value;
   rows.sort((a,b)=>Number(a.dataset[m]||Infinity)-Number(b.dataset[m]||Infinity));
-  rows.forEach((r,i)=>{r.querySelector('[data-rank]').textContent=i+1;body.appendChild(r)});
+  const base=Number(root.dataset.startRank||1);
+  rows.forEach((r,i)=>{
+    const n=base+i,rankCell=r.querySelector('[data-rank]'),rankSpan=rankCell?.querySelector('.rank');
+    if(rankSpan){rankSpan.textContent=n;rankSpan.classList.toggle('top',n<=3)}
+    const link=r.querySelector('a[data-affiliate]');if(link)link.dataset.rank=String(n);
+    body.appendChild(r)
+  });
   send('comparison_sort',{category_id:s.dataset.category,comparison_metric:m})
 }));
 const applyFilters=root=>{
@@ -1548,7 +1557,7 @@ def comparison_table(
             f'<option value="{category["secondary"]}">{category["secondary_label"]}が安い順</option>',
         )
 
-    content = f"""<section class="comparison-inner" data-comparison>
+    content = f"""<section class="comparison-inner" data-comparison data-start-rank="{start_rank}">
 <h2>{html.escape(title)}</h2>
 <p class="sub">{html.escape(note)}</p>
 <div class="toolbar">
@@ -1810,6 +1819,7 @@ def guide_page(spec: dict, category: dict, items: list[dict], updated: datetime)
 <p class="note">最終価格確認: {updated:%Y-%m-%d %H:%M} JST</p></div>
 <div class="category-hero-art {category['id']}">{category_illustration(category['id'])}</div>
 </div></header>
+{service_shortcuts_html()}
 <main class="wrap">
 <section class="section explain"><h2>このページの見方</h2>
 <p>{html.escape(spec['intro'])}</p>
@@ -1842,6 +1852,7 @@ def saved_watch_page(updated: datetime) -> str:
 <div class="hero-tags"><span class="hero-tag">現在価格</span><span class="hero-tag">前回比</span><span class="hero-tag">30日最安</span></div>
 <p class="note">サイト最終更新: {updated:%Y-%m-%d %H:%M} JST</p></div>
 <div class="category-hero-art">{guide_mascot()}</div></div></header>
+{service_shortcuts_html()}
 <main class="wrap">
 <section class="section saved-dashboard">
 <div class="section-kicker">SAVED PRICE WATCH</div><h2>マイ保存</h2>
@@ -2025,11 +2036,14 @@ def category_page(category: dict, included: list[dict], other: list[dict], updat
 <nav class="nav"><div class="wrap">
 <a href="#included">送料込み比較</a>
 <a href="#other">送料別参考</a>
+<a href="../../deals/">今日のお買い得</a>
+<a href="../../saved/">マイ保存</a>
 <a href="../../">トップ</a>
 </div></nav>
 <main class="wrap">"""
     )
     parts.append(category_summary(category, included, other))
+    parts.append(shopping_journey_html())
     parts.append(category_insights_html(category, included))
     parts.append(top3_html(included, category))
     remaining = included[3:]
@@ -2114,10 +2128,12 @@ def home_page(results: dict, updated: datetime, guide_specs: list[dict] | None =
 </div>
 {hero_visual()}
 </div></header>
+{service_shortcuts_html()}
 <main class="wrap">
+{home_start_hub(results)}
 {choice_finder_html(results)}
 {today_deals_html(results)}
-<section class="section">
+<section class="section" id="categories">
 <div class="section-kicker">CHOOSE A CATEGORY</div>
 <h2>まず、比べたい食品を選ぶ。</h2>
 <section class="grid">"""
@@ -2144,6 +2160,7 @@ def home_page(results: dict, updated: datetime, guide_specs: list[dict] | None =
     parts.append(
         """</section></section>"""
     )
+    parts.append(shopping_journey_html())
     parts.append(guide_links_html(guide_specs))
     parts.append(comparison_flow_html())
     parts.append(
