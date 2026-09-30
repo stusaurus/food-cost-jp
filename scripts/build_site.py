@@ -562,19 +562,24 @@ def top3_html(items: list[dict], category: dict) -> str:
     cards = []
     labels = ["いまの最安", "2位", "3位"]
     medal = ["🥇", "🥈", "🥉"]
+    best_primary = items[0]["unit_prices"][category["primary"]]
     for index, item in enumerate(items[:3]):
         rank = index + 1
         primary = item["unit_prices"][category["primary"]]
+        diff = max(0, primary - best_primary)
+        diff_text = "最安" if rank == 1 else f"最安との差 +{yen(diff)}"
         image = (
             f'<img class="podium-img" src="{html.escape(item["image"], quote=True)}" alt="" loading="lazy">'
             if item["image"] else category_illustration(category["id"], True)
         )
         cards.append(f"""<article class="podium-card rank-{rank}">
 <div class="podium-head"><span class="podium-medal">{medal[index]}</span><span>{labels[index]}</span></div>
+<div class="podium-badges">{item_badges(item, category, rank)}</div>
 <div class="podium-media">{image}</div>
 <strong class="podium-name">{html.escape(item["name"])}</strong>
 <div class="podium-unit">{yen(primary)}</div>
 <div class="podium-label">{html.escape(category["primary_label"])}</div>
+<div class="podium-diff">{html.escape(diff_text)}</div>
 <div class="podium-detail">{html.escape(quantity_text(item, category["id"]))} ・ ¥{item["price"]:,}</div>
 <a class="cta podium-cta" href="{html.escape(item["url"], quote=True)}" target="_blank" rel="nofollow sponsored noopener"
  data-affiliate="rakuten" data-position="top3_card" data-category="{category['id']}" data-product-id="{html.escape(item['id'], quote=True)}"
@@ -587,6 +592,53 @@ def top3_html(items: list[dict], category: dict) -> str:
 <p class="sub">現在取得できた商品の中で、{html.escape(category["primary_label"])}が安い順です。</p>
 <div class="podium-grid">{''.join(cards)}</div>
 </section>"""
+
+
+def choice_finder_html() -> str:
+    choices = "".join(
+        f"""<button class="finder-category {category['id']}" type="button"
+ data-finder-category="{category['id']}" data-finder-name="{html.escape(category['name'], quote=True)}">
+<span class="finder-art">{category_illustration(category['id'], True)}</span>
+<span>{category['emoji']} {html.escape(category['name'])}</span>
+</button>"""
+        for category in CATEGORIES
+    )
+    return f"""<section class="section finder" data-finder>
+<div class="section-kicker">QUICK FINDER</div>
+<h2>3回選ぶだけ。あなた向けの比較へ。</h2>
+<p class="sub">表を読む前に、まず条件を選んでください。</p>
+<div class="finder-step">
+<div class="finder-number">1</div>
+<div><strong>何を買う？</strong><div class="finder-options">{choices}</div></div>
+</div>
+<div class="finder-step finder-step-muted" data-finder-purpose-step>
+<div class="finder-number">2</div>
+<div><strong>どんな買い方？</strong>
+<div class="finder-options">
+<button type="button" data-finder-purpose="cheap">💰 とにかく単価重視</button>
+<button type="button" data-finder-purpose="small">🧺 少量で買いたい</button>
+<button type="button" data-finder-purpose="large">📦 まとめ買いしたい</button>
+</div></div>
+</div>
+<div class="finder-result" data-finder-result hidden>
+<div><span class="finder-result-label">おすすめの見方</span><strong data-finder-result-title></strong><p data-finder-result-text></p></div>
+<a class="finder-go" data-finder-go href="#">この条件で比較を見る →</a>
+</div>
+</section>"""
+
+
+def item_badges(item: dict, category: dict, rank: int) -> str:
+    badges = []
+    if rank == 1 and item["postage_included"]:
+        badges.append('<span class="tag best">👑 最安候補</span>')
+    elif rank <= 3 and item["postage_included"]:
+        badges.append('<span class="tag top-badge">TOP3</span>')
+    size = bucket(item, category["id"])
+    if size == "small":
+        badges.append('<span class="tag lifestyle">少量向き</span>')
+    elif size == "large":
+        badges.append('<span class="tag lifestyle">まとめ買い向き</span>')
+    return " ".join(badges)
 
 
 def comparison_flow_html() -> str:
@@ -628,12 +680,13 @@ h1{font-size:clamp(32px,6vw,58px);line-height:1.08;margin:12px 0 16px;letter-spa
 .guide-list{margin:10px 0 0;padding-left:20px}.guide-list li{margin:7px 0}.fine{font-size:11px;color:var(--muted)}.other-categories{display:flex;gap:8px;flex-wrap:wrap}.other-categories a{border:1px solid var(--line);background:#fff;border-radius:999px;padding:8px 11px;text-decoration:none;font-size:12px;font-weight:850}.empty-filter{display:none;background:#fff;border:1px dashed var(--line);border-radius:14px;padding:18px;color:var(--muted);text-align:center}
 .flow-section{padding:28px;border-radius:28px;background:#fffdf8;border:1px solid var(--line);box-shadow:var(--shadow)}.flow-grid{display:grid;grid-template-columns:1fr 42px 1fr 42px 1fr;align-items:stretch;gap:8px;margin-top:18px}.flow-card{border-radius:18px;background:#f7f6ef;padding:18px}.flow-card strong{display:block;font-size:15px}.flow-card p{font-size:12px;color:var(--muted);margin-bottom:0}.flow-icon{font-size:30px;margin-bottom:8px}.flow-arrow{display:flex;align-items:center;justify-content:center;color:var(--brand);font-size:26px;font-weight:950}
 .category-hero-art{background:#fff;border:1px solid #ffffffaa;border-radius:26px;min-height:245px;display:flex;align-items:center;justify-content:center;box-shadow:var(--shadow)}
+.finder{background:linear-gradient(135deg,#fffdf8,#f2f7ec);border:1px solid var(--line);border-radius:30px;padding:28px;box-shadow:var(--shadow)}.finder-step{display:grid;grid-template-columns:38px 1fr;gap:12px;align-items:start;margin-top:20px}.finder-number{width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:var(--brand);color:#fff;font-weight:950}.finder-options{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}.finder-options button{border:1px solid var(--line);background:#fff;border-radius:16px;padding:10px 14px;font-weight:850;cursor:pointer;color:var(--ink);transition:.15s}.finder-options button:hover,.finder-options button.selected{border-color:var(--brand);box-shadow:0 8px 22px rgba(36,107,73,.12);transform:translateY(-1px)}.finder-category{display:flex;align-items:center;gap:8px}.finder-art{width:52px;height:42px;display:inline-flex;align-items:center;justify-content:center}.finder-art .food-art{max-width:58px;max-height:46px}.finder-step-muted{opacity:.52;transition:.15s}.finder-step-muted.active{opacity:1}.finder-result{margin-top:22px;background:var(--brand2);color:#fff;border-radius:20px;padding:16px;display:flex;align-items:center;justify-content:space-between;gap:18px}.finder-result[hidden]{display:none}.finder-result-label{display:block;font-size:10px;font-weight:900;color:#cde4d7;letter-spacing:.08em}.finder-result strong{display:block;font-size:18px;margin-top:2px}.finder-result p{margin:3px 0 0;color:#dcebe2;font-size:12px}.finder-go{background:#fff;color:var(--brand2);border-radius:12px;padding:11px 14px;text-decoration:none;font-weight:950;white-space:nowrap}.best{background:#ffe7a6;color:#725000}.top-badge{background:#e9edf8;color:#43527a}.lifestyle{background:#eee9ff;color:#58488d}.product-badges{margin-top:4px}.podium-badges{min-height:24px;margin-top:4px}.podium-diff{display:inline-block;align-self:flex-start;margin-top:7px;background:#eef5ee;color:var(--brand);border-radius:999px;padding:3px 7px;font-size:10px;font-weight:900}
 footer{background:#fff;border-top:1px solid var(--line);padding:30px 0 42px;color:var(--muted);font-size:11px}
 @media(min-width:760px){.grid{grid-template-columns:1fr 1fr}}
 @media(max-width:759px){
  .wrap{width:min(100% - 20px,1120px)}header{padding:25px 0 20px}.hero-layout{grid-template-columns:1fr;gap:18px}.hero-art-grid{grid-template-columns:1fr 1fr;gap:8px}.hero-art-item{min-height:105px;border-radius:20px}.hero-art-item .food-art{max-height:100px}.category-hero-art{min-height:180px}.category-hero-art .food-art{max-height:175px}
  .grid{grid-template-columns:1fr}.category-card{grid-template-columns:105px 1fr;padding:14px}.category-art{height:110px}.category-art .food-art{max-height:105px}.category-price{font-size:24px}
- .podium-grid{grid-template-columns:1fr}.podium-card.rank-1{transform:none}.summary-grid{grid-template-columns:1fr 1fr}.summary-item:first-child{grid-column:1/-1}.flow-grid{grid-template-columns:1fr}.flow-arrow{transform:rotate(90deg);height:24px}
+ .podium-grid{grid-template-columns:1fr}.podium-card.rank-1{transform:none}.summary-grid{grid-template-columns:1fr 1fr}.summary-item:first-child{grid-column:1/-1}.flow-grid{grid-template-columns:1fr}.flow-arrow{transform:rotate(90deg);height:24px}.finder{padding:20px 15px}.finder-options{display:grid;grid-template-columns:1fr 1fr}.finder-options button{width:100%;text-align:left}.finder-result{align-items:stretch;flex-direction:column}.finder-go{text-align:center}
  .table{overflow:visible;background:transparent;border:0}table,tbody{display:block;width:100%;min-width:0}thead{display:none}tr{display:grid;grid-template-columns:76px 1fr;gap:0 12px;background:#fff;border:1px solid var(--line);border-radius:16px;margin:10px 0;padding:13px;box-shadow:0 2px 8px #13291b08}
  td{display:block;border:0;padding:3px 0;font-size:12px;min-width:0}td[data-cell="rank"]{grid-column:1/-1;padding-bottom:5px}td[data-cell="image"]{grid-column:1;grid-row:2 / span 4}td[data-cell="product"],td[data-cell="quantity"],td[data-cell="price"],td[data-cell="unit"],td[data-cell="cta"]{grid-column:2}
  td[data-cell="product"]{padding-top:0}.product-img{width:72px;height:72px}.product-name{font-size:14px}.unit{font-size:23px;margin-top:3px}td[data-cell="quantity"]::before{content:"内容量  ";font-weight:800;color:var(--muted)}td[data-cell="price"]::before{content:"商品価格  ";font-weight:800;color:var(--muted)}td[data-cell="cta"]{margin-top:8px}.cta{width:100%;min-height:46px}.toolbar select,.toolbar input{flex:1;min-width:0;width:100%}.section{margin:26px 0 38px}
@@ -682,6 +735,41 @@ document.querySelectorAll('[data-search]').forEach(input=>input.addEventListener
   const root=input.closest('[data-comparison]');applyFilters(root);
   send('comparison_search_use',{category_id:input.dataset.category,search_term:input.value.trim()})
 }));
+const finder=document.querySelector('[data-finder]');
+if(finder){
+  let category='';
+  let categoryName='';
+  const step=finder.querySelector('[data-finder-purpose-step]');
+  const result=finder.querySelector('[data-finder-result]');
+  const go=finder.querySelector('[data-finder-go]');
+  const title=finder.querySelector('[data-finder-result-title]');
+  const desc=finder.querySelector('[data-finder-result-text]');
+  finder.querySelectorAll('[data-finder-category]').forEach(btn=>btn.addEventListener('click',()=>{
+    category=btn.dataset.finderCategory;categoryName=btn.dataset.finderName;
+    finder.querySelectorAll('[data-finder-category]').forEach(x=>x.classList.toggle('selected',x===btn));
+    step.classList.add('active');result.hidden=true;
+    send('quick_finder_category',{category_id:category})
+  }));
+  finder.querySelectorAll('[data-finder-purpose]').forEach(btn=>btn.addEventListener('click',()=>{
+    if(!category)return;
+    const purpose=btn.dataset.finderPurpose;
+    finder.querySelectorAll('[data-finder-purpose]').forEach(x=>x.classList.toggle('selected',x===btn));
+    const label=purpose==='cheap'?'単価が安い順':purpose==='small'?'少量向き':'まとめ買い向き';
+    title.textContent=categoryName+' × '+label;
+    desc.textContent=purpose==='cheap'?'送料込みの最安候補から見られます。':purpose==='small'?'少量側の商品だけに絞って比較します。':'大容量側の商品だけに絞って比較します。';
+    go.href='categories/'+category+'/?pick='+purpose+'#included';
+    result.hidden=false;
+    send('quick_finder_complete',{category_id:category,finder_purpose:purpose})
+  }))
+}
+const pick=new URLSearchParams(location.search).get('pick');
+if(pick&&document.querySelector('[data-comparison]')){
+  const root=document.querySelector('[data-comparison]');
+  const filter=root.querySelector('[data-filter]');
+  if(filter&&(pick==='small'||pick==='large'))filter.value=pick;
+  applyFilters(root);
+  send('quick_finder_landing',{category_id:filter?.dataset.category||'',finder_purpose:pick})
+}
 })();"""
 
 
@@ -714,6 +802,7 @@ def rows_html(items: list[dict], category: dict) -> str:
         )
         shipping = '<span class="tag ok">送料込み</span>' if item["postage_included"] else '<span class="tag warn">送料別・要確認</span>'
         promo = '<span class="tag warn">セール/クーポン表記</span>' if item["promotion_mentioned"] else ""
+        recommendation = item_badges(item, category, rank)
         attrs = f'data-price="{item["price"]}" ' + " ".join(
             f'data-{key}="{value:.6f}"'
             for key, value in item["unit_prices"].items()
@@ -724,7 +813,7 @@ def rows_html(items: list[dict], category: dict) -> str:
             f"""<tr data-bucket="{bucket(item, category['id'])}" data-search-text="{search_text}" {attrs}>
 <td data-cell="rank" data-rank>{rank_html}</td>
 <td data-cell="image">{image}</td>
-<td data-cell="product"><strong class="product-name">{html.escape(item['name'])}</strong><div class="shop">{html.escape(item['shop'])}</div>{shipping} {promo}</td>
+<td data-cell="product"><strong class="product-name">{html.escape(item['name'])}</strong><div class="shop">{html.escape(item['shop'])}</div><div class="product-badges">{recommendation} {shipping} {promo}</div></td>
 <td data-cell="quantity">{html.escape(quantity_text(item, category['id']))}</td>
 <td data-cell="price">¥{item['price']:,}</td>
 <td data-cell="unit"><div class="unit">{yen(primary)}</div><div class="unit-label">{html.escape(category['primary_label'])}</div>{secondary}</td>
@@ -905,6 +994,7 @@ def home_page(results: dict, updated: datetime) -> str:
 {hero_illustrations()}
 </div></header>
 <main class="wrap">
+{choice_finder_html()}
 <section class="section">
 <div class="section-kicker">CHOOSE A CATEGORY</div>
 <h2>まず、比べたい食品を選ぶ。</h2>
