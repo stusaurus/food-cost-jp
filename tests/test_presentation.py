@@ -70,6 +70,8 @@ class PresentationTests(unittest.TestCase):
         self.assertIn("商品名・ショップ名で絞る", html)
         self.assertIn("炭酸水を比べるコツ", html)
         self.assertIn('class="guide-mascot compact"', html)
+        self.assertIn('"@type": "FAQPage"', html)
+        self.assertIn("よくある質問", html)
 
     def test_home_has_mascot_and_guided_finder(self):
         results = {
