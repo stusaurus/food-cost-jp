@@ -611,12 +611,29 @@ def product_brand(name: str) -> str:
     return max(matches, key=len) if matches else ""
 
 
+def compact_product_name(name: str) -> str:
+    text = re.sub(r"[【】\[\]〈〉《》]+", " ", str(name or ""))
+    brand = product_brand(text)
+    if brand:
+        text = re.sub(re.escape(brand), " ", text, count=1, flags=re.I)
+    text = re.sub(r"\s*[｜|／/]\s*", " ", text)
+    text = re.sub(r"\s+", " ", text).strip(" -・,，。")
+    if len(text) <= 64:
+        return text
+    cut = text[:64]
+    boundary = max(cut.rfind(" "), cut.rfind("・"))
+    if boundary >= 42:
+        cut = cut[:boundary]
+    return cut.rstrip(" -・,，。") + "…"
+
+
 def product_identity_html(item: dict, category: dict, name_class: str = "product-name") -> str:
     brand = product_brand(item["name"])
     brand_html = f'<span class="brand-chip">{html.escape(brand)}</span>' if brand else ""
     spec = html.escape(quantity_text(item, category["id"]))
+    short_name = compact_product_name(item["name"])
     return f"""<div class="identity-line">{brand_html}<span class="spec-chip">{spec}</span></div>
-<strong class="{name_class}" title="{html.escape(item['name'], quote=True)}">{html.escape(item['name'])}</strong>"""
+<strong class="{name_class}" title="{html.escape(item['name'], quote=True)}">{html.escape(short_name)}</strong>"""
 
 
 def price_history_badges(item: dict) -> str:
