@@ -673,43 +673,71 @@ def price_signal(item: dict) -> tuple[str, str, str]:
     return "相場圏", "neutral", "直近履歴では大きな割高・値下がりは確認できません。"
 
 
-def sparkline_svg(item: dict) -> str:
-    history = item.get("price_history") or {}
-    series = history.get("series_30d") or []
+def history_range_panel(series: list[dict], label: str, tone: str, visible: bool) -> str:
     values = [float(point.get("unit") or 0) for point in series if point.get("unit") is not None]
-    current = values[-1] if values else None
-    low = min(values) if values else None
-    previous = history.get("previous_unit")
-    observed = int(history.get("observed_days") or 0)
-
-    if len(values) < 2:
-        current_html = yen(current) if current is not None else "—"
-        return f"""<div class="history-card history-pending">
-<div class="history-head"><strong>価格履歴</strong><span>{observed}回取得</span></div>
-<div class="history-stats"><div><span>現在</span><b>{current_html}</b></div><div><span>30日最安</span><b>蓄積中</b></div><div><span>前回</span><b>—</b></div></div>
-<div class="sparkline-empty">次回取得後からグラフを表示</div></div>"""
-
+    if not values:
+        return ""
+    current = values[-1]
+    low_index = min(range(len(values)), key=lambda i: values[i])
+    high_index = max(range(len(values)), key=lambda i: values[i])
+    low = values[low_index]
+    high = values[high_index]
     width, height, pad = 180.0, 64.0, 6.0
-    lo, hi = min(values), max(values)
-    span = hi - lo
+    span = high - low
     points = []
     circles = []
     for idx, value in enumerate(values):
         x = pad + (width - pad * 2) * idx / max(1, len(values) - 1)
-        y = height / 2 if span < 1e-9 else pad + (height - pad * 2) * (hi - value) / span
+        y = height / 2 if span < 1e-9 else pad + (height - pad * 2) * (high - value) / span
         points.append(f"{x:.1f},{y:.1f}")
         if idx == len(values) - 1:
             circles.append(f'<circle cx="{x:.1f}" cy="{y:.1f}" r="3.2"/>')
-    _, tone, _ = price_signal(item)
-    previous_html = yen(previous) if previous is not None else "—"
-    return f"""<div class="history-card">
-<div class="history-head"><strong>30日価格履歴</strong><span>{observed}回取得</span></div>
-<div class="history-stats"><div><span>現在</span><b>{yen(current)}</b></div><div><span>30日最安</span><b>{yen(low)}</b></div><div><span>前回</span><b>{previous_html}</b></div></div>
-<svg class="sparkline {tone}" viewBox="0 0 180 64" role="img" aria-label="30日価格推移">
+    low_date = str(series[low_index].get("date") or "")[5:].replace("-", "/")
+    high_date = str(series[high_index].get("date") or "")[5:].replace("-", "/")
+    spread = high - low
+    hidden = "" if visible else " hidden"
+    return f"""<div class="history-range-panel" data-history-panel="{label}"{hidden}>
+<div class="history-stats history-stats-4">
+<div><span>現在</span><b>{yen(current)}</b></div>
+<div><span>最安</span><b>{yen(low)}</b><small>{html.escape(low_date)}</small></div>
+<div><span>最高</span><b>{yen(high)}</b><small>{html.escape(high_date)}</small></div>
+<div><span>値幅</span><b>{yen(spread)}</b></div>
+</div>
+<svg class="sparkline {tone}" viewBox="0 0 180 64" role="img" aria-label="{label}価格推移">
 <line x1="6" y1="58" x2="174" y2="58" class="spark-grid"/>
 <polyline points="{' '.join(points)}" fill="none" vector-effect="non-scaling-stroke"/>
 {''.join(circles)}
 </svg></div>"""
+
+
+def sparkline_svg(item: dict) -> str:
+    history = item.get("price_history") or {}
+    series_30 = history.get("series_30d") or []
+    series_7 = history.get("series_7d") or []
+    observed = int(history.get("observed_days") or 0)
+    current = float(series_30[-1]["unit"]) if series_30 else None
+
+    if len(series_30) < 2:
+        current_html = yen(current) if current is not None else "—"
+        return f"""<div class="history-card history-pending">
+<div class="history-head"><strong>価格履歴</strong><span>{observed}回取得</span></div>
+<div class="history-stats"><div><span>現在</span><b>{current_html}</b></div><div><span>7日</span><b>蓄積中</b></div><div><span>30日</span><b>蓄積中</b></div></div>
+<div class="sparkline-empty">次回取得後からグラフを表示</div></div>"""
+
+    _, tone, _ = price_signal(item)
+    trend = history.get("trend_7d") or "stable"
+    trend_label = {"down": "最近下落", "up": "最近上昇", "stable": "最近安定"}.get(trend, "最近安定")
+    trend_tone = {"down": "down", "up": "up", "stable": "stable"}.get(trend, "stable")
+    panel7 = history_range_panel(series_7, "7日", tone, True)
+    panel30 = history_range_panel(series_30, "30日", tone, False)
+    return f"""<div class="history-card" data-history-card>
+<div class="history-head"><strong>価格履歴</strong><span>{observed}回取得</span></div>
+<div class="history-toolbar"><div class="history-tabs">
+<button type="button" class="selected" data-history-range="7日">7日</button>
+<button type="button" data-history-range="30日">30日</button>
+</div><span class="history-trend {trend_tone}">{html.escape(trend_label)}</span></div>
+{panel7}{panel30}
+</div>"""
 
 def price_signal_html(item: dict) -> str:
     label, tone, reason = price_signal(item)
@@ -1173,7 +1201,7 @@ h1{font-size:clamp(32px,6vw,58px);line-height:1.08;margin:12px 0 16px;letter-spa
 
 .hero-visual{position:relative;min-height:350px;display:flex;align-items:center;justify-content:center}.hero-visual .guide-mascot{width:min(90%,330px);filter:drop-shadow(0 20px 25px rgba(23,63,49,.13))}.guide-mascot.compact{width:95px;height:auto}.mascot-bubble{position:absolute;right:8px;top:12px;background:#fff;border:1px solid #dce8dd;border-radius:20px 20px 20px 5px;padding:12px 15px;font-size:12px;line-height:1.4;box-shadow:0 12px 28px rgba(40,60,45,.08);z-index:2}.hero-food-chip{position:absolute;background:#fff;border:1px solid #e2e6dd;border-radius:999px;padding:7px 11px;font-size:12px;font-weight:900;box-shadow:0 10px 24px rgba(50,60,45,.08)}.chip-rice{left:4%;top:18%}.chip-water{right:2%;bottom:26%}.chip-pack{left:0;bottom:24%}.chip-oats{right:8%;top:31%}
 .identity-line{display:flex;align-items:center;gap:5px;flex-wrap:wrap;margin:2px 0 6px}.brand-chip,.spec-chip{display:inline-flex;align-items:center;border-radius:999px;padding:3px 7px;font-size:9px;font-weight:900}.brand-chip{background:#e8f2e9;color:var(--brand)}.spec-chip{background:#f1eee5;color:#625f56}.product-name,.podium-name,.finder-product-name,.deal-name{display:-webkit-box;-webkit-box-orient:vertical;overflow:hidden;line-height:1.45}.product-name{font-size:13px;-webkit-line-clamp:2}.podium-name{font-size:13px;-webkit-line-clamp:2}.finder-product-name{font-size:12px;-webkit-line-clamp:2}.deal-name{font-size:13px;font-weight:950;-webkit-line-clamp:2}.trend-row{display:flex;gap:5px;flex-wrap:wrap;min-height:0;margin:4px 0}.trend-badge{display:inline-flex;border-radius:999px;padding:4px 7px;font-size:9px;font-weight:950}.trend-badge.drop{background:#e6f4e8;color:#1d6b3d}.trend-badge.low{background:#fff0c9;color:#7b570b}
-.history-card{background:#f7f9f5;border:1px solid #e1e7df;border-radius:14px;padding:9px 10px;margin:7px 0}.history-head{display:flex;justify-content:space-between;align-items:center;gap:8px}.history-head strong{font-size:10px}.history-head span{font-size:9px;color:var(--muted)}.history-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin:7px 0}.history-stats>div{min-width:0}.history-stats span{display:block;font-size:8px;color:var(--muted);font-weight:800}.history-stats b{display:block;font-size:11px;color:var(--brand);white-space:nowrap}.sparkline{width:100%;height:64px;overflow:visible}.sparkline polyline{stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round}.sparkline circle{fill:currentColor}.sparkline.buy{color:#1d6b3d}.sparkline.wait{color:#a55a2a}.sparkline.neutral{color:#6f7d74}.sparkline.buy polyline,.sparkline.wait polyline,.sparkline.neutral polyline{stroke:currentColor}.spark-grid{stroke:#dfe5de;stroke-width:1}.sparkline-empty{font-size:9px;color:#8a918b;background:#f4f5f1;border-radius:9px;padding:7px 8px;display:block;margin:5px 0}.history-pending .history-stats b{font-size:10px}.buy-signal{border-radius:12px;padding:7px 8px;margin:5px 0 8px}.buy-signal span{display:block;font-size:11px;font-weight:950}.buy-signal small{display:block;font-size:9px;line-height:1.35;margin-top:2px}.buy-signal.buy{background:#e8f5eb;color:#1d6b3d}.buy-signal.wait{background:#fff0e7;color:#8a4a27}.buy-signal.neutral{background:#f1f3ef;color:#59645c}.deal-more{display:inline-flex;margin-top:14px;background:#fff;color:var(--brand2);border:1px solid var(--line);border-radius:999px;padding:9px 13px;text-decoration:none;font-size:12px;font-weight:950}
+.history-card{background:#f7f9f5;border:1px solid #e1e7df;border-radius:14px;padding:9px 10px;margin:7px 0}.history-toolbar{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:7px}.history-tabs{display:flex;gap:4px}.history-tabs button{border:1px solid #dfe5de;background:#fff;border-radius:999px;padding:4px 8px;font-size:9px;font-weight:900;color:#667068;cursor:pointer}.history-tabs button.selected{background:var(--brand);border-color:var(--brand);color:#fff}.history-trend{font-size:9px;font-weight:950;border-radius:999px;padding:4px 7px}.history-trend.down{background:#e8f5eb;color:#1d6b3d}.history-trend.up{background:#fff0e7;color:#8a4a27}.history-trend.stable{background:#eef1ed;color:#5d685f}.history-range-panel[hidden]{display:none}.history-head{display:flex;justify-content:space-between;align-items:center;gap:8px}.history-head strong{font-size:10px}.history-head span{font-size:9px;color:var(--muted)}.history-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin:7px 0}.history-stats-4{grid-template-columns:repeat(4,1fr)}.history-stats>div{min-width:0}.history-stats span{display:block;font-size:8px;color:var(--muted);font-weight:800}.history-stats b{display:block;font-size:11px;color:var(--brand);white-space:nowrap}.history-stats small{display:block;font-size:7px;color:var(--muted);margin-top:1px}.sparkline{width:100%;height:64px;overflow:visible}.sparkline polyline{stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round}.sparkline circle{fill:currentColor}.sparkline.buy{color:#1d6b3d}.sparkline.wait{color:#a55a2a}.sparkline.neutral{color:#6f7d74}.sparkline.buy polyline,.sparkline.wait polyline,.sparkline.neutral polyline{stroke:currentColor}.spark-grid{stroke:#dfe5de;stroke-width:1}.sparkline-empty{font-size:9px;color:#8a918b;background:#f4f5f1;border-radius:9px;padding:7px 8px;display:block;margin:5px 0}.history-pending .history-stats b{font-size:10px}.buy-signal{border-radius:12px;padding:7px 8px;margin:5px 0 8px}.buy-signal span{display:block;font-size:11px;font-weight:950}.buy-signal small{display:block;font-size:9px;line-height:1.35;margin-top:2px}.buy-signal.buy{background:#e8f5eb;color:#1d6b3d}.buy-signal.wait{background:#fff0e7;color:#8a4a27}.buy-signal.neutral{background:#f1f3ef;color:#59645c}.deal-more{display:inline-flex;margin-top:14px;background:#fff;color:var(--brand2);border:1px solid var(--line);border-radius:999px;padding:9px 13px;text-decoration:none;font-size:12px;font-weight:950}
 .deal-section{position:relative;background:linear-gradient(135deg,#fff9e9,#edf7ee);border:1px solid var(--line);border-radius:30px;padding:28px;box-shadow:var(--shadow);overflow:hidden}.deal-section:after{content:"¥";position:absolute;right:-12px;top:-55px;font-size:180px;font-weight:950;color:#fff;opacity:.65;pointer-events:none}.deal-section>*{position:relative;z-index:1}.deal-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:13px;margin-top:16px}.deal-card{background:#fff;border:1px solid #e7e1d5;border-radius:20px;overflow:hidden;display:grid;grid-template-rows:120px 1fr}.deal-media{display:flex;align-items:center;justify-content:center;background:#fafbf7;padding:10px}.deal-media img{max-width:100%;max-height:110px;object-fit:contain}.deal-copy{padding:14px;display:flex;flex-direction:column}.deal-top{display:flex;justify-content:space-between;align-items:flex-start;gap:6px;font-size:10px;font-weight:900;color:var(--brand)}.deal-price-row{display:flex;align-items:baseline;gap:8px;margin-top:8px}.deal-price-row strong{font-size:24px;color:var(--brand)}.deal-was{text-decoration:line-through;color:#90958f;font-size:11px}.deal-saving{font-size:11px;font-weight:950;color:#1d6b3d}.deal-unit{font-size:12px;font-weight:850;margin:2px 0 7px}.deal-unit small{color:var(--muted)}.deal-copy .cta{margin-top:auto}.deal-empty{display:flex;align-items:center;gap:18px;background:#fff;border:1px solid var(--line);border-radius:20px;padding:16px}.deal-empty .guide-mascot{width:90px;flex:0 0 auto}.deal-empty strong{font-size:16px}.deal-empty p{color:var(--muted);margin:4px 0 0;font-size:12px}
 .finder-intro{display:flex;align-items:center;justify-content:space-between;gap:18px}.finder-guide{display:flex;align-items:center;gap:4px;font-size:11px;font-weight:900;color:var(--brand)}.finder-stage{margin-top:18px}.finder-stage[hidden],.finder-picks[hidden]{display:none}.finder-question{display:flex;align-items:center;gap:10px}.finder-question>span{display:inline-flex;width:34px;height:34px;border-radius:50%;align-items:center;justify-content:center;background:var(--brand2);color:#fff;font-size:11px;font-weight:950}.finder-question>strong{font-size:20px}.finder-category-options button{min-width:180px}.finder-purpose-options button{display:flex;align-items:center;gap:9px;font-size:20px;text-align:left}.finder-purpose-options button span{display:flex;flex-direction:column}.finder-purpose-options button strong{font-size:14px}.finder-purpose-options button small{font-size:10px;color:var(--muted);font-weight:700}.finder-back{border:0;background:transparent;color:var(--brand);font-weight:850;padding:0;margin-bottom:12px;cursor:pointer}.finder-picks{margin-top:8px}.finder-picks-head span{display:block;font-size:10px;font-weight:950;color:var(--brand);letter-spacing:.08em}.finder-picks-head strong{font-size:20px}.finder-products{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:14px}.finder-product{display:grid;grid-template-rows:110px 1fr;background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden}.finder-product-media{display:flex;align-items:center;justify-content:center;padding:8px;background:#fafbf7}.finder-product-media img{max-width:100%;max-height:100px;object-fit:contain}.finder-product-copy{position:relative;padding:13px;display:flex;flex-direction:column}.finder-product-copy>strong{font-size:12px;line-height:1.45;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}.finder-product-rank{position:absolute;right:10px;top:-18px;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:var(--brand);color:#fff;font-weight:950}.finder-product-price{font-size:22px;font-weight:950;color:var(--brand);margin-top:10px}.finder-product-price small{font-size:10px;color:var(--muted)}.finder-product-meta{font-size:10px;color:var(--muted);margin:4px 0 7px}.finder-why{font-size:10px;color:#536058;background:#f3f7f2;border-radius:9px;padding:6px 7px;margin-bottom:9px}.finder-why span{display:inline-block;font-weight:950;color:var(--brand);margin-right:5px}.finder-product-copy .cta{margin-top:auto}.finder-all{display:inline-flex;margin-top:12px;color:var(--brand);font-weight:900;text-decoration:none}
 .more-products{margin:28px 0 40px}.more-products>summary{list-style:none;cursor:pointer;background:#fff;border:1px solid var(--line);border-radius:16px;padding:15px 18px;font-weight:950;display:flex;align-items:center;justify-content:space-between;box-shadow:0 5px 16px rgba(50,60,45,.04)}.more-products>summary::-webkit-details-marker{display:none}.more-products[open]>summary span{transform:rotate(45deg)}.more-products .comparison-inner{margin-top:12px}.comparison-inner>h2{margin-top:0}.after-top3{margin-top:-10px}.guide-with-mascot{display:grid;grid-template-columns:1fr 120px;gap:20px;align-items:center}.guide-mini{display:flex;justify-content:center}
@@ -1284,6 +1312,15 @@ if(pick&&document.querySelector('[data-comparison]')){
   send('quick_finder_landing',{category_id:filter?.dataset.category||'',finder_purpose:pick})
 }
 
+document.addEventListener('click',e=>{
+  const rangeBtn=e.target.closest('[data-history-range]');
+  if(!rangeBtn)return;
+  const card=rangeBtn.closest('[data-history-card]');if(!card)return;
+  const range=rangeBtn.dataset.historyRange;
+  card.querySelectorAll('[data-history-range]').forEach(btn=>btn.classList.toggle('selected',btn===rangeBtn));
+  card.querySelectorAll('[data-history-panel]').forEach(panel=>panel.hidden=panel.dataset.historyPanel!==range);
+  send('price_history_range_change',{range_value:range,page_path:location.pathname})
+});
 const SAVED_KEY='food_cost_saved_v1',COMPARE_KEY='food_cost_compare_v1';
 const readList=key=>{try{const v=JSON.parse(localStorage.getItem(key)||'[]');return Array.isArray(v)?v:[]}catch(e){return[]}};
 const writeList=(key,value)=>{try{localStorage.setItem(key,JSON.stringify(value))}catch(e){}};
