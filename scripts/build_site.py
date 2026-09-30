@@ -653,7 +653,7 @@ def top3_html(items: list[dict], category: dict) -> str:
 </section>"""
 
 
-def choice_finder_html() -> str:
+def choice_finder_html(results: dict) -> str:
     choices = "".join(
         f"""<button class="finder-category {category['id']}" type="button"
  data-finder-category="{category['id']}" data-finder-name="{html.escape(category['name'], quote=True)}">
@@ -662,29 +662,48 @@ def choice_finder_html() -> str:
 </button>"""
         for category in CATEGORIES
     )
+    labels = {"cheap": "単価重視", "small": "少量で買いたい", "large": "まとめ買い"}
+    panels = []
+    for category in CATEGORIES:
+        included, _ = results[category["id"]]
+        for purpose in ("cheap", "small", "large"):
+            picks = finder_pick_items(included, category, purpose)
+            cards = "".join(
+                finder_product_card(item, category, index)
+                for index, item in enumerate(picks, start=1)
+            )
+            panels.append(f"""<div class="finder-picks" data-finder-picks="{category['id']}:{purpose}" hidden>
+<div class="finder-picks-head"><span>あなた向け</span><strong>{category['emoji']} {html.escape(category['name'])} × {labels[purpose]}</strong></div>
+<div class="finder-products">{cards}</div>
+<a class="finder-all" href="categories/{category['id']}/?pick={purpose}#included">この条件の商品を全部見る →</a>
+</div>""")
     return f"""<section class="section finder" data-finder>
+<div class="finder-intro">
+<div>
 <div class="section-kicker">QUICK FINDER</div>
-<h2>2回選ぶだけ。あなた向けの比較へ。</h2>
-<p class="sub">表を読む前に、まず条件を選んでください。</p>
-<div class="finder-step">
-<div class="finder-number">1</div>
-<div><strong>何を買う？</strong><div class="finder-options">{choices}</div></div>
+<h2>2回選ぶだけ。候補まで出します。</h2>
+<p class="sub">食品と買い方を選ぶと、今の楽天データからおすすめ候補を表示します。</p>
 </div>
-<div class="finder-step finder-step-muted" data-finder-purpose-step>
-<div class="finder-number">2</div>
-<div><strong>どんな買い方？</strong>
-<div class="finder-options">
-<button type="button" data-finder-purpose="cheap">💰 とにかく単価重視</button>
-<button type="button" data-finder-purpose="small">🧺 少量で買いたい</button>
-<button type="button" data-finder-purpose="large">📦 まとめ買いしたい</button>
-</div></div>
+<div class="finder-guide">{guide_mascot(True)}<span>選んでみて</span></div>
 </div>
-<div class="finder-result" data-finder-result hidden>
-<div><span class="finder-result-label">おすすめの見方</span><strong data-finder-result-title></strong><p data-finder-result-text></p></div>
-<a class="finder-go" data-finder-go href="#">この条件で比較を見る →</a>
+<div class="finder-stage" data-finder-category-stage>
+<div class="finder-question"><span>Q1</span><strong>何を買う？</strong></div>
+<div class="finder-options finder-category-options">{choices}</div>
+</div>
+<div class="finder-stage" data-finder-purpose-stage hidden>
+<button class="finder-back" type="button" data-finder-back>← 食品を選び直す</button>
+<div class="finder-question"><span>Q2</span><strong data-finder-question-title>どんな買い方？</strong></div>
+<div class="finder-options finder-purpose-options">
+<button type="button" data-finder-purpose="cheap">💰 <span><strong>単価重視</strong><small>とにかく安い順で</small></span></button>
+<button type="button" data-finder-purpose="small">🧺 <span><strong>少量で</strong><small>置き場所・買いやすさ重視</small></span></button>
+<button type="button" data-finder-purpose="large">📦 <span><strong>まとめ買い</strong><small>大容量から選ぶ</small></span></button>
+</div>
+</div>
+<div class="finder-stage finder-result-stage" data-finder-result-stage hidden>
+<button class="finder-back" type="button" data-finder-reset>← もう一度選ぶ</button>
+{''.join(panels)}
 </div>
 </section>"""
-
 
 def item_badges(item: dict, category: dict, rank: int) -> str:
     badges = []
