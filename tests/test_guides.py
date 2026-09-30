@@ -7,10 +7,13 @@ from zoneinfo import ZoneInfo
 sys.path.insert(0, str(Path(__file__).parents[1] / "scripts"))
 
 from build_site import (
+    AUTO_GUIDE_RULES,
     CATEGORIES,
     GUIDE_SPECS,
+    eligible_auto_guides,
     guide_filter_items,
     guide_page,
+    optimization_report,
 )
 
 
@@ -96,7 +99,47 @@ class GuideTests(unittest.TestCase):
         html = guide_page(spec, category, items, NOW)
         self.assertIn("送料込み TOP3", html)
         self.assertIn("オートミール1kg前後", html)
-        self.assertIn("楽天で確認する →", html)
+        self.assertIn("最安候補を楽天で確認 →", html)
+
+
+    def test_auto_guides_require_three_matching_products(self):
+        results = {c["id"]: ([], []) for c in CATEGORIES}
+        water = [
+            item("carbonated-water", ml=500, count=24, price=1800 + i * 100)
+            for i in range(3)
+        ]
+        for i, row in enumerate(water):
+            row["id"] = f"shop:water-{i}"
+        results["carbonated-water"] = (water, [])
+        guides = eligible_auto_guides(results)
+        slugs = {g["slug"] for g in guides}
+        self.assertIn("carbonated-water-500ml-24-cost", slugs)
+
+        results["carbonated-water"] = (water[:2], [])
+        slugs = {g["slug"] for g in eligible_auto_guides(results)}
+        self.assertNotIn("carbonated-water-500ml-24-cost", slugs)
+
+    def test_auto_guide_rules_are_data_backed(self):
+        self.assertGreaterEqual(len(AUTO_GUIDE_RULES), 6)
+        self.assertTrue(all(rule.get("auto") for rule in AUTO_GUIDE_RULES))
+
+    def test_optimization_report_records_seo_and_analytics_plan(self):
+        results = {c["id"]: ([], []) for c in CATEGORIES}
+        water = [
+            item("carbonated-water", ml=500, count=24, price=1800 + i * 100)
+            for i in range(3)
+        ]
+        for i, row in enumerate(water):
+            row["id"] = f"shop:water-{i}"
+            row["price_history"] = {"observed_days": 2, "price_delta": None}
+        results["carbonated-water"] = (water, [])
+        guides = eligible_auto_guides(results)
+        report = optimization_report(results, guides, NOW)
+        self.assertEqual(report["auto_seo"]["minimum_products"], 3)
+        self.assertGreaterEqual(report["auto_seo"]["published_count"], 1)
+        self.assertIn("cta_variant", report["analytics"]["dimensions"])
+        self.assertIn("click_position", report["analytics"]["dimensions"])
+        self.assertTrue(report["priority_queue"])
 
 
 if __name__ == "__main__":
