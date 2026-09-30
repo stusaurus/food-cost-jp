@@ -1590,6 +1590,126 @@ def guide_page(spec: dict, category: dict, items: list[dict], updated: datetime)
 
 
 
+def saved_watch_page(updated: datetime) -> str:
+    head = page_head(
+        "マイ保存｜食品コスパ比較",
+        "ブラウザに保存した食品だけを、最新価格・値下がり・30日最安・価格履歴で確認します。",
+        f"{SITE_URL}saved/",
+    ).replace(
+        '<meta name="robots" content="index,follow">',
+        '<meta name="robots" content="noindex,nofollow">',
+    )
+    body = f"""<header><div class="wrap hero-layout">
+<div><a class="brand" href="../">食品コスパ比較</a><div class="eyebrow">MY WATCH</div>
+<h1>保存した商品の<br>値下がりだけ追う。</h1>
+<p class="lead">「あとで見る」に入れた商品を、最新の楽天取得データと照合して確認します。</p>
+<div class="hero-tags"><span class="hero-tag">現在価格</span><span class="hero-tag">前回比</span><span class="hero-tag">30日最安</span></div>
+<p class="note">サイト最終更新: {updated:%Y-%m-%d %H:%M} JST</p></div>
+<div class="category-hero-art">{guide_mascot()}</div></div></header>
+<main class="wrap">
+<section class="section saved-dashboard">
+<div class="section-kicker">SAVED PRICE WATCH</div><h2>マイ保存</h2>
+<div class="saved-watch-summary">
+<div><span>保存中</span><strong data-watch-total>0</strong></div>
+<div><span>値下がり</span><strong data-watch-drops>0</strong></div>
+<div><span>30日最安</span><strong data-watch-lows>0</strong></div>
+</div>
+<div class="saved-watch-tabs">
+<button type="button" class="selected" data-watch-filter="all">すべて</button>
+<button type="button" data-watch-filter="drop">値下がり</button>
+<button type="button" data-watch-filter="low">30日最安</button>
+</div>
+<div data-watch-status class="saved-watch-status">最新データを確認しています…</div>
+<div data-watch-list class="saved-watch-list"></div>
+</section>
+<section class="section explain">
+<h2>この画面について</h2>
+<p>保存内容はこのブラウザ内だけに残ります。価格判定は未来予測ではなく、当サイトが取得した実測履歴との比較です。</p>
+<p><a class="finder-go" href="../">食品を探しに戻る →</a></p>
+</section>
+</main>"""
+    script = r"""<script>
+(()=>{
+const KEY='food_cost_saved_v1';
+const CATEGORY_META={
+  'pack-rice':{name:'パックご飯',metric:'per_serving',unit:'1食あたり'},
+  'rice':{name:'米',metric:'per_kg',unit:'1kgあたり'},
+  'carbonated-water':{name:'炭酸水',metric:'per_liter',unit:'1Lあたり'},
+  'oatmeal':{name:'オートミール',metric:'per_100g',unit:'100gあたり'}
+};
+const esc=s=>String(s==null?'':s).replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
+const money=n=>'¥'+Number(n||0).toLocaleString('ja-JP',{maximumFractionDigits:1});
+const compact=s=>{s=String(s||'').replace(/[【】\[\]〈〉《》]/g,' ').replace(/\s*[｜|／/]\s*/g,' ').replace(/\s+/g,' ').trim();return s.length>64?s.slice(0,63)+'…':s};
+const readSaved=()=>{try{const v=JSON.parse(localStorage.getItem(KEY)||'[]');return Array.isArray(v)?v:[]}catch(e){return[]}};
+let saved=readSaved(), rows=[], active='all';
+const status=document.querySelector('[data-watch-status]'),list=document.querySelector('[data-watch-list]');
+const total=document.querySelector('[data-watch-total]'),drops=document.querySelector('[data-watch-drops]'),lows=document.querySelector('[data-watch-lows]');
+const signal=item=>{
+  const h=item&&item.price_history||{}, series=h.series_30d||[];
+  if(Number(h.observed_days||0)<2)return ['履歴蓄積中','neutral'];
+  if(h.is_30d_low&&Number(h.price_delta)<0)return ['買い時寄り','buy'];
+  if(Number(h.price_delta)<0)return ['買い時寄り','buy'];
+  const current=series.length?Number(series[series.length-1].unit):0, low=Number(h.lowest_30d_unit||0);
+  if(low&&current>low*1.05)return ['様子見寄り','wait'];
+  return ['相場圏','neutral'];
+};
+const chart=item=>{
+  const series=item&&item.price_history&&item.price_history.series_30d||[];
+  const vals=series.map(p=>Number(p.unit)).filter(Number.isFinite);
+  if(vals.length<2)return '<div class="sparkline-empty">次回取得後からグラフを表示</div>';
+  const w=220,h=76,p=8,lo=Math.min(...vals),hi=Math.max(...vals),span=hi-lo;
+  const pts=vals.map((v,i)=>{const x=p+(w-p*2)*i/Math.max(1,vals.length-1);const y=span<1e-9?h/2:p+(h-p*2)*(hi-v)/span;return x.toFixed(1)+','+y.toFixed(1)}).join(' ');
+  const tone=signal(item)[1];
+  return '<svg class="saved-chart sparkline '+tone+'" viewBox="0 0 220 76" role="img" aria-label="30日価格推移"><line x1="8" y1="68" x2="212" y2="68" class="spark-grid"/><polyline points="'+pts+'" fill="none" vector-effect="non-scaling-stroke"/></svg>';
+};
+const render=()=>{
+  total.textContent=saved.length;
+  drops.textContent=rows.filter(r=>r.live&&Number(r.live.price_history&&r.live.price_history.price_delta)<0).length;
+  lows.textContent=rows.filter(r=>r.live&&r.live.price_history&&r.live.price_history.is_30d_low).length;
+  let view=rows.filter(r=>{
+    if(active==='drop')return r.live&&Number(r.live.price_history&&r.live.price_history.price_delta)<0;
+    if(active==='low')return r.live&&r.live.price_history&&r.live.price_history.is_30d_low;
+    return true;
+  });
+  view.sort((a,b)=>{
+    const ad=a.live&&Number(a.live.price_history&&a.live.price_history.price_delta)||0;
+    const bd=b.live&&Number(b.live.price_history&&b.live.price_history.price_delta)||0;
+    return ad-bd;
+  });
+  if(!view.length){list.innerHTML='<div class="utility-empty">'+(saved.length?'この条件の商品はありません。':'まだ保存した商品がありません。')+'</div>';return}
+  list.innerHTML=view.map(r=>{
+    const s=r.saved,l=r.live,meta=CATEGORY_META[s.category]||{name:s.categoryName||'',metric:'',unit:s.unitLabel||''};
+    if(!l)return '<article class="watch-card unavailable"><div><span class="tag warn">現在の掲載外</span><h3>'+esc(compact(s.name))+'</h3><p>'+esc(meta.name)+' ・ 保存時 '+money(s.price)+'</p></div><button data-watch-remove="'+esc(s.category+'|'+s.id)+'">保存から削除</button></article>';
+    const h=l.price_history||{}, metric=meta.metric, unit=Number(l.unit_prices&&l.unit_prices[metric]||0), sig=signal(l);
+    const prev=h.previous_price==null?'—':money(h.previous_price);
+    const low=h.lowest_30d_unit==null?'—':money(h.lowest_30d_unit);
+    const drop=Number(h.price_delta)<0?'<span class="trend-badge drop">↓ '+money(Math.abs(Number(h.price_delta)))+' 前回比</span>':'';
+    const lowBadge=h.is_30d_low?'<span class="trend-badge low">✨ 30日最安</span>':'';
+    return '<article class="watch-card"><div class="watch-media">'+(l.image?'<img src="'+esc(l.image)+'" alt="">':'')+'</div><div class="watch-copy">'+
+      '<div class="watch-top"><span>'+esc(meta.name)+'</span><div>'+drop+lowBadge+'</div></div>'+
+      '<h3 title="'+esc(l.name)+'">'+esc(compact(l.name))+'</h3>'+
+      '<div class="watch-price"><strong>'+money(l.price)+'</strong><span>'+money(unit)+' '+esc(meta.unit)+'</span></div>'+
+      '<div class="watch-history-stats"><div><span>前回価格</span><b>'+prev+'</b></div><div><span>30日最安単価</span><b>'+low+'</b></div><div><span>取得回数</span><b>'+Number(h.observed_days||0)+'回</b></div></div>'+
+      chart(l)+'<div class="buy-signal '+sig[1]+'"><span>'+sig[0]+'</span></div>'+
+      '<div class="watch-actions"><a class="cta" href="'+esc(l.url)+'" target="_blank" rel="nofollow sponsored noopener">楽天で確認 →</a><button data-watch-remove="'+esc(s.category+'|'+s.id)+'">保存から削除</button></div></div></article>'
+  }).join('');
+};
+document.querySelectorAll('[data-watch-filter]').forEach(btn=>btn.addEventListener('click',()=>{active=btn.dataset.watchFilter;document.querySelectorAll('[data-watch-filter]').forEach(x=>x.classList.toggle('selected',x===btn));render()}));
+document.addEventListener('click',e=>{const b=e.target.closest('[data-watch-remove]');if(!b)return;const key=b.dataset.watchRemove;saved=saved.filter(x=>x.category+'|'+x.id!==key);localStorage.setItem(KEY,JSON.stringify(saved));rows=rows.filter(r=>r.saved.category+'|'+r.saved.id!==key);render()});
+if(!saved.length){status.textContent='「あとで見る」に商品を追加すると、ここで価格を追えます。';render();return}
+fetch('../data/products.json',{cache:'no-store'}).then(r=>r.json()).then(data=>{
+  const live=new Map();
+  Object.entries(data.categories||{}).forEach(([cat,payload])=>[...(payload.included||[]),...(payload.shipping_unknown||[])].forEach(item=>live.set(cat+'|'+item.id,item)));
+  rows=saved.map(s=>({saved:s,live:live.get(s.category+'|'+s.id)||null}));
+  status.textContent='最新の取得データと照合しました。';render();
+}).catch(()=>{rows=saved.map(s=>({saved:s,live:null}));status.textContent='最新データを取得できませんでした。保存内容のみ表示します。';render()});
+})();
+</script>"""
+    return head + body + script + """<footer><div class="wrap">保存データはこのブラウザ内に保持されます。</div></footer></body></html>"""
+
+
+
+
 def page_head(title: str, description: str, canonical: str, extra_head: str = "") -> str:
     return f"""<!doctype html><html lang="ja"><head>
 <meta charset="utf-8">
