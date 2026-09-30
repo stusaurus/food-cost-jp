@@ -605,7 +605,7 @@ def choice_finder_html() -> str:
     )
     return f"""<section class="section finder" data-finder>
 <div class="section-kicker">QUICK FINDER</div>
-<h2>3回選ぶだけ。あなた向けの比較へ。</h2>
+<h2>2回選ぶだけ。あなた向けの比較へ。</h2>
 <p class="sub">表を読む前に、まず条件を選んでください。</p>
 <div class="finder-step">
 <div class="finder-number">1</div>
