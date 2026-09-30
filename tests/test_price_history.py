@@ -11,9 +11,11 @@ from build_site import (
     CATEGORIES,
     deals_page,
     price_signal,
+    compact_product_name,
     product_brand,
     product_identity_html,
     sparkline_svg,
+    saved_watch_page,
     today_deals_html,
 )
 
@@ -130,7 +132,10 @@ class PriceHistoryTests(unittest.TestCase):
         self.assertIn("30日内の最安水準", reason)
         graph = sparkline_svg(second)
         self.assertIn("<polyline", graph)
-        self.assertIn("30日価格推移", graph)
+        self.assertIn("30日価格履歴", graph)
+        self.assertIn("現在", graph)
+        self.assertIn("30日最安", graph)
+        self.assertIn("前回", graph)
 
     def test_deals_page_only_collects_real_price_drops(self):
         history = {"version": 1, "products": {}}
@@ -149,6 +154,25 @@ class PriceHistoryTests(unittest.TestCase):
         self.assertIn("昨日比 ¥500安い", rendered)
         self.assertIn("買い時寄り", rendered)
         self.assertIn("未来の価格を予測するものではありません", rendered)
+
+
+    def test_compact_product_name_keeps_identity_but_reduces_noise(self):
+        name = "【公式】アイリスオーヤマ 国産米 5kg 令和7年産 こしひかり 送料無料 おすすめ 人気 商品"
+        compact = compact_product_name(name)
+        self.assertNotIn("アイリスオーヤマ", compact)
+        self.assertIn("国産米", compact)
+        self.assertIn("5kg", compact)
+        self.assertLessEqual(len(compact), 65)
+
+    def test_saved_watch_page_is_personal_noindex_dashboard(self):
+        rendered = saved_watch_page(__import__("datetime").datetime(2026, 9, 30, 19, 0))
+        self.assertIn('content="noindex,nofollow"', rendered)
+        self.assertIn("保存した商品の", rendered)
+        self.assertIn("値下がり", rendered)
+        self.assertIn("30日最安", rendered)
+        self.assertIn("../data/products.json", rendered)
+        self.assertIn("food_cost_saved_v1", rendered)
+        self.assertIn('data-watch-filter="drop"', rendered)
 
 
 if __name__ == "__main__":
