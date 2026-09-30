@@ -820,35 +820,41 @@ document.querySelectorAll('[data-search]').forEach(input=>input.addEventListener
 const finder=document.querySelector('[data-finder]');
 if(finder){
   let category='';
-  let categoryName='';
-  const step=finder.querySelector('[data-finder-purpose-step]');
-  const result=finder.querySelector('[data-finder-result]');
-  const go=finder.querySelector('[data-finder-go]');
-  const title=finder.querySelector('[data-finder-result-title]');
-  const desc=finder.querySelector('[data-finder-result-text]');
+  const categoryStage=finder.querySelector('[data-finder-category-stage]');
+  const purposeStage=finder.querySelector('[data-finder-purpose-stage]');
+  const resultStage=finder.querySelector('[data-finder-result-stage]');
+  const qTitle=finder.querySelector('[data-finder-question-title]');
+  const show=el=>{if(el)el.hidden=false};
+  const hide=el=>{if(el)el.hidden=true};
+  const reset=()=>{
+    category='';
+    show(categoryStage);hide(purposeStage);hide(resultStage);
+    finder.querySelectorAll('.selected').forEach(x=>x.classList.remove('selected'));
+    finder.querySelectorAll('[data-finder-picks]').forEach(x=>x.hidden=true)
+  };
   finder.querySelectorAll('[data-finder-category]').forEach(btn=>btn.addEventListener('click',()=>{
-    category=btn.dataset.finderCategory;categoryName=btn.dataset.finderName;
+    category=btn.dataset.finderCategory;
     finder.querySelectorAll('[data-finder-category]').forEach(x=>x.classList.toggle('selected',x===btn));
-    step.classList.add('active');result.hidden=true;
+    qTitle.textContent=btn.dataset.finderName+'は、どう買いたい？';
+    hide(categoryStage);show(purposeStage);hide(resultStage);
     send('quick_finder_category',{category_id:category})
   }));
   finder.querySelectorAll('[data-finder-purpose]').forEach(btn=>btn.addEventListener('click',()=>{
     if(!category)return;
     const purpose=btn.dataset.finderPurpose;
-    finder.querySelectorAll('[data-finder-purpose]').forEach(x=>x.classList.toggle('selected',x===btn));
-    const label=purpose==='cheap'?'単価が安い順':purpose==='small'?'少量向き':'まとめ買い向き';
-    title.textContent=categoryName+' × '+label;
-    desc.textContent=purpose==='cheap'?'送料込みの最安候補から見られます。':purpose==='small'?'少量側の商品だけに絞って比較します。':'大容量側の商品だけに絞って比較します。';
-    go.href='categories/'+category+'/?pick='+purpose+'#included';
-    result.hidden=false;
+    finder.querySelectorAll('[data-finder-picks]').forEach(panel=>panel.hidden=panel.dataset.finderPicks!==category+':'+purpose);
+    hide(categoryStage);hide(purposeStage);show(resultStage);
     send('quick_finder_complete',{category_id:category,finder_purpose:purpose})
-  }))
+  }));
+  finder.querySelector('[data-finder-back]')?.addEventListener('click',reset);
+  finder.querySelector('[data-finder-reset]')?.addEventListener('click',reset);
 }
 const pick=new URLSearchParams(location.search).get('pick');
 if(pick&&document.querySelector('[data-comparison]')){
   const root=document.querySelector('[data-comparison]');
   const filter=root.querySelector('[data-filter]');
   if(filter&&(pick==='small'||pick==='large'))filter.value=pick;
+  const details=root.closest('details');if(details)details.open=true;
   applyFilters(root);
   send('quick_finder_landing',{category_id:filter?.dataset.category||'',finder_purpose:pick})
 }
