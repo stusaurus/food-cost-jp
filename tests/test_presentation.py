@@ -13,31 +13,39 @@ def sample_item(category_id: str, rank: int = 1):
     base = {
         "id": f"shop:item-{category_id}-{rank}",
         "raw_name": "raw",
-        "name": "テスト商品 500ml×24本",
-        "price": 2400,
+        "name": f"テスト商品 {rank}",
+        "price": 2400 + rank,
         "shop": "テストショップ",
-        "url": "https://example.com/item",
+        "url": f"https://example.com/item-{rank}",
         "image": "https://example.com/image.jpg",
         "postage_included": True,
         "shipping_status": "included",
         "promotion_mentioned": False,
     }
     if category_id == "pack-rice":
-        base["name"] = "テスト パックご飯 200g×24食"
-        base["quantity"] = {"unit_weight_g": 200, "count": 24, "total_weight_g": 4800}
-        base["unit_prices"] = {"per_serving": 100, "per_100g": 50}
+        count = 24 if rank % 2 else 40
+        base["name"] = f"テスト パックご飯 200g×{count}食"
+        base["quantity"] = {"unit_weight_g": 200, "count": count, "total_weight_g": 200 * count}
+        base["unit_prices"] = {"per_serving": 90 + rank * 10, "per_100g": 45 + rank * 5}
     elif category_id == "rice":
-        base["name"] = "テスト米 5kg"
-        base["quantity"] = {"unit_weight_g": 5000, "count": 1, "total_weight_g": 5000}
-        base["unit_prices"] = {"per_kg": 480}
+        grams = 5000 if rank % 2 else 10000
+        base["name"] = f"テスト米 {grams/1000:g}kg"
+        base["quantity"] = {"unit_weight_g": grams, "count": 1, "total_weight_g": grams}
+        base["unit_prices"] = {"per_kg": 470 + rank * 10}
     elif category_id == "carbonated-water":
-        base["quantity"] = {"unit_volume_ml": 500, "count": 24, "total_volume_ml": 12000}
-        base["unit_prices"] = {"per_liter": 200, "per_bottle": 100}
+        ml = 500 if rank % 2 else 1000
+        base["name"] = f"テスト炭酸水 {ml}ml×24本"
+        base["quantity"] = {"unit_volume_ml": ml, "count": 24, "total_volume_ml": ml * 24}
+        base["unit_prices"] = {"per_liter": 190 + rank * 10, "per_bottle": 90 + rank * 10}
     else:
-        base["name"] = "テスト オートミール 1kg"
-        base["quantity"] = {"unit_weight_g": 1000, "count": 1, "total_weight_g": 1000}
-        base["unit_prices"] = {"per_100g": 240, "per_kg": 2400}
+        grams = 1000 if rank % 2 else 2000
+        base["name"] = f"テスト オートミール {grams/1000:g}kg"
+        base["quantity"] = {"unit_weight_g": grams, "count": 1, "total_weight_g": grams}
+        base["unit_prices"] = {"per_100g": 230 + rank * 10, "per_kg": 2300 + rank * 100}
     return base
+
+
+NOW = datetime(2026, 9, 30, 7, 0, tzinfo=ZoneInfo("Asia/Tokyo"))
 
 
 class PresentationTests(unittest.TestCase):
@@ -45,63 +53,65 @@ class PresentationTests(unittest.TestCase):
         self.assertIn('@media(max-width:759px)', CSS)
         self.assertIn('td[data-cell="cta"]', CSS)
         self.assertIn('.rank.top', CSS)
+        self.assertIn('.finder-products', CSS)
+        self.assertIn('.more-products', CSS)
 
-    def test_category_page_has_summary_specific_filters_and_guide(self):
+    def test_category_page_has_top3_and_collapsed_rest(self):
         category = next(c for c in CATEGORIES if c["id"] == "carbonated-water")
-        html = category_page(
-            category,
-            [sample_item("carbonated-water")],
-            [],
-            datetime(2026, 9, 30, 7, 0, tzinfo=ZoneInfo("Asia/Tokyo")),
-        )
+        items = [sample_item("carbonated-water", i) for i in range(1, 6)]
+        html = category_page(category, items, [], NOW)
         self.assertIn("送料込み最安", html)
+        self.assertIn("送料込み TOP3", html)
+        self.assertIn("4位以下を見る（2件）", html)
+        self.assertIn('class="more-products"', html)
+        self.assertIn('data-rank>4', html)
         self.assertIn("600ml以下", html)
         self.assertIn("700ml以上", html)
-        self.assertIn("炭酸水を比べるコツ", html)
-        self.assertIn('data-cell="unit"', html)
-        self.assertIn("楽天で価格を見る →", html)
         self.assertIn("商品名・ショップ名で絞る", html)
-        self.assertIn('data-search-text=', html)
-        self.assertIn("ほかの食品も単価で比べる", html)
-        self.assertIn("パックご飯", html)
-        self.assertIn("送料込み TOP1", html)
-        self.assertIn('data-position="top3_card"', html)
-        self.assertIn('class="food-art"', html)
+        self.assertIn("炭酸水を比べるコツ", html)
+        self.assertIn('class="guide-mascot compact"', html)
 
-    def test_home_page_shows_best_price_and_count(self):
-        results = {}
-        for category in CATEGORIES:
-            results[category["id"]] = ([sample_item(category["id"])], [])
-        html = home_page(
-            results,
-            datetime(2026, 9, 30, 7, 0, tzinfo=ZoneInfo("Asia/Tokyo")),
-        )
-        self.assertIn("送料込み 1件を比較中", html)
+    def test_home_has_mascot_and_guided_finder(self):
+        results = {
+            category["id"]: ([sample_item(category["id"], i) for i in range(1, 5)], [])
+            for category in CATEGORIES
+        }
+        html = home_page(results, NOW)
+        self.assertIn("送料込み 4件を比較中", html)
         self.assertIn("ランキングを見る →", html)
         self.assertIn("楽天価格を再取得", html)
-        self.assertIn("販売数量を一意に確定できない商品はランキングから除外", html)
         self.assertIn("値札より", html)
-        self.assertIn("HOW IT WORKS", html)
-        self.assertIn('class="hero-art-grid"', html)
-        self.assertIn('category-card rice', html)
-        self.assertIn('category-card carbonated-water', html)
-        self.assertIn("2回選ぶだけ。あなた向けの比較へ。", html)
+        self.assertIn('class="hero-visual"', html)
+        self.assertIn('class="guide-mascot"', html)
+        self.assertIn("同じ単位にそろえて", html)
+        self.assertIn("2回選ぶだけ。候補まで出します。", html)
         self.assertIn('data-finder-category="rice"', html)
         self.assertIn('data-finder-purpose="cheap"', html)
-        self.assertIn('data-finder-purpose="small"', html)
-        self.assertIn('data-finder-purpose="large"', html)
+        self.assertIn('data-finder-purpose-stage hidden', html)
+        self.assertIn('data-finder-result-stage hidden', html)
 
-    def test_search_filter_tracking_is_present(self):
+    def test_finder_embeds_real_product_recommendations(self):
+        results = {
+            category["id"]: ([sample_item(category["id"], i) for i in range(1, 5)], [])
+            for category in CATEGORIES
+        }
+        html = home_page(results, NOW)
+        self.assertIn('data-finder-picks="rice:cheap"', html)
+        self.assertIn('data-finder-picks="rice:small"', html)
+        self.assertIn('data-finder-picks="rice:large"', html)
+        self.assertIn('data-position="quick_finder_result"', html)
+        self.assertIn("あなた向け", html)
+        self.assertIn("この条件の商品を全部見る →", html)
+        self.assertIn("quick_finder_category", html)
+        self.assertIn("quick_finder_complete", html)
+
+    def test_finder_landing_opens_collapsed_results(self):
         category = next(c for c in CATEGORIES if c["id"] == "pack-rice")
-        html = category_page(
-            category,
-            [sample_item("pack-rice")],
-            [],
-            datetime(2026, 9, 30, 7, 0, tzinfo=ZoneInfo("Asia/Tokyo")),
-        )
-        self.assertIn("comparison_search_use", html)
-        self.assertIn("条件に合う商品がありません", html)
+        items = [sample_item("pack-rice", i) for i in range(1, 6)]
+        html = category_page(category, items, [], NOW)
         self.assertIn("quick_finder_landing", html)
+        self.assertIn("details.open=true", html)
+        self.assertIn("条件に合う商品がありません", html)
 
     def test_recommendation_badges_and_top3_difference(self):
         category = next(c for c in CATEGORIES if c["id"] == "pack-rice")
@@ -109,29 +119,23 @@ class PresentationTests(unittest.TestCase):
         items[0]["unit_prices"]["per_serving"] = 90
         items[1]["unit_prices"]["per_serving"] = 100
         items[2]["unit_prices"]["per_serving"] = 110
-        html = category_page(
-            category,
-            items,
-            [],
-            datetime(2026, 9, 30, 7, 0, tzinfo=ZoneInfo("Asia/Tokyo")),
-        )
+        html = category_page(category, items, [], NOW)
         self.assertIn("👑 最安候補", html)
         self.assertIn("TOP3", html)
         self.assertIn("少量向き", html)
         self.assertIn("最安との差 +¥10.0", html)
         self.assertIn("最安との差 +¥20.0", html)
 
-    def test_finder_tracks_and_builds_filtered_links(self):
-        results = {}
-        for category in CATEGORIES:
-            results[category["id"]] = ([sample_item(category["id"])], [])
-        html = home_page(
-            results,
-            datetime(2026, 9, 30, 7, 0, tzinfo=ZoneInfo("Asia/Tokyo")),
-        )
-        self.assertIn("quick_finder_category", html)
-        self.assertIn("quick_finder_complete", html)
-        self.assertIn("'/?pick='+purpose+'#included'", html)
+    def test_shipping_unknown_is_collapsed(self):
+        category = next(c for c in CATEGORIES if c["id"] == "rice")
+        included = [sample_item("rice", i) for i in range(1, 4)]
+        other = [sample_item("rice", 8), sample_item("rice", 9)]
+        for item in other:
+            item["postage_included"] = False
+            item["shipping_status"] = "extra_or_unknown"
+        html = category_page(category, included, other, NOW)
+        self.assertIn("送料別の参考商品を見る（2件）", html)
+        self.assertIn('data-more-products', html)
 
 
 if __name__ == "__main__":
