@@ -66,7 +66,7 @@ gtag('config','G-GFVSZ8YDQ5',{site_id:'food_cost_jp'});
 <h1>パックご飯を<br>1食あたりで比較。</h1>
 <p class="lead">食数と内容量をそろえ、24食・40食などの箱違いを公平に比較します。</p>
 <div class="hero-tags"><span class="hero-tag">送料込みを優先</span><span class="hero-tag">数量曖昧は除外</span><span class="hero-tag">クーポン未反映</span></div>
-<p class="note">最終価格確認: 2026-09-30 19:19 JST。最新価格は販売ページで確認してください。</p>
+<p class="note">最終価格確認: 2026-09-30 19:21 JST。最新価格は販売ページで確認してください。</p>
 </div>
 <div class="category-hero-art pack-rice"><svg viewBox="0 0 240 180" role="img" aria-hidden="true" focusable="false" class="food-art" xmlns="http://www.w3.org/2000/svg">
 <ellipse cx="121" cy="151" rx="82" ry="12" fill="#000" opacity=".06"/>
@@ -557,6 +557,105 @@ if(pick&&document.querySelector('[data-comparison]')){
   applyFilters(root);
   send('quick_finder_landing',{category_id:filter?.dataset.category||'',finder_purpose:pick})
 }
+
+const SAVED_KEY='food_cost_saved_v1',COMPARE_KEY='food_cost_compare_v1';
+const readList=key=>{try{const v=JSON.parse(localStorage.getItem(key)||'[]');return Array.isArray(v)?v:[]}catch(e){return[]}};
+const writeList=(key,value)=>{try{localStorage.setItem(key,JSON.stringify(value))}catch(e){}};
+const itemKey=x=>x.category+'|'+x.id;
+const fromButton=btn=>({
+  id:btn.dataset.productId||'',
+  name:btn.dataset.productName||'',
+  category:btn.dataset.productCategory||'',
+  categoryName:btn.dataset.productCategoryName||'',
+  price:Number(btn.dataset.productPrice||0),
+  unit:Number(btn.dataset.productUnit||0),
+  unitLabel:btn.dataset.productUnitLabel||'',
+  quantity:btn.dataset.productQuantity||'',
+  url:btn.dataset.productUrl||'',
+  image:btn.dataset.productImage||''
+});
+const esc=s=>String(s==null?'':s).replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
+const money=n=>'¥'+Number(n||0).toLocaleString('ja-JP',{maximumFractionDigits:1});
+let saved=readList(SAVED_KEY),compared=readList(COMPARE_KEY).slice(0,3);
+const toastEl=document.querySelector('[data-toast]');
+let toastTimer;
+const toast=message=>{
+  if(!toastEl)return;
+  toastEl.textContent=message;toastEl.hidden=false;
+  clearTimeout(toastTimer);toastTimer=setTimeout(()=>toastEl.hidden=true,1800)
+};
+const syncUtilityButtons=()=>{
+  const savedKeys=new Set(saved.map(itemKey)),compareKeys=new Set(compared.map(itemKey));
+  document.querySelectorAll('[data-save-product]').forEach(btn=>{
+    const active=savedKeys.has((btn.dataset.productCategory||'')+'|'+(btn.dataset.productId||''));
+    btn.classList.toggle('active',active);btn.textContent=active?'♥ 保存済み':'♡ あとで見る'
+  });
+  document.querySelectorAll('[data-compare-product]').forEach(btn=>{
+    const active=compareKeys.has((btn.dataset.productCategory||'')+'|'+(btn.dataset.productId||''));
+    btn.classList.toggle('active',active);btn.textContent=active?'✓ 比較中':'＋ 比較する'
+  });
+  const count=document.querySelector('[data-saved-count]');if(count)count.textContent=String(saved.length)
+};
+const renderSaved=()=>{
+  const root=document.querySelector('[data-saved-list]');if(!root)return;
+  if(!saved.length){root.innerHTML='<div class="utility-empty">保存した商品はまだありません。</div>';return}
+  root.innerHTML=saved.map(x=>'<div class="saved-item">'+
+    (x.image?'<img src="'+esc(x.image)+'" alt="">':'<div></div>')+
+    '<div><strong>'+esc(x.name)+'</strong><small>'+esc(x.categoryName)+' ・ '+money(x.unit)+' '+esc(x.unitLabel)+' ・ '+money(x.price)+'</small><a href="'+esc(x.url)+'" target="_blank" rel="nofollow sponsored noopener">楽天で見る →</a></div>'+
+    '<button type="button" data-remove-saved="'+esc(itemKey(x))+'" aria-label="保存から削除">削除</button></div>').join('')
+};
+const renderCompare=()=>{
+  const root=document.querySelector('[data-compare-table]');if(!root)return;
+  if(!compared.length){root.innerHTML='<div class="utility-empty">「比較する」から最大3商品を選べます。</div>';return}
+  const cells=(label,fn)=>'<tr><td>'+esc(label)+'</td>'+compared.map(x=>'<td>'+fn(x)+'</td>').join('')+'</tr>';
+  root.innerHTML='<div class="compare-table"><table><thead><tr><th>比較項目</th>'+
+    compared.map(x=>'<th>'+esc(x.name)+'</th>').join('')+
+    '</tr></thead><tbody>'+
+    cells('商品価格',x=>money(x.price))+
+    cells('内容量',x=>esc(x.quantity))+
+    cells(compared[0]&&compared[0].unitLabel?compared[0].unitLabel:'主要単価',x=>'<strong>'+money(x.unit)+'</strong>')+
+    cells('販売先',x=>'<a href="'+esc(x.url)+'" target="_blank" rel="nofollow sponsored noopener">楽天で見る →</a>')+
+    '</tbody></table></div>'
+};
+const syncCompareBar=()=>{
+  const bar=document.querySelector('[data-compare-bar]');if(!bar)return;
+  bar.hidden=!compared.length;
+  const summary=bar.querySelector('[data-compare-summary]');if(summary)summary.textContent=compared.length+'/3';
+  const items=bar.querySelector('[data-compare-bar-items]');
+  if(items)items.innerHTML=compared.map(x=>'<span class="compare-chip">'+esc(x.name)+'</span>').join('')
+};
+const persistUtilities=()=>{
+  writeList(SAVED_KEY,saved);writeList(COMPARE_KEY,compared);
+  syncUtilityButtons();syncCompareBar();renderSaved();renderCompare()
+};
+document.addEventListener('click',e=>{
+  const saveBtn=e.target.closest('[data-save-product]');
+  if(saveBtn){
+    const item=fromButton(saveBtn),key=itemKey(item),exists=saved.some(x=>itemKey(x)===key);
+    saved=exists?saved.filter(x=>itemKey(x)!==key):[item,...saved].slice(0,30);
+    persistUtilities();toast(exists?'保存から外しました':'あとで見るに保存しました');
+    send('product_save_toggle',{category_id:item.category,product_id:item.id,saved:exists?0:1});return
+  }
+  const compareBtn=e.target.closest('[data-compare-product]');
+  if(compareBtn){
+    const item=fromButton(compareBtn),key=itemKey(item),exists=compared.some(x=>itemKey(x)===key);
+    if(exists){compared=compared.filter(x=>itemKey(x)!==key);persistUtilities();toast('比較から外しました');return}
+    if(compared.length&&compared[0].category!==item.category){toast('比較は同じ食品カテゴリで選んでください');return}
+    if(compared.length>=3){toast('比較できるのは3商品までです');return}
+    compared.push(item);persistUtilities();toast('比較に追加しました');
+    send('product_compare_add',{category_id:item.category,product_id:item.id,compare_count:compared.length});return
+  }
+  const remove=e.target.closest('[data-remove-saved]');
+  if(remove){saved=saved.filter(x=>itemKey(x)!==remove.dataset.removeSaved);persistUtilities();return}
+  if(e.target.closest('[data-open-saved]')){renderSaved();const m=document.querySelector('[data-saved-modal]');if(m)m.hidden=false;return}
+  if(e.target.closest('[data-close-saved]')){const m=document.querySelector('[data-saved-modal]');if(m)m.hidden=true;return}
+  if(e.target.closest('[data-open-compare]')){renderCompare();const m=document.querySelector('[data-compare-modal]');if(m)m.hidden=false;send('product_compare_open',{compare_count:compared.length});return}
+  if(e.target.closest('[data-close-compare]')){const m=document.querySelector('[data-compare-modal]');if(m)m.hidden=true;return}
+  if(e.target.closest('[data-clear-compare]')){compared=[];persistUtilities();toast('比較をクリアしました');return}
+  const modal=e.target.closest('.utility-modal');
+  if(modal&&e.target===modal)modal.hidden=true
+});
+persistUtilities();
 })();</script>
 <footer><div class="wrap">当サイトは楽天アフィリエイトを利用しています。価格は取得時点の参考情報です。</div></footer>
 </body></html>
