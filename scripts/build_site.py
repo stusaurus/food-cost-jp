@@ -757,6 +757,49 @@ def price_signal_html(item: dict) -> str:
 </div>"""
 
 
+def product_history_details(item: dict, label: str = "価格履歴・買い時を見る") -> str:
+    return f"""<details class="product-extra" data-product-extra>
+<summary>{html.escape(label)} <span>＋</span></summary>
+<div class="product-extra-body">{sparkline_svg(item)}{price_signal_html(item)}</div>
+</details>"""
+
+
+def service_shortcuts_html() -> str:
+    return f"""<nav class="service-shortcuts" aria-label="主要メニュー">
+<a href="{SITE_URL}"><span>⌂</span>トップ</a>
+<a href="{SITE_URL}deals/"><span>↓</span>今日のお買い得</a>
+<a href="{SITE_URL}saved/"><span>♡</span>マイ保存</a>
+</nav>"""
+
+
+def home_start_hub(results: dict) -> str:
+    deals, has_history = deal_entries(results)
+    deal_meta = f"{len(deals)}件の値下がり" if deals else ("価格履歴を確認" if has_history else "価格履歴を蓄積中")
+    return f"""<section class="section start-hub" aria-label="探し方を選ぶ">
+<div class="start-hub-head"><div><div class="section-kicker">START HERE</div><h2>今日は、どう探す？</h2></div><span>迷ったら真ん中の診断がおすすめ</span></div>
+<div class="start-grid">
+<a class="start-card deal-start" href="deals/" data-start-route="deals">
+<div class="start-icon">↓</div><div><small>値下がりから</small><strong>今日のお買い得</strong><p>{html.escape(deal_meta)}</p></div><b>見る →</b>
+</a>
+<a class="start-card finder-start featured" href="#quick-finder" data-start-route="finder">
+<div class="start-icon">◎</div><div><small>2問で候補まで</small><strong>買い方診断</strong><p>食品と買い方を選ぶだけ</p></div><b>診断する →</b>
+</a>
+<a class="start-card category-start" href="#categories" data-start-route="categories">
+<div class="start-icon">▦</div><div><small>いつもの食品から</small><strong>カテゴリ比較</strong><p>4カテゴリを単価順で</p></div><b>選ぶ →</b>
+</a>
+</div>
+</section>"""
+
+
+def shopping_journey_html() -> str:
+    return """<section class="journey-strip" aria-label="商品の選び方">
+<div><span>1</span><strong>候補を見る</strong><small>単価と総額を確認</small></div>
+<i>→</i><div><span>2</span><strong>比較する</strong><small>最大3商品まで</small></div>
+<i>→</i><div><span>3</span><strong>あとで見る</strong><small>価格変化を追える</small></div>
+<i>→</i><div><span>4</span><strong>楽天で確認</strong><small>購入前に最終価格確認</small></div>
+</section>"""
+
+
 def cta_copy(item: dict, context: str, rank: int | None = None) -> tuple[str, str]:
     history = item.get("price_history") or {}
     delta = history.get("price_delta")
@@ -819,8 +862,7 @@ def deal_card_html(category: dict, item: dict, position: str = "today_deal") -> 
 <div class="deal-price-row"><span class="deal-was">¥{history["previous_price"]:,}</span><strong>¥{item["price"]:,}</strong></div>
 <div class="deal-saving">{html.escape(label)} ¥{abs(int(history["price_delta"])):,}安い</div>
 <div class="deal-unit">{yen(primary)} <small>{html.escape(category["primary_label"])}</small></div>
-{sparkline_svg(item)}
-{price_signal_html(item)}
+{product_history_details(item, "価格履歴を詳しく見る")}
 {product_action_buttons(item, category, primary)}
 <a class="cta" href="{html.escape(item["url"], quote=True)}" target="_blank" rel="nofollow sponsored noopener"
  data-affiliate="rakuten" data-position="{html.escape(position, quote=True)}" data-category="{category['id']}" data-product-id="{html.escape(item['id'], quote=True)}"
@@ -942,10 +984,9 @@ def finder_product_card(item: dict, category: dict, position: int, purpose: str)
 {product_identity_html(item, category, "finder-product-name")}
 <div class="finder-product-price">{yen(primary)} <small>{html.escape(category["primary_label"])}</small></div>
 <div class="trend-row">{price_history_badges(item)}</div>
-{sparkline_svg(item)}
-{price_signal_html(item)}
 <div class="finder-product-meta">{html.escape(quantity_text(item, category["id"]))} ・ ¥{item["price"]:,}</div>
 <div class="finder-why"><span>なぜ？</span>{html.escape(reason)}</div>
+{product_history_details(item)}
 {product_action_buttons(item, category, primary)}
 <a class="cta" href="{html.escape(item["url"], quote=True)}" target="_blank" rel="nofollow sponsored noopener"
  data-affiliate="rakuten" data-position="quick_finder_result" data-category="{category['id']}" data-product-id="{html.escape(item['id'], quote=True)}"
@@ -1082,11 +1123,10 @@ def top3_html(items: list[dict], category: dict) -> str:
 {product_identity_html(item, category, "podium-name")}
 <div class="podium-unit">{yen(primary)}</div>
 <div class="trend-row">{price_history_badges(item)}</div>
-{sparkline_svg(item)}
-{price_signal_html(item)}
 <div class="podium-label">{html.escape(category["primary_label"])}</div>
 <div class="podium-diff">{html.escape(diff_text)}</div>
 <div class="podium-detail">{html.escape(quantity_text(item, category["id"]))} ・ ¥{item["price"]:,}</div>
+{product_history_details(item)}
 {product_action_buttons(item, category, primary)}
 <a class="cta podium-cta" href="{html.escape(item["url"], quote=True)}" target="_blank" rel="nofollow sponsored noopener"
  data-affiliate="rakuten" data-position="top3_card" data-category="{category['id']}" data-product-id="{html.escape(item['id'], quote=True)}"
@@ -1474,7 +1514,7 @@ def rows_html(items: list[dict], category: dict, start_rank: int = 1) -> str:
             f"""<tr data-bucket="{bucket(item, category['id'])}" data-search-text="{search_text}" {attrs}>
 <td data-cell="rank" data-rank>{rank_html}</td>
 <td data-cell="image">{image}</td>
-<td data-cell="product">{product_identity_html(item, category)}<div class="shop">{html.escape(item['shop'])}</div><div class="product-badges">{recommendation} {shipping} {promo}</div><div class="trend-row">{price_history_badges(item)}</div>{sparkline_svg(item)}{price_signal_html(item)}</td>
+<td data-cell="product">{product_identity_html(item, category)}<div class="shop">{html.escape(item['shop'])}</div><div class="product-badges">{recommendation} {shipping} {promo}</div><div class="trend-row">{price_history_badges(item)}</div>{product_history_details(item)}</td>
 <td data-cell="quantity">{html.escape(quantity_text(item, category['id']))}</td>
 <td data-cell="price">¥{item['price']:,}</td>
 <td data-cell="unit"><div class="unit">{yen(primary)}</div><div class="unit-label">{html.escape(category['primary_label'])}</div>{secondary}</td>
