@@ -119,6 +119,24 @@ def apply_price_history(
             {"date": p["date"], "price": int(p["price"]), "unit": float(p["unit"])}
             for p in prior_30
         ] + [{"date": today_text, "price": current_price, "unit": current_unit}]
+        seven_cutoff = today - timedelta(days=7)
+        series_7 = [
+            point for point in series_30
+            if (_parse_day(point["date"]) or date.min) >= seven_cutoff
+        ]
+        units_30 = [float(point["unit"]) for point in series_30]
+        units_7 = [float(point["unit"]) for point in series_7]
+        highest_30_unit = max(units_30) if units_30 else current_unit
+        lowest_7_unit = min(units_7) if units_7 else current_unit
+        highest_7_unit = max(units_7) if units_7 else current_unit
+        trend_7d = "stable"
+        if len(units_7) >= 2 and units_7[0]:
+            change_7d = (units_7[-1] - units_7[0]) / units_7[0]
+            if change_7d <= -0.02:
+                trend_7d = "down"
+            elif change_7d >= 0.02:
+                trend_7d = "up"
+
         item["price_history"] = {
             "observed_days": len(observed_dates),
             "previous_date": previous["date"] if previous else None,
@@ -129,7 +147,12 @@ def apply_price_history(
             "unit_delta": unit_delta,
             "percent_delta": percent_delta,
             "lowest_30d_unit": low_30_unit,
+            "highest_30d_unit": highest_30_unit,
+            "lowest_7d_unit": lowest_7_unit,
+            "highest_7d_unit": highest_7_unit,
+            "trend_7d": trend_7d,
             "is_30d_low": is_30d_low,
+            "series_7d": series_7,
             "series_30d": series_30,
         }
 
