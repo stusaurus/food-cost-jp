@@ -503,38 +503,140 @@ gtag('config','{safe}',{{site_id:'{SITE_ID}'}});
 </script>"""
 
 
+def category_illustration(category_id: str, compact: bool = False) -> str:
+    """Inline SVG illustrations: original, lightweight, and dependency-free."""
+    common = 'viewBox="0 0 240 180" role="img" aria-hidden="true" focusable="false"'
+    if category_id == "rice":
+        art = f"""<svg {common} class="food-art" xmlns="http://www.w3.org/2000/svg">
+<ellipse cx="122" cy="151" rx="78" ry="12" fill="#000" opacity=".06"/>
+<path d="M67 45h94l13 99H54L67 45Z" fill="#FFF8DE" stroke="#8A7130" stroke-width="5"/>
+<path d="M73 45c8-18 74-18 82 0" fill="#F1D978" stroke="#8A7130" stroke-width="5"/>
+<path d="M91 92c18-21 44-21 62 0-16 11-47 11-62 0Z" fill="#fff" stroke="#8A7130" stroke-width="4"/>
+<path d="M122 69c-8 13-12 24-10 34M125 68c8 13 12 24 10 34" stroke="#84A657" stroke-width="4" stroke-linecap="round"/>
+<text x="120" y="126" text-anchor="middle" font-size="18" font-weight="800" fill="#66531F">おこめ</text>
+<circle cx="48" cy="65" r="11" fill="#D8E8B5"/><circle cx="183" cy="75" r="8" fill="#F2D870"/>
+</svg>"""
+    elif category_id == "pack-rice":
+        art = f"""<svg {common} class="food-art" xmlns="http://www.w3.org/2000/svg">
+<ellipse cx="121" cy="151" rx="82" ry="12" fill="#000" opacity=".06"/>
+<rect x="48" y="72" width="144" height="70" rx="18" fill="#FFF0DD" stroke="#B8793D" stroke-width="5"/>
+<rect x="61" y="54" width="118" height="39" rx="14" fill="#fff" stroke="#B8793D" stroke-width="5"/>
+<path d="M75 79c16-24 73-24 91 0" fill="#fff" stroke="#D4B08B" stroke-width="4"/>
+<circle cx="91" cy="71" r="5" fill="#F0E5D8"/><circle cx="113" cy="64" r="5" fill="#F0E5D8"/><circle cx="137" cy="69" r="5" fill="#F0E5D8"/><circle cx="154" cy="76" r="4" fill="#F0E5D8"/>
+<path d="M79 111h82" stroke="#E3B87F" stroke-width="6" stroke-linecap="round"/>
+<path d="M85 126h58" stroke="#E3B87F" stroke-width="6" stroke-linecap="round"/>
+<path d="M183 37c11 9 11 20 0 29M198 28c14 13 14 31 0 44" fill="none" stroke="#F2B56E" stroke-width="5" stroke-linecap="round"/>
+</svg>"""
+    elif category_id == "carbonated-water":
+        art = f"""<svg {common} class="food-art" xmlns="http://www.w3.org/2000/svg">
+<ellipse cx="120" cy="154" rx="72" ry="10" fill="#000" opacity=".06"/>
+<path d="M89 51h52l9 91c1 8-5 14-13 14H93c-8 0-14-6-13-14l9-91Z" fill="#DCF7FF" stroke="#4C9CB8" stroke-width="5"/>
+<rect x="96" y="30" width="38" height="28" rx="8" fill="#8AD5EA" stroke="#4C9CB8" stroke-width="5"/>
+<rect x="95" y="82" width="48" height="38" rx="12" fill="#fff" opacity=".8"/>
+<circle cx="109" cy="101" r="7" fill="#7ED5EF"/><circle cx="129" cy="94" r="5" fill="#7ED5EF"/><circle cx="124" cy="113" r="4" fill="#7ED5EF"/>
+<circle cx="171" cy="51" r="10" fill="#B9ECFA"/><circle cx="188" cy="78" r="6" fill="#B9ECFA"/><circle cx="58" cy="73" r="8" fill="#B9ECFA"/>
+</svg>"""
+    else:
+        art = f"""<svg {common} class="food-art" xmlns="http://www.w3.org/2000/svg">
+<ellipse cx="120" cy="151" rx="79" ry="11" fill="#000" opacity=".06"/>
+<path d="M57 88h126c-5 42-25 62-63 62S62 130 57 88Z" fill="#F7E2C5" stroke="#9A7045" stroke-width="5"/>
+<path d="M70 87c12-25 90-25 102 0" fill="#DDBB8B" stroke="#9A7045" stroke-width="5"/>
+<ellipse cx="93" cy="79" rx="10" ry="6" fill="#F8EACF"/><ellipse cx="119" cy="74" rx="11" ry="6" fill="#F8EACF"/><ellipse cx="145" cy="80" rx="9" ry="5" fill="#F8EACF"/>
+<path d="M164 34c-13 15-25 36-32 58" stroke="#717B61" stroke-width="7" stroke-linecap="round"/>
+<circle cx="169" cy="30" r="8" fill="#A9B68E"/>
+</svg>"""
+    return art.replace('class="food-art"', 'class="food-art compact"') if compact else art
+
+
+def hero_illustrations() -> str:
+    items = "".join(
+        f'<div class="hero-art-item {category["id"]}">{category_illustration(category["id"], True)}</div>'
+        for category in CATEGORIES
+    )
+    return f'<div class="hero-art-grid" aria-hidden="true">{items}</div>'
+
+
+def top3_html(items: list[dict], category: dict) -> str:
+    if not items:
+        return ""
+    cards = []
+    labels = ["いまの最安", "2位", "3位"]
+    medal = ["🥇", "🥈", "🥉"]
+    for index, item in enumerate(items[:3]):
+        rank = index + 1
+        primary = item["unit_prices"][category["primary"]]
+        image = (
+            f'<img class="podium-img" src="{html.escape(item["image"], quote=True)}" alt="" loading="lazy">'
+            if item["image"] else category_illustration(category["id"], True)
+        )
+        cards.append(f"""<article class="podium-card rank-{rank}">
+<div class="podium-head"><span class="podium-medal">{medal[index]}</span><span>{labels[index]}</span></div>
+<div class="podium-media">{image}</div>
+<strong class="podium-name">{html.escape(item["name"])}</strong>
+<div class="podium-unit">{yen(primary)}</div>
+<div class="podium-label">{html.escape(category["primary_label"])}</div>
+<div class="podium-detail">{html.escape(quantity_text(item, category["id"]))} ・ ¥{item["price"]:,}</div>
+<a class="cta podium-cta" href="{html.escape(item["url"], quote=True)}" target="_blank" rel="nofollow sponsored noopener"
+ data-affiliate="rakuten" data-position="top3_card" data-category="{category['id']}" data-product-id="{html.escape(item['id'], quote=True)}"
+ data-product-name="{html.escape(item['name'], quote=True)}" data-rank="{rank}" data-metric="{category['primary']}"
+ data-unit-price="{primary:.6f}" data-shipping="{item['shipping_status']}">楽天で確認する →</a>
+</article>""")
+    return f"""<section class="section podium-section">
+<div class="section-kicker">まずはここから</div>
+<h2>送料込み TOP{min(3, len(items))}</h2>
+<p class="sub">現在取得できた商品の中で、{html.escape(category["primary_label"])}が安い順です。</p>
+<div class="podium-grid">{''.join(cards)}</div>
+</section>"""
+
+
+def comparison_flow_html() -> str:
+    return """<section class="section flow-section">
+<div class="section-kicker">HOW IT WORKS</div>
+<h2>値札だけでは分からない「本当の安さ」を3ステップで。</h2>
+<div class="flow-grid">
+<div class="flow-card"><div class="flow-icon">🧾</div><strong>1. 商品情報を取得</strong><p>価格・容量・個数・送料条件を楽天の商品情報から確認。</p></div>
+<div class="flow-arrow">→</div>
+<div class="flow-card"><div class="flow-icon">⚖️</div><strong>2. 同じ単位にそろえる</strong><p>1食・1kg・1L・100gあたりへ換算して比較できる形に。</p></div>
+<div class="flow-arrow">→</div>
+<div class="flow-card"><div class="flow-icon">🏆</div><strong>3. 安い順で見る</strong><p>数量が曖昧な商品は外し、送料込みの商品を先にランキング。</p></div>
+</div>
+</section>"""
+
+
 CSS = """*{box-sizing:border-box}
-:root{--bg:#f5f7f4;--panel:#fff;--ink:#18201b;--muted:#657068;--line:#dfe6e0;--brand:#176a43;--brand-soft:#eaf5ee;--warm:#fff4df;--warm-ink:#855a16}
-html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Noto Sans JP",sans-serif;line-height:1.65}
-a{color:inherit}.wrap{width:min(1080px,calc(100% - 28px));margin:auto}
-header{background:linear-gradient(180deg,#fff 0%,#f8fbf8 100%);border-bottom:1px solid var(--line);padding:30px 0 24px}
-.brand{font-size:12px;font-weight:900;letter-spacing:.08em;color:var(--brand);text-decoration:none}
-h1{font-size:clamp(28px,7vw,46px);line-height:1.18;margin:8px 0 12px}h2{font-size:clamp(21px,4vw,28px);line-height:1.35}
-.lead{font-size:clamp(15px,2.4vw,18px);max-width:760px}.lead,.sub,.note{color:var(--muted)}.note{font-size:12px}
-.hero-tags{display:flex;gap:7px;flex-wrap:wrap;margin:16px 0 6px}.hero-tag{font-size:11px;font-weight:800;background:var(--brand-soft);color:var(--brand);border-radius:999px;padding:5px 9px}
-.nav{position:sticky;top:0;background:#ffffffed;border-bottom:1px solid var(--line);z-index:10;backdrop-filter:blur(10px)}
-.nav .wrap{display:flex;gap:8px;overflow:auto;padding:9px 14px}.nav a{white-space:nowrap;text-decoration:none;border:1px solid var(--line);border-radius:999px;padding:7px 11px;background:#fff;font-size:12px;font-weight:700}
-.grid{display:grid;gap:12px;margin:22px 0}.card,.explain,.summary{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:18px;text-decoration:none}
-.category-card{display:block;position:relative;transition:transform .15s ease,border-color .15s ease,box-shadow .15s ease}.category-card:hover{transform:translateY(-2px);border-color:#bfd2c5;box-shadow:0 8px 24px #1d442b12}
-.category-name{font-size:18px;font-weight:900}.category-price{font-size:26px;line-height:1.15;color:var(--brand);font-weight:950;margin:9px 0 2px}.category-meta{font-size:12px;color:var(--muted)}.category-go{display:inline-block;margin-top:10px;font-size:12px;font-weight:900;color:var(--brand)}
-.section{margin:30px 0 46px}.toolbar{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0}.toolbar select,.toolbar input{min-height:42px;border:1px solid var(--line);border-radius:11px;background:#fff;padding:0 11px;font-weight:700}.toolbar input{flex:1;min-width:220px}.toolbar input::placeholder{color:#88928c;font-weight:600}
-.summary{margin:20px 0 12px}.summary-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.summary-item{background:#f7faf7;border-radius:13px;padding:12px}.summary-k{font-size:11px;color:var(--muted);font-weight:800}.summary-v{font-size:20px;font-weight:950;color:var(--brand);margin-top:2px}
-.table{overflow:auto;background:#fff;border:1px solid var(--line);border-radius:16px}table{border-collapse:collapse;width:100%;min-width:800px}
-th,td{padding:11px;border-bottom:1px solid #e8ece8;text-align:left;font-size:12px;vertical-align:top}th{background:#f1f5f2;font-size:11px;color:#536058}
-.product-name{display:block;font-size:13px;line-height:1.45}.shop{color:var(--muted);margin:4px 0 6px}.product-img{width:72px;height:72px;object-fit:contain;border-radius:10px;background:#fff}
-.rank{font-size:15px;font-weight:950}.rank.top{display:inline-flex;width:29px;height:29px;align-items:center;justify-content:center;border-radius:50%;background:var(--brand);color:#fff}
-.unit{font-size:20px;font-weight:950;color:var(--brand);white-space:nowrap}.unit-label{font-size:10px;color:var(--muted);font-weight:700}.secondary-unit{font-size:11px;color:#536058;margin-top:3px}
-.tag{display:inline-block;border-radius:999px;padding:3px 7px;font-size:10px;font-weight:800;margin:2px 2px 0 0}.ok{background:var(--brand-soft);color:var(--brand)}.warn{background:var(--warm);color:var(--warm-ink)}
-.cta{display:inline-flex;justify-content:center;align-items:center;min-height:40px;padding:0 11px;border-radius:10px;background:var(--brand);color:#fff;text-decoration:none;font-weight:900;white-space:nowrap}
-.guide-list{margin:10px 0 0;padding-left:20px}.guide-list li{margin:7px 0}.fine{font-size:11px;color:var(--muted)}.other-categories{display:flex;gap:8px;flex-wrap:wrap}.other-categories a{border:1px solid var(--line);background:#fff;border-radius:999px;padding:8px 11px;text-decoration:none;font-size:12px;font-weight:800}.empty-filter{display:none;background:#fff;border:1px dashed var(--line);border-radius:14px;padding:18px;color:var(--muted);text-align:center}
+:root{--bg:#f7f4ec;--panel:#fffdf8;--ink:#17211a;--muted:#687068;--line:#e4e0d4;--brand:#246b49;--brand2:#173f31;--brand-soft:#e8f2e9;--warm:#fff0cf;--warm-ink:#825719;--shadow:0 18px 50px rgba(50,60,45,.10)}
+html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(circle at 10% 0,#fff9e9 0,transparent 30%),var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Noto Sans JP",sans-serif;line-height:1.65}
+a{color:inherit}.wrap{width:min(1120px,calc(100% - 28px));margin:auto}
+header{position:relative;overflow:hidden;background:linear-gradient(135deg,#fffdf7 0%,#edf7ee 55%,#fff2d8 100%);border-bottom:1px solid var(--line);padding:42px 0 34px}
+header:after{content:"";position:absolute;right:-90px;top:-120px;width:320px;height:320px;border-radius:50%;background:#ffffff70}
+.hero-layout{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(320px,.95fr);gap:28px;align-items:center;position:relative;z-index:1}
+.brand{font-size:12px;font-weight:950;letter-spacing:.12em;color:var(--brand);text-decoration:none}.eyebrow{display:inline-block;background:#fff;border:1px solid #dce8dd;border-radius:999px;padding:5px 10px;font-size:11px;font-weight:900;color:var(--brand)}
+h1{font-size:clamp(32px,6vw,58px);line-height:1.08;margin:12px 0 16px;letter-spacing:-.035em}h2{font-size:clamp(22px,4vw,30px);line-height:1.3;letter-spacing:-.02em}
+.lead{font-size:clamp(15px,2.2vw,19px);max-width:720px}.lead,.sub,.note{color:var(--muted)}.note{font-size:12px}
+.hero-tags{display:flex;gap:7px;flex-wrap:wrap;margin:18px 0 8px}.hero-tag{font-size:11px;font-weight:850;background:#fff;color:var(--brand);border:1px solid #dce8dd;border-radius:999px;padding:6px 10px}
+.hero-art-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;transform:rotate(1.5deg)}.hero-art-item{min-height:150px;border-radius:28px;display:flex;align-items:center;justify-content:center;box-shadow:var(--shadow);border:1px solid #ffffffbb}.hero-art-item.rice{background:#f3e8b9}.hero-art-item.pack-rice{background:#ffe0bf}.hero-art-item.carbonated-water{background:#d8f2fa}.hero-art-item.oatmeal{background:#ead6be}.food-art{display:block;width:min(100%,250px);height:auto}.food-art.compact{width:min(100%,180px)}
+.nav{position:sticky;top:0;background:#fffdf8ed;border-bottom:1px solid var(--line);z-index:10;backdrop-filter:blur(12px)}.nav .wrap{display:flex;gap:8px;overflow:auto;padding:9px 14px}.nav a{white-space:nowrap;text-decoration:none;border:1px solid var(--line);border-radius:999px;padding:7px 11px;background:#fff;font-size:12px;font-weight:800}
+.section-kicker{font-size:11px;letter-spacing:.12em;font-weight:950;color:var(--brand);text-transform:uppercase}.grid{display:grid;gap:16px;margin:26px 0}.card,.explain,.summary{background:var(--panel);border:1px solid var(--line);border-radius:22px;padding:20px;text-decoration:none;box-shadow:0 8px 24px rgba(50,60,45,.04)}
+.category-card{display:grid;grid-template-columns:155px 1fr;gap:18px;align-items:center;position:relative;overflow:hidden;transition:transform .16s ease,box-shadow .16s ease}.category-card:hover{transform:translateY(-4px);box-shadow:var(--shadow)}.category-card.rice{background:linear-gradient(135deg,#fffdf7,#f3e8b9)}.category-card.pack-rice{background:linear-gradient(135deg,#fffdf7,#ffe0bf)}.category-card.carbonated-water{background:linear-gradient(135deg,#fffdf7,#d8f2fa)}.category-card.oatmeal{background:linear-gradient(135deg,#fffdf7,#ead6be)}
+.category-art{height:150px;display:flex;align-items:center;justify-content:center}.category-copy{min-width:0}.category-name{font-size:19px;font-weight:950}.category-price{font-size:28px;line-height:1.12;color:var(--brand2);font-weight:950;margin:8px 0 2px}.category-meta{font-size:12px;color:var(--muted);font-weight:750}.category-go{display:inline-flex;margin-top:10px;font-size:12px;font-weight:950;color:#fff;background:var(--brand);padding:8px 12px;border-radius:999px}
+.section{margin:34px 0 52px}.toolbar{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0}.toolbar select,.toolbar input{min-height:44px;border:1px solid var(--line);border-radius:12px;background:#fff;padding:0 12px;font-weight:750}.toolbar input{flex:1;min-width:220px}.toolbar input::placeholder{color:#8b918c;font-weight:600}
+.summary{margin:22px 0 14px}.summary-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.summary-item{background:#f5f8f2;border:1px solid #e2e9df;border-radius:16px;padding:14px}.summary-k{font-size:11px;color:var(--muted);font-weight:850}.summary-v{font-size:23px;font-weight:950;color:var(--brand);margin-top:3px}
+.podium-section{background:linear-gradient(135deg,#173f31,#2b7754);color:#fff;border-radius:28px;padding:26px;box-shadow:var(--shadow)}.podium-section .sub{color:#dcebe2}.podium-section .section-kicker{color:#d9f1df}.podium-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.podium-card{background:#fff;color:var(--ink);border-radius:20px;padding:15px;display:flex;flex-direction:column;min-width:0}.podium-card.rank-1{transform:translateY(-5px);box-shadow:0 14px 32px rgba(0,0,0,.18)}.podium-head{display:flex;align-items:center;gap:6px;font-size:12px;font-weight:950}.podium-medal{font-size:23px}.podium-media{height:115px;display:flex;align-items:center;justify-content:center;margin:8px 0}.podium-img{max-width:100%;max-height:110px;object-fit:contain}.podium-name{font-size:13px;line-height:1.45;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}.podium-unit{font-size:28px;color:var(--brand);font-weight:950;margin-top:10px}.podium-label,.podium-detail{font-size:11px;color:var(--muted)}.podium-detail{margin:6px 0 10px}.podium-cta{margin-top:auto}
+.table{overflow:auto;background:#fff;border:1px solid var(--line);border-radius:18px}table{border-collapse:collapse;width:100%;min-width:800px}th,td{padding:11px;border-bottom:1px solid #ebe9e0;text-align:left;font-size:12px;vertical-align:top}th{background:#f3f5ef;font-size:11px;color:#56615a}
+.product-name{display:block;font-size:13px;line-height:1.45}.shop{color:var(--muted);margin:4px 0 6px}.product-img{width:72px;height:72px;object-fit:contain;border-radius:12px;background:#fff}.rank{font-size:15px;font-weight:950}.rank.top{display:inline-flex;width:30px;height:30px;align-items:center;justify-content:center;border-radius:50%;background:var(--brand);color:#fff}.unit{font-size:20px;font-weight:950;color:var(--brand);white-space:nowrap}.unit-label{font-size:10px;color:var(--muted);font-weight:750}.secondary-unit{font-size:11px;color:#536058;margin-top:3px}
+.tag{display:inline-block;border-radius:999px;padding:3px 7px;font-size:10px;font-weight:850;margin:2px 2px 0 0}.ok{background:var(--brand-soft);color:var(--brand)}.warn{background:var(--warm);color:var(--warm-ink)}.cta{display:inline-flex;justify-content:center;align-items:center;min-height:40px;padding:0 11px;border-radius:11px;background:var(--brand);color:#fff;text-decoration:none;font-weight:900;white-space:nowrap}
+.guide-list{margin:10px 0 0;padding-left:20px}.guide-list li{margin:7px 0}.fine{font-size:11px;color:var(--muted)}.other-categories{display:flex;gap:8px;flex-wrap:wrap}.other-categories a{border:1px solid var(--line);background:#fff;border-radius:999px;padding:8px 11px;text-decoration:none;font-size:12px;font-weight:850}.empty-filter{display:none;background:#fff;border:1px dashed var(--line);border-radius:14px;padding:18px;color:var(--muted);text-align:center}
+.flow-section{padding:28px;border-radius:28px;background:#fffdf8;border:1px solid var(--line);box-shadow:var(--shadow)}.flow-grid{display:grid;grid-template-columns:1fr 42px 1fr 42px 1fr;align-items:stretch;gap:8px;margin-top:18px}.flow-card{border-radius:18px;background:#f7f6ef;padding:18px}.flow-card strong{display:block;font-size:15px}.flow-card p{font-size:12px;color:var(--muted);margin-bottom:0}.flow-icon{font-size:30px;margin-bottom:8px}.flow-arrow{display:flex;align-items:center;justify-content:center;color:var(--brand);font-size:26px;font-weight:950}
+.category-hero-art{background:#fff;border:1px solid #ffffffaa;border-radius:26px;min-height:245px;display:flex;align-items:center;justify-content:center;box-shadow:var(--shadow)}
 footer{background:#fff;border-top:1px solid var(--line);padding:30px 0 42px;color:var(--muted);font-size:11px}
-@media(min-width:720px){.grid{grid-template-columns:1fr 1fr}}
-@media(max-width:719px){
- .wrap{width:min(100% - 20px,1080px)}header{padding:24px 0 18px}.summary-grid{grid-template-columns:1fr 1fr}.summary-item:first-child{grid-column:1/-1}
+@media(min-width:760px){.grid{grid-template-columns:1fr 1fr}}
+@media(max-width:759px){
+ .wrap{width:min(100% - 20px,1120px)}header{padding:25px 0 20px}.hero-layout{grid-template-columns:1fr;gap:18px}.hero-art-grid{grid-template-columns:1fr 1fr;gap:8px}.hero-art-item{min-height:105px;border-radius:20px}.hero-art-item .food-art{max-height:100px}.category-hero-art{min-height:180px}.category-hero-art .food-art{max-height:175px}
+ .grid{grid-template-columns:1fr}.category-card{grid-template-columns:105px 1fr;padding:14px}.category-art{height:110px}.category-art .food-art{max-height:105px}.category-price{font-size:24px}
+ .podium-grid{grid-template-columns:1fr}.podium-card.rank-1{transform:none}.summary-grid{grid-template-columns:1fr 1fr}.summary-item:first-child{grid-column:1/-1}.flow-grid{grid-template-columns:1fr}.flow-arrow{transform:rotate(90deg);height:24px}
  .table{overflow:visible;background:transparent;border:0}table,tbody{display:block;width:100%;min-width:0}thead{display:none}tr{display:grid;grid-template-columns:76px 1fr;gap:0 12px;background:#fff;border:1px solid var(--line);border-radius:16px;margin:10px 0;padding:13px;box-shadow:0 2px 8px #13291b08}
  td{display:block;border:0;padding:3px 0;font-size:12px;min-width:0}td[data-cell="rank"]{grid-column:1/-1;padding-bottom:5px}td[data-cell="image"]{grid-column:1;grid-row:2 / span 4}td[data-cell="product"],td[data-cell="quantity"],td[data-cell="price"],td[data-cell="unit"],td[data-cell="cta"]{grid-column:2}
- td[data-cell="product"]{padding-top:0}.product-img{width:72px;height:72px}.product-name{font-size:14px}.unit{font-size:23px;margin-top:3px}td[data-cell="quantity"]::before{content:"内容量  ";font-weight:800;color:var(--muted)}td[data-cell="price"]::before{content:"商品価格  ";font-weight:800;color:var(--muted)}
- td[data-cell="cta"]{margin-top:8px}.cta{width:100%;min-height:46px}.toolbar select,.toolbar input{flex:1;min-width:0;width:100%}.section{margin:24px 0 36px}
+ td[data-cell="product"]{padding-top:0}.product-img{width:72px;height:72px}.product-name{font-size:14px}.unit{font-size:23px;margin-top:3px}td[data-cell="quantity"]::before{content:"内容量  ";font-weight:800;color:var(--muted)}td[data-cell="price"]::before{content:"商品価格  ";font-weight:800;color:var(--muted)}td[data-cell="cta"]{margin-top:8px}.cta{width:100%;min-height:46px}.toolbar select,.toolbar input{flex:1;min-width:0;width:100%}.section{margin:26px 0 38px}
 }"""
 
 
@@ -550,7 +652,7 @@ if(p.get('test')==='1'||p.get('test')==='0'){
 const send=(n,x={})=>{if(typeof gtag==='function')gtag('event',n,{site_id:'food_cost_jp',...(op?{operator_test:'1'}:{}),...x})};
 document.addEventListener('click',e=>{
   const a=e.target.closest('a[data-affiliate]');if(!a)return;
-  const x={affiliate:'rakuten',conversion_source:'category',category_id:a.dataset.category,product_id:a.dataset.productId,product_name:a.dataset.productName,rank:a.dataset.rank,comparison_metric:a.dataset.metric,unit_price:Number(a.dataset.unitPrice||0),shipping_status:a.dataset.shipping,click_position:'comparison_table',link_url:a.href};
+  const x={affiliate:'rakuten',conversion_source:'category',category_id:a.dataset.category,product_id:a.dataset.productId,product_name:a.dataset.productName,rank:a.dataset.rank,comparison_metric:a.dataset.metric,unit_price:Number(a.dataset.unitPrice||0),shipping_status:a.dataset.shipping,click_position:a.dataset.position||'comparison_table',link_url:a.href};
   send('product_result_click',x);send('affiliate_click',x)
 });
 document.querySelectorAll('[data-sort]').forEach(s=>s.addEventListener('change',()=>{
@@ -725,12 +827,16 @@ def category_page(category: dict, included: list[dict], other: list[dict], updat
         )
     ]
     parts.append(
-        f"""<header><div class="wrap">
+        f"""<header><div class="wrap hero-layout">
+<div>
 <a class="brand" href="../../">食品コスパ比較</a>
-<h1>{category["emoji"]} {category["name"]}を{category["primary_label"]}で比較</h1>
+<div class="eyebrow">{category["emoji"]} {category["name"]}</div>
+<h1>{category["name"]}を<br>{category["primary_label"]}で比較。</h1>
 <p class="lead">{category["intro"]}</p>
 <div class="hero-tags"><span class="hero-tag">送料込みを優先</span><span class="hero-tag">数量曖昧は除外</span><span class="hero-tag">クーポン未反映</span></div>
 <p class="note">最終価格確認: {updated:%Y-%m-%d %H:%M} JST。最新価格は販売ページで確認してください。</p>
+</div>
+<div class="category-hero-art {category['id']}">{category_illustration(category["id"])}</div>
 </div></header>
 <nav class="nav"><div class="wrap">
 <a href="#included">送料込み比較</a>
@@ -740,6 +846,7 @@ def category_page(category: dict, included: list[dict], other: list[dict], updat
 <main class="wrap">"""
     )
     parts.append(category_summary(category, included, other))
+    parts.append(top3_html(included, category))
     parts.append(
         '<div id="included">'
         + comparison_table(
@@ -786,14 +893,22 @@ def home_page(results: dict, updated: datetime) -> str:
         )
     ]
     parts.append(
-        f"""<header><div class="wrap">
+        f"""<header><div class="wrap hero-layout">
+<div>
 <span class="brand">FOOD COST</span>
-<h1>食品は「いくら」より<br>「1単位いくら」で比べる。</h1>
-<p class="lead">容量・本数・食数・セット数をそろえて、同じものさしで比較。商品価格だけでは見えにくい「本当に安い」を探せます。</p>
-<div class="hero-tags"><span class="hero-tag">送料込みを優先</span><span class="hero-tag">数量曖昧は除外</span><span class="hero-tag">毎回楽天から再取得</span></div>
+<div class="eyebrow">かしこく買うための食品比較</div>
+<h1>値札より、<br>「ほんとの単価」を見よう。</h1>
+<p class="lead">容量・本数・食数・セット数を同じものさしにそろえて比較。家計にうれしい商品を、数字だけでなく見た目でも探しやすくしました。</p>
+<div class="hero-tags"><span class="hero-tag">送料込みを優先</span><span class="hero-tag">数量曖昧は除外</span><span class="hero-tag">楽天価格を再取得</span></div>
 <p class="note">最終価格確認: {updated:%Y-%m-%d %H:%M} JST</p>
+</div>
+{hero_illustrations()}
 </div></header>
-<main class="wrap"><section class="grid">"""
+<main class="wrap">
+<section class="section">
+<div class="section-kicker">CHOOSE A CATEGORY</div>
+<h2>まず、比べたい食品を選ぶ。</h2>
+<section class="grid">"""
     )
     for category in CATEGORIES:
         included, _ = results[category["id"]]
@@ -803,17 +918,23 @@ def home_page(results: dict, updated: datetime) -> str:
             if best is not None else "比較データを準備中"
         )
         parts.append(
-            f"""<a class="card category-card" href="categories/{category['id']}/">
+            f"""<a class="card category-card {category['id']}" href="categories/{category['id']}/">
+<div class="category-art">{category_illustration(category["id"], True)}</div>
+<div class="category-copy">
 <div class="category-name">{category['emoji']} {category['name']}</div>
 <div class="category-price">{html.escape(message.replace('取得商品では ', ''))}</div>
 <div class="category-meta">送料込み {len(included)}件を比較中</div>
 <p>{html.escape(category['intro'])}</p>
 <span class="category-go">ランキングを見る →</span>
+</div>
 </a>"""
         )
     parts.append(
-        """</section>
-<section class="section explain">
+        """</section></section>"""
+    )
+    parts.append(comparison_flow_html())
+    parts.append(
+        """<section class="section explain">
 <h2>このサイトの比較ルール</h2>
 <p>送料込み確認済みを主ランキングにし、送料別は別枠。容量・数量が曖昧な商品は無理に計算しません。定期便・初回限定価格も通常ランキングへ混ぜません。</p>
 <ul class="guide-list">
