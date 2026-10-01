@@ -528,84 +528,21 @@ gtag('config','{safe}',{{site_id:'{SITE_ID}'}});
 
 
 def category_illustration(category_id: str, compact: bool = False) -> str:
-    """Inline SVG illustrations: original, lightweight, and dependency-free."""
-    common = 'viewBox="0 0 240 180" role="img" aria-hidden="true" focusable="false"'
-    if category_id == "rice":
-        art = f"""<svg {common} class="food-art" xmlns="http://www.w3.org/2000/svg">
-<ellipse cx="122" cy="151" rx="78" ry="12" fill="#000" opacity=".06"/>
-<path d="M67 45h94l13 99H54L67 45Z" fill="#FFF8DE" stroke="#8A7130" stroke-width="5"/>
-<path d="M73 45c8-18 74-18 82 0" fill="#F1D978" stroke="#8A7130" stroke-width="5"/>
-<path d="M91 92c18-21 44-21 62 0-16 11-47 11-62 0Z" fill="#fff" stroke="#8A7130" stroke-width="4"/>
-<path d="M122 69c-8 13-12 24-10 34M125 68c8 13 12 24 10 34" stroke="#84A657" stroke-width="4" stroke-linecap="round"/>
-<text x="120" y="126" text-anchor="middle" font-size="18" font-weight="800" fill="#66531F">おこめ</text>
-<circle cx="48" cy="65" r="11" fill="#D8E8B5"/><circle cx="183" cy="75" r="8" fill="#F2D870"/>
-</svg>"""
-    elif category_id == "pack-rice":
-        art = f"""<svg {common} class="food-art" xmlns="http://www.w3.org/2000/svg">
-<ellipse cx="121" cy="151" rx="82" ry="12" fill="#000" opacity=".06"/>
-<rect x="48" y="72" width="144" height="70" rx="18" fill="#FFF0DD" stroke="#B8793D" stroke-width="5"/>
-<rect x="61" y="54" width="118" height="39" rx="14" fill="#fff" stroke="#B8793D" stroke-width="5"/>
-<path d="M75 79c16-24 73-24 91 0" fill="#fff" stroke="#D4B08B" stroke-width="4"/>
-<circle cx="91" cy="71" r="5" fill="#F0E5D8"/><circle cx="113" cy="64" r="5" fill="#F0E5D8"/><circle cx="137" cy="69" r="5" fill="#F0E5D8"/><circle cx="154" cy="76" r="4" fill="#F0E5D8"/>
-<path d="M79 111h82" stroke="#E3B87F" stroke-width="6" stroke-linecap="round"/>
-<path d="M85 126h58" stroke="#E3B87F" stroke-width="6" stroke-linecap="round"/>
-<path d="M183 37c11 9 11 20 0 29M198 28c14 13 14 31 0 44" fill="none" stroke="#F2B56E" stroke-width="5" stroke-linecap="round"/>
-</svg>"""
-    elif category_id == "carbonated-water":
-        art = f"""<svg {common} class="food-art" xmlns="http://www.w3.org/2000/svg">
-<ellipse cx="120" cy="154" rx="72" ry="10" fill="#000" opacity=".06"/>
-<path d="M89 51h52l9 91c1 8-5 14-13 14H93c-8 0-14-6-13-14l9-91Z" fill="#DCF7FF" stroke="#4C9CB8" stroke-width="5"/>
-<rect x="96" y="30" width="38" height="28" rx="8" fill="#8AD5EA" stroke="#4C9CB8" stroke-width="5"/>
-<rect x="95" y="82" width="48" height="38" rx="12" fill="#fff" opacity=".8"/>
-<circle cx="109" cy="101" r="7" fill="#7ED5EF"/><circle cx="129" cy="94" r="5" fill="#7ED5EF"/><circle cx="124" cy="113" r="4" fill="#7ED5EF"/>
-<circle cx="171" cy="51" r="10" fill="#B9ECFA"/><circle cx="188" cy="78" r="6" fill="#B9ECFA"/><circle cx="58" cy="73" r="8" fill="#B9ECFA"/>
-</svg>"""
-    else:
-        art = f"""<svg {common} class="food-art" xmlns="http://www.w3.org/2000/svg">
-<ellipse cx="120" cy="151" rx="79" ry="11" fill="#000" opacity=".06"/>
-<path d="M57 88h126c-5 42-25 62-63 62S62 130 57 88Z" fill="#F7E2C5" stroke="#9A7045" stroke-width="5"/>
-<path d="M70 87c12-25 90-25 102 0" fill="#DDBB8B" stroke="#9A7045" stroke-width="5"/>
-<ellipse cx="93" cy="79" rx="10" ry="6" fill="#F8EACF"/><ellipse cx="119" cy="74" rx="11" ry="6" fill="#F8EACF"/><ellipse cx="145" cy="80" rx="9" ry="5" fill="#F8EACF"/>
-<path d="M164 34c-13 15-25 36-32 58" stroke="#717B61" stroke-width="7" stroke-linecap="round"/>
-<circle cx="169" cy="30" r="8" fill="#A9B68E"/>
-</svg>"""
-    return art.replace('class="food-art"', 'class="food-art compact"') if compact else art
+    cls = "food-art compact" if compact else "food-art"
+    return f'<img class="{cls}" src="{SITE_URL}assets/marche-{category_id}.webp" width="768" height="512" alt="" loading="lazy">'
 
 
 def hero_illustrations() -> str:
-    items = "".join(
-        f'<div class="hero-art-item {category["id"]}">{category_illustration(category["id"], True)}</div>'
-        for category in CATEGORIES
-    )
-    return f'<div class="hero-art-grid" aria-hidden="true">{items}</div>'
+    return hero_visual()
 
 
 def guide_mascot(compact: bool = False) -> str:
     cls = "guide-mascot compact" if compact else "guide-mascot"
-    return f"""<svg class="{cls}" viewBox="0 0 300 260" role="img" aria-label="食品コスパ比較の案内役" xmlns="http://www.w3.org/2000/svg">
-<ellipse cx="150" cy="232" rx="92" ry="15" fill="#173F31" opacity=".08"/>
-<path d="M69 91h153l-15 103c-2 14-14 24-28 24h-58c-14 0-26-10-28-24L69 91Z" fill="#F4D88A" stroke="#315A43" stroke-width="7"/>
-<path d="M104 90c4-35 88-35 92 0" fill="none" stroke="#315A43" stroke-width="8" stroke-linecap="round"/>
-<rect x="111" y="118" width="78" height="69" rx="14" fill="#FFFDF8" stroke="#315A43" stroke-width="6"/>
-<rect x="126" y="132" width="48" height="15" rx="5" fill="#DDEDDC"/>
-<circle cx="131" cy="163" r="6" fill="#6FA37E"/><circle cx="150" cy="163" r="6" fill="#6FA37E"/><circle cx="169" cy="163" r="6" fill="#6FA37E"/>
-<circle cx="122" cy="104" r="6" fill="#315A43"/><circle cx="180" cy="104" r="6" fill="#315A43"/>
-<path d="M139 108c6 8 16 8 22 0" fill="none" stroke="#315A43" stroke-width="5" stroke-linecap="round"/>
-<circle cx="61" cy="55" r="24" fill="#DDF4E5"/><text x="61" y="63" text-anchor="middle" font-size="22">¥</text>
-<circle cx="236" cy="56" r="25" fill="#DDF3FA"/><text x="236" y="64" text-anchor="middle" font-size="22">÷</text>
-<path d="M82 61c14 7 21 16 25 27M216 63c-12 8-19 16-23 27" fill="none" stroke="#9EC4AA" stroke-width="4" stroke-linecap="round"/>
-</svg>"""
+    return f'<img class="{cls}" src="{SITE_URL}assets/marche-rice.webp" width="768" height="512" alt="" loading="lazy">'
 
 
 def hero_visual() -> str:
-    return f"""<div class="hero-visual" aria-hidden="true">
-<div class="mascot-bubble">同じ単位にそろえて<br><strong>安い順にするよ</strong></div>
-{guide_mascot()}
-<div class="hero-food-chip chip-rice">🌾 1kg</div>
-<div class="hero-food-chip chip-water">🫧 1L</div>
-<div class="hero-food-chip chip-pack">🍚 1食</div>
-<div class="hero-food-chip chip-oats">🥣 100g</div>
-</div>"""
+    return f'<div class="hero-visual"><img class="hero-scene" src="{SITE_URL}assets/marche-hero.webp" width="1440" height="960" alt="籐かごと米袋、炭酸水、オートミールが並ぶマルシェの店先" fetchpriority="high"><span class="hero-caption">A little market, a better everyday.</span></div>'
 
 
 BRAND_HINTS = [
@@ -658,7 +595,7 @@ def price_history_badges(item: dict) -> str:
             f'<span class="trend-badge drop">↓ ¥{abs(int(delta)):,} {html.escape(label)}</span>'
         )
     if history.get("is_30d_low"):
-        parts.append('<span class="trend-badge low">✨ 30日最安</span>')
+        parts.append('<span class="trend-badge low">30日最安</span>')
     return "".join(parts)
 
 
@@ -757,7 +694,7 @@ def price_signal_html(item: dict) -> str:
 </div>"""
 
 
-def product_history_details(item: dict, label: str = "価格履歴・買い時を見る") -> str:
+def product_history_details(item: dict, label: str = "価格のうごきを見る") -> str:
     return f"""<details class="product-extra" data-product-extra>
 <summary>{html.escape(label)} <span>＋</span></summary>
 <div class="product-extra-body">{sparkline_svg(item)}{price_signal_html(item)}</div>
@@ -776,16 +713,16 @@ def home_start_hub(results: dict) -> str:
     deals, has_history = deal_entries(results)
     deal_meta = f"{len(deals)}件の値下がり" if deals else ("価格履歴を確認" if has_history else "価格履歴を蓄積中")
     return f"""<section class="section start-hub" aria-label="探し方を選ぶ">
-<div class="start-hub-head"><div><div class="section-kicker">START HERE</div><h2>今日は、どう探す？</h2></div><span>迷ったら真ん中の診断がおすすめ</span></div>
+<div class="start-hub-head"><div><div class="section-kicker">START HERE</div><h2>今日は、どう探す？</h2></div><span>お気に入りを見つけに</span></div>
 <div class="start-grid">
 <a class="start-card deal-start" href="deals/" data-start-route="deals">
-<div class="start-icon">↓</div><div><small>値下がりから</small><strong>今日のお買い得</strong><p>{html.escape(deal_meta)}</p></div><b>見る →</b>
+<div class="start-icon">01</div><div><small>TODAY’S PICKS</small><strong>今日のお買い得</strong><p>{html.escape(deal_meta)}</p></div><b>見る →</b>
 </a>
 <a class="start-card finder-start featured" href="#quick-finder" data-start-route="finder">
-<div class="start-icon">◎</div><div><small>2問で候補まで</small><strong>買い方診断</strong><p>食品と買い方を選ぶだけ</p></div><b>診断する →</b>
+<div class="start-icon">02</div><div><small>SHOPPING GUIDE</small><strong>買い方診断</strong><p>食品と買い方を選ぶだけ</p></div><b>診断する →</b>
 </a>
 <a class="start-card category-start" href="#categories" data-start-route="categories">
-<div class="start-icon">▦</div><div><small>いつもの食品から</small><strong>カテゴリ比較</strong><p>4カテゴリを単価順で</p></div><b>選ぶ →</b>
+<div class="start-icon">03</div><div><small>MARKET AISLES</small><strong>カテゴリ比較</strong><p>4カテゴリを単価順で</p></div><b>選ぶ →</b>
 </a>
 </div>
 </section>"""
@@ -862,7 +799,7 @@ def deal_card_html(category: dict, item: dict, position: str = "today_deal") -> 
 <div class="deal-price-row"><span class="deal-was">¥{history["previous_price"]:,}</span><strong>¥{item["price"]:,}</strong></div>
 <div class="deal-saving">{html.escape(label)} ¥{abs(int(history["price_delta"])):,}安い</div>
 <div class="deal-unit">{yen(primary)} <small>{html.escape(category["primary_label"])}</small></div>
-{product_history_details(item, "価格履歴を詳しく見る")}
+{product_history_details(item, "価格のうごきを見る")}
 {product_action_buttons(item, category, primary)}
 <a class="cta" href="{html.escape(item["url"], quote=True)}" target="_blank" rel="nofollow sponsored noopener"
  data-affiliate="rakuten" data-position="{html.escape(position, quote=True)}" data-category="{category['id']}" data-product-id="{html.escape(item['id'], quote=True)}"
@@ -885,7 +822,7 @@ def deals_page(results: dict, updated: datetime) -> str:
     if deals:
         cards = "".join(deal_card_html(category, item, "deals_page") for _, _, _, category, item in deals)
         body = f"""<section class="section deal-section">
-<div class="section-kicker">TODAY'S DEALS</div>
+<div class="section-kicker">TODAY’S PICKS</div>
 <h2>実際に値下がりした商品 {len(deals)}件</h2>
 <p class="sub">同じ楽天商品IDかつ同じ容量構成だけを過去価格と比較しています。</p>
 <div class="deal-grid">{cards}</div>
@@ -925,7 +862,7 @@ def today_deals_html(results: dict) -> str:
             "前回取得価格より下がった商品だけをここに表示します。値下がりがない日は無理におすすめを作りません。"
         )
         return f"""<section class="section deal-section">
-<div class="section-kicker">TODAY'S DEALS</div><h2>今日のお買い得</h2>
+<div class="section-kicker">TODAY’S PICKS</div><h2>今日のお買い得</h2>
 <div class="deal-empty">{guide_mascot(True)}<div><strong>{title}</strong><p>{text}</p>
 <a class="deal-more" href="deals/">価格履歴ページを見る →</a></div></div>
 </section>"""
@@ -935,7 +872,7 @@ def today_deals_html(results: dict) -> str:
         for _, _, _, category, item in deals[:6]
     )
     return f"""<section class="section deal-section">
-<div class="section-kicker">TODAY'S DEALS</div>
+<div class="section-kicker">TODAY’S PICKS</div>
 <h2>今日のお買い得</h2>
 <p class="sub">前回取得時より実際に価格が下がった商品だけを表示。容量構成が変わった商品は比較しません。</p>
 <div class="deal-grid">{cards}</div>
@@ -1012,7 +949,7 @@ def product_action_buttons(item: dict, category: dict, primary: float) -> str:
         f'data-product-image="{html.escape(item["image"] or "", quote=True)}"'
     )
     return f"""<div class="product-actions">
-<button type="button" class="utility-btn" data-save-product {attrs}>♡ あとで見る</button>
+<button type="button" class="utility-btn" data-save-product {attrs}>＋ 買い物メモ</button>
 <button type="button" class="utility-btn" data-compare-product {attrs}>＋ 比較する</button>
 </div>"""
 
@@ -1029,16 +966,16 @@ def category_insights_html(category: dict, items: list[dict]) -> str:
     large_best = min(large_items, key=lambda x: x["unit_prices"][metric]) if large_items else None
     diff = max(0, third - best)
     large_html = (
-        f"""<div class="insight-card"><span>📦 大容量側の注目</span><strong>{yen(large_best["unit_prices"][metric])}</strong><small>{html.escape(category["primary_label"])}</small></div>"""
+        f"""<div class="insight-card"><span>大容量側の注目</span><strong>{yen(large_best["unit_prices"][metric])}</strong><small>{html.escape(category["primary_label"])}</small></div>"""
         if large_best else
-        """<div class="insight-card"><span>📦 大容量側</span><strong>—</strong><small>現在候補なし</small></div>"""
+        """<div class="insight-card"><span>大容量側</span><strong>—</strong><small>現在候補なし</small></div>"""
     )
     return f"""<section class="section insight-section">
 <div class="section-kicker">PRICE SNAPSHOT</div>
 <h2>いまの価格差をひと目で。</h2>
 <div class="insight-grid">
 <div class="insight-card"><span>🥇 1位と3位の差</span><strong>{yen(diff)}</strong><small>{html.escape(category["primary_label"])}の差</small></div>
-<div class="insight-card"><span>💴 支払総額が低い候補</span><strong>¥{cheapest_total["price"]:,}</strong><small>{html.escape(quantity_text(cheapest_total, category["id"]))}</small></div>
+<div class="insight-card"><span>支払総額が低い候補</span><strong>¥{cheapest_total["price"]:,}</strong><small>{html.escape(quantity_text(cheapest_total, category["id"]))}</small></div>
 {large_html}
 </div>
 <p class="fine">単価だけでなく、支払総額や保管量も見て選べます。価格は取得時点の参考値です。</p>
@@ -1076,17 +1013,17 @@ def item_list_json_ld(items: list[dict], category: dict, limit: int = 10) -> str
 
 
 def utility_panels_html() -> str:
-    return """<button class="saved-fab" type="button" data-open-saved>♡ あとで見る <span data-saved-count>0</span></button>
+    return f"""<button class="saved-fab" type="button" data-open-saved>＋ 買い物メモ <span data-saved-count>0</span></button>
 <div class="compare-bar" data-compare-bar hidden>
-<div><strong>比較する商品</strong><span data-compare-summary>0/3</span></div>
+<div><strong>比べるかご</strong><span data-compare-summary>0/3</span></div>
 <div class="compare-bar-items" data-compare-bar-items></div>
-<button type="button" class="compare-open" data-open-compare>比較を見る</button>
+<button type="button" class="compare-open" data-open-compare>選んだ商品を比べる</button>
 <button type="button" class="compare-clear" data-clear-compare>クリア</button>
 </div>
 <div class="utility-modal" data-saved-modal hidden>
 <div class="utility-sheet">
 <button class="utility-close" type="button" data-close-saved>×</button>
-<div class="section-kicker">SAVED</div><h2>あとで見る</h2>
+<div class="section-kicker">SAVED</div><h2>買い物メモ</h2>
 <p><a class="saved-watch-link" href="{SITE_URL}saved/">保存商品の値下がり・価格履歴を見る →</a></p>
 <div data-saved-list></div>
 </div></div>
@@ -1105,7 +1042,7 @@ def top3_html(items: list[dict], category: dict) -> str:
         return ""
     cards = []
     labels = ["いまの最安", "2位", "3位"]
-    medal = ["🥇", "🥈", "🥉"]
+    medal = ["01", "02", "03"]
     best_primary = items[0]["unit_prices"][category["primary"]]
     for index, item in enumerate(items[:3]):
         rank = index + 1
@@ -1136,7 +1073,7 @@ def top3_html(items: list[dict], category: dict) -> str:
 </article>""")
     return f"""<section class="section podium-section">
 <div class="section-kicker">まずはここから</div>
-<h2>送料込み TOP{min(3, len(items))}</h2>
+<h2>今日のおすすめ棚 <small>送料込み TOP{min(3, len(items))}</small></h2>
 <p class="sub">現在取得できた商品の中で、{html.escape(category["primary_label"])}が安い順です。</p>
 <div class="podium-grid">{''.join(cards)}</div>
 </section>"""
@@ -1147,7 +1084,7 @@ def choice_finder_html(results: dict) -> str:
         f"""<button class="finder-category {category['id']}" type="button"
  data-finder-category="{category['id']}" data-finder-name="{html.escape(category['name'], quote=True)}">
 <span class="finder-art">{category_illustration(category['id'], True)}</span>
-<span>{category['emoji']} {html.escape(category['name'])}</span>
+<span>{html.escape(category['name'])}</span>
 </button>"""
         for category in CATEGORIES
     )
@@ -1162,32 +1099,32 @@ def choice_finder_html(results: dict) -> str:
                 for index, item in enumerate(picks, start=1)
             )
             panels.append(f"""<div class="finder-picks" data-finder-picks="{category['id']}:{purpose}" hidden>
-<div class="finder-picks-head"><span>あなた向け</span><strong>{category['emoji']} {html.escape(category['name'])} × {labels[purpose]}</strong></div>
+<div class="finder-picks-head"><span>あなた向け</span><strong>{html.escape(category['name'])} × {labels[purpose]}</strong></div>
 <div class="finder-products">{cards}</div>
 <a class="finder-all" href="categories/{category['id']}/?pick={purpose}#included">この条件の商品を全部見る →</a>
 </div>""")
     return f"""<section class="section finder" id="quick-finder" data-finder>
 <div class="finder-intro">
 <div>
-<div class="section-kicker">QUICK FINDER</div>
-<h2>2回選ぶだけ。候補まで出します。</h2>
-<p class="sub">食品と買い方を選ぶと、今の楽天データからおすすめ候補を表示します。</p>
+<div class="section-kicker">YOUR SHOPPING GUIDE</div>
+<h2>今日は何を探していますか？</h2>
+<p class="sub">食品と買い方を、ひとつずつ。あなたに合う候補を棚に並べます。</p>
 </div>
 <div class="finder-guide">{guide_mascot(True)}<span>選んでみて</span></div>
 </div>
 <div class="finder-stage" data-finder-category-stage>
-<div class="finder-question"><span>Q1</span><strong>何を買う？</strong></div>
+<div class="finder-question"><span>Q1</span><strong>まずは、食品を選びましょう。</strong></div>
 <div class="finder-options finder-category-options">{choices}</div>
 </div>
 <div class="finder-stage" data-finder-purpose-stage hidden>
 <button class="finder-back" type="button" data-finder-back>← 食品を選び直す</button>
 <div class="finder-question"><span>Q2</span><strong data-finder-question-title>どんな買い方？</strong></div>
 <div class="finder-options finder-purpose-options">
-<button type="button" data-finder-purpose="cheap">💰 <span><strong>単価重視</strong><small>とにかく安い順で</small></span></button>
-<button type="button" data-finder-purpose="small">🧺 <span><strong>少量で</strong><small>置き場所・買いやすさ重視</small></span></button>
-<button type="button" data-finder-purpose="large">📦 <span><strong>まとめ買い</strong><small>大容量から選ぶ</small></span></button>
-<button type="button" data-finder-purpose="budget">💴 <span><strong>支払総額を抑える</strong><small>まず安く買える商品から</small></span></button>
-<button type="button" data-finder-purpose="storage">🏠 <span><strong>保管しやすさ</strong><small>置き場所を取りにくい量から</small></span></button>
+<button type="button" data-finder-purpose="cheap"><span><strong>単価重視</strong><small>とにかく安い順で</small></span></button>
+<button type="button" data-finder-purpose="small"><span><strong>少量で</strong><small>置き場所・買いやすさ重視</small></span></button>
+<button type="button" data-finder-purpose="large"><span><strong>まとめ買い</strong><small>大容量から選ぶ</small></span></button>
+<button type="button" data-finder-purpose="budget"><span><strong>支払総額を抑える</strong><small>まず安く買える商品から</small></span></button>
+<button type="button" data-finder-purpose="storage"><span><strong>保管しやすさ</strong><small>置き場所を取りにくい量から</small></span></button>
 </div>
 </div>
 <div class="finder-stage finder-result-stage" data-finder-result-stage hidden>
@@ -1199,7 +1136,7 @@ def choice_finder_html(results: dict) -> str:
 def item_badges(item: dict, category: dict, rank: int) -> str:
     badges = []
     if rank == 1 and item["postage_included"]:
-        badges.append('<span class="tag best">👑 最安候補</span>')
+        badges.append('<span class="tag best">最安候補</span>')
     elif rank <= 3 and item["postage_included"]:
         badges.append('<span class="tag top-badge">TOP3</span>')
     size = bucket(item, category["id"])
@@ -1215,73 +1152,16 @@ def comparison_flow_html() -> str:
 <div class="section-kicker">HOW IT WORKS</div>
 <h2>値札だけでは分からない「本当の安さ」を3ステップで。</h2>
 <div class="flow-grid">
-<div class="flow-card"><div class="flow-icon">🧾</div><strong>1. 商品情報を取得</strong><p>価格・容量・個数・送料条件を楽天の商品情報から確認。</p></div>
+<div class="flow-card"><div class="flow-icon"></div><strong>1. 商品情報を取得</strong><p>価格・容量・個数・送料条件を楽天の商品情報から確認。</p></div>
 <div class="flow-arrow">→</div>
-<div class="flow-card"><div class="flow-icon">⚖️</div><strong>2. 同じ単位にそろえる</strong><p>1食・1kg・1L・100gあたりへ換算して比較できる形に。</p></div>
+<div class="flow-card"><div class="flow-icon"></div><strong>2. 同じ単位にそろえる</strong><p>1食・1kg・1L・100gあたりへ換算して比較できる形に。</p></div>
 <div class="flow-arrow">→</div>
-<div class="flow-card"><div class="flow-icon">🏆</div><strong>3. 安い順で見る</strong><p>数量が曖昧な商品は外し、送料込みの商品を先にランキング。</p></div>
+<div class="flow-card"><div class="flow-icon"></div><strong>3. 安い順で見る</strong><p>数量が曖昧な商品は外し、送料込みの商品を先にランキング。</p></div>
 </div>
 </section>"""
 
 
-CSS = """*{box-sizing:border-box}
-:root{--bg:#f7f4ec;--panel:#fffdf8;--ink:#17211a;--muted:#687068;--line:#e4e0d4;--brand:#246b49;--brand2:#173f31;--brand-soft:#e8f2e9;--warm:#fff0cf;--warm-ink:#825719;--shadow:0 18px 50px rgba(50,60,45,.10)}
-html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(circle at 10% 0,#fff9e9 0,transparent 30%),var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Noto Sans JP",sans-serif;line-height:1.65}
-a{color:inherit}.wrap{width:min(1120px,calc(100% - 28px));margin:auto}
-header{position:relative;overflow:hidden;background:linear-gradient(135deg,#fffdf7 0%,#edf7ee 55%,#fff2d8 100%);border-bottom:1px solid var(--line);padding:42px 0 34px}
-header:after{content:"";position:absolute;right:-90px;top:-120px;width:320px;height:320px;border-radius:50%;background:#ffffff70}
-.hero-layout{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(320px,.95fr);gap:28px;align-items:center;position:relative;z-index:1}
-.brand{font-size:12px;font-weight:950;letter-spacing:.12em;color:var(--brand);text-decoration:none}.eyebrow{display:inline-block;background:#fff;border:1px solid #dce8dd;border-radius:999px;padding:5px 10px;font-size:11px;font-weight:900;color:var(--brand)}
-h1{font-size:clamp(32px,6vw,58px);line-height:1.08;margin:12px 0 16px;letter-spacing:-.035em}h2{font-size:clamp(22px,4vw,30px);line-height:1.3;letter-spacing:-.02em}
-.lead{font-size:clamp(15px,2.2vw,19px);max-width:720px}.lead,.sub,.note{color:var(--muted)}.note{font-size:12px}
-.hero-tags{display:flex;gap:7px;flex-wrap:wrap;margin:18px 0 8px}.hero-tag{font-size:11px;font-weight:850;background:#fff;color:var(--brand);border:1px solid #dce8dd;border-radius:999px;padding:6px 10px}
-.hero-art-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;transform:rotate(1.5deg)}.hero-art-item{min-height:150px;border-radius:28px;display:flex;align-items:center;justify-content:center;box-shadow:var(--shadow);border:1px solid #ffffffbb}.hero-art-item.rice{background:#f3e8b9}.hero-art-item.pack-rice{background:#ffe0bf}.hero-art-item.carbonated-water{background:#d8f2fa}.hero-art-item.oatmeal{background:#ead6be}.food-art{display:block;width:min(100%,250px);height:auto}.food-art.compact{width:min(100%,180px)}
-.nav{position:sticky;top:0;background:#fffdf8ed;border-bottom:1px solid var(--line);z-index:10;backdrop-filter:blur(12px)}.nav .wrap{display:flex;gap:8px;overflow:auto;padding:9px 14px}.nav a{white-space:nowrap;text-decoration:none;border:1px solid var(--line);border-radius:999px;padding:7px 11px;background:#fff;font-size:12px;font-weight:800}
-.section-kicker{font-size:11px;letter-spacing:.12em;font-weight:950;color:var(--brand);text-transform:uppercase}.grid{display:grid;gap:16px;margin:26px 0}.card,.explain,.summary{background:var(--panel);border:1px solid var(--line);border-radius:22px;padding:20px;text-decoration:none;box-shadow:0 8px 24px rgba(50,60,45,.04)}
-.category-card{display:grid;grid-template-columns:155px 1fr;gap:18px;align-items:center;position:relative;overflow:hidden;transition:transform .16s ease,box-shadow .16s ease}.category-card:hover{transform:translateY(-4px);box-shadow:var(--shadow)}.category-card.rice{background:linear-gradient(135deg,#fffdf7,#f3e8b9)}.category-card.pack-rice{background:linear-gradient(135deg,#fffdf7,#ffe0bf)}.category-card.carbonated-water{background:linear-gradient(135deg,#fffdf7,#d8f2fa)}.category-card.oatmeal{background:linear-gradient(135deg,#fffdf7,#ead6be)}
-.category-art{height:150px;display:flex;align-items:center;justify-content:center}.category-copy{min-width:0}.category-name{font-size:19px;font-weight:950}.category-price{font-size:28px;line-height:1.12;color:var(--brand2);font-weight:950;margin:8px 0 2px}.category-meta{font-size:12px;color:var(--muted);font-weight:750}.category-go{display:inline-flex;margin-top:10px;font-size:12px;font-weight:950;color:#fff;background:var(--brand);padding:8px 12px;border-radius:999px}
-.section{margin:34px 0 52px}.toolbar{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0}.toolbar select,.toolbar input{min-height:44px;border:1px solid var(--line);border-radius:12px;background:#fff;padding:0 12px;font-weight:750}.toolbar input{flex:1;min-width:220px}.toolbar input::placeholder{color:#8b918c;font-weight:600}
-.summary{margin:22px 0 14px}.summary-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.summary-item{background:#f5f8f2;border:1px solid #e2e9df;border-radius:16px;padding:14px}.summary-k{font-size:11px;color:var(--muted);font-weight:850}.summary-v{font-size:23px;font-weight:950;color:var(--brand);margin-top:3px}
-.podium-section{background:linear-gradient(135deg,#173f31,#2b7754);color:#fff;border-radius:28px;padding:26px;box-shadow:var(--shadow)}.podium-section .sub{color:#dcebe2}.podium-section .section-kicker{color:#d9f1df}.podium-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.podium-card{background:#fff;color:var(--ink);border-radius:20px;padding:15px;display:flex;flex-direction:column;min-width:0}.podium-card.rank-1{transform:translateY(-5px);box-shadow:0 14px 32px rgba(0,0,0,.18)}.podium-head{display:flex;align-items:center;gap:6px;font-size:12px;font-weight:950}.podium-medal{font-size:23px}.podium-media{height:115px;display:flex;align-items:center;justify-content:center;margin:8px 0}.podium-img{max-width:100%;max-height:110px;object-fit:contain}.podium-name{font-size:13px;line-height:1.45;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}.podium-unit{font-size:28px;color:var(--brand);font-weight:950;margin-top:10px}.podium-label,.podium-detail{font-size:11px;color:var(--muted)}.podium-detail{margin:6px 0 10px}.podium-cta{margin-top:auto}
-.table{overflow:auto;background:#fff;border:1px solid var(--line);border-radius:18px}table{border-collapse:collapse;width:100%;min-width:800px}th,td{padding:11px;border-bottom:1px solid #ebe9e0;text-align:left;font-size:12px;vertical-align:top}th{background:#f3f5ef;font-size:11px;color:#56615a}
-.product-name{display:block;font-size:13px;line-height:1.45}.shop{color:var(--muted);margin:4px 0 6px}.product-img{width:72px;height:72px;object-fit:contain;border-radius:12px;background:#fff}.rank{font-size:15px;font-weight:950}.rank.top{display:inline-flex;width:30px;height:30px;align-items:center;justify-content:center;border-radius:50%;background:var(--brand);color:#fff}.unit{font-size:20px;font-weight:950;color:var(--brand);white-space:nowrap}.unit-label{font-size:10px;color:var(--muted);font-weight:750}.secondary-unit{font-size:11px;color:#536058;margin-top:3px}
-.tag{display:inline-block;border-radius:999px;padding:3px 7px;font-size:10px;font-weight:850;margin:2px 2px 0 0}.ok{background:var(--brand-soft);color:var(--brand)}.warn{background:var(--warm);color:var(--warm-ink)}.cta{display:inline-flex;justify-content:center;align-items:center;min-height:40px;padding:0 11px;border-radius:11px;background:var(--brand);color:#fff;text-decoration:none;font-weight:900;white-space:nowrap}
-.guide-list{margin:10px 0 0;padding-left:20px}.guide-list li{margin:7px 0}.fine{font-size:11px;color:var(--muted)}.other-categories{display:flex;gap:8px;flex-wrap:wrap}.other-categories a{border:1px solid var(--line);background:#fff;border-radius:999px;padding:8px 11px;text-decoration:none;font-size:12px;font-weight:850}.empty-filter{display:none;background:#fff;border:1px dashed var(--line);border-radius:14px;padding:18px;color:var(--muted);text-align:center}
-.flow-section{padding:28px;border-radius:28px;background:#fffdf8;border:1px solid var(--line);box-shadow:var(--shadow)}.flow-grid{display:grid;grid-template-columns:1fr 42px 1fr 42px 1fr;align-items:stretch;gap:8px;margin-top:18px}.flow-card{border-radius:18px;background:#f7f6ef;padding:18px}.flow-card strong{display:block;font-size:15px}.flow-card p{font-size:12px;color:var(--muted);margin-bottom:0}.flow-icon{font-size:30px;margin-bottom:8px}.flow-arrow{display:flex;align-items:center;justify-content:center;color:var(--brand);font-size:26px;font-weight:950}
-.category-hero-art{background:#fff;border:1px solid #ffffffaa;border-radius:26px;min-height:245px;display:flex;align-items:center;justify-content:center;box-shadow:var(--shadow)}
-.finder{background:linear-gradient(135deg,#fffdf8,#f2f7ec);border:1px solid var(--line);border-radius:30px;padding:28px;box-shadow:var(--shadow)}.finder-step{display:grid;grid-template-columns:38px 1fr;gap:12px;align-items:start;margin-top:20px}.finder-number{width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:var(--brand);color:#fff;font-weight:950}.finder-options{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}.finder-options button{border:1px solid var(--line);background:#fff;border-radius:16px;padding:10px 14px;font-weight:850;cursor:pointer;color:var(--ink);transition:.15s}.finder-options button:hover,.finder-options button.selected{border-color:var(--brand);box-shadow:0 8px 22px rgba(36,107,73,.12);transform:translateY(-1px)}.finder-category{display:flex;align-items:center;gap:8px}.finder-art{width:52px;height:42px;display:inline-flex;align-items:center;justify-content:center}.finder-art .food-art{max-width:58px;max-height:46px}.finder-step-muted{opacity:.52;transition:.15s}.finder-step-muted.active{opacity:1}.finder-result{margin-top:22px;background:var(--brand2);color:#fff;border-radius:20px;padding:16px;display:flex;align-items:center;justify-content:space-between;gap:18px}.finder-result[hidden]{display:none}.finder-result-label{display:block;font-size:10px;font-weight:900;color:#cde4d7;letter-spacing:.08em}.finder-result strong{display:block;font-size:18px;margin-top:2px}.finder-result p{margin:3px 0 0;color:#dcebe2;font-size:12px}.finder-go{background:#fff;color:var(--brand2);border-radius:12px;padding:11px 14px;text-decoration:none;font-weight:950;white-space:nowrap}.best{background:#ffe7a6;color:#725000}.top-badge{background:#e9edf8;color:#43527a}.lifestyle{background:#eee9ff;color:#58488d}.product-badges{margin-top:4px}.podium-badges{min-height:24px;margin-top:4px}.podium-diff{display:inline-block;align-self:flex-start;margin-top:7px;background:#eef5ee;color:var(--brand);border-radius:999px;padding:3px 7px;font-size:10px;font-weight:900}
-
-.hero-visual{position:relative;min-height:350px;display:flex;align-items:center;justify-content:center}.hero-visual .guide-mascot{width:min(90%,330px);filter:drop-shadow(0 20px 25px rgba(23,63,49,.13))}.guide-mascot.compact{width:95px;height:auto}.mascot-bubble{position:absolute;right:8px;top:12px;background:#fff;border:1px solid #dce8dd;border-radius:20px 20px 20px 5px;padding:12px 15px;font-size:12px;line-height:1.4;box-shadow:0 12px 28px rgba(40,60,45,.08);z-index:2}.hero-food-chip{position:absolute;background:#fff;border:1px solid #e2e6dd;border-radius:999px;padding:7px 11px;font-size:12px;font-weight:900;box-shadow:0 10px 24px rgba(50,60,45,.08)}.chip-rice{left:4%;top:18%}.chip-water{right:2%;bottom:26%}.chip-pack{left:0;bottom:24%}.chip-oats{right:8%;top:31%}
-.identity-line{display:flex;align-items:center;gap:5px;flex-wrap:wrap;margin:2px 0 6px}.brand-chip,.spec-chip{display:inline-flex;align-items:center;border-radius:999px;padding:3px 7px;font-size:9px;font-weight:900}.brand-chip{background:#e8f2e9;color:var(--brand)}.spec-chip{background:#f1eee5;color:#625f56}.product-name,.podium-name,.finder-product-name,.deal-name{display:-webkit-box;-webkit-box-orient:vertical;overflow:hidden;line-height:1.45}.product-name{font-size:13px;-webkit-line-clamp:2}.podium-name{font-size:13px;-webkit-line-clamp:2}.finder-product-name{font-size:12px;-webkit-line-clamp:2}.deal-name{font-size:13px;font-weight:950;-webkit-line-clamp:2}.trend-row{display:flex;gap:5px;flex-wrap:wrap;min-height:0;margin:4px 0}.trend-badge{display:inline-flex;border-radius:999px;padding:4px 7px;font-size:9px;font-weight:950}.trend-badge.drop{background:#e6f4e8;color:#1d6b3d}.trend-badge.low{background:#fff0c9;color:#7b570b}
-.history-card{background:#f7f9f5;border:1px solid #e1e7df;border-radius:14px;padding:9px 10px;margin:7px 0}.history-toolbar{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:7px}.history-tabs{display:flex;gap:4px}.history-tabs button{border:1px solid #dfe5de;background:#fff;border-radius:999px;padding:4px 8px;font-size:9px;font-weight:900;color:#667068;cursor:pointer}.history-tabs button.selected{background:var(--brand);border-color:var(--brand);color:#fff}.history-trend{font-size:9px;font-weight:950;border-radius:999px;padding:4px 7px}.history-trend.down{background:#e8f5eb;color:#1d6b3d}.history-trend.up{background:#fff0e7;color:#8a4a27}.history-trend.stable{background:#eef1ed;color:#5d685f}.history-range-panel[hidden]{display:none}.history-head{display:flex;justify-content:space-between;align-items:center;gap:8px}.history-head strong{font-size:10px}.history-head span{font-size:9px;color:var(--muted)}.history-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin:7px 0}.history-stats-4{grid-template-columns:repeat(4,1fr)}.history-stats>div{min-width:0}.history-stats span{display:block;font-size:8px;color:var(--muted);font-weight:800}.history-stats b{display:block;font-size:11px;color:var(--brand);white-space:nowrap}.history-stats small{display:block;font-size:7px;color:var(--muted);margin-top:1px}.sparkline{width:100%;height:64px;overflow:visible}.sparkline polyline{stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round}.sparkline circle{fill:currentColor}.sparkline.buy{color:#1d6b3d}.sparkline.wait{color:#a55a2a}.sparkline.neutral{color:#6f7d74}.sparkline.buy polyline,.sparkline.wait polyline,.sparkline.neutral polyline{stroke:currentColor}.spark-grid{stroke:#dfe5de;stroke-width:1}.sparkline-empty{font-size:9px;color:#8a918b;background:#f4f5f1;border-radius:9px;padding:7px 8px;display:block;margin:5px 0}.history-pending .history-stats b{font-size:10px}.buy-signal{border-radius:12px;padding:7px 8px;margin:5px 0 8px}.buy-signal span{display:block;font-size:11px;font-weight:950}.buy-signal small{display:block;font-size:9px;line-height:1.35;margin-top:2px}.buy-signal.buy{background:#e8f5eb;color:#1d6b3d}.buy-signal.wait{background:#fff0e7;color:#8a4a27}.buy-signal.neutral{background:#f1f3ef;color:#59645c}.deal-more{display:inline-flex;margin-top:14px;background:#fff;color:var(--brand2);border:1px solid var(--line);border-radius:999px;padding:9px 13px;text-decoration:none;font-size:12px;font-weight:950}
-.deal-section{position:relative;background:linear-gradient(135deg,#fff9e9,#edf7ee);border:1px solid var(--line);border-radius:30px;padding:28px;box-shadow:var(--shadow);overflow:hidden}.deal-section:after{content:"¥";position:absolute;right:-12px;top:-55px;font-size:180px;font-weight:950;color:#fff;opacity:.65;pointer-events:none}.deal-section>*{position:relative;z-index:1}.deal-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:13px;margin-top:16px}.deal-card{background:#fff;border:1px solid #e7e1d5;border-radius:20px;overflow:hidden;display:grid;grid-template-rows:120px 1fr}.deal-media{display:flex;align-items:center;justify-content:center;background:#fafbf7;padding:10px}.deal-media img{max-width:100%;max-height:110px;object-fit:contain}.deal-copy{padding:14px;display:flex;flex-direction:column}.deal-top{display:flex;justify-content:space-between;align-items:flex-start;gap:6px;font-size:10px;font-weight:900;color:var(--brand)}.deal-price-row{display:flex;align-items:baseline;gap:8px;margin-top:8px}.deal-price-row strong{font-size:24px;color:var(--brand)}.deal-was{text-decoration:line-through;color:#90958f;font-size:11px}.deal-saving{font-size:11px;font-weight:950;color:#1d6b3d}.deal-unit{font-size:12px;font-weight:850;margin:2px 0 7px}.deal-unit small{color:var(--muted)}.deal-copy .cta{margin-top:auto}.deal-empty{display:flex;align-items:center;gap:18px;background:#fff;border:1px solid var(--line);border-radius:20px;padding:16px}.deal-empty .guide-mascot{width:90px;flex:0 0 auto}.deal-empty strong{font-size:16px}.deal-empty p{color:var(--muted);margin:4px 0 0;font-size:12px}
-.finder-intro{display:flex;align-items:center;justify-content:space-between;gap:18px}.finder-guide{display:flex;align-items:center;gap:4px;font-size:11px;font-weight:900;color:var(--brand)}.finder-stage{margin-top:18px}.finder-stage[hidden],.finder-picks[hidden]{display:none}.finder-question{display:flex;align-items:center;gap:10px}.finder-question>span{display:inline-flex;width:34px;height:34px;border-radius:50%;align-items:center;justify-content:center;background:var(--brand2);color:#fff;font-size:11px;font-weight:950}.finder-question>strong{font-size:20px}.finder-category-options button{min-width:180px}.finder-purpose-options button{display:flex;align-items:center;gap:9px;font-size:20px;text-align:left}.finder-purpose-options button span{display:flex;flex-direction:column}.finder-purpose-options button strong{font-size:14px}.finder-purpose-options button small{font-size:10px;color:var(--muted);font-weight:700}.finder-back{border:0;background:transparent;color:var(--brand);font-weight:850;padding:0;margin-bottom:12px;cursor:pointer}.finder-picks{margin-top:8px}.finder-picks-head span{display:block;font-size:10px;font-weight:950;color:var(--brand);letter-spacing:.08em}.finder-picks-head strong{font-size:20px}.finder-products{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:14px}.finder-product{display:grid;grid-template-rows:110px 1fr;background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden}.finder-product-media{display:flex;align-items:center;justify-content:center;padding:8px;background:#fafbf7}.finder-product-media img{max-width:100%;max-height:100px;object-fit:contain}.finder-product-copy{position:relative;padding:13px;display:flex;flex-direction:column}.finder-product-copy>strong{font-size:12px;line-height:1.45;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}.finder-product-rank{position:absolute;right:10px;top:-18px;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:var(--brand);color:#fff;font-weight:950}.finder-product-price{font-size:22px;font-weight:950;color:var(--brand);margin-top:10px}.finder-product-price small{font-size:10px;color:var(--muted)}.finder-product-meta{font-size:10px;color:var(--muted);margin:4px 0 7px}.finder-why{font-size:10px;color:#536058;background:#f3f7f2;border-radius:9px;padding:6px 7px;margin-bottom:9px}.finder-why span{display:inline-block;font-weight:950;color:var(--brand);margin-right:5px}.finder-product-copy .cta{margin-top:auto}.finder-all{display:inline-flex;margin-top:12px;color:var(--brand);font-weight:900;text-decoration:none}
-.more-products{margin:28px 0 40px}.more-products>summary{list-style:none;cursor:pointer;background:#fff;border:1px solid var(--line);border-radius:16px;padding:15px 18px;font-weight:950;display:flex;align-items:center;justify-content:space-between;box-shadow:0 5px 16px rgba(50,60,45,.04)}.more-products>summary::-webkit-details-marker{display:none}.more-products[open]>summary span{transform:rotate(45deg)}.more-products .comparison-inner{margin-top:12px}.comparison-inner>h2{margin-top:0}.after-top3{margin-top:-10px}.guide-with-mascot{display:grid;grid-template-columns:1fr 120px;gap:20px;align-items:center}.guide-mini{display:flex;justify-content:center}
-.intent-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}.intent-card{display:flex;flex-direction:column;gap:5px;background:#fff;border:1px solid var(--line);border-radius:18px;padding:16px;text-decoration:none;transition:.15s}.intent-card:hover{transform:translateY(-2px);box-shadow:var(--shadow)}.intent-card span{font-weight:950}.intent-card small{color:var(--muted);line-height:1.45}.intent-card b{color:var(--brand);font-size:12px;margin-top:4px}.insight-section{background:linear-gradient(135deg,#fffdf8,#eef6ee);border:1px solid var(--line);border-radius:24px;padding:24px}.insight-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:14px}.insight-card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:15px}.insight-card span{display:block;font-size:11px;font-weight:850;color:var(--muted)}.insight-card strong{display:block;font-size:25px;color:var(--brand);line-height:1.2;margin-top:5px}.insight-card small{color:var(--muted)}
-.product-actions{display:flex;gap:6px;flex-wrap:wrap;margin:7px 0}.utility-btn{border:1px solid #d7ded7;background:#fff;color:#405048;border-radius:999px;padding:6px 9px;font-size:10px;font-weight:850;cursor:pointer}.utility-btn.active{background:var(--brand-soft);border-color:#9fc4aa;color:var(--brand)}.podium-card .product-actions{margin-top:9px}.podium-card .utility-btn{flex:1}
-.saved-fab{position:fixed;right:16px;bottom:18px;z-index:24;border:0;background:#fff;color:var(--brand2);box-shadow:0 10px 30px rgba(20,40,28,.18);border-radius:999px;padding:11px 15px;font-weight:950;cursor:pointer}.saved-fab span{display:inline-flex;min-width:20px;height:20px;align-items:center;justify-content:center;background:var(--brand);color:#fff;border-radius:50%;font-size:10px;margin-left:4px}
-.compare-bar{position:fixed;left:50%;bottom:16px;transform:translateX(-50%);z-index:23;width:min(760px,calc(100% - 150px));background:var(--brand2);color:#fff;border-radius:18px;padding:10px 12px;display:flex;align-items:center;gap:10px;box-shadow:0 16px 36px rgba(18,39,29,.25)}.compare-bar[hidden]{display:none}.compare-bar>div:first-child{min-width:95px}.compare-bar strong{display:block;font-size:11px}.compare-bar [data-compare-summary]{font-size:10px;color:#cfe1d5}.compare-bar-items{display:flex;gap:5px;overflow:hidden;flex:1}.compare-chip{max-width:150px;background:#ffffff18;border-radius:999px;padding:5px 8px;font-size:10px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.compare-open,.compare-clear{border:0;border-radius:10px;padding:8px 10px;font-weight:900;cursor:pointer}.compare-open{background:#fff;color:var(--brand2)}.compare-clear{background:transparent;color:#d7e5dc}
-.utility-modal{position:fixed;inset:0;background:#10211899;z-index:40;padding:20px;display:flex;align-items:flex-end;justify-content:center}.utility-modal[hidden]{display:none}.utility-sheet{position:relative;width:min(620px,100%);max-height:82vh;overflow:auto;background:#fffdf8;border-radius:24px 24px 12px 12px;padding:24px;box-shadow:0 24px 60px rgba(0,0,0,.25)}.utility-sheet-wide{width:min(920px,100%)}.utility-close{position:absolute;right:16px;top:14px;border:0;background:#eef3ed;width:34px;height:34px;border-radius:50%;font-size:22px;cursor:pointer}.saved-item{display:grid;grid-template-columns:58px 1fr auto;gap:10px;align-items:center;border-top:1px solid var(--line);padding:10px 0}.saved-item img{width:54px;height:54px;object-fit:contain}.saved-item strong{font-size:12px;line-height:1.4}.saved-item small{display:block;color:var(--muted)}.saved-item button{border:0;background:transparent;color:#8a4b45;cursor:pointer}.saved-watch-link{display:inline-flex;background:var(--brand2);color:#fff;border-radius:999px;padding:9px 12px;text-decoration:none;font-size:11px;font-weight:950}.site-toast{position:fixed;left:50%;bottom:95px;transform:translateX(-50%);z-index:60;background:#17211a;color:#fff;border-radius:999px;padding:9px 14px;font-size:11px;font-weight:850;box-shadow:0 10px 28px rgba(0,0,0,.22)}.site-toast[hidden]{display:none}.utility-empty{padding:24px 0;color:var(--muted);text-align:center}.compare-table{width:100%;overflow:auto}.compare-table table{min-width:620px}.compare-table th:first-child{position:sticky;left:0;background:#f3f5ef;z-index:1}.compare-table td:first-child{font-weight:900;background:#fffdf8}.compare-table a{color:var(--brand);font-weight:900}
-.saved-dashboard{background:linear-gradient(135deg,#fffdf8,#eef6ee);border:1px solid var(--line);border-radius:28px;padding:26px;box-shadow:var(--shadow)}.saved-watch-summary{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:16px 0}.saved-watch-summary>div{background:#fff;border:1px solid var(--line);border-radius:16px;padding:14px}.saved-watch-summary span{display:block;font-size:10px;color:var(--muted);font-weight:850}.saved-watch-summary strong{display:block;font-size:24px;color:var(--brand)}.saved-watch-tabs{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}.saved-watch-tabs button{border:1px solid var(--line);background:#fff;border-radius:999px;padding:8px 12px;font-weight:850;cursor:pointer}.saved-watch-tabs button.selected{background:var(--brand);color:#fff;border-color:var(--brand)}.saved-watch-status{font-size:11px;color:var(--muted);margin:10px 0}.saved-watch-list{display:grid;gap:12px}.watch-card{display:grid;grid-template-columns:110px 1fr;gap:14px;background:#fff;border:1px solid var(--line);border-radius:20px;padding:14px}.watch-card.unavailable{grid-template-columns:1fr auto;align-items:center}.watch-media{display:flex;align-items:center;justify-content:center;background:#fafbf7;border-radius:14px}.watch-media img{max-width:100%;max-height:105px;object-fit:contain}.watch-copy h3{font-size:14px;line-height:1.45;margin:6px 0}.watch-top{display:flex;justify-content:space-between;gap:8px;font-size:10px;font-weight:900;color:var(--brand)}.watch-price{display:flex;align-items:baseline;gap:10px}.watch-price strong{font-size:24px;color:var(--brand)}.watch-price span{font-size:10px;color:var(--muted)}.watch-history-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin:8px 0}.watch-history-stats>div{background:#f5f7f2;border-radius:10px;padding:7px}.watch-history-stats span{display:block;font-size:8px;color:var(--muted)}.watch-history-stats b{font-size:10px}.saved-chart{width:100%;height:76px}.watch-actions{display:flex;gap:8px;align-items:center;flex-wrap:wrap}.watch-actions button,.watch-card.unavailable button{border:0;background:transparent;color:#8a4b45;font-size:10px;font-weight:850;cursor:pointer}
-
-.service-shortcuts{width:min(1120px,calc(100% - 28px));margin:12px auto 0;display:flex;justify-content:flex-end;gap:7px;overflow:auto}.service-shortcuts a{display:inline-flex;align-items:center;gap:5px;white-space:nowrap;text-decoration:none;background:#fff;border:1px solid var(--line);border-radius:999px;padding:7px 11px;font-size:11px;font-weight:900;color:#455249;box-shadow:0 4px 14px rgba(50,60,45,.04)}.service-shortcuts a span{color:var(--brand);font-weight:950}
-.start-hub{background:#fffdf8;border:1px solid var(--line);border-radius:30px;padding:24px;box-shadow:var(--shadow)}.start-hub-head{display:flex;align-items:flex-end;justify-content:space-between;gap:18px}.start-hub-head h2{margin:4px 0 0}.start-hub-head>span{font-size:11px;color:var(--muted);font-weight:800}.start-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:18px}.start-card{min-width:0;display:grid;grid-template-columns:48px 1fr auto;align-items:center;gap:11px;border-radius:20px;padding:16px;text-decoration:none;border:1px solid var(--line);transition:transform .15s ease,box-shadow .15s ease}.start-card:hover{transform:translateY(-3px);box-shadow:var(--shadow)}.start-card.deal-start{background:linear-gradient(135deg,#fff7e5,#fffdf8)}.start-card.finder-start{background:linear-gradient(135deg,#eaf6ec,#fffdf8)}.start-card.category-start{background:linear-gradient(135deg,#eef4fa,#fffdf8)}.start-card.featured{border-color:#acd0b6;box-shadow:0 10px 25px rgba(36,107,73,.09)}.start-icon{width:48px;height:48px;border-radius:15px;background:#fff;display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:950;color:var(--brand);box-shadow:0 5px 14px rgba(40,60,45,.06)}.start-card small{display:block;color:var(--muted);font-size:9px;font-weight:850}.start-card strong{display:block;font-size:17px;line-height:1.25}.start-card p{margin:3px 0 0;color:var(--muted);font-size:10px}.start-card>b{font-size:10px;color:var(--brand);white-space:nowrap}
-.journey-strip{display:grid;grid-template-columns:1fr 26px 1fr 26px 1fr 26px 1fr;align-items:center;background:#173f31;color:#fff;border-radius:20px;padding:12px 14px;margin:18px 0 26px;box-shadow:0 8px 22px rgba(23,63,49,.12)}.journey-strip>div{display:grid;grid-template-columns:26px 1fr;column-gap:7px;align-items:center}.journey-strip>div>span{grid-row:1 / span 2;display:flex;width:26px;height:26px;border-radius:50%;align-items:center;justify-content:center;background:#fff;color:var(--brand2);font-size:10px;font-weight:950}.journey-strip strong{font-size:11px}.journey-strip small{font-size:8px;color:#cfe1d5}.journey-strip i{text-align:center;font-style:normal;color:#9fc4aa}
-.product-extra{margin:7px 0;border:1px solid #e3e7df;border-radius:12px;background:#fafbf8;overflow:hidden}.product-extra>summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:8px;padding:8px 10px;font-size:10px;font-weight:900;color:#536058}.product-extra>summary::-webkit-details-marker{display:none}.product-extra>summary span{transition:transform .15s}.product-extra[open]>summary span{transform:rotate(45deg)}.product-extra-body{border-top:1px solid #e7eae4;padding:3px 8px 8px}.product-extra .history-card{margin:5px 0}.product-extra .buy-signal{margin-bottom:2px}
-.faq-section{background:#fffdf8;border:1px solid var(--line);border-radius:24px;padding:24px}.faq-item{border-top:1px solid var(--line);padding:12px 0}.faq-item:first-of-type{border-top:0}.faq-item summary{cursor:pointer;font-weight:900}.faq-item p{color:var(--muted);margin:8px 0 0}
-footer{background:#fff;border-top:1px solid var(--line);padding:30px 0 42px;color:var(--muted);font-size:11px}
-@media(min-width:760px){.grid{grid-template-columns:1fr 1fr}}
-@media(max-width:759px){
- .service-shortcuts{width:calc(100% - 20px);justify-content:flex-start;margin-top:8px;padding-bottom:2px}.service-shortcuts a{padding:6px 9px;font-size:10px}
- .start-hub{padding:18px 12px;border-radius:24px}.start-hub-head{align-items:flex-start}.start-hub-head>span{display:none}.start-grid{grid-template-columns:1fr;gap:8px;margin-top:12px}.start-card{grid-template-columns:42px 1fr auto;padding:11px 12px;border-radius:16px}.start-icon{width:42px;height:42px;border-radius:12px}.start-card strong{font-size:15px}.start-card p{font-size:9px}
- .journey-strip{display:flex;overflow:auto;gap:8px;padding:10px;margin:14px 0 22px;border-radius:16px}.journey-strip>div{flex:0 0 145px}.journey-strip i{flex:0 0 auto}.journey-strip small{display:block}.product-extra{margin:5px 0}.product-extra>summary{padding:7px 9px;font-size:9px}.product-extra-body{padding:2px 6px 7px}
- .wrap{width:min(100% - 20px,1120px)}header{padding:25px 0 20px}.hero-layout{grid-template-columns:1fr;gap:18px}.hero-art-grid{grid-template-columns:1fr 1fr;gap:8px}.hero-art-item{min-height:105px;border-radius:20px}.hero-art-item .food-art{max-height:100px}.category-hero-art{min-height:180px}.category-hero-art .food-art{max-height:175px}
- .grid{grid-template-columns:1fr}.category-card{grid-template-columns:105px 1fr;padding:14px}.category-art{height:110px}.category-art .food-art{max-height:105px}.category-price{font-size:24px}
- .podium-grid{grid-template-columns:1fr}.podium-card{padding:12px}.podium-card.rank-1{transform:none}.podium-media{height:88px;margin:5px 0}.podium-img{max-height:84px}.podium-unit{font-size:25px;margin-top:6px}.podium-detail{margin:4px 0 6px}.podium-section{padding:20px 12px}.summary-grid{grid-template-columns:1fr 1fr}.summary-item:first-child{grid-column:1/-1}.flow-grid{grid-template-columns:1fr}.flow-arrow{transform:rotate(90deg);height:24px}.finder{padding:20px 15px}.finder-options{display:grid;grid-template-columns:1fr 1fr}.finder-options button{width:100%;text-align:left}.finder-result{align-items:stretch;flex-direction:column}.finder-go{text-align:center}
- .saved-watch-summary{grid-template-columns:repeat(3,1fr)}.watch-card{grid-template-columns:82px 1fr;padding:10px}.watch-history-stats{grid-template-columns:1fr 1fr 1fr}.watch-media{min-height:100px}.history-stats{gap:4px}.history-stats b{font-size:10px}.deal-section{padding:20px 14px}.deal-grid{grid-template-columns:1fr}.deal-card{grid-template-columns:92px 1fr;grid-template-rows:auto}.deal-media{min-height:130px}.deal-empty{align-items:flex-start}.deal-empty .guide-mascot{width:70px}.insight-grid{grid-template-columns:1fr}.compare-bar{left:10px;right:10px;bottom:72px;transform:none;width:auto;flex-wrap:wrap}.compare-bar-items{order:3;width:100%}.saved-fab{right:10px;bottom:14px}.utility-modal{padding:8px}.utility-sheet{border-radius:22px 22px 8px 8px;padding:20px 15px}.intent-grid{grid-template-columns:1fr}.hero-visual{min-height:245px}.hero-visual .guide-mascot{width:240px}.mascot-bubble{right:0;top:0}.hero-food-chip{font-size:10px;padding:5px 8px}.finder-intro{align-items:flex-start}.finder-guide span{display:none}.finder-products{grid-template-columns:1fr}.finder-product{grid-template-columns:92px 1fr;grid-template-rows:auto}.finder-product-media{min-height:120px}.finder-product-copy>strong{-webkit-line-clamp:2}.guide-with-mascot{grid-template-columns:1fr 80px;gap:10px}.guide-mini .guide-mascot{width:75px} .table{overflow:visible;background:transparent;border:0}table,tbody{display:block;width:100%;min-width:0}thead{display:none}tr{display:grid;grid-template-columns:76px 1fr;gap:0 12px;background:#fff;border:1px solid var(--line);border-radius:16px;margin:10px 0;padding:13px;box-shadow:0 2px 8px #13291b08}
- td{display:block;border:0;padding:3px 0;font-size:12px;min-width:0}td[data-cell="rank"]{grid-column:1/-1;padding-bottom:5px}td[data-cell="image"]{grid-column:1;grid-row:2 / span 4}td[data-cell="product"],td[data-cell="quantity"],td[data-cell="price"],td[data-cell="unit"],td[data-cell="cta"]{grid-column:2}
- td[data-cell="product"]{padding-top:0}.shop{display:none}.product-badges .tag:not(.best):not(.top-badge){display:none}.product-img{width:72px;height:72px}.product-name{font-size:14px}.unit{font-size:23px;margin-top:3px}td[data-cell="quantity"]::before{content:"内容量  ";font-weight:800;color:var(--muted)}td[data-cell="price"]::before{content:"商品価格  ";font-weight:800;color:var(--muted)}td[data-cell="cta"]{margin-top:8px}.cta{width:100%;min-height:46px}.toolbar select,.toolbar input{flex:1;min-width:0;width:100%}.section{margin:26px 0 38px}
-}"""
+CSS = (Path(__file__).parent / "marche.css").read_text(encoding="utf-8")
 
 
 JS = """(()=>{
@@ -1342,7 +1222,7 @@ if(finder){
   const purposeStage=finder.querySelector('[data-finder-purpose-stage]');
   const resultStage=finder.querySelector('[data-finder-result-stage]');
   const qTitle=finder.querySelector('[data-finder-question-title]');
-  const show=el=>{if(el)el.hidden=false};
+  const show=el=>{if(el){el.hidden=false;const first=el.querySelector('button');if(first)first.focus({preventScroll:true})}};
   const hide=el=>{if(el)el.hidden=true};
   const reset=()=>{
     category='';
@@ -1419,11 +1299,11 @@ const syncUtilityButtons=()=>{
   const savedKeys=new Set(saved.map(itemKey)),compareKeys=new Set(compared.map(itemKey));
   document.querySelectorAll('[data-save-product]').forEach(btn=>{
     const active=savedKeys.has((btn.dataset.productCategory||'')+'|'+(btn.dataset.productId||''));
-    btn.classList.toggle('active',active);btn.textContent=active?'♥ 保存済み':'♡ あとで見る'
+    btn.classList.toggle('active',active);btn.setAttribute('aria-pressed',String(active));btn.textContent=active?'✓ メモ済み':'＋ 買い物メモ'
   });
   document.querySelectorAll('[data-compare-product]').forEach(btn=>{
     const active=compareKeys.has((btn.dataset.productCategory||'')+'|'+(btn.dataset.productId||''));
-    btn.classList.toggle('active',active);btn.textContent=active?'✓ 比較中':'＋ 比較する'
+    btn.classList.toggle('active',active);btn.setAttribute('aria-pressed',String(active));btn.textContent=active?'✓ 比較中':'＋ 比較する'
   });
   const count=document.querySelector('[data-saved-count]');if(count)count.textContent=String(saved.length)
 };
@@ -1453,7 +1333,8 @@ const syncCompareBar=()=>{
   bar.hidden=!compared.length;
   const summary=bar.querySelector('[data-compare-summary]');if(summary)summary.textContent=compared.length+'/3';
   const items=bar.querySelector('[data-compare-bar-items]');
-  if(items)items.innerHTML=compared.map(x=>'<span class="compare-chip">'+esc(x.name)+'</span>').join('')
+  if(items)items.innerHTML=compared.map(x=>'<span class="compare-chip">'+(x.image?'<img src="'+esc(x.image)+'" alt="">':'')+'<span>'+esc(x.name)+'</span></span>').join('');
+  const open=bar.querySelector('[data-open-compare]');if(open)open.textContent=compared.length+'商品を比べる'
 };
 const persistUtilities=()=>{
   writeList(SAVED_KEY,saved);writeList(COMPARE_KEY,compared);
@@ -1464,7 +1345,7 @@ document.addEventListener('click',e=>{
   if(saveBtn){
     const item=fromButton(saveBtn),key=itemKey(item),exists=saved.some(x=>itemKey(x)===key);
     saved=exists?saved.filter(x=>itemKey(x)!==key):[item,...saved].slice(0,30);
-    persistUtilities();toast(exists?'保存から外しました':'あとで見るに保存しました');
+    persistUtilities();toast(exists?'保存から外しました':'買い物メモに保存しました');
     send('product_save_toggle',{category_id:item.category,product_id:item.id,saved:exists?0:1});return
   }
   const compareBtn=e.target.closest('[data-compare-product]');
@@ -1486,6 +1367,7 @@ document.addEventListener('click',e=>{
   const modal=e.target.closest('.utility-modal');
   if(modal&&e.target===modal)modal.hidden=true
 });
+document.addEventListener('keydown',e=>{if(e.key==='Escape')document.querySelectorAll('.utility-modal').forEach(m=>m.hidden=true)});
 persistUtilities();
 })();"""
 
@@ -1806,7 +1688,7 @@ def guide_page(spec: dict, category: dict, items: list[dict], updated: datetime)
         ])
         + item_list_json_ld(picked, category),
     )
-    cards = top3_html(picked, category) if picked else """<section class="section explain">
+    cards = top3_html(picked, category) if picked else f"""<section class="section explain">
 <h2>現在、条件に一致する掲載候補はありません</h2>
 <p>別サイズの商品で穴埋めせず、条件に一致する商品を確認できたときだけ掲載します。</p>
 </section>"""
@@ -1836,7 +1718,7 @@ def guide_page(spec: dict, category: dict, items: list[dict], updated: datetime)
 {cards}
 {more}
 {faq_html(faqs)}
-<section class="section explain"><h2>もっと広く比較する</h2><p><a class="finder-go" href="../../categories/{category['id']}/">{category['emoji']} {html.escape(category['name'])}の全ランキングを見る →</a></p></section>
+<section class="section explain"><h2>もっと広く比較する</h2><p><a class="finder-go" href="../../categories/{category['id']}/">{html.escape(category['name'])}の全ランキングを見る →</a></p></section>
 {utility_panels_html()}
 </main><script>{JS}</script>
 <footer><div class="wrap">当サイトは楽天アフィリエイトを利用しています。価格は取得時点の参考情報です。</div></footer>
@@ -1939,7 +1821,7 @@ const render=()=>{
     const prev=h.previous_price==null?'—':money(h.previous_price);
     const low=h.lowest_30d_unit==null?'—':money(h.lowest_30d_unit);
     const drop=Number(h.price_delta)<0?'<span class="trend-badge drop">↓ '+money(Math.abs(Number(h.price_delta)))+' 前回比</span>':'';
-    const lowBadge=h.is_30d_low?'<span class="trend-badge low">✨ 30日最安</span>':'';
+    const lowBadge=h.is_30d_low?'<span class="trend-badge low">30日最安</span>':'';
     return '<article class="watch-card"><div class="watch-media">'+(l.image?'<img src="'+esc(l.image)+'" alt="">':'')+'</div><div class="watch-copy">'+
       '<div class="watch-top"><span>'+esc(meta.name)+'</span><div>'+drop+lowBadge+'</div></div>'+
       '<h3 title="'+esc(l.name)+'">'+esc(compact(l.name))+'</h3>'+
@@ -1976,7 +1858,8 @@ def page_head(title: str, description: str, canonical: str, extra_head: str = ""
 <style>{CSS}</style>
 {ga_head()}
 {extra_head}
-</head><body>"""
+</head><body>
+<div class="market-masthead"><div class="wrap"><a class="market-logo" href="{SITE_URL}"><b>Food Cost<em>EVERYDAY MARCHÉ</em></b><span>食品コスパ比較</span></a><small>GOOD FOOD. SMART CHOICES.</small></div></div>"""
 
 
 def category_summary(category: dict, included: list[dict], other: list[dict]) -> str:
@@ -1996,7 +1879,7 @@ def category_summary(category: dict, included: list[dict], other: list[dict]) ->
 def guide_html(category: dict) -> str:
     points = "".join(f"<li>{html.escape(point)}</li>" for point in category["guide"])
     return f"""<section class="section explain guide-with-mascot">
-<div><h2>{category['emoji']} {html.escape(category['name'])}を比べるコツ</h2>
+<div><h2>{html.escape(category['name'])}を比べるコツ</h2>
 <ul class="guide-list">{points}</ul></div>
 <div class="guide-mini">{guide_mascot(True)}</div>
 </section>"""
@@ -2084,7 +1967,7 @@ def category_page(category: dict, included: list[dict], other: list[dict], updat
     parts.append(faq_html(faqs))
     parts.append(other_categories_html(category["id"]))
     parts.append(
-        """<section class="section explain">
+        f"""<section class="section explain">
 <h2>このランキングのルール</h2>
 <p>数量を安全に読み取れる商品だけを掲載し、定期購入・初回限定などは通常価格ランキングから除外します。クーポン・ポイントは通常単価へ差し引きません。</p>
 <p class="fine">送料込みは楽天APIの送料フラグを基準にし、地域別の追加送料などは販売ページで最終確認してください。</p>
@@ -2125,13 +2008,13 @@ def home_page(results: dict, updated: datetime, guide_specs: list[dict] | None =
         )
     ]
     parts.append(
-        f"""<header><div class="wrap hero-layout">
-<div>
-<span class="brand">FOOD COST</span>
-<div class="eyebrow">かしこく買うための食品比較</div>
-<h1>値札より、<br>「ほんとの単価」を見よう。</h1>
-<p class="lead">容量・本数・食数・セット数を同じものさしにそろえて比較。家計にうれしい商品を、数字だけでなく見た目でも探しやすくしました。</p>
-<div class="hero-tags"><span class="hero-tag">送料込みを優先</span><span class="hero-tag">数量曖昧は除外</span><span class="hero-tag">楽天価格を再取得</span></div>
+        f"""<header class="home-hero"><div class="wrap hero-layout">
+<div class="hero-copy">
+<div class="eyebrow">毎日の食品を、賢く選ぶ小さなマルシェ</div>
+<span class="brand">Welcome to your everyday marché.</span>
+<h1>いい買い物は、<br>小さな発見から。</h1>
+<p class="lead">いつものご飯も、朝の一杯も。<br>単価と送料をそろえて、わが家にちょうどいいものを。</p>
+<div class="hero-actions"><a class="cta" href="#categories">売り場を見て回る →</a><a href="#quick-finder">買い方を相談する</a></div>
 <p class="note">最終価格確認: {updated:%Y-%m-%d %H:%M} JST</p>
 </div>
 {hero_visual()}
@@ -2139,11 +2022,10 @@ def home_page(results: dict, updated: datetime, guide_specs: list[dict] | None =
 {service_shortcuts_html()}
 <main class="wrap">
 {home_start_hub(results)}
-{choice_finder_html(results)}
 {today_deals_html(results)}
 <section class="section" id="categories">
-<div class="section-kicker">CHOOSE A CATEGORY</div>
-<h2>まず、比べたい食品を選ぶ。</h2>
+<div class="section-kicker">THE MARKET AISLES</div>
+<h2>いつもの食品を、売り場から。</h2>
 <section class="grid">"""
     )
     for category in CATEGORIES:
@@ -2157,7 +2039,7 @@ def home_page(results: dict, updated: datetime, guide_specs: list[dict] | None =
             f"""<a class="card category-card {category['id']}" href="categories/{category['id']}/">
 <div class="category-art">{category_illustration(category["id"], True)}</div>
 <div class="category-copy">
-<div class="category-name">{category['emoji']} {category['name']}</div>
+<span class="aisle-name">{html.escape({"pack-rice":"READY TO EAT", "rice":"RICE & GRAINS", "carbonated-water":"DRINKS", "oatmeal":"BREAKFAST"}[category["id"]])}</span><div class="category-name">{category['name']}</div>
 <div class="category-price">{html.escape(message.replace('取得商品では ', ''))}</div>
 <div class="category-meta">送料込み {len(included)}件を比較中</div>
 <p>{html.escape(category['intro'])}</p>
@@ -2168,11 +2050,12 @@ def home_page(results: dict, updated: datetime, guide_specs: list[dict] | None =
     parts.append(
         """</section></section>"""
     )
+    parts.append(choice_finder_html(results))
     parts.append(shopping_journey_html())
     parts.append(guide_links_html(guide_specs))
     parts.append(comparison_flow_html())
     parts.append(
-        """<section class="section explain">
+        f"""<section class="section explain">
 <h2>このサイトの比較ルール</h2>
 <p>送料込み確認済みを主ランキングにし、送料別は別枠。容量・数量が曖昧な商品は無理に計算しません。定期便・初回限定価格も通常ランキングへ混ぜません。</p>
 <ul class="guide-list">
@@ -2197,6 +2080,8 @@ def main():
         raise SystemExit("RAKUTEN_APPLICATION_ID and RAKUTEN_ACCESS_KEY are required")
 
     OUT.mkdir(parents=True, exist_ok=True)
+    import shutil
+    shutil.copytree(Path(__file__).parents[1] / "assets", OUT / "assets", dirs_exist_ok=True)
     updated = datetime.now(ZoneInfo("Asia/Tokyo"))
     history = load_price_history(HISTORY_SOURCE)
     results = {}

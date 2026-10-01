@@ -9,6 +9,7 @@ on:
     branches: [main]
     paths:
       - "scripts/**"
+      - "assets/**"
       - "tests/**"
       - "README.md"
       - ".github/workflows/deploy-pages.yml"
