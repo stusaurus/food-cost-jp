@@ -1061,8 +1061,8 @@ def top3_html(items: list[dict], category: dict) -> str:
 <div class="podium-media">{image}</div>
 {product_identity_html(item, category, "podium-name")}
 <div class="podium-unit">{yen(primary)}</div>
-<div class="trend-row">{price_history_badges(item)}</div>
 <div class="podium-label">{html.escape(category["primary_label"])}</div>
+<div class="trend-row">{price_history_badges(item)}</div>
 <div class="podium-diff">{html.escape(diff_text)}</div>
 <div class="podium-detail">{html.escape(quantity_text(item, category["id"]))} ・ ¥{item["price"]:,}</div>
 {product_history_details(item)}
