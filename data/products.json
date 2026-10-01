@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-01T20:50:42.234039+09:00",
+  "generated_at": "2026-10-01T21:04:06.603698+09:00",
   "categories": {
     "pack-rice": {
       "included": [
@@ -1454,68 +1454,6 @@
           }
         },
         {
-          "id": "fuchigami:10000276",
-          "raw_name": "【7年産最終SALE！在庫限りの大赤字特価！】 米 10kg 令和7年 熊本県産 くまさんの輝き 米 10kg 送料無料 白米 10kg 送料無料 お米 10kg 無洗米 送料無料 10キロ こめたつ 備蓄用 非常用 あす楽",
-          "name": "【7年産】 米 10kg 令和7年 熊本県産 くまさんの輝き 米 10kg 白米 10kg お米 10kg 無洗米 10キロ こめたつ 備蓄用 非常用 あす楽",
-          "price": 4080,
-          "shop": "こめたつ",
-          "url": "https://hb.afl.rakuten.co.jp/hgc/g00rxaro.7cx6m798.g00rxaro.7cx6n2f7/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Ffuchigami%2Fkagayaki-10%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Ffuchigami%2Fi%2F10000276%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
-          "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/fuchigami/cabinet/rakurip/kome/kinkyu_kgyk_10.jpg?_ex=128x128",
-          "postage_included": true,
-          "shipping_status": "included",
-          "quantity": {
-            "total_weight_g": 10000.0,
-            "unit_weight_g": 10000.0,
-            "count": 1,
-            "confidence": 0.9,
-            "evidence": "10kg"
-          },
-          "unit_prices": {
-            "per_kg": 408.0
-          },
-          "promotion_mentioned": true,
-          "price_history": {
-            "observed_days": 2,
-            "previous_date": "2026-09-30",
-            "previous_price": 4080,
-            "previous_unit": 408.0,
-            "previous_label": "昨日比",
-            "price_delta": 0,
-            "unit_delta": 0.0,
-            "percent_delta": 0.0,
-            "lowest_30d_unit": 408.0,
-            "highest_30d_unit": 408.0,
-            "lowest_7d_unit": 408.0,
-            "highest_7d_unit": 408.0,
-            "trend_7d": "stable",
-            "is_30d_low": true,
-            "series_7d": [
-              {
-                "date": "2026-09-30",
-                "price": 4080,
-                "unit": 408.0
-              },
-              {
-                "date": "2026-10-01",
-                "price": 4080,
-                "unit": 408.0
-              }
-            ],
-            "series_30d": [
-              {
-                "date": "2026-09-30",
-                "price": 4080,
-                "unit": 408.0
-              },
-              {
-                "date": "2026-10-01",
-                "price": 4080,
-                "unit": 408.0
-              }
-            ]
-          }
-        },
-        {
           "id": "fuchigami:10000003",
           "raw_name": "【7年産最終SALE！在庫限りの大赤字特価！】 米 10kg 令和7年 熊本県産 ヒノヒカリ ひのひかり 米 10kg 送料無料 白米 10kg 送料無料 お米 10kg 無洗米 送料無料 10キロ こめたつ 備蓄用 非常用 あす楽",
           "name": "【7年産】 米 10kg 令和7年 熊本県産 ヒノヒカリ ひのひかり 米 10kg 白米 10kg お米 10kg 無洗米 10キロ こめたつ 備蓄用 非常用 あす楽",
@@ -2398,13 +2336,13 @@
       ],
       "shipping_unknown": [
         {
-          "id": "yahagishouten:10000000",
-          "raw_name": "【送料無料】山形とくとく米10kg【四国・九州への配送は+400円/沖縄・離島への配送は+1,000円加算】",
-          "name": "山形とくとく米10kg【四国・九州への配送は+400円/沖縄・離島への配送は+1,000円加算】",
-          "price": 4180,
+          "id": "yahagishouten:10000204",
+          "raw_name": "【送料無料】令和7年産 山形県産 ひとめぼれ 白米10kg【四国・九州への配送は+400円/沖縄・離島への配送は+1,000円加算】",
+          "name": "令和7年産 山形県産 ひとめぼれ 白米10kg【四国・九州への配送は+400円/沖縄・離島への配送は+1,000円加算】",
+          "price": 4580,
           "shop": "山形のお米とさくらんぼの矢萩商店",
-          "url": "https://hb.afl.rakuten.co.jp/hgc/g00qcg0o.7cx6mf70.g00qcg0o.7cx6n5ca/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fyahagishouten%2Fblend002%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fyahagishouten%2Fi%2F10000000%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
-          "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/yahagishouten/cabinet/page/flk/tokutoku10kg_n.jpg?_ex=128x128",
+          "url": "https://hb.afl.rakuten.co.jp/hgc/g00qcg0o.7cx6mf70.g00qcg0o.7cx6n5ca/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fyahagishouten%2Fbrand00501somu%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fyahagishouten%2Fi%2F10000204%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
+          "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/yahagishouten/cabinet/page/flk/flick_hitome_h10nn.jpg?_ex=128x128",
           "postage_included": false,
           "shipping_status": "extra_or_unknown",
           "quantity": {
@@ -2415,36 +2353,46 @@
             "evidence": "10kg"
           },
           "unit_prices": {
-            "per_kg": 418.0
+            "per_kg": 458.0
           },
           "promotion_mentioned": false,
           "price_history": {
-            "observed_days": 1,
-            "previous_date": null,
-            "previous_price": null,
-            "previous_unit": null,
-            "previous_label": null,
-            "price_delta": null,
-            "unit_delta": null,
-            "percent_delta": null,
-            "lowest_30d_unit": 418.0,
-            "highest_30d_unit": 418.0,
-            "lowest_7d_unit": 418.0,
-            "highest_7d_unit": 418.0,
+            "observed_days": 2,
+            "previous_date": "2026-09-30",
+            "previous_price": 4580,
+            "previous_unit": 458.0,
+            "previous_label": "昨日比",
+            "price_delta": 0,
+            "unit_delta": 0.0,
+            "percent_delta": 0.0,
+            "lowest_30d_unit": 458.0,
+            "highest_30d_unit": 458.0,
+            "lowest_7d_unit": 458.0,
+            "highest_7d_unit": 458.0,
             "trend_7d": "stable",
-            "is_30d_low": false,
+            "is_30d_low": true,
             "series_7d": [
               {
+                "date": "2026-09-30",
+                "price": 4580,
+                "unit": 458.0
+              },
+              {
                 "date": "2026-10-01",
-                "price": 4180,
-                "unit": 418.0
+                "price": 4580,
+                "unit": 458.0
               }
             ],
             "series_30d": [
               {
+                "date": "2026-09-30",
+                "price": 4580,
+                "unit": 458.0
+              },
+              {
                 "date": "2026-10-01",
-                "price": 4180,
-                "unit": 418.0
+                "price": 4580,
+                "unit": 458.0
               }
             ]
           }
@@ -2453,12 +2401,12 @@
       "quality_audit": {
         "fetched": 60,
         "normalized": 27,
-        "exact_duplicates": 5,
+        "exact_duplicates": 6,
         "practical_duplicates": 0,
-        "accepted_unique": 22,
-        "included_available": 21,
+        "accepted_unique": 21,
+        "included_available": 20,
         "shipping_unknown_available": 1,
-        "displayed_included": 21,
+        "displayed_included": 20,
         "displayed_shipping_unknown": 1,
         "reasons": {
           "wrong_product_type": 6,
@@ -2640,6 +2588,69 @@
               }
             ],
             "series_30d": [
+              {
+                "date": "2026-10-01",
+                "price": 1680,
+                "unit": 112.0
+              }
+            ]
+          }
+        },
+        {
+          "id": "kadenrand:10159822",
+          "raw_name": "【選べるラベルレス！】炭酸水 富士山の強炭酸水 1L プレーン レモン ラベルあり (ケース） ラベルレス 1L×15本 強炭酸水 強炭酸 1000ml 1L 富士山 ケース 水 ミネラルウォーター 炭酸 みず 富士山 アイリスオーヤマの富士山天然水 15本 アイリスオーヤマ",
+          "name": "【選べるラベルレス！】炭酸水 富士山の強炭酸水 1L プレーン レモン ラベルあり (ケース） ラベルレス 1L×15本 強炭酸水 強炭酸 1000ml 1L 富士山 ケース 水 ミネラルウォーター 炭酸 みず 富士山 アイリスオーヤマの富士山天然水 15本 アイリスオーヤマ",
+          "price": 1680,
+          "shop": "DENDEN",
+          "url": "https://hb.afl.rakuten.co.jp/hgc/g00qvevo.7cx6mc00.g00qvevo.7cx6n8b9/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fkadenrand%2F311521%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fkadenrand%2Fi%2F10159822%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
+          "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/kadenrand/cabinet/11075038/12023129/311521_b.jpg?_ex=128x128",
+          "postage_included": true,
+          "shipping_status": "included",
+          "quantity": {
+            "total_volume_ml": 15000.0,
+            "unit_volume_ml": 1000.0,
+            "count": 15,
+            "confidence": 0.96,
+            "evidence": "1Lx15本"
+          },
+          "unit_prices": {
+            "per_liter": 112.0,
+            "per_bottle": 112.0
+          },
+          "promotion_mentioned": false,
+          "price_history": {
+            "observed_days": 2,
+            "previous_date": "2026-09-30",
+            "previous_price": 1680,
+            "previous_unit": 112.0,
+            "previous_label": "昨日比",
+            "price_delta": 0,
+            "unit_delta": 0.0,
+            "percent_delta": 0.0,
+            "lowest_30d_unit": 112.0,
+            "highest_30d_unit": 112.0,
+            "lowest_7d_unit": 112.0,
+            "highest_7d_unit": 112.0,
+            "trend_7d": "stable",
+            "is_30d_low": true,
+            "series_7d": [
+              {
+                "date": "2026-09-30",
+                "price": 1680,
+                "unit": 112.0
+              },
+              {
+                "date": "2026-10-01",
+                "price": 1680,
+                "unit": 112.0
+              }
+            ],
+            "series_30d": [
+              {
+                "date": "2026-09-30",
+                "price": 1680,
+                "unit": 112.0
+              },
               {
                 "date": "2026-10-01",
                 "price": 1680,
@@ -4599,12 +4610,12 @@
       "quality_audit": {
         "fetched": 90,
         "normalized": 43,
-        "exact_duplicates": 9,
+        "exact_duplicates": 8,
         "practical_duplicates": 0,
-        "accepted_unique": 34,
-        "included_available": 14,
+        "accepted_unique": 35,
+        "included_available": 15,
         "shipping_unknown_available": 20,
-        "displayed_included": 14,
+        "displayed_included": 15,
         "displayed_shipping_unknown": 20,
         "reasons": {
           "missing_category_evidence": 16,

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-01T20:50:42.234039+09:00",
+  "generated_at": "2026-10-01T21:04:06.603698+09:00",
   "site_id": "food_cost_jp",
   "inventory": {
     "pack-rice": {
@@ -11,17 +11,17 @@
     },
     "rice": {
       "name": "米",
-      "included_count": 21,
+      "included_count": 20,
       "shipping_unknown_count": 1,
-      "history_ready_count": 15,
-      "history_ready_rate": 0.7143
+      "history_ready_count": 14,
+      "history_ready_rate": 0.7
     },
     "carbonated-water": {
       "name": "炭酸水",
-      "included_count": 14,
+      "included_count": 15,
       "shipping_unknown_count": 20,
-      "history_ready_count": 12,
-      "history_ready_rate": 0.8571
+      "history_ready_count": 13,
+      "history_ready_rate": 0.8667
     },
     "oatmeal": {
       "name": "オートミール",
@@ -62,13 +62,13 @@
       {
         "slug": "carbonated-water-1l-cost",
         "category_id": "carbonated-water",
-        "matched_count": 5,
+        "matched_count": 6,
         "title": "炭酸水1L前後のコスパ比較"
       },
       {
         "slug": "rice-musenmai-cost",
         "category_id": "rice",
-        "matched_count": 12,
+        "matched_count": 11,
         "title": "無洗米のコスパ比較"
       },
       {
@@ -93,14 +93,6 @@
     "search_console_build_ingestion": false
   },
   "priority_queue": [
-    {
-      "type": "product_coverage",
-      "priority": 1,
-      "categories": [
-        "carbonated-water"
-      ],
-      "action": "安全な掲載候補を増やす検索・解析改善を優先"
-    },
     {
       "type": "cta_measurement",
       "priority": 3,
