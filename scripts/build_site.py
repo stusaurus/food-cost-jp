@@ -1018,20 +1018,21 @@ def utility_panels_html() -> str:
 <div><strong>比べるかご</strong><span data-compare-summary>0/3</span></div>
 <div class="compare-bar-items" data-compare-bar-items></div>
 <button type="button" class="compare-open" data-open-compare>選んだ商品を比べる</button>
+<button type="button" class="compare-memo" data-open-saved>メモ</button>
 <button type="button" class="compare-clear" data-clear-compare>クリア</button>
 </div>
-<div class="utility-modal" data-saved-modal hidden>
+<div class="utility-modal" data-saved-modal role="dialog" aria-modal="true" aria-labelledby="saved-title" hidden>
 <div class="utility-sheet">
-<button class="utility-close" type="button" data-close-saved>×</button>
-<div class="section-kicker">SAVED</div><h2>買い物メモ</h2>
+<button class="utility-close" type="button" data-close-saved aria-label="買い物メモを閉じる">×</button>
+<div class="section-kicker">SAVED</div><h2 id="saved-title">買い物メモ</h2>
 <p><a class="saved-watch-link" href="{SITE_URL}saved/">保存商品の値下がり・価格履歴を見る →</a></p>
 <div data-saved-list></div>
 </div></div>
-<div class="site-toast" data-toast hidden></div>
-<div class="utility-modal" data-compare-modal hidden>
+<div class="site-toast" data-toast role="status" aria-live="polite" hidden></div>
+<div class="utility-modal" data-compare-modal role="dialog" aria-modal="true" aria-labelledby="compare-title" hidden>
 <div class="utility-sheet utility-sheet-wide">
-<button class="utility-close" type="button" data-close-compare>×</button>
-<div class="section-kicker">COMPARE</div><h2>選んだ商品を比較</h2>
+<button class="utility-close" type="button" data-close-compare aria-label="商品比較を閉じる">×</button>
+<div class="section-kicker">COMPARE</div><h2 id="compare-title">選んだ商品を比較</h2>
 <div data-compare-table></div>
 </div></div>"""
 
@@ -1331,14 +1332,34 @@ const renderCompare=()=>{
 const syncCompareBar=()=>{
   const bar=document.querySelector('[data-compare-bar]');if(!bar)return;
   bar.hidden=!compared.length;
+  document.body.classList.toggle('has-compare',Boolean(compared.length));
   const summary=bar.querySelector('[data-compare-summary]');if(summary)summary.textContent=compared.length+'/3';
   const items=bar.querySelector('[data-compare-bar-items]');
-  if(items)items.innerHTML=compared.map(x=>'<span class="compare-chip">'+(x.image?'<img src="'+esc(x.image)+'" alt="">':'')+'<span>'+esc(x.name)+'</span></span>').join('');
+  if(items)items.innerHTML=compared.map(x=>'<span class="compare-chip">'+(x.image?'<img src="'+esc(x.image)+'" alt="">':'')+'<span>'+esc(x.name)+'</span><button type="button" class="compare-remove" data-remove-compare="'+esc(itemKey(x))+'" aria-label="'+esc(x.name)+'を比較から外す">×</button></span>').join('');
   const open=bar.querySelector('[data-open-compare]');if(open)open.textContent=compared.length+'商品を比べる'
 };
 const persistUtilities=()=>{
   writeList(SAVED_KEY,saved);writeList(COMPARE_KEY,compared);
   syncUtilityButtons();syncCompareBar();renderSaved();renderCompare()
+};
+let activeModal=null,modalTrigger=null,modalScroll=0;
+const focusable=modal=>Array.from(modal.querySelectorAll('button,a[href],input,select,summary,[tabindex="0"]')).filter(el=>!el.disabled&&el.getClientRects().length);
+const closeModal=()=>{
+  if(!activeModal)return;
+  activeModal.hidden=true;activeModal=null;
+  document.body.classList.remove('modal-open');document.body.style.top='';
+  document.querySelectorAll('.market-masthead,header,nav,main,footer').forEach(el=>el.inert=false);
+  window.scrollTo({top:modalScroll,behavior:'instant'});
+  if(modalTrigger?.isConnected)modalTrigger.focus({preventScroll:true});
+};
+const openModal=modal=>{
+  if(!modal)return;
+  if(activeModal)closeModal();
+  modalTrigger=document.activeElement;modalScroll=window.scrollY;activeModal=modal;
+  document.body.style.top=-modalScroll+'px';document.body.classList.add('modal-open');
+  // Some dialogs live inside main; keep their ancestor active and trap focus below.
+  document.querySelectorAll('.market-masthead,header,nav,main,footer').forEach(el=>el.inert=!el.contains(modal));
+  modal.hidden=false;focusable(modal)[0]?.focus({preventScroll:true});
 };
 document.addEventListener('click',e=>{
   const saveBtn=e.target.closest('[data-save-product]');
@@ -1359,15 +1380,26 @@ document.addEventListener('click',e=>{
   }
   const remove=e.target.closest('[data-remove-saved]');
   if(remove){saved=saved.filter(x=>itemKey(x)!==remove.dataset.removeSaved);persistUtilities();return}
-  if(e.target.closest('[data-open-saved]')){renderSaved();const m=document.querySelector('[data-saved-modal]');if(m)m.hidden=false;return}
-  if(e.target.closest('[data-close-saved]')){const m=document.querySelector('[data-saved-modal]');if(m)m.hidden=true;return}
-  if(e.target.closest('[data-open-compare]')){renderCompare();const m=document.querySelector('[data-compare-modal]');if(m)m.hidden=false;send('product_compare_open',{compare_count:compared.length});return}
-  if(e.target.closest('[data-close-compare]')){const m=document.querySelector('[data-compare-modal]');if(m)m.hidden=true;return}
+  const removeCompare=e.target.closest('[data-remove-compare]');
+  if(removeCompare){compared=compared.filter(x=>itemKey(x)!==removeCompare.dataset.removeCompare);persistUtilities();toast('比較から外しました');document.querySelector(compared.length?'[data-open-compare]':'[data-open-saved]')?.focus({preventScroll:true});return}
+  if(e.target.closest('[data-open-saved]')){renderSaved();openModal(document.querySelector('[data-saved-modal]'));return}
+  if(e.target.closest('[data-close-saved]')){closeModal();return}
+  if(e.target.closest('[data-open-compare]')){renderCompare();openModal(document.querySelector('[data-compare-modal]'));send('product_compare_open',{compare_count:compared.length});return}
+  if(e.target.closest('[data-close-compare]')){closeModal();return}
   if(e.target.closest('[data-clear-compare]')){compared=[];persistUtilities();toast('比較をクリアしました');return}
   const modal=e.target.closest('.utility-modal');
-  if(modal&&e.target===modal)modal.hidden=true
+  if(modal&&e.target===modal)closeModal()
 });
-document.addEventListener('keydown',e=>{if(e.key==='Escape')document.querySelectorAll('.utility-modal').forEach(m=>m.hidden=true)});
+document.addEventListener('keydown',e=>{
+  if(!activeModal)return;
+  if(e.key==='Escape'){e.preventDefault();closeModal();return}
+  if(e.key==='Tab'){
+    const controls=focusable(activeModal),first=controls[0],last=controls[controls.length-1];
+    if(!first)return;
+    if(e.shiftKey&&(document.activeElement===first||!activeModal.contains(document.activeElement))){e.preventDefault();last.focus()}
+    else if(!e.shiftKey&&(document.activeElement===last||!activeModal.contains(document.activeElement))){e.preventDefault();first.focus()}
+  }
+});
 persistUtilities();
 })();"""
 

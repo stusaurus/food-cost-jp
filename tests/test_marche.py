@@ -16,7 +16,7 @@ class MarcheRegressionTests(unittest.TestCase):
     def test_home_utilities_are_rendered_not_literal(self):
         page = build.home_page(self.results, NOW)
         self.assertIn('data-compare-bar hidden', page)
-        self.assertIn('data-saved-modal hidden', page)
+        self.assertRegex(page, r'data-saved-modal[^>]* hidden')
         self.assertIn(f'href="{build.SITE_URL}saved/"', page)
         self.assertNotIn('{utility_panels_html()}', page)
         self.assertNotIn('{SITE_URL}', page)
