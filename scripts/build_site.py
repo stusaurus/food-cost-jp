@@ -705,7 +705,7 @@ def service_shortcuts_html() -> str:
     return f"""<nav class="service-shortcuts" aria-label="主要メニュー">
 <a href="{SITE_URL}"><span>⌂</span>トップ</a>
 <a href="{SITE_URL}deals/"><span>↓</span>今日のお買い得</a>
-<a href="{SITE_URL}saved/"><span>♡</span>マイ保存</a>
+<a href="{SITE_URL}saved/">買い物メモ</a>
 </nav>"""
 
 
@@ -974,7 +974,7 @@ def category_insights_html(category: dict, items: list[dict]) -> str:
 <div class="section-kicker">PRICE SNAPSHOT</div>
 <h2>いまの価格差をひと目で。</h2>
 <div class="insight-grid">
-<div class="insight-card"><span>🥇 1位と3位の差</span><strong>{yen(diff)}</strong><small>{html.escape(category["primary_label"])}の差</small></div>
+<div class="insight-card"><span>1位と3位の差</span><strong>{yen(diff)}</strong><small>{html.escape(category["primary_label"])}の差</small></div>
 <div class="insight-card"><span>支払総額が低い候補</span><strong>¥{cheapest_total["price"]:,}</strong><small>{html.escape(quantity_text(cheapest_total, category["id"]))}</small></div>
 {large_html}
 </div>
@@ -1728,7 +1728,7 @@ def guide_page(spec: dict, category: dict, items: list[dict], updated: datetime)
 
 def saved_watch_page(updated: datetime) -> str:
     head = page_head(
-        "マイ保存｜食品コスパ比較",
+        "買い物メモ｜食品コスパ比較",
         "ブラウザに保存した食品だけを、最新価格・値下がり・30日最安・価格履歴で確認します。",
         f"{SITE_URL}saved/",
     ).replace(
@@ -1745,7 +1745,7 @@ def saved_watch_page(updated: datetime) -> str:
 {service_shortcuts_html()}
 <main class="wrap">
 <section class="section saved-dashboard">
-<div class="section-kicker">SAVED PRICE WATCH</div><h2>マイ保存</h2>
+<div class="section-kicker">SAVED PRICE WATCH</div><h2>買い物メモ</h2>
 <div class="saved-watch-summary">
 <div><span>保存中</span><strong data-watch-total>0</strong></div>
 <div><span>値下がり</span><strong data-watch-drops>0</strong></div>
@@ -1928,7 +1928,7 @@ def category_page(category: dict, included: list[dict], other: list[dict], updat
 <a href="#included">送料込み比較</a>
 <a href="#other">送料別参考</a>
 <a href="../../deals/">今日のお買い得</a>
-<a href="../../saved/">マイ保存</a>
+<a href="../../saved/">買い物メモ</a>
 <a href="../../">トップ</a>
 </div></nav>
 <main class="wrap">"""
