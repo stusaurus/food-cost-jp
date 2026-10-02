@@ -1,6 +1,6 @@
 """Conservative first-wave food candidates. No capacity guesses from descriptions."""
 import re
-from product_quality import normalize
+from product_quality import normalize, COMMON_EXCLUDED
 
 SPECS = [
     ('mineral-water', 'ミネラルウォーター', '💧', ['ミネラルウォーター 500ml 24本','天然水 2L 6本','天然水 500ml 48本'], 'per_liter','1Lあたり','per_bottle','1本あたり'),
@@ -22,7 +22,7 @@ COMMON = re.compile(r'選べ|選択|よりどり|福袋|詰め合わせ|ふる�
 
 def rejection(cid, title):
     t = normalize(title)
-    if COMMON.search(t): return 'restricted_or_selectable_product'
+    if COMMON.search(t) or COMMON_EXCLUDED.search(t): return 'restricted_or_selectable_product'
     required, excluded = RULES[cid]
     if re.search(excluded, t, re.I): return 'wrong_product_type'
     if not re.search(required, t, re.I): return 'missing_category_evidence'

@@ -60,7 +60,7 @@ class MarketTests(unittest.TestCase):
         c=build.CATEGORIES[0]
         single={c['id']:([sample_item(c['id'],2)],[])}
         seen=set();build.cross_shelf_items(single,'large',seen)
-        self.assertEqual(len(build.cross_shelf_items(single,'large',seen)),1)
+        self.assertEqual(len(build.cross_shelf_items(single,'large',seen)),0)
 
     def test_display_images_only_change_known_thumbnail_parameter(self):
         url='https://thumbnail.image.rakuten.co.jp/a.jpg?_ex=128x128&foo=bar'

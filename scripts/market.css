@@ -125,3 +125,6 @@
 @media(max-width:1000px) and (min-width:760px){.aisle-card{grid-template-columns:1fr}.aisle-visual{height:160px;min-height:0}.market-shelf .finder-products,#today-market .finder-products,.finder .market-shelf .finder-products{grid-auto-columns:calc((100% - 36px)/3)}}
 @media(max-width:759px){.aisle-grid{grid-template-columns:1fr;gap:20px}.aisle-card{grid-template-columns:30% minmax(0,1fr)}.aisle-copy{padding:18px 14px}.aisle-copy h3{font-size:23px}.aisle-visual{min-height:180px}.aisle-links a{flex-wrap:wrap;gap:4px}.aisle-links small{font-size:10px}.finder-aisles{grid-template-columns:1fr}.finder-aisle>summary{font-size:15px}.finder-aisle .finder-category{min-height:66px}.category-symbol{font-size:54px}}
 .aisle-card[data-aisle="stock"] .aisle-visual{display:flex;align-items:center;background:#fffdf8;padding:12px}.aisle-card[data-aisle="stock"] .aisle-visual img{height:240px;object-fit:contain}
+
+/* Keep the numeric comparison readable and controls easy to tap on phones. */
+@media(max-width:759px){.compare-table td,.compare-table th{font-size:12px}.compare-table a{display:inline-flex;align-items:center;min-height:44px}.utility-close{min-width:44px;min-height:44px}.saved-item button{min-height:44px}.has-compare{padding-bottom:130px}}
