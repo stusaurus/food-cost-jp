@@ -60,6 +60,9 @@ jobs:
             printf 'User-agent: *\nDisallow: /\n' > site/robots.txt
           fi
 
+      - name: Fail closed on generated site quality
+        run: python scripts/validate_generated_site.py site
+
       - name: Verify live market navigation, storage and tracking
         run: npm test
 
