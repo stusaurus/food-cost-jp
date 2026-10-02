@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-02T21:29:03.872715+09:00",
+  "generated_at": "2026-10-02T22:18:41.534604+09:00",
   "site_id": "food_cost_jp",
   "inventory": {
     "pack-rice": {
@@ -18,8 +18,8 @@
         "displayed_shipping_unknown": 2,
         "reasons": {
           "limited_purchase": 8,
-          "ambiguous_quantity": 14,
           "wrong_product_type": 11,
+          "ambiguous_quantity": 14,
           "set_count_conflict": 4
         },
         "cleaned_examples": [
@@ -36,12 +36,12 @@
             "after": "【公式】 パックご飯 180g ×40食 レトルトご飯 パックごはん 備蓄用 アイリスオーヤマ 米 お米 ひとり暮らし 非常食 防災 仕送り ご飯 低温製法米 低温製法米のおいしいごはん"
           },
           {
-            "before": "[500円OFFクーポン/食いしんぼう祭]パックご飯 180g ×24食 レトルトご飯 パックごはん 備蓄用 アイリスオーヤマ 米 お米 ひとり暮らし 非常食 防災 仕送り ご飯 低温製法米 低温製法米のおいしいごはんパックご飯 180g ×24食",
-            "after": "パックご飯 180g ×24食 レトルトご飯 パックごはん 備蓄用 アイリスオーヤマ 米 お米 ひとり暮らし 非常食 防災 仕送り ご飯 低温製法米 低温製法米のおいしいごはんパックご飯 180g ×24食"
-          },
-          {
             "before": "[500円OFFクーポン/食いしんぼう祭]【公式】 パックご飯 180g ×40食 レトルトご飯 パックごはん 備蓄用 アイリスオーヤマ 米 お米 ひとり暮らし 非常食 防災 仕送り ご飯 低温製法米 低温製法米のおいしいごはん",
             "after": "【公式】 パックご飯 180g ×40食 レトルトご飯 パックごはん 備蓄用 アイリスオーヤマ 米 お米 ひとり暮らし 非常食 防災 仕送り ご飯 低温製法米 低温製法米のおいしいごはん"
+          },
+          {
+            "before": "[500円OFFクーポン/食いしんぼう祭]パックご飯 180g ×24食 レトルトご飯 パックごはん 備蓄用 アイリスオーヤマ 米 お米 ひとり暮らし 非常食 防災 仕送り ご飯 低温製法米 低温製法米のおいしいごはんパックご飯 180g ×24食",
+            "after": "パックご飯 180g ×24食 レトルトご飯 パックごはん 備蓄用 アイリスオーヤマ 米 お米 ひとり暮らし 非常食 防災 仕送り ご飯 低温製法米 低温製法米のおいしいごはんパックご飯 180g ×24食"
           },
           {
             "before": "[500円OFFクーポン/食いしんぼう祭]【公式】 パックご飯 180g ×80食 レトルトご飯 パックごはん 備蓄用 米 お米 ひとり暮らし 非常食 防災 仕送り ご飯 低温製法米",
@@ -74,15 +74,15 @@
             "【ふるさと納税】サトウのごはん 新潟県産コシヒカリ 200g 選べる 配送回数 1回 3回 6回 12回 定期便 3ヶ月 6ヶ月 12ヶ月 サトウのご飯 さとうのごはん パックご飯 パックごはん パックライス 国産 米 レンジ 簡単 便利 保存食 備蓄 ローリングストック",
             "【ふるさと納税】ご飯パック【選べる定期便】夢つくし パックご飯 計48パック (各200g）▼ パックライス ライスパック パックごはん ご飯 ごはん ゴハン 常温 防災 保存食 九州 米 お米 白米 ブランド米 備蓄米 桂川町/東福岡米穀株式会社[ADBG002]"
           ],
-          "ambiguous_quantity": [
-            "【40食・48食】米 パックご飯 180g 200g 250g 300g お惣菜12食セット アイリスオーヤマ レトルトご飯 パックごはん レトルト 防災 常温保存可 保存食 非常食 仕送り 低温製法米 アイリスオーヤマ こめ",
-            "40食 48食 パックご飯 120g 150g 180g 200g 250g 300gレトルトご飯 低温製法米のおいしいごはん パック米 パックごはん レトルトごはん 国産米 アイリスフーズ 一人暮らし ご飯パック お米 パック",
-            "【80食セット】パックご飯 120g 150g 180g 200g ご飯パック 国産 低温製法米のおいしいごはん 送料無料 パック米 パックご飯 パックごはん レトルト レンチン ご飯 国産 非常食 保存食 備蓄 簡単 お米 ご飯"
-          ],
           "wrong_product_type": [
             "【ふるさと納税】累計販売2億食突破！ パック ご飯 200g 選べる個数24～48食 アイリスオーヤマ ふるさと納税 米 お米 ふるさと パックごはん 国産米100% 低温製法米 パックご飯 備蓄 常温保存 便利 一人暮らし 大容量 アウトドア アイリス",
             "【ふるさと納税】最強配送 最短翌日発送 阿蘇だわらパックライス 200g×36パック 36食 合計7.2kg 17000円 1万7000円 レトルトご飯 インスタント パックご飯 ご飯パック お手軽 レンチン 非常食 オリジナル米 国産 熊本県 高森町 常温 送料無料",
             "【ふるさと納税】減農薬 パックライス 200g 24食 / 特別栽培米 パックご飯 コウノトリ育むお米 米 コシヒカリ お米 ごはん レンチン ご飯 白米 非常食 長期保存 備蓄 電子レンジ ライス ご飯パック"
+          ],
+          "ambiguous_quantity": [
+            "【40食・48食】米 パックご飯 180g 200g 250g 300g お惣菜12食セット アイリスオーヤマ レトルトご飯 パックごはん レトルト 防災 常温保存可 保存食 非常食 仕送り 低温製法米 アイリスオーヤマ こめ",
+            "40食 48食 パックご飯 120g 150g 180g 200g 250g 300gレトルトご飯 低温製法米のおいしいごはん パック米 パックごはん レトルトごはん 国産米 アイリスフーズ 一人暮らし ご飯パック お米 パック",
+            "【80食セット】パックご飯 120g 150g 180g 200g ご飯パック 国産 低温製法米のおいしいごはん 送料無料 パック米 パックご飯 パックごはん レトルト レンチン ご飯 国産 非常食 保存食 備蓄 簡単 お米 ご飯"
           ],
           "set_count_conflict": [
             "高評価 ★4.88 200g×24食 減農薬 パックご飯 なのに美味しい コウノトリ育むお米 24食 200g ×3p×8袋入 パックごはん 神明 ウーケ 備蓄用 非常食 離乳食 パックライス レトルト コシヒカリ ローリングストック 長期保存 コウノトリ米 豊岡 送料無料 賞味期限2027年2月以降",
@@ -103,12 +103,12 @@
       "quality_audit": {
         "fetched": 60,
         "normalized": 30,
-        "exact_duplicates": 6,
+        "exact_duplicates": 5,
         "practical_duplicates": 0,
-        "accepted_unique": 24,
-        "included_available": 21,
+        "accepted_unique": 25,
+        "included_available": 22,
         "shipping_unknown_available": 3,
-        "displayed_included": 21,
+        "displayed_included": 22,
         "displayed_shipping_unknown": 3,
         "reasons": {
           "wrong_product_type": 2,
@@ -142,16 +142,16 @@
             "after": "新米 令和8年産 北海道産 ゆめぴりか 10kg (5kg×2袋セット)＜白米＞ 【北海道米 送料込み 米 お米 真空パック選択可】"
           },
           {
+            "before": "楽天ランキング受賞 お米 10kg 送料無料 家計応援まんぷく米 5kg×2袋 安い 米 10キロ コメ 白米",
+            "after": "お米 10kg 家計応援まんぷく米 5kg×2袋 安い 米 10キロ コメ 白米"
+          },
+          {
             "before": "お米 コメ 雪若丸 10kg 新米 無洗米 精米 送料無料 山形県産 令和8年産 5kg×2袋",
             "after": "お米 コメ 雪若丸 10kg 新米 無洗米 精米 山形県産 令和8年産 5kg×2袋"
           },
           {
             "before": "金芽米 ベストセレクト 10kg(5kg×2袋) 送料無料 東洋ライス 玄米の栄養を残した白米無洗米 きんめまい オリジナル ブレンド米 国内産10割 工場直送 亜糊粉層 あこふんそう 国内産 10kg",
             "after": "金芽米 ベストセレクト 10kg(5kg×2袋) 東洋ライス 玄米の栄養を残した白米無洗米 きんめまい オリジナル ブレンド米 国内産10割 工場直送 亜糊粉層 あこふんそう 国内産 10kg"
-          },
-          {
-            "before": "楽天ランキング受賞 お米 10kg 送料無料 家計応援まんぷく米 5kg×2袋 安い 米 10キロ コメ 白米",
-            "after": "お米 10kg 家計応援まんぷく米 5kg×2袋 安い 米 10キロ コメ 白米"
           },
           {
             "before": "【 新米 令和8年入 】米 5kg 訳あり 【 産直の米 】 お米マイスター厳選米 お米 5kg 送料無料 白米 5kg 送料無料 5キロ 生活応援 産地直送 業務用 ブレンド米 (北海道・沖縄・離島は別途送料追加)",
@@ -185,10 +185,10 @@
           ]
         }
       },
-      "included_count": 21,
+      "included_count": 22,
       "shipping_unknown_count": 3,
-      "history_ready_count": 17,
-      "history_ready_rate": 0.8095
+      "history_ready_count": 18,
+      "history_ready_rate": 0.8182
     },
     "carbonated-water": {
       "name": "炭酸水",
@@ -392,8 +392,8 @@
         "displayed_shipping_unknown": 4,
         "reasons": {
           "wrong_product_type": 15,
-          "restricted_or_selectable_product": 11,
-          "limited_purchase": 4,
+          "restricted_or_selectable_product": 10,
+          "limited_purchase": 5,
           "ambiguous_quantity": 38,
           "missing_category_evidence": 2
         },
@@ -514,12 +514,12 @@
             "after": "ラ・モリサーナ 有機スパゲッティ1.7mm(No.15) 500g × 6袋 [モンテ物産] 【 まとめ買い 】"
           },
           {
-            "before": "【マラソン限定クーポン配布中】明治屋 ガロファロ ヴェルミチェッリ 500g × 6袋 スパゲッティ 2.2mm 【 まとめ買い 】",
-            "after": "明治屋 ガロファロ ヴェルミチェッリ 500g × 6袋 スパゲッティ 2.2mm 【 まとめ買い 】"
-          },
-          {
             "before": "【送料一律540円】オーサワの有機スパゲッティ　500g×6袋",
             "after": "【送料一律540円】オーサワの有機スパゲッティ 500g×6袋"
+          },
+          {
+            "before": "【マラソン限定クーポン配布中】明治屋 ガロファロ ヴェルミチェッリ 500g × 6袋 スパゲッティ 2.2mm 【 まとめ買い 】",
+            "after": "明治屋 ガロファロ ヴェルミチェッリ 500g × 6袋 スパゲッティ 2.2mm 【 まとめ買い 】"
           },
           {
             "before": "昭和産業 (SHOWA) スパゲッティ1.6mm 1kg×15袋入｜ 送料無料 パスタ スパゲティ スパゲッティ 乾麺 麺",
@@ -583,8 +583,8 @@
         "displayed_included": 21,
         "displayed_shipping_unknown": 13,
         "reasons": {
-          "restricted_or_selectable_product": 11,
-          "ambiguous_quantity": 28,
+          "restricted_or_selectable_product": 12,
+          "ambiguous_quantity": 27,
           "missing_category_evidence": 2,
           "wrong_product_type": 13,
           "limited_purchase": 2
@@ -676,18 +676,18 @@
       "publication_status": "active",
       "quality_audit": {
         "fetched": 150,
-        "normalized": 42,
+        "normalized": 45,
         "exact_duplicates": 1,
         "practical_duplicates": 0,
-        "accepted_unique": 41,
-        "included_available": 10,
+        "accepted_unique": 44,
+        "included_available": 13,
         "shipping_unknown_available": 31,
-        "displayed_included": 10,
+        "displayed_included": 13,
         "displayed_shipping_unknown": 20,
         "reasons": {
-          "restricted_or_selectable_product": 55,
-          "ambiguous_quantity": 28,
-          "wrong_product_type": 16,
+          "restricted_or_selectable_product": 52,
+          "ambiguous_quantity": 27,
+          "wrong_product_type": 17,
           "missing_category_evidence": 8,
           "limited_purchase": 1
         },
@@ -709,24 +709,24 @@
             "after": "カゴメ 大豆ミートのキーマカレー 180g×30個入｜ カレー レトルト 野菜 レトルトカレー ヴィーガン"
           },
           {
-            "before": "キーマカレー 180g×10箱 ≪パッケージ版≫ Keema Curry レトルトカレー 鶏挽肉 送料無料 【10%OFF】",
-            "after": "キーマカレー 180g×10箱 ≪パッケージ版≫ Keema Curry レトルトカレー 鶏挽肉"
-          },
-          {
             "before": "ハウス食品 カレーマルシェ 辛口 180g×30個入｜ 送料無料 カレー レトルト カレーマルシェ レトルトカレー",
             "after": "ハウス食品 カレーマルシェ 辛口 180g×30個入｜ カレー レトルト カレーマルシェ レトルトカレー"
+          },
+          {
+            "before": "ハウス食品 カレーマルシェ 中辛 180g×30個入｜ 送料無料 カレー レトルト カレーマルシェ レトルトカレー",
+            "after": "ハウス食品 カレーマルシェ 中辛 180g×30個入｜ カレー レトルト カレーマルシェ レトルトカレー"
           },
           {
             "before": "ダールチキンカレー 180g 単品 ≪パッケージ版≫ Dal Chicken Curry レトルトカレー 豆 鶏肉 【10%OFF】",
             "after": "ダールチキンカレー 180g 単品 ≪パッケージ版≫ Dal Chicken Curry レトルトカレー 豆 鶏肉"
           },
           {
-            "before": "ダールチキンカレー 180g×5箱 ≪パッケージ版≫ Dal Chicken Curry レトルトカレー 豆 鶏肉 送料無料 【10%OFF】",
-            "after": "ダールチキンカレー 180g×5箱 ≪パッケージ版≫ Dal Chicken Curry レトルトカレー 豆 鶏肉"
+            "before": "キーマカレー 180g×10箱 ≪パッケージ版≫ Keema Curry レトルトカレー 鶏挽肉 送料無料 【10%OFF】",
+            "after": "キーマカレー 180g×10箱 ≪パッケージ版≫ Keema Curry レトルトカレー 鶏挽肉"
           },
           {
-            "before": "ハウス食品 カレーマルシェ 中辛 180g×30個入｜ 送料無料 カレー レトルト カレーマルシェ レトルトカレー",
-            "after": "ハウス食品 カレーマルシェ 中辛 180g×30個入｜ カレー レトルト カレーマルシェ レトルトカレー"
+            "before": "ダールチキンカレー 180g×5箱 ≪パッケージ版≫ Dal Chicken Curry レトルトカレー 豆 鶏肉 送料無料 【10%OFF】",
+            "after": "ダールチキンカレー 180g×5箱 ≪パッケージ版≫ Dal Chicken Curry レトルトカレー 豆 鶏肉"
           },
           {
             "before": "送料無料（沖縄離島除く）レトルトカレー 食研カレー/7612 晩餐館 焼肉のたれでお馴染み日本食研 業務用 200gx20食セット/卸 代金引換便不可品",
@@ -767,7 +767,7 @@
           ]
         }
       },
-      "included_count": 10,
+      "included_count": 13,
       "shipping_unknown_count": 20,
       "history_ready_count": 0,
       "history_ready_rate": 0.0
@@ -794,12 +794,12 @@
         },
         "cleaned_examples": [
           {
-            "before": "【期間限定特売】サンヨー食品 サッポロ一番 塩らーめん 5食入り×6袋（合計30食） 送料無料(北海道は別途700円かかります。沖縄配送不可) / 袋めん",
-            "after": "サンヨー食品 サッポロ一番 塩らーめん 5食入り×6袋（合計30食） 送料無料(北海道は別途700円かかります。沖縄配送不可) / 袋めん"
-          },
-          {
             "before": "サッポロ一番　みそラーメン　5食×6袋入　30食",
             "after": "サッポロ一番 みそラーメン 5食×6袋入 30食"
+          },
+          {
+            "before": "【期間限定特売】サンヨー食品 サッポロ一番 塩らーめん 5食入り×6袋（合計30食） 送料無料(北海道は別途700円かかります。沖縄配送不可) / 袋めん",
+            "after": "サンヨー食品 サッポロ一番 塩らーめん 5食入り×6袋（合計30食） 送料無料(北海道は別途700円かかります。沖縄配送不可) / 袋めん"
           },
           {
             "before": "サッポロ一番　塩らーめん　5食×6袋入　30食",
@@ -814,12 +814,12 @@
             "after": "サンヨー食品 サッポロ一番 みそラーメン 5食入り×6袋（合計30食） 送料無料(北海道は別途700円かかります。沖縄配送不可) / 袋めん"
           },
           {
-            "before": "東洋水産　マルちゃん正麺　塩味5食×6袋入　30食",
-            "after": "東洋水産 マルちゃん正麺 塩味5食×6袋入 30食"
-          },
-          {
             "before": "マルちゃん正麺　醤油味　5食×6袋入　30食",
             "after": "マルちゃん正麺 醤油味 5食×6袋入 30食"
+          },
+          {
+            "before": "東洋水産　マルちゃん正麺　塩味5食×6袋入　30食",
+            "after": "東洋水産 マルちゃん正麺 塩味5食×6袋入 30食"
           },
           {
             "before": "東洋水産　マルちゃん正麺　味噌味　5食×6袋入　30食",
@@ -851,7 +851,7 @@
           "ambiguous_quantity": [
             "サッポロ一番 塩ラーメン 袋麺 5食パック×6袋(30食)",
             "サンヨー食品 サッポロ一番 みそラーメン 1箱5食入×6袋",
-            "サッポロ一番 塩ラーメン 袋麺 5食パック×6袋(30食)"
+            "サンヨー食品 サッポロ一番 塩らーめん 1箱5食入×6袋"
           ],
           "restricted_or_selectable_product": [
             "【選べるセット】【サンヨー食品】サッポロ一番 袋麺5食パック＜4種から選べる 6袋セット(30食分)＞ (しょうゆ/しお/みそ/塩とんこつ)",
@@ -876,17 +876,17 @@
       "publication_status": "active",
       "quality_audit": {
         "fetched": 90,
-        "normalized": 27,
+        "normalized": 28,
         "exact_duplicates": 0,
         "practical_duplicates": 0,
-        "accepted_unique": 27,
-        "included_available": 11,
-        "shipping_unknown_available": 16,
-        "displayed_included": 11,
-        "displayed_shipping_unknown": 16,
+        "accepted_unique": 28,
+        "included_available": 13,
+        "shipping_unknown_available": 15,
+        "displayed_included": 13,
+        "displayed_shipping_unknown": 15,
         "reasons": {
           "missing_category_evidence": 6,
-          "wrong_product_type": 27,
+          "wrong_product_type": 26,
           "ambiguous_quantity": 20,
           "restricted_or_selectable_product": 10
         },
@@ -894,10 +894,6 @@
           {
             "before": "セイコーマート Secoma 辛味噌ラーメン セコマ せいこーまーと せこま カップ麺 12個入 辛味噌 味噌ラーメン 札幌 濃厚 送料無料 ケース",
             "after": "セイコーマート Secoma 辛味噌ラーメン セコマ せいこーまーと せこま カップ麺 12個入 辛味噌 味噌ラーメン 札幌 濃厚 ケース"
-          },
-          {
-            "before": "麺のスナオシ　塩ラーメン　カップ麺　12個入り",
-            "after": "麺のスナオシ 塩ラーメン カップ麺 12個入り"
           },
           {
             "before": "日清食品 あっさりおいしいカップヌードル カレー 70g×20個入｜ 送料無料 ラーメン カップめん インスタント麺 即席 食品",
@@ -918,10 +914,6 @@
           {
             "before": "カップヌードル　シーフードヌードル×20個",
             "after": "カップヌードル シーフードヌードル×20個"
-          },
-          {
-            "before": "農心ジャパン 辛カップラーメン 68g×12個入｜ 送料無料 インスタントラーメン 辛 即席",
-            "after": "農心ジャパン 辛カップラーメン 68g×12個入｜ インスタントラーメン 辛 即席"
           },
           {
             "before": "農心ジャパン 辛カップラーメン 68g×12個入｜ 送料無料 インスタントラーメン 辛 即席",
@@ -951,16 +943,16 @@
           ]
         }
       },
-      "included_count": 11,
-      "shipping_unknown_count": 16,
+      "included_count": 13,
+      "shipping_unknown_count": 15,
       "history_ready_count": 0,
       "history_ready_rate": 0.0
     }
   },
   "price_history": {
-    "ready_count": 74,
-    "included_count": 169,
-    "ready_rate": 0.4379,
+    "ready_count": 75,
+    "included_count": 175,
+    "ready_rate": 0.4286,
     "deal_count": 5
   },
   "auto_seo": {
@@ -1000,7 +992,7 @@
       {
         "slug": "rice-musenmai-cost",
         "category_id": "rice",
-        "matched_count": 9,
+        "matched_count": 10,
         "title": "無洗米のコスパ比較"
       },
       {
@@ -1039,7 +1031,7 @@
     {
       "type": "price_history",
       "priority": 2,
-      "coverage": 0.4379,
+      "coverage": 0.4286,
       "action": "自動更新を継続し価格履歴の母数を増やす"
     },
     {

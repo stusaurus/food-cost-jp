@@ -1338,6 +1338,19 @@
       "product_id": "alude:10014033",
       "quantity_key": "{\"count\":20}"
     },
+    "cup-noodles|auc-syoku:10022860": {
+      "category_id": "cup-noodles",
+      "name": "ユッケジャン カップラーメン 12個 農心 韓国ラーメン",
+      "points": [
+        {
+          "date": "2026-10-02",
+          "price": 2240,
+          "unit": 186.66666666666666
+        }
+      ],
+      "product_id": "auc-syoku:10022860",
+      "quantity_key": "{\"count\":12}"
+    },
     "cup-noodles|cocodecow:10699895": {
       "category_id": "cup-noodles",
       "name": "寿がきや 富山ブラックラーメン 108g×12個 カップラーメン カップ麺 ラーメン インスタント レトルト 食品",
@@ -1390,6 +1403,19 @@
       "product_id": "cocodecow:10770557",
       "quantity_key": "{\"count\":12}"
     },
+    "cup-noodles|d-craft:10024422": {
+      "category_id": "cup-noodles",
+      "name": "麻辣湯 iSDG 麻辣担 カップ麺 12個セット ケース売り 医食同源 ピリ辛 即席春雨 麻辣湯麺 マーラータン インスタント食品 グルテンフリー さつま芋麺《012》『OMS』",
+      "points": [
+        {
+          "date": "2026-10-02",
+          "price": 3203,
+          "unit": 266.9166666666667
+        }
+      ],
+      "product_id": "d-craft:10024422",
+      "quantity_key": "{\"count\":12}"
+    },
     "cup-noodles|drink-market:10104946": {
       "category_id": "cup-noodles",
       "name": "農心ジャパン 辛カップラーメン 68g×12個入｜ インスタントラーメン 辛 即席",
@@ -1414,6 +1440,19 @@
         }
       ],
       "product_id": "jetprice:10583143",
+      "quantity_key": "{\"count\":12}"
+    },
+    "cup-noodles|jetprice:10672050": {
+      "category_id": "cup-noodles",
+      "name": "明星食品 中華三昧 タテ型 榮林 酸辣湯麺 12個 カップラーメン カップ麺 ラーメン インスタント レトルト 食品",
+      "points": [
+        {
+          "date": "2026-10-02",
+          "price": 2972,
+          "unit": 247.66666666666666
+        }
+      ],
+      "product_id": "jetprice:10672050",
       "quantity_key": "{\"count\":12}"
     },
     "cup-noodles|jetprice:10694512": {
@@ -4629,6 +4668,19 @@
       "product_id": "imaifarm:10000755",
       "quantity_key": "{\"count\":20,\"total_weight_g\":4000.0,\"unit_weight_g\":200.0}"
     },
+    "retort-curry|midorisyoten:10004496": {
+      "category_id": "retort-curry",
+      "name": "名店カレー 東京 赤坂 乃木坂 しん お出汁をきかせたビーフカレー 200g×10食まとめ買いセット 全国旨カレーコレクション ご当地カレー 和風カレー 出汁カレー レトルトカレー",
+      "points": [
+        {
+          "date": "2026-10-02",
+          "price": 5980,
+          "unit": 598.0
+        }
+      ],
+      "product_id": "midorisyoten:10004496",
+      "quantity_key": "{\"count\":10,\"total_weight_g\":2000.0,\"unit_weight_g\":200.0}"
+    },
     "retort-curry|milkheart:10000685": {
       "category_id": "retort-curry",
       "name": "S＆B ごろごろ北海道野菜のビーフカレー 中辛 200g 10食入×2箱(20食分) エスビー 業務用 レトルトカレー",
@@ -4641,6 +4693,19 @@
       ],
       "product_id": "milkheart:10000685",
       "quantity_key": "{\"count\":20,\"total_weight_g\":4000.0,\"unit_weight_g\":200.0}"
+    },
+    "retort-curry|minamimatumoto:10000316": {
+      "category_id": "retort-curry",
+      "name": "明治 のこだわり仕込み 特製ビーフカレー中辛 165g×10食 【常温便】 meiji カレー レトルト レトルトカレー 常備食 非常食 まとめ買い ビーフカレー おいしいカレー 香典返し 贈答 イベントレトルトレトルトカレー カレー",
+      "points": [
+        {
+          "date": "2026-10-02",
+          "price": 3308,
+          "unit": 330.8
+        }
+      ],
+      "product_id": "minamimatumoto:10000316",
+      "quantity_key": "{\"count\":10,\"total_weight_g\":1650.0,\"unit_weight_g\":165.0}"
     },
     "retort-curry|misono-support:10013347": {
       "category_id": "retort-curry",
@@ -4720,6 +4785,19 @@
       "product_id": "misonoya:10013211",
       "quantity_key": "{\"count\":30,\"total_weight_g\":5400.0,\"unit_weight_g\":180.0}"
     },
+    "retort-curry|misonoya:10097030": {
+      "category_id": "retort-curry",
+      "name": "ニチレイフーズ インド風 バターチキンカレー 180g×30袋入｜ 一般食品 レトルト食品 カレー バター チキンカレー",
+      "points": [
+        {
+          "date": "2026-10-02",
+          "price": 7095,
+          "unit": 236.5
+        }
+      ],
+      "product_id": "misonoya:10097030",
+      "quantity_key": "{\"count\":30,\"total_weight_g\":5400.0,\"unit_weight_g\":180.0}"
+    },
     "retort-curry|misonoya:10112681": {
       "category_id": "retort-curry",
       "name": "ハウス食品 カリー厨房 オニオンリッチカレー 中辛 180g×30袋入｜ カレー レトルト オニオンカレー 中辛",
@@ -4770,6 +4848,19 @@
         }
       ],
       "product_id": "nozomi-market:10002556",
+      "quantity_key": "{\"count\":30,\"total_weight_g\":5400.0,\"unit_weight_g\":180.0}"
+    },
+    "retort-curry|nozomi-market:10010467": {
+      "category_id": "retort-curry",
+      "name": "ハウス食品 ビーフカレー シェフブレンド 中辛 180g×30袋入｜ カレー ビーフ レトルト ビーフカレー 中辛",
+      "points": [
+        {
+          "date": "2026-10-02",
+          "price": 5140,
+          "unit": 171.33333333333334
+        }
+      ],
+      "product_id": "nozomi-market:10010467",
       "quantity_key": "{\"count\":30,\"total_weight_g\":5400.0,\"unit_weight_g\":180.0}"
     },
     "retort-curry|nozomi-market:10085105": {
@@ -4889,6 +4980,19 @@
       "product_id": "tokyo-shusui:10006820",
       "quantity_key": "{\"count\":30,\"total_weight_g\":5400.0,\"unit_weight_g\":180.0}"
     },
+    "retort-curry|tonya:10031679": {
+      "category_id": "retort-curry",
+      "name": "[セット] MCC CAFE STYLE 欧風ビーフカレー 180g×10袋セット エムシーシー カフェスタイル 業務用レトルトカレー",
+      "points": [
+        {
+          "date": "2026-10-02",
+          "price": 3120,
+          "unit": 312.0
+        }
+      ],
+      "product_id": "tonya:10031679",
+      "quantity_key": "{\"count\":10,\"total_weight_g\":1800.0,\"unit_weight_g\":180.0}"
+    },
     "retort-curry|worldnext:10008627": {
       "category_id": "retort-curry",
       "name": "博多華味鳥 料亭のチキンカレー 180g 10袋セット トリゼンフーズ レトルトカレー レトルト食品",
@@ -4901,6 +5005,19 @@
       ],
       "product_id": "worldnext:10008627",
       "quantity_key": "{\"count\":10,\"total_weight_g\":1800.0,\"unit_weight_g\":180.0}"
+    },
+    "retort-curry|worldnext:10008628": {
+      "category_id": "retort-curry",
+      "name": "博多華味鳥 料亭のチキンカレー 180g 30袋セット トリゼンフーズ レトルトカレー レトルト食品",
+      "points": [
+        {
+          "date": "2026-10-02",
+          "price": 8480,
+          "unit": 282.6666666666667
+        }
+      ],
+      "product_id": "worldnext:10008628",
+      "quantity_key": "{\"count\":30,\"total_weight_g\":5400.0,\"unit_weight_g\":180.0}"
     },
     "retort-curry|worldnext:10008641": {
       "category_id": "retort-curry",
@@ -5049,6 +5166,11 @@
         },
         {
           "date": "2026-10-01",
+          "price": 4080,
+          "unit": 408.0
+        },
+        {
+          "date": "2026-10-02",
           "price": 4080,
           "unit": 408.0
         }
