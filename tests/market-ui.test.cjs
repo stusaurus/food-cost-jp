@@ -11,19 +11,20 @@ function boot(html=source,url='https://stusaurus.github.io/food-cost-jp/?test=1'
 }
 test('all five shopping intents open cross-category shelves without a food question',()=>{
  for(const intent of ['cheap','large','small','budget','storage']){
-  const b=boot();assert.ok(b.visible('[data-finder-purpose-stage]'));assert.ok(!b.visible('[data-finder-category-stage]'));
-  b.click(`[data-finder-purpose="${intent}"]`);
+  const b=boot();assert.ok(b.visible('[data-finder-route-stage]'));assert.ok(!b.visible('[data-finder-purpose-stage]'));assert.ok(!b.visible('[data-finder-category-stage]'));
+  b.click(intent==='cheap'?'[data-entry-route="deal"]':'[data-entry-route="advisor"]');
+  if(intent!=='cheap'){assert.ok(b.visible('[data-finder-purpose-stage]'));b.click(`[data-finder-purpose="${intent}"]`)}
   assert.ok(!b.visible('[data-finder-category-stage]'));
   assert.ok(b.visible(`[data-finder-picks="all:${intent}"]`));
   const e=b.events.find(e=>e[1]==='finder_complete');assert.equal(e[2].shopping_intent,intent);assert.equal(e[2].category_id,'all');assert.equal(e[2].operator_test,'1');
   b.click('[data-finder-narrow]');assert.ok(b.visible('[data-finder-category-stage]'));
   b.click('[data-finder-category="rice"]');assert.ok(b.visible(`[data-finder-picks="rice:${intent}"]`));
-  b.click('[data-finder-reset]');assert.ok(b.visible('[data-finder-purpose-stage]'));assert.ok(!b.visible('[data-finder-result-stage]'));b.dom.window.close();
+  b.click('[data-finder-reset]');assert.ok(b.visible('[data-finder-route-stage]'));assert.ok(!b.visible('[data-finder-result-stage]'));b.dom.window.close();
  }
 });
 test('known food asks the category only after intent; all four categories work',()=>{
  for(const category of ['pack-rice','rice','carbonated-water','oatmeal']){
-  const b=boot();b.click('[data-finder-purpose="known"]');assert.ok(b.visible('[data-finder-category-stage]'));assert.ok(!b.visible('[data-finder-result-stage]'));
+  const b=boot();b.click('[data-entry-route="known"]');assert.ok(b.visible('[data-finder-category-stage]'));assert.ok(!b.visible('[data-finder-result-stage]'));
   b.click(`[data-finder-category="${category}"]`);assert.ok(b.visible(`[data-finder-picks="${category}:cheap"]`));
   assert.equal(b.events.find(e=>e[1]==='category_select_after_intent')[2].shopping_intent,'known');b.dom.window.close();
  }
@@ -37,7 +38,7 @@ test('save storage and same-category comparison contract survive cross-category 
  saves[0].click();assert.equal(JSON.parse(b.dom.window.localStorage.getItem('food_cost_saved_v1')).length,0);b.dom.window.close();
 });
 test('shelf and affiliate click events coexist with existing conversion tracking',()=>{
- const b=boot();b.click('[data-finder-purpose="cheap"]');
+ const b=boot();b.click('[data-entry-route="deal"]');
  const a=b.d.querySelector('[data-finder-picks="all:cheap"] [data-affiliate]');
  a.addEventListener('click',e=>e.preventDefault());a.click();
  for(const n of ['shopping_intent_select','finder_complete','quick_finder_complete','market_shelf_view','market_shelf_product_click','affiliate_click','product_result_click'])assert.ok(b.events.some(e=>e[1]===n),n);
@@ -56,4 +57,14 @@ test('carbonated stock landing and later filtering consistently use total volume
  filter.value='small';filter.dispatchEvent(new b.dom.window.Event('change'));
  for(const row of root.querySelectorAll('tbody tr'))assert.equal(row.hidden,row.dataset.shoppingBucket!=='small');
  b.dom.window.close();
+});
+
+test('three routes, progressive disclosure, hero CTA and route events',()=>{
+ const b=boot();assert.equal(b.d.querySelectorAll('[data-entry-route]').length,3);
+ assert.ok(!b.visible('[data-finder-purpose-stage]'));assert.ok(!b.visible('[data-finder-category-stage]'));
+ b.click('[data-entry-route="advisor"]');assert.ok(b.visible('[data-finder-purpose-stage]'));
+ assert.equal(b.d.querySelectorAll('[data-finder-purpose]').length,4);
+ assert.equal(b.events.find(e=>e[1]==='entry_route_select')[2].entry_route,'advisor');
+ b.click('[data-hero-primary]');assert.ok(b.visible('[data-finder-route-stage]'));assert.ok(b.events.some(e=>e[1]==='hero_primary_cta'));
+ b.click('[data-hero-known]');assert.ok(b.visible('[data-finder-category-stage]'));assert.equal(b.events.filter(e=>e[1]==='entry_route_select').at(-1)[2].entry_route,'known');b.dom.window.close();
 });

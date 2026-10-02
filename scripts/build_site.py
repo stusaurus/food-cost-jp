@@ -767,7 +767,7 @@ def deal_card_html(category: dict, item: dict, position: str = "today_deal") -> 
     history = item["price_history"]
     primary = item["unit_prices"][category["primary"]]
     image = (
-        f'<img src="{html.escape(item["image"], quote=True)}" alt="" width="160" height="160" loading="lazy">'
+        f'<img src="{html.escape(item["image"], quote=True)}" alt="" width="320" height="320" loading="lazy">'
         if item["image"] else category_illustration(category["id"], True)
     )
     label = history.get("previous_label") or "前回比"
@@ -891,18 +891,21 @@ def recommendation_reason(item: dict, category: dict, purpose: str, position: in
 
 def finder_product_card(item: dict, category: dict, position: int, purpose: str, reason_override: str = "") -> str:
     primary = item["unit_prices"][category["primary"]]
+    image_url = item["image"] or ""
+    if image_url.startswith("https://thumbnail.image.rakuten.co.jp/"):
+        image_url = re.sub(r"([?&])_ex=\d+x\d+", r"\1_ex=640x640", image_url)
     image = (
-        f'<img src="{html.escape(item["image"], quote=True)}" alt="" width="160" height="160" loading="lazy">'
+        f'<img src="{html.escape(image_url, quote=True)}" alt="" width="320" height="320" loading="lazy">'
         if item["image"] else category_illustration(category["id"], True)
     )
     reason = reason_override or recommendation_reason(item, category, purpose, position)
     cta_label, cta_variant = cta_copy(item, "finder", position)
-    return f"""<article class="finder-product">
+    return f"""<article class="finder-product discovery-product">
 <div class="finder-product-media">{image}</div>
 <div class="finder-product-copy">
+<div class="finder-product-price">{yen(primary)} <small>{html.escape(category["primary_label"])}</small></div>
 <span class="finder-product-rank">{html.escape(category["name"])}</span>
 {product_identity_html(item, category, "finder-product-name")}
-<div class="finder-product-price">{yen(primary)} <small>{html.escape(category["primary_label"])}</small></div>
 <div class="finder-product-meta">商品価格 ¥{item["price"]:,}<br>{html.escape(quantity_text(item, category["id"]))}</div>
 <div class="shelf-shipping">送料込み確認済み</div>
 <div class="trend-row">{price_history_badges(item)}</div>
@@ -1035,7 +1038,7 @@ def top3_html(items: list[dict], category: dict) -> str:
         diff_text = "最安" if rank == 1 else f"最安との差 +{yen(diff)}"
         cta_label, cta_variant = cta_copy(item, "top3", rank)
         image = (
-            f'<img class="podium-img" src="{html.escape(item["image"], quote=True)}" alt="" width="160" height="160" loading="lazy">'
+            f'<img class="podium-img" src="{html.escape(item["image"], quote=True)}" alt="" width="320" height="320" loading="lazy">'
             if item["image"] else category_illustration(category["id"], True)
         )
         cards.append(f"""<article class="podium-card rank-{rank}">
@@ -1125,7 +1128,8 @@ def discovery_shelves_html(results: dict) -> str:
 
 def choice_finder_html(results: dict) -> str:
     choices = "".join(f'''<button class="finder-category {c['id']}" type="button" aria-pressed="false" data-finder-category="{c['id']}" data-finder-name="{html.escape(c['name'], quote=True)}"><span class="finder-art">{category_illustration(c['id'], True)}</span><span>{html.escape(c['name'])}</span></button>''' for c in CATEGORIES)
-    intents = ''.join(f'''<button type="button" data-finder-purpose="{key}" aria-pressed="false"><span class="intent-number">0{i}</span><span><strong>{label}</strong><small>{hint}</small></span><span aria-hidden="true">↗</span></button>''' for i,(key,(label,hint)) in enumerate(SHOPPING_INTENTS.items(),1))
+    intents = ''.join(f'''<button type="button" data-finder-purpose="{key}" aria-pressed="false"><span class="intent-number">0{i}</span><span><strong>{label}</strong><small>{hint}</small></span><span aria-hidden="true">↗</span></button>''' for i,(key,(label,hint)) in enumerate(((k,v) for k,v in SHOPPING_INTENTS.items() if k in ("large","small","budget","storage")),1))
+    routes = ''.join(f'<button type="button" data-entry-route="{key}" aria-pressed="false"><span class="intent-number">0{i}</span><span><strong>{label}</strong><small>{hint}</small></span><span aria-hidden="true">→</span></button>' for i,(key,label,hint) in enumerate([('deal','お得なものから見つけたい','今日いい値段の商品を見たい'),('advisor','わたしに合う買い方で探したい','ストック？ 少量？ 支出を抑える？'),('known','買うものは決まっている','食品からすぐ比較したい')],1))
     panels=[]
     for purpose in ("cheap","small","large","budget","storage"):
         label=SHOPPING_INTENTS[purpose][0]
@@ -1137,11 +1141,12 @@ def choice_finder_html(results: dict) -> str:
             note='掲載候補内の比較。少量の基準：ご飯24食以下、米5kg以下、炭酸水合計12L以下、オートミール1kg以下。収納寸法の判定ではありません。'
             panels.append(f'<div class="finder-picks" data-finder-picks="{c["id"]}:{purpose}" hidden>'+market_shelf_html(entries,c['name']+' · '+label,'finder-'+c['id']+'-'+purpose,purpose,note)+f'<a class="finder-all" href="categories/{c["id"]}/?pick={purpose}#included">この売り場の商品一覧へ →</a></div>')
     return f'''<section class="section finder" id="quick-finder" data-finder>
-<div class="finder-intro"><div><div class="section-kicker">LET’S FIND YOUR SHELF</div><h2>今日は、どんな買い物にする？</h2><p class="sub">買うものが決まっていなくても大丈夫。気分に合う棚から見ていきましょう。</p></div><div class="finder-guide">{guide_mascot(True)}<span>一緒に、棚を探しましょう。</span></div></div>
-<div class="finder-stage" data-finder-purpose-stage><div class="finder-question"><span>STEP 1</span><strong>今日は、こんな気分。</strong></div><div class="finder-options finder-purpose-options">{intents}</div></div>
+<div class="finder-intro"><div><div class="section-kicker">LET’S FIND YOUR SHELF</div><h2>今日は、どう探す？</h2><p class="sub">買うものが決まっていなくても大丈夫。気分に合う棚から見ていきましょう。</p></div><div class="finder-guide">{guide_mascot(True)}<span>一緒に、棚を探しましょう。</span></div></div>
+<div class="finder-stage" data-finder-route-stage><div class="finder-options finder-route-options">{routes}</div></div>
+<div class="finder-stage" data-finder-purpose-stage hidden><button class="finder-back" type="button" data-finder-back>← 探し方に戻る</button><div class="finder-question"><span>YOUR SHOPPING</span><strong>どんな量・出費で買いたい？</strong></div><div class="finder-options finder-purpose-options">{intents}</div></div>
 <p class="finder-status" data-finder-status role="status" aria-live="polite"></p>
-<div class="finder-stage" data-finder-category-stage hidden><button class="finder-back" type="button" data-finder-back>← 買い方に戻る</button><div class="finder-question"><span>STEP 2</span><strong>何を探してる？</strong></div><div class="finder-options finder-category-options">{choices}</div></div>
-<div class="finder-stage finder-result-stage" data-finder-result-stage hidden><div class="finder-result-actions"><button class="finder-back" type="button" data-finder-reset>← 気分を変える</button><button class="finder-back" type="button" data-finder-narrow>売り場を絞る →</button></div>{''.join(panels)}</div></section>'''
+<div class="finder-stage" data-finder-category-stage hidden><button class="finder-back" type="button" data-finder-back>← 探し方に戻る</button><div class="finder-question"><span>STEP 2</span><strong>何を探してる？</strong></div><div class="finder-options finder-category-options">{choices}</div></div>
+<div class="finder-stage finder-result-stage" data-finder-result-stage hidden><div class="finder-result-actions"><button class="finder-back" type="button" data-finder-reset>← 探し方を変える</button><button class="finder-back" type="button" data-finder-narrow>売り場を絞る →</button></div>{''.join(panels)}</div></section>'''
 
 
 def item_badges(item: dict, category: dict, rank: int) -> str:
@@ -1233,12 +1238,13 @@ if('IntersectionObserver' in window){const observer=new IntersectionObserver(ent
 document.addEventListener('click',e=>{const a=e.target.closest('a[data-affiliate]');const shelf=a?.closest('[data-market-shelf]');if(shelf)send('market_shelf_product_click',{shelf_id:shelf.dataset.marketShelf,category_id:a.dataset.category,product_id:a.dataset.productId,cta_variant:a.dataset.ctaVariant})});
 const finder=document.querySelector('[data-finder]');
 if(finder){
-  let category='all',purpose='',intent='';
+  let category='all',purpose='',intent='',route='';
+  const routeStage=finder.querySelector('[data-finder-route-stage]');
   const categoryStage=finder.querySelector('[data-finder-category-stage]'),purposeStage=finder.querySelector('[data-finder-purpose-stage]'),resultStage=finder.querySelector('[data-finder-result-stage]'),status=finder.querySelector('[data-finder-status]');
   const show=el=>{el.hidden=false;const first=el.querySelector('button');first?.focus({preventScroll:true});const top=el.getBoundingClientRect().top;if(top<0||top>window.innerHeight*.65)el.scrollIntoView?.({block:'start',behavior:window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches?'instant':'smooth'})};
   const hide=el=>el.hidden=true;
   const results=()=>{
-    hide(categoryStage);show(resultStage);
+    hide(routeStage);hide(purposeStage);hide(categoryStage);show(resultStage);
     let current;
     finder.querySelectorAll('[data-finder-picks]').forEach(panel=>{panel.hidden=panel.dataset.finderPicks!==category+':'+purpose;if(!panel.hidden)current=panel});
     const count=current?.querySelectorAll('[data-affiliate]').length||0;
@@ -1247,16 +1253,26 @@ if(finder){
     send('quick_finder_complete',{category_id:category,finder_purpose:purpose});
     if(!('IntersectionObserver' in window))shelfView(current?.querySelector('[data-market-shelf]'));
   };
-  const reset=()=>{purpose='';category='all';show(purposeStage);hide(categoryStage);hide(resultStage);status.textContent='';finder.querySelectorAll('[data-finder-picks]').forEach(x=>x.hidden=true);finder.querySelectorAll('[aria-pressed]').forEach(x=>x.setAttribute('aria-pressed','false'));finder.querySelectorAll('.selected').forEach(x=>x.classList.remove('selected'))};
+  const reset=()=>{purpose='';category='all';route='';show(routeStage);hide(purposeStage);hide(categoryStage);hide(resultStage);status.textContent='';finder.querySelectorAll('[data-finder-picks]').forEach(x=>x.hidden=true);finder.querySelectorAll('[aria-pressed]').forEach(x=>x.setAttribute('aria-pressed','false'));finder.querySelectorAll('.selected').forEach(x=>x.classList.remove('selected'))};
+  const selectRoute=key=>{
+    route=key;category='all';status.textContent='';hide(routeStage);hide(purposeStage);hide(categoryStage);hide(resultStage);
+    finder.querySelectorAll('[data-entry-route]').forEach(x=>{x.classList.toggle('selected',x.dataset.entryRoute===key);x.setAttribute('aria-pressed',String(x.dataset.entryRoute===key))});
+    send('entry_route_select',{entry_route:key});
+    if(key==='advisor'){show(purposeStage);return}
+    intent=key==='deal'?'cheap':'known';purpose='cheap';send('shopping_intent_select',{shopping_intent:intent});
+    if(key==='known'){show(categoryStage);status.textContent='いつもの食品を、売り場から選びましょう。'}else results();
+  };
+  finder.querySelectorAll('[data-entry-route]').forEach(btn=>btn.addEventListener('click',()=>selectRoute(btn.dataset.entryRoute)));
+  document.querySelector('[data-hero-known]')?.addEventListener('click',()=>selectRoute('known'));
+  document.querySelector('[data-hero-primary]')?.addEventListener('click',()=>{reset();send('hero_primary_cta',{destination:'quick-finder'})});
   finder.querySelectorAll('[data-finder-purpose]').forEach(btn=>btn.addEventListener('click',()=>{
     purpose=btn.dataset.finderPurpose;intent=purpose;category='all';
     finder.querySelectorAll('[data-finder-purpose]').forEach(x=>{x.classList.toggle('selected',x===btn);x.setAttribute('aria-pressed',String(x===btn))});
-    send('shopping_intent_select',{shopping_intent:intent});hide(purposeStage);
-    if(purpose==='known'){purpose='cheap';hide(resultStage);show(categoryStage);status.textContent='いつもの食品を、売り場から選びましょう。'}else results();
+    send('shopping_intent_select',{shopping_intent:intent});results();
   }));
   finder.querySelectorAll('[data-finder-category]').forEach(btn=>btn.addEventListener('click',()=>{category=btn.dataset.finderCategory;finder.querySelectorAll('[data-finder-category]').forEach(x=>{x.classList.toggle('selected',x===btn);x.setAttribute('aria-pressed',String(x===btn))});send('quick_finder_category',{category_id:category});send('category_select_after_intent',{category_id:category,shopping_intent:intent});results()}));
   finder.querySelector('[data-finder-narrow]')?.addEventListener('click',()=>{hide(resultStage);show(categoryStage);status.textContent='この買い方のまま、売り場を選べます。'});
-  finder.querySelector('[data-finder-back]')?.addEventListener('click',reset);
+  finder.querySelectorAll('[data-finder-back]').forEach(btn=>btn.addEventListener('click',reset));
   finder.querySelector('[data-finder-reset]')?.addEventListener('click',reset);
 }
 const pick=new URLSearchParams(location.search).get('pick');
@@ -2057,15 +2073,15 @@ def home_page(results: dict, updated: datetime, guide_specs: list[dict] | None =
 <span class="brand">Welcome to your everyday marché.</span>
 <h1>今日の買い物を、<br>ちょっと楽しく。<br>ちょっと賢く。</h1>
 <p class="lead">いつものご飯も、朝の一杯も。<br>単価と送料をそろえて、わが家にちょうどいいものを。</p>
-<div class="hero-actions"><a class="cta" href="#today-market">今日の棚をのぞく →</a><a href="#quick-finder" data-start-route="finder">買い方を相談する</a></div>
+<div class="hero-actions"><a class="cta" href="#quick-finder" data-hero-primary data-start-route="finder">今日の買い物をはじめる →</a></div><div class="hero-subroutes"><a href="#today-market">今日のお買い得を見る</a><a href="#quick-finder" data-hero-known>買うものが決まっている</a></div>
 <p class="note">最終価格確認: {updated:%Y-%m-%d %H:%M} JST</p>
 </div>
 {hero_visual()}
 </div></header>
 {service_shortcuts_html()}
 <main class="wrap">
-{today_market_html(results)}
 {choice_finder_html(results)}
+{today_market_html(results)}
 {discovery_shelves_html(results)}
 <section class="section" id="categories">
 <div class="section-kicker">THE MARKET AISLES</div>
