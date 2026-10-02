@@ -29,13 +29,21 @@ class MarketTests(unittest.TestCase):
         self.assertNotIn('前回取得時より価格が下がった掲載商品',build.market_shelf_html([(build.CATEGORIES[1],item)],'単価','finder-rice-cheap'))
     def test_home_information_order_and_hidden_category_step(self):
         page=build.home_page(self.results,NOW)
-        positions=[page.index(x) for x in ['class="home-hero"','id="today-market"','id="quick-finder"','class="section discovery-shelves"','id="categories"']]
+        positions=[page.index(x) for x in ['class="home-hero"','id="quick-finder"','id="today-market"','class="section discovery-shelves"','id="categories"']]
         self.assertEqual(positions,sorted(positions))
         self.assertIn('data-finder-category-stage hidden',page)
-        self.assertIn('data-finder-purpose="known"',page)
+        self.assertIn('data-entry-route="known"',page)
         self.assertIn('価格履歴を蓄積中',page)
     def test_price_order_versus_unit_order(self):
         c=build.CATEGORIES[0];items=self.results[c['id']][0]
         items[0]['price']=9000
         self.assertEqual(build.finder_pick_items(items,c,'cheap')[0]['id'],items[0]['id'])
         self.assertNotEqual(build.finder_pick_items(items,c,'budget')[0]['id'],items[0]['id'])
+
+    def test_discovery_photo_before_price_before_name(self):
+        c=build.CATEGORIES[0];item=sample_item(c['id'])
+        item['image']='https://thumbnail.image.rakuten.co.jp/test.jpg?_ex=128x128'
+        card=build.finder_product_card(item,c,1,'cheap')
+        self.assertIn('_ex=640x640',card)
+        self.assertLess(card.index('finder-product-media'),card.index('finder-product-price'))
+        self.assertLess(card.index('finder-product-price'),card.index('finder-product-name'))
