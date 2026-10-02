@@ -5,7 +5,8 @@ const {JSDOM}=require('jsdom');
 const source=fs.readFileSync('site/index.html','utf8').replace(/<script\b[^>]*src=[^>]*>[\s\S]*?<\/script>/gi,'');
 function boot(html=source,url='https://stusaurus.github.io/food-cost-jp/?test=1'){
  const events=[];
- const dom=new JSDOM(html,{url,runScripts:'dangerously',beforeParse(w){w.gtag=(...args)=>events.push(args);}});
+ const instrumented=html.replace('</head>', '<script>window.gtag=(...args)=>window.__testEvents.push(args);</script></head>');
+ const dom=new JSDOM(instrumented,{url,runScripts:'dangerously',beforeParse(w){w.__testEvents=events;w.gtag=(...args)=>events.push(args);}});
  const d=dom.window.document;
  return {dom,d,events,click:s=>{assert.ok(d.querySelector(s),s);d.querySelector(s).click()},visible:s=>!d.querySelector(s).closest('[hidden]')};
 }

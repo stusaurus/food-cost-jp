@@ -75,8 +75,13 @@ def parse(title, cid):
     # Bare multipliers and missing units are unsafe; do not silently take an inner pack.
     if re.search(r'x\s*\d+', remainder, re.I): return None
     allowed = {count, *counts}
-    visible = [int(v) for v in re.findall(r'(\d+)\s*'+count_units, remainder, re.I)]
-    if any(v not in allowed for v in visible): return None
+    visible = [(int(v),u) for v,u in re.findall(r'(\d+)\s*(食|本|個|袋|パック|ケース|箱|セット)', remainder, re.I)]
+    components = {}
+    for value,unit in re.findall(r'(\d+)\s*(食|本|個|袋|パック|ケース|箱|セット)', evidence, re.I):
+        components.setdefault(unit,set()).add(int(value))
+    if any(v != count and v not in components.get(u,set()) for v,u in visible): return None
+    totals = re.findall(r'(?:合計|計|全|総数)\s*(\d+)\s*'+count_units, t, re.I)
+    if any(int(v) != count for v in totals): return None
     if count_only:
         if any(n not in allowed for _,n,_,_ in candidates): return None
         # Bag noodles need explicit serving evidence rather than bags alone.

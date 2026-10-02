@@ -12,7 +12,7 @@ class NewQuantityTests(unittest.TestCase):
                 q=parse(title,cid);self.assertIsNotNone(q);self.assertEqual(q['count'],count)
                 if total:self.assertEqual(q.get('total_weight_g',q.get('total_volume_ml')),total)
     def test_ambiguous_or_unaccounted_quantities_fail(self):
-        cases=[('mineral-water','天然水 500ml×24本 2箱'),('mineral-water','天然水 500ml×24本×2'),('mineral-water','天然水 500ml 1L 24本'),('pasta','スパゲッティ 500g 1kg'),('pasta','スパゲッティ 500g×6袋 12袋'),('granola','グラノーラ 選べる 500g×6袋'),('retort-curry','レトルトカレー 180g×10袋 200g×10袋'),('retort-curry','レトルトカレー 1000g×10袋'),('bag-noodles','袋麺 5食×6袋 20食'),('bag-noodles','袋麺 6袋'),('bag-noodles','マルちゃん正麺 5P×2個セット'),('cup-noodles','カップ麺 個数不明'),('cup-noodles','カップ麺 40g×12個'),('cup-noodles','カップ麺 12個×2')]
+        cases=[('mineral-water','天然水 500ml×24本 2箱'),('mineral-water','天然水 500ml×24本×2箱 計24本'),('mineral-water','天然水 500ml×24本×2箱 2本'),('bag-noodles','袋麺 5食×6袋 6食'),('pasta','スパゲッティ 500g×6袋×2箱 合計6袋'),('mineral-water','天然水 500ml×24本×2'),('mineral-water','天然水 500ml 1L 24本'),('pasta','スパゲッティ 500g 1kg'),('pasta','スパゲッティ 500g×6袋 12袋'),('granola','グラノーラ 選べる 500g×6袋'),('retort-curry','レトルトカレー 180g×10袋 200g×10袋'),('retort-curry','レトルトカレー 1000g×10袋'),('bag-noodles','袋麺 5食×6袋 20食'),('bag-noodles','袋麺 6袋'),('bag-noodles','マルちゃん正麺 5P×2個セット'),('cup-noodles','カップ麺 個数不明'),('cup-noodles','カップ麺 40g×12個'),('cup-noodles','カップ麺 12個×2')]
         for cid,title in cases:
             with self.subTest(title=title):self.assertIsNone(parse(title,cid))
     def test_wrong_types_and_restricted_purchases_fail(self):
