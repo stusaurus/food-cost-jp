@@ -33,7 +33,7 @@ def parse(title, cid):
     """Parse a unique explicit pack chain; validate every remaining capacity/count."""
     t = normalize(title)
     if COMMON.search(t): return None
-    if cid == 'bag-noodles' and not re.search(r'\d+\s*食', t): return None
+    if cid == 'bag-noodles' and not re.search(r'\d+\s*(?:食|食パック|食入)', t): return None
     volume = cid == 'mineral-water'
     count_only = cid in {'bag-noodles','cup-noodles'}
     amount_pattern = r'(?<![\w.])(\d+(?:\.\d+)?)\s*(ml|l)' if volume else r'(?<![\w.])(\d+(?:\.\d+)?)\s*(kg|g)'
@@ -41,6 +41,10 @@ def parse(title, cid):
     amount_pattern = amount_pattern.replace(r'[\w.]',r'[A-Za-z0-9.]')
     amounts = list(re.finditer(amount_pattern, t, re.I))
     if not count_only and not amounts: return None
+    # Treat "5食パック" as a serving count followed by packaging, not as an
+    # unrelated second quantity. This common Rakuten spelling is equivalent
+    # to "5食入り" and remains fail-closed when the outer multiplier conflicts.
+    t = re.sub(r'(\d+)\s*食\s*パック', r'\1食', t)
     count_units = r'(?:食|本|個|袋|パック|ケース|箱|セット)'
     tail = r'(?:\s*[)\]】]*\s*x\s*\d+\s*'+count_units+r'(?:入り|入)?){0,2}'
     chain = r'(?:\s*(?:[)\]】]*\s*x|\s+)\s*\d+\s*'+count_units+r'(?:入り|入)?'+tail+r')?'
