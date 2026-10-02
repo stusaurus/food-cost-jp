@@ -145,15 +145,27 @@ footer{padding:30px 0 100px;border-top:1px solid var(--line);font-size:10px;colo
  .compare-bar [data-open-compare]{margin-left:auto}
  .has-compare .site-toast{bottom:calc(80px + env(safe-area-inset-bottom,0px))}
 }
+/* Four compact departments preserve the market's existing paper and green palette. */
+.aisle-grid{display:grid;grid-template-columns:1fr 1fr;gap:26px}
+.aisle-card{display:grid;grid-template-columns:38% minmax(0,1fr);background:#f6f2e8;border-block:1px solid var(--line);overflow:hidden}
+.aisle-visual{min-height:250px;background:#ede8db}.aisle-visual .food-art{width:100%;height:100%;object-fit:cover}
+.aisle-copy{padding:24px}.aisle-copy h3{font:26px Georgia,'Noto Serif JP',serif;color:var(--brand);margin:9px 0 12px}.aisle-copy p{font-size:12px;line-height:1.8;color:var(--muted)}
+.aisle-inventory{font-size:11px;color:var(--brand);margin:16px 0 8px}
+.aisle-links{display:grid}.aisle-links a{display:flex;justify-content:space-between;gap:10px;align-items:center;padding:13px 0;border-top:1px solid #ded8c8;text-decoration:none;color:var(--brand);min-height:44px}.aisle-links span{font-size:13px}.aisle-links small{font-size:10px;color:var(--muted);text-align:right}.aisle-links a:hover span{text-decoration:underline;text-underline-offset:4px}
+.finder-aisles{display:grid;grid-template-columns:1fr 1fr;gap:12px}.finder-aisle{border:1px solid var(--line);background:var(--panel)}.finder-aisle>summary{padding:18px;cursor:pointer;font-size:16px;color:var(--brand);min-height:54px}.finder-aisle>summary small{float:right;font-size:11px;color:var(--muted)}.finder-aisle .finder-options{padding:0 12px 12px;grid-template-columns:1fr 1fr}.finder-aisle .finder-category{align-items:flex-start;text-align:left;padding:14px 12px;gap:6px}.finder-category small{font-size:10px;color:var(--muted)}.category-symbol{font-size:72px;line-height:1.4;padding:20px;display:block;text-align:center}
+@media(min-width:760px){.market-shelf .finder-products,#today-market .finder-products,.finder .market-shelf .finder-products{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:calc((100% - 54px)/4);overflow-x:auto;scroll-snap-type:x proximity;padding:10px 0 18px;scrollbar-width:thin}.market-shelf .finder-product{scroll-snap-align:start}#today-market .finder-product:nth-child(even){margin-top:0}}
+@media(max-width:1000px) and (min-width:760px){.aisle-card{grid-template-columns:1fr}.aisle-visual{height:160px;min-height:0}.market-shelf .finder-products,#today-market .finder-products,.finder .market-shelf .finder-products{grid-auto-columns:calc((100% - 36px)/3)}}
+@media(max-width:759px){.aisle-grid{grid-template-columns:1fr;gap:20px}.aisle-card{grid-template-columns:30% minmax(0,1fr)}.aisle-copy{padding:18px 14px}.aisle-copy h3{font-size:23px}.aisle-visual{min-height:180px}.aisle-links a{flex-wrap:wrap;gap:4px}.aisle-links small{font-size:10px}.finder-aisles{grid-template-columns:1fr}.finder-aisle>summary{font-size:15px}.finder-aisle .finder-category{min-height:66px}.category-symbol{font-size:54px}}
+.aisle-card[data-aisle="stock"] .aisle-visual{display:flex;align-items:center;background:#fffdf8;padding:12px}.aisle-card[data-aisle="stock"] .aisle-visual img{height:240px;object-fit:contain}
 </style>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-GFVSZ8YDQ5"></script>
 <script>
 window.dataLayer=window.dataLayer||[];
-function gtag(){dataLayer.push(arguments)}
+window.gtag=window.gtag||function(){dataLayer.push(arguments)};
 gtag('js',new Date());
 gtag('config','G-GFVSZ8YDQ5',{site_id:'food_cost_jp'});
 </script>
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "米5kgのコスパ比較では何を比べていますか？", "acceptedAnswer": {"@type": "Answer", "text": "楽天から取得した商品情報をもとに、数量を確定できる商品だけを1kgあたりへ換算して比較しています。"}}, {"@type": "Question", "name": "送料はランキングにどう反映していますか？", "acceptedAnswer": {"@type": "Answer", "text": "主ランキングは楽天APIで送料込みと確認できる商品を対象にしています。地域別追加送料などは販売ページで最終確認してください。"}}, {"@type": "Question", "name": "一番上の商品が必ず自分に最適ですか？", "acceptedAnswer": {"@type": "Answer", "text": "単価だけでなく、保管場所、支払総額、内容量、ブランドなども確認して選ぶのがおすすめです。"}}]}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "食品コスパ比較", "item": "https://stusaurus.github.io/food-cost-jp/"}, {"@type": "ListItem", "position": 2, "name": "米", "item": "https://stusaurus.github.io/food-cost-jp/categories/rice/"}, {"@type": "ListItem", "position": 3, "name": "米5kgのコスパ比較", "item": "https://stusaurus.github.io/food-cost-jp/guides/rice-5kg-cost/"}]}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "ItemList", "name": "米のコスパ比較", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "【 新米 令和8年入 】米 5kg 訳あり 【 産直の米 】 お米マイスター厳選米 お米 5kg 白米 5kg 5キロ 生活応援 産地直送 業務用 ブレンド米 (北海道・沖縄・離島は別途送料追加)", "url": "https://hb.afl.rakuten.co.jp/hgc/g00srvuo.7cx6m543.g00srvuo.7cx6ne6a/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Frice-smile%2Fsc-s05%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Frice-smile%2Fi%2F10000173%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5"}, {"@type": "ListItem", "position": 2, "name": "「新米実質5kg2,390円〜」令和8年 新米 あきたこまち キヌヒカリ など 選べる 各県こだわりの 銘柄米 極味精米 きわみせいまい 米 お米 白米 離島も含めて全国 単一銘柄米 [ ヒノヒカリ コシヒカリ こしひかり あきたこまち など各種銘柄米]", "url": "https://hb.afl.rakuten.co.jp/hgc/g00uhmzo.7cx6mc7c.g00uhmzo.7cx6nabf/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fyama-oatmeal-institute%2Fyumesizuku10-5kgx2%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fyama-oatmeal-institute%2Fi%2F10000026%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5"}, {"@type": "ListItem", "position": 3, "name": "令和7年産 産地直送 島根県産 神楽の郷 石見の こしひかり 5kg コシヒカリ こしひかり 米 お米 ギフト ブランド米 白米 5キロ 国産 国内産", "url": "https://hb.afl.rakuten.co.jp/hgc/g00sj2oo.7cx6m5ff.g00sj2oo.7cx6n7fb/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fokadabeikoku%2F002%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fokadabeikoku%2Fi%2F10000001%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5"}, {"@type": "ListItem", "position": 4, "name": "【令和8年産 新米入荷！】 米 5kg 令和8年産 ちょっぴりセレブなコシヒカリ コシヒカリ 5kg 米 5kg 白米 5kg お米 5キロ 無洗米 国内産 こめたつ", "url": "https://hb.afl.rakuten.co.jp/hgc/g00rxaro.7cx6m798.g00rxaro.7cx6n2f7/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Ffuchigami%2Fkoshi-srv5%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Ffuchigami%2Fi%2F10000360%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "米5kgのコスパ比較では何を比べていますか？", "acceptedAnswer": {"@type": "Answer", "text": "楽天から取得した商品情報をもとに、数量を確定できる商品だけを1kgあたりへ換算して比較しています。"}}, {"@type": "Question", "name": "送料はランキングにどう反映していますか？", "acceptedAnswer": {"@type": "Answer", "text": "主ランキングは楽天APIで送料込みと確認できる商品を対象にしています。地域別追加送料などは販売ページで最終確認してください。"}}, {"@type": "Question", "name": "一番上の商品が必ず自分に最適ですか？", "acceptedAnswer": {"@type": "Answer", "text": "単価だけでなく、保管場所、支払総額、内容量、ブランドなども確認して選ぶのがおすすめです。"}}]}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "食品コスパ比較", "item": "https://stusaurus.github.io/food-cost-jp/"}, {"@type": "ListItem", "position": 2, "name": "米", "item": "https://stusaurus.github.io/food-cost-jp/categories/rice/"}, {"@type": "ListItem", "position": 3, "name": "米5kgのコスパ比較", "item": "https://stusaurus.github.io/food-cost-jp/guides/rice-5kg-cost/"}]}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "ItemList", "name": "米のコスパ比較", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "【 新米 令和8年入 】米 5kg 訳あり 【 産直の米 】 お米マイスター厳選米 お米 5kg 白米 5kg 5キロ 生活応援 産地直送 業務用 ブレンド米 (北海道・沖縄・離島は別途送料追加)", "url": "https://hb.afl.rakuten.co.jp/hgc/g00srvuo.7cx6m543.g00srvuo.7cx6ne6a/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Frice-smile%2Fsc-s05%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Frice-smile%2Fi%2F10000173%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5"}, {"@type": "ListItem", "position": 2, "name": "「新米実質5kg2,390円〜」令和8年 新米 あきたこまち キヌヒカリ など 選べる 各県こだわりの 銘柄米 極味精米 きわみせいまい 米 お米 白米 離島も含めて全国 単一銘柄米 [ ヒノヒカリ コシヒカリ こしひかり あきたこまち など各種銘柄米]", "url": "https://hb.afl.rakuten.co.jp/hgc/g00uhmzo.7cx6mc7c.g00uhmzo.7cx6nabf/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fyama-oatmeal-institute%2Fyumesizuku10-5kgx2%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fyama-oatmeal-institute%2Fi%2F10000026%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5"}, {"@type": "ListItem", "position": 3, "name": "令和7年産 産地直送 島根県産 神楽の郷 石見の こしひかり 5kg コシヒカリ こしひかり 米 お米 ギフト ブランド米 白米 5キロ 国産 国内産", "url": "https://hb.afl.rakuten.co.jp/hgc/g00sj2oo.7cx6m5ff.g00sj2oo.7cx6n7fb/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fokadabeikoku%2F002%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fokadabeikoku%2Fi%2F10000001%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5"}]}</script>
 </head><body>
 <div class="market-masthead"><div class="wrap"><a class="market-logo" href="https://stusaurus.github.io/food-cost-jp/"><b>Food Cost<em>EVERYDAY MARCHÉ</em></b><span>食品コスパ比較</span></a><small>GOOD FOOD. SMART CHOICES.</small></div></div><header><div class="wrap hero-layout">
 <div><a class="brand" href="../../">食品コスパ比較</a>
@@ -161,7 +173,7 @@ gtag('config','G-GFVSZ8YDQ5',{site_id:'food_cost_jp'});
 <h1>米5kg前後を1kgあたりで比較</h1>
 <p class="lead">5kg前後の米を送料込みでそろえ、商品価格だけでなく1kgあたりの単価で比べます。</p>
 <div class="hero-tags"><span class="hero-tag">送料込みを優先</span><span class="hero-tag">実データ連動</span><span class="hero-tag">数量曖昧は除外</span></div>
-<p class="note">最終価格確認: 2026-10-02 20:41 JST</p></div>
+<p class="note">最終価格確認: 2026-10-02 21:29 JST</p></div>
 <div class="category-hero-art rice"><img class="food-art" src="https://stusaurus.github.io/food-cost-jp/assets/marche-rice.webp" width="768" height="512" alt="" loading="lazy"></div>
 </div></header>
 <nav class="service-shortcuts" aria-label="主要メニュー">
@@ -316,76 +328,7 @@ gtag('config','G-GFVSZ8YDQ5',{site_id:'food_cost_jp'});
  data-unit-price="536.000000" data-shipping="included" data-cta-variant="standard">楽天で価格を確認 →</a>
 </article></div>
 </section>
-<details class="more-products" data-more-products>
-<summary>ほかの候補を見る（1件） <span>＋</span></summary>
-<section class="comparison-inner" data-comparison data-start-rank="4">
-<h2>ほかの候補を見る（1件）</h2>
-<p class="sub">価格や容量条件を確認しながら比較できます。</p>
-<div class="toolbar">
-<input type="search" data-search data-category="rice" placeholder="商品名・ショップ名で絞る" aria-label="米の商品名・ショップ名で絞る">
-<select data-sort data-category="rice"><option value="per_kg">1kgあたりが安い順</option><option value="price">商品価格が安い順</option></select>
-<select data-filter data-category="rice">
-<option value="all">容量・数量すべて</option>
-<option value="small">5kg以下</option>
-<option value="large">5kg超</option>
-</select>
-</div>
-<p class="sub" data-intent-note></p><div class="empty-filter" data-empty-filter>条件に合う商品がありません。検索語や容量条件を変えてください。</div>
-<div class="table"><table>
-<thead><tr><th>順</th><th></th><th>商品</th><th>数量</th><th>商品価格</th><th>単価</th><th>販売先</th></tr></thead>
-<tbody><tr data-bucket="small" data-shopping-bucket="small" data-search-text="【令和8年産 新米入荷！】 米 5kg 令和8年産 ちょっぴりセレブなコシヒカリ コシヒカリ 5kg 米 5kg 白米 5kg お米 5キロ 無洗米 国内産 こめたつ こめたつ" data-price="3080" data-per_kg="616.000000">
-<td data-cell="rank" data-rank><span class="rank">4</span></td>
-<td data-cell="image"><img class="product-img" src="https://thumbnail.image.rakuten.co.jp/@0_mall/fuchigami/cabinet/srv/koshi/r8-ckoshi-smn-5.jpg?_ex=128x128" alt="" width="72" height="72" loading="lazy"></td>
-<td data-cell="product"><div class="identity-line"><span class="spec-chip">合計5kg</span></div>
-<strong class="product-name" title="【令和8年産 新米入荷！】 米 5kg 令和8年産 ちょっぴりセレブなコシヒカリ コシヒカリ 5kg 米 5kg 白米 5kg お米 5キロ 無洗米 国内産 こめたつ">令和8年産 新米入荷！ 米 5kg 令和8年産 ちょっぴりセレブなコシヒカリ コシヒカリ 5kg 米 5kg 白米 5kg…</strong><div class="shop">こめたつ</div><div class="product-badges"><span class="tag lifestyle">少量向き</span> <span class="tag ok">送料込み</span> </div><div class="trend-row"><span class="trend-badge low">30日最安</span></div><details class="product-extra" data-product-extra>
-<summary>価格のうごきを見る <span>＋</span></summary>
-<div class="product-extra-body"><div class="history-card" data-history-card>
-<div class="history-head"><strong>価格履歴</strong><span>2回取得</span></div>
-<div class="history-toolbar"><div class="history-tabs">
-<button type="button" class="selected" data-history-range="7日">7日</button>
-<button type="button" data-history-range="30日">30日</button>
-</div><span class="history-trend stable">最近安定</span></div>
-<div class="history-range-panel" data-history-panel="7日">
-<div class="history-stats history-stats-4">
-<div><span>現在</span><b>¥616</b></div>
-<div><span>最安</span><b>¥616</b><small>10/01</small></div>
-<div><span>最高</span><b>¥616</b><small>10/01</small></div>
-<div><span>値幅</span><b>¥0.0</b></div>
-</div>
-<svg class="sparkline neutral" viewBox="0 0 180 64" role="img" aria-label="7日価格推移">
-<line x1="6" y1="58" x2="174" y2="58" class="spark-grid"/>
-<polyline points="6.0,32.0 174.0,32.0" fill="none" vector-effect="non-scaling-stroke"/>
-<circle cx="174.0" cy="32.0" r="3.2"/>
-</svg></div><div class="history-range-panel" data-history-panel="30日" hidden>
-<div class="history-stats history-stats-4">
-<div><span>現在</span><b>¥616</b></div>
-<div><span>最安</span><b>¥616</b><small>10/01</small></div>
-<div><span>最高</span><b>¥616</b><small>10/01</small></div>
-<div><span>値幅</span><b>¥0.0</b></div>
-</div>
-<svg class="sparkline neutral" viewBox="0 0 180 64" role="img" aria-label="30日価格推移">
-<line x1="6" y1="58" x2="174" y2="58" class="spark-grid"/>
-<polyline points="6.0,32.0 174.0,32.0" fill="none" vector-effect="non-scaling-stroke"/>
-<circle cx="174.0" cy="32.0" r="3.2"/>
-</svg></div>
-</div><div class="buy-signal neutral">
-<span>相場圏</span><small>直近履歴では大きな割高・値下がりは確認できません。</small>
-</div></div>
-</details></td>
-<td data-cell="quantity">合計5kg</td>
-<td data-cell="price">¥3,080</td>
-<td data-cell="unit"><div class="unit">¥616</div><div class="unit-label">1kgあたり</div></td>
-<td data-cell="cta"><div class="product-actions">
-<button type="button" class="utility-btn" data-save-product data-product-id="fuchigami:10000360" data-product-name="【令和8年産 新米入荷！】 米 5kg 令和8年産 ちょっぴりセレブなコシヒカリ コシヒカリ 5kg 米 5kg 白米 5kg お米 5キロ 無洗米 国内産 こめたつ" data-product-category="rice" data-product-category-name="米" data-product-price="3080" data-product-unit="616.000000" data-product-unit-label="1kgあたり" data-product-quantity="合計5kg" data-product-url="https://hb.afl.rakuten.co.jp/hgc/g00rxaro.7cx6m798.g00rxaro.7cx6n2f7/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Ffuchigami%2Fkoshi-srv5%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Ffuchigami%2Fi%2F10000360%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" data-product-image="https://thumbnail.image.rakuten.co.jp/@0_mall/fuchigami/cabinet/srv/koshi/r8-ckoshi-smn-5.jpg?_ex=128x128">＋ 買い物メモ</button>
-<button type="button" class="utility-btn" data-compare-product data-product-id="fuchigami:10000360" data-product-name="【令和8年産 新米入荷！】 米 5kg 令和8年産 ちょっぴりセレブなコシヒカリ コシヒカリ 5kg 米 5kg 白米 5kg お米 5キロ 無洗米 国内産 こめたつ" data-product-category="rice" data-product-category-name="米" data-product-price="3080" data-product-unit="616.000000" data-product-unit-label="1kgあたり" data-product-quantity="合計5kg" data-product-url="https://hb.afl.rakuten.co.jp/hgc/g00rxaro.7cx6m798.g00rxaro.7cx6n2f7/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Ffuchigami%2Fkoshi-srv5%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Ffuchigami%2Fi%2F10000360%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" data-product-image="https://thumbnail.image.rakuten.co.jp/@0_mall/fuchigami/cabinet/srv/koshi/r8-ckoshi-smn-5.jpg?_ex=128x128">＋ 比較する</button>
-</div><a class="cta" href="https://hb.afl.rakuten.co.jp/hgc/g00rxaro.7cx6m798.g00rxaro.7cx6n2f7/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Ffuchigami%2Fkoshi-srv5%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Ffuchigami%2Fi%2F10000360%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" target="_blank" rel="nofollow sponsored noopener"
- data-affiliate="rakuten" data-category="rice" data-product-id="fuchigami:10000360"
- data-product-name="【令和8年産 新米入荷！】 米 5kg 令和8年産 ちょっぴりセレブなコシヒカリ コシヒカリ 5kg 米 5kg 白米 5kg お米 5キロ 無洗米 国内産 こめたつ" data-rank="4" data-metric="per_kg"
- data-unit-price="616.000000" data-shipping="included" data-cta-variant="standard">楽天で価格を確認 →</a></td>
-</tr></tbody>
-</table></div>
-</section>
-</details>
+
 <section class="section faq-section"><div class="section-kicker">FAQ</div><h2>よくある質問</h2><details class="faq-item"><summary>米5kgのコスパ比較では何を比べていますか？</summary><p>楽天から取得した商品情報をもとに、数量を確定できる商品だけを1kgあたりへ換算して比較しています。</p></details><details class="faq-item"><summary>送料はランキングにどう反映していますか？</summary><p>主ランキングは楽天APIで送料込みと確認できる商品を対象にしています。地域別追加送料などは販売ページで最終確認してください。</p></details><details class="faq-item"><summary>一番上の商品が必ず自分に最適ですか？</summary><p>単価だけでなく、保管場所、支払総額、内容量、ブランドなども確認して選ぶのがおすすめです。</p></details></section>
 <section class="section explain"><h2>もっと広く比較する</h2><p><a class="finder-go" href="../../categories/rice/">米の全ランキングを見る →</a></p></section>
 <button class="saved-fab" type="button" data-open-saved>＋ 買い物メモ <span data-saved-count>0</span></button>
@@ -463,7 +406,7 @@ document.querySelectorAll('[data-search]').forEach(input=>input.addEventListener
   send('comparison_search_use',{category_id:input.dataset.category,search_term:input.value.trim()})
 }));
 const shelfSeen=new WeakSet();
-const shelfView=el=>{if(!el||shelfSeen.has(el)||el.closest('[hidden]'))return;shelfSeen.add(el);send('market_shelf_view',{shelf_id:el.dataset.marketShelf,product_count:el.querySelectorAll('[data-affiliate]').length})};
+const shelfView=el=>{if(!el||shelfSeen.has(el)||el.closest('[hidden]'))return;shelfSeen.add(el);send('market_shelf_view',{shelf_id:el.dataset.marketShelf,product_count:el.querySelectorAll('[data-affiliate]').length,category_id:[...new Set([...el.querySelectorAll('[data-affiliate]')].map(a=>a.dataset.category))].length===1?el.querySelector('[data-affiliate]')?.dataset.category:'all',category_ids:[...new Set([...el.querySelectorAll('[data-affiliate]')].map(a=>a.dataset.category))].join(',')})};
 if(!('IntersectionObserver' in window))document.querySelectorAll('[data-market-shelf]').forEach(shelfView);
 if('IntersectionObserver' in window){const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting)shelfView(entry.target)}),{threshold:.1});document.querySelectorAll('[data-market-shelf]').forEach(el=>observer.observe(el))}
 document.addEventListener('click',e=>{const a=e.target.closest('a[data-affiliate]');const shelf=a?.closest('[data-market-shelf]');if(shelf)send('market_shelf_product_click',{shelf_id:shelf.dataset.marketShelf,category_id:a.dataset.category,product_id:a.dataset.productId,cta_variant:a.dataset.ctaVariant})});
@@ -472,7 +415,7 @@ if(finder){
   let category='all',purpose='',intent='',route='';
   const routeStage=finder.querySelector('[data-finder-route-stage]');
   const categoryStage=finder.querySelector('[data-finder-category-stage]'),purposeStage=finder.querySelector('[data-finder-purpose-stage]'),resultStage=finder.querySelector('[data-finder-result-stage]'),status=finder.querySelector('[data-finder-status]');
-  const show=el=>{el.hidden=false;const first=el.querySelector('button');first?.focus({preventScroll:true});const top=el.getBoundingClientRect().top;if(top<0||top>window.innerHeight*.65)el.scrollIntoView?.({block:'start',behavior:window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches?'instant':'smooth'})};
+  const show=el=>{el.hidden=false;const first=el.querySelector('summary,button');first?.focus({preventScroll:true});const top=el.getBoundingClientRect().top;if(top<0||top>window.innerHeight*.65)el.scrollIntoView?.({block:'start',behavior:window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches?'instant':'smooth'})};
   const hide=el=>el.hidden=true;
   const results=()=>{
     hide(routeStage);hide(purposeStage);hide(categoryStage);show(resultStage);
@@ -484,7 +427,7 @@ if(finder){
     send('quick_finder_complete',{category_id:category,finder_purpose:purpose});
     if(!('IntersectionObserver' in window))shelfView(current?.querySelector('[data-market-shelf]'));
   };
-  const reset=()=>{purpose='';category='all';route='';show(routeStage);hide(purposeStage);hide(categoryStage);hide(resultStage);status.textContent='';finder.querySelectorAll('[data-finder-picks]').forEach(x=>x.hidden=true);finder.querySelectorAll('[aria-pressed]').forEach(x=>x.setAttribute('aria-pressed','false'));finder.querySelectorAll('.selected').forEach(x=>x.classList.remove('selected'))};
+  const reset=()=>{purpose='';category='all';route='';show(routeStage);hide(purposeStage);hide(categoryStage);hide(resultStage);status.textContent='';finder.querySelectorAll('[data-finder-picks]').forEach(x=>x.hidden=true);finder.querySelectorAll('[aria-pressed]').forEach(x=>x.setAttribute('aria-pressed','false'));finder.querySelectorAll('.selected').forEach(x=>x.classList.remove('selected'));finder.querySelectorAll('.finder-aisle').forEach(x=>x.open=false)};
   const selectRoute=(key,source='entry')=>{
     route=key;category='all';status.textContent='';hide(routeStage);hide(purposeStage);hide(categoryStage);hide(resultStage);
     finder.querySelectorAll('[data-entry-route]').forEach(x=>{x.classList.toggle('selected',x.dataset.entryRoute===key);x.setAttribute('aria-pressed',String(x.dataset.entryRoute===key))});
@@ -511,7 +454,7 @@ if(pick&&document.querySelector('[data-comparison]')){
   const root=document.querySelector('[data-comparison]');
   const filter=root.querySelector('[data-filter]');
   const sort=root.querySelector('[data-sort]');
-  if(filter&&(pick==='small'||pick==='large'||pick==='storage')){root.dataset.shoppingIntent=pick;filter.value=pick==='storage'?'small':pick;if(filter.dataset.category==='carbonated-water'){filter.querySelector('[value=small]').textContent='合計12L以下';filter.querySelector('[value=large]').textContent='合計12L超'}const label=root.querySelector('[data-intent-note]');if(label)label.textContent='買い方で絞った一覧：少量側 / 大容量側は合計量を基準にしています。'}
+  if(filter&&(pick==='small'||pick==='large'||pick==='storage')){root.dataset.shoppingIntent=pick;filter.value=pick==='storage'?'small':pick;if(['carbonated-water','mineral-water'].includes(filter.dataset.category)){filter.querySelector('[value=small]').textContent='合計12L以下';filter.querySelector('[value=large]').textContent='合計12L超'}const label=root.querySelector('[data-intent-note]');if(label)label.textContent='買い方で絞った一覧：少量側 / 大容量側は合計量を基準にしています。'}
   if(filter&&pick==='storage')filter.value='small';
   if(sort&&(pick==='budget'||pick==='storage')){sort.value='price';sort.dispatchEvent(new Event('change'))}
   const details=root.closest('details');if(details)details.open=true;

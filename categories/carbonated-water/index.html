@@ -145,11 +145,23 @@ footer{padding:30px 0 100px;border-top:1px solid var(--line);font-size:10px;colo
  .compare-bar [data-open-compare]{margin-left:auto}
  .has-compare .site-toast{bottom:calc(80px + env(safe-area-inset-bottom,0px))}
 }
+/* Four compact departments preserve the market's existing paper and green palette. */
+.aisle-grid{display:grid;grid-template-columns:1fr 1fr;gap:26px}
+.aisle-card{display:grid;grid-template-columns:38% minmax(0,1fr);background:#f6f2e8;border-block:1px solid var(--line);overflow:hidden}
+.aisle-visual{min-height:250px;background:#ede8db}.aisle-visual .food-art{width:100%;height:100%;object-fit:cover}
+.aisle-copy{padding:24px}.aisle-copy h3{font:26px Georgia,'Noto Serif JP',serif;color:var(--brand);margin:9px 0 12px}.aisle-copy p{font-size:12px;line-height:1.8;color:var(--muted)}
+.aisle-inventory{font-size:11px;color:var(--brand);margin:16px 0 8px}
+.aisle-links{display:grid}.aisle-links a{display:flex;justify-content:space-between;gap:10px;align-items:center;padding:13px 0;border-top:1px solid #ded8c8;text-decoration:none;color:var(--brand);min-height:44px}.aisle-links span{font-size:13px}.aisle-links small{font-size:10px;color:var(--muted);text-align:right}.aisle-links a:hover span{text-decoration:underline;text-underline-offset:4px}
+.finder-aisles{display:grid;grid-template-columns:1fr 1fr;gap:12px}.finder-aisle{border:1px solid var(--line);background:var(--panel)}.finder-aisle>summary{padding:18px;cursor:pointer;font-size:16px;color:var(--brand);min-height:54px}.finder-aisle>summary small{float:right;font-size:11px;color:var(--muted)}.finder-aisle .finder-options{padding:0 12px 12px;grid-template-columns:1fr 1fr}.finder-aisle .finder-category{align-items:flex-start;text-align:left;padding:14px 12px;gap:6px}.finder-category small{font-size:10px;color:var(--muted)}.category-symbol{font-size:72px;line-height:1.4;padding:20px;display:block;text-align:center}
+@media(min-width:760px){.market-shelf .finder-products,#today-market .finder-products,.finder .market-shelf .finder-products{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:calc((100% - 54px)/4);overflow-x:auto;scroll-snap-type:x proximity;padding:10px 0 18px;scrollbar-width:thin}.market-shelf .finder-product{scroll-snap-align:start}#today-market .finder-product:nth-child(even){margin-top:0}}
+@media(max-width:1000px) and (min-width:760px){.aisle-card{grid-template-columns:1fr}.aisle-visual{height:160px;min-height:0}.market-shelf .finder-products,#today-market .finder-products,.finder .market-shelf .finder-products{grid-auto-columns:calc((100% - 36px)/3)}}
+@media(max-width:759px){.aisle-grid{grid-template-columns:1fr;gap:20px}.aisle-card{grid-template-columns:30% minmax(0,1fr)}.aisle-copy{padding:18px 14px}.aisle-copy h3{font-size:23px}.aisle-visual{min-height:180px}.aisle-links a{flex-wrap:wrap;gap:4px}.aisle-links small{font-size:10px}.finder-aisles{grid-template-columns:1fr}.finder-aisle>summary{font-size:15px}.finder-aisle .finder-category{min-height:66px}.category-symbol{font-size:54px}}
+.aisle-card[data-aisle="stock"] .aisle-visual{display:flex;align-items:center;background:#fffdf8;padding:12px}.aisle-card[data-aisle="stock"] .aisle-visual img{height:240px;object-fit:contain}
 </style>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-GFVSZ8YDQ5"></script>
 <script>
 window.dataLayer=window.dataLayer||[];
-function gtag(){dataLayer.push(arguments)}
+window.gtag=window.gtag||function(){dataLayer.push(arguments)};
 gtag('js',new Date());
 gtag('config','G-GFVSZ8YDQ5',{site_id:'food_cost_jp'});
 </script>
@@ -162,7 +174,7 @@ gtag('config','G-GFVSZ8YDQ5',{site_id:'food_cost_jp'});
 <h1>炭酸水を<br>1Lあたりで比較。</h1>
 <p class="lead">500ml・1L・24本・48本などを1Lあたりと1本あたりへ換算します。</p>
 <div class="hero-tags"><span class="hero-tag">送料込みを優先</span><span class="hero-tag">数量曖昧は除外</span><span class="hero-tag">クーポン未反映</span></div>
-<p class="note">最終価格確認: 2026-10-02 20:41 JST。最新価格は販売ページで確認してください。</p>
+<p class="note">最終価格確認: 2026-10-02 21:29 JST。最新価格は販売ページで確認してください。</p>
 </div>
 <div class="category-hero-art carbonated-water"><img class="food-art" src="https://stusaurus.github.io/food-cost-jp/assets/marche-carbonated-water.webp" width="768" height="512" alt="" loading="lazy"></div>
 </div></header>
@@ -177,7 +189,7 @@ gtag('config','G-GFVSZ8YDQ5',{site_id:'food_cost_jp'});
 <div class="summary-grid">
 <div class="summary-item"><div class="summary-k">送料込み最安</div><div class="summary-v">¥105</div><div class="fine">1Lあたり</div></div>
 <div class="summary-item"><div class="summary-k">送料込み掲載</div><div class="summary-v">15件</div></div>
-<div class="summary-item"><div class="summary-k">送料別参考</div><div class="summary-v">20件</div></div>
+<div class="summary-item"><div class="summary-k">送料別参考</div><div class="summary-v">19件</div></div>
 </div></section><section class="journey-strip" aria-label="商品の選び方">
 <div><span>1</span><strong>候補を見る</strong><small>単価と総額を確認</small></div>
 <i>→</i><div><span>2</span><strong>比較する</strong><small>最大3商品まで</small></div>
@@ -916,9 +928,9 @@ gtag('config','G-GFVSZ8YDQ5',{site_id:'food_cost_jp'});
 </table></div>
 </section>
 </details></div><div id="other"><details class="more-products" data-more-products>
-<summary>送料別の参考商品を見る（20件） <span>＋</span></summary>
+<summary>送料別の参考商品を見る（19件） <span>＋</span></summary>
 <section class="comparison-inner" data-comparison data-start-rank="1">
-<h2>送料別の参考商品を見る（20件）</h2>
+<h2>送料別の参考商品を見る（19件）</h2>
 <p class="sub">単価は商品価格だけの参考値です。送料額は推測せず、送料込みランキングと混ぜません。</p>
 <div class="toolbar">
 <input type="search" data-search data-category="carbonated-water" placeholder="商品名・ショップ名で絞る" aria-label="炭酸水の商品名・ショップ名で絞る">
@@ -1667,57 +1679,8 @@ gtag('config','G-GFVSZ8YDQ5',{site_id:'food_cost_jp'});
  data-affiliate="rakuten" data-category="carbonated-water" data-product-id="soukaidrink:10012932"
  data-product-name="アイリス CRYSTAL SPARK 富士山の強炭酸水 ラベルレス( 500ml×24本入)【CRYSTALSPARK】[炭酸水 500ml 24本 ラベルレス]" data-rank="15" data-metric="per_liter"
  data-unit-price="181.333333" data-shipping="extra_or_unknown" data-cta-variant="standard">楽天で価格を確認 →</a></td>
-</tr><tr data-bucket="small" data-shopping-bucket="small" data-search-text="伊藤園 強炭酸水 ミネラル ストロング シリカ含有(500ml*24本入)【伊藤園】 楽天24 ドリンク館" data-price="2188" data-per_liter="182.333333" data-per_bottle="91.166667">
-<td data-cell="rank" data-rank><span class="rank">16</span></td>
-<td data-cell="image"><img class="product-img" src="https://thumbnail.image.rakuten.co.jp/@0_mall/soukaidrink/cabinet/777/4901085637777.jpg?_ex=128x128" alt="" width="72" height="72" loading="lazy"></td>
-<td data-cell="product"><div class="identity-line"><span class="brand-chip">伊藤園</span><span class="spec-chip">500ml×24本 / 合計12L</span></div>
-<strong class="product-name" title="伊藤園 強炭酸水 ミネラル ストロング シリカ含有(500ml*24本入)【伊藤園】">強炭酸水 ミネラル ストロング シリカ含有(500ml*24本入) 伊藤園</strong><div class="shop">楽天24 ドリンク館</div><div class="product-badges"><span class="tag lifestyle">少量向き</span> <span class="tag warn">送料別・要確認</span> </div><div class="trend-row"><span class="trend-badge low">30日最安</span></div><details class="product-extra" data-product-extra>
-<summary>価格のうごきを見る <span>＋</span></summary>
-<div class="product-extra-body"><div class="history-card" data-history-card>
-<div class="history-head"><strong>価格履歴</strong><span>3回取得</span></div>
-<div class="history-toolbar"><div class="history-tabs">
-<button type="button" class="selected" data-history-range="7日">7日</button>
-<button type="button" data-history-range="30日">30日</button>
-</div><span class="history-trend stable">最近安定</span></div>
-<div class="history-range-panel" data-history-panel="7日">
-<div class="history-stats history-stats-4">
-<div><span>現在</span><b>¥182</b></div>
-<div><span>最安</span><b>¥182</b><small>09/30</small></div>
-<div><span>最高</span><b>¥182</b><small>09/30</small></div>
-<div><span>値幅</span><b>¥0.0</b></div>
-</div>
-<svg class="sparkline neutral" viewBox="0 0 180 64" role="img" aria-label="7日価格推移">
-<line x1="6" y1="58" x2="174" y2="58" class="spark-grid"/>
-<polyline points="6.0,32.0 90.0,32.0 174.0,32.0" fill="none" vector-effect="non-scaling-stroke"/>
-<circle cx="174.0" cy="32.0" r="3.2"/>
-</svg></div><div class="history-range-panel" data-history-panel="30日" hidden>
-<div class="history-stats history-stats-4">
-<div><span>現在</span><b>¥182</b></div>
-<div><span>最安</span><b>¥182</b><small>09/30</small></div>
-<div><span>最高</span><b>¥182</b><small>09/30</small></div>
-<div><span>値幅</span><b>¥0.0</b></div>
-</div>
-<svg class="sparkline neutral" viewBox="0 0 180 64" role="img" aria-label="30日価格推移">
-<line x1="6" y1="58" x2="174" y2="58" class="spark-grid"/>
-<polyline points="6.0,32.0 90.0,32.0 174.0,32.0" fill="none" vector-effect="non-scaling-stroke"/>
-<circle cx="174.0" cy="32.0" r="3.2"/>
-</svg></div>
-</div><div class="buy-signal neutral">
-<span>相場圏</span><small>直近履歴では大きな割高・値下がりは確認できません。</small>
-</div></div>
-</details></td>
-<td data-cell="quantity">500ml×24本 / 合計12L</td>
-<td data-cell="price">¥2,188</td>
-<td data-cell="unit"><div class="unit">¥182</div><div class="unit-label">1Lあたり</div><div class="secondary-unit">1本あたり ¥91.2</div></td>
-<td data-cell="cta"><div class="product-actions">
-<button type="button" class="utility-btn" data-save-product data-product-id="soukaidrink:10014152" data-product-name="伊藤園 強炭酸水 ミネラル ストロング シリカ含有(500ml*24本入)【伊藤園】" data-product-category="carbonated-water" data-product-category-name="炭酸水" data-product-price="2188" data-product-unit="182.333333" data-product-unit-label="1Lあたり" data-product-quantity="500ml×24本 / 合計12L" data-product-url="https://hb.afl.rakuten.co.jp/hgc/g00rzxdo.7cx6mad7.g00rzxdo.7cx6nfc7/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fsoukaidrink%2F4901085637777%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Fsoukaidrink%2Fi%2F10014152%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" data-product-image="https://thumbnail.image.rakuten.co.jp/@0_mall/soukaidrink/cabinet/777/4901085637777.jpg?_ex=128x128">＋ 買い物メモ</button>
-<button type="button" class="utility-btn" data-compare-product data-product-id="soukaidrink:10014152" data-product-name="伊藤園 強炭酸水 ミネラル ストロング シリカ含有(500ml*24本入)【伊藤園】" data-product-category="carbonated-water" data-product-category-name="炭酸水" data-product-price="2188" data-product-unit="182.333333" data-product-unit-label="1Lあたり" data-product-quantity="500ml×24本 / 合計12L" data-product-url="https://hb.afl.rakuten.co.jp/hgc/g00rzxdo.7cx6mad7.g00rzxdo.7cx6nfc7/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fsoukaidrink%2F4901085637777%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Fsoukaidrink%2Fi%2F10014152%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" data-product-image="https://thumbnail.image.rakuten.co.jp/@0_mall/soukaidrink/cabinet/777/4901085637777.jpg?_ex=128x128">＋ 比較する</button>
-</div><a class="cta" href="https://hb.afl.rakuten.co.jp/hgc/g00rzxdo.7cx6mad7.g00rzxdo.7cx6nfc7/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fsoukaidrink%2F4901085637777%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Fsoukaidrink%2Fi%2F10014152%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" target="_blank" rel="nofollow sponsored noopener"
- data-affiliate="rakuten" data-category="carbonated-water" data-product-id="soukaidrink:10014152"
- data-product-name="伊藤園 強炭酸水 ミネラル ストロング シリカ含有(500ml*24本入)【伊藤園】" data-rank="16" data-metric="per_liter"
- data-unit-price="182.333333" data-shipping="extra_or_unknown" data-cta-variant="standard">楽天で価格を確認 →</a></td>
 </tr><tr data-bucket="small" data-shopping-bucket="small" data-search-text="炭酸水 シリカ炭酸水 sol bianca 天然シリカ水 ラベルレス 42.5mg/l ミネラル炭酸水 500ml×24本 スパークリングウォーター 九州 日田産 ケイ素水 おとぎの国" data-price="2200" data-per_liter="183.333333" data-per_bottle="91.666667">
-<td data-cell="rank" data-rank><span class="rank">17</span></td>
+<td data-cell="rank" data-rank><span class="rank">16</span></td>
 <td data-cell="image"><img class="product-img" src="https://thumbnail.image.rakuten.co.jp/@0_mall/otogino/cabinet/water/sol-24bi-th600d.jpg?_ex=128x128" alt="" width="72" height="72" loading="lazy"></td>
 <td data-cell="product"><div class="identity-line"><span class="spec-chip">500ml×24本 / 合計12L</span></div>
 <strong class="product-name" title="炭酸水 シリカ炭酸水 SOL BiANCA 天然シリカ水 ラベルレス 42.5mg/L ミネラル炭酸水 500ml×24本 スパークリングウォーター 九州 日田産 ケイ素水">炭酸水 シリカ炭酸水 SOL BiANCA 天然シリカ水 ラベルレス 42.5mg L ミネラル炭酸水 500ml×24本…</strong><div class="shop">おとぎの国</div><div class="product-badges"><span class="tag lifestyle">少量向き</span> <span class="tag warn">送料別・要確認</span> </div><div class="trend-row"><span class="trend-badge low">30日最安</span></div><details class="product-extra" data-product-extra>
@@ -1763,10 +1726,10 @@ gtag('config','G-GFVSZ8YDQ5',{site_id:'food_cost_jp'});
 <button type="button" class="utility-btn" data-compare-product data-product-id="otogino:10045750" data-product-name="炭酸水 シリカ炭酸水 SOL BiANCA 天然シリカ水 ラベルレス 42.5mg/L ミネラル炭酸水 500ml×24本 スパークリングウォーター 九州 日田産 ケイ素水" data-product-category="carbonated-water" data-product-category-name="炭酸水" data-product-price="2200" data-product-unit="183.333333" data-product-unit-label="1Lあたり" data-product-quantity="500ml×24本 / 合計12L" data-product-url="https://hb.afl.rakuten.co.jp/hgc/g00pzi0o.7cx6m3b4.g00pzi0o.7cx6n24c/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fotogino%2Fsol-24%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Fotogino%2Fi%2F10045750%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" data-product-image="https://thumbnail.image.rakuten.co.jp/@0_mall/otogino/cabinet/water/sol-24bi-th600d.jpg?_ex=128x128">＋ 比較する</button>
 </div><a class="cta" href="https://hb.afl.rakuten.co.jp/hgc/g00pzi0o.7cx6m3b4.g00pzi0o.7cx6n24c/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fotogino%2Fsol-24%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Fotogino%2Fi%2F10045750%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" target="_blank" rel="nofollow sponsored noopener"
  data-affiliate="rakuten" data-category="carbonated-water" data-product-id="otogino:10045750"
- data-product-name="炭酸水 シリカ炭酸水 SOL BiANCA 天然シリカ水 ラベルレス 42.5mg/L ミネラル炭酸水 500ml×24本 スパークリングウォーター 九州 日田産 ケイ素水" data-rank="17" data-metric="per_liter"
+ data-product-name="炭酸水 シリカ炭酸水 SOL BiANCA 天然シリカ水 ラベルレス 42.5mg/L ミネラル炭酸水 500ml×24本 スパークリングウォーター 九州 日田産 ケイ素水" data-rank="16" data-metric="per_liter"
  data-unit-price="183.333333" data-shipping="extra_or_unknown" data-cta-variant="standard">楽天で価格を確認 →</a></td>
 </tr><tr data-bucket="small" data-shopping-bucket="large" data-search-text="ウィルキンソン タンサン ラベルレスボトル(500ml×48本セット)【ウィルキンソン】[炭酸水 炭酸] 楽天24 ドリンク館" data-price="4499" data-per_liter="187.458333" data-per_bottle="93.729167">
-<td data-cell="rank" data-rank><span class="rank">18</span></td>
+<td data-cell="rank" data-rank><span class="rank">17</span></td>
 <td data-cell="image"><img class="product-img" src="https://thumbnail.image.rakuten.co.jp/@0_mall/soukaidrink/cabinet/197/533197.jpg?_ex=128x128" alt="" width="72" height="72" loading="lazy"></td>
 <td data-cell="product"><div class="identity-line"><span class="brand-chip">ウィルキンソン</span><span class="spec-chip">500ml×48本 / 合計24L</span></div>
 <strong class="product-name" title="ウィルキンソン タンサン ラベルレスボトル(500ml×48本セット)【ウィルキンソン】[炭酸水 炭酸]">タンサン ラベルレスボトル(500ml×48本セット) ウィルキンソン 炭酸水 炭酸</strong><div class="shop">楽天24 ドリンク館</div><div class="product-badges"><span class="tag lifestyle">少量向き</span> <span class="tag warn">送料別・要確認</span> </div><div class="trend-row"></div><details class="product-extra" data-product-extra>
@@ -1786,10 +1749,10 @@ gtag('config','G-GFVSZ8YDQ5',{site_id:'food_cost_jp'});
 <button type="button" class="utility-btn" data-compare-product data-product-id="soukaidrink:10011624" data-product-name="ウィルキンソン タンサン ラベルレスボトル(500ml×48本セット)【ウィルキンソン】[炭酸水 炭酸]" data-product-category="carbonated-water" data-product-category-name="炭酸水" data-product-price="4499" data-product-unit="187.458333" data-product-unit-label="1Lあたり" data-product-quantity="500ml×48本 / 合計24L" data-product-url="https://hb.afl.rakuten.co.jp/hgc/g00rzxdo.7cx6mad7.g00rzxdo.7cx6nfc7/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fsoukaidrink%2F533197%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Fsoukaidrink%2Fi%2F10011624%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" data-product-image="https://thumbnail.image.rakuten.co.jp/@0_mall/soukaidrink/cabinet/197/533197.jpg?_ex=128x128">＋ 比較する</button>
 </div><a class="cta" href="https://hb.afl.rakuten.co.jp/hgc/g00rzxdo.7cx6mad7.g00rzxdo.7cx6nfc7/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fsoukaidrink%2F533197%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Fsoukaidrink%2Fi%2F10011624%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" target="_blank" rel="nofollow sponsored noopener"
  data-affiliate="rakuten" data-category="carbonated-water" data-product-id="soukaidrink:10011624"
- data-product-name="ウィルキンソン タンサン ラベルレスボトル(500ml×48本セット)【ウィルキンソン】[炭酸水 炭酸]" data-rank="18" data-metric="per_liter"
+ data-product-name="ウィルキンソン タンサン ラベルレスボトル(500ml×48本セット)【ウィルキンソン】[炭酸水 炭酸]" data-rank="17" data-metric="per_liter"
  data-unit-price="187.458333" data-shipping="extra_or_unknown" data-cta-variant="standard">楽天で価格を確認 →</a></td>
 </tr><tr data-bucket="small" data-shopping-bucket="large" data-search-text="アサヒ ウィルキンソン タンサン 500ml×24 本×2ケース（48本） 飲料【送料無料※一部地域は除く】炭酸水 水 ウィルキンソン イズミックワールド" data-price="4970" data-per_liter="207.083333" data-per_bottle="103.541667">
-<td data-cell="rank" data-rank><span class="rank">19</span></td>
+<td data-cell="rank" data-rank><span class="rank">18</span></td>
 <td data-cell="image"><img class="product-img" src="https://thumbnail.image.rakuten.co.jp/@0_mall/izmic-ec/cabinet/drink2019051002/607330-02.jpg?_ex=128x128" alt="" width="72" height="72" loading="lazy"></td>
 <td data-cell="product"><div class="identity-line"><span class="brand-chip">ウィルキンソン</span><span class="spec-chip">500ml×48本 / 合計24L</span></div>
 <strong class="product-name" title="アサヒ ウィルキンソン タンサン 500ml×24 本×2ケース（48本） 飲料【送料無料※一部地域は除く】炭酸水 水 ウィルキンソン">アサヒ タンサン 500ml×24 本×2ケース（48本） 飲料 送料無料※一部地域は除く 炭酸水 水 ウィルキンソン</strong><div class="shop">イズミックワールド</div><div class="product-badges"><span class="tag lifestyle">少量向き</span> <span class="tag warn">送料別・要確認</span> </div><div class="trend-row"><span class="trend-badge low">30日最安</span></div><details class="product-extra" data-product-extra>
@@ -1835,10 +1798,10 @@ gtag('config','G-GFVSZ8YDQ5',{site_id:'food_cost_jp'});
 <button type="button" class="utility-btn" data-compare-product data-product-id="izmic-ec:10137747" data-product-name="アサヒ ウィルキンソン タンサン 500ml×24 本×2ケース（48本） 飲料【送料無料※一部地域は除く】炭酸水 水 ウィルキンソン" data-product-category="carbonated-water" data-product-category-name="炭酸水" data-product-price="4970" data-product-unit="207.083333" data-product-unit-label="1Lあたり" data-product-quantity="500ml×48本 / 合計24L" data-product-url="https://hb.afl.rakuten.co.jp/hgc/g00pjp9o.7cx6mc74.g00pjp9o.7cx6na23/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fizmic-ec%2F629866-02%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Fizmic-ec%2Fi%2F10137747%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" data-product-image="https://thumbnail.image.rakuten.co.jp/@0_mall/izmic-ec/cabinet/drink2019051002/607330-02.jpg?_ex=128x128">＋ 比較する</button>
 </div><a class="cta" href="https://hb.afl.rakuten.co.jp/hgc/g00pjp9o.7cx6mc74.g00pjp9o.7cx6na23/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fizmic-ec%2F629866-02%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Fizmic-ec%2Fi%2F10137747%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" target="_blank" rel="nofollow sponsored noopener"
  data-affiliate="rakuten" data-category="carbonated-water" data-product-id="izmic-ec:10137747"
- data-product-name="アサヒ ウィルキンソン タンサン 500ml×24 本×2ケース（48本） 飲料【送料無料※一部地域は除く】炭酸水 水 ウィルキンソン" data-rank="19" data-metric="per_liter"
+ data-product-name="アサヒ ウィルキンソン タンサン 500ml×24 本×2ケース（48本） 飲料【送料無料※一部地域は除く】炭酸水 水 ウィルキンソン" data-rank="18" data-metric="per_liter"
  data-unit-price="207.083333" data-shipping="extra_or_unknown" data-cta-variant="standard">楽天で価格を確認 →</a></td>
 </tr><tr data-bucket="large" data-shopping-bucket="small" data-search-text="ウィルキンソン タンサン レモン(1l×12本入)【ウィルキンソン】[炭酸水 炭酸] 楽天24 ドリンク館" data-price="2630" data-per_liter="219.166667" data-per_bottle="219.166667">
-<td data-cell="rank" data-rank><span class="rank">20</span></td>
+<td data-cell="rank" data-rank><span class="rank">19</span></td>
 <td data-cell="image"><img class="product-img" src="https://thumbnail.image.rakuten.co.jp/@0_mall/soukaidrink/cabinet/503/4514603391503.jpg?_ex=128x128" alt="" width="72" height="72" loading="lazy"></td>
 <td data-cell="product"><div class="identity-line"><span class="brand-chip">ウィルキンソン</span><span class="spec-chip">1000ml×12本 / 合計12L</span></div>
 <strong class="product-name" title="ウィルキンソン タンサン レモン(1L×12本入)【ウィルキンソン】[炭酸水 炭酸]">タンサン レモン(1L×12本入) ウィルキンソン 炭酸水 炭酸</strong><div class="shop">楽天24 ドリンク館</div><div class="product-badges"><span class="tag lifestyle">まとめ買い向き</span> <span class="tag warn">送料別・要確認</span> </div><div class="trend-row"><span class="trend-badge low">30日最安</span></div><details class="product-extra" data-product-extra>
@@ -1884,7 +1847,7 @@ gtag('config','G-GFVSZ8YDQ5',{site_id:'food_cost_jp'});
 <button type="button" class="utility-btn" data-compare-product data-product-id="soukaidrink:10008783" data-product-name="ウィルキンソン タンサン レモン(1L×12本入)【ウィルキンソン】[炭酸水 炭酸]" data-product-category="carbonated-water" data-product-category-name="炭酸水" data-product-price="2630" data-product-unit="219.166667" data-product-unit-label="1Lあたり" data-product-quantity="1000ml×12本 / 合計12L" data-product-url="https://hb.afl.rakuten.co.jp/hgc/g00rzxdo.7cx6mad7.g00rzxdo.7cx6nfc7/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fsoukaidrink%2F4514603391503%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Fsoukaidrink%2Fi%2F10008783%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" data-product-image="https://thumbnail.image.rakuten.co.jp/@0_mall/soukaidrink/cabinet/503/4514603391503.jpg?_ex=128x128">＋ 比較する</button>
 </div><a class="cta" href="https://hb.afl.rakuten.co.jp/hgc/g00rzxdo.7cx6mad7.g00rzxdo.7cx6nfc7/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fsoukaidrink%2F4514603391503%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Fsoukaidrink%2Fi%2F10008783%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" target="_blank" rel="nofollow sponsored noopener"
  data-affiliate="rakuten" data-category="carbonated-water" data-product-id="soukaidrink:10008783"
- data-product-name="ウィルキンソン タンサン レモン(1L×12本入)【ウィルキンソン】[炭酸水 炭酸]" data-rank="20" data-metric="per_liter"
+ data-product-name="ウィルキンソン タンサン レモン(1L×12本入)【ウィルキンソン】[炭酸水 炭酸]" data-rank="19" data-metric="per_liter"
  data-unit-price="219.166667" data-shipping="extra_or_unknown" data-cta-variant="standard">楽天で価格を確認 →</a></td>
 </tr></tbody>
 </table></div>
@@ -1895,7 +1858,7 @@ gtag('config','G-GFVSZ8YDQ5',{site_id:'food_cost_jp'});
 <div class="guide-mini"><img class="guide-mascot compact" src="https://stusaurus.github.io/food-cost-jp/assets/marche-rice.webp" width="768" height="512" alt="" loading="lazy"></div>
 </section><section class="section faq-section"><div class="section-kicker">FAQ</div><h2>よくある質問</h2><details class="faq-item"><summary>炭酸水は何を基準に並べていますか？</summary><p>送料込み確認済みの商品を、主に1Lあたりが安い順で並べています。</p></details><details class="faq-item"><summary>クーポンやポイントは単価に含めていますか？</summary><p>通常価格を公平に比べるため、クーポンやポイントは自動的に単価へ差し引いていません。</p></details><details class="faq-item"><summary>数量が選べる商品はランキングに入りますか？</summary><p>購入する容量や個数を商品情報から一意に確定できない場合は、誤比較を防ぐためランキングから除外します。</p></details></section><section class="section">
 <h2>ほかの食品も単価で比べる</h2>
-<div class="other-categories"><a href="../pack-rice/">🍚 パックご飯</a><a href="../rice/">🌾 米</a><a href="../oatmeal/">🥣 オートミール</a></div>
+<div class="other-categories"><a href="../pack-rice/">🍚 パックご飯</a><a href="../rice/">🌾 米</a><a href="../oatmeal/">🥣 オートミール</a><a href="../mineral-water/">💧 ミネラルウォーター</a><a href="../pasta/">🍝 パスタ</a><a href="../granola/">🥣 グラノーラ</a><a href="../retort-curry/">🍛 レトルトカレー</a><a href="../bag-noodles/">🍜 袋麺</a><a href="../cup-noodles/">🍜 カップ麺</a></div>
 </section><section class="section explain">
 <h2>このランキングのルール</h2>
 <p>数量を安全に読み取れる商品だけを掲載し、定期購入・初回限定などは通常価格ランキングから除外します。クーポン・ポイントは通常単価へ差し引きません。</p>
@@ -1976,7 +1939,7 @@ document.querySelectorAll('[data-search]').forEach(input=>input.addEventListener
   send('comparison_search_use',{category_id:input.dataset.category,search_term:input.value.trim()})
 }));
 const shelfSeen=new WeakSet();
-const shelfView=el=>{if(!el||shelfSeen.has(el)||el.closest('[hidden]'))return;shelfSeen.add(el);send('market_shelf_view',{shelf_id:el.dataset.marketShelf,product_count:el.querySelectorAll('[data-affiliate]').length})};
+const shelfView=el=>{if(!el||shelfSeen.has(el)||el.closest('[hidden]'))return;shelfSeen.add(el);send('market_shelf_view',{shelf_id:el.dataset.marketShelf,product_count:el.querySelectorAll('[data-affiliate]').length,category_id:[...new Set([...el.querySelectorAll('[data-affiliate]')].map(a=>a.dataset.category))].length===1?el.querySelector('[data-affiliate]')?.dataset.category:'all',category_ids:[...new Set([...el.querySelectorAll('[data-affiliate]')].map(a=>a.dataset.category))].join(',')})};
 if(!('IntersectionObserver' in window))document.querySelectorAll('[data-market-shelf]').forEach(shelfView);
 if('IntersectionObserver' in window){const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting)shelfView(entry.target)}),{threshold:.1});document.querySelectorAll('[data-market-shelf]').forEach(el=>observer.observe(el))}
 document.addEventListener('click',e=>{const a=e.target.closest('a[data-affiliate]');const shelf=a?.closest('[data-market-shelf]');if(shelf)send('market_shelf_product_click',{shelf_id:shelf.dataset.marketShelf,category_id:a.dataset.category,product_id:a.dataset.productId,cta_variant:a.dataset.ctaVariant})});
@@ -1985,7 +1948,7 @@ if(finder){
   let category='all',purpose='',intent='',route='';
   const routeStage=finder.querySelector('[data-finder-route-stage]');
   const categoryStage=finder.querySelector('[data-finder-category-stage]'),purposeStage=finder.querySelector('[data-finder-purpose-stage]'),resultStage=finder.querySelector('[data-finder-result-stage]'),status=finder.querySelector('[data-finder-status]');
-  const show=el=>{el.hidden=false;const first=el.querySelector('button');first?.focus({preventScroll:true});const top=el.getBoundingClientRect().top;if(top<0||top>window.innerHeight*.65)el.scrollIntoView?.({block:'start',behavior:window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches?'instant':'smooth'})};
+  const show=el=>{el.hidden=false;const first=el.querySelector('summary,button');first?.focus({preventScroll:true});const top=el.getBoundingClientRect().top;if(top<0||top>window.innerHeight*.65)el.scrollIntoView?.({block:'start',behavior:window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches?'instant':'smooth'})};
   const hide=el=>el.hidden=true;
   const results=()=>{
     hide(routeStage);hide(purposeStage);hide(categoryStage);show(resultStage);
@@ -1997,7 +1960,7 @@ if(finder){
     send('quick_finder_complete',{category_id:category,finder_purpose:purpose});
     if(!('IntersectionObserver' in window))shelfView(current?.querySelector('[data-market-shelf]'));
   };
-  const reset=()=>{purpose='';category='all';route='';show(routeStage);hide(purposeStage);hide(categoryStage);hide(resultStage);status.textContent='';finder.querySelectorAll('[data-finder-picks]').forEach(x=>x.hidden=true);finder.querySelectorAll('[aria-pressed]').forEach(x=>x.setAttribute('aria-pressed','false'));finder.querySelectorAll('.selected').forEach(x=>x.classList.remove('selected'))};
+  const reset=()=>{purpose='';category='all';route='';show(routeStage);hide(purposeStage);hide(categoryStage);hide(resultStage);status.textContent='';finder.querySelectorAll('[data-finder-picks]').forEach(x=>x.hidden=true);finder.querySelectorAll('[aria-pressed]').forEach(x=>x.setAttribute('aria-pressed','false'));finder.querySelectorAll('.selected').forEach(x=>x.classList.remove('selected'));finder.querySelectorAll('.finder-aisle').forEach(x=>x.open=false)};
   const selectRoute=(key,source='entry')=>{
     route=key;category='all';status.textContent='';hide(routeStage);hide(purposeStage);hide(categoryStage);hide(resultStage);
     finder.querySelectorAll('[data-entry-route]').forEach(x=>{x.classList.toggle('selected',x.dataset.entryRoute===key);x.setAttribute('aria-pressed',String(x.dataset.entryRoute===key))});
@@ -2024,7 +1987,7 @@ if(pick&&document.querySelector('[data-comparison]')){
   const root=document.querySelector('[data-comparison]');
   const filter=root.querySelector('[data-filter]');
   const sort=root.querySelector('[data-sort]');
-  if(filter&&(pick==='small'||pick==='large'||pick==='storage')){root.dataset.shoppingIntent=pick;filter.value=pick==='storage'?'small':pick;if(filter.dataset.category==='carbonated-water'){filter.querySelector('[value=small]').textContent='合計12L以下';filter.querySelector('[value=large]').textContent='合計12L超'}const label=root.querySelector('[data-intent-note]');if(label)label.textContent='買い方で絞った一覧：少量側 / 大容量側は合計量を基準にしています。'}
+  if(filter&&(pick==='small'||pick==='large'||pick==='storage')){root.dataset.shoppingIntent=pick;filter.value=pick==='storage'?'small':pick;if(['carbonated-water','mineral-water'].includes(filter.dataset.category)){filter.querySelector('[value=small]').textContent='合計12L以下';filter.querySelector('[value=large]').textContent='合計12L超'}const label=root.querySelector('[data-intent-note]');if(label)label.textContent='買い方で絞った一覧：少量側 / 大容量側は合計量を基準にしています。'}
   if(filter&&pick==='storage')filter.value='small';
   if(sort&&(pick==='budget'||pick==='storage')){sort.value='price';sort.dispatchEvent(new Event('change'))}
   const details=root.closest('details');if(details)details.open=true;

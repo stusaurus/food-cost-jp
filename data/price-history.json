@@ -1,5 +1,356 @@
 {
   "products": {
+    "bag-noodles|fujiyaku:10002882": {
+      "category_id": "bag-noodles",
+      "name": "日清 チキンラーメン5食入り×6袋(KT)",
+      "points": [
+        {
+          "date": "2026-10-02",
+          "price": 4199,
+          "unit": 139.96666666666667
+        }
+      ],
+      "product_id": "fujiyaku:10002882",
+      "quantity_key": "{\"count\":30}"
+    },
+    "bag-noodles|housechoice:10000613": {
+      "category_id": "bag-noodles",
+      "name": "日清食品 チキンラーメン 5食パック(85g×5食)×6袋 【 ポスト投函 】【 当日発送 】NISSIN 日清 チキンラーメン 袋麺 インスタント ラーメン 拉麺 らーめん 袋ラーメン 鶏ガラ",
+      "points": [
+        {
+          "date": "2026-10-02",
+          "price": 3780,
+          "unit": 126.0
+        }
+      ],
+      "product_id": "housechoice:10000613",
+      "quantity_key": "{\"count\":30}"
+    },
+    "bag-noodles|kshouhin:10007202": {
+      "category_id": "bag-noodles",
+      "name": "日清 チキンラーメン 5食入り×6袋セット (1box) 【一部地域 】日清 チキンラーメン5食パック しょうゆ味 インスタントラーメン インスタント食品 インスタント麺 麺類 食品 ラーメン 袋麺",
+      "points": [
+        {
+          "date": "2026-10-02",
+          "price": 4260,
+          "unit": 142.0
+        }
+      ],
+      "product_id": "kshouhin:10007202",
+      "quantity_key": "{\"count\":30}"
+    },
+    "bag-noodles|kshouhin:10015594": {
+      "category_id": "bag-noodles",
+      "name": "【まとめてお得・送料無料】サンヨー食品 サッポロ一番 塩らーめん5食×6袋入×1ケース 塩ラーメン サッポロ一番塩ラーメン",
+      "points": [
+        {
+          "date": "2026-10-02",
+          "price": 4260,
+          "unit": 142.0
+        }
+      ],
+      "product_id": "kshouhin:10015594",
+      "quantity_key": "{\"count\":30}"
+    },
+    "bag-noodles|kumano-nakatani:10058219": {
+      "category_id": "bag-noodles",
+      "name": "【サンヨー食品】サッポロ一番 しょうゆラーメン 袋麺 5食入×6袋(30食) 箱買い まとめ買い",
+      "points": [
+        {
+          "date": "2026-10-02",
+          "price": 3408,
+          "unit": 113.6
+        }
+      ],
+      "product_id": "kumano-nakatani:10058219",
+      "quantity_key": "{\"count\":30}"
+    },
+    "bag-noodles|kumano-nakatani:10058222": {
+      "category_id": "bag-noodles",
+      "name": "【サンヨー食品】サッポロ一番 みそラーメン 袋麺 5食入×6袋(30食) 箱買い まとめ買い",
+      "points": [
+        {
+          "date": "2026-10-02",
+          "price": 3408,
+          "unit": 113.6
+        }
+      ],
+      "product_id": "kumano-nakatani:10058222",
+      "quantity_key": "{\"count\":30}"
+    },
+    "bag-noodles|kumano-nakatani:10059996": {
+      "category_id": "bag-noodles",
+      "name": "【サンヨー食品】サッポロ一番 塩らーめん 袋麺 5食入×6袋(30食) 箱買い まとめ買い",
+      "points": [
+        {
+          "date": "2026-10-02",
+          "price": 3408,
+          "unit": 113.6
+        }
+      ],
+      "product_id": "kumano-nakatani:10059996",
+      "quantity_key": "{\"count\":30}"
+    },
+    "bag-noodles|kumano-nakatani:10059998": {
+      "category_id": "bag-noodles",
+      "name": "【サンヨー食品】サッポロ一番 塩とんこつラーメン 袋麺 5食入×6袋(30食) 箱買い まとめ買い",
+      "points": [
+        {
+          "date": "2026-10-02",
+          "price": 3408,
+          "unit": 113.6
+        }
+      ],
+      "product_id": "kumano-nakatani:10059998",
+      "quantity_key": "{\"count\":30}"
+    },
+    "bag-noodles|marudaihinoya:10000302": {
+      "category_id": "bag-noodles",
+      "name": "サッポロ一番 しょうゆ味 5食×6袋入 30食入",
+      "points": [
+        {
+          "date": "2026-10-02",
+          "price": 4580,
+          "unit": 152.66666666666666
+        }
+      ],
+      "product_id": "marudaihinoya:10000302",
+      "quantity_key": "{\"count\":30}"
+    },
+    "bag-noodles|marudaihinoya:10000303": {
+      "category_id": "bag-noodles",
+      "name": "サッポロ一番 みそラーメン 5食×6袋入 30食",
+      "points": [
+        {
+          "date": "2026-10-02",
+          "price": 4580,
+          "unit": 152.66666666666666
+        }
+      ],
+      "product_id": "marudaihinoya:10000303",
+      "quantity_key": "{\"count\":30}"
+    },
+    "bag-noodles|marudaihinoya:10000304": {
+      "category_id": "bag-noodles",
+      "name": "サッポロ一番 塩らーめん 5食×6袋入 30食",
+      "points": [
+        {
+          "date": "2026-10-02",
+          "price": 4580,
+          "unit": 152.66666666666666
+        }
+      ],
+      "product_id": "marudaihinoya:10000304",
+      "quantity_key": "{\"count\":30}"
+    },
+    "bag-noodles|marudaihinoya:10001619": {
+      "category_id": "bag-noodles",
+      "name": "マルちゃん正麺 醤油味 5食×6袋入 30食",
+      "points": [
+        {
+          "date": "2026-10-02",
+          "price": 3580,
+          "unit": 119.33333333333333
+        }
+      ],
+      "product_id": "marudaihinoya:10001619",
+      "quantity_key": "{\"count\":30}"
+    },
+    "bag-noodles|marudaihinoya:10001623": {
+      "category_id": "bag-noodles",
+      "name": "東洋水産 マルちゃん正麺 味噌味 5食×6袋入 30食",
+      "points": [
+        {
+          "date": "2026-10-02",
+          "price": 3580,
+          "unit": 119.33333333333333
+        }
+      ],
+      "product_id": "marudaihinoya:10001623",
+      "quantity_key": "{\"count\":30}"
+    },
+    "bag-noodles|marudaihinoya:10001625": {
+      "category_id": "bag-noodles",
+      "name": "東洋水産 マルちゃん正麺 塩味5食×6袋入 30食",
+      "points": [
+        {
+          "date": "2026-10-02",
+          "price": 3580,
+          "unit": 119.33333333333333
+        }
+      ],
+      "product_id": "marudaihinoya:10001625",
+      "quantity_key": "{\"count\":30}"
+    },
+    "bag-noodles|misonoya:10126624": {
+      "category_id": "bag-noodles",
+      "name": "一蘭 一蘭ラーメン 博多細麺 ストレート 5食入×1個入｜ インスタント麺 袋麺 即席 中華めん",
+      "points": [
+        {
+          "date": "2026-10-02",
+          "price": 2854,
+          "unit": 570.8
+        }
+      ],
+      "product_id": "misonoya:10126624",
+      "quantity_key": "{\"count\":5}"
+    },
+    "bag-noodles|naire-donya:10002148": {
+      "category_id": "bag-noodles",
+      "name": "サンヨー食品 サッポロ一番 みそラーメン 5食入り×6袋（合計30食） 送料無料(北海道は別途700円かかります。沖縄配送不可) / 袋めん",
+      "points": [
+        {
+          "date": "2026-10-02",
+          "price": 3380,
+          "unit": 112.66666666666667
+        }
+      ],
+      "product_id": "naire-donya:10002148",
+      "quantity_key": "{\"count\":30}"
+    },
+    "bag-noodles|naire-donya:10002149": {
+      "category_id": "bag-noodles",
+      "name": "サンヨー食品 サッポロ一番 塩らーめん 5食入り×6袋（合計30食） 送料無料(北海道は別途700円かかります。沖縄配送不可) / 袋めん",
+      "points": [
+        {
+          "date": "2026-10-02",
+          "price": 3380,
+          "unit": 112.66666666666667
+        }
+      ],
+      "product_id": "naire-donya:10002149",
+      "quantity_key": "{\"count\":30}"
+    },
+    "bag-noodles|okusuya:10001424": {
+      "category_id": "bag-noodles",
+      "name": "サンヨー サッポロ一番 みそラーメン5食×6袋入×1ケース",
+      "points": [
+        {
+          "date": "2026-10-02",
+          "price": 4155,
+          "unit": 138.5
+        }
+      ],
+      "product_id": "okusuya:10001424",
+      "quantity_key": "{\"count\":30}"
+    },
+    "bag-noodles|okusuya:10001428": {
+      "category_id": "bag-noodles",
+      "name": "日清 チキンラーメン 5食×6袋入×1ケース",
+      "points": [
+        {
+          "date": "2026-10-02",
+          "price": 3825,
+          "unit": 127.5
+        }
+      ],
+      "product_id": "okusuya:10001428",
+      "quantity_key": "{\"count\":30}"
+    },
+    "bag-noodles|okusuya:10012852": {
+      "category_id": "bag-noodles",
+      "name": "日清 チキンラーメン 5食×6袋入×2ケース",
+      "points": [
+        {
+          "date": "2026-10-02",
+          "price": 6799,
+          "unit": 113.31666666666666
+        }
+      ],
+      "product_id": "okusuya:10012852",
+      "quantity_key": "{\"count\":60}"
+    },
+    "bag-noodles|okusuya:10012853": {
+      "category_id": "bag-noodles",
+      "name": "日清 チキンラーメン 5食×6袋入×3ケース",
+      "points": [
+        {
+          "date": "2026-10-02",
+          "price": 9773,
+          "unit": 108.58888888888889
+        }
+      ],
+      "product_id": "okusuya:10012853",
+      "quantity_key": "{\"count\":90}"
+    },
+    "bag-noodles|okusuya:10013047": {
+      "category_id": "bag-noodles",
+      "name": "サンヨー サッポロ一番 塩らーめん 5食×6袋入×2ケース",
+      "points": [
+        {
+          "date": "2026-10-02",
+          "price": 7460,
+          "unit": 124.33333333333333
+        }
+      ],
+      "product_id": "okusuya:10013047",
+      "quantity_key": "{\"count\":60}"
+    },
+    "bag-noodles|okusuya:10013048": {
+      "category_id": "bag-noodles",
+      "name": "サンヨー サッポロ一番 塩らーめん 5食×6袋入×3ケース",
+      "points": [
+        {
+          "date": "2026-10-02",
+          "price": 10765,
+          "unit": 119.61111111111111
+        }
+      ],
+      "product_id": "okusuya:10013048",
+      "quantity_key": "{\"count\":90}"
+    },
+    "bag-noodles|okusuya:10013049": {
+      "category_id": "bag-noodles",
+      "name": "サンヨー サッポロ一番 みそラーメン5食×6袋入×2ケース",
+      "points": [
+        {
+          "date": "2026-10-02",
+          "price": 7460,
+          "unit": 124.33333333333333
+        }
+      ],
+      "product_id": "okusuya:10013049",
+      "quantity_key": "{\"count\":60}"
+    },
+    "bag-noodles|okusuya:10013050": {
+      "category_id": "bag-noodles",
+      "name": "サンヨー サッポロ一番 みそラーメン5食×6袋入×3ケース",
+      "points": [
+        {
+          "date": "2026-10-02",
+          "price": 10765,
+          "unit": 119.61111111111111
+        }
+      ],
+      "product_id": "okusuya:10013050",
+      "quantity_key": "{\"count\":90}"
+    },
+    "bag-noodles|seims-r:10044184": {
+      "category_id": "bag-noodles",
+      "name": "日清 チキンラーメン5食入り×6袋(KT)",
+      "points": [
+        {
+          "date": "2026-10-02",
+          "price": 4199,
+          "unit": 139.96666666666667
+        }
+      ],
+      "product_id": "seims-r:10044184",
+      "quantity_key": "{\"count\":30}"
+    },
+    "bag-noodles|v-drug:10112894": {
+      "category_id": "bag-noodles",
+      "name": "日清 チキン ラーメン5食×6個セット［チキンラーメン インスタントラーメン]",
+      "points": [
+        {
+          "date": "2026-10-02",
+          "price": 3227,
+          "unit": 107.56666666666666
+        }
+      ],
+      "product_id": "v-drug:10112894",
+      "quantity_key": "{\"count\":30}"
+    },
     "carbonated-water|agri-support:10028412": {
       "category_id": "carbonated-water",
       "name": "ウィルキンソン 炭酸水 500ml*48本 炭酸水 タンサン",
@@ -973,6 +1324,981 @@
       ],
       "product_id": "whisky:10006882",
       "quantity_key": "{\"count\":24,\"total_volume_ml\":24000.0,\"unit_volume_ml\":1000.0}"
+    },
+    "cup-noodles|alude:10014033": {
+      "category_id": "cup-noodles",
+      "name": "日清食品 カップヌードル 20個 ラーメン カップ麺 インスタント麺 即席麺 麺類 カップラーメン インスタントラーメン『送料無料（一部地域除く）』",
+      "points": [
+        {
+          "date": "2026-10-02",
+          "price": 4924,
+          "unit": 246.2
+        }
+      ],
+      "product_id": "alude:10014033",
+      "quantity_key": "{\"count\":20}"
+    },
+    "cup-noodles|cocodecow:10699895": {
+      "category_id": "cup-noodles",
+      "name": "寿がきや 富山ブラックラーメン 108g×12個 カップラーメン カップ麺 ラーメン インスタント レトルト 食品",
+      "points": [
+        {
+          "date": "2026-10-02",
+          "price": 4085,
+          "unit": 340.4166666666667
+        }
+      ],
+      "product_id": "cocodecow:10699895",
+      "quantity_key": "{\"count\":12}"
+    },
+    "cup-noodles|cocodecow:10699904": {
+      "category_id": "cup-noodles",
+      "name": "寿がきや カップ台湾ラーメン 99g×12個 カップラーメン カップ麺 ラーメン インスタント レトルト 食品",
+      "points": [
+        {
+          "date": "2026-10-02",
+          "price": 3318,
+          "unit": 276.5
+        }
+      ],
+      "product_id": "cocodecow:10699904",
+      "quantity_key": "{\"count\":12}"
+    },
+    "cup-noodles|cocodecow:10770545": {
+      "category_id": "cup-noodles",
+      "name": "サンヨー食品 サッポロ一番 カップスター 旨塩 75g×12個 カップラーメン カップ麺 ラーメン インスタント レトルト 食品",
+      "points": [
+        {
+          "date": "2026-10-02",
+          "price": 3447,
+          "unit": 287.25
+        }
+      ],
+      "product_id": "cocodecow:10770545",
+      "quantity_key": "{\"count\":12}"
+    },
+    "cup-noodles|cocodecow:10770557": {
+      "category_id": "cup-noodles",
+      "name": "サンヨー食品 サッポロ一番 カップスター 味噌 78g×12個 カップラーメン カップ麺 ラーメン インスタント レトルト 食品",
+      "points": [
+        {
+          "date": "2026-10-02",
+          "price": 3447,
+          "unit": 287.25
+        }
+      ],
+      "product_id": "cocodecow:10770557",
+      "quantity_key": "{\"count\":12}"
+    },
+    "cup-noodles|drink-market:10104946": {
+      "category_id": "cup-noodles",
+      "name": "農心ジャパン 辛カップラーメン 68g×12個入｜ インスタントラーメン 辛 即席",
+      "points": [
+        {
+          "date": "2026-10-02",
+          "price": 2717,
+          "unit": 226.41666666666666
+        }
+      ],
+      "product_id": "drink-market:10104946",
+      "quantity_key": "{\"count\":12}"
+    },
+    "cup-noodles|jetprice:10583143": {
+      "category_id": "cup-noodles",
+      "name": "寿がきや 鳥取ゴールド牛骨ラーメン 109g×12個 カップラーメン カップ麺 ラーメン インスタント レトルト 食品",
+      "points": [
+        {
+          "date": "2026-10-02",
+          "price": 3383,
+          "unit": 281.9166666666667
+        }
+      ],
+      "product_id": "jetprice:10583143",
+      "quantity_key": "{\"count\":12}"
+    },
+    "cup-noodles|jetprice:10694512": {
+      "category_id": "cup-noodles",
+      "name": "サンヨー食品 サッポロ一番 旅麺 博多 高菜豚骨ラーメン 12食 カップラーメン カップ麺 ラーメン インスタント レトルト 食品",
+      "points": [
+        {
+          "date": "2026-10-02",
+          "price": 1610,
+          "unit": 134.16666666666666
+        }
+      ],
+      "product_id": "jetprice:10694512",
+      "quantity_key": "{\"count\":12}"
+    },
+    "cup-noodles|jetprice:10694516": {
+      "category_id": "cup-noodles",
+      "name": "サンヨー食品 サッポロ一番 旅麺 喜多方 醤油ラーメン 12食 カップラーメン カップ麺 ラーメン インスタント レトルト 食品",
+      "points": [
+        {
+          "date": "2026-10-02",
+          "price": 1610,
+          "unit": 134.16666666666666
+        }
+      ],
+      "product_id": "jetprice:10694516",
+      "quantity_key": "{\"count\":12}"
+    },
+    "cup-noodles|kaumall:10034020": {
+      "category_id": "cup-noodles",
+      "name": "日清食品 カップヌードル 20個入",
+      "points": [
+        {
+          "date": "2026-10-02",
+          "price": 4679,
+          "unit": 233.95
+        }
+      ],
+      "product_id": "kaumall:10034020",
+      "quantity_key": "{\"count\":20}"
+    },
+    "cup-noodles|kaumall:10034021": {
+      "category_id": "cup-noodles",
+      "name": "日清食品 カップヌードル シーフードヌードル 20個入",
+      "points": [
+        {
+          "date": "2026-10-02",
+          "price": 4679,
+          "unit": 233.95
+        }
+      ],
+      "product_id": "kaumall:10034021",
+      "quantity_key": "{\"count\":20}"
+    },
+    "cup-noodles|kumano-nakatani:10000013": {
+      "category_id": "cup-noodles",
+      "name": "【日清食品】CUP NOODLE カップヌードル シーフードヌードル 75g×20個",
+      "points": [
+        {
+          "date": "2026-10-02",
+          "price": 4984,
+          "unit": 249.2
+        }
+      ],
+      "product_id": "kumano-nakatani:10000013",
+      "quantity_key": "{\"count\":20}"
+    },
+    "cup-noodles|kusuriaoki-r:10016845": {
+      "category_id": "cup-noodles",
+      "name": "カップヌードル シーフードヌードル×20個",
+      "points": [
+        {
+          "date": "2026-10-02",
+          "price": 4740,
+          "unit": 237.0
+        }
+      ],
+      "product_id": "kusuriaoki-r:10016845",
+      "quantity_key": "{\"count\":20}"
+    },
+    "cup-noodles|manekiyaneeds:10000088": {
+      "category_id": "cup-noodles",
+      "name": "日清食品 カップヌードル レギュラー 日清食品 カップ麺 78g×20個 (1)レギュラー",
+      "points": [
+        {
+          "date": "2026-10-02",
+          "price": 3850,
+          "unit": 192.5
+        }
+      ],
+      "product_id": "manekiyaneeds:10000088",
+      "quantity_key": "{\"count\":20}"
+    },
+    "cup-noodles|misono-support:10121994": {
+      "category_id": "cup-noodles",
+      "name": "日清食品 あっさりおいしいカップヌードル カレー 70g×20個入｜ ラーメン カップめん インスタント麺 即席 食品",
+      "points": [
+        {
+          "date": "2026-10-02",
+          "price": 4039,
+          "unit": 201.95
+        }
+      ],
+      "product_id": "misono-support:10121994",
+      "quantity_key": "{\"count\":20}"
+    },
+    "cup-noodles|misonoya:10002831": {
+      "category_id": "cup-noodles",
+      "name": "日清食品 カップヌードル 78g×20個入｜ インスタント麺 ラーメン 即席 カップラーメン",
+      "points": [
+        {
+          "date": "2026-10-02",
+          "price": 5421,
+          "unit": 271.05
+        }
+      ],
+      "product_id": "misonoya:10002831",
+      "quantity_key": "{\"count\":20}"
+    },
+    "cup-noodles|misonoya:10092152": {
+      "category_id": "cup-noodles",
+      "name": "農心ジャパン 辛カップラーメン 68g×12個入｜ インスタントラーメン 辛 即席",
+      "points": [
+        {
+          "date": "2026-10-02",
+          "price": 2695,
+          "unit": 224.58333333333334
+        }
+      ],
+      "product_id": "misonoya:10092152",
+      "quantity_key": "{\"count\":12}"
+    },
+    "cup-noodles|nagurashoji:10001639": {
+      "category_id": "cup-noodles",
+      "name": "日清食品 カップヌードル 欧風チーズカレー [ビーフの味わい欧風仕立て] 日清食品 カップ麺 85g ×12個",
+      "points": [
+        {
+          "date": "2026-10-02",
+          "price": 3480,
+          "unit": 290.0
+        }
+      ],
+      "product_id": "nagurashoji:10001639",
+      "quantity_key": "{\"count\":12}"
+    },
+    "cup-noodles|nishimuta:10069125": {
+      "category_id": "cup-noodles",
+      "name": "麺のスナオシ 塩ラーメン カップ麺 12個入り",
+      "points": [
+        {
+          "date": "2026-10-02",
+          "price": 1495,
+          "unit": 124.58333333333333
+        }
+      ],
+      "product_id": "nishimuta:10069125",
+      "quantity_key": "{\"count\":12}"
+    },
+    "cup-noodles|nishimuta:10075361": {
+      "category_id": "cup-noodles",
+      "name": "辛 カップラーメン 68g×12個",
+      "points": [
+        {
+          "date": "2026-10-02",
+          "price": 1974,
+          "unit": 164.5
+        }
+      ],
+      "product_id": "nishimuta:10075361",
+      "quantity_key": "{\"count\":12}"
+    },
+    "cup-noodles|okusuya:10001907": {
+      "category_id": "cup-noodles",
+      "name": "日清 カップヌードル 77g×20個入×1ケース",
+      "points": [
+        {
+          "date": "2026-10-02",
+          "price": 4630,
+          "unit": 231.5
+        }
+      ],
+      "product_id": "okusuya:10001907",
+      "quantity_key": "{\"count\":20}"
+    },
+    "cup-noodles|okusuya:10023713": {
+      "category_id": "cup-noodles",
+      "name": "日清 カップヌードル チリトマトヌードル 76g×20個入×1ケース ※送料無料 日清 カップヌードル チリトマトヌードル",
+      "points": [
+        {
+          "date": "2026-10-02",
+          "price": 4630,
+          "unit": 231.5
+        }
+      ],
+      "product_id": "okusuya:10023713",
+      "quantity_key": "{\"count\":20}"
+    },
+    "cup-noodles|onestep:10000818": {
+      "category_id": "cup-noodles",
+      "name": "日清食品 カップヌードル 20個 ラーメン カップ麺 インスタント麺 即席麺 麺類 カップラーメン インスタントラーメン『送料無料（一部地域除く）』",
+      "points": [
+        {
+          "date": "2026-10-02",
+          "price": 4924,
+          "unit": 246.2
+        }
+      ],
+      "product_id": "onestep:10000818",
+      "quantity_key": "{\"count\":20}"
+    },
+    "cup-noodles|onestep:10000819": {
+      "category_id": "cup-noodles",
+      "name": "日清食品 シーフードヌードル 20個 ラーメン カップ麺 インスタント麺 即席麺 麺類 カップラーメン インスタントラーメン『送料無料（一部地域除く）』",
+      "points": [
+        {
+          "date": "2026-10-02",
+          "price": 4924,
+          "unit": 246.2
+        }
+      ],
+      "product_id": "onestep:10000819",
+      "quantity_key": "{\"count\":20}"
+    },
+    "cup-noodles|onestep:10441000": {
+      "category_id": "cup-noodles",
+      "name": "農心ジャパン 辛ラーメン カップ 68g×12個 インスタント カップ麺 カップラーメン ラーメン 辛麺",
+      "points": [
+        {
+          "date": "2026-10-02",
+          "price": 1918,
+          "unit": 159.83333333333334
+        }
+      ],
+      "product_id": "onestep:10441000",
+      "quantity_key": "{\"count\":12}"
+    },
+    "cup-noodles|paldo:10006144": {
+      "category_id": "cup-noodles",
+      "name": "【まとめ買いお得】オットギ ヨルラーメン 熱ラーメン カップ麺 辛口 1BOX=105g×12個 カップラーメン 韓国ラーメン インスタントラーメン 韓国食品 $",
+      "points": [
+        {
+          "date": "2026-10-02",
+          "price": 3325,
+          "unit": 277.0833333333333
+        }
+      ],
+      "product_id": "paldo:10006144",
+      "quantity_key": "{\"count\":12}"
+    },
+    "cup-noodles|seicomart:10000756": {
+      "category_id": "cup-noodles",
+      "name": "セイコーマート Secoma 辛味噌ラーメン セコマ せいこーまーと せこま カップ麺 12個入 辛味噌 味噌ラーメン 札幌 濃厚 ケース",
+      "points": [
+        {
+          "date": "2026-10-02",
+          "price": 3011,
+          "unit": 250.91666666666666
+        }
+      ],
+      "product_id": "seicomart:10000756",
+      "quantity_key": "{\"count\":12}"
+    },
+    "granola|amicashop:10013714": {
+      "category_id": "granola",
+      "name": "ケロッグ 業務用フルーツグラノラH 500g",
+      "points": [
+        {
+          "date": "2026-10-02",
+          "price": 906,
+          "unit": 181.2
+        }
+      ],
+      "product_id": "amicashop:10013714",
+      "quantity_key": "{\"count\":1,\"total_weight_g\":500.0,\"unit_weight_g\":500.0}"
+    },
+    "granola|bussan-f:10000507": {
+      "category_id": "granola",
+      "name": "むなかた福津グラノーラ お徳用袋 大（500g） Lien 〜リアン〜 玄米使用 ポン菓子 ドライフルーツ 九州 福岡 お取り寄せグルメ 福岡県よかもんショップ",
+      "points": [
+        {
+          "date": "2026-10-02",
+          "price": 10540,
+          "unit": 2108.0
+        }
+      ],
+      "product_id": "bussan-f:10000507",
+      "quantity_key": "{\"count\":1,\"total_weight_g\":500.0,\"unit_weight_g\":500.0}"
+    },
+    "granola|drink-market:10104688": {
+      "category_id": "granola",
+      "name": "カルビー フルグラ 700g×6袋入｜ フルーツグラノーラ 食物繊維 オリゴ糖 ビタミン",
+      "points": [
+        {
+          "date": "2026-10-02",
+          "price": 6501,
+          "unit": 154.78571428571428
+        }
+      ],
+      "product_id": "drink-market:10104688",
+      "quantity_key": "{\"count\":6,\"total_weight_g\":4200.0,\"unit_weight_g\":700.0}"
+    },
+    "granola|fabuleux:10003014": {
+      "category_id": "granola",
+      "name": "【COSTCO】コストコ【Natures Path Foods】 ラブクランチ オーガニックグラノーラ（ダークチョコレート&レッドベリー ） 750g",
+      "points": [
+        {
+          "date": "2026-10-02",
+          "price": 3899,
+          "unit": 519.8666666666667
+        }
+      ],
+      "product_id": "fabuleux:10003014",
+      "quantity_key": "{\"count\":1,\"total_weight_g\":750.0,\"unit_weight_g\":750.0}"
+    },
+    "granola|hakuei8981:10168678": {
+      "category_id": "granola",
+      "name": "トトノイライフ ノンオイル 米グラノーラ プレーン 750g 麹 米麹 無添加 砂糖不使用 グルテンフリー シリアル 無添加 甘くない 腸活 低糖質 低カロリー 無糖 糖質オフ 甘酒 あま酒 フルグラ 米粒 (750g, プレーン)",
+      "points": [
+        {
+          "date": "2026-10-02",
+          "price": 5476,
+          "unit": 730.1333333333333
+        }
+      ],
+      "product_id": "hakuei8981:10168678",
+      "quantity_key": "{\"count\":1,\"total_weight_g\":750.0,\"unit_weight_g\":750.0}"
+    },
+    "granola|hybridjapan:10001938": {
+      "category_id": "granola",
+      "name": "アリサン クラシック グラノラ 1kg オーガニック グラノーラ 有機 オーツ 大容量 朝食 シリアル 無添加 アメリカ産",
+      "points": [
+        {
+          "date": "2026-10-02",
+          "price": 3650,
+          "unit": 365.0
+        }
+      ],
+      "product_id": "hybridjapan:10001938",
+      "quantity_key": "{\"count\":1,\"total_weight_g\":1000.0,\"unit_weight_g\":1000.0}"
+    },
+    "granola|hybridjapan:10003370": {
+      "category_id": "granola",
+      "name": "アリサン クラシック グラノラ 350g グラノーラ 朝食 シリアル MOFGA認証 ヨーグルト ナッツ",
+      "points": [
+        {
+          "date": "2026-10-02",
+          "price": 1900,
+          "unit": 542.8571428571429
+        }
+      ],
+      "product_id": "hybridjapan:10003370",
+      "quantity_key": "{\"count\":1,\"total_weight_g\":350.0,\"unit_weight_g\":350.0}"
+    },
+    "granola|impact-one:10000450": {
+      "category_id": "granola",
+      "name": "九州大麦 グラノーラ 200g×5個【北海道は発送不可】 国産グラノーラ 朝食グラノーラ 大麦グラノーラ 熊本県 西田精麦",
+      "points": [
+        {
+          "date": "2026-10-02",
+          "price": 2700,
+          "unit": 270.0
+        }
+      ],
+      "product_id": "impact-one:10000450",
+      "quantity_key": "{\"count\":5,\"total_weight_g\":1000.0,\"unit_weight_g\":200.0}"
+    },
+    "granola|macaron-store:10027247": {
+      "category_id": "granola",
+      "name": "ファミリア ベリーグラノーラ 500g グラノーラ ベリー ナッツ 健康",
+      "points": [
+        {
+          "date": "2026-10-02",
+          "price": 4220,
+          "unit": 844.0
+        }
+      ],
+      "product_id": "macaron-store:10027247",
+      "quantity_key": "{\"count\":1,\"total_weight_g\":500.0,\"unit_weight_g\":500.0}"
+    },
+    "granola|misono-support:10055690": {
+      "category_id": "granola",
+      "name": "カルビー フルグラ 700g×6袋入｜ フルーツグラノーラ 食物繊維 オリゴ糖 ビタミン",
+      "points": [
+        {
+          "date": "2026-10-02",
+          "price": 6480,
+          "unit": 154.28571428571428
+        }
+      ],
+      "product_id": "misono-support:10055690",
+      "quantity_key": "{\"count\":6,\"total_weight_g\":4200.0,\"unit_weight_g\":700.0}"
+    },
+    "granola|misonoya:10031293": {
+      "category_id": "granola",
+      "name": "カルビー フルグラ 700g×6袋入｜ フルーツグラノーラ 食物繊維 オリゴ糖 ビタミン",
+      "points": [
+        {
+          "date": "2026-10-02",
+          "price": 6480,
+          "unit": 154.28571428571428
+        }
+      ],
+      "product_id": "misonoya:10031293",
+      "quantity_key": "{\"count\":6,\"total_weight_g\":4200.0,\"unit_weight_g\":700.0}"
+    },
+    "granola|nuthyougo:10000066": {
+      "category_id": "granola",
+      "name": "グラノーラ＆アーモンド 500g 有機 オーガニック グラノーラ 有機オーツ麦 高品質アーモンド 有機チョコレート 有機いちご 有機ラズベリー 健康 ダイエット ヘルシー 自然食",
+      "points": [
+        {
+          "date": "2026-10-02",
+          "price": 1630,
+          "unit": 326.0
+        }
+      ],
+      "product_id": "nuthyougo:10000066",
+      "quantity_key": "{\"count\":1,\"total_weight_g\":500.0,\"unit_weight_g\":500.0}"
+    },
+    "granola|okagesama-market:10003972": {
+      "category_id": "granola",
+      "name": "カルビー フルグラ 700g×6袋",
+      "points": [
+        {
+          "date": "2026-10-02",
+          "price": 5200,
+          "unit": 123.80952380952381
+        }
+      ],
+      "product_id": "okagesama-market:10003972",
+      "quantity_key": "{\"count\":6,\"total_weight_g\":4200.0,\"unit_weight_g\":700.0}"
+    },
+    "granola|once-in:10000993": {
+      "category_id": "granola",
+      "name": "ノースイ ミックスベリーフローズン500g ヨーグルトやアイス、グラノーラなど多彩なトッピングで彩りや健康にもオススメです！もぎたてそのまま！",
+      "points": [
+        {
+          "date": "2026-10-02",
+          "price": 1670,
+          "unit": 334.0
+        }
+      ],
+      "product_id": "once-in:10000993",
+      "quantity_key": "{\"count\":1,\"total_weight_g\":500.0,\"unit_weight_g\":500.0}"
+    },
+    "granola|osdmarket:10000452": {
+      "category_id": "granola",
+      "name": "カルビー フルグラ 1000g 6袋 糖質オフ 朝食 グラノーラ 食物繊維 非常食 栄養満点 家族用 まとめ買い",
+      "points": [
+        {
+          "date": "2026-10-02",
+          "price": 7700,
+          "unit": 128.33333333333334
+        }
+      ],
+      "product_id": "osdmarket:10000452",
+      "quantity_key": "{\"count\":6,\"total_weight_g\":6000.0,\"unit_weight_g\":1000.0}"
+    },
+    "granola|osdmarket:10000740": {
+      "category_id": "granola",
+      "name": "カルビー フルグラ 1200g 6袋 朝食 グラノーラ 食物繊維 非常食 栄養満点 家族用 まとめ買い",
+      "points": [
+        {
+          "date": "2026-10-02",
+          "price": 8500,
+          "unit": 118.05555555555556
+        }
+      ],
+      "product_id": "osdmarket:10000740",
+      "quantity_key": "{\"count\":6,\"total_weight_g\":7200.0,\"unit_weight_g\":1200.0}"
+    },
+    "granola|poipoimarket:10058126": {
+      "category_id": "granola",
+      "name": "カルビー フルグラ メロンクリームソーダ 500g×6袋",
+      "points": [
+        {
+          "date": "2026-10-02",
+          "price": 9185,
+          "unit": 306.1666666666667
+        }
+      ],
+      "product_id": "poipoimarket:10058126",
+      "quantity_key": "{\"count\":6,\"total_weight_g\":3000.0,\"unit_weight_g\":500.0}"
+    },
+    "granola|psj1:10004116": {
+      "category_id": "granola",
+      "name": "ケロッグ グラノーラ フルーツ グラノラ 脂質70％オフ 1kg コストコ 通販",
+      "points": [
+        {
+          "date": "2026-10-02",
+          "price": 1890,
+          "unit": 189.0
+        }
+      ],
+      "product_id": "psj1:10004116",
+      "quantity_key": "{\"count\":1,\"total_weight_g\":1000.0,\"unit_weight_g\":1000.0}"
+    },
+    "granola|psj1:10005465": {
+      "category_id": "granola",
+      "name": "フルーツグラノラ グラノーラ 脂質70％オフ ケロッグ 1kg×2袋 コストコ 通販 関連商品 フルグラ フルーツグラノーラ",
+      "points": [
+        {
+          "date": "2026-10-02",
+          "price": 3250,
+          "unit": 162.5
+        }
+      ],
+      "product_id": "psj1:10005465",
+      "quantity_key": "{\"count\":2,\"total_weight_g\":2000.0,\"unit_weight_g\":1000.0}"
+    },
+    "granola|psj1:10005484": {
+      "category_id": "granola",
+      "name": "フルーツグラノラ グラノーラ 脂質70％オフ ケロッグ 1kg×3袋 コストコ 通販 関連商品 フルグラ フルーツグラノーラ",
+      "points": [
+        {
+          "date": "2026-10-02",
+          "price": 4450,
+          "unit": 148.33333333333334
+        }
+      ],
+      "product_id": "psj1:10005484",
+      "quantity_key": "{\"count\":3,\"total_weight_g\":3000.0,\"unit_weight_g\":1000.0}"
+    },
+    "granola|psj1:10005485": {
+      "category_id": "granola",
+      "name": "フルーツグラノラ グラノーラ 脂質70％オフ ケロッグ 1kg×4袋 コストコ 通販 関連商品 フルグラ フルーツグラノーラ",
+      "points": [
+        {
+          "date": "2026-10-02",
+          "price": 5790,
+          "unit": 144.75
+        }
+      ],
+      "product_id": "psj1:10005485",
+      "quantity_key": "{\"count\":4,\"total_weight_g\":4000.0,\"unit_weight_g\":1000.0}"
+    },
+    "granola|psj1:10005486": {
+      "category_id": "granola",
+      "name": "フルーツグラノラ グラノーラ 脂質70％オフ ケロッグ 1kg×6袋 コストコ 通販 関連商品 フルグラ フルーツグラノーラ",
+      "points": [
+        {
+          "date": "2026-10-02",
+          "price": 8590,
+          "unit": 143.16666666666666
+        }
+      ],
+      "product_id": "psj1:10005486",
+      "quantity_key": "{\"count\":6,\"total_weight_g\":6000.0,\"unit_weight_g\":1000.0}"
+    },
+    "granola|psj1:10007164": {
+      "category_id": "granola",
+      "name": "フルグラ 糖質オフ 1000g カルビー コストコ 通販",
+      "points": [
+        {
+          "date": "2026-10-02",
+          "price": 1890,
+          "unit": 189.0
+        }
+      ],
+      "product_id": "psj1:10007164",
+      "quantity_key": "{\"count\":1,\"total_weight_g\":1000.0,\"unit_weight_g\":1000.0}"
+    },
+    "granola|psj1:10007581": {
+      "category_id": "granola",
+      "name": "フルグラ 糖質オフ 1000g × 2袋 カルビー コストコ 通販",
+      "points": [
+        {
+          "date": "2026-10-02",
+          "price": 3190,
+          "unit": 159.5
+        }
+      ],
+      "product_id": "psj1:10007581",
+      "quantity_key": "{\"count\":2,\"total_weight_g\":2000.0,\"unit_weight_g\":1000.0}"
+    },
+    "granola|psj1:10007582": {
+      "category_id": "granola",
+      "name": "フルグラ 糖質オフ 1000g × 3袋 カルビー コストコ 通販",
+      "points": [
+        {
+          "date": "2026-10-02",
+          "price": 4290,
+          "unit": 143.0
+        }
+      ],
+      "product_id": "psj1:10007582",
+      "quantity_key": "{\"count\":3,\"total_weight_g\":3000.0,\"unit_weight_g\":1000.0}"
+    },
+    "granola|psj1:10007583": {
+      "category_id": "granola",
+      "name": "フルグラ 糖質オフ 1000g × 4袋 カルビー コストコ 通販",
+      "points": [
+        {
+          "date": "2026-10-02",
+          "price": 5590,
+          "unit": 139.75
+        }
+      ],
+      "product_id": "psj1:10007583",
+      "quantity_key": "{\"count\":4,\"total_weight_g\":4000.0,\"unit_weight_g\":1000.0}"
+    },
+    "granola|psj1:10007584": {
+      "category_id": "granola",
+      "name": "フルグラ 糖質オフ 1000g × 6袋 カルビー コストコ 通販",
+      "points": [
+        {
+          "date": "2026-10-02",
+          "price": 7890,
+          "unit": 131.5
+        }
+      ],
+      "product_id": "psj1:10007584",
+      "quantity_key": "{\"count\":6,\"total_weight_g\":6000.0,\"unit_weight_g\":1000.0}"
+    },
+    "granola|ryoshokushop:10000218": {
+      "category_id": "granola",
+      "name": "大麦 国産 Orge 大麦シリアル3.3 (35g×3袋)お試し3日分【単品】 国産大麦100% 無添加 グラノーラ 腸活 健康 麦 シリアル おやつ 個包装 糖質制限 糖質オフ 保存食",
+      "points": [
+        {
+          "date": "2026-10-02",
+          "price": 324,
+          "unit": 308.57142857142856
+        }
+      ],
+      "product_id": "ryoshokushop:10000218",
+      "quantity_key": "{\"count\":3,\"total_weight_g\":105.0,\"unit_weight_g\":35.0}"
+    },
+    "granola|seijoishii:10056920": {
+      "category_id": "granola",
+      "name": "ファミリア チョコレート グラノーラ 500g",
+      "points": [
+        {
+          "date": "2026-10-02",
+          "price": 1825,
+          "unit": 365.0
+        }
+      ],
+      "product_id": "seijoishii:10056920",
+      "quantity_key": "{\"count\":1,\"total_weight_g\":500.0,\"unit_weight_g\":500.0}"
+    },
+    "granola|seikatsuzakkamemo:10007789": {
+      "category_id": "granola",
+      "name": "[限定ブランド商品] カルビー フルグラ 糖質オフ 750g×6袋 (SOLIMO)",
+      "points": [
+        {
+          "date": "2026-10-02",
+          "price": 8426,
+          "unit": 187.24444444444444
+        }
+      ],
+      "product_id": "seikatsuzakkamemo:10007789",
+      "quantity_key": "{\"count\":6,\"total_weight_g\":4500.0,\"unit_weight_g\":750.0}"
+    },
+    "granola|shopavail:10002951": {
+      "category_id": "granola",
+      "name": "【1kg×6袋】カルビー フルグラ 糖質オフ フルーツグラノラ グラノーラ 糖質OFF シリアル 食物繊維 朝ごはん 穀物 ドライフルーツ 朝食 ふるぐら 大容量 まとめ買い オーツ麦 アーモンドミルク ライ麦 いちご レーズン チャック付き",
+      "points": [
+        {
+          "date": "2026-10-02",
+          "price": 7450,
+          "unit": 124.16666666666667
+        }
+      ],
+      "product_id": "shopavail:10002951",
+      "quantity_key": "{\"count\":6,\"total_weight_g\":6000.0,\"unit_weight_g\":1000.0}"
+    },
+    "granola|unibiswine:10005084": {
+      "category_id": "granola",
+      "name": "カルビー フルグラ 750g",
+      "points": [
+        {
+          "date": "2026-10-02",
+          "price": 1728,
+          "unit": 230.4
+        }
+      ],
+      "product_id": "unibiswine:10005084",
+      "quantity_key": "{\"count\":1,\"total_weight_g\":750.0,\"unit_weight_g\":750.0}"
+    },
+    "granola|ysmarket:10000430": {
+      "category_id": "granola",
+      "name": "コストコ カルビー フルグラ 1000g 6袋 糖質オフ 朝食 グラノーラ 食物繊維 非常食 栄養満点 家族用 まとめ買い 1つからお届け",
+      "points": [
+        {
+          "date": "2026-10-02",
+          "price": 7800,
+          "unit": 130.0
+        }
+      ],
+      "product_id": "ysmarket:10000430",
+      "quantity_key": "{\"count\":6,\"total_weight_g\":6000.0,\"unit_weight_g\":1000.0}"
+    },
+    "granola|ysmarket:10000687": {
+      "category_id": "granola",
+      "name": "コストコ カルビー フルグラ 1200g 6袋 朝食 グラノーラ 食物繊維 非常食 栄養満点 家族用 まとめ買い 1つからお届け",
+      "points": [
+        {
+          "date": "2026-10-02",
+          "price": 8600,
+          "unit": 119.44444444444444
+        }
+      ],
+      "product_id": "ysmarket:10000687",
+      "quantity_key": "{\"count\":6,\"total_weight_g\":7200.0,\"unit_weight_g\":1200.0}"
+    },
+    "mineral-water|cocodecow:10058666": {
+      "category_id": "mineral-water",
+      "name": "国産 ミネラルウォーター 自然の恵み 天然水 2L×12本 水 2リットル",
+      "points": [
+        {
+          "date": "2026-10-02",
+          "price": 1888,
+          "unit": 78.66666666666667
+        }
+      ],
+      "product_id": "cocodecow:10058666",
+      "quantity_key": "{\"count\":12,\"total_volume_ml\":24000.0,\"unit_volume_ml\":2000.0}"
+    },
+    "mineral-water|cocodecow:10778153": {
+      "category_id": "mineral-water",
+      "name": "ハルナウォーター 安曇野の自然が育んだ天然水2L×12本",
+      "points": [
+        {
+          "date": "2026-10-02",
+          "price": 1854,
+          "unit": 77.25
+        }
+      ],
+      "product_id": "cocodecow:10778153",
+      "quantity_key": "{\"count\":12,\"total_volume_ml\":24000.0,\"unit_volume_ml\":2000.0}"
+    },
+    "mineral-water|irisplaza-r:10136708": {
+      "category_id": "mineral-water",
+      "name": "【公式】水 500ml 48本 天然水 ミネラルウォーター ラベルレス 48本 富士山の天然水 まとめ買い 水 ストック 軟水 【代引不可】",
+      "points": [
+        {
+          "date": "2026-10-02",
+          "price": 2480,
+          "unit": 103.33333333333333
+        }
+      ],
+      "product_id": "irisplaza-r:10136708",
+      "quantity_key": "{\"count\":48,\"total_volume_ml\":24000.0,\"unit_volume_ml\":500.0}"
+    },
+    "mineral-water|jyonetsubatake:10000160": {
+      "category_id": "mineral-water",
+      "name": "水 ミネラルウォーター 500ml 24本 ペットボトル 国産 天然水 LDC お水 500 軟水 ケース まとめ買い 飲料水 備蓄 栃木県産 静岡県産 自然の恵み 赤ちゃん 高齢者 にも",
+      "points": [
+        {
+          "date": "2026-10-02",
+          "price": 1380,
+          "unit": 115.0
+        }
+      ],
+      "product_id": "jyonetsubatake:10000160",
+      "quantity_key": "{\"count\":24,\"total_volume_ml\":12000.0,\"unit_volume_ml\":500.0}"
+    },
+    "mineral-water|kurashikenkou:10181000": {
+      "category_id": "mineral-water",
+      "name": "シリカ 水 500ml 24本 天然水 ペットボトル シリカ水 ミネラルウォーター 富士清水 JAPANWATER 飲料水 軟水 ウォーター【D】【代引き不可】",
+      "points": [
+        {
+          "date": "2026-10-02",
+          "price": 1560,
+          "unit": 130.0
+        }
+      ],
+      "product_id": "kurashikenkou:10181000",
+      "quantity_key": "{\"count\":24,\"total_volume_ml\":12000.0,\"unit_volume_ml\":500.0}"
+    },
+    "mineral-water|kurashikenkou:10184231": {
+      "category_id": "mineral-water",
+      "name": "水 500ml 48本 天然水 ペットボトル ミネラルウォーター LDC 熊野古道水 軟水 熊野 防災 備蓄 鉱水 古道 ナチュラル ペットボトル ライフドリンクカンパニー【D】【代引き不可】",
+      "points": [
+        {
+          "date": "2026-10-02",
+          "price": 2680,
+          "unit": 111.66666666666667
+        }
+      ],
+      "product_id": "kurashikenkou:10184231",
+      "quantity_key": "{\"count\":48,\"total_volume_ml\":24000.0,\"unit_volume_ml\":500.0}"
+    },
+    "mineral-water|lifedrinkcompany:10000013": {
+      "category_id": "mineral-water",
+      "name": "【食フェスクーポンあり♪10/3まで】国産ミネラルウォーター 彩水-あやみず- やさしい軟水 500ml×24本 送料無料※一部地域除く ライフドリンクカンパニー LIFEDRINK 水 ラベルレス 天然水 飲料水 軟水 備蓄水 非常用（※採水地指定不可）",
+      "points": [
+        {
+          "date": "2026-10-02",
+          "price": 1370,
+          "unit": 114.16666666666667
+        }
+      ],
+      "product_id": "lifedrinkcompany:10000013",
+      "quantity_key": "{\"count\":24,\"total_volume_ml\":12000.0,\"unit_volume_ml\":500.0}"
+    },
+    "mineral-water|lifedrinkcompany:10000014": {
+      "category_id": "mineral-water",
+      "name": "【食フェスクーポンあり♪10/3まで】水 ミネラルウォーター 彩水-あやみず- やさしい軟水 500ml 48本 送料無料※一部地域除く ペットボトル ラベルレス ライフドリンクカンパニー LIFEDRINK 国産 天然水 軟水 備蓄水 非常用 (※採水地指定不可）",
+      "points": [
+        {
+          "date": "2026-10-02",
+          "price": 2270,
+          "unit": 94.58333333333333
+        }
+      ],
+      "product_id": "lifedrinkcompany:10000014",
+      "quantity_key": "{\"count\":48,\"total_volume_ml\":24000.0,\"unit_volume_ml\":500.0}"
+    },
+    "mineral-water|newfine:10000016": {
+      "category_id": "mineral-water",
+      "name": "【365日最短当日出荷！】 水 国産 天然水 500ml 45本 ラベルレス シリカ 42mg/L含有 シリカ水 飲むシリカ ナチュラルミネラルウォーター 軟水 飲む シリカ シリカウォーター 日本 宮城県 蔵王連峰 PFOS PFOA 備蓄水 保存水 ローリングストック",
+      "points": [
+        {
+          "date": "2026-10-02",
+          "price": 2460,
+          "unit": 109.33333333333333
+        }
+      ],
+      "product_id": "newfine:10000016",
+      "quantity_key": "{\"count\":45,\"total_volume_ml\":22500.0,\"unit_volume_ml\":500.0}"
+    },
+    "mineral-water|onestep:10148272": {
+      "category_id": "mineral-water",
+      "name": "ボルヴィック 500ml 48本 軟水 天然水 ミネラルウォーター ボルビック volvic『送料無料（一部地域除く）』",
+      "points": [
+        {
+          "date": "2026-10-02",
+          "price": 4980,
+          "unit": 207.5
+        }
+      ],
+      "product_id": "onestep:10148272",
+      "quantity_key": "{\"count\":48,\"total_volume_ml\":24000.0,\"unit_volume_ml\":500.0}"
+    },
+    "mineral-water|rakutenoriginal-daily:10000000": {
+      "category_id": "mineral-water",
+      "name": "【楽天オリジナル】水 500ml×24本 天然水 ミネラルウォーター 飲料水 まとめ買い 安い 業務用 家庭用 大容量 オフィス コスパ最強 熱中症対策 500ml 24本",
+      "points": [
+        {
+          "date": "2026-10-02",
+          "price": 1215,
+          "unit": 101.25
+        }
+      ],
+      "product_id": "rakutenoriginal-daily:10000000",
+      "quantity_key": "{\"count\":24,\"total_volume_ml\":12000.0,\"unit_volume_ml\":500.0}"
+    },
+    "mineral-water|rakutenoriginal-daily:10000016": {
+      "category_id": "mineral-water",
+      "name": "【楽天オリジナル】水 500ml×48本 天然水 ミネラルウォーター 飲料水 安い 業務用 家庭用 大容量 オフィス コスパ最強 500ml 48本",
+      "points": [
+        {
+          "date": "2026-10-02",
+          "price": 2420,
+          "unit": 100.83333333333333
+        }
+      ],
+      "product_id": "rakutenoriginal-daily:10000016",
+      "quantity_key": "{\"count\":48,\"total_volume_ml\":24000.0,\"unit_volume_ml\":500.0}"
+    },
+    "mineral-water|rakutensokuhaimart:10018617": {
+      "category_id": "mineral-water",
+      "name": "アイリス 富士山の天然水 ラベルレス 500ml×24本入 【アイリスの天然水】 硬度別",
+      "points": [
+        {
+          "date": "2026-10-02",
+          "price": 1510,
+          "unit": 125.83333333333333
+        }
+      ],
+      "product_id": "rakutensokuhaimart:10018617",
+      "quantity_key": "{\"count\":24,\"total_volume_ml\":12000.0,\"unit_volume_ml\":500.0}"
+    },
+    "mineral-water|rakutensokuhaimart:10020882": {
+      "category_id": "mineral-water",
+      "name": "サントリー 天然水 2L*6本入 【サントリー天然水】 ミネラルウォーター",
+      "points": [
+        {
+          "date": "2026-10-02",
+          "price": 1200,
+          "unit": 100.0
+        }
+      ],
+      "product_id": "rakutensokuhaimart:10020882",
+      "quantity_key": "{\"count\":6,\"total_volume_ml\":12000.0,\"unit_volume_ml\":2000.0}"
     },
     "oatmeal|auc-garlic:10001076": {
       "category_id": "oatmeal",
@@ -2626,6 +3952,968 @@
       ],
       "product_id": "yunotani:10000061",
       "quantity_key": "{\"count\":24,\"total_weight_g\":4800.0,\"unit_weight_g\":200.0}"
+    },
+    "pasta|2hanfrenz:10014559": {
+      "category_id": "pasta",
+      "name": "パスタ スパゲティ スパゲッティー アルチェネロ 有機 全粒粉スパゲティ 500g ×6袋",
+      "points": [
+        {
+          "date": "2026-10-02",
+          "price": 3540,
+          "unit": 118.0
+        }
+      ],
+      "product_id": "2hanfrenz:10014559",
+      "quantity_key": "{\"count\":6,\"total_weight_g\":3000.0,\"unit_weight_g\":500.0}"
+    },
+    "pasta|a042292:10007025": {
+      "category_id": "pasta",
+      "name": "CGC アントニオデニーロ スパゲティ 1.7mm 1kg 5袋",
+      "points": [
+        {
+          "date": "2026-10-02",
+          "price": 2780,
+          "unit": 55.6
+        }
+      ],
+      "product_id": "a042292:10007025",
+      "quantity_key": "{\"count\":5,\"total_weight_g\":5000.0,\"unit_weight_g\":1000.0}"
+    },
+    "pasta|add-kitchen:10286585": {
+      "category_id": "pasta",
+      "name": "ラ・モリサーナ 全粒粉スパゲッティ 500g×18袋 《food》 【 la Molisana パスタ イタリア Spaghetti di Semola Integrale di Grano Duro 】【キャンセル・返品・交換不可】",
+      "points": [
+        {
+          "date": "2026-10-02",
+          "price": 8552,
+          "unit": 95.02222222222223
+        }
+      ],
+      "product_id": "add-kitchen:10286585",
+      "quantity_key": "{\"count\":18,\"total_weight_g\":9000.0,\"unit_weight_g\":500.0}"
+    },
+    "pasta|alude:10014209": {
+      "category_id": "pasta",
+      "name": "パスタ スパゲッティ 1.6mm 500g 20袋 スパゲッティーニ スパゲティ バハール BAHAR 業務用 デュラム小麦100％『送料無料（一部地域除く）』",
+      "points": [
+        {
+          "date": "2026-10-02",
+          "price": 2764,
+          "unit": 27.64
+        }
+      ],
+      "product_id": "alude:10014209",
+      "quantity_key": "{\"count\":20,\"total_weight_g\":10000.0,\"unit_weight_g\":500.0}"
+    },
+    "pasta|alude:10196842": {
+      "category_id": "pasta",
+      "name": "パスタ スパゲッティ 1.6mm 500g 40袋 スパゲッティーニ スパゲティ バハール BAHAR 業務用 デュラム小麦100％『送料無料（一部地域除く）』",
+      "points": [
+        {
+          "date": "2026-10-02",
+          "price": 5097,
+          "unit": 25.485
+        }
+      ],
+      "product_id": "alude:10196842",
+      "quantity_key": "{\"count\":40,\"total_weight_g\":20000.0,\"unit_weight_g\":500.0}"
+    },
+    "pasta|auc-hyottokomrkt:10004097": {
+      "category_id": "pasta",
+      "name": "【本場イタリアで愛されている味】バリラ Barilla スパゲッティ spaghetti No.5 500g パスタ 9分 デュラム小麦 セモリナ 乾麺 大容量 ★嬉しい送料無料★ [6]",
+      "points": [
+        {
+          "date": "2026-10-02",
+          "price": 2980,
+          "unit": 596.0
+        }
+      ],
+      "product_id": "auc-hyottokomrkt:10004097",
+      "quantity_key": "{\"count\":1,\"total_weight_g\":500.0,\"unit_weight_g\":500.0}"
+    },
+    "pasta|beisia:10035461": {
+      "category_id": "pasta",
+      "name": "KANAME もちもち食感 スパゲティ1.7mm 500g×20袋 | スパゲティ スパゲッティ 1.7mm パスタ もちもち まとめ買い 大容量 業務用",
+      "points": [
+        {
+          "date": "2026-10-02",
+          "price": 3180,
+          "unit": 31.8
+        }
+      ],
+      "product_id": "beisia:10035461",
+      "quantity_key": "{\"count\":20,\"total_weight_g\":10000.0,\"unit_weight_g\":500.0}"
+    },
+    "pasta|bsecond:10014171": {
+      "category_id": "pasta",
+      "name": "パスタ スパゲティ スパゲッティー アルチェネロ 有機 全粒粉スパゲティ 500g ×6袋",
+      "points": [
+        {
+          "date": "2026-10-02",
+          "price": 3540,
+          "unit": 118.0
+        }
+      ],
+      "product_id": "bsecond:10014171",
+      "quantity_key": "{\"count\":6,\"total_weight_g\":3000.0,\"unit_weight_g\":500.0}"
+    },
+    "pasta|catakuchi:10002015": {
+      "category_id": "pasta",
+      "name": "GRANFIRO グランフィーロ/スパゲッティ No.5 (1.45mm)/大容量/業務用/3kg×5袋",
+      "points": [
+        {
+          "date": "2026-10-02",
+          "price": 14531,
+          "unit": 96.87333333333333
+        }
+      ],
+      "product_id": "catakuchi:10002015",
+      "quantity_key": "{\"count\":5,\"total_weight_g\":15000.0,\"unit_weight_g\":3000.0}"
+    },
+    "pasta|cellar:10027082": {
+      "category_id": "pasta",
+      "name": "【日清ウェルナ正規輸入品】 パスタ ディチェコ No.12 スパゲッティ 500g 24袋 ロングパスタ 日清ウェルナ DE CECCO RSL",
+      "points": [
+        {
+          "date": "2026-10-02",
+          "price": 8980,
+          "unit": 74.83333333333333
+        }
+      ],
+      "product_id": "cellar:10027082",
+      "quantity_key": "{\"count\":24,\"total_weight_g\":12000.0,\"unit_weight_g\":500.0}"
+    },
+    "pasta|drink-market:10034419": {
+      "category_id": "pasta",
+      "name": "昭和産業 (SHOWA) スパゲッティ1.6mm 1kg×15袋入｜ パスタ スパゲティ スパゲッティ 乾麺 麺",
+      "points": [
+        {
+          "date": "2026-10-02",
+          "price": 7911,
+          "unit": 52.74
+        }
+      ],
+      "product_id": "drink-market:10034419",
+      "quantity_key": "{\"count\":15,\"total_weight_g\":15000.0,\"unit_weight_g\":1000.0}"
+    },
+    "pasta|irisplaza-r:10152755": {
+      "category_id": "pasta",
+      "name": "[エントリーでポイント最大10倍/スタンプラリー]パスタ スパゲティ デュラム Durumuパスタ 500g×10袋 スパゲッティ 1.7mm 麺 デュラムセモリナ 大容量 まとめ買い 輸入 小分け 業務用 トルコ産 乾麺【iris_dl05】",
+      "points": [
+        {
+          "date": "2026-10-02",
+          "price": 1880,
+          "unit": 37.6
+        }
+      ],
+      "product_id": "irisplaza-r:10152755",
+      "quantity_key": "{\"count\":10,\"total_weight_g\":5000.0,\"unit_weight_g\":500.0}"
+    },
+    "pasta|irodori-life:10000703": {
+      "category_id": "pasta",
+      "name": "オーサワの有機スパゲッティ 500g 6袋セット 有機パスタ 有機スパゲッティ オーガニックパスタ オーガニックスパゲッティ 有機 オーガニック エシカル パスタ スパゲッティ ロングパスタ ショートパスタ 乾麺 乾燥パスタ",
+      "points": [
+        {
+          "date": "2026-10-02",
+          "price": 3328,
+          "unit": 110.93333333333334
+        }
+      ],
+      "product_id": "irodori-life:10000703",
+      "quantity_key": "{\"count\":6,\"total_weight_g\":3000.0,\"unit_weight_g\":500.0}"
+    },
+    "pasta|jf-foods:10004953": {
+      "category_id": "pasta",
+      "name": "【送料一律540円】オーサワの有機スパゲッティ 500g×6袋",
+      "points": [
+        {
+          "date": "2026-10-02",
+          "price": 2100,
+          "unit": 70.0
+        }
+      ],
+      "product_id": "jf-foods:10004953",
+      "quantity_key": "{\"count\":6,\"total_weight_g\":3000.0,\"unit_weight_g\":500.0}"
+    },
+    "pasta|kawasakigroup:10025451": {
+      "category_id": "pasta",
+      "name": "【5袋セット送料無料】 日本製麻 ボルカノ スパゲッティー 1.7mm 300g×5袋 ※北海道・九州・沖縄県は送料無料対象外 スパゲッチ スパゲティ パスタ まとめ買い 国産スパゲッティ [T.1304.-.SE]",
+      "points": [
+        {
+          "date": "2026-10-02",
+          "price": 1500,
+          "unit": 100.0
+        }
+      ],
+      "product_id": "kawasakigroup:10025451",
+      "quantity_key": "{\"count\":5,\"total_weight_g\":1500.0,\"unit_weight_g\":300.0}"
+    },
+    "pasta|kawasakigroup:10025452": {
+      "category_id": "pasta",
+      "name": "【10袋セット送料無料】 日本製麻 ボルカノ スパゲッティー 1.7mm 300g×10袋 ※北海道・九州・沖縄県は送料無料対象外 スパゲッチ スパゲティ パスタ まとめ買い 国産スパゲッティ [T.1304.-.SE]",
+      "points": [
+        {
+          "date": "2026-10-02",
+          "price": 1980,
+          "unit": 66.0
+        }
+      ],
+      "product_id": "kawasakigroup:10025452",
+      "quantity_key": "{\"count\":10,\"total_weight_g\":3000.0,\"unit_weight_g\":300.0}"
+    },
+    "pasta|kawasakigroup:10025453": {
+      "category_id": "pasta",
+      "name": "【20袋セット送料無料】 日本製麻 ボルカノ スパゲッティー 1.7mm 300g×20袋 ※北海道・九州・沖縄県は送料無料対象外 スパゲッチ スパゲティ パスタ まとめ買い 国産スパゲッティ [T.1304.-.SE]",
+      "points": [
+        {
+          "date": "2026-10-02",
+          "price": 3200,
+          "unit": 53.333333333333336
+        }
+      ],
+      "product_id": "kawasakigroup:10025453",
+      "quantity_key": "{\"count\":20,\"total_weight_g\":6000.0,\"unit_weight_g\":300.0}"
+    },
+    "pasta|kitchen-b:10165051": {
+      "category_id": "pasta",
+      "name": "ラ・モリサーナ 全粒粉スパゲッティ 500g×18袋 《food》 【 パスタ イタリア la Molisana Spaghetti di Semola Integrale di Grano Duro 】 【 ※ご注文後のキャンセル・返品・交換不可。 】",
+      "points": [
+        {
+          "date": "2026-10-02",
+          "price": 8552,
+          "unit": 95.02222222222223
+        }
+      ],
+      "product_id": "kitchen-b:10165051",
+      "quantity_key": "{\"count\":18,\"total_weight_g\":9000.0,\"unit_weight_g\":500.0}"
+    },
+    "pasta|kumano-nakatani:10052273": {
+      "category_id": "pasta",
+      "name": "ラ・モリサーナ 全粒粉 スパゲッティ 2.0mm 500g×6袋",
+      "points": [
+        {
+          "date": "2026-10-02",
+          "price": 3288,
+          "unit": 109.6
+        }
+      ],
+      "product_id": "kumano-nakatani:10052273",
+      "quantity_key": "{\"count\":6,\"total_weight_g\":3000.0,\"unit_weight_g\":500.0}"
+    },
+    "pasta|kunistyle:10013871": {
+      "category_id": "pasta",
+      "name": "パスタ スパゲティ ブロンズダイス マンチーニ スパゲッティ 2.2mm 500g 6袋セット",
+      "points": [
+        {
+          "date": "2026-10-02",
+          "price": 4980,
+          "unit": 166.0
+        }
+      ],
+      "product_id": "kunistyle:10013871",
+      "quantity_key": "{\"count\":6,\"total_weight_g\":3000.0,\"unit_weight_g\":500.0}"
+    },
+    "pasta|landofharvest:10000852": {
+      "category_id": "pasta",
+      "name": "アルチェネロ 有機スパゲッティ(1.6mm) 500gスパゲッティ パスタ オーガニック alce nero",
+      "points": [
+        {
+          "date": "2026-10-02",
+          "price": 518,
+          "unit": 103.6
+        }
+      ],
+      "product_id": "landofharvest:10000852",
+      "quantity_key": "{\"count\":1,\"total_weight_g\":500.0,\"unit_weight_g\":500.0}"
+    },
+    "pasta|likaman:10033183": {
+      "category_id": "pasta",
+      "name": "【高品質の正規品輸入品】ディチェコ no.12 スパゲッティ 500g 24袋 ロングパスタ 日清ウェルナ DE CECCO RSL",
+      "points": [
+        {
+          "date": "2026-10-02",
+          "price": 8980,
+          "unit": 74.83333333333333
+        }
+      ],
+      "product_id": "likaman:10033183",
+      "quantity_key": "{\"count\":24,\"total_weight_g\":12000.0,\"unit_weight_g\":500.0}"
+    },
+    "pasta|megahealth:10016008": {
+      "category_id": "pasta",
+      "name": "パスタ スパゲティ スパゲッティー アルチェネロ 有機 全粒粉スパゲティ 500g ×6袋",
+      "points": [
+        {
+          "date": "2026-10-02",
+          "price": 3540,
+          "unit": 118.0
+        }
+      ],
+      "product_id": "megahealth:10016008",
+      "quantity_key": "{\"count\":6,\"total_weight_g\":3000.0,\"unit_weight_g\":500.0}"
+    },
+    "pasta|megahealth:10016747": {
+      "category_id": "pasta",
+      "name": "パスタ スパゲティ ブロンズダイス マンチーニ スパゲッティ 2.2mm 500g 6袋セット",
+      "points": [
+        {
+          "date": "2026-10-02",
+          "price": 4980,
+          "unit": 166.0
+        }
+      ],
+      "product_id": "megahealth:10016747",
+      "quantity_key": "{\"count\":6,\"total_weight_g\":3000.0,\"unit_weight_g\":500.0}"
+    },
+    "pasta|mencosj:10012116": {
+      "category_id": "pasta",
+      "name": "パスタ スパゲティ スパゲッティー アルチェネロ 有機 全粒粉スパゲティ 500g ×6袋",
+      "points": [
+        {
+          "date": "2026-10-02",
+          "price": 3540,
+          "unit": 118.0
+        }
+      ],
+      "product_id": "mencosj:10012116",
+      "quantity_key": "{\"count\":6,\"total_weight_g\":3000.0,\"unit_weight_g\":500.0}"
+    },
+    "pasta|mencosj:10012851": {
+      "category_id": "pasta",
+      "name": "パスタ スパゲティ ブロンズダイス マンチーニ スパゲッティ 2.2mm 500g 6袋セット",
+      "points": [
+        {
+          "date": "2026-10-02",
+          "price": 4980,
+          "unit": 166.0
+        }
+      ],
+      "product_id": "mencosj:10012851",
+      "quantity_key": "{\"count\":6,\"total_weight_g\":3000.0,\"unit_weight_g\":500.0}"
+    },
+    "pasta|misono-support:10116315": {
+      "category_id": "pasta",
+      "name": "昭和産業 (SHOWA) スパゲッティ1.6mm 1kg×15袋入",
+      "points": [
+        {
+          "date": "2026-10-02",
+          "price": 7889,
+          "unit": 52.593333333333334
+        }
+      ],
+      "product_id": "misono-support:10116315",
+      "quantity_key": "{\"count\":15,\"total_weight_g\":15000.0,\"unit_weight_g\":1000.0}"
+    },
+    "pasta|misonoya:10065620": {
+      "category_id": "pasta",
+      "name": "昭和産業 (SHOWA) スパゲッティ1.6mm 1kg×15袋入｜ パスタ スパゲティ スパゲッティ 乾麺 麺",
+      "points": [
+        {
+          "date": "2026-10-02",
+          "price": 7889,
+          "unit": 52.593333333333334
+        }
+      ],
+      "product_id": "misonoya:10065620",
+      "quantity_key": "{\"count\":15,\"total_weight_g\":15000.0,\"unit_weight_g\":1000.0}"
+    },
+    "pasta|mrk-09shop:10004937": {
+      "category_id": "pasta",
+      "name": "【24個】ディ・チェコ [DeCecco]No.12スパゲッティ 500g×24個 〔正規輸入品〕【北海道・沖縄・離島配送不可】",
+      "points": [
+        {
+          "date": "2026-10-02",
+          "price": 10302,
+          "unit": 85.85
+        }
+      ],
+      "product_id": "mrk-09shop:10004937",
+      "quantity_key": "{\"count\":24,\"total_weight_g\":12000.0,\"unit_weight_g\":500.0}"
+    },
+    "pasta|nozomi-market:10055953": {
+      "category_id": "pasta",
+      "name": "昭和産業 (SHOWA) スパゲッティ1.6mm 1kg×15袋入｜ パスタ スパゲティ スパゲッティ 乾麺 麺",
+      "points": [
+        {
+          "date": "2026-10-02",
+          "price": 7911,
+          "unit": 52.74
+        }
+      ],
+      "product_id": "nozomi-market:10055953",
+      "quantity_key": "{\"count\":15,\"total_weight_g\":15000.0,\"unit_weight_g\":1000.0}"
+    },
+    "pasta|onestep:10064362": {
+      "category_id": "pasta",
+      "name": "パスタ スパゲッティ 1.6mm 500g 20袋 スパゲッティーニ スパゲティ バハール BAHAR 業務用 デュラム小麦100％『送料無料（一部地域除く）』",
+      "points": [
+        {
+          "date": "2026-10-02",
+          "price": 2764,
+          "unit": 27.64
+        }
+      ],
+      "product_id": "onestep:10064362",
+      "quantity_key": "{\"count\":20,\"total_weight_g\":10000.0,\"unit_weight_g\":500.0}"
+    },
+    "pasta|onestep:10148945": {
+      "category_id": "pasta",
+      "name": "パスタ スパゲッティ 1.6mm 500g 40袋 スパゲッティーニ スパゲティ バハール BAHAR 業務用 デュラム小麦100％『送料無料（一部地域除く）』",
+      "points": [
+        {
+          "date": "2026-10-02",
+          "price": 5097,
+          "unit": 25.485
+        }
+      ],
+      "product_id": "onestep:10148945",
+      "quantity_key": "{\"count\":40,\"total_weight_g\":20000.0,\"unit_weight_g\":500.0}"
+    },
+    "pasta|p-tano:10257929": {
+      "category_id": "pasta",
+      "name": "日清製粉ウェルナ ディ・チェコ NO．12 スパゲッティ 500g 1パック",
+      "points": [
+        {
+          "date": "2026-10-02",
+          "price": 490,
+          "unit": 98.0
+        }
+      ],
+      "product_id": "p-tano:10257929",
+      "quantity_key": "{\"count\":1,\"total_weight_g\":500.0,\"unit_weight_g\":500.0}"
+    },
+    "pasta|rakuten24:10207691": {
+      "category_id": "pasta",
+      "name": "アルチェネロ 有機スパゲッティ 1.6mm(500g)【org_3_more】【アルチェネロ】[パスタ]",
+      "points": [
+        {
+          "date": "2026-10-02",
+          "price": 415,
+          "unit": 83.0
+        }
+      ],
+      "product_id": "rakuten24:10207691",
+      "quantity_key": "{\"count\":1,\"total_weight_g\":500.0,\"unit_weight_g\":500.0}"
+    },
+    "pasta|rakuten24:10230966": {
+      "category_id": "pasta",
+      "name": "ラティーノ No.6 スパゲッティ500g 太さ 1.65mm (標準) デュラム小麦100％使用(500g)【ラティーノ】[地中海 スパゲティ 乾麺 パスタ レンジOK]",
+      "points": [
+        {
+          "date": "2026-10-02",
+          "price": 433,
+          "unit": 86.6
+        }
+      ],
+      "product_id": "rakuten24:10230966",
+      "quantity_key": "{\"count\":1,\"total_weight_g\":500.0,\"unit_weight_g\":500.0}"
+    },
+    "pasta|rakuten24:11146337": {
+      "category_id": "pasta",
+      "name": "アルチェネロ 有機スパゲッティ 1.6mm(500g*6袋セット)【アルチェネロ】",
+      "points": [
+        {
+          "date": "2026-10-02",
+          "price": 2667,
+          "unit": 88.9
+        }
+      ],
+      "product_id": "rakuten24:11146337",
+      "quantity_key": "{\"count\":6,\"total_weight_g\":3000.0,\"unit_weight_g\":500.0}"
+    },
+    "pasta|rakuten24:11282545": {
+      "category_id": "pasta",
+      "name": "アルチェネロ 有機スパゲッティ 1.6mm(500g×12セット)【アルチェネロ】",
+      "points": [
+        {
+          "date": "2026-10-02",
+          "price": 4752,
+          "unit": 79.2
+        }
+      ],
+      "product_id": "rakuten24:11282545",
+      "quantity_key": "{\"count\":12,\"total_weight_g\":6000.0,\"unit_weight_g\":500.0}"
+    },
+    "pasta|rakuten24:11307386": {
+      "category_id": "pasta",
+      "name": "アルチェネロ 有機全粒粉スパゲッティ 1.6mm(500g×12セット)【アルチェネロ】",
+      "points": [
+        {
+          "date": "2026-10-02",
+          "price": 4752,
+          "unit": 79.2
+        }
+      ],
+      "product_id": "rakuten24:11307386",
+      "quantity_key": "{\"count\":12,\"total_weight_g\":6000.0,\"unit_weight_g\":500.0}"
+    },
+    "pasta|southernbridge:10000294": {
+      "category_id": "pasta",
+      "name": "オーストラリア産スパゲティー【Vetta】低GI【太さ1.5mm】◆ハイファイバータイプ500g×6袋セット◆◆全粒粉パスタより低GI◆【通常納品書なし】",
+      "points": [
+        {
+          "date": "2026-10-02",
+          "price": 4130,
+          "unit": 137.66666666666666
+        }
+      ],
+      "product_id": "southernbridge:10000294",
+      "quantity_key": "{\"count\":6,\"total_weight_g\":3000.0,\"unit_weight_g\":500.0}"
+    },
+    "pasta|takaocoffee:10006379": {
+      "category_id": "pasta",
+      "name": "【エントリーしてP5倍！】10月4日20時スタート！ガロファロ シグネチャーグラニャーノ IGP スパゲッティー 1.7mm 500g×6袋 イタリア産 スパゲッティー 明治屋【送料無料(一部地域を除く)】",
+      "points": [
+        {
+          "date": "2026-10-02",
+          "price": 3186,
+          "unit": 106.2
+        }
+      ],
+      "product_id": "takaocoffee:10006379",
+      "quantity_key": "{\"count\":6,\"total_weight_g\":3000.0,\"unit_weight_g\":500.0}"
+    },
+    "pasta|takaocoffee:10006382": {
+      "category_id": "pasta",
+      "name": "【エントリーしてP5倍！】10月4日20時スタート！ガロファロ シグネチャーグラニャーノ IGP スパゲッティ− 1.9mm 500g×6袋 イタリア産 スパゲッティー 明治屋【送料無料(一部地域を除く)】",
+      "points": [
+        {
+          "date": "2026-10-02",
+          "price": 3186,
+          "unit": 106.2
+        }
+      ],
+      "product_id": "takaocoffee:10006382",
+      "quantity_key": "{\"count\":6,\"total_weight_g\":3000.0,\"unit_weight_g\":500.0}"
+    },
+    "pasta|tsutsu-uraura:10018533": {
+      "category_id": "pasta",
+      "name": "明治屋 ガロファロ ヴェルミチェッリ 500g × 6袋 スパゲッティ 2.2mm 【 まとめ買い 】",
+      "points": [
+        {
+          "date": "2026-10-02",
+          "price": 3428,
+          "unit": 114.26666666666667
+        }
+      ],
+      "product_id": "tsutsu-uraura:10018533",
+      "quantity_key": "{\"count\":6,\"total_weight_g\":3000.0,\"unit_weight_g\":500.0}"
+    },
+    "pasta|tsutsu-uraura:10022966": {
+      "category_id": "pasta",
+      "name": "ラ・モリサーナ 有機スパゲッティ1.7mm(No.15) 500g × 6袋 [モンテ物産] 【 まとめ買い 】",
+      "points": [
+        {
+          "date": "2026-10-02",
+          "price": 3126,
+          "unit": 104.2
+        }
+      ],
+      "product_id": "tsutsu-uraura:10022966",
+      "quantity_key": "{\"count\":6,\"total_weight_g\":3000.0,\"unit_weight_g\":500.0}"
+    },
+    "pasta|zeroone777:10015294": {
+      "category_id": "pasta",
+      "name": "パスタ スパゲティ スパゲッティー アルチェネロ 有機 全粒粉スパゲティ 500g ×6袋",
+      "points": [
+        {
+          "date": "2026-10-02",
+          "price": 3540,
+          "unit": 118.0
+        }
+      ],
+      "product_id": "zeroone777:10015294",
+      "quantity_key": "{\"count\":6,\"total_weight_g\":3000.0,\"unit_weight_g\":500.0}"
+    },
+    "retort-curry|aarti:10003757": {
+      "category_id": "retort-curry",
+      "name": "キーマカレー 180g×10箱 ≪パッケージ版≫ Keema Curry レトルトカレー 鶏挽肉",
+      "points": [
+        {
+          "date": "2026-10-02",
+          "price": 5400,
+          "unit": 540.0
+        }
+      ],
+      "product_id": "aarti:10003757",
+      "quantity_key": "{\"count\":10,\"total_weight_g\":1800.0,\"unit_weight_g\":180.0}"
+    },
+    "retort-curry|aarti:10005121": {
+      "category_id": "retort-curry",
+      "name": "ダールチキンカレー 180g×5箱 ≪パッケージ版≫ Dal Chicken Curry レトルトカレー 豆 鶏肉",
+      "points": [
+        {
+          "date": "2026-10-02",
+          "price": 3070,
+          "unit": 614.0
+        }
+      ],
+      "product_id": "aarti:10005121",
+      "quantity_key": "{\"count\":5,\"total_weight_g\":900.0,\"unit_weight_g\":180.0}"
+    },
+    "retort-curry|awajishima-imaifarm:10000024": {
+      "category_id": "retort-curry",
+      "name": "淡路島たまねぎと淡路牛のカレー200g×10個（中辛）＃淡路カレ−10食＃ カレー 今井ファーム レトルトカレー 10個 10食 セット 通販 ギフト プレゼント 自宅用 家庭用 グルメ レトルト 淡路島 玉ねぎ 玉葱",
+      "points": [
+        {
+          "date": "2026-10-02",
+          "price": 3000,
+          "unit": 300.0
+        }
+      ],
+      "product_id": "awajishima-imaifarm:10000024",
+      "quantity_key": "{\"count\":10,\"total_weight_g\":2000.0,\"unit_weight_g\":200.0}"
+    },
+    "retort-curry|awajishima-imaifarm:10000025": {
+      "category_id": "retort-curry",
+      "name": "淡路島たまねぎと淡路牛のカレー200g×20個（中辛）＃淡路カレ−20食＃ レトルトカレー 今井ファーム 20個 20食 セット 通販 ギフト プレゼント 自宅用 家庭用 お取り寄せ お取り寄せグルメ おすそ分け 淡路島 玉ねぎ",
+      "points": [
+        {
+          "date": "2026-10-02",
+          "price": 5500,
+          "unit": 275.0
+        }
+      ],
+      "product_id": "awajishima-imaifarm:10000025",
+      "quantity_key": "{\"count\":20,\"total_weight_g\":4000.0,\"unit_weight_g\":200.0}"
+    },
+    "retort-curry|beisia:10029805": {
+      "category_id": "retort-curry",
+      "name": "アール・シー・フードパック レトルト屋さんのビーフカレー 甘口 180g×30袋",
+      "points": [
+        {
+          "date": "2026-10-02",
+          "price": 3780,
+          "unit": 126.0
+        }
+      ],
+      "product_id": "beisia:10029805",
+      "quantity_key": "{\"count\":30,\"total_weight_g\":5400.0,\"unit_weight_g\":180.0}"
+    },
+    "retort-curry|drink-market:10112443": {
+      "category_id": "retort-curry",
+      "name": "ハウス食品 ポークカレー 180g×30袋入｜ 一般食品 レトルト カレー ポーク",
+      "points": [
+        {
+          "date": "2026-10-02",
+          "price": 6598,
+          "unit": 219.93333333333334
+        }
+      ],
+      "product_id": "drink-market:10112443",
+      "quantity_key": "{\"count\":30,\"total_weight_g\":5400.0,\"unit_weight_g\":180.0}"
+    },
+    "retort-curry|imaifarm:10000754": {
+      "category_id": "retort-curry",
+      "name": "淡路島たまねぎと淡路牛のカレー200g×10個（中辛）＃淡路カレ−10食＃ カレー 今井ファーム レトルトカレー 10個 10食 セット 通販 ギフト プレゼント 自宅用 家庭用 グルメ レトルト 淡路島 玉ねぎ 玉葱",
+      "points": [
+        {
+          "date": "2026-10-02",
+          "price": 3000,
+          "unit": 300.0
+        }
+      ],
+      "product_id": "imaifarm:10000754",
+      "quantity_key": "{\"count\":10,\"total_weight_g\":2000.0,\"unit_weight_g\":200.0}"
+    },
+    "retort-curry|imaifarm:10000755": {
+      "category_id": "retort-curry",
+      "name": "淡路島たまねぎと淡路牛のカレー200g×20個（中辛）＃淡路カレ−20食＃ レトルトカレー 今井ファーム 20個 20食 セット 通販 ギフト プレゼント 自宅用 家庭用 お取り寄せ お取り寄せグルメ おすそ分け 淡路島 玉ねぎ",
+      "points": [
+        {
+          "date": "2026-10-02",
+          "price": 5500,
+          "unit": 275.0
+        }
+      ],
+      "product_id": "imaifarm:10000755",
+      "quantity_key": "{\"count\":20,\"total_weight_g\":4000.0,\"unit_weight_g\":200.0}"
+    },
+    "retort-curry|milkheart:10000685": {
+      "category_id": "retort-curry",
+      "name": "S＆B ごろごろ北海道野菜のビーフカレー 中辛 200g 10食入×2箱(20食分) エスビー 業務用 レトルトカレー",
+      "points": [
+        {
+          "date": "2026-10-02",
+          "price": 5357,
+          "unit": 267.85
+        }
+      ],
+      "product_id": "milkheart:10000685",
+      "quantity_key": "{\"count\":20,\"total_weight_g\":4000.0,\"unit_weight_g\":200.0}"
+    },
+    "retort-curry|misono-support:10013347": {
+      "category_id": "retort-curry",
+      "name": "ハウス食品 ビーフとオニオンの欧風カレー 辛口 200g×30袋入｜ カレー レトルト 辛口",
+      "points": [
+        {
+          "date": "2026-10-02",
+          "price": 9007,
+          "unit": 300.23333333333335
+        }
+      ],
+      "product_id": "misono-support:10013347",
+      "quantity_key": "{\"count\":30,\"total_weight_g\":6000.0,\"unit_weight_g\":200.0}"
+    },
+    "retort-curry|misono-support:10168554": {
+      "category_id": "retort-curry",
+      "name": "ニチレイフーズ Restaurant Use Only(レストラン ユース オンリー) 中辛カレー ポーク 180g×30袋入｜ 一般食品 レトルト食品 カレー",
+      "points": [
+        {
+          "date": "2026-10-02",
+          "price": 4633,
+          "unit": 154.43333333333334
+        }
+      ],
+      "product_id": "misono-support:10168554",
+      "quantity_key": "{\"count\":30,\"total_weight_g\":5400.0,\"unit_weight_g\":180.0}"
+    },
+    "retort-curry|misono-support:10178097": {
+      "category_id": "retort-curry",
+      "name": "富良野地方卸売市場 ゴロッとじゃがいもと厚切り豚バラのポークカレー 210g×40袋入｜ レトルト カレー ポークカレー 北海道 レンジ",
+      "points": [
+        {
+          "date": "2026-10-02",
+          "price": 11815,
+          "unit": 295.375
+        }
+      ],
+      "product_id": "misono-support:10178097",
+      "quantity_key": "{\"count\":40,\"total_weight_g\":8400.0,\"unit_weight_g\":210.0}"
+    },
+    "retort-curry|misono-support:10192804": {
+      "category_id": "retort-curry",
+      "name": "ハウス食品 カリー厨房 オニオンリッチカレー 中辛 180g×30袋入｜ カレー レトルト オニオンカレー 中辛",
+      "points": [
+        {
+          "date": "2026-10-02",
+          "price": 4730,
+          "unit": 157.66666666666666
+        }
+      ],
+      "product_id": "misono-support:10192804",
+      "quantity_key": "{\"count\":30,\"total_weight_g\":5400.0,\"unit_weight_g\":180.0}"
+    },
+    "retort-curry|misono-support:10200664": {
+      "category_id": "retort-curry",
+      "name": "ハチ食品 スパイシーカレー お徳用 中辛 (180g×10袋)×4個入｜ Hachi レトルトカレー 10P 中辛",
+      "points": [
+        {
+          "date": "2026-10-02",
+          "price": 4786,
+          "unit": 119.65
+        }
+      ],
+      "product_id": "misono-support:10200664",
+      "quantity_key": "{\"count\":40,\"total_weight_g\":7200.0,\"unit_weight_g\":180.0}"
+    },
+    "retort-curry|misonoya:10013211": {
+      "category_id": "retort-curry",
+      "name": "ハウス食品 ビーフカレー シェフブレンド 中辛 180g×30袋入｜ カレー ビーフ レトルト ビーフカレー 中辛",
+      "points": [
+        {
+          "date": "2026-10-02",
+          "price": 5119,
+          "unit": 170.63333333333333
+        }
+      ],
+      "product_id": "misonoya:10013211",
+      "quantity_key": "{\"count\":30,\"total_weight_g\":5400.0,\"unit_weight_g\":180.0}"
+    },
+    "retort-curry|misonoya:10112681": {
+      "category_id": "retort-curry",
+      "name": "ハウス食品 カリー厨房 オニオンリッチカレー 中辛 180g×30袋入｜ カレー レトルト オニオンカレー 中辛",
+      "points": [
+        {
+          "date": "2026-10-02",
+          "price": 4730,
+          "unit": 157.66666666666666
+        }
+      ],
+      "product_id": "misonoya:10112681",
+      "quantity_key": "{\"count\":30,\"total_weight_g\":5400.0,\"unit_weight_g\":180.0}"
+    },
+    "retort-curry|misonoya:10119945": {
+      "category_id": "retort-curry",
+      "name": "ハチ食品 スパイシーカレー お徳用 中辛 (180g×10袋)×4個入｜ Hachi レトルトカレー 10P 中辛",
+      "points": [
+        {
+          "date": "2026-10-02",
+          "price": 4786,
+          "unit": 119.65
+        }
+      ],
+      "product_id": "misonoya:10119945",
+      "quantity_key": "{\"count\":40,\"total_weight_g\":7200.0,\"unit_weight_g\":180.0}"
+    },
+    "retort-curry|moonphase:10065157": {
+      "category_id": "retort-curry",
+      "name": "（沖縄離島除く）レトルトカレー 食研カレー/7612 晩餐館 焼肉のたれでお馴染み日本食研 業務用 200gx20食セット/卸 代金引換便不可品",
+      "points": [
+        {
+          "date": "2026-10-02",
+          "price": 5350,
+          "unit": 267.5
+        }
+      ],
+      "product_id": "moonphase:10065157",
+      "quantity_key": "{\"count\":20,\"total_weight_g\":4000.0,\"unit_weight_g\":200.0}"
+    },
+    "retort-curry|nozomi-market:10002556": {
+      "category_id": "retort-curry",
+      "name": "ハウス食品 ククレカレー 甘口 180g×30個入｜ 一般食品 レトルト食品 カレー",
+      "points": [
+        {
+          "date": "2026-10-02",
+          "price": 7182,
+          "unit": 239.4
+        }
+      ],
+      "product_id": "nozomi-market:10002556",
+      "quantity_key": "{\"count\":30,\"total_weight_g\":5400.0,\"unit_weight_g\":180.0}"
+    },
+    "retort-curry|nozomi-market:10085105": {
+      "category_id": "retort-curry",
+      "name": "ニチレイフーズ Restaurant Use Only(レストラン ユース オンリー) 中辛カレー ポーク 180g×30袋入｜ 一般食品 レトルト食品 カレー",
+      "points": [
+        {
+          "date": "2026-10-02",
+          "price": 4654,
+          "unit": 155.13333333333333
+        }
+      ],
+      "product_id": "nozomi-market:10085105",
+      "quantity_key": "{\"count\":30,\"total_weight_g\":5400.0,\"unit_weight_g\":180.0}"
+    },
+    "retort-curry|nozomi-market:10094129": {
+      "category_id": "retort-curry",
+      "name": "カゴメ 大豆ミートのキーマカレー 180g×30個入｜ カレー レトルト 野菜 レトルトカレー ヴィーガン",
+      "points": [
+        {
+          "date": "2026-10-02",
+          "price": 9028,
+          "unit": 300.93333333333334
+        }
+      ],
+      "product_id": "nozomi-market:10094129",
+      "quantity_key": "{\"count\":30,\"total_weight_g\":5400.0,\"unit_weight_g\":180.0}"
+    },
+    "retort-curry|nozomi-market:10101898": {
+      "category_id": "retort-curry",
+      "name": "ハウス食品 カリー厨房 オニオンリッチカレー 中辛 180g×30袋入｜ カレー レトルト オニオンカレー 中辛",
+      "points": [
+        {
+          "date": "2026-10-02",
+          "price": 4752,
+          "unit": 158.4
+        }
+      ],
+      "product_id": "nozomi-market:10101898",
+      "quantity_key": "{\"count\":30,\"total_weight_g\":5400.0,\"unit_weight_g\":180.0}"
+    },
+    "retort-curry|nozomi-market:10101904": {
+      "category_id": "retort-curry",
+      "name": "ハウス食品 ポークカレー 180g×30袋入｜ 一般食品 レトルト カレー ポーク",
+      "points": [
+        {
+          "date": "2026-10-02",
+          "price": 6598,
+          "unit": 219.93333333333334
+        }
+      ],
+      "product_id": "nozomi-market:10101904",
+      "quantity_key": "{\"count\":30,\"total_weight_g\":5400.0,\"unit_weight_g\":180.0}"
+    },
+    "retort-curry|sweet-vege2:10000223": {
+      "category_id": "retort-curry",
+      "name": "ビーフカレー 北海道 富良野市場トマトビーフカレー レトルト 200g 10個入り 沖縄・離島への配送は別途送料が発生",
+      "points": [
+        {
+          "date": "2026-10-02",
+          "price": 12960,
+          "unit": 1296.0
+        }
+      ],
+      "product_id": "sweet-vege2:10000223",
+      "quantity_key": "{\"count\":10,\"total_weight_g\":2000.0,\"unit_weight_g\":200.0}"
+    },
+    "retort-curry|tema551:10000034": {
+      "category_id": "retort-curry",
+      "name": "てまごこちカレー 甘口(180g×10袋) 宮崎県産 九州産 国産 レトルトカレー レストラン フレンチカレー 野菜カレー ベジカレー チキンカレー 鶏もも肉 子供カレー 高級 美味しい おいしい 取り寄せ シェフ監修 ご当地 ストック こだわり ギフト 贈り物 プレゼント",
+      "points": [
+        {
+          "date": "2026-10-02",
+          "price": 7360,
+          "unit": 736.0
+        }
+      ],
+      "product_id": "tema551:10000034",
+      "quantity_key": "{\"count\":10,\"total_weight_g\":1800.0,\"unit_weight_g\":180.0}"
+    },
+    "retort-curry|tokka31:10050330": {
+      "category_id": "retort-curry",
+      "name": "【楽天1位】 【3食】淡路牛と淡路島たまねぎカレー 200g×3個入り たまねぎ カレー レトルトカレー 淡路島 玉ねぎ 淡路牛 玉葱 セット 通販 ギフト プレゼント 自宅用 家庭用 お取り寄せ",
+      "points": [
+        {
+          "date": "2026-10-02",
+          "price": 1650,
+          "unit": 550.0
+        }
+      ],
+      "product_id": "tokka31:10050330",
+      "quantity_key": "{\"count\":3,\"total_weight_g\":600.0,\"unit_weight_g\":200.0}"
+    },
+    "retort-curry|tokyo-shusui:10006808": {
+      "category_id": "retort-curry",
+      "name": "ハウス食品 カレー レトルト 選ばれし人気店 スリランカカリー チキン 180g 30袋 ハウス 食べログ 百名店 パウチ レンジ 常温",
+      "points": [
+        {
+          "date": "2026-10-02",
+          "price": 11200,
+          "unit": 373.3333333333333
+        }
+      ],
+      "product_id": "tokyo-shusui:10006808",
+      "quantity_key": "{\"count\":30,\"total_weight_g\":5400.0,\"unit_weight_g\":180.0}"
+    },
+    "retort-curry|tokyo-shusui:10006820": {
+      "category_id": "retort-curry",
+      "name": "ハウス食品 カレー レトルト 選ばれし人気店 濃厚 ビーフカレー 180g 30袋 ハウス 食べログ 百名店 パウチ レンジ 常温",
+      "points": [
+        {
+          "date": "2026-10-02",
+          "price": 11180,
+          "unit": 372.6666666666667
+        }
+      ],
+      "product_id": "tokyo-shusui:10006820",
+      "quantity_key": "{\"count\":30,\"total_weight_g\":5400.0,\"unit_weight_g\":180.0}"
+    },
+    "retort-curry|worldnext:10008627": {
+      "category_id": "retort-curry",
+      "name": "博多華味鳥 料亭のチキンカレー 180g 10袋セット トリゼンフーズ レトルトカレー レトルト食品",
+      "points": [
+        {
+          "date": "2026-10-02",
+          "price": 3180,
+          "unit": 318.0
+        }
+      ],
+      "product_id": "worldnext:10008627",
+      "quantity_key": "{\"count\":10,\"total_weight_g\":1800.0,\"unit_weight_g\":180.0}"
+    },
+    "retort-curry|worldnext:10008641": {
+      "category_id": "retort-curry",
+      "name": "博多華味鳥 料亭のチキンカレー 180g 10袋セット ギフトボックス付 トリゼンフーズ レトルトカレー レトルト食品",
+      "points": [
+        {
+          "date": "2026-10-02",
+          "price": 3280,
+          "unit": 328.0
+        }
+      ],
+      "product_id": "worldnext:10008641",
+      "quantity_key": "{\"count\":10,\"total_weight_g\":1800.0,\"unit_weight_g\":180.0}"
     },
     "rice|adachi-umai:10000130": {
       "category_id": "rice",

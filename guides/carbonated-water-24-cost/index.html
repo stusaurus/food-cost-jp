@@ -145,11 +145,23 @@ footer{padding:30px 0 100px;border-top:1px solid var(--line);font-size:10px;colo
  .compare-bar [data-open-compare]{margin-left:auto}
  .has-compare .site-toast{bottom:calc(80px + env(safe-area-inset-bottom,0px))}
 }
+/* Four compact departments preserve the market's existing paper and green palette. */
+.aisle-grid{display:grid;grid-template-columns:1fr 1fr;gap:26px}
+.aisle-card{display:grid;grid-template-columns:38% minmax(0,1fr);background:#f6f2e8;border-block:1px solid var(--line);overflow:hidden}
+.aisle-visual{min-height:250px;background:#ede8db}.aisle-visual .food-art{width:100%;height:100%;object-fit:cover}
+.aisle-copy{padding:24px}.aisle-copy h3{font:26px Georgia,'Noto Serif JP',serif;color:var(--brand);margin:9px 0 12px}.aisle-copy p{font-size:12px;line-height:1.8;color:var(--muted)}
+.aisle-inventory{font-size:11px;color:var(--brand);margin:16px 0 8px}
+.aisle-links{display:grid}.aisle-links a{display:flex;justify-content:space-between;gap:10px;align-items:center;padding:13px 0;border-top:1px solid #ded8c8;text-decoration:none;color:var(--brand);min-height:44px}.aisle-links span{font-size:13px}.aisle-links small{font-size:10px;color:var(--muted);text-align:right}.aisle-links a:hover span{text-decoration:underline;text-underline-offset:4px}
+.finder-aisles{display:grid;grid-template-columns:1fr 1fr;gap:12px}.finder-aisle{border:1px solid var(--line);background:var(--panel)}.finder-aisle>summary{padding:18px;cursor:pointer;font-size:16px;color:var(--brand);min-height:54px}.finder-aisle>summary small{float:right;font-size:11px;color:var(--muted)}.finder-aisle .finder-options{padding:0 12px 12px;grid-template-columns:1fr 1fr}.finder-aisle .finder-category{align-items:flex-start;text-align:left;padding:14px 12px;gap:6px}.finder-category small{font-size:10px;color:var(--muted)}.category-symbol{font-size:72px;line-height:1.4;padding:20px;display:block;text-align:center}
+@media(min-width:760px){.market-shelf .finder-products,#today-market .finder-products,.finder .market-shelf .finder-products{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:calc((100% - 54px)/4);overflow-x:auto;scroll-snap-type:x proximity;padding:10px 0 18px;scrollbar-width:thin}.market-shelf .finder-product{scroll-snap-align:start}#today-market .finder-product:nth-child(even){margin-top:0}}
+@media(max-width:1000px) and (min-width:760px){.aisle-card{grid-template-columns:1fr}.aisle-visual{height:160px;min-height:0}.market-shelf .finder-products,#today-market .finder-products,.finder .market-shelf .finder-products{grid-auto-columns:calc((100% - 36px)/3)}}
+@media(max-width:759px){.aisle-grid{grid-template-columns:1fr;gap:20px}.aisle-card{grid-template-columns:30% minmax(0,1fr)}.aisle-copy{padding:18px 14px}.aisle-copy h3{font-size:23px}.aisle-visual{min-height:180px}.aisle-links a{flex-wrap:wrap;gap:4px}.aisle-links small{font-size:10px}.finder-aisles{grid-template-columns:1fr}.finder-aisle>summary{font-size:15px}.finder-aisle .finder-category{min-height:66px}.category-symbol{font-size:54px}}
+.aisle-card[data-aisle="stock"] .aisle-visual{display:flex;align-items:center;background:#fffdf8;padding:12px}.aisle-card[data-aisle="stock"] .aisle-visual img{height:240px;object-fit:contain}
 </style>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-GFVSZ8YDQ5"></script>
 <script>
 window.dataLayer=window.dataLayer||[];
-function gtag(){dataLayer.push(arguments)}
+window.gtag=window.gtag||function(){dataLayer.push(arguments)};
 gtag('js',new Date());
 gtag('config','G-GFVSZ8YDQ5',{site_id:'food_cost_jp'});
 </script>
@@ -161,7 +173,7 @@ gtag('config','G-GFVSZ8YDQ5',{site_id:'food_cost_jp'});
 <h1>炭酸水24本を1L・1本あたりで比較</h1>
 <p class="lead">24本セットの炭酸水を中心に、1Lあたりと1本あたりの両方で比べます。</p>
 <div class="hero-tags"><span class="hero-tag">送料込みを優先</span><span class="hero-tag">実データ連動</span><span class="hero-tag">数量曖昧は除外</span></div>
-<p class="note">最終価格確認: 2026-10-02 20:41 JST</p></div>
+<p class="note">最終価格確認: 2026-10-02 21:29 JST</p></div>
 <div class="category-hero-art carbonated-water"><img class="food-art" src="https://stusaurus.github.io/food-cost-jp/assets/marche-carbonated-water.webp" width="768" height="512" alt="" loading="lazy"></div>
 </div></header>
 <nav class="service-shortcuts" aria-label="主要メニュー">
@@ -708,7 +720,7 @@ document.querySelectorAll('[data-search]').forEach(input=>input.addEventListener
   send('comparison_search_use',{category_id:input.dataset.category,search_term:input.value.trim()})
 }));
 const shelfSeen=new WeakSet();
-const shelfView=el=>{if(!el||shelfSeen.has(el)||el.closest('[hidden]'))return;shelfSeen.add(el);send('market_shelf_view',{shelf_id:el.dataset.marketShelf,product_count:el.querySelectorAll('[data-affiliate]').length})};
+const shelfView=el=>{if(!el||shelfSeen.has(el)||el.closest('[hidden]'))return;shelfSeen.add(el);send('market_shelf_view',{shelf_id:el.dataset.marketShelf,product_count:el.querySelectorAll('[data-affiliate]').length,category_id:[...new Set([...el.querySelectorAll('[data-affiliate]')].map(a=>a.dataset.category))].length===1?el.querySelector('[data-affiliate]')?.dataset.category:'all',category_ids:[...new Set([...el.querySelectorAll('[data-affiliate]')].map(a=>a.dataset.category))].join(',')})};
 if(!('IntersectionObserver' in window))document.querySelectorAll('[data-market-shelf]').forEach(shelfView);
 if('IntersectionObserver' in window){const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting)shelfView(entry.target)}),{threshold:.1});document.querySelectorAll('[data-market-shelf]').forEach(el=>observer.observe(el))}
 document.addEventListener('click',e=>{const a=e.target.closest('a[data-affiliate]');const shelf=a?.closest('[data-market-shelf]');if(shelf)send('market_shelf_product_click',{shelf_id:shelf.dataset.marketShelf,category_id:a.dataset.category,product_id:a.dataset.productId,cta_variant:a.dataset.ctaVariant})});
@@ -717,7 +729,7 @@ if(finder){
   let category='all',purpose='',intent='',route='';
   const routeStage=finder.querySelector('[data-finder-route-stage]');
   const categoryStage=finder.querySelector('[data-finder-category-stage]'),purposeStage=finder.querySelector('[data-finder-purpose-stage]'),resultStage=finder.querySelector('[data-finder-result-stage]'),status=finder.querySelector('[data-finder-status]');
-  const show=el=>{el.hidden=false;const first=el.querySelector('button');first?.focus({preventScroll:true});const top=el.getBoundingClientRect().top;if(top<0||top>window.innerHeight*.65)el.scrollIntoView?.({block:'start',behavior:window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches?'instant':'smooth'})};
+  const show=el=>{el.hidden=false;const first=el.querySelector('summary,button');first?.focus({preventScroll:true});const top=el.getBoundingClientRect().top;if(top<0||top>window.innerHeight*.65)el.scrollIntoView?.({block:'start',behavior:window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches?'instant':'smooth'})};
   const hide=el=>el.hidden=true;
   const results=()=>{
     hide(routeStage);hide(purposeStage);hide(categoryStage);show(resultStage);
@@ -729,7 +741,7 @@ if(finder){
     send('quick_finder_complete',{category_id:category,finder_purpose:purpose});
     if(!('IntersectionObserver' in window))shelfView(current?.querySelector('[data-market-shelf]'));
   };
-  const reset=()=>{purpose='';category='all';route='';show(routeStage);hide(purposeStage);hide(categoryStage);hide(resultStage);status.textContent='';finder.querySelectorAll('[data-finder-picks]').forEach(x=>x.hidden=true);finder.querySelectorAll('[aria-pressed]').forEach(x=>x.setAttribute('aria-pressed','false'));finder.querySelectorAll('.selected').forEach(x=>x.classList.remove('selected'))};
+  const reset=()=>{purpose='';category='all';route='';show(routeStage);hide(purposeStage);hide(categoryStage);hide(resultStage);status.textContent='';finder.querySelectorAll('[data-finder-picks]').forEach(x=>x.hidden=true);finder.querySelectorAll('[aria-pressed]').forEach(x=>x.setAttribute('aria-pressed','false'));finder.querySelectorAll('.selected').forEach(x=>x.classList.remove('selected'));finder.querySelectorAll('.finder-aisle').forEach(x=>x.open=false)};
   const selectRoute=(key,source='entry')=>{
     route=key;category='all';status.textContent='';hide(routeStage);hide(purposeStage);hide(categoryStage);hide(resultStage);
     finder.querySelectorAll('[data-entry-route]').forEach(x=>{x.classList.toggle('selected',x.dataset.entryRoute===key);x.setAttribute('aria-pressed',String(x.dataset.entryRoute===key))});
@@ -756,7 +768,7 @@ if(pick&&document.querySelector('[data-comparison]')){
   const root=document.querySelector('[data-comparison]');
   const filter=root.querySelector('[data-filter]');
   const sort=root.querySelector('[data-sort]');
-  if(filter&&(pick==='small'||pick==='large'||pick==='storage')){root.dataset.shoppingIntent=pick;filter.value=pick==='storage'?'small':pick;if(filter.dataset.category==='carbonated-water'){filter.querySelector('[value=small]').textContent='合計12L以下';filter.querySelector('[value=large]').textContent='合計12L超'}const label=root.querySelector('[data-intent-note]');if(label)label.textContent='買い方で絞った一覧：少量側 / 大容量側は合計量を基準にしています。'}
+  if(filter&&(pick==='small'||pick==='large'||pick==='storage')){root.dataset.shoppingIntent=pick;filter.value=pick==='storage'?'small':pick;if(['carbonated-water','mineral-water'].includes(filter.dataset.category)){filter.querySelector('[value=small]').textContent='合計12L以下';filter.querySelector('[value=large]').textContent='合計12L超'}const label=root.querySelector('[data-intent-note]');if(label)label.textContent='買い方で絞った一覧：少量側 / 大容量側は合計量を基準にしています。'}
   if(filter&&pick==='storage')filter.value='small';
   if(sort&&(pick==='budget'||pick==='storage')){sort.value='price';sort.dispatchEvent(new Event('change'))}
   const details=root.closest('details');if(details)details.open=true;
