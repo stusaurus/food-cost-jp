@@ -2148,6 +2148,19 @@ def home_page(results: dict, updated: datetime, guide_specs: list[dict] | None =
             SITE_URL,
         )
     ]
+    home_schema = {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "食品コスパ比較",
+        "url": SITE_URL,
+        "description": "食品の容量・数量・送料をそろえ、カテゴリごとに意味のある単位で比較する食品コスパ比較サイトです。",
+        "inLanguage": "ja-JP",
+    }
+    parts.append(
+        '<script type="application/ld+json">'
+        + json.dumps(home_schema, ensure_ascii=False).replace("</", "<\\/")
+        + "</script>"
+    )
     parts.append(
         f"""<header class="home-hero"><div class="wrap hero-layout">
 <div class="hero-copy">
