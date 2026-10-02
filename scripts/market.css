@@ -45,7 +45,7 @@
 .finder{padding:30px;background:#ecefe5;border-block:1px solid #bdc8b7}
 .finder-intro{display:flex;justify-content:space-between;gap:20px;align-items:center}
 .finder-guide{display:flex;align-items:center;gap:10px;font-size:11px;font-style:italic}
-.finder-guide .guide-mascot{width:80px}
+.finder-guide .guide-mascot{width:80px;height:auto}
 .finder-question{display:flex;gap:12px;align-items:center;margin:24px 0 16px}
 .finder-question>span{font:12px Georgia,serif;letter-spacing:.08em;color:var(--brand)}
 .finder-question strong{font-size:16px;font-weight:500}
