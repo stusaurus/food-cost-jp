@@ -1,0 +1,4082 @@
+{
+  "mineral-water": {
+    "category": {
+      "id": "mineral-water",
+      "name": "ミネラルウォーター",
+      "emoji": "💧",
+      "queries": [
+        "ミネラルウォーター 500ml 24本",
+        "天然水 2L 6本",
+        "天然水 500ml 48本"
+      ],
+      "primary": "per_liter",
+      "primary_label": "1Lあたり",
+      "secondary": "per_bottle",
+      "secondary_label": "1本あたり",
+      "intro": "ミネラルウォーターの容量・食数を確定し、1Lあたりで比べます。",
+      "filter_small": "少量",
+      "filter_large": "まとめ買い",
+      "guide": [
+        "内容量とセット数を一意に確認できる商品だけを掲載します。",
+        "送料込みの商品と送料別・送料不明の商品を分けています。",
+        "種類・賞味期限・保管場所は購入前に販売ページで確認してください。"
+      ]
+    },
+    "included": [
+      {
+        "id": "cocodecow:10778153",
+        "raw_name": "ハルナウォーター 安曇野の自然が育んだ天然水2L×12本",
+        "name": "ハルナウォーター 安曇野の自然が育んだ天然水2L×12本",
+        "price": 1854,
+        "shop": "ココデカウ",
+        "url": "https://hb.afl.rakuten.co.jp/hgc/g00qq8to.7cx6mdf4.g00qq8to.7cx6nfbb/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fcocodecow%2Fr820gf%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fcocodecow%2Fi%2F10778153%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
+        "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/cocodecow/cabinet/ad0/r820gf.jpg?_ex=128x128",
+        "postage_included": true,
+        "shipping_status": "included",
+        "quantity": {
+          "count": 12,
+          "component_counts": [
+            12
+          ],
+          "unit_volume_ml": 2000.0,
+          "total_volume_ml": 24000.0,
+          "confidence": 0.99,
+          "evidence": "2Lx12本"
+        },
+        "unit_prices": {
+          "per_liter": 77.25,
+          "per_bottle": 154.5
+        },
+        "promotion_mentioned": false
+      },
+      {
+        "id": "cocodecow:10058666",
+        "raw_name": "国産 ミネラルウォーター 自然の恵み 天然水 2L×12本 水 2リットル",
+        "name": "国産 ミネラルウォーター 自然の恵み 天然水 2L×12本 水 2リットル",
+        "price": 1888,
+        "shop": "ココデカウ",
+        "url": "https://hb.afl.rakuten.co.jp/hgc/g00qq8to.7cx6mdf4.g00qq8to.7cx6nfbb/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fcocodecow%2F706868%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fcocodecow%2Fi%2F10058666%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
+        "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/cocodecow/cabinet/308/706868.jpg?_ex=128x128",
+        "postage_included": true,
+        "shipping_status": "included",
+        "quantity": {
+          "count": 12,
+          "component_counts": [
+            12
+          ],
+          "unit_volume_ml": 2000.0,
+          "total_volume_ml": 24000.0,
+          "confidence": 0.99,
+          "evidence": "2Lx12本"
+        },
+        "unit_prices": {
+          "per_liter": 78.66666666666667,
+          "per_bottle": 157.33333333333334
+        },
+        "promotion_mentioned": false
+      },
+      {
+        "id": "rakutensokuhaimart:10020882",
+        "raw_name": "サントリー 天然水 2L*6本入 【サントリー天然水】 ミネラルウォーター",
+        "name": "サントリー 天然水 2L*6本入 【サントリー天然水】 ミネラルウォーター",
+        "price": 1200,
+        "shop": "楽天24エクスプレス",
+        "url": "https://hb.afl.rakuten.co.jp/hgc/g00ugyno.7cx6m7d1.g00ugyno.7cx6n813/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Frakutensokuhaimart%2F4901777062702%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Frakutensokuhaimart%2Fi%2F10020882%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
+        "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/rakutensokuhaimart/cabinet/rakuten24/702/4901777062702.jpg?_ex=128x128",
+        "postage_included": true,
+        "shipping_status": "included",
+        "quantity": {
+          "count": 6,
+          "component_counts": [
+            6
+          ],
+          "unit_volume_ml": 2000.0,
+          "total_volume_ml": 12000.0,
+          "confidence": 0.99,
+          "evidence": "2Lx6本入"
+        },
+        "unit_prices": {
+          "per_liter": 100.0,
+          "per_bottle": 200.0
+        },
+        "promotion_mentioned": false
+      },
+      {
+        "id": "rakutenoriginal-daily:10000016",
+        "raw_name": "【楽天オリジナル】水 500ml×48本 天然水 ミネラルウォーター 飲料水 安い 業務用 家庭用 大容量 オフィス コスパ最強 500ml 48本",
+        "name": "【楽天オリジナル】水 500ml×48本 天然水 ミネラルウォーター 飲料水 安い 業務用 家庭用 大容量 オフィス コスパ最強 500ml 48本",
+        "price": 2420,
+        "shop": "楽天オリジナル",
+        "url": "https://hb.afl.rakuten.co.jp/hgc/g00uqzro.7cx6m99a.g00uqzro.7cx6n201/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Frakutenoriginal-daily%2Fro-b-003%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Frakutenoriginal-daily%2Fi%2F10000016%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
+        "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/rakutenoriginal-daily/cabinet/item/water/ro-b-003_e.jpg?_ex=128x128",
+        "postage_included": true,
+        "shipping_status": "included",
+        "quantity": {
+          "count": 48,
+          "component_counts": [
+            48
+          ],
+          "unit_volume_ml": 500.0,
+          "total_volume_ml": 24000.0,
+          "confidence": 0.99,
+          "evidence": "500mlx48本"
+        },
+        "unit_prices": {
+          "per_liter": 100.83333333333333,
+          "per_bottle": 50.416666666666664
+        },
+        "promotion_mentioned": false
+      },
+      {
+        "id": "rakutenoriginal-daily:10000000",
+        "raw_name": "【楽天オリジナル】水 500ml×24本 天然水 ミネラルウォーター 飲料水 まとめ買い 安い 業務用 家庭用 大容量 オフィス コスパ最強 熱中症対策　500ml 24本",
+        "name": "【楽天オリジナル】水 500ml×24本 天然水 ミネラルウォーター 飲料水 まとめ買い 安い 業務用 家庭用 大容量 オフィス コスパ最強 熱中症対策 500ml 24本",
+        "price": 1215,
+        "shop": "楽天オリジナル",
+        "url": "https://hb.afl.rakuten.co.jp/hgc/g00uqzro.7cx6m99a.g00uqzro.7cx6n201/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Frakutenoriginal-daily%2Fro-b-001%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Frakutenoriginal-daily%2Fi%2F10000000%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
+        "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/rakutenoriginal-daily/cabinet/item/water/ro-b-001_e_v2.jpg?_ex=128x128",
+        "postage_included": true,
+        "shipping_status": "included",
+        "quantity": {
+          "count": 24,
+          "component_counts": [
+            24
+          ],
+          "unit_volume_ml": 500.0,
+          "total_volume_ml": 12000.0,
+          "confidence": 0.99,
+          "evidence": "500mlx24本"
+        },
+        "unit_prices": {
+          "per_liter": 101.25,
+          "per_bottle": 50.625
+        },
+        "promotion_mentioned": false
+      },
+      {
+        "id": "irisplaza-r:10136708",
+        "raw_name": "[300円OFFクーポン/食いしんぼう祭]【公式】水 500ml 48本 送料無料 天然水 ミネラルウォーター ラベルレス 48本 富士山の天然水 まとめ買い 水 ストック 軟水 【代引不可】",
+        "name": "【公式】水 500ml 48本 天然水 ミネラルウォーター ラベルレス 48本 富士山の天然水 まとめ買い 水 ストック 軟水 【代引不可】",
+        "price": 2480,
+        "shop": "アイリスオーヤマ公式 楽天市場店",
+        "url": "https://hb.afl.rakuten.co.jp/hgc/g00t3zto.7cx6m5be.g00t3zto.7cx6n748/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Firisplaza-r%2F310999-cp%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Firisplaza-r%2Fi%2F10136708%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
+        "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/irisplaza-r/cabinet/11073544/13495764/imgrc0123298967.jpg?_ex=128x128",
+        "postage_included": true,
+        "shipping_status": "included",
+        "quantity": {
+          "count": 48,
+          "component_counts": [
+            48
+          ],
+          "unit_volume_ml": 500.0,
+          "total_volume_ml": 24000.0,
+          "confidence": 0.99,
+          "evidence": "500ml 48本"
+        },
+        "unit_prices": {
+          "per_liter": 103.33333333333333,
+          "per_bottle": 51.666666666666664
+        },
+        "promotion_mentioned": true
+      },
+      {
+        "id": "kurashikenkou:10184231",
+        "raw_name": "水 500ml 48本 天然水 ペットボトル 送料無料 ミネラルウォーター LDC 熊野古道水 軟水 熊野 防災 備蓄 鉱水 古道 ナチュラル ペットボトル ライフドリンクカンパニー【D】【代引き不可】",
+        "name": "水 500ml 48本 天然水 ペットボトル ミネラルウォーター LDC 熊野古道水 軟水 熊野 防災 備蓄 鉱水 古道 ナチュラル ペットボトル ライフドリンクカンパニー【D】【代引き不可】",
+        "price": 2680,
+        "shop": "暮らし健康ネット館",
+        "url": "https://hb.afl.rakuten.co.jp/hgc/g00qhoao.7cx6m91b.g00qhoao.7cx6n00f/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fkurashikenkou%2F7159367%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fkurashikenkou%2Fi%2F10184231%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
+        "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/kurashikenkou/cabinet/tasya60/7159367_00.jpg?_ex=128x128",
+        "postage_included": true,
+        "shipping_status": "included",
+        "quantity": {
+          "count": 48,
+          "component_counts": [
+            48
+          ],
+          "unit_volume_ml": 500.0,
+          "total_volume_ml": 24000.0,
+          "confidence": 0.99,
+          "evidence": "500ml 48本"
+        },
+        "unit_prices": {
+          "per_liter": 111.66666666666667,
+          "per_bottle": 55.833333333333336
+        },
+        "promotion_mentioned": false
+      },
+      {
+        "id": "rakutensokuhaimart:10018617",
+        "raw_name": "アイリス 富士山の天然水 ラベルレス 500ml×24本入 【アイリスの天然水】 硬度別",
+        "name": "アイリス 富士山の天然水 ラベルレス 500ml×24本入 【アイリスの天然水】 硬度別",
+        "price": 1510,
+        "shop": "楽天24エクスプレス",
+        "url": "https://hb.afl.rakuten.co.jp/hgc/g00ugyno.7cx6m7d1.g00ugyno.7cx6n813/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Frakutensokuhaimart%2F4562403563002%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Frakutensokuhaimart%2Fi%2F10018617%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
+        "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/rakutensokuhaimart/cabinet/rakuten24/002/4562403563002.jpg?_ex=128x128",
+        "postage_included": true,
+        "shipping_status": "included",
+        "quantity": {
+          "count": 24,
+          "component_counts": [
+            24
+          ],
+          "unit_volume_ml": 500.0,
+          "total_volume_ml": 12000.0,
+          "confidence": 0.99,
+          "evidence": "500mlx24本入"
+        },
+        "unit_prices": {
+          "per_liter": 125.83333333333333,
+          "per_bottle": 62.916666666666664
+        },
+        "promotion_mentioned": false
+      },
+      {
+        "id": "kurashikenkou:10181000",
+        "raw_name": "シリカ 水 500ml 24本 天然水 ペットボトル 送料無料 シリカ水 ミネラルウォーター 富士清水 JAPANWATER 飲料水 軟水 ウォーター【D】【代引き不可】",
+        "name": "シリカ 水 500ml 24本 天然水 ペットボトル シリカ水 ミネラルウォーター 富士清水 JAPANWATER 飲料水 軟水 ウォーター【D】【代引き不可】",
+        "price": 1560,
+        "shop": "暮らし健康ネット館",
+        "url": "https://hb.afl.rakuten.co.jp/hgc/g00qhoao.7cx6m91b.g00qhoao.7cx6n00f/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fkurashikenkou%2F7150388%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fkurashikenkou%2Fi%2F10181000%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
+        "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/kurashikenkou/cabinet/tenposupport23/7245223.jpg?_ex=128x128",
+        "postage_included": true,
+        "shipping_status": "included",
+        "quantity": {
+          "count": 24,
+          "component_counts": [
+            24
+          ],
+          "unit_volume_ml": 500.0,
+          "total_volume_ml": 12000.0,
+          "confidence": 0.99,
+          "evidence": "500ml 24本"
+        },
+        "unit_prices": {
+          "per_liter": 130.0,
+          "per_bottle": 65.0
+        },
+        "promotion_mentioned": false
+      },
+      {
+        "id": "onestep:10148272",
+        "raw_name": "ボルヴィック 500ml 48本 送料無料 軟水 天然水 ミネラルウォーター ボルビック volvic『送料無料（一部地域除く）』",
+        "name": "ボルヴィック 500ml 48本 軟水 天然水 ミネラルウォーター ボルビック volvic『送料無料（一部地域除く）』",
+        "price": 4980,
+        "shop": "よろずやマルシェ",
+        "url": "https://hb.afl.rakuten.co.jp/hgc/g00prcko.7cx6m1c4.g00prcko.7cx6nf4d/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fonestep%2Fs01176%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fonestep%2Fi%2F10148272%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
+        "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/onestep/cabinet/syoku/drink/s01176_1n.jpg?_ex=128x128",
+        "postage_included": true,
+        "shipping_status": "included",
+        "quantity": {
+          "count": 48,
+          "component_counts": [
+            48
+          ],
+          "unit_volume_ml": 500.0,
+          "total_volume_ml": 24000.0,
+          "confidence": 0.99,
+          "evidence": "500ml 48本"
+        },
+        "unit_prices": {
+          "per_liter": 207.5,
+          "per_bottle": 103.75
+        },
+        "promotion_mentioned": false
+      }
+    ],
+    "shipping_unknown": [
+      {
+        "id": "lifedrinkcompany:10000014",
+        "raw_name": "【食フェスクーポンあり♪10/3まで】水 ミネラルウォーター 彩水-あやみず- やさしい軟水 500ml 48本 送料無料※一部地域除く ペットボトル ラベルレス ライフドリンクカンパニー LIFEDRINK 国産 天然水 軟水 備蓄水 非常用 (※採水地指定不可）",
+        "name": "【食フェスクーポンあり♪10/3まで】水 ミネラルウォーター 彩水-あやみず- やさしい軟水 500ml 48本 送料無料※一部地域除く ペットボトル ラベルレス ライフドリンクカンパニー LIFEDRINK 国産 天然水 軟水 備蓄水 非常用 (※採水地指定不可）",
+        "price": 2270,
+        "shop": "LIFEDRINKオンラインストア",
+        "url": "https://hb.afl.rakuten.co.jp/hgc/g00tkn4o.7cx6m007.g00tkn4o.7cx6n86d/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Flifedrinkcompany%2Fayamizu-500-48%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Flifedrinkcompany%2Fi%2F10000014%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
+        "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/lifedrinkcompany/cabinet/item-water/ayamizu/proper/mizu48-.jpg?_ex=128x128",
+        "postage_included": false,
+        "shipping_status": "extra_or_unknown",
+        "quantity": {
+          "count": 48,
+          "component_counts": [
+            48
+          ],
+          "unit_volume_ml": 500.0,
+          "total_volume_ml": 24000.0,
+          "confidence": 0.99,
+          "evidence": "500ml 48本"
+        },
+        "unit_prices": {
+          "per_liter": 94.58333333333333,
+          "per_bottle": 47.291666666666664
+        },
+        "promotion_mentioned": true
+      },
+      {
+        "id": "newfine:10000016",
+        "raw_name": "【365日最短当日出荷！】 水 国産 天然水 500ml 45本 ラベルレス シリカ 42mg/L含有 シリカ水 飲むシリカ ナチュラルミネラルウォーター 軟水 飲む シリカ シリカウォーター 日本 宮城県 蔵王連峰 PFOS PFOA 送料無料 備蓄水 保存水 ローリングストック",
+        "name": "【365日最短当日出荷！】 水 国産 天然水 500ml 45本 ラベルレス シリカ 42mg/L含有 シリカ水 飲むシリカ ナチュラルミネラルウォーター 軟水 飲む シリカ シリカウォーター 日本 宮城県 蔵王連峰 PFOS PFOA 備蓄水 保存水 ローリングストック",
+        "price": 2460,
+        "shop": "newfine 公式ストア",
+        "url": "https://hb.afl.rakuten.co.jp/hgc/g00uhcso.7cx6ma08.g00uhcso.7cx6n5bf/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fnewfine%2F4571461294032%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fnewfine%2Fi%2F10000016%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
+        "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/newfine/cabinet/item/13209065/newfine.jpg?_ex=128x128",
+        "postage_included": false,
+        "shipping_status": "extra_or_unknown",
+        "quantity": {
+          "count": 45,
+          "component_counts": [
+            45
+          ],
+          "unit_volume_ml": 500.0,
+          "total_volume_ml": 22500.0,
+          "confidence": 0.99,
+          "evidence": "500ml 45本"
+        },
+        "unit_prices": {
+          "per_liter": 109.33333333333333,
+          "per_bottle": 54.666666666666664
+        },
+        "promotion_mentioned": false
+      },
+      {
+        "id": "lifedrinkcompany:10000013",
+        "raw_name": "【食フェスクーポンあり♪10/3まで】国産ミネラルウォーター 彩水-あやみず- やさしい軟水 500ml×24本 送料無料※一部地域除く ライフドリンクカンパニー LIFEDRINK 水 ラベルレス 天然水 飲料水 軟水 備蓄水 非常用（※採水地指定不可）",
+        "name": "【食フェスクーポンあり♪10/3まで】国産ミネラルウォーター 彩水-あやみず- やさしい軟水 500ml×24本 送料無料※一部地域除く ライフドリンクカンパニー LIFEDRINK 水 ラベルレス 天然水 飲料水 軟水 備蓄水 非常用（※採水地指定不可）",
+        "price": 1370,
+        "shop": "LIFEDRINKオンラインストア",
+        "url": "https://hb.afl.rakuten.co.jp/hgc/g00tkn4o.7cx6m007.g00tkn4o.7cx6n86d/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Flifedrinkcompany%2Fayamizu-500%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Flifedrinkcompany%2Fi%2F10000013%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
+        "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/lifedrinkcompany/cabinet/item-water/ayamizu/proper/mizu24-.jpg?_ex=128x128",
+        "postage_included": false,
+        "shipping_status": "extra_or_unknown",
+        "quantity": {
+          "count": 24,
+          "component_counts": [
+            24
+          ],
+          "unit_volume_ml": 500.0,
+          "total_volume_ml": 12000.0,
+          "confidence": 0.99,
+          "evidence": "500mlx24本"
+        },
+        "unit_prices": {
+          "per_liter": 114.16666666666667,
+          "per_bottle": 57.083333333333336
+        },
+        "promotion_mentioned": true
+      },
+      {
+        "id": "jyonetsubatake:10000160",
+        "raw_name": "水 ミネラルウォーター 500ml 24本 ペットボトル 国産 天然水 LDC お水 500 軟水 ケース まとめ買い 飲料水 備蓄 栃木県産 静岡県産 自然の恵み 赤ちゃん 高齢者 にも",
+        "name": "水 ミネラルウォーター 500ml 24本 ペットボトル 国産 天然水 LDC お水 500 軟水 ケース まとめ買い 飲料水 備蓄 栃木県産 静岡県産 自然の恵み 赤ちゃん 高齢者 にも",
+        "price": 1380,
+        "shop": "情熱畑 楽天市場店",
+        "url": "https://hb.afl.rakuten.co.jp/hgc/g00sykbo.7cx6m374.g00sykbo.7cx6n5ee/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fjyonetsubatake%2F1127-c1%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fjyonetsubatake%2Fi%2F10000160%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
+        "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/jyonetsubatake/cabinet/item/drink/naturalmineralwater/1127-c1_m_r1.jpg?_ex=128x128",
+        "postage_included": false,
+        "shipping_status": "extra_or_unknown",
+        "quantity": {
+          "count": 24,
+          "component_counts": [
+            24
+          ],
+          "unit_volume_ml": 500.0,
+          "total_volume_ml": 12000.0,
+          "confidence": 0.99,
+          "evidence": "500ml 24本"
+        },
+        "unit_prices": {
+          "per_liter": 115.0,
+          "per_bottle": 57.5
+        },
+        "promotion_mentioned": false
+      }
+    ],
+    "audit": {
+      "fetched": 90,
+      "normalized": 20,
+      "exact_duplicates": 6,
+      "practical_duplicates": 0,
+      "accepted_unique": 14,
+      "included_available": 10,
+      "shipping_unknown_available": 4,
+      "displayed_included": 10,
+      "displayed_shipping_unknown": 4,
+      "reasons": {
+        "wrong_product_type": 15,
+        "restricted_or_selectable_product": 10,
+        "limited_purchase": 4,
+        "ambiguous_quantity": 39,
+        "missing_category_evidence": 2
+      },
+      "cleaned_examples": [
+        {
+          "before": "[300円OFFクーポン/食いしんぼう祭]【公式】水 500ml 48本 送料無料 天然水 ミネラルウォーター ラベルレス 48本 富士山の天然水 まとめ買い 水 ストック 軟水 【代引不可】",
+          "after": "【公式】水 500ml 48本 天然水 ミネラルウォーター ラベルレス 48本 富士山の天然水 まとめ買い 水 ストック 軟水 【代引不可】"
+        },
+        {
+          "before": "【楽天オリジナル】水 500ml×24本 天然水 ミネラルウォーター 飲料水 まとめ買い 安い 業務用 家庭用 大容量 オフィス コスパ最強 熱中症対策　500ml 24本",
+          "after": "【楽天オリジナル】水 500ml×24本 天然水 ミネラルウォーター 飲料水 まとめ買い 安い 業務用 家庭用 大容量 オフィス コスパ最強 熱中症対策 500ml 24本"
+        },
+        {
+          "before": "水 500ml 48本 天然水 ペットボトル 送料無料 ミネラルウォーター LDC 熊野古道水 軟水 熊野 防災 備蓄 鉱水 古道 ナチュラル ペットボトル ライフドリンクカンパニー【D】【代引き不可】",
+          "after": "水 500ml 48本 天然水 ペットボトル ミネラルウォーター LDC 熊野古道水 軟水 熊野 防災 備蓄 鉱水 古道 ナチュラル ペットボトル ライフドリンクカンパニー【D】【代引き不可】"
+        },
+        {
+          "before": "シリカ 水 500ml 24本 天然水 ペットボトル 送料無料 シリカ水 ミネラルウォーター 富士清水 JAPANWATER 飲料水 軟水 ウォーター【D】【代引き不可】",
+          "after": "シリカ 水 500ml 24本 天然水 ペットボトル シリカ水 ミネラルウォーター 富士清水 JAPANWATER 飲料水 軟水 ウォーター【D】【代引き不可】"
+        },
+        {
+          "before": "[300円OFFクーポン/食いしんぼう祭]【公式】水 500ml 48本 送料無料 天然水 ミネラルウォーター ラベルレス 48本 富士山の天然水 まとめ買い 水 ストック 軟水 【代引不可】",
+          "after": "【公式】水 500ml 48本 天然水 ミネラルウォーター ラベルレス 48本 富士山の天然水 まとめ買い 水 ストック 軟水 【代引不可】"
+        },
+        {
+          "before": "[300円OFFクーポン/食いしんぼう祭]【公式】水 500ml 48本 送料無料 天然水 ミネラルウォーター ラベルレス 48本 富士山の天然水 まとめ買い 水 ストック 軟水 【代引不可】",
+          "after": "【公式】水 500ml 48本 天然水 ミネラルウォーター ラベルレス 48本 富士山の天然水 まとめ買い 水 ストック 軟水 【代引不可】"
+        },
+        {
+          "before": "ボルヴィック 500ml 48本 送料無料 軟水 天然水 ミネラルウォーター ボルビック volvic『送料無料（一部地域除く）』",
+          "after": "ボルヴィック 500ml 48本 軟水 天然水 ミネラルウォーター ボルビック volvic『送料無料（一部地域除く）』"
+        },
+        {
+          "before": "【365日最短当日出荷！】 水 国産 天然水 500ml 45本 ラベルレス シリカ 42mg/L含有 シリカ水 飲むシリカ ナチュラルミネラルウォーター 軟水 飲む シリカ シリカウォーター 日本 宮城県 蔵王連峰 PFOS PFOA 送料無料 備蓄水 保存水 ローリングストック",
+          "after": "【365日最短当日出荷！】 水 国産 天然水 500ml 45本 ラベルレス シリカ 42mg/L含有 シリカ水 飲むシリカ ナチュラルミネラルウォーター 軟水 飲む シリカ シリカウォーター 日本 宮城県 蔵王連峰 PFOS PFOA 備蓄水 保存水 ローリングストック"
+        },
+        {
+          "before": "水 500ml 48本 天然水 ペットボトル 送料無料 ミネラルウォーター LDC 熊野古道水 軟水 熊野 防災 備蓄 鉱水 古道 ナチュラル ペットボトル ライフドリンクカンパニー【D】【代引き不可】",
+          "after": "水 500ml 48本 天然水 ペットボトル ミネラルウォーター LDC 熊野古道水 軟水 熊野 防災 備蓄 鉱水 古道 ナチュラル ペットボトル ライフドリンクカンパニー【D】【代引き不可】"
+        }
+      ],
+      "rejection_samples": {
+        "wrong_product_type": [
+          "【公式】炭酸水 500ml 48本 送料無料 (24本入×2箱) 強炭酸水 アイリスオーヤマ クリスタルスパーク 炭酸 レモン マスカット ラムネ グレープ 和梨　ジンジャーエール　フレーバー プレーン 無糖 天然水 アイリスフーズ ペットボトル",
+          "【最短翌日お届け┃365日出荷】VOX 強炭酸水 500ml 24本 ラベルレス シリカ 50mg/L 世界最高レベルの炭酸充填量5.0 炭酸水 日本の天然水 ミネラルウォーター 全5種 ストレート シリカ炭酸水 シリカ水 ミント レモン コーラ フレーバー 無糖 ゼロカロリー 国産",
+          "【楽天オリジナル】炭酸水 500ml×24本 [プレーン ソーダ 割り材 炭酸飲料 スパークリング 炭酸] まとめ買い 水 業務用 家庭用 大容量 オフィス ハイボール用 宅飲み　500ml 24本"
+        ],
+        "restricted_or_selectable_product": [
+          "《1本当たり59.2円～！》 炭酸水 500ml 24本 選べるラベルレス 強炭酸水 アイリスオーヤマ 無糖 プレーン レモン フレーバー 天然水 ソーダ カロリーゼロ 割り材 まとめ買い 炭酸飲料 クリスタルスパーク CRYSTALSPARK 富士山の強炭酸水 * 【代引き不可】",
+          "[エントリーでポイント最大10倍/スタンプラリー]炭酸水 500ml 24本 アイリスオーヤマ 強炭酸水 選べる ラベルレス プレーン レモン ラムネ グレープソーダ ジンジャーエール 和梨 フレーバー 天然水 無糖 ペットボトル 炭酸飲料 アイリスフーズ クリスタルスパーク *",
+          "コカ・コーラ製品 アクエリアス 500ml ペットボトル よりどり 2ケース×24本入（48本） 送料無料 アクエリアス ゼロ マルチビタミン NEWATER ラベルレス 熱中症対策 スポーツドリンク 暑さ対策 水分補給"
+        ],
+        "limited_purchase": [
+          "【ふるさと納税】【発送時期・定期便が選べる】富士山蒼天の水 ＜ラベルレス＞ 500ml 96本 (4ケース) 国産 天然水 ミネラルウォーター 水 シリカ 防災 備蓄 人気 ランキング ペットボトル 大容量 軟水 長期保存 飲料水 キャンプ 熱中症対策 ※沖縄県離島不可",
+          "【ふるさと納税】高評価 国産 天然水 2L 定期便あり 軟水 ミネラルウォーター 水 防災 備蓄 人気 ランキング ペットボトル 大容量 長期保存 飲料水 キャンプ 熱中症対策 5000円以内 5000円以下 3000円以下 LDC自然の恵み天然水 F7Z-415var",
+          "【ふるさと納税】 【定期便】 サントリー 天然水 水 2L 選べる回数 3ヶ月 6ヵ月 12ヶ月 選べる本数 6本 12本 サントリー 南アルプス ナチュラル ミネラルウォーター 定期便 白州 防災 備蓄 仕送りギフト h009"
+        ],
+        "ambiguous_quantity": [
+          "『送料無料！』（地域限定）エスオーシー 温泉水99 500mlペットボトル（24本入り1ケース）SOC ミネラルウォーター 天然水 お水 アルカリイオン水",
+          "【500ml×24本】天然水 水 500ml 24本 送料無料 LDC 500 24 国産 熊野古道水 軟水 ミネラルウォーター 熊野 鉱水 みず mizu 古道 500ml ナチュラル ペットボトル 飲料 備蓄 非常用 保存 まとめ買い 大容量 【代引き不可】",
+          "アイリス 富士山の天然水 ラベルレス( 500ml×24本入)【アイリスの天然水】[水 500ml 天然水 ペットボトル ミネラルウォーター]"
+        ],
+        "missing_category_evidence": [
+          "【6本】伊藤園　磨かれて、澄みきった日本の水　2L　備蓄水　ペットボトル　1ケース（6本）",
+          "【6本】コカ・コーラ　い・ろ・は・す　2L　備蓄水　ペットボトル　1ケース（6本）"
+        ]
+      }
+    }
+  },
+  "pasta": {
+    "category": {
+      "id": "pasta",
+      "name": "パスタ",
+      "emoji": "🍝",
+      "queries": [
+        "スパゲッティ 500g 6袋",
+        "スパゲッティ 1kg 5袋",
+        "スパゲッティ 500g"
+      ],
+      "primary": "per_100g",
+      "primary_label": "100gあたり",
+      "secondary": "per_kg",
+      "secondary_label": "1kgあたり",
+      "intro": "パスタの容量・食数を確定し、100gあたりで比べます。",
+      "filter_small": "少量",
+      "filter_large": "まとめ買い",
+      "guide": [
+        "内容量とセット数を一意に確認できる商品だけを掲載します。",
+        "送料込みの商品と送料別・送料不明の商品を分けています。",
+        "種類・賞味期限・保管場所は購入前に販売ページで確認してください。"
+      ]
+    },
+    "included": [
+      {
+        "id": "alude:10196842",
+        "raw_name": "パスタ スパゲッティ 1.6mm 500g 40袋 スパゲッティーニ スパゲティ バハール BAHAR 業務用 デュラム小麦100％『送料無料（一部地域除く）』",
+        "name": "パスタ スパゲッティ 1.6mm 500g 40袋 スパゲッティーニ スパゲティ バハール BAHAR 業務用 デュラム小麦100％『送料無料（一部地域除く）』",
+        "price": 5097,
+        "shop": "ドラッグスーパー alude",
+        "url": "https://hb.afl.rakuten.co.jp/hgc/g00ry8xo.7cx6mfcd.g00ry8xo.7cx6n017/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Falude%2Fs01558%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Falude%2Fi%2F10196842%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
+        "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/alude/cabinet/syoku/syoku03/s01558_1.jpg?_ex=128x128",
+        "postage_included": true,
+        "shipping_status": "included",
+        "quantity": {
+          "count": 40,
+          "component_counts": [
+            40
+          ],
+          "unit_weight_g": 500.0,
+          "total_weight_g": 20000.0,
+          "confidence": 0.99,
+          "evidence": "500g 40袋"
+        },
+        "unit_prices": {
+          "per_100g": 25.485,
+          "per_kg": 254.85
+        },
+        "promotion_mentioned": false
+      },
+      {
+        "id": "onestep:10148945",
+        "raw_name": "パスタ スパゲッティ 1.6mm 500g 40袋 スパゲッティーニ スパゲティ バハール BAHAR 業務用 デュラム小麦100％『送料無料（一部地域除く）』",
+        "name": "パスタ スパゲッティ 1.6mm 500g 40袋 スパゲッティーニ スパゲティ バハール BAHAR 業務用 デュラム小麦100％『送料無料（一部地域除く）』",
+        "price": 5097,
+        "shop": "よろずやマルシェ",
+        "url": "https://hb.afl.rakuten.co.jp/hgc/g00prcko.7cx6m1c4.g00prcko.7cx6nf4d/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fonestep%2Fs01558%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fonestep%2Fi%2F10148945%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
+        "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/onestep/cabinet/syoku/syoku16/s01558.jpg?_ex=128x128",
+        "postage_included": true,
+        "shipping_status": "included",
+        "quantity": {
+          "count": 40,
+          "component_counts": [
+            40
+          ],
+          "unit_weight_g": 500.0,
+          "total_weight_g": 20000.0,
+          "confidence": 0.99,
+          "evidence": "500g 40袋"
+        },
+        "unit_prices": {
+          "per_100g": 25.485,
+          "per_kg": 254.85
+        },
+        "promotion_mentioned": false
+      },
+      {
+        "id": "alude:10014209",
+        "raw_name": "パスタ スパゲッティ 1.6mm 500g 20袋 スパゲッティーニ スパゲティ バハール BAHAR 業務用 デュラム小麦100％『送料無料（一部地域除く）』",
+        "name": "パスタ スパゲッティ 1.6mm 500g 20袋 スパゲッティーニ スパゲティ バハール BAHAR 業務用 デュラム小麦100％『送料無料（一部地域除く）』",
+        "price": 2764,
+        "shop": "ドラッグスーパー alude",
+        "url": "https://hb.afl.rakuten.co.jp/hgc/g00ry8xo.7cx6mfcd.g00ry8xo.7cx6n017/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Falude%2Fs00867%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Falude%2Fi%2F10014209%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
+        "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/alude/cabinet/syoku/syoku03/s00867.jpg?_ex=128x128",
+        "postage_included": true,
+        "shipping_status": "included",
+        "quantity": {
+          "count": 20,
+          "component_counts": [
+            20
+          ],
+          "unit_weight_g": 500.0,
+          "total_weight_g": 10000.0,
+          "confidence": 0.99,
+          "evidence": "500g 20袋"
+        },
+        "unit_prices": {
+          "per_100g": 27.64,
+          "per_kg": 276.4
+        },
+        "promotion_mentioned": false
+      },
+      {
+        "id": "onestep:10064362",
+        "raw_name": "パスタ スパゲッティ 1.6mm 500g 20袋 スパゲッティーニ スパゲティ バハール BAHAR 業務用 デュラム小麦100％『送料無料（一部地域除く）』",
+        "name": "パスタ スパゲッティ 1.6mm 500g 20袋 スパゲッティーニ スパゲティ バハール BAHAR 業務用 デュラム小麦100％『送料無料（一部地域除く）』",
+        "price": 2764,
+        "shop": "よろずやマルシェ",
+        "url": "https://hb.afl.rakuten.co.jp/hgc/g00prcko.7cx6m1c4.g00prcko.7cx6nf4d/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fonestep%2Fs00867%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fonestep%2Fi%2F10064362%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
+        "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/onestep/cabinet/syoku/syoku16/s00867.jpg?_ex=128x128",
+        "postage_included": true,
+        "shipping_status": "included",
+        "quantity": {
+          "count": 20,
+          "component_counts": [
+            20
+          ],
+          "unit_weight_g": 500.0,
+          "total_weight_g": 10000.0,
+          "confidence": 0.99,
+          "evidence": "500g 20袋"
+        },
+        "unit_prices": {
+          "per_100g": 27.64,
+          "per_kg": 276.4
+        },
+        "promotion_mentioned": false
+      },
+      {
+        "id": "beisia:10035461",
+        "raw_name": "KANAME もちもち食感 スパゲティ1.7mm 500g×20袋 | スパゲティ スパゲッティ 1.7mm パスタ もちもち まとめ買い 大容量 業務用",
+        "name": "KANAME もちもち食感 スパゲティ1.7mm 500g×20袋 | スパゲティ スパゲッティ 1.7mm パスタ もちもち まとめ買い 大容量 業務用",
+        "price": 3180,
+        "shop": "ベイシア楽天市場店",
+        "url": "https://hb.afl.rakuten.co.jp/hgc/g00s0vmo.7cx6mf25.g00s0vmo.7cx6n1c3/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbeisia%2F6291003151750%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fbeisia%2Fi%2F10035461%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
+        "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/beisia/cabinet/09476807/6291003151750.jpg?_ex=128x128",
+        "postage_included": true,
+        "shipping_status": "included",
+        "quantity": {
+          "count": 20,
+          "component_counts": [
+            20
+          ],
+          "unit_weight_g": 500.0,
+          "total_weight_g": 10000.0,
+          "confidence": 0.99,
+          "evidence": "500gx20袋"
+        },
+        "unit_prices": {
+          "per_100g": 31.8,
+          "per_kg": 318.0
+        },
+        "promotion_mentioned": false
+      },
+      {
+        "id": "irisplaza-r:10152755",
+        "raw_name": "[エントリーでポイント最大10倍/スタンプラリー]パスタ スパゲティ デュラム Durumuパスタ 500g×10袋 スパゲッティ 1.7mm 麺 デュラムセモリナ 大容量 まとめ買い 輸入 小分け 業務用 トルコ産 乾麺【iris_dl05】",
+        "name": "[エントリーでポイント最大10倍/スタンプラリー]パスタ スパゲティ デュラム Durumuパスタ 500g×10袋 スパゲッティ 1.7mm 麺 デュラムセモリナ 大容量 まとめ買い 輸入 小分け 業務用 トルコ産 乾麺【iris_dl05】",
+        "price": 1880,
+        "shop": "アイリスオーヤマ公式 楽天市場店",
+        "url": "https://hb.afl.rakuten.co.jp/hgc/g00t3zto.7cx6m5be.g00t3zto.7cx6n748/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Firisplaza-r%2F7259538%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Firisplaza-r%2Fi%2F10152755%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
+        "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/irisplaza-r/cabinet/11073544/11939528/imgrc0109267535.jpg?_ex=128x128",
+        "postage_included": true,
+        "shipping_status": "included",
+        "quantity": {
+          "count": 10,
+          "component_counts": [
+            10
+          ],
+          "unit_weight_g": 500.0,
+          "total_weight_g": 5000.0,
+          "confidence": 0.99,
+          "evidence": "500gx10袋"
+        },
+        "unit_prices": {
+          "per_100g": 37.6,
+          "per_kg": 376.0
+        },
+        "promotion_mentioned": false
+      },
+      {
+        "id": "a042292:10007025",
+        "raw_name": "CGC アントニオデニーロ スパゲティ 1.7mm 1kg 5袋",
+        "name": "CGC アントニオデニーロ スパゲティ 1.7mm 1kg 5袋",
+        "price": 2780,
+        "shop": "STAMPEDE",
+        "url": "https://hb.afl.rakuten.co.jp/hgc/g00u3s7o.7cx6mb6c.g00u3s7o.7cx6n79c/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fa042292%2Fcgc-spaghetti-5%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fa042292%2Fi%2F10007025%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
+        "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/a042292/cabinet/12930412/spaghetti_5.jpg?_ex=128x128",
+        "postage_included": true,
+        "shipping_status": "included",
+        "quantity": {
+          "count": 5,
+          "component_counts": [
+            5
+          ],
+          "unit_weight_g": 1000.0,
+          "total_weight_g": 5000.0,
+          "confidence": 0.99,
+          "evidence": "1kg 5袋"
+        },
+        "unit_prices": {
+          "per_100g": 55.6,
+          "per_kg": 556.0
+        },
+        "promotion_mentioned": false
+      },
+      {
+        "id": "cellar:10027082",
+        "raw_name": "【日清ウェルナ正規輸入品】 パスタ ディチェコ No.12 スパゲッティ 500g 24袋 ロングパスタ 日清ウェルナ DE CECCO RSL",
+        "name": "【日清ウェルナ正規輸入品】 パスタ ディチェコ No.12 スパゲッティ 500g 24袋 ロングパスタ 日清ウェルナ DE CECCO RSL",
+        "price": 8980,
+        "shop": "ワイン&ワインセラー セラー専科",
+        "url": "https://hb.afl.rakuten.co.jp/hgc/g00pl8ko.7cx6m1dd.g00pl8ko.7cx6n0aa/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fcellar%2F927807-24%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fcellar%2Fi%2F10027082%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
+        "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/cellar/cabinet/rakuten46/927807-24_500_2308.jpg?_ex=128x128",
+        "postage_included": true,
+        "shipping_status": "included",
+        "quantity": {
+          "count": 24,
+          "component_counts": [
+            24
+          ],
+          "unit_weight_g": 500.0,
+          "total_weight_g": 12000.0,
+          "confidence": 0.99,
+          "evidence": "500g 24袋"
+        },
+        "unit_prices": {
+          "per_100g": 74.83333333333333,
+          "per_kg": 748.3333333333334
+        },
+        "promotion_mentioned": false
+      },
+      {
+        "id": "likaman:10033183",
+        "raw_name": "【高品質の正規品輸入品】ディチェコ no.12 スパゲッティ 500g 24袋 ロングパスタ 日清ウェルナ DE CECCO RSL",
+        "name": "【高品質の正規品輸入品】ディチェコ no.12 スパゲッティ 500g 24袋 ロングパスタ 日清ウェルナ DE CECCO RSL",
+        "price": 8980,
+        "shop": "お酒の専門店 リカマン楽天市場店",
+        "url": "https://hb.afl.rakuten.co.jp/hgc/g00qo2ro.7cx6me4a.g00qo2ro.7cx6n6c0/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Flikaman%2F927807-24%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Flikaman%2Fi%2F10033183%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
+        "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/likaman/cabinet/rakuten46/927807-24_500_2308.jpg?_ex=128x128",
+        "postage_included": true,
+        "shipping_status": "included",
+        "quantity": {
+          "count": 24,
+          "component_counts": [
+            24
+          ],
+          "unit_weight_g": 500.0,
+          "total_weight_g": 12000.0,
+          "confidence": 0.99,
+          "evidence": "500g 24袋"
+        },
+        "unit_prices": {
+          "per_100g": 74.83333333333333,
+          "per_kg": 748.3333333333334
+        },
+        "promotion_mentioned": false
+      },
+      {
+        "id": "mrk-09shop:10004937",
+        "raw_name": "【24個】ディ・チェコ [DeCecco]No.12スパゲッティ 500g×24個 〔正規輸入品〕【北海道・沖縄・離島配送不可】",
+        "name": "【24個】ディ・チェコ [DeCecco]No.12スパゲッティ 500g×24個 〔正規輸入品〕【北海道・沖縄・離島配送不可】",
+        "price": 10302,
+        "shop": "O9ショップ【オーナインショップ】",
+        "url": "https://hb.afl.rakuten.co.jp/hgc/g00qg07o.7cx6m962.g00qg07o.7cx6n7db/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fmrk-09shop%2Fs8001250120120%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fmrk-09shop%2Fi%2F10004937%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
+        "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/mrk-09shop/cabinet/biiino/item/main-image-10/20260310093538_1.jpg?_ex=128x128",
+        "postage_included": true,
+        "shipping_status": "included",
+        "quantity": {
+          "count": 24,
+          "component_counts": [
+            24
+          ],
+          "unit_weight_g": 500.0,
+          "total_weight_g": 12000.0,
+          "confidence": 0.99,
+          "evidence": "500gx24個"
+        },
+        "unit_prices": {
+          "per_100g": 85.85,
+          "per_kg": 858.5
+        },
+        "promotion_mentioned": false
+      },
+      {
+        "id": "add-kitchen:10286585",
+        "raw_name": "ラ・モリサーナ 全粒粉スパゲッティ 500g×18袋 《food》 【 la Molisana パスタ イタリア Spaghetti di Semola Integrale di Grano Duro 】【キャンセル・返品・交換不可】",
+        "name": "ラ・モリサーナ 全粒粉スパゲッティ 500g×18袋 《food》 【 la Molisana パスタ イタリア Spaghetti di Semola Integrale di Grano Duro 】【キャンセル・返品・交換不可】",
+        "price": 8552,
+        "shop": "アドキッチン",
+        "url": "https://hb.afl.rakuten.co.jp/hgc/g00pq23o.7cx6mbb4.g00pq23o.7cx6n994/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fadd-kitchen%2F702-5462%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fadd-kitchen%2Fi%2F10286585%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
+        "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/add-kitchen/cabinet/401/702-5462_1.jpg?_ex=128x128",
+        "postage_included": true,
+        "shipping_status": "included",
+        "quantity": {
+          "count": 18,
+          "component_counts": [
+            18
+          ],
+          "unit_weight_g": 500.0,
+          "total_weight_g": 9000.0,
+          "confidence": 0.99,
+          "evidence": "500gx18袋"
+        },
+        "unit_prices": {
+          "per_100g": 95.02222222222223,
+          "per_kg": 950.2222222222222
+        },
+        "promotion_mentioned": false
+      },
+      {
+        "id": "kitchen-b:10165051",
+        "raw_name": "ラ・モリサーナ　全粒粉スパゲッティ　500g×18袋 《food》 【 パスタ イタリア la Molisana Spaghetti di Semola Integrale di Grano Duro 】 【 ※ご注文後のキャンセル・返品・交換不可。 】",
+        "name": "ラ・モリサーナ 全粒粉スパゲッティ 500g×18袋 《food》 【 パスタ イタリア la Molisana Spaghetti di Semola Integrale di Grano Duro 】 【 ※ご注文後のキャンセル・返品・交換不可。 】",
+        "price": 8552,
+        "shop": "キッチンブランチ",
+        "url": "https://hb.afl.rakuten.co.jp/hgc/g00qqhzo.7cx6m278.g00qqhzo.7cx6n7a7/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fkitchen-b%2F702-5462%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fkitchen-b%2Fi%2F10165051%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
+        "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/kitchen-b/cabinet/401/702-5462_1.jpg?_ex=128x128",
+        "postage_included": true,
+        "shipping_status": "included",
+        "quantity": {
+          "count": 18,
+          "component_counts": [
+            18
+          ],
+          "unit_weight_g": 500.0,
+          "total_weight_g": 9000.0,
+          "confidence": 0.99,
+          "evidence": "500gx18袋"
+        },
+        "unit_prices": {
+          "per_100g": 95.02222222222223,
+          "per_kg": 950.2222222222222
+        },
+        "promotion_mentioned": false
+      },
+      {
+        "id": "catakuchi:10002015",
+        "raw_name": "GRANFIRO　グランフィーロ/スパゲッティ　No.5　(1.45mm)/大容量/業務用/3kg×5袋",
+        "name": "GRANFIRO グランフィーロ/スパゲッティ No.5 (1.45mm)/大容量/業務用/3kg×5袋",
+        "price": 14531,
+        "shop": "ピザと牡蠣 カタクチ商店",
+        "url": "https://hb.afl.rakuten.co.jp/hgc/g00r4rlo.7cx6mf33.g00r4rlo.7cx6n134/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fcatakuchi%2F10002015%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fcatakuchi%2Fi%2F10002015%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
+        "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/catakuchi/cabinet/compass1617949378.jpg?_ex=128x128",
+        "postage_included": true,
+        "shipping_status": "included",
+        "quantity": {
+          "count": 5,
+          "component_counts": [
+            5
+          ],
+          "unit_weight_g": 3000.0,
+          "total_weight_g": 15000.0,
+          "confidence": 0.99,
+          "evidence": "3kgx5袋"
+        },
+        "unit_prices": {
+          "per_100g": 96.87333333333333,
+          "per_kg": 968.7333333333333
+        },
+        "promotion_mentioned": false
+      },
+      {
+        "id": "auc-hyottokomrkt:10004097",
+        "raw_name": "【本場イタリアで愛されている味】バリラ Barilla スパゲッティ spaghetti No.5 500g パスタ 9分 デュラム小麦 セモリナ 乾麺 大容量 ★嬉しい送料無料★ [6]",
+        "name": "【本場イタリアで愛されている味】バリラ Barilla スパゲッティ spaghetti No.5 500g パスタ 9分 デュラム小麦 セモリナ 乾麺 大容量 ★嬉しい送料無料★ [6]",
+        "price": 2980,
+        "shop": "ひょっとこマーケット",
+        "url": "https://hb.afl.rakuten.co.jp/hgc/g00qrr5o.7cx6m303.g00qrr5o.7cx6n39b/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fauc-hyottokomrkt%2F14315%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fauc-hyottokomrkt%2Fi%2F10004097%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
+        "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/auc-hyottokomrkt/cabinet/costco/11674553/02/imgrc0089148938.jpg?_ex=128x128",
+        "postage_included": true,
+        "shipping_status": "included",
+        "quantity": {
+          "count": 1,
+          "component_counts": [
+            1
+          ],
+          "unit_weight_g": 500.0,
+          "total_weight_g": 500.0,
+          "confidence": 0.99,
+          "evidence": "500g"
+        },
+        "unit_prices": {
+          "per_100g": 596.0,
+          "per_kg": 5960.0
+        },
+        "promotion_mentioned": false
+      }
+    ],
+    "shipping_unknown": [
+      {
+        "id": "misono-support:10116315",
+        "raw_name": "昭和産業 (SHOWA) スパゲッティ1.6mm 1kg×15袋入",
+        "name": "昭和産業 (SHOWA) スパゲッティ1.6mm 1kg×15袋入",
+        "price": 7889,
+        "shop": "飲料 食品専門店 味園サポート",
+        "url": "https://hb.afl.rakuten.co.jp/hgc/g00q23do.7cx6mdeb.g00q23do.7cx6n015/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fmisono-support%2Fa442-14%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fmisono-support%2Fi%2F10116315%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
+        "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/misono-support/cabinet/202206_02/r_a442-14-1.jpg?_ex=128x128",
+        "postage_included": false,
+        "shipping_status": "extra_or_unknown",
+        "quantity": {
+          "count": 15,
+          "component_counts": [
+            15
+          ],
+          "unit_weight_g": 1000.0,
+          "total_weight_g": 15000.0,
+          "confidence": 0.99,
+          "evidence": "1kgx15袋入"
+        },
+        "unit_prices": {
+          "per_100g": 52.593333333333334,
+          "per_kg": 525.9333333333333
+        },
+        "promotion_mentioned": false
+      },
+      {
+        "id": "misonoya:10065620",
+        "raw_name": "昭和産業 (SHOWA) スパゲッティ1.6mm 1kg×15袋入｜ 送料無料 パスタ スパゲティ スパゲッティ 乾麺 麺",
+        "name": "昭和産業 (SHOWA) スパゲッティ1.6mm 1kg×15袋入｜ パスタ スパゲティ スパゲッティ 乾麺 麺",
+        "price": 7889,
+        "shop": "MISONOYA楽天市場店",
+        "url": "https://hb.afl.rakuten.co.jp/hgc/g00qrf9o.7cx6mf08.g00qrf9o.7cx6n813/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fmisonoya%2Fa442-14%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fmisonoya%2Fi%2F10065620%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
+        "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/misonoya/cabinet/202206_02/r2_a442-14-1.jpg?_ex=128x128",
+        "postage_included": false,
+        "shipping_status": "extra_or_unknown",
+        "quantity": {
+          "count": 15,
+          "component_counts": [
+            15
+          ],
+          "unit_weight_g": 1000.0,
+          "total_weight_g": 15000.0,
+          "confidence": 0.99,
+          "evidence": "1kgx15袋入"
+        },
+        "unit_prices": {
+          "per_100g": 52.593333333333334,
+          "per_kg": 525.9333333333333
+        },
+        "promotion_mentioned": false
+      },
+      {
+        "id": "drink-market:10034419",
+        "raw_name": "昭和産業 (SHOWA) スパゲッティ1.6mm 1kg×15袋入｜ 送料無料 パスタ スパゲティ スパゲッティ 乾麺 麺",
+        "name": "昭和産業 (SHOWA) スパゲッティ1.6mm 1kg×15袋入｜ パスタ スパゲティ スパゲッティ 乾麺 麺",
+        "price": 7911,
+        "shop": "ドリンクマーケット",
+        "url": "https://hb.afl.rakuten.co.jp/hgc/g00s7wdo.7cx6mf7a.g00s7wdo.7cx6n171/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fdrink-market%2Fa442-14%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fdrink-market%2Fi%2F10034419%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
+        "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/drink-market/cabinet/202206_02/r3_a442-14-1.jpg?_ex=128x128",
+        "postage_included": false,
+        "shipping_status": "extra_or_unknown",
+        "quantity": {
+          "count": 15,
+          "component_counts": [
+            15
+          ],
+          "unit_weight_g": 1000.0,
+          "total_weight_g": 15000.0,
+          "confidence": 0.99,
+          "evidence": "1kgx15袋入"
+        },
+        "unit_prices": {
+          "per_100g": 52.74,
+          "per_kg": 527.4
+        },
+        "promotion_mentioned": false
+      },
+      {
+        "id": "nozomi-market:10055953",
+        "raw_name": "昭和産業 (SHOWA) スパゲッティ1.6mm 1kg×15袋入｜ 送料無料 パスタ スパゲティ スパゲッティ 乾麺 麺",
+        "name": "昭和産業 (SHOWA) スパゲッティ1.6mm 1kg×15袋入｜ パスタ スパゲティ スパゲッティ 乾麺 麺",
+        "price": 7911,
+        "shop": "のぞみマーケット楽天市場店",
+        "url": "https://hb.afl.rakuten.co.jp/hgc/g00r1iqo.7cx6m46c.g00r1iqo.7cx6n261/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fnozomi-market%2Fa442-14%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fnozomi-market%2Fi%2F10055953%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
+        "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/nozomi-market/cabinet/202206_02/r3_a442-14-1.jpg?_ex=128x128",
+        "postage_included": false,
+        "shipping_status": "extra_or_unknown",
+        "quantity": {
+          "count": 15,
+          "component_counts": [
+            15
+          ],
+          "unit_weight_g": 1000.0,
+          "total_weight_g": 15000.0,
+          "confidence": 0.99,
+          "evidence": "1kgx15袋入"
+        },
+        "unit_prices": {
+          "per_100g": 52.74,
+          "per_kg": 527.4
+        },
+        "promotion_mentioned": false
+      },
+      {
+        "id": "kawasakigroup:10025453",
+        "raw_name": "【20袋セット送料無料】 日本製麻 ボルカノ スパゲッティー 1.7mm 300g×20袋 ※北海道・九州・沖縄県は送料無料対象外 スパゲッチ スパゲティ パスタ まとめ買い 国産スパゲッティ [T.1304.-.SE]",
+        "name": "【20袋セット送料無料】 日本製麻 ボルカノ スパゲッティー 1.7mm 300g×20袋 ※北海道・九州・沖縄県は送料無料対象外 スパゲッチ スパゲティ パスタ まとめ買い 国産スパゲッティ [T.1304.-.SE]",
+        "price": 3200,
+        "shop": "燃えるカワサキグループ",
+        "url": "https://hb.afl.rakuten.co.jp/hgc/g00qjnao.7cx6m312.g00qjnao.7cx6n840/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fkawasakigroup%2F24042-20set%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fkawasakigroup%2Fi%2F10025453%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
+        "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/kawasakigroup/cabinet/98/imgrc0164502874.jpg?_ex=128x128",
+        "postage_included": false,
+        "shipping_status": "extra_or_unknown",
+        "quantity": {
+          "count": 20,
+          "component_counts": [
+            20
+          ],
+          "unit_weight_g": 300.0,
+          "total_weight_g": 6000.0,
+          "confidence": 0.99,
+          "evidence": "300gx20袋"
+        },
+        "unit_prices": {
+          "per_100g": 53.333333333333336,
+          "per_kg": 533.3333333333334
+        },
+        "promotion_mentioned": false
+      },
+      {
+        "id": "kawasakigroup:10025452",
+        "raw_name": "【10袋セット送料無料】 日本製麻 ボルカノ スパゲッティー 1.7mm 300g×10袋 ※北海道・九州・沖縄県は送料無料対象外 スパゲッチ スパゲティ パスタ まとめ買い 国産スパゲッティ [T.1304.-.SE]",
+        "name": "【10袋セット送料無料】 日本製麻 ボルカノ スパゲッティー 1.7mm 300g×10袋 ※北海道・九州・沖縄県は送料無料対象外 スパゲッチ スパゲティ パスタ まとめ買い 国産スパゲッティ [T.1304.-.SE]",
+        "price": 1980,
+        "shop": "燃えるカワサキグループ",
+        "url": "https://hb.afl.rakuten.co.jp/hgc/g00qjnao.7cx6m312.g00qjnao.7cx6n840/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fkawasakigroup%2F24042-10set%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fkawasakigroup%2Fi%2F10025452%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
+        "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/kawasakigroup/cabinet/98/imgrc0164502873.jpg?_ex=128x128",
+        "postage_included": false,
+        "shipping_status": "extra_or_unknown",
+        "quantity": {
+          "count": 10,
+          "component_counts": [
+            10
+          ],
+          "unit_weight_g": 300.0,
+          "total_weight_g": 3000.0,
+          "confidence": 0.99,
+          "evidence": "300gx10袋"
+        },
+        "unit_prices": {
+          "per_100g": 66.0,
+          "per_kg": 660.0
+        },
+        "promotion_mentioned": false
+      },
+      {
+        "id": "rakuten24:11282545",
+        "raw_name": "アルチェネロ 有機スパゲッティ 1.6mm(500g×12セット)【アルチェネロ】",
+        "name": "アルチェネロ 有機スパゲッティ 1.6mm(500g×12セット)【アルチェネロ】",
+        "price": 4752,
+        "shop": "楽天24",
+        "url": "https://hb.afl.rakuten.co.jp/hgc/g00r136o.7cx6meef.g00r136o.7cx6n891/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Frakuten24%2F584622%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Frakuten24%2Fi%2F11282545%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
+        "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/rakuten24/cabinet/622/584622.jpg?_ex=128x128",
+        "postage_included": false,
+        "shipping_status": "extra_or_unknown",
+        "quantity": {
+          "count": 12,
+          "component_counts": [
+            12
+          ],
+          "unit_weight_g": 500.0,
+          "total_weight_g": 6000.0,
+          "confidence": 0.99,
+          "evidence": "500gx12セット"
+        },
+        "unit_prices": {
+          "per_100g": 79.2,
+          "per_kg": 792.0
+        },
+        "promotion_mentioned": false
+      },
+      {
+        "id": "rakuten24:11307386",
+        "raw_name": "アルチェネロ 有機全粒粉スパゲッティ 1.6mm(500g×12セット)【アルチェネロ】",
+        "name": "アルチェネロ 有機全粒粉スパゲッティ 1.6mm(500g×12セット)【アルチェネロ】",
+        "price": 4752,
+        "shop": "楽天24",
+        "url": "https://hb.afl.rakuten.co.jp/hgc/g00r136o.7cx6meef.g00r136o.7cx6n891/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Frakuten24%2F594926%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Frakuten24%2Fi%2F11307386%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
+        "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/rakuten24/cabinet/926/594926.jpg?_ex=128x128",
+        "postage_included": false,
+        "shipping_status": "extra_or_unknown",
+        "quantity": {
+          "count": 12,
+          "component_counts": [
+            12
+          ],
+          "unit_weight_g": 500.0,
+          "total_weight_g": 6000.0,
+          "confidence": 0.99,
+          "evidence": "500gx12セット"
+        },
+        "unit_prices": {
+          "per_100g": 79.2,
+          "per_kg": 792.0
+        },
+        "promotion_mentioned": false
+      },
+      {
+        "id": "rakuten24:10207691",
+        "raw_name": "アルチェネロ 有機スパゲッティ 1.6mm(500g)【org_3_more】【アルチェネロ】[パスタ]",
+        "name": "アルチェネロ 有機スパゲッティ 1.6mm(500g)【org_3_more】【アルチェネロ】[パスタ]",
+        "price": 415,
+        "shop": "楽天24",
+        "url": "https://hb.afl.rakuten.co.jp/hgc/g00r136o.7cx6meef.g00r136o.7cx6n891/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Frakuten24%2Fx022720h%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Frakuten24%2Fi%2F10207691%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
+        "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/rakuten24/cabinet/012/8009004130012.jpg?_ex=128x128",
+        "postage_included": false,
+        "shipping_status": "extra_or_unknown",
+        "quantity": {
+          "count": 1,
+          "component_counts": [
+            1
+          ],
+          "unit_weight_g": 500.0,
+          "total_weight_g": 500.0,
+          "confidence": 0.99,
+          "evidence": "500g"
+        },
+        "unit_prices": {
+          "per_100g": 83.0,
+          "per_kg": 830.0
+        },
+        "promotion_mentioned": false
+      },
+      {
+        "id": "rakuten24:10230966",
+        "raw_name": "ラティーノ No.6 スパゲッティ500g 太さ 1.65mm (標準) デュラム小麦100％使用(500g)【ラティーノ】[地中海 スパゲティ 乾麺 パスタ レンジOK]",
+        "name": "ラティーノ No.6 スパゲッティ500g 太さ 1.65mm (標準) デュラム小麦100％使用(500g)【ラティーノ】[地中海 スパゲティ 乾麺 パスタ レンジOK]",
+        "price": 433,
+        "shop": "楽天24",
+        "url": "https://hb.afl.rakuten.co.jp/hgc/g00r136o.7cx6meef.g00r136o.7cx6n891/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Frakuten24%2Fe295555h%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Frakuten24%2Fi%2F10230966%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
+        "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/rakuten24/cabinet/342/5201013001342.jpg?_ex=128x128",
+        "postage_included": false,
+        "shipping_status": "extra_or_unknown",
+        "quantity": {
+          "count": 1,
+          "component_counts": [
+            1
+          ],
+          "unit_weight_g": 500.0,
+          "total_weight_g": 500.0,
+          "confidence": 0.99,
+          "evidence": "500g"
+        },
+        "unit_prices": {
+          "per_100g": 86.6,
+          "per_kg": 866.0
+        },
+        "promotion_mentioned": false
+      },
+      {
+        "id": "rakuten24:11146337",
+        "raw_name": "アルチェネロ 有機スパゲッティ 1.6mm(500g*6袋セット)【アルチェネロ】",
+        "name": "アルチェネロ 有機スパゲッティ 1.6mm(500g*6袋セット)【アルチェネロ】",
+        "price": 2667,
+        "shop": "楽天24",
+        "url": "https://hb.afl.rakuten.co.jp/hgc/g00r136o.7cx6meef.g00r136o.7cx6n891/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Frakuten24%2F550320%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Frakuten24%2Fi%2F11146337%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
+        "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/rakuten24/cabinet/320/550320.jpg?_ex=128x128",
+        "postage_included": false,
+        "shipping_status": "extra_or_unknown",
+        "quantity": {
+          "count": 6,
+          "component_counts": [
+            6
+          ],
+          "unit_weight_g": 500.0,
+          "total_weight_g": 3000.0,
+          "confidence": 0.99,
+          "evidence": "500gx6袋"
+        },
+        "unit_prices": {
+          "per_100g": 88.9,
+          "per_kg": 889.0
+        },
+        "promotion_mentioned": false
+      },
+      {
+        "id": "p-tano:10257929",
+        "raw_name": "日清製粉ウェルナ　ディ・チェコ　NO．12　スパゲッティ　500g　1パック",
+        "name": "日清製粉ウェルナ ディ・チェコ NO．12 スパゲッティ 500g 1パック",
+        "price": 490,
+        "shop": "ぱーそなるたのめーる",
+        "url": "https://hb.afl.rakuten.co.jp/hgc/g00qpdqo.7cx6m61c.g00qpdqo.7cx6n917/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fp-tano%2F168-2759%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fp-tano%2Fi%2F10257929%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
+        "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/p-tano/cabinet/shohin100_06/168-2759.jpg?_ex=128x128",
+        "postage_included": false,
+        "shipping_status": "extra_or_unknown",
+        "quantity": {
+          "count": 1,
+          "component_counts": [
+            1
+          ],
+          "unit_weight_g": 500.0,
+          "total_weight_g": 500.0,
+          "confidence": 0.99,
+          "evidence": "500g 1パック"
+        },
+        "unit_prices": {
+          "per_100g": 98.0,
+          "per_kg": 980.0
+        },
+        "promotion_mentioned": false
+      },
+      {
+        "id": "kawasakigroup:10025451",
+        "raw_name": "【5袋セット送料無料】 日本製麻 ボルカノ スパゲッティー 1.7mm 300g×5袋 ※北海道・九州・沖縄県は送料無料対象外 スパゲッチ スパゲティ パスタ まとめ買い 国産スパゲッティ [T.1304.-.SE]",
+        "name": "【5袋セット送料無料】 日本製麻 ボルカノ スパゲッティー 1.7mm 300g×5袋 ※北海道・九州・沖縄県は送料無料対象外 スパゲッチ スパゲティ パスタ まとめ買い 国産スパゲッティ [T.1304.-.SE]",
+        "price": 1500,
+        "shop": "燃えるカワサキグループ",
+        "url": "https://hb.afl.rakuten.co.jp/hgc/g00qjnao.7cx6m312.g00qjnao.7cx6n840/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fkawasakigroup%2F24042-5set%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fkawasakigroup%2Fi%2F10025451%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
+        "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/kawasakigroup/cabinet/98/imgrc0164502872.jpg?_ex=128x128",
+        "postage_included": false,
+        "shipping_status": "extra_or_unknown",
+        "quantity": {
+          "count": 5,
+          "component_counts": [
+            5
+          ],
+          "unit_weight_g": 300.0,
+          "total_weight_g": 1500.0,
+          "confidence": 0.99,
+          "evidence": "300gx5袋"
+        },
+        "unit_prices": {
+          "per_100g": 100.0,
+          "per_kg": 1000.0
+        },
+        "promotion_mentioned": false
+      },
+      {
+        "id": "landofharvest:10000852",
+        "raw_name": "アルチェネロ　有機スパゲッティ(1.6mm) 500gスパゲッティ パスタ オーガニック alce nero",
+        "name": "アルチェネロ 有機スパゲッティ(1.6mm) 500gスパゲッティ パスタ オーガニック alce nero",
+        "price": 518,
+        "shop": "ランド オブ ハーベスト",
+        "url": "https://hb.afl.rakuten.co.jp/hgc/g00s1fvo.7cx6m07f.g00s1fvo.7cx6n9f0/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Flandofharvest%2F10004300%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Flandofharvest%2Fi%2F10000852%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
+        "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/landofharvest/cabinet/06171299/imgrc0088311813.jpg?_ex=128x128",
+        "postage_included": false,
+        "shipping_status": "extra_or_unknown",
+        "quantity": {
+          "count": 1,
+          "component_counts": [
+            1
+          ],
+          "unit_weight_g": 500.0,
+          "total_weight_g": 500.0,
+          "confidence": 0.99,
+          "evidence": "500g"
+        },
+        "unit_prices": {
+          "per_100g": 103.6,
+          "per_kg": 1036.0
+        },
+        "promotion_mentioned": false
+      },
+      {
+        "id": "kenyu-kan:10020809",
+        "raw_name": "ジロロモーニ デュラム小麦 有機スパゲッティ/500g【創健社】 GIROLOMONI SPAGHETTI",
+        "name": "ジロロモーニ デュラム小麦 有機スパゲッティ/500g【創健社】 GIROLOMONI SPAGHETTI",
+        "price": 667,
+        "shop": "健康ストア 健友館",
+        "url": "https://hb.afl.rakuten.co.jp/hgc/g00pzgho.7cx6mcb4.g00pzgho.7cx6nd84/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fkenyu-kan%2Fs140536%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fkenyu-kan%2Fi%2F10020809%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
+        "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/kenyu-kan/cabinet/souken/s140536.jpg?_ex=128x128",
+        "postage_included": false,
+        "shipping_status": "extra_or_unknown",
+        "quantity": {
+          "count": 1,
+          "component_counts": [
+            1
+          ],
+          "unit_weight_g": 500.0,
+          "total_weight_g": 500.0,
+          "confidence": 0.99,
+          "evidence": "500g"
+        },
+        "unit_prices": {
+          "per_100g": 133.4,
+          "per_kg": 1334.0
+        },
+        "promotion_mentioned": false
+      },
+      {
+        "id": "rakuten24:11227707",
+        "raw_name": "アルチェネロ 有機全粒粉ファッロ小麦・スパゲッティ 1.8mm(500g)【アルチェネロ】",
+        "name": "アルチェネロ 有機全粒粉ファッロ小麦・スパゲッティ 1.8mm(500g)【アルチェネロ】",
+        "price": 947,
+        "shop": "楽天24",
+        "url": "https://hb.afl.rakuten.co.jp/hgc/g00r136o.7cx6meef.g00r136o.7cx6n891/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Frakuten24%2F4522491001848%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Frakuten24%2Fi%2F11227707%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
+        "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/rakuten24/cabinet/848/4522491001848.jpg?_ex=128x128",
+        "postage_included": false,
+        "shipping_status": "extra_or_unknown",
+        "quantity": {
+          "count": 1,
+          "component_counts": [
+            1
+          ],
+          "unit_weight_g": 500.0,
+          "total_weight_g": 500.0,
+          "confidence": 0.99,
+          "evidence": "500g"
+        },
+        "unit_prices": {
+          "per_100g": 189.4,
+          "per_kg": 1894.0
+        },
+        "promotion_mentioned": false
+      },
+      {
+        "id": "showell:10002083",
+        "raw_name": "マンチーニ スパゲッティーニ 1.8mm 1kg｜イタリア産 パスタ スパゲティ ロングパスタ 業務用",
+        "name": "マンチーニ スパゲッティーニ 1.8mm 1kg｜イタリア産 パスタ スパゲティ ロングパスタ 業務用",
+        "price": 1950,
+        "shop": "SHOWELL",
+        "url": "https://hb.afl.rakuten.co.jp/hgc/g00tpgxo.7cx6m855.g00tpgxo.7cx6n1be/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fshowell%2F0394-009132%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fshowell%2Fi%2F10002083%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
+        "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/showell/cabinet/amayahoo/07612181/0394-009132.jpg?_ex=128x128",
+        "postage_included": false,
+        "shipping_status": "extra_or_unknown",
+        "quantity": {
+          "count": 1,
+          "component_counts": [
+            1
+          ],
+          "unit_weight_g": 1000.0,
+          "total_weight_g": 1000.0,
+          "confidence": 0.99,
+          "evidence": "1kg"
+        },
+        "unit_prices": {
+          "per_100g": 195.0,
+          "per_kg": 1950.0
+        },
+        "promotion_mentioned": false
+      },
+      {
+        "id": "kawasakigroup:10025557",
+        "raw_name": "【5袋セット送料無料】 江戸玉川屋 PROTEIN PASTA 100g×5袋 ※北海道・九州・沖縄県は送料無料対象外 プロテイン スパゲッチ スパゲティ パスタ まとめ買い 国産スパゲッティ [T.1482.1.SE]",
+        "name": "【5袋セット送料無料】 江戸玉川屋 PROTEIN PASTA 100g×5袋 ※北海道・九州・沖縄県は送料無料対象外 プロテイン スパゲッチ スパゲティ パスタ まとめ買い 国産スパゲッティ [T.1482.1.SE]",
+        "price": 2400,
+        "shop": "燃えるカワサキグループ",
+        "url": "https://hb.afl.rakuten.co.jp/hgc/g00qjnao.7cx6m312.g00qjnao.7cx6n840/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fkawasakigroup%2F29383-5set%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fkawasakigroup%2Fi%2F10025557%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
+        "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/kawasakigroup/cabinet/98/imgrc0165734132.jpg?_ex=128x128",
+        "postage_included": false,
+        "shipping_status": "extra_or_unknown",
+        "quantity": {
+          "count": 5,
+          "component_counts": [
+            5
+          ],
+          "unit_weight_g": 100.0,
+          "total_weight_g": 500.0,
+          "confidence": 0.99,
+          "evidence": "100gx5袋"
+        },
+        "unit_prices": {
+          "per_100g": 480.0,
+          "per_kg": 4800.0
+        },
+        "promotion_mentioned": false
+      },
+      {
+        "id": "kawasakigroup:10025556",
+        "raw_name": "【3袋セット送料無料】 江戸玉川屋 PROTEIN PASTA 100g×3袋 ※北海道・九州・沖縄県は送料無料対象外 プロテイン スパゲッチ スパゲティ パスタ まとめ買い 国産スパゲッティ [T.1482.1.SE]",
+        "name": "【3袋セット送料無料】 江戸玉川屋 PROTEIN PASTA 100g×3袋 ※北海道・九州・沖縄県は送料無料対象外 プロテイン スパゲッチ スパゲティ パスタ まとめ買い 国産スパゲッティ [T.1482.1.SE]",
+        "price": 1700,
+        "shop": "燃えるカワサキグループ",
+        "url": "https://hb.afl.rakuten.co.jp/hgc/g00qjnao.7cx6m312.g00qjnao.7cx6n840/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fkawasakigroup%2F29383-3set%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fkawasakigroup%2Fi%2F10025556%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
+        "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/kawasakigroup/cabinet/98/imgrc0165734131.jpg?_ex=128x128",
+        "postage_included": false,
+        "shipping_status": "extra_or_unknown",
+        "quantity": {
+          "count": 3,
+          "component_counts": [
+            3
+          ],
+          "unit_weight_g": 100.0,
+          "total_weight_g": 300.0,
+          "confidence": 0.99,
+          "evidence": "100gx3袋"
+        },
+        "unit_prices": {
+          "per_100g": 566.6666666666666,
+          "per_kg": 5666.666666666667
+        },
+        "promotion_mentioned": false
+      }
+    ],
+    "audit": {
+      "fetched": 60,
+      "normalized": 33,
+      "exact_duplicates": 0,
+      "practical_duplicates": 0,
+      "accepted_unique": 33,
+      "included_available": 14,
+      "shipping_unknown_available": 19,
+      "displayed_included": 14,
+      "displayed_shipping_unknown": 19,
+      "reasons": {
+        "restricted_or_selectable_product": 11,
+        "wrong_product_type": 4,
+        "missing_category_evidence": 2,
+        "ambiguous_quantity": 8,
+        "limited_purchase": 2
+      },
+      "cleaned_examples": [
+        {
+          "before": "昭和産業 (SHOWA) スパゲッティ1.6mm 1kg×15袋入｜ 送料無料 パスタ スパゲティ スパゲッティ 乾麺 麺",
+          "after": "昭和産業 (SHOWA) スパゲッティ1.6mm 1kg×15袋入｜ パスタ スパゲティ スパゲッティ 乾麺 麺"
+        },
+        {
+          "before": "昭和産業 (SHOWA) スパゲッティ1.6mm 1kg×15袋入｜ 送料無料 パスタ スパゲティ スパゲッティ 乾麺 麺",
+          "after": "昭和産業 (SHOWA) スパゲッティ1.6mm 1kg×15袋入｜ パスタ スパゲティ スパゲッティ 乾麺 麺"
+        },
+        {
+          "before": "昭和産業 (SHOWA) スパゲッティ1.6mm 1kg×15袋入｜ 送料無料 パスタ スパゲティ スパゲッティ 乾麺 麺",
+          "after": "昭和産業 (SHOWA) スパゲッティ1.6mm 1kg×15袋入｜ パスタ スパゲティ スパゲッティ 乾麺 麺"
+        },
+        {
+          "before": "GRANFIRO　グランフィーロ/スパゲッティ　No.5　(1.45mm)/大容量/業務用/3kg×5袋",
+          "after": "GRANFIRO グランフィーロ/スパゲッティ No.5 (1.45mm)/大容量/業務用/3kg×5袋"
+        },
+        {
+          "before": "日清製粉ウェルナ　ディ・チェコ　NO．12　スパゲッティ　500g　1パック",
+          "after": "日清製粉ウェルナ ディ・チェコ NO．12 スパゲッティ 500g 1パック"
+        },
+        {
+          "before": "アルチェネロ　有機スパゲッティ(1.6mm) 500gスパゲッティ パスタ オーガニック alce nero",
+          "after": "アルチェネロ 有機スパゲッティ(1.6mm) 500gスパゲッティ パスタ オーガニック alce nero"
+        },
+        {
+          "before": "ラ・モリサーナ　全粒粉スパゲッティ　500g×18袋 《food》 【 パスタ イタリア la Molisana Spaghetti di Semola Integrale di Grano Duro 】 【 ※ご注文後のキャンセル・返品・交換不可。 】",
+          "after": "ラ・モリサーナ 全粒粉スパゲッティ 500g×18袋 《food》 【 パスタ イタリア la Molisana Spaghetti di Semola Integrale di Grano Duro 】 【 ※ご注文後のキャンセル・返品・交換不可。 】"
+        }
+      ],
+      "rejection_samples": {
+        "restricted_or_selectable_product": [
+          "【ふるさと納税】「麦の匠」デュラムセモリナ100％スパゲッティ1kg×9袋/ パスタ 国産 貝塚産 麺 もちもち 大阪府貝塚市 | 貝塚市産パスタ パスタ麺 もちもちパスタ パスタ スパゲティ スパゲッティ 乾麺 麺 長期保存 まとめ買い 大容量 1.6mm 9kg 高評価 高レビュー",
+          "【ふるさと納税】パスタ 15kg (1kg×15袋)｜コルノマカロニー スパゲティ スパゲッティ パスタ 乾麺 麺 備蓄 保存食 国内製造 デュラムセモリナ [0404]",
+          "【ふるさと納税】キャンドル薄力小麦粉 1kg×12袋 薄力粉 小麦粉 手作り お菓子 うどん 12kg 業務用 まとめ買い"
+        ],
+        "wrong_product_type": [
+          "【冷凍】【モンテ物産】Granfiloグランフィーロ 冷凍スパゲッティ ＜プレボイル＞ 1.6mm 220g×5食(個包装)×12個(1.1kg)",
+          "あんかけソース 1袋150g × 5袋 12袋 メル・ソルグルメシリーズ あんかけ パスタ パスタソース スパゲッティ スパゲッティー あんかけスパ 名古屋名物 名古屋めし ご当地 レトルト 保存食 備蓄 時短 B級グルメ あえるだけ 常温 ギフト",
+          "パスタ 500g×10袋 大容量 業務用 太さ 1.7mm もちもち食感 デュラム小麦 セモリナ Durumuパスタ トルコ スパゲッティ スパゲティ ロングパスタ トマトソース ペペロンチーノ 乾麺 麺 まとめ買い 食品 FALISO ファリソ *"
+        ],
+        "missing_category_evidence": [
+          "【マラソン限定クーポン配布中】ムソー 国産 粗精糖 1kg",
+          "【マラソン限定クーポン配布中】雪和食品 デュラム小麦粉セモリナ 1kg"
+        ],
+        "ambiguous_quantity": [
+          "パスタ スパゲッティ 5kg (1kgx5)袋 もちもち食感 1.7mm ロングパスタ ケース販売 麺 業務用 スパゲティ まとめ買い 【送料無料】",
+          "セルバ スパゲッティ 500g パスタ (100g結束タイプ)",
+          "バリラ スパゲッティ 500g x 6箱 保存食 ロングパスタ 乾麺 BARILLA SPAGHETTI 500GX6"
+        ],
+        "limited_purchase": [
+          "【ふるさと納税】【全2回定期便】「麦の匠」デュラムセモリナ100％スパゲッティ300g×40袋/ パスタ 国産 貝塚産 麺 もちもち 大阪府貝塚市 | パスタ 国産パスタ 貝塚産パスタ パスタ麺 もちもちパスタ スパゲティ 国産スパゲッティ 貝塚産スパゲティ スパゲッティ",
+          "【ふるさと納税】【全2回定期便】「麦の匠」デュラムセモリナ100％スパゲッティ300g×20袋/パスタ 国産 貝塚産 麺 もちもち 大阪府貝塚市 | パスタ 国産パスタ 貝塚産パスタ パスタ麺 もちもちパスタ スパゲティ 国産スパゲッティ 貝塚産スパゲティ スパゲッティ"
+        ]
+      }
+    }
+  },
+  "granola": {
+    "category": {
+      "id": "granola",
+      "name": "グラノーラ",
+      "emoji": "🥣",
+      "queries": [
+        "グラノーラ 750g",
+        "フルグラ 6袋",
+        "グラノーラ 500g"
+      ],
+      "primary": "per_100g",
+      "primary_label": "100gあたり",
+      "secondary": "per_kg",
+      "secondary_label": "1kgあたり",
+      "intro": "グラノーラの容量・食数を確定し、100gあたりで比べます。",
+      "filter_small": "少量",
+      "filter_large": "まとめ買い",
+      "guide": [
+        "内容量とセット数を一意に確認できる商品だけを掲載します。",
+        "送料込みの商品と送料別・送料不明の商品を分けています。",
+        "種類・賞味期限・保管場所は購入前に販売ページで確認してください。"
+      ]
+    },
+    "included": [
+      {
+        "id": "kurashikenkou:10188156",
+        "raw_name": "【6・12袋】 フルグラ 糖質オフ 550g 6袋 12袋 カルビー フルーツグラノーラ 送料無料 ベリー＆カカオ ベリー カカオ グラノーラ 朝食 大容量 ケース まとめ買い",
+        "name": "【6・12袋】 フルグラ 糖質オフ 550g 6袋 12袋 カルビー フルーツグラノーラ ベリー＆カカオ ベリー カカオ グラノーラ 朝食 大容量 ケース まとめ買い",
+        "price": 4980,
+        "shop": "暮らし健康ネット館",
+        "url": "https://hb.afl.rakuten.co.jp/hgc/g00qhoao.7cx6m91b.g00qhoao.7cx6n00f/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fkurashikenkou%2F7160456%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fkurashikenkou%2Fi%2F10188156%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
+        "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/kurashikenkou/cabinet/eigyouyou/7160456.jpg?_ex=128x128",
+        "postage_included": true,
+        "shipping_status": "included",
+        "quantity": {
+          "count": 72,
+          "component_counts": [
+            6,
+            12
+          ],
+          "unit_weight_g": 550.0,
+          "total_weight_g": 39600.0,
+          "confidence": 0.99,
+          "evidence": "550g 6袋 12袋"
+        },
+        "unit_prices": {
+          "per_100g": 12.575757575757576,
+          "per_kg": 125.75757575757575
+        },
+        "promotion_mentioned": false
+      },
+      {
+        "id": "ysmarket:10000687",
+        "raw_name": "コストコ カルビー フルグラ 1200g 6袋 朝食 グラノーラ 食物繊維 非常食 栄養満点 家族用 まとめ買い 1つからお届け",
+        "name": "コストコ カルビー フルグラ 1200g 6袋 朝食 グラノーラ 食物繊維 非常食 栄養満点 家族用 まとめ買い 1つからお届け",
+        "price": 8600,
+        "shop": "YSマーケット",
+        "url": "https://hb.afl.rakuten.co.jp/hgc/g00uxaco.7cx6m955.g00uxaco.7cx6n503/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fysmarket%2Fys689%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fysmarket%2Fi%2F10000687%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
+        "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/ysmarket/cabinet/ys689-1.jpg?_ex=128x128",
+        "postage_included": true,
+        "shipping_status": "included",
+        "quantity": {
+          "count": 6,
+          "component_counts": [
+            6
+          ],
+          "unit_weight_g": 1200.0,
+          "total_weight_g": 7200.0,
+          "confidence": 0.99,
+          "evidence": "1200g 6袋"
+        },
+        "unit_prices": {
+          "per_100g": 119.44444444444444,
+          "per_kg": 1194.4444444444443
+        },
+        "promotion_mentioned": false
+      },
+      {
+        "id": "okagesama-market:10003972",
+        "raw_name": "カルビー フルグラ 700g×6袋",
+        "name": "カルビー フルグラ 700g×6袋",
+        "price": 5200,
+        "shop": "おかげさまマーケット",
+        "url": "https://hb.afl.rakuten.co.jp/hgc/g00st9jo.7cx6m57b.g00st9jo.7cx6n799/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fokagesama-market%2F4901330748296%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fokagesama-market%2Fi%2F10003972%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
+        "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/okagesama-market/cabinet/06206077/06380009/imgrc0104092664.jpg?_ex=128x128",
+        "postage_included": true,
+        "shipping_status": "included",
+        "quantity": {
+          "count": 6,
+          "component_counts": [
+            6
+          ],
+          "unit_weight_g": 700.0,
+          "total_weight_g": 4200.0,
+          "confidence": 0.99,
+          "evidence": "700gx6袋"
+        },
+        "unit_prices": {
+          "per_100g": 123.80952380952381,
+          "per_kg": 1238.095238095238
+        },
+        "promotion_mentioned": false
+      },
+      {
+        "id": "shopavail:10002951",
+        "raw_name": "【1kg×6袋】カルビー フルグラ 糖質オフ　フルーツグラノラ グラノーラ 糖質OFF シリアル 食物繊維 朝ごはん 穀物 ドライフルーツ 朝食 ふるぐら 大容量 まとめ買い オーツ麦 アーモンドミルク ライ麦 いちご レーズン チャック付き",
+        "name": "【1kg×6袋】カルビー フルグラ 糖質オフ フルーツグラノラ グラノーラ 糖質OFF シリアル 食物繊維 朝ごはん 穀物 ドライフルーツ 朝食 ふるぐら 大容量 まとめ買い オーツ麦 アーモンドミルク ライ麦 いちご レーズン チャック付き",
+        "price": 7450,
+        "shop": "Shopアベイル",
+        "url": "https://hb.afl.rakuten.co.jp/hgc/g00sa3qo.7cx6mfca.g00sa3qo.7cx6n953/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fshopavail%2F22680-3%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fshopavail%2Fi%2F10002951%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
+        "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/shopavail/cabinet/syokuhin/compass1757476964.jpg?_ex=128x128",
+        "postage_included": true,
+        "shipping_status": "included",
+        "quantity": {
+          "count": 6,
+          "component_counts": [
+            6
+          ],
+          "unit_weight_g": 1000.0,
+          "total_weight_g": 6000.0,
+          "confidence": 0.99,
+          "evidence": "1kgx6袋"
+        },
+        "unit_prices": {
+          "per_100g": 124.16666666666667,
+          "per_kg": 1241.6666666666667
+        },
+        "promotion_mentioned": false
+      },
+      {
+        "id": "ysmarket:10000430",
+        "raw_name": "コストコ カルビー フルグラ 1000g 6袋 糖質オフ 朝食 グラノーラ 食物繊維 非常食 栄養満点 家族用 まとめ買い 1つからお届け",
+        "name": "コストコ カルビー フルグラ 1000g 6袋 糖質オフ 朝食 グラノーラ 食物繊維 非常食 栄養満点 家族用 まとめ買い 1つからお届け",
+        "price": 7800,
+        "shop": "YSマーケット",
+        "url": "https://hb.afl.rakuten.co.jp/hgc/g00uxaco.7cx6m955.g00uxaco.7cx6n503/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fysmarket%2Fys432%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fysmarket%2Fi%2F10000430%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
+        "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/ysmarket/cabinet/ys432-1.jpg?_ex=128x128",
+        "postage_included": true,
+        "shipping_status": "included",
+        "quantity": {
+          "count": 6,
+          "component_counts": [
+            6
+          ],
+          "unit_weight_g": 1000.0,
+          "total_weight_g": 6000.0,
+          "confidence": 0.99,
+          "evidence": "1000g 6袋"
+        },
+        "unit_prices": {
+          "per_100g": 130.0,
+          "per_kg": 1300.0
+        },
+        "promotion_mentioned": false
+      },
+      {
+        "id": "psj1:10007584",
+        "raw_name": "フルグラ 糖質オフ 1000g × 6袋 カルビー コストコ 通販 送料無料",
+        "name": "フルグラ 糖質オフ 1000g × 6袋 カルビー コストコ 通販",
+        "price": 7890,
+        "shop": "PrimeSellerJapan 楽天市場店",
+        "url": "https://hb.afl.rakuten.co.jp/hgc/g00tg47o.7cx6me07.g00tg47o.7cx6nad8/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fpsj1%2Fcs41104-4901330745899-06%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fpsj1%2Fi%2F10007584%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
+        "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/psj1/cabinet/2023/07/4110466.jpg?_ex=128x128",
+        "postage_included": true,
+        "shipping_status": "included",
+        "quantity": {
+          "count": 6,
+          "component_counts": [
+            6
+          ],
+          "unit_weight_g": 1000.0,
+          "total_weight_g": 6000.0,
+          "confidence": 0.99,
+          "evidence": "1000g x 6袋"
+        },
+        "unit_prices": {
+          "per_100g": 131.5,
+          "per_kg": 1315.0
+        },
+        "promotion_mentioned": false
+      },
+      {
+        "id": "psj1:10007583",
+        "raw_name": "フルグラ 糖質オフ 1000g × 4袋 カルビー コストコ 通販 送料無料",
+        "name": "フルグラ 糖質オフ 1000g × 4袋 カルビー コストコ 通販",
+        "price": 5590,
+        "shop": "PrimeSellerJapan 楽天市場店",
+        "url": "https://hb.afl.rakuten.co.jp/hgc/g00tg47o.7cx6me07.g00tg47o.7cx6nad8/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fpsj1%2Fcs41104-4901330745899-04%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fpsj1%2Fi%2F10007583%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
+        "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/psj1/cabinet/2023/07/4110444.jpg?_ex=128x128",
+        "postage_included": true,
+        "shipping_status": "included",
+        "quantity": {
+          "count": 4,
+          "component_counts": [
+            4
+          ],
+          "unit_weight_g": 1000.0,
+          "total_weight_g": 4000.0,
+          "confidence": 0.99,
+          "evidence": "1000g x 4袋"
+        },
+        "unit_prices": {
+          "per_100g": 139.75,
+          "per_kg": 1397.5
+        },
+        "promotion_mentioned": false
+      },
+      {
+        "id": "psj1:10007582",
+        "raw_name": "フルグラ 糖質オフ 1000g × 3袋 カルビー コストコ 通販 送料無料",
+        "name": "フルグラ 糖質オフ 1000g × 3袋 カルビー コストコ 通販",
+        "price": 4290,
+        "shop": "PrimeSellerJapan 楽天市場店",
+        "url": "https://hb.afl.rakuten.co.jp/hgc/g00tg47o.7cx6me07.g00tg47o.7cx6nad8/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fpsj1%2Fcs41104-4901330745899-03%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fpsj1%2Fi%2F10007582%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
+        "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/psj1/cabinet/2023/07/4110433.jpg?_ex=128x128",
+        "postage_included": true,
+        "shipping_status": "included",
+        "quantity": {
+          "count": 3,
+          "component_counts": [
+            3
+          ],
+          "unit_weight_g": 1000.0,
+          "total_weight_g": 3000.0,
+          "confidence": 0.99,
+          "evidence": "1000g x 3袋"
+        },
+        "unit_prices": {
+          "per_100g": 143.0,
+          "per_kg": 1430.0
+        },
+        "promotion_mentioned": false
+      },
+      {
+        "id": "psj1:10005486",
+        "raw_name": "フルーツグラノラ グラノーラ 脂質70％オフ ケロッグ 1kg×6袋 コストコ 通販 送料無料 関連商品 フルグラ フルーツグラノーラ",
+        "name": "フルーツグラノラ グラノーラ 脂質70％オフ ケロッグ 1kg×6袋 コストコ 通販 関連商品 フルグラ フルーツグラノーラ",
+        "price": 8590,
+        "shop": "PrimeSellerJapan 楽天市場店",
+        "url": "https://hb.afl.rakuten.co.jp/hgc/g00tg47o.7cx6me07.g00tg47o.7cx6nad8/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fpsj1%2Fcs581697-4901113509304-06%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fpsj1%2Fi%2F10005486%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
+        "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/psj1/cabinet/07689276/cs2024/581697_8.jpg?_ex=128x128",
+        "postage_included": true,
+        "shipping_status": "included",
+        "quantity": {
+          "count": 6,
+          "component_counts": [
+            6
+          ],
+          "unit_weight_g": 1000.0,
+          "total_weight_g": 6000.0,
+          "confidence": 0.99,
+          "evidence": "1kgx6袋"
+        },
+        "unit_prices": {
+          "per_100g": 143.16666666666666,
+          "per_kg": 1431.6666666666667
+        },
+        "promotion_mentioned": false
+      },
+      {
+        "id": "psj1:10005485",
+        "raw_name": "フルーツグラノラ グラノーラ 脂質70％オフ ケロッグ 1kg×4袋 コストコ 通販 送料無料 関連商品 フルグラ フルーツグラノーラ",
+        "name": "フルーツグラノラ グラノーラ 脂質70％オフ ケロッグ 1kg×4袋 コストコ 通販 関連商品 フルグラ フルーツグラノーラ",
+        "price": 5790,
+        "shop": "PrimeSellerJapan 楽天市場店",
+        "url": "https://hb.afl.rakuten.co.jp/hgc/g00tg47o.7cx6me07.g00tg47o.7cx6nad8/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fpsj1%2Fcs581697-4901113509304-04%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fpsj1%2Fi%2F10005485%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
+        "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/psj1/cabinet/07689276/cs2024/581697_6.jpg?_ex=128x128",
+        "postage_included": true,
+        "shipping_status": "included",
+        "quantity": {
+          "count": 4,
+          "component_counts": [
+            4
+          ],
+          "unit_weight_g": 1000.0,
+          "total_weight_g": 4000.0,
+          "confidence": 0.99,
+          "evidence": "1kgx4袋"
+        },
+        "unit_prices": {
+          "per_100g": 144.75,
+          "per_kg": 1447.5
+        },
+        "promotion_mentioned": false
+      },
+      {
+        "id": "psj1:10005484",
+        "raw_name": "フルーツグラノラ グラノーラ 脂質70％オフ ケロッグ 1kg×3袋 コストコ 通販 送料無料 関連商品 フルグラ フルーツグラノーラ",
+        "name": "フルーツグラノラ グラノーラ 脂質70％オフ ケロッグ 1kg×3袋 コストコ 通販 関連商品 フルグラ フルーツグラノーラ",
+        "price": 4450,
+        "shop": "PrimeSellerJapan 楽天市場店",
+        "url": "https://hb.afl.rakuten.co.jp/hgc/g00tg47o.7cx6me07.g00tg47o.7cx6nad8/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fpsj1%2Fcs581697-4901113509304-03%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fpsj1%2Fi%2F10005484%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
+        "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/psj1/cabinet/07689276/cs2024/581697_4.jpg?_ex=128x128",
+        "postage_included": true,
+        "shipping_status": "included",
+        "quantity": {
+          "count": 3,
+          "component_counts": [
+            3
+          ],
+          "unit_weight_g": 1000.0,
+          "total_weight_g": 3000.0,
+          "confidence": 0.99,
+          "evidence": "1kgx3袋"
+        },
+        "unit_prices": {
+          "per_100g": 148.33333333333334,
+          "per_kg": 1483.3333333333333
+        },
+        "promotion_mentioned": false
+      },
+      {
+        "id": "psj1:10007581",
+        "raw_name": "フルグラ 糖質オフ 1000g × 2袋 カルビー コストコ 通販 送料無料",
+        "name": "フルグラ 糖質オフ 1000g × 2袋 カルビー コストコ 通販",
+        "price": 3190,
+        "shop": "PrimeSellerJapan 楽天市場店",
+        "url": "https://hb.afl.rakuten.co.jp/hgc/g00tg47o.7cx6me07.g00tg47o.7cx6nad8/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fpsj1%2Fcs41104-4901330745899-02%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fpsj1%2Fi%2F10007581%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
+        "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/psj1/cabinet/2023/07/4110422.jpg?_ex=128x128",
+        "postage_included": true,
+        "shipping_status": "included",
+        "quantity": {
+          "count": 2,
+          "component_counts": [
+            2
+          ],
+          "unit_weight_g": 1000.0,
+          "total_weight_g": 2000.0,
+          "confidence": 0.99,
+          "evidence": "1000g x 2袋"
+        },
+        "unit_prices": {
+          "per_100g": 159.5,
+          "per_kg": 1595.0
+        },
+        "promotion_mentioned": false
+      },
+      {
+        "id": "psj1:10005465",
+        "raw_name": "フルーツグラノラ グラノーラ 脂質70％オフ ケロッグ 1kg×2袋 コストコ 通販 送料無料 関連商品 フルグラ フルーツグラノーラ",
+        "name": "フルーツグラノラ グラノーラ 脂質70％オフ ケロッグ 1kg×2袋 コストコ 通販 関連商品 フルグラ フルーツグラノーラ",
+        "price": 3250,
+        "shop": "PrimeSellerJapan 楽天市場店",
+        "url": "https://hb.afl.rakuten.co.jp/hgc/g00tg47o.7cx6me07.g00tg47o.7cx6nad8/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fpsj1%2Fcs581697-4901113509304-02%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fpsj1%2Fi%2F10005465%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
+        "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/psj1/cabinet/07689276/cs2024/581697_2.jpg?_ex=128x128",
+        "postage_included": true,
+        "shipping_status": "included",
+        "quantity": {
+          "count": 2,
+          "component_counts": [
+            2
+          ],
+          "unit_weight_g": 1000.0,
+          "total_weight_g": 2000.0,
+          "confidence": 0.99,
+          "evidence": "1kgx2袋"
+        },
+        "unit_prices": {
+          "per_100g": 162.5,
+          "per_kg": 1625.0
+        },
+        "promotion_mentioned": false
+      },
+      {
+        "id": "psj1:10004116",
+        "raw_name": "ケロッグ グラノーラ フルーツ グラノラ 脂質70％オフ 1kg コストコ 通販 送料無料",
+        "name": "ケロッグ グラノーラ フルーツ グラノラ 脂質70％オフ 1kg コストコ 通販",
+        "price": 1890,
+        "shop": "PrimeSellerJapan 楽天市場店",
+        "url": "https://hb.afl.rakuten.co.jp/hgc/g00tg47o.7cx6me07.g00tg47o.7cx6nad8/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fpsj1%2Fcs581697-4901113509304%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fpsj1%2Fi%2F10004116%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
+        "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/psj1/cabinet/07689276/cs2024/581697_0.jpg?_ex=128x128",
+        "postage_included": true,
+        "shipping_status": "included",
+        "quantity": {
+          "count": 1,
+          "component_counts": [
+            1
+          ],
+          "unit_weight_g": 1000.0,
+          "total_weight_g": 1000.0,
+          "confidence": 0.99,
+          "evidence": "1kg"
+        },
+        "unit_prices": {
+          "per_100g": 189.0,
+          "per_kg": 1890.0
+        },
+        "promotion_mentioned": false
+      },
+      {
+        "id": "psj1:10007164",
+        "raw_name": "フルグラ 糖質オフ 1000g カルビー コストコ 通販 送料無料",
+        "name": "フルグラ 糖質オフ 1000g カルビー コストコ 通販",
+        "price": 1890,
+        "shop": "PrimeSellerJapan 楽天市場店",
+        "url": "https://hb.afl.rakuten.co.jp/hgc/g00tg47o.7cx6me07.g00tg47o.7cx6nad8/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fpsj1%2Fcs41104-4901330745899%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fpsj1%2Fi%2F10007164%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
+        "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/psj1/cabinet/2023/07/4110411.jpg?_ex=128x128",
+        "postage_included": true,
+        "shipping_status": "included",
+        "quantity": {
+          "count": 1,
+          "component_counts": [
+            1
+          ],
+          "unit_weight_g": 1000.0,
+          "total_weight_g": 1000.0,
+          "confidence": 0.99,
+          "evidence": "1000g"
+        },
+        "unit_prices": {
+          "per_100g": 189.0,
+          "per_kg": 1890.0
+        },
+        "promotion_mentioned": false
+      },
+      {
+        "id": "impact-one:10000450",
+        "raw_name": "九州大麦 グラノーラ 200g×5個【北海道は発送不可】 国産グラノーラ 朝食グラノーラ 大麦グラノーラ 熊本県 西田精麦",
+        "name": "九州大麦 グラノーラ 200g×5個【北海道は発送不可】 国産グラノーラ 朝食グラノーラ 大麦グラノーラ 熊本県 西田精麦",
+        "price": 2700,
+        "shop": "インパクトワン プラス お取り寄せ",
+        "url": "https://hb.afl.rakuten.co.jp/hgc/g00tizqo.7cx6m414.g00tizqo.7cx6n802/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fimpact-one%2F0442%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fimpact-one%2Fi%2F10000450%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
+        "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/impact-one/cabinet/imgrc0073515268.jpg?_ex=128x128",
+        "postage_included": true,
+        "shipping_status": "included",
+        "quantity": {
+          "count": 5,
+          "component_counts": [
+            5
+          ],
+          "unit_weight_g": 200.0,
+          "total_weight_g": 1000.0,
+          "confidence": 0.99,
+          "evidence": "200gx5個"
+        },
+        "unit_prices": {
+          "per_100g": 270.0,
+          "per_kg": 2700.0
+        },
+        "promotion_mentioned": false
+      },
+      {
+        "id": "nuthyougo:10000066",
+        "raw_name": "グラノーラ＆アーモンド 500g 有機 オーガニック グラノーラ 有機オーツ麦 高品質アーモンド 有機チョコレート 有機いちご 有機ラズベリー 健康 ダイエット ヘルシー 自然食【送料無料】",
+        "name": "グラノーラ＆アーモンド 500g 有機 オーガニック グラノーラ 有機オーツ麦 高品質アーモンド 有機チョコレート 有機いちご 有機ラズベリー 健康 ダイエット ヘルシー 自然食",
+        "price": 1630,
+        "shop": "NUT HYOUGO 商店",
+        "url": "https://hb.afl.rakuten.co.jp/hgc/g00trtso.7cx6m07f.g00trtso.7cx6n586/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fnuthyougo%2Fitem056%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fnuthyougo%2Fi%2F10000066%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
+        "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/nuthyougo/cabinet/item056.jpg?_ex=128x128",
+        "postage_included": true,
+        "shipping_status": "included",
+        "quantity": {
+          "count": 1,
+          "component_counts": [
+            1
+          ],
+          "unit_weight_g": 500.0,
+          "total_weight_g": 500.0,
+          "confidence": 0.99,
+          "evidence": "500g"
+        },
+        "unit_prices": {
+          "per_100g": 326.0,
+          "per_kg": 3260.0
+        },
+        "promotion_mentioned": false
+      },
+      {
+        "id": "hybridjapan:10001938",
+        "raw_name": "アリサン クラシック グラノラ 1kg オーガニック グラノーラ 有機 オーツ 大容量 朝食 シリアル 無添加 アメリカ産",
+        "name": "アリサン クラシック グラノラ 1kg オーガニック グラノーラ 有機 オーツ 大容量 朝食 シリアル 無添加 アメリカ産",
+        "price": 3650,
+        "shop": "エシェランド 楽天市場店",
+        "url": "https://hb.afl.rakuten.co.jp/hgc/g00u7a9o.7cx6mc54.g00u7a9o.7cx6n644/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fhybridjapan%2Fs04-3601-1%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fhybridjapan%2Fi%2F10001938%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
+        "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/hybridjapan/cabinet/syokuhin/arisan/asnserial/imgrc0134200250.jpg?_ex=128x128",
+        "postage_included": true,
+        "shipping_status": "included",
+        "quantity": {
+          "count": 1,
+          "component_counts": [
+            1
+          ],
+          "unit_weight_g": 1000.0,
+          "total_weight_g": 1000.0,
+          "confidence": 0.99,
+          "evidence": "1kg"
+        },
+        "unit_prices": {
+          "per_100g": 365.0,
+          "per_kg": 3650.0
+        },
+        "promotion_mentioned": false
+      },
+      {
+        "id": "fabuleux:10003014",
+        "raw_name": "【COSTCO】コストコ【Natures Path Foods】 ラブクランチ　オーガニックグラノーラ（ダークチョコレート&レッドベリー ） 750g【送料無料】",
+        "name": "【COSTCO】コストコ【Natures Path Foods】 ラブクランチ オーガニックグラノーラ（ダークチョコレート&レッドベリー ） 750g",
+        "price": 3899,
+        "shop": "ファビュラス",
+        "url": "https://hb.afl.rakuten.co.jp/hgc/g00r75to.7cx6m926.g00r75to.7cx6n6cd/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Ffabuleux%2F10003014%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Ffabuleux%2Fi%2F10003014%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
+        "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/fabuleux/cabinet/03396666/06117872/imgrc0069924729.jpg?_ex=128x128",
+        "postage_included": true,
+        "shipping_status": "included",
+        "quantity": {
+          "count": 1,
+          "component_counts": [
+            1
+          ],
+          "unit_weight_g": 750.0,
+          "total_weight_g": 750.0,
+          "confidence": 0.99,
+          "evidence": "750g"
+        },
+        "unit_prices": {
+          "per_100g": 519.8666666666667,
+          "per_kg": 5198.666666666667
+        },
+        "promotion_mentioned": false
+      },
+      {
+        "id": "hybridjapan:10003370",
+        "raw_name": "アリサン クラシック グラノラ 350g グラノーラ 朝食 シリアル MOFGA認証 ヨーグルト ナッツ",
+        "name": "アリサン クラシック グラノラ 350g グラノーラ 朝食 シリアル MOFGA認証 ヨーグルト ナッツ",
+        "price": 1900,
+        "shop": "エシェランド 楽天市場店",
+        "url": "https://hb.afl.rakuten.co.jp/hgc/g00u7a9o.7cx6mc54.g00u7a9o.7cx6n644/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fhybridjapan%2Fs04-3602-1%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fhybridjapan%2Fi%2F10003370%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
+        "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/hybridjapan/cabinet/syokuhin/arisan/asnserial/imgrc0153102286.jpg?_ex=128x128",
+        "postage_included": true,
+        "shipping_status": "included",
+        "quantity": {
+          "count": 1,
+          "component_counts": [
+            1
+          ],
+          "unit_weight_g": 350.0,
+          "total_weight_g": 350.0,
+          "confidence": 0.99,
+          "evidence": "350g"
+        },
+        "unit_prices": {
+          "per_100g": 542.8571428571429,
+          "per_kg": 5428.571428571429
+        },
+        "promotion_mentioned": false
+      },
+      {
+        "id": "hakuei8981:10168678",
+        "raw_name": "【送料無料】トトノイライフ ノンオイル 米グラノーラ プレーン 750g 麹 米麹 無添加 砂糖不使用 グルテンフリー シリアル 無添加 甘くない 腸活 低糖質 低カロリー 無糖 糖質オフ 甘酒 あま酒 フルグラ 米粒 (750g, プレーン)",
+        "name": "トトノイライフ ノンオイル 米グラノーラ プレーン 750g 麹 米麹 無添加 砂糖不使用 グルテンフリー シリアル 無添加 甘くない 腸活 低糖質 低カロリー 無糖 糖質オフ 甘酒 あま酒 フルグラ 米粒 (750g, プレーン)",
+        "price": 5476,
+        "shop": "HAKUEI",
+        "url": "https://hb.afl.rakuten.co.jp/hgc/g00ujwco.7cx6m208.g00ujwco.7cx6n4bb/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fhakuei8981%2Fb0f29vyq7m%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fhakuei8981%2Fi%2F10168678%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
+        "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/hakuei8981/cabinet/rakus136_0192/b0f29vyq7m00.jpg?_ex=128x128",
+        "postage_included": true,
+        "shipping_status": "included",
+        "quantity": {
+          "count": 1,
+          "component_counts": [
+            1
+          ],
+          "unit_weight_g": 750.0,
+          "total_weight_g": 750.0,
+          "confidence": 0.99,
+          "evidence": "750g"
+        },
+        "unit_prices": {
+          "per_100g": 730.1333333333333,
+          "per_kg": 7301.333333333333
+        },
+        "promotion_mentioned": false
+      },
+      {
+        "id": "bussan-f:10000507",
+        "raw_name": "むなかた福津グラノーラ　お徳用袋　大（500g）【送料無料】Lien 〜リアン〜 玄米使用 ポン菓子 ドライフルーツ 九州 福岡 お取り寄せグルメ 福岡県よかもんショップ",
+        "name": "むなかた福津グラノーラ お徳用袋 大（500g） Lien 〜リアン〜 玄米使用 ポン菓子 ドライフルーツ 九州 福岡 お取り寄せグルメ 福岡県よかもんショップ",
+        "price": 10540,
+        "shop": "福岡県よかもんショップ",
+        "url": "https://hb.afl.rakuten.co.jp/hgc/g00tozfo.7cx6m51f.g00tozfo.7cx6n58f/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbussan-f%2Fy-04550%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fbussan-f%2Fi%2F10000507%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
+        "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/bussan-f/cabinet/06/y-04550_1.jpg?_ex=128x128",
+        "postage_included": true,
+        "shipping_status": "included",
+        "quantity": {
+          "count": 1,
+          "component_counts": [
+            1
+          ],
+          "unit_weight_g": 500.0,
+          "total_weight_g": 500.0,
+          "confidence": 0.99,
+          "evidence": "500g"
+        },
+        "unit_prices": {
+          "per_100g": 2108.0,
+          "per_kg": 21080.0
+        },
+        "promotion_mentioned": false
+      }
+    ],
+    "shipping_unknown": [
+      {
+        "id": "osdmarket:10000740",
+        "raw_name": "カルビー フルグラ 1200g 6袋 朝食 グラノーラ 食物繊維 非常食 栄養満点 家族用 まとめ買い",
+        "name": "カルビー フルグラ 1200g 6袋 朝食 グラノーラ 食物繊維 非常食 栄養満点 家族用 まとめ買い",
+        "price": 8500,
+        "shop": "OSDマーケット",
+        "url": "https://hb.afl.rakuten.co.jp/hgc/g00usdzo.7cx6m6aa.g00usdzo.7cx6n67b/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fosdmarket%2Fny0100685%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fosdmarket%2Fi%2F10000740%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
+        "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/osdmarket/cabinet/imgrc0106907318.jpg?_ex=128x128",
+        "postage_included": false,
+        "shipping_status": "extra_or_unknown",
+        "quantity": {
+          "count": 6,
+          "component_counts": [
+            6
+          ],
+          "unit_weight_g": 1200.0,
+          "total_weight_g": 7200.0,
+          "confidence": 0.99,
+          "evidence": "1200g 6袋"
+        },
+        "unit_prices": {
+          "per_100g": 118.05555555555556,
+          "per_kg": 1180.5555555555554
+        },
+        "promotion_mentioned": false
+      },
+      {
+        "id": "osdmarket:10000452",
+        "raw_name": "カルビー フルグラ 1000g 6袋 糖質オフ 朝食 グラノーラ 食物繊維 非常食 栄養満点 家族用 まとめ買い",
+        "name": "カルビー フルグラ 1000g 6袋 糖質オフ 朝食 グラノーラ 食物繊維 非常食 栄養満点 家族用 まとめ買い",
+        "price": 7700,
+        "shop": "OSDマーケット",
+        "url": "https://hb.afl.rakuten.co.jp/hgc/g00usdzo.7cx6m6aa.g00usdzo.7cx6n67b/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fosdmarket%2Fny0100423%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fosdmarket%2Fi%2F10000452%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
+        "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/osdmarket/cabinet/imgrc0106140118.jpg?_ex=128x128",
+        "postage_included": false,
+        "shipping_status": "extra_or_unknown",
+        "quantity": {
+          "count": 6,
+          "component_counts": [
+            6
+          ],
+          "unit_weight_g": 1000.0,
+          "total_weight_g": 6000.0,
+          "confidence": 0.99,
+          "evidence": "1000g 6袋"
+        },
+        "unit_prices": {
+          "per_100g": 128.33333333333334,
+          "per_kg": 1283.3333333333333
+        },
+        "promotion_mentioned": false
+      },
+      {
+        "id": "misono-support:10055690",
+        "raw_name": "カルビー フルグラ 700g×6袋入｜ 送料無料 フルーツグラノーラ 食物繊維 オリゴ糖 ビタミン",
+        "name": "カルビー フルグラ 700g×6袋入｜ フルーツグラノーラ 食物繊維 オリゴ糖 ビタミン",
+        "price": 6480,
+        "shop": "飲料 食品専門店 味園サポート",
+        "url": "https://hb.afl.rakuten.co.jp/hgc/g00q23do.7cx6mdeb.g00q23do.7cx6n015/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fmisono-support%2Fa401-7%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fmisono-support%2Fi%2F10055690%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
+        "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/misono-support/cabinet/202504_04/a401-7-1.jpg?_ex=128x128",
+        "postage_included": false,
+        "shipping_status": "extra_or_unknown",
+        "quantity": {
+          "count": 6,
+          "component_counts": [
+            6
+          ],
+          "unit_weight_g": 700.0,
+          "total_weight_g": 4200.0,
+          "confidence": 0.99,
+          "evidence": "700gx6袋入"
+        },
+        "unit_prices": {
+          "per_100g": 154.28571428571428,
+          "per_kg": 1542.857142857143
+        },
+        "promotion_mentioned": false
+      },
+      {
+        "id": "misonoya:10031293",
+        "raw_name": "カルビー フルグラ 700g×6袋入｜ 送料無料 フルーツグラノーラ 食物繊維 オリゴ糖 ビタミン",
+        "name": "カルビー フルグラ 700g×6袋入｜ フルーツグラノーラ 食物繊維 オリゴ糖 ビタミン",
+        "price": 6480,
+        "shop": "MISONOYA楽天市場店",
+        "url": "https://hb.afl.rakuten.co.jp/hgc/g00qrf9o.7cx6mf08.g00qrf9o.7cx6n813/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fmisonoya%2Fa401-7%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fmisonoya%2Fi%2F10031293%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
+        "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/misonoya/cabinet/202504_04/a401-7-1.jpg?_ex=128x128",
+        "postage_included": false,
+        "shipping_status": "extra_or_unknown",
+        "quantity": {
+          "count": 6,
+          "component_counts": [
+            6
+          ],
+          "unit_weight_g": 700.0,
+          "total_weight_g": 4200.0,
+          "confidence": 0.99,
+          "evidence": "700gx6袋入"
+        },
+        "unit_prices": {
+          "per_100g": 154.28571428571428,
+          "per_kg": 1542.857142857143
+        },
+        "promotion_mentioned": false
+      },
+      {
+        "id": "drink-market:10104688",
+        "raw_name": "カルビー フルグラ 700g×6袋入｜ 送料無料 フルーツグラノーラ 食物繊維 オリゴ糖 ビタミン",
+        "name": "カルビー フルグラ 700g×6袋入｜ フルーツグラノーラ 食物繊維 オリゴ糖 ビタミン",
+        "price": 6501,
+        "shop": "ドリンクマーケット",
+        "url": "https://hb.afl.rakuten.co.jp/hgc/g00s7wdo.7cx6mf7a.g00s7wdo.7cx6n171/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fdrink-market%2Fa401-7%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fdrink-market%2Fi%2F10104688%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
+        "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/drink-market/cabinet/202504_04/a401-7-1.jpg?_ex=128x128",
+        "postage_included": false,
+        "shipping_status": "extra_or_unknown",
+        "quantity": {
+          "count": 6,
+          "component_counts": [
+            6
+          ],
+          "unit_weight_g": 700.0,
+          "total_weight_g": 4200.0,
+          "confidence": 0.99,
+          "evidence": "700gx6袋入"
+        },
+        "unit_prices": {
+          "per_100g": 154.78571428571428,
+          "per_kg": 1547.857142857143
+        },
+        "promotion_mentioned": false
+      },
+      {
+        "id": "amicashop:10013714",
+        "raw_name": "ケロッグ　業務用フルーツグラノラH　500g",
+        "name": "ケロッグ 業務用フルーツグラノラH 500g",
+        "price": 906,
+        "shop": "業務用食品アミカ楽天市場店",
+        "url": "https://hb.afl.rakuten.co.jp/hgc/g00th0oo.7cx6m922.g00th0oo.7cx6n6dc/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Famicashop%2Fx57095101006%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Famicashop%2Fi%2F10013714%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
+        "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/amicashop/cabinet/product/52/x57095101006_0_0a7b.jpg?_ex=128x128",
+        "postage_included": false,
+        "shipping_status": "extra_or_unknown",
+        "quantity": {
+          "count": 1,
+          "component_counts": [
+            1
+          ],
+          "unit_weight_g": 500.0,
+          "total_weight_g": 500.0,
+          "confidence": 0.99,
+          "evidence": "500g"
+        },
+        "unit_prices": {
+          "per_100g": 181.2,
+          "per_kg": 1812.0
+        },
+        "promotion_mentioned": false
+      },
+      {
+        "id": "seikatsuzakkamemo:10007789",
+        "raw_name": "[限定ブランド商品] カルビー フルグラ 糖質オフ 750g×6袋 (SOLIMO)",
+        "name": "[限定ブランド商品] カルビー フルグラ 糖質オフ 750g×6袋 (SOLIMO)",
+        "price": 8426,
+        "shop": "生活雑貨 めも",
+        "url": "https://hb.afl.rakuten.co.jp/hgc/g00tz27o.7cx6m218.g00tz27o.7cx6n939/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fseikatsuzakkamemo%2F4941936636554%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fseikatsuzakkamemo%2Fi%2F10007789%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
+        "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/seikatsuzakkamemo/cabinet/r_1615167783/4941936636554.jpg?_ex=128x128",
+        "postage_included": false,
+        "shipping_status": "extra_or_unknown",
+        "quantity": {
+          "count": 6,
+          "component_counts": [
+            6
+          ],
+          "unit_weight_g": 750.0,
+          "total_weight_g": 4500.0,
+          "confidence": 0.99,
+          "evidence": "750gx6袋"
+        },
+        "unit_prices": {
+          "per_100g": 187.24444444444444,
+          "per_kg": 1872.4444444444443
+        },
+        "promotion_mentioned": false
+      },
+      {
+        "id": "unibiswine:10005084",
+        "raw_name": "カルビー フルグラ 750g",
+        "name": "カルビー フルグラ 750g",
+        "price": 1728,
+        "shop": "ビール・酒・ワイン専門店ユニビス",
+        "url": "https://hb.afl.rakuten.co.jp/hgc/g00sip8o.7cx6m06f.g00sip8o.7cx6n036/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Funibiswine%2F4901330740672%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Funibiswine%2Fi%2F10005084%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
+        "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/unibiswine/cabinet/04950298/food/japanfoods/4901330740672.jpg?_ex=128x128",
+        "postage_included": false,
+        "shipping_status": "extra_or_unknown",
+        "quantity": {
+          "count": 1,
+          "component_counts": [
+            1
+          ],
+          "unit_weight_g": 750.0,
+          "total_weight_g": 750.0,
+          "confidence": 0.99,
+          "evidence": "750g"
+        },
+        "unit_prices": {
+          "per_100g": 230.4,
+          "per_kg": 2304.0
+        },
+        "promotion_mentioned": false
+      },
+      {
+        "id": "poipoimarket:10058126",
+        "raw_name": "カルビー フルグラ メロンクリームソーダ 500g×6袋",
+        "name": "カルビー フルグラ メロンクリームソーダ 500g×6袋",
+        "price": 9185,
+        "shop": "菓子の新商品はポイポイマーケット",
+        "url": "https://hb.afl.rakuten.co.jp/hgc/g00ru2jo.7cx6m445.g00ru2jo.7cx6n817/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fpoipoimarket%2Ft04901330749255%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fpoipoimarket%2Fi%2F10058126%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
+        "image": "https://thumbnail.image.rakuten.co.jp/@0_gold/poipoimarket/images/202607/t04901330749255.jpg?_ex=128x128",
+        "postage_included": false,
+        "shipping_status": "extra_or_unknown",
+        "quantity": {
+          "count": 6,
+          "component_counts": [
+            6
+          ],
+          "unit_weight_g": 500.0,
+          "total_weight_g": 3000.0,
+          "confidence": 0.99,
+          "evidence": "500gx6袋"
+        },
+        "unit_prices": {
+          "per_100g": 306.1666666666667,
+          "per_kg": 3061.6666666666665
+        },
+        "promotion_mentioned": false
+      },
+      {
+        "id": "ryoshokushop:10000218",
+        "raw_name": "大麦 国産 Orge 大麦シリアル3.3 (35g×3袋)お試し3日分【単品】 国産大麦100% 無添加 グラノーラ 腸活 健康 麦 シリアル おやつ 個包装 糖質制限 糖質オフ 保存食",
+        "name": "大麦 国産 Orge 大麦シリアル3.3 (35g×3袋)お試し3日分【単品】 国産大麦100% 無添加 グラノーラ 腸活 健康 麦 シリアル おやつ 個包装 糖質制限 糖質オフ 保存食",
+        "price": 324,
+        "shop": "大麦一筋80年 三河の精麦屋さん",
+        "url": "https://hb.afl.rakuten.co.jp/hgc/g00qgzeo.7cx6m067.g00qgzeo.7cx6n943/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fryoshokushop%2Fbc33_005%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fryoshokushop%2Fi%2F10000218%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
+        "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/ryoshokushop/cabinet/barleycereal/bc33_2.jpg?_ex=128x128",
+        "postage_included": false,
+        "shipping_status": "extra_or_unknown",
+        "quantity": {
+          "count": 3,
+          "component_counts": [
+            3
+          ],
+          "unit_weight_g": 35.0,
+          "total_weight_g": 105.0,
+          "confidence": 0.99,
+          "evidence": "35gx3袋"
+        },
+        "unit_prices": {
+          "per_100g": 308.57142857142856,
+          "per_kg": 3085.714285714286
+        },
+        "promotion_mentioned": false
+      },
+      {
+        "id": "once-in:10000993",
+        "raw_name": "ノースイ ミックスベリーフローズン500g ヨーグルトやアイス、グラノーラなど多彩なトッピングで彩りや健康にもオススメです！もぎたてそのまま！",
+        "name": "ノースイ ミックスベリーフローズン500g ヨーグルトやアイス、グラノーラなど多彩なトッピングで彩りや健康にもオススメです！もぎたてそのまま！",
+        "price": 1670,
+        "shop": "博多もつ鍋と餃子 マイニチトッカ",
+        "url": "https://hb.afl.rakuten.co.jp/hgc/g00rphko.7cx6m2d0.g00rphko.7cx6na9e/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fonce-in%2Fmixberry%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fonce-in%2Fi%2F10000993%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
+        "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/once-in/cabinet/gyomu/mixberry.jpg?_ex=128x128",
+        "postage_included": false,
+        "shipping_status": "extra_or_unknown",
+        "quantity": {
+          "count": 1,
+          "component_counts": [
+            1
+          ],
+          "unit_weight_g": 500.0,
+          "total_weight_g": 500.0,
+          "confidence": 0.99,
+          "evidence": "500g"
+        },
+        "unit_prices": {
+          "per_100g": 334.0,
+          "per_kg": 3340.0
+        },
+        "promotion_mentioned": false
+      },
+      {
+        "id": "seijoishii:10056920",
+        "raw_name": "ファミリア チョコレート グラノーラ 500g",
+        "name": "ファミリア チョコレート グラノーラ 500g",
+        "price": 1825,
+        "shop": "成城石井 楽天市場店",
+        "url": "https://hb.afl.rakuten.co.jp/hgc/g00r2elo.7cx6mb32.g00r2elo.7cx6n6ce/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fseijoishii%2F7610023051212%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fseijoishii%2Fi%2F10056920%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
+        "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/seijoishii/cabinet/image_7/7610023051212_m1.jpg?_ex=128x128",
+        "postage_included": false,
+        "shipping_status": "extra_or_unknown",
+        "quantity": {
+          "count": 1,
+          "component_counts": [
+            1
+          ],
+          "unit_weight_g": 500.0,
+          "total_weight_g": 500.0,
+          "confidence": 0.99,
+          "evidence": "500g"
+        },
+        "unit_prices": {
+          "per_100g": 365.0,
+          "per_kg": 3650.0
+        },
+        "promotion_mentioned": false
+      },
+      {
+        "id": "macaron-store:10027247",
+        "raw_name": "ファミリア ベリーグラノーラ 500g グラノーラ ベリー ナッツ 健康",
+        "name": "ファミリア ベリーグラノーラ 500g グラノーラ ベリー ナッツ 健康",
+        "price": 4220,
+        "shop": "Macaron",
+        "url": "https://hb.afl.rakuten.co.jp/hgc/g00rxxjo.7cx6me78.g00rxxjo.7cx6na0e/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fmacaron-store%2Fa-jv-542%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fmacaron-store%2Fi%2F10027247%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
+        "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/macaron-store/cabinet/img12/a-jv-542-1_g1.jpg?_ex=128x128",
+        "postage_included": false,
+        "shipping_status": "extra_or_unknown",
+        "quantity": {
+          "count": 1,
+          "component_counts": [
+            1
+          ],
+          "unit_weight_g": 500.0,
+          "total_weight_g": 500.0,
+          "confidence": 0.99,
+          "evidence": "500g"
+        },
+        "unit_prices": {
+          "per_100g": 844.0,
+          "per_kg": 8440.0
+        },
+        "promotion_mentioned": false
+      }
+    ],
+    "audit": {
+      "fetched": 90,
+      "normalized": 35,
+      "exact_duplicates": 0,
+      "practical_duplicates": 0,
+      "accepted_unique": 35,
+      "included_available": 22,
+      "shipping_unknown_available": 13,
+      "displayed_included": 22,
+      "displayed_shipping_unknown": 13,
+      "reasons": {
+        "restricted_or_selectable_product": 11,
+        "ambiguous_quantity": 27,
+        "limited_purchase": 2,
+        "missing_category_evidence": 2,
+        "wrong_product_type": 13
+      },
+      "cleaned_examples": [
+        {
+          "before": "【送料無料】トトノイライフ ノンオイル 米グラノーラ プレーン 750g 麹 米麹 無添加 砂糖不使用 グルテンフリー シリアル 無添加 甘くない 腸活 低糖質 低カロリー 無糖 糖質オフ 甘酒 あま酒 フルグラ 米粒 (750g, プレーン)",
+          "after": "トトノイライフ ノンオイル 米グラノーラ プレーン 750g 麹 米麹 無添加 砂糖不使用 グルテンフリー シリアル 無添加 甘くない 腸活 低糖質 低カロリー 無糖 糖質オフ 甘酒 あま酒 フルグラ 米粒 (750g, プレーン)"
+        },
+        {
+          "before": "フルーツグラノラ グラノーラ 脂質70％オフ ケロッグ 1kg×2袋 コストコ 通販 送料無料 関連商品 フルグラ フルーツグラノーラ",
+          "after": "フルーツグラノラ グラノーラ 脂質70％オフ ケロッグ 1kg×2袋 コストコ 通販 関連商品 フルグラ フルーツグラノーラ"
+        },
+        {
+          "before": "ケロッグ グラノーラ フルーツ グラノラ 脂質70％オフ 1kg コストコ 通販 送料無料",
+          "after": "ケロッグ グラノーラ フルーツ グラノラ 脂質70％オフ 1kg コストコ 通販"
+        },
+        {
+          "before": "【COSTCO】コストコ【Natures Path Foods】 ラブクランチ　オーガニックグラノーラ（ダークチョコレート&レッドベリー ） 750g【送料無料】",
+          "after": "【COSTCO】コストコ【Natures Path Foods】 ラブクランチ オーガニックグラノーラ（ダークチョコレート&レッドベリー ） 750g"
+        },
+        {
+          "before": "フルーツグラノラ グラノーラ 脂質70％オフ ケロッグ 1kg×3袋 コストコ 通販 送料無料 関連商品 フルグラ フルーツグラノーラ",
+          "after": "フルーツグラノラ グラノーラ 脂質70％オフ ケロッグ 1kg×3袋 コストコ 通販 関連商品 フルグラ フルーツグラノーラ"
+        },
+        {
+          "before": "フルーツグラノラ グラノーラ 脂質70％オフ ケロッグ 1kg×6袋 コストコ 通販 送料無料 関連商品 フルグラ フルーツグラノーラ",
+          "after": "フルーツグラノラ グラノーラ 脂質70％オフ ケロッグ 1kg×6袋 コストコ 通販 関連商品 フルグラ フルーツグラノーラ"
+        },
+        {
+          "before": "フルーツグラノラ グラノーラ 脂質70％オフ ケロッグ 1kg×4袋 コストコ 通販 送料無料 関連商品 フルグラ フルーツグラノーラ",
+          "after": "フルーツグラノラ グラノーラ 脂質70％オフ ケロッグ 1kg×4袋 コストコ 通販 関連商品 フルグラ フルーツグラノーラ"
+        },
+        {
+          "before": "フルグラ 糖質オフ 1000g × 2袋 カルビー コストコ 通販 送料無料",
+          "after": "フルグラ 糖質オフ 1000g × 2袋 カルビー コストコ 通販"
+        },
+        {
+          "before": "フルグラ 糖質オフ 1000g × 3袋 カルビー コストコ 通販 送料無料",
+          "after": "フルグラ 糖質オフ 1000g × 3袋 カルビー コストコ 通販"
+        },
+        {
+          "before": "フルグラ 糖質オフ 1000g × 4袋 カルビー コストコ 通販 送料無料",
+          "after": "フルグラ 糖質オフ 1000g × 4袋 カルビー コストコ 通販"
+        },
+        {
+          "before": "フルグラ 糖質オフ 1000g × 6袋 カルビー コストコ 通販 送料無料",
+          "after": "フルグラ 糖質オフ 1000g × 6袋 カルビー コストコ 通販"
+        },
+        {
+          "before": "フルグラ 糖質オフ 1000g カルビー コストコ 通販 送料無料",
+          "after": "フルグラ 糖質オフ 1000g カルビー コストコ 通販"
+        }
+      ],
+      "rejection_samples": {
+        "restricted_or_selectable_product": [
+          "☆楽天1位☆【3・6袋セット 選べる5種!】 フルグラ グラノラ チョコバナナ 糖質オフ カルビー グラノーラ フルーツグラノーラ 穀物 栄養 シリアル ドライフルーツ 送料無料 栄養 ドライフルーツ チャック付き Calbee まとめ買い",
+          "《9種類から選べる》フルグラ 糖質オフ マイグラ フルーツグラノーラ カルビー チョコバナナ オフベリー＆カカオ 食後の血糖値ケア 焦がしキャラメル プロテイン グラノーラ 穀物 シリアル グラノラ ドライフルーツ 食物繊維 鉄分 【D】",
+          "【ふるさと納税】無添加 グラノーラ 【選べる容量】250g×2袋 / 250g×3袋 / 250g×6袋 自家製 フルーツグラノーラ / オーガニック 果物 ドライフルーツ オートミール ヨーグルト 牛乳 シリアル 朝食 国産 ドライフルーツ ミックス クランベリー レーズン ナッツ グラノラ"
+        ],
+        "ambiguous_quantity": [
+          "送料無料 あい裸麦のグラノーラ 5袋（150g×5袋）750g 鹿児島 姶良 産地直送 食品 贈答 プレゼント",
+          "フルグラ 750g よりも大容量 1200g × 3袋 カルビー コストコ 通販 送料無料",
+          "【6個セット】マイグラ グラノーラ カルビー 朝食 穀物"
+        ],
+        "limited_purchase": [
+          "【ふるさと納税】＜定期便3回＞無添加 フルーツグラノーラ 250g×3袋 750g（計2.25kg）自家製 フルーツグラノーラ ／ 着色料不使用 オーガニック 果物 ヨーグルト 牛乳 シリアル 朝食 国産 ドライフルーツ ミックス クランベリー レーズン ナッツ きび砂糖 小分け グラノラ",
+          "【ふるさと納税】＜定期便6回＞ 無添加 フルーツグラノーラ 250g×3袋 750g（計4.5kg）自家製 フルーツグラノーラ ／ 着色料不使用 オーガニック 果物 ヨーグルト 牛乳 シリアル 朝食 国産 ドライフルーツ ミックス クランベリー レーズン ナッツ きび砂糖 小分け グラノラ"
+        ],
+        "missing_category_evidence": [
+          "カントリーF フルーツナッツミューズリー 750g",
+          "カントリーF フルーツミューズリー 750g"
+        ],
+        "wrong_product_type": [
+          "カントリーファームハイファイバーミューズリー 750g",
+          "【6袋】マイグラ プロテイン アーモンドチョコクランチ 焦がしキャラメル 6袋 カルビー",
+          "おから グラノーラ シリアル 大容量 500g おからクッキーダイス 生おから使用 乳製品不使用 ココナッツ くるみ 卵不使用 食物繊維たっぷり そのままでも牛乳でも 糖質オフ 大豆 グラノーラ 豆乳 ダイエット 低カロリー 豆腐屋 十二堂 成城石井 十二本舗"
+        ]
+      }
+    }
+  },
+  "retort-curry": {
+    "category": {
+      "id": "retort-curry",
+      "name": "レトルトカレー",
+      "emoji": "🍛",
+      "queries": [
+        "レトルトカレー 180g 10袋",
+        "レトルトカレー 200g 20食",
+        "レトルトカレー 10食"
+      ],
+      "primary": "per_serving",
+      "primary_label": "1食あたり",
+      "secondary": "per_100g",
+      "secondary_label": "100gあたり",
+      "intro": "レトルトカレーの容量・食数を確定し、1食あたりで比べます。",
+      "filter_small": "少量",
+      "filter_large": "まとめ買い",
+      "guide": [
+        "内容量とセット数を一意に確認できる商品だけを掲載します。",
+        "送料込みの商品と送料別・送料不明の商品を分けています。",
+        "種類・賞味期限・保管場所は購入前に販売ページで確認してください。"
+      ]
+    },
+    "included": [
+      {
+        "id": "irisplaza-r:10155707",
+        "raw_name": "[500円OFFクーポン/食いしんぼう祭]【時短飯】【公式】パックご飯 カレー セット レトルトご飯 カレー レトルトカレー 200g×10食 4食入り×2個 カレー＆パックご飯セット レトルトご飯 カレー まとめ買い 仕送り",
+        "name": "【時短飯】【公式】パックご飯 カレー セット レトルトご飯 カレー レトルトカレー 200g×10食 4食入り×2個 カレー＆パックご飯セット レトルトご飯 カレー まとめ買い 仕送り",
+        "price": 2980,
+        "shop": "アイリスオーヤマ公式 楽天市場店",
+        "url": "https://hb.afl.rakuten.co.jp/hgc/g00t3zto.7cx6m5be.g00t3zto.7cx6n748/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Firisplaza-r%2F1918596%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Firisplaza-r%2Fi%2F10155707%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
+        "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/irisplaza-r/cabinet/10076930/imgrc0101508681.jpg?_ex=128x128",
+        "postage_included": true,
+        "shipping_status": "included",
+        "quantity": {
+          "count": 80,
+          "component_counts": [
+            10,
+            4,
+            2
+          ],
+          "unit_weight_g": 200.0,
+          "total_weight_g": 16000.0,
+          "confidence": 0.99,
+          "evidence": "200gx10食 4食入りx2個"
+        },
+        "unit_prices": {
+          "per_serving": 37.25,
+          "per_100g": 18.625
+        },
+        "promotion_mentioned": true
+      },
+      {
+        "id": "minamimatumoto:10000316",
+        "raw_name": "明治 のこだわり仕込み 特製ビーフカレー中辛 165g×10食【送料無料】【常温便】 meiji カレー レトルト レトルトカレー 常備食 非常食 まとめ買い ビーフカレー おいしいカレー 香典返し 贈答 イベントレトルトレトルトカレー カレー",
+        "name": "明治 のこだわり仕込み 特製ビーフカレー中辛 165g×10食 【常温便】 meiji カレー レトルト レトルトカレー 常備食 非常食 まとめ買い ビーフカレー おいしいカレー 香典返し 贈答 イベントレトルトレトルトカレー カレー",
+        "price": 3308,
+        "shop": "信濃商店",
+        "url": "https://hb.afl.rakuten.co.jp/hgc/g00st62o.7cx6me88.g00st62o.7cx6n180/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fminamimatumoto%2Fcurry_10%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fminamimatumoto%2Fi%2F10000316%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
+        "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/minamimatumoto/cabinet/05578107/10955781/curry_03.jpg?_ex=128x128",
+        "postage_included": true,
+        "shipping_status": "included",
+        "quantity": {
+          "count": 10,
+          "component_counts": [
+            10
+          ],
+          "unit_weight_g": 165.0,
+          "total_weight_g": 1650.0,
+          "confidence": 0.99,
+          "evidence": "165gx10食"
+        },
+        "unit_prices": {
+          "per_serving": 330.8,
+          "per_100g": 200.4848484848485
+        },
+        "promotion_mentioned": false
+      },
+      {
+        "id": "tokka31:10050330",
+        "raw_name": "【楽天1位】 【3食】淡路牛と淡路島たまねぎカレー 200g×3個入り たまねぎ カレー レトルトカレー 淡路島 玉ねぎ 送料無料 淡路牛 玉葱 セット 通販 ギフト プレゼント 自宅用 家庭用 お取り寄せ",
+        "name": "【楽天1位】 【3食】淡路牛と淡路島たまねぎカレー 200g×3個入り たまねぎ カレー レトルトカレー 淡路島 玉ねぎ 淡路牛 玉葱 セット 通販 ギフト プレゼント 自宅用 家庭用 お取り寄せ",
+        "price": 1650,
+        "shop": "全国産直お取寄せ Tokka -トッカ-",
+        "url": "https://hb.afl.rakuten.co.jp/hgc/g00tarwo.7cx6m5cb.g00tarwo.7cx6n5d6/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Ftokka31%2Fk-imaif-0006%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Ftokka31%2Fi%2F10050330%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
+        "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/tokka31/cabinet/06288698/all-item/k-imaif-0006-100.jpg?_ex=128x128",
+        "postage_included": true,
+        "shipping_status": "included",
+        "quantity": {
+          "count": 3,
+          "component_counts": [
+            3
+          ],
+          "unit_weight_g": 200.0,
+          "total_weight_g": 600.0,
+          "confidence": 0.99,
+          "evidence": "200gx3個入り"
+        },
+        "unit_prices": {
+          "per_serving": 550.0,
+          "per_100g": 275.0
+        },
+        "promotion_mentioned": false
+      }
+    ],
+    "shipping_unknown": [
+      {
+        "id": "onestep:10253781",
+        "raw_name": "ハウス食品 加里屋カレー 辛口 180g×10個 レトルトカレー 洋風 レトルト カレーライス 惣菜 レトルト食品 レトルトパウチ 保存食",
+        "name": "ハウス食品 加里屋カレー 辛口 180g×10個 レトルトカレー 洋風 レトルト カレーライス 惣菜 レトルト食品 レトルトパウチ 保存食",
+        "price": 1706,
+        "shop": "よろずやマルシェ",
+        "url": "https://hb.afl.rakuten.co.jp/hgc/g00prcko.7cx6m1c4.g00prcko.7cx6nf4d/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fonestep%2Fs04845%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fonestep%2Fi%2F10253781%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
+        "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/onestep/cabinet/syoku/syoku12/s04845.jpg?_ex=128x128",
+        "postage_included": false,
+        "shipping_status": "extra_or_unknown",
+        "quantity": {
+          "count": 10,
+          "component_counts": [
+            10
+          ],
+          "unit_weight_g": 180.0,
+          "total_weight_g": 1800.0,
+          "confidence": 0.99,
+          "evidence": "180gx10個"
+        },
+        "unit_prices": {
+          "per_serving": 170.6,
+          "per_100g": 94.77777777777777
+        },
+        "promotion_mentioned": false
+      },
+      {
+        "id": "moonphase:10065157",
+        "raw_name": "送料無料（沖縄離島除く）レトルトカレー 食研カレー/7612 晩餐館 焼肉のたれでお馴染み日本食研 業務用 200gx20食セット/卸 代金引換便不可品",
+        "name": "（沖縄離島除く）レトルトカレー 食研カレー/7612 晩餐館 焼肉のたれでお馴染み日本食研 業務用 200gx20食セット/卸 代金引換便不可品",
+        "price": 5350,
+        "shop": "moonphase",
+        "url": "https://hb.afl.rakuten.co.jp/hgc/g00pv7vo.7cx6mbef.g00pv7vo.7cx6n7e7/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fmoonphase%2F10065157%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fmoonphase%2Fi%2F10065157%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
+        "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/moonphase/cabinet/memori/syokencury20_1.jpg?_ex=128x128",
+        "postage_included": false,
+        "shipping_status": "extra_or_unknown",
+        "quantity": {
+          "count": 20,
+          "component_counts": [
+            20
+          ],
+          "unit_weight_g": 200.0,
+          "total_weight_g": 4000.0,
+          "confidence": 0.99,
+          "evidence": "200gx20食"
+        },
+        "unit_prices": {
+          "per_serving": 267.5,
+          "per_100g": 133.75
+        },
+        "promotion_mentioned": false
+      },
+      {
+        "id": "milkheart:10000685",
+        "raw_name": "送料無料 S＆B ごろごろ北海道野菜のビーフカレー 中辛 200g 10食入×2箱(20食分) エスビー 業務用 レトルトカレー",
+        "name": "S＆B ごろごろ北海道野菜のビーフカレー 中辛 200g 10食入×2箱(20食分) エスビー 業務用 レトルトカレー",
+        "price": 5357,
+        "shop": "みるくはーと",
+        "url": "https://hb.afl.rakuten.co.jp/hgc/g00qzmvo.7cx6mf70.g00qzmvo.7cx6n944/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fmilkheart%2Fsb-yasaimoshikkaricurry2case%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fmilkheart%2Fi%2F10000685%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
+        "image": "https://thumbnail.image.rakuten.co.jp/@0_gold/milkheart/shouhin/sbhokkaidoyasaicurry20set230615.jpg?_ex=128x128",
+        "postage_included": false,
+        "shipping_status": "extra_or_unknown",
+        "quantity": {
+          "count": 20,
+          "component_counts": [
+            10,
+            2
+          ],
+          "unit_weight_g": 200.0,
+          "total_weight_g": 4000.0,
+          "confidence": 0.99,
+          "evidence": "200g 10食入x2箱"
+        },
+        "unit_prices": {
+          "per_serving": 267.85,
+          "per_100g": 133.925
+        },
+        "promotion_mentioned": false
+      },
+      {
+        "id": "awajishima-imaifarm:10000025",
+        "raw_name": "淡路島たまねぎと淡路牛のカレー200g×20個（中辛）＃淡路カレ−20食＃ レトルトカレー 今井ファーム 20個 20食 セット 通販 ギフト プレゼント 自宅用 家庭用 お取り寄せ お取り寄せグルメ おすそ分け 淡路島 玉ねぎ",
+        "name": "淡路島たまねぎと淡路牛のカレー200g×20個（中辛）＃淡路カレ−20食＃ レトルトカレー 今井ファーム 20個 20食 セット 通販 ギフト プレゼント 自宅用 家庭用 お取り寄せ お取り寄せグルメ おすそ分け 淡路島 玉ねぎ",
+        "price": 5500,
+        "shop": "淡路島たまねぎ今井ファーム2号店",
+        "url": "https://hb.afl.rakuten.co.jp/hgc/g00ujcio.7cx6me59.g00ujcio.7cx6n245/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fawajishima-imaifarm%2Fkarei-20%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fawajishima-imaifarm%2Fi%2F10000025%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
+        "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/awajishima-imaifarm/cabinet/curry/curry_20.jpg?_ex=128x128",
+        "postage_included": false,
+        "shipping_status": "extra_or_unknown",
+        "quantity": {
+          "count": 20,
+          "component_counts": [
+            20
+          ],
+          "unit_weight_g": 200.0,
+          "total_weight_g": 4000.0,
+          "confidence": 0.99,
+          "evidence": "200gx20個"
+        },
+        "unit_prices": {
+          "per_serving": 275.0,
+          "per_100g": 137.5
+        },
+        "promotion_mentioned": false
+      },
+      {
+        "id": "imaifarm:10000755",
+        "raw_name": "淡路島たまねぎと淡路牛のカレー200g×20個（中辛）＃淡路カレ−20食＃ レトルトカレー 今井ファーム 20個 20食 セット 通販 ギフト プレゼント 自宅用 家庭用 お取り寄せ お取り寄せグルメ おすそ分け 淡路島 玉ねぎ",
+        "name": "淡路島たまねぎと淡路牛のカレー200g×20個（中辛）＃淡路カレ−20食＃ レトルトカレー 今井ファーム 20個 20食 セット 通販 ギフト プレゼント 自宅用 家庭用 お取り寄せ お取り寄せグルメ おすそ分け 淡路島 玉ねぎ",
+        "price": 5500,
+        "shop": "淡路島たまねぎ 今井ファーム",
+        "url": "https://hb.afl.rakuten.co.jp/hgc/g00ra02o.7cx6mf6e.g00ra02o.7cx6n009/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fimaifarm%2Fkarei-20%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fimaifarm%2Fi%2F10000755%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
+        "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/imaifarm/cabinet/curry/curry_20.jpg?_ex=128x128",
+        "postage_included": false,
+        "shipping_status": "extra_or_unknown",
+        "quantity": {
+          "count": 20,
+          "component_counts": [
+            20
+          ],
+          "unit_weight_g": 200.0,
+          "total_weight_g": 4000.0,
+          "confidence": 0.99,
+          "evidence": "200gx20個"
+        },
+        "unit_prices": {
+          "per_serving": 275.0,
+          "per_100g": 137.5
+        },
+        "promotion_mentioned": false
+      },
+      {
+        "id": "awajishima-imaifarm:10000024",
+        "raw_name": "淡路島たまねぎと淡路牛のカレー200g×10個（中辛）＃淡路カレ−10食＃ カレー 今井ファーム レトルトカレー 10個 10食 セット 通販 ギフト プレゼント 自宅用 家庭用 グルメ レトルト 淡路島 玉ねぎ 送料無料 玉葱",
+        "name": "淡路島たまねぎと淡路牛のカレー200g×10個（中辛）＃淡路カレ−10食＃ カレー 今井ファーム レトルトカレー 10個 10食 セット 通販 ギフト プレゼント 自宅用 家庭用 グルメ レトルト 淡路島 玉ねぎ 玉葱",
+        "price": 3000,
+        "shop": "淡路島たまねぎ今井ファーム2号店",
+        "url": "https://hb.afl.rakuten.co.jp/hgc/g00ujcio.7cx6me59.g00ujcio.7cx6n245/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fawajishima-imaifarm%2Fkarei-10%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fawajishima-imaifarm%2Fi%2F10000024%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
+        "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/awajishima-imaifarm/cabinet/curry/curry_10.jpg?_ex=128x128",
+        "postage_included": false,
+        "shipping_status": "extra_or_unknown",
+        "quantity": {
+          "count": 10,
+          "component_counts": [
+            10
+          ],
+          "unit_weight_g": 200.0,
+          "total_weight_g": 2000.0,
+          "confidence": 0.99,
+          "evidence": "200gx10個"
+        },
+        "unit_prices": {
+          "per_serving": 300.0,
+          "per_100g": 150.0
+        },
+        "promotion_mentioned": false
+      },
+      {
+        "id": "imaifarm:10000754",
+        "raw_name": "淡路島たまねぎと淡路牛のカレー200g×10個（中辛）＃淡路カレ−10食＃ カレー 今井ファーム レトルトカレー 10個 10食 セット 通販 ギフト プレゼント 自宅用 家庭用 グルメ レトルト 淡路島 玉ねぎ 送料無料 玉葱",
+        "name": "淡路島たまねぎと淡路牛のカレー200g×10個（中辛）＃淡路カレ−10食＃ カレー 今井ファーム レトルトカレー 10個 10食 セット 通販 ギフト プレゼント 自宅用 家庭用 グルメ レトルト 淡路島 玉ねぎ 玉葱",
+        "price": 3000,
+        "shop": "淡路島たまねぎ 今井ファーム",
+        "url": "https://hb.afl.rakuten.co.jp/hgc/g00ra02o.7cx6mf6e.g00ra02o.7cx6n009/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fimaifarm%2Fkarei-10%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fimaifarm%2Fi%2F10000754%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
+        "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/imaifarm/cabinet/curry/curry_10.jpg?_ex=128x128",
+        "postage_included": false,
+        "shipping_status": "extra_or_unknown",
+        "quantity": {
+          "count": 10,
+          "component_counts": [
+            10
+          ],
+          "unit_weight_g": 200.0,
+          "total_weight_g": 2000.0,
+          "confidence": 0.99,
+          "evidence": "200gx10個"
+        },
+        "unit_prices": {
+          "per_serving": 300.0,
+          "per_100g": 150.0
+        },
+        "promotion_mentioned": false
+      },
+      {
+        "id": "midorisyoten:10003534",
+        "raw_name": "ご当地カレー 神戸ワインビーフカレー 200g×10食 まとめ買いセット 黒毛和牛 レトルトカレー【送料無料】",
+        "name": "ご当地カレー 神戸ワインビーフカレー 200g×10食 まとめ買いセット 黒毛和牛 レトルトカレー",
+        "price": 6880,
+        "shop": "みどり商店",
+        "url": "https://hb.afl.rakuten.co.jp/hgc/g00td7ko.7cx6m72b.g00td7ko.7cx6nabc/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fmidorisyoten%2F239-003-004-10%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fmidorisyoten%2Fi%2F10003534%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
+        "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/midorisyoten/cabinet/239/239-003-004-10.jpg?_ex=128x128",
+        "postage_included": false,
+        "shipping_status": "extra_or_unknown",
+        "quantity": {
+          "count": 10,
+          "component_counts": [
+            10
+          ],
+          "unit_weight_g": 200.0,
+          "total_weight_g": 2000.0,
+          "confidence": 0.99,
+          "evidence": "200gx10食"
+        },
+        "unit_prices": {
+          "per_serving": 688.0,
+          "per_100g": 344.0
+        },
+        "promotion_mentioned": false
+      }
+    ],
+    "audit": {
+      "fetched": 60,
+      "normalized": 11,
+      "exact_duplicates": 0,
+      "practical_duplicates": 0,
+      "accepted_unique": 11,
+      "included_available": 3,
+      "shipping_unknown_available": 8,
+      "displayed_included": 3,
+      "displayed_shipping_unknown": 8,
+      "reasons": {
+        "ambiguous_quantity": 17,
+        "restricted_or_selectable_product": 31,
+        "wrong_product_type": 1
+      },
+      "cleaned_examples": [
+        {
+          "before": "送料無料（沖縄離島除く）レトルトカレー 食研カレー/7612 晩餐館 焼肉のたれでお馴染み日本食研 業務用 200gx20食セット/卸 代金引換便不可品",
+          "after": "（沖縄離島除く）レトルトカレー 食研カレー/7612 晩餐館 焼肉のたれでお馴染み日本食研 業務用 200gx20食セット/卸 代金引換便不可品"
+        },
+        {
+          "before": "送料無料 S＆B ごろごろ北海道野菜のビーフカレー 中辛 200g 10食入×2箱(20食分) エスビー 業務用 レトルトカレー",
+          "after": "S＆B ごろごろ北海道野菜のビーフカレー 中辛 200g 10食入×2箱(20食分) エスビー 業務用 レトルトカレー"
+        },
+        {
+          "before": "【楽天1位】 【3食】淡路牛と淡路島たまねぎカレー 200g×3個入り たまねぎ カレー レトルトカレー 淡路島 玉ねぎ 送料無料 淡路牛 玉葱 セット 通販 ギフト プレゼント 自宅用 家庭用 お取り寄せ",
+          "after": "【楽天1位】 【3食】淡路牛と淡路島たまねぎカレー 200g×3個入り たまねぎ カレー レトルトカレー 淡路島 玉ねぎ 淡路牛 玉葱 セット 通販 ギフト プレゼント 自宅用 家庭用 お取り寄せ"
+        },
+        {
+          "before": "淡路島たまねぎと淡路牛のカレー200g×10個（中辛）＃淡路カレ−10食＃ カレー 今井ファーム レトルトカレー 10個 10食 セット 通販 ギフト プレゼント 自宅用 家庭用 グルメ レトルト 淡路島 玉ねぎ 送料無料 玉葱",
+          "after": "淡路島たまねぎと淡路牛のカレー200g×10個（中辛）＃淡路カレ−10食＃ カレー 今井ファーム レトルトカレー 10個 10食 セット 通販 ギフト プレゼント 自宅用 家庭用 グルメ レトルト 淡路島 玉ねぎ 玉葱"
+        },
+        {
+          "before": "淡路島たまねぎと淡路牛のカレー200g×10個（中辛）＃淡路カレ−10食＃ カレー 今井ファーム レトルトカレー 10個 10食 セット 通販 ギフト プレゼント 自宅用 家庭用 グルメ レトルト 淡路島 玉ねぎ 送料無料 玉葱",
+          "after": "淡路島たまねぎと淡路牛のカレー200g×10個（中辛）＃淡路カレ−10食＃ カレー 今井ファーム レトルトカレー 10個 10食 セット 通販 ギフト プレゼント 自宅用 家庭用 グルメ レトルト 淡路島 玉ねぎ 玉葱"
+        },
+        {
+          "before": "[500円OFFクーポン/食いしんぼう祭]【時短飯】【公式】パックご飯 カレー セット レトルトご飯 カレー レトルトカレー 200g×10食 4食入り×2個 カレー＆パックご飯セット レトルトご飯 カレー まとめ買い 仕送り",
+          "after": "【時短飯】【公式】パックご飯 カレー セット レトルトご飯 カレー レトルトカレー 200g×10食 4食入り×2個 カレー＆パックご飯セット レトルトご飯 カレー まとめ買い 仕送り"
+        },
+        {
+          "before": "ご当地カレー 神戸ワインビーフカレー 200g×10食 まとめ買いセット 黒毛和牛 レトルトカレー【送料無料】",
+          "after": "ご当地カレー 神戸ワインビーフカレー 200g×10食 まとめ買いセット 黒毛和牛 レトルトカレー"
+        },
+        {
+          "before": "明治 のこだわり仕込み 特製ビーフカレー中辛 165g×10食【送料無料】【常温便】 meiji カレー レトルト レトルトカレー 常備食 非常食 まとめ買い ビーフカレー おいしいカレー 香典返し 贈答 イベントレトルトレトルトカレー カレー",
+          "after": "明治 のこだわり仕込み 特製ビーフカレー中辛 165g×10食 【常温便】 meiji カレー レトルト レトルトカレー 常備食 非常食 まとめ買い ビーフカレー おいしいカレー 香典返し 贈答 イベントレトルトレトルトカレー カレー"
+        }
+      ],
+      "rejection_samples": {
+        "ambiguous_quantity": [
+          "デカ盛り ハンバーグカレー レトルトカレー 国産鶏肉 使用 200g 1人前 × 20食セット 中辛 ボリューム満点 電子レンジ 簡単調理",
+          "ニチレイ　ビーフカレー中辛200g 20食(5食入×4パック) レストランユース レトルトカレー 業務用◇保存食 非常食 キャンプ用にも 関東近県送料無料 ◎",
+          "送料無料（北海道沖縄離島除く）レトルトカレー こってり濃厚カレー ビーフカレー 中辛 x20食セット ハチ食品"
+        ],
+        "restricted_or_selectable_product": [
+          "【ふるさと納税】飛騨牛カレー20個セット(200g×20食)冷凍食品　レトルトカレー_ 飛騨牛 カレー レトルト 冷凍 美味しい 常備用 ストック お取り寄せ グルメ 岐阜県 送料無料 【配送不可地域：離島】【1304876】",
+          "調味商事 横須賀海軍カレー レトルトカレー 詰め合わせ 200g 中辛 5食 7食 10食 15食 20食 箱無し ご当地 敬老の日 ギフト プレゼント まとめ買い 自宅用 レトルト食品 業務用 防災 常温保存 非常食 カタログギフト 備蓄 インスタント 食べ比べ 福袋 ミリメシ",
+          "【ふるさと納税】レトルト レトルトカレー カレー ご当地カレー 牛丼 シチュー ビーフシチュー 千屋牛 4種 20食 詰め合わせ 食べ比べ セット 牛肉 和牛 ブランド牛 黒毛和牛 おすすめ 美味しい 人気 一人暮らし 常温 贅沢 キャンプ 簡単 手軽 アウトドア A5 白桃 ピオーネ"
+        ],
+        "wrong_product_type": [
+          "【送料無料】10人前 金沢カレー チャンピオンカレー × てらおか風舎　能登牛カレー レトルトカレー 10食 / カレー カレールゥ ルー 濃厚 おいしい レトルト"
+        ]
+      }
+    }
+  },
+  "bag-noodles": {
+    "category": {
+      "id": "bag-noodles",
+      "name": "袋麺",
+      "emoji": "🍜",
+      "queries": [
+        "袋麺 5食 6袋",
+        "インスタントラーメン 5食 6袋",
+        "袋麺 30食"
+      ],
+      "primary": "per_serving",
+      "primary_label": "1食あたり",
+      "secondary": null,
+      "secondary_label": null,
+      "intro": "袋麺の容量・食数を確定し、1食あたりで比べます。",
+      "filter_small": "少量",
+      "filter_large": "まとめ買い",
+      "guide": [
+        "内容量とセット数を一意に確認できる商品だけを掲載します。",
+        "送料込みの商品と送料別・送料不明の商品を分けています。",
+        "種類・賞味期限・保管場所は購入前に販売ページで確認してください。"
+      ]
+    },
+    "included": [
+      {
+        "id": "e-sbfoods:10001037",
+        "raw_name": "【公式】 S&B けんちんうどん 袋麺 30食入 送料無料 ケース販売 エスビー食品 SB うどん うどんセット 麺 インスタント 煮込み 通販商品 数量限定 ギフト お歳暮",
+        "name": "【公式】 S&B けんちんうどん 袋麺 30食入 ケース販売 エスビー食品 SB うどん うどんセット 麺 インスタント 煮込み 通販商品 数量限定 ギフト お歳暮",
+        "price": 4309,
+        "shop": "エスビー食品公式 楽天市場店",
+        "url": "https://hb.afl.rakuten.co.jp/hgc/g00prhgo.7cx6m29b.g00prhgo.7cx6n609/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fe-sbfoods%2F02082%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fe-sbfoods%2Fi%2F10001037%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
+        "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/e-sbfoods/cabinet/goods/home/110prev_main/02082.jpg?_ex=128x128",
+        "postage_included": true,
+        "shipping_status": "included",
+        "quantity": {
+          "count": 30,
+          "component_counts": [
+            30
+          ],
+          "confidence": 0.99,
+          "evidence": "30食入"
+        },
+        "unit_prices": {
+          "per_serving": 143.63333333333333
+        },
+        "promotion_mentioned": false
+      },
+      {
+        "id": "e-sbfoods:10001226",
+        "raw_name": "【公式】 S&B カレーうどん ほどよい辛さ 袋麺 30食入 送料無料 ケース販売 エスビー食品 SB うどん うどんセット 麺 インスタント 煮込み 通販商品 数量限定 ギフト お歳暮",
+        "name": "【公式】 S&B カレーうどん ほどよい辛さ 袋麺 30食入 ケース販売 エスビー食品 SB うどん うどんセット 麺 インスタント 煮込み 通販商品 数量限定 ギフト お歳暮",
+        "price": 4309,
+        "shop": "エスビー食品公式 楽天市場店",
+        "url": "https://hb.afl.rakuten.co.jp/hgc/g00prhgo.7cx6m29b.g00prhgo.7cx6n609/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fe-sbfoods%2F166150%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fe-sbfoods%2Fi%2F10001226%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
+        "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/e-sbfoods/cabinet/goods/home/110prev_main/02083.jpg?_ex=128x128",
+        "postage_included": true,
+        "shipping_status": "included",
+        "quantity": {
+          "count": 30,
+          "component_counts": [
+            30
+          ],
+          "confidence": 0.99,
+          "evidence": "30食入"
+        },
+        "unit_prices": {
+          "per_serving": 143.63333333333333
+        },
+        "promotion_mentioned": false
+      },
+      {
+        "id": "946airport:10001839",
+        "raw_name": "送料込　東洋水産　マルちゃん　スープカレーラーメン　5食入×6袋　インスタントラーメン　即席らーめん　乾麵　お取り寄せ",
+        "name": "送料込 東洋水産 マルちゃん スープカレーラーメン 5食入×6袋 インスタントラーメン 即席らーめん 乾麵 お取り寄せ",
+        "price": 5000,
+        "shop": "たんばや 釧路空港店",
+        "url": "https://hb.afl.rakuten.co.jp/hgc/g00s6yko.7cx6m807.g00s6yko.7cx6n853/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2F946airport%2Fsupuramen%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2F946airport%2Fi%2F10001839%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
+        "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/946airport/cabinet/imgrc0081744720.jpg?_ex=128x128",
+        "postage_included": true,
+        "shipping_status": "included",
+        "quantity": {
+          "count": 30,
+          "component_counts": [
+            5,
+            6
+          ],
+          "confidence": 0.99,
+          "evidence": "5食入x6袋"
+        },
+        "unit_prices": {
+          "per_serving": 166.66666666666666
+        },
+        "promotion_mentioned": false
+      }
+    ],
+    "shipping_unknown": [
+      {
+        "id": "auc-hiroshimaya:10005664",
+        "raw_name": "【コスパ最強】【袋麺30食特集】 格安 味のスナオシ 袋麺(サッポロラーメン・タンメン・味噌・焼きそばなど) アソート30食 セット 関東圏送料無料",
+        "name": "【コスパ最強】【袋麺30食特集】 格安 味のスナオシ 袋麺(サッポロラーメン・タンメン・味噌・焼きそばなど) アソート30食 セット 関東圏送料無料",
+        "price": 2780,
+        "shop": "広島屋",
+        "url": "https://hb.afl.rakuten.co.jp/hgc/g00qzlio.7cx6mcdc.g00qzlio.7cx6n759/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fauc-hiroshimaya%2F9920181026-2%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fauc-hiroshimaya%2Fi%2F10005664%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
+        "image": "https://thumbnail.image.rakuten.co.jp/@0_gold/auc-hiroshimaya/test/4-fukiromen-sunaoshi-840-1-az.gif?_ex=128x128",
+        "postage_included": false,
+        "shipping_status": "extra_or_unknown",
+        "quantity": {
+          "count": 30,
+          "component_counts": [
+            30
+          ],
+          "confidence": 0.99,
+          "evidence": "30食"
+        },
+        "unit_prices": {
+          "per_serving": 92.66666666666667
+        },
+        "promotion_mentioned": false
+      },
+      {
+        "id": "auc-hiroshimaya:10005818",
+        "raw_name": "【袋麺】【備蓄・保存用に最適】袋ラーメン30食セットサンヨー食品 VS 山本製粉 旅麺 博多豚骨ラーメン 喜多方ラーメン 札幌味噌ラーメン まとめ買いで家計応援！関東圏送料無料",
+        "name": "【袋麺】【備蓄・保存用に最適】袋ラーメン30食セットサンヨー食品 VS 山本製粉 旅麺 博多豚骨ラーメン 喜多方ラーメン 札幌味噌ラーメン まとめ買いで家計応援！関東圏送料無料",
+        "price": 2980,
+        "shop": "広島屋",
+        "url": "https://hb.afl.rakuten.co.jp/hgc/g00qzlio.7cx6mcdc.g00qzlio.7cx6n759/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fauc-hiroshimaya%2F9920200610-1%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fauc-hiroshimaya%2Fi%2F10005818%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
+        "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/auc-hiroshimaya/cabinet/11568590/4-9920200610-1-1-az.gif?_ex=128x128",
+        "postage_included": false,
+        "shipping_status": "extra_or_unknown",
+        "quantity": {
+          "count": 30,
+          "component_counts": [
+            30
+          ],
+          "confidence": 0.99,
+          "evidence": "30食"
+        },
+        "unit_prices": {
+          "per_serving": 99.33333333333333
+        },
+        "promotion_mentioned": false
+      },
+      {
+        "id": "auc-hiroshimaya:10006328",
+        "raw_name": "【袋麺30食特集】 ポンポコ 山本製粉 袋ラーメン 味噌・塩・醤油・魚介豚骨 ソース焼きそば・激辛ラーメン イトメン 魚介と野菜のおだしラーメン 関東圏送料無料",
+        "name": "【袋麺30食特集】 ポンポコ 山本製粉 袋ラーメン 味噌・塩・醤油・魚介豚骨 ソース焼きそば・激辛ラーメン イトメン 魚介と野菜のおだしラーメン 関東圏送料無料",
+        "price": 2980,
+        "shop": "広島屋",
+        "url": "https://hb.afl.rakuten.co.jp/hgc/g00qzlio.7cx6mcdc.g00qzlio.7cx6n759/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fauc-hiroshimaya%2F9920230508-1%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fauc-hiroshimaya%2Fi%2F10006328%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
+        "image": "https://thumbnail.image.rakuten.co.jp/@0_gold/auc-hiroshimaya/test/fukuromen30p-yamamoto-itomen-1-az.gif?_ex=128x128",
+        "postage_included": false,
+        "shipping_status": "extra_or_unknown",
+        "quantity": {
+          "count": 30,
+          "component_counts": [
+            30
+          ],
+          "confidence": 0.99,
+          "evidence": "30食"
+        },
+        "unit_prices": {
+          "per_serving": 99.33333333333333
+        },
+        "promotion_mentioned": false
+      },
+      {
+        "id": "auc-hiroshimaya:10006026",
+        "raw_name": "【袋麺】【関東圏送料無料】ラーメン好き必見！インスタントラーメン ー災害時に役立つ袋麺30食セット チャンポン麺で人気のイトメンイチ押し",
+        "name": "【袋麺】【関東圏送料無料】ラーメン好き必見！インスタントラーメン ー災害時に役立つ袋麺30食セット チャンポン麺で人気のイトメンイチ押し",
+        "price": 3240,
+        "shop": "広島屋",
+        "url": "https://hb.afl.rakuten.co.jp/hgc/g00qzlio.7cx6mcdc.g00qzlio.7cx6n759/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fauc-hiroshimaya%2F9920220629-1%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fauc-hiroshimaya%2Fi%2F10006026%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
+        "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/auc-hiroshimaya/cabinet/11568590/4-9920220629-1-1-az.gif?_ex=128x128",
+        "postage_included": false,
+        "shipping_status": "extra_or_unknown",
+        "quantity": {
+          "count": 30,
+          "component_counts": [
+            30
+          ],
+          "confidence": 0.99,
+          "evidence": "30食"
+        },
+        "unit_prices": {
+          "per_serving": 108.0
+        },
+        "promotion_mentioned": false
+      },
+      {
+        "id": "auc-hiroshimaya:10006072",
+        "raw_name": "【袋麺】 【袋麺30食特集】日清食品 ラーメン屋さん 札幌みそ 旭川醤油 函館しお 明星食品評判屋 重ねだし 味噌・塩・豚骨・しょうゆ 関東圏送料無料",
+        "name": "【袋麺】 【袋麺30食特集】日清食品 ラーメン屋さん 札幌みそ 旭川醤油 函館しお 明星食品評判屋 重ねだし 味噌・塩・豚骨・しょうゆ 関東圏送料無料",
+        "price": 3240,
+        "shop": "広島屋",
+        "url": "https://hb.afl.rakuten.co.jp/hgc/g00qzlio.7cx6mcdc.g00qzlio.7cx6n759/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fauc-hiroshimaya%2F9920220829-2%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fauc-hiroshimaya%2Fi%2F10006072%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
+        "image": "https://thumbnail.image.rakuten.co.jp/@0_gold/auc-hiroshimaya/test/296men30p-nissinhyoubanya-1-az.gif?_ex=128x128",
+        "postage_included": false,
+        "shipping_status": "extra_or_unknown",
+        "quantity": {
+          "count": 30,
+          "component_counts": [
+            30
+          ],
+          "confidence": 0.99,
+          "evidence": "30食"
+        },
+        "unit_prices": {
+          "per_serving": 108.0
+        },
+        "promotion_mentioned": false
+      },
+      {
+        "id": "kumano-nakatani:10058222",
+        "raw_name": "【サンヨー食品】サッポロ一番 みそラーメン 袋麺 5食入×6袋(30食) 箱買い まとめ買い",
+        "name": "【サンヨー食品】サッポロ一番 みそラーメン 袋麺 5食入×6袋(30食) 箱買い まとめ買い",
+        "price": 3408,
+        "shop": "くまの中谷商店",
+        "url": "https://hb.afl.rakuten.co.jp/hgc/g00rg0ao.7cx6m577.g00rg0ao.7cx6ne2e/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fkumano-nakatani%2F4901734000198-6%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fkumano-nakatani%2Fi%2F10058222%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
+        "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/kumano-nakatani/cabinet/ikkatu1/11117447/4901734000198-6.jpg?_ex=128x128",
+        "postage_included": false,
+        "shipping_status": "extra_or_unknown",
+        "quantity": {
+          "count": 30,
+          "component_counts": [
+            5,
+            6
+          ],
+          "confidence": 0.99,
+          "evidence": "5食入x6袋"
+        },
+        "unit_prices": {
+          "per_serving": 113.6
+        },
+        "promotion_mentioned": false
+      },
+      {
+        "id": "kumano-nakatani:10059996",
+        "raw_name": "【サンヨー食品】サッポロ一番 塩らーめん 袋麺 5食入×6袋(30食) 箱買い まとめ買い",
+        "name": "【サンヨー食品】サッポロ一番 塩らーめん 袋麺 5食入×6袋(30食) 箱買い まとめ買い",
+        "price": 3408,
+        "shop": "くまの中谷商店",
+        "url": "https://hb.afl.rakuten.co.jp/hgc/g00rg0ao.7cx6m577.g00rg0ao.7cx6ne2e/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fkumano-nakatani%2F4901734000280-6%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fkumano-nakatani%2Fi%2F10059996%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
+        "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/kumano-nakatani/cabinet/ikkatu1/11117447/4901734000280-6.jpg?_ex=128x128",
+        "postage_included": false,
+        "shipping_status": "extra_or_unknown",
+        "quantity": {
+          "count": 30,
+          "component_counts": [
+            5,
+            6
+          ],
+          "confidence": 0.99,
+          "evidence": "5食入x6袋"
+        },
+        "unit_prices": {
+          "per_serving": 113.6
+        },
+        "promotion_mentioned": false
+      },
+      {
+        "id": "kumano-nakatani:10000836",
+        "raw_name": "【エースコック】ワンタンメン 95g×5食入×6袋(30食) 袋麺",
+        "name": "【エースコック】ワンタンメン 95g×5食入×6袋(30食) 袋麺",
+        "price": 4188,
+        "shop": "くまの中谷商店",
+        "url": "https://hb.afl.rakuten.co.jp/hgc/g00rg0ao.7cx6m577.g00rg0ao.7cx6ne2e/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fkumano-nakatani%2F4901071199012%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fkumano-nakatani%2Fi%2F10000836%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
+        "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/kumano-nakatani/cabinet/ikkatu1/11375203/4901071199012-6.jpg?_ex=128x128",
+        "postage_included": false,
+        "shipping_status": "extra_or_unknown",
+        "quantity": {
+          "count": 30,
+          "component_counts": [
+            5,
+            6
+          ],
+          "confidence": 0.99,
+          "evidence": "5食入x6袋"
+        },
+        "unit_prices": {
+          "per_serving": 139.6
+        },
+        "promotion_mentioned": false
+      }
+    ],
+    "audit": {
+      "fetched": 60,
+      "normalized": 11,
+      "exact_duplicates": 0,
+      "practical_duplicates": 0,
+      "accepted_unique": 11,
+      "included_available": 3,
+      "shipping_unknown_available": 8,
+      "displayed_included": 3,
+      "displayed_shipping_unknown": 8,
+      "reasons": {
+        "wrong_product_type": 21,
+        "restricted_or_selectable_product": 20,
+        "ambiguous_quantity": 8
+      },
+      "cleaned_examples": [
+        {
+          "before": "送料込　東洋水産　マルちゃん　スープカレーラーメン　5食入×6袋　インスタントラーメン　即席らーめん　乾麵　お取り寄せ",
+          "after": "送料込 東洋水産 マルちゃん スープカレーラーメン 5食入×6袋 インスタントラーメン 即席らーめん 乾麵 お取り寄せ"
+        },
+        {
+          "before": "【公式】 S&B カレーうどん ほどよい辛さ 袋麺 30食入 送料無料 ケース販売 エスビー食品 SB うどん うどんセット 麺 インスタント 煮込み 通販商品 数量限定 ギフト お歳暮",
+          "after": "【公式】 S&B カレーうどん ほどよい辛さ 袋麺 30食入 ケース販売 エスビー食品 SB うどん うどんセット 麺 インスタント 煮込み 通販商品 数量限定 ギフト お歳暮"
+        },
+        {
+          "before": "【公式】 S&B けんちんうどん 袋麺 30食入 送料無料 ケース販売 エスビー食品 SB うどん うどんセット 麺 インスタント 煮込み 通販商品 数量限定 ギフト お歳暮",
+          "after": "【公式】 S&B けんちんうどん 袋麺 30食入 ケース販売 エスビー食品 SB うどん うどんセット 麺 インスタント 煮込み 通販商品 数量限定 ギフト お歳暮"
+        }
+      ],
+      "rejection_samples": {
+        "wrong_product_type": [
+          "徳島製粉 金ちゃんらーめん 5食パック×6袋入｜ 送料無料 インスタントラーメン 徳島ラーメン 醤油味 袋麺 昔ながら ご当地ラーメン 旨味 人気",
+          "徳島製粉 金ちゃん 徳島らーめん 5食パック×6袋入｜ 送料無料 インスタントラーメン 徳島ラーメン 醤油味 袋麺 昔ながら ご当地ラーメン 旨味 人気",
+          "徳島製粉 金ちゃん 徳島らーめん 5食パック×6袋入｜ 送料無料 インスタントラーメン 徳島ラーメン 醤油味 袋麺 昔ながら ご当地ラーメン 旨味 人気"
+        ],
+        "restricted_or_selectable_product": [
+          "【ふるさと納税】屋台ラーメン とんこつ味 袋入 5食×6袋 合計30食分 合計30袋 ラーメン 即席麺 豚骨 豚骨スープ 細麺 保存食 インスタントラーメン マルタイ 送料無料",
+          "【選べる3ケース（18袋）送料無料】選べる ヤムヤム タイラーメンセット 60〜70g×18袋（1袋に5食入り）※1ケース（6袋）毎にお選びいただけます＜ラーメン＞※沖縄県は送料無料対象外インスタントラーメン[T.1454.10.SE]",
+          "【ふるさと納税】A154 元祖長浜屋協力 豚骨ラーメン 袋入 (5食×6袋) 合計30食分 合計30袋 ラーメン 即席麺 ノンフライめん 豚骨 豚骨スープ 細麺 保存食 インスタントラーメン マルタイ 送料無料"
+        ],
+        "ambiguous_quantity": [
+          "一幸舎監修 豚骨ラーメン 袋麺 5食入6袋2箱 インスタントラーメン 簡単調理 ラーメン 軽食 昼食 夜食 とんこつ ノンフライめん とんこつラーメン 元祖泡系 博多 本格 濃いめ 豚骨スープ",
+          "とんこつラーメン うまかっちゃん ハウス食品 濃厚新味 30食 大容量 ケース買い 地域限定 特製細カタ 濃厚スープ 豚骨ラーメン インスタントラーメン アレンジレシピ 焼きラーメン そばめし 5食パック 6袋 一人暮らし 仕送り ポスト投函 送料無料",
+          "マルちゃん 屋台十八番みそ 95g×5食入 6袋セット 1ケース 北海道限定 送料無料 乾燥麺 袋麺 即席麺 あきのこない味 インスタントラーメン バレンタイン"
+        ]
+      }
+    }
+  },
+  "cup-noodles": {
+    "category": {
+      "id": "cup-noodles",
+      "name": "カップ麺",
+      "emoji": "🍜",
+      "queries": [
+        "カップ麺 12個",
+        "カップヌードル 20個",
+        "カップラーメン 12個"
+      ],
+      "primary": "per_serving",
+      "primary_label": "1食あたり",
+      "secondary": null,
+      "secondary_label": null,
+      "intro": "カップ麺の容量・食数を確定し、1食あたりで比べます。",
+      "filter_small": "少量",
+      "filter_large": "まとめ買い",
+      "guide": [
+        "内容量とセット数を一意に確認できる商品だけを掲載します。",
+        "送料込みの商品と送料別・送料不明の商品を分けています。",
+        "種類・賞味期限・保管場所は購入前に販売ページで確認してください。"
+      ]
+    },
+    "included": [
+      {
+        "id": "auc-syoku:10022860",
+        "raw_name": "ユッケジャン カップラーメン 12個 農心 韓国ラーメン",
+        "name": "ユッケジャン カップラーメン 12個 農心 韓国ラーメン",
+        "price": 2240,
+        "shop": "食卓応援隊",
+        "url": "https://hb.afl.rakuten.co.jp/hgc/g00r4udo.7cx6mf9a.g00r4udo.7cx6nf2b/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fauc-syoku%2F10001981b%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fauc-syoku%2Fi%2F10022860%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
+        "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/auc-syoku/cabinet/02049869/men/yukkejyangcup12.jpg?_ex=128x128",
+        "postage_included": true,
+        "shipping_status": "included",
+        "quantity": {
+          "count": 12,
+          "component_counts": [
+            12
+          ],
+          "confidence": 0.99,
+          "evidence": "12個"
+        },
+        "unit_prices": {
+          "per_serving": 186.66666666666666
+        },
+        "promotion_mentioned": false
+      },
+      {
+        "id": "okusuya:10001907",
+        "raw_name": "日清 カップヌードル 77g×20個入×1ケース",
+        "name": "日清 カップヌードル 77g×20個入×1ケース",
+        "price": 4630,
+        "shop": "大楠屋ストア楽天市場店",
+        "url": "https://hb.afl.rakuten.co.jp/hgc/g00s57qo.7cx6m848.g00s57qo.7cx6nc51/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fokusuya%2F0000049698626%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fokusuya%2Fi%2F10001907%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
+        "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/okusuya/cabinet/10998762/49698626.jpg?_ex=128x128",
+        "postage_included": true,
+        "shipping_status": "included",
+        "quantity": {
+          "count": 20,
+          "component_counts": [
+            20,
+            1
+          ],
+          "confidence": 0.99,
+          "evidence": "20個入x1ケース"
+        },
+        "unit_prices": {
+          "per_serving": 231.5
+        },
+        "promotion_mentioned": false
+      },
+      {
+        "id": "okusuya:10023713",
+        "raw_name": "日清 カップヌードル チリトマトヌードル 76g×20個入×1ケース ※送料無料 日清 カップヌードル チリトマトヌードル",
+        "name": "日清 カップヌードル チリトマトヌードル 76g×20個入×1ケース ※送料無料 日清 カップヌードル チリトマトヌードル",
+        "price": 4630,
+        "shop": "大楠屋ストア楽天市場店",
+        "url": "https://hb.afl.rakuten.co.jp/hgc/g00s57qo.7cx6m848.g00s57qo.7cx6nc51/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fokusuya%2F4902105242414%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fokusuya%2Fi%2F10023713%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
+        "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/okusuya/cabinet/mail/11831093/4902105242414.jpg?_ex=128x128",
+        "postage_included": true,
+        "shipping_status": "included",
+        "quantity": {
+          "count": 20,
+          "component_counts": [
+            20,
+            1
+          ],
+          "confidence": 0.99,
+          "evidence": "20個入x1ケース"
+        },
+        "unit_prices": {
+          "per_serving": 231.5
+        },
+        "promotion_mentioned": false
+      },
+      {
+        "id": "kaumall:10034020",
+        "raw_name": "日清食品 カップヌードル　20個入",
+        "name": "日清食品 カップヌードル 20個入",
+        "price": 4679,
+        "shop": "カウモール",
+        "url": "https://hb.afl.rakuten.co.jp/hgc/g00qsfto.7cx6m3b9.g00qsfto.7cx6n6e1/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fkaumall%2F52095597%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fkaumall%2Fi%2F10034020%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
+        "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/kaumall/cabinet/500_287/a0159731sl.jpg?_ex=128x128",
+        "postage_included": true,
+        "shipping_status": "included",
+        "quantity": {
+          "count": 20,
+          "component_counts": [
+            20
+          ],
+          "confidence": 0.99,
+          "evidence": "20個入"
+        },
+        "unit_prices": {
+          "per_serving": 233.95
+        },
+        "promotion_mentioned": false
+      },
+      {
+        "id": "kaumall:10034021",
+        "raw_name": "日清食品 カップヌードル　シーフードヌードル　20個入",
+        "name": "日清食品 カップヌードル シーフードヌードル 20個入",
+        "price": 4679,
+        "shop": "カウモール",
+        "url": "https://hb.afl.rakuten.co.jp/hgc/g00qsfto.7cx6m3b9.g00qsfto.7cx6n6e1/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fkaumall%2F52095603%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fkaumall%2Fi%2F10034021%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
+        "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/kaumall/cabinet/500_287/a0159741sl.jpg?_ex=128x128",
+        "postage_included": true,
+        "shipping_status": "included",
+        "quantity": {
+          "count": 20,
+          "component_counts": [
+            20
+          ],
+          "confidence": 0.99,
+          "evidence": "20個入"
+        },
+        "unit_prices": {
+          "per_serving": 233.95
+        },
+        "promotion_mentioned": false
+      },
+      {
+        "id": "kusuriaoki-r:10016845",
+        "raw_name": "カップヌードル　シーフードヌードル×20個",
+        "name": "カップヌードル シーフードヌードル×20個",
+        "price": 4740,
+        "shop": "クスリのアオキ楽天市場店",
+        "url": "https://hb.afl.rakuten.co.jp/hgc/g00ty7vo.7cx6m54c.g00ty7vo.7cx6n6e1/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fkusuriaoki-r%2F60000000000169%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fkusuriaoki-r%2Fi%2F10016845%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
+        "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/kusuriaoki-r/cabinet/pic2299/60000000000169_1.jpg?_ex=128x128",
+        "postage_included": true,
+        "shipping_status": "included",
+        "quantity": {
+          "count": 20,
+          "component_counts": [
+            20
+          ],
+          "confidence": 0.99,
+          "evidence": "20個"
+        },
+        "unit_prices": {
+          "per_serving": 237.0
+        },
+        "promotion_mentioned": false
+      },
+      {
+        "id": "alude:10014033",
+        "raw_name": "日清食品 カップヌードル 20個 ラーメン カップ麺 インスタント麺 即席麺 麺類 カップラーメン インスタントラーメン『送料無料（一部地域除く）』",
+        "name": "日清食品 カップヌードル 20個 ラーメン カップ麺 インスタント麺 即席麺 麺類 カップラーメン インスタントラーメン『送料無料（一部地域除く）』",
+        "price": 4924,
+        "shop": "ドラッグスーパー alude",
+        "url": "https://hb.afl.rakuten.co.jp/hgc/g00ry8xo.7cx6mfcd.g00ry8xo.7cx6n017/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Falude%2Fs00383%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Falude%2Fi%2F10014033%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
+        "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/alude/cabinet/syoku/syoku03/s00383.jpg?_ex=128x128",
+        "postage_included": true,
+        "shipping_status": "included",
+        "quantity": {
+          "count": 20,
+          "component_counts": [
+            20
+          ],
+          "confidence": 0.99,
+          "evidence": "20個"
+        },
+        "unit_prices": {
+          "per_serving": 246.2
+        },
+        "promotion_mentioned": false
+      },
+      {
+        "id": "onestep:10000818",
+        "raw_name": "日清食品 カップヌードル 20個 ラーメン カップ麺 インスタント麺 即席麺 麺類 カップラーメン インスタントラーメン『送料無料（一部地域除く）』",
+        "name": "日清食品 カップヌードル 20個 ラーメン カップ麺 インスタント麺 即席麺 麺類 カップラーメン インスタントラーメン『送料無料（一部地域除く）』",
+        "price": 4924,
+        "shop": "よろずやマルシェ",
+        "url": "https://hb.afl.rakuten.co.jp/hgc/g00prcko.7cx6m1c4.g00prcko.7cx6nf4d/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fonestep%2Fs00383%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fonestep%2Fi%2F10000818%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
+        "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/onestep/cabinet/syoku/syoku03/s00383.jpg?_ex=128x128",
+        "postage_included": true,
+        "shipping_status": "included",
+        "quantity": {
+          "count": 20,
+          "component_counts": [
+            20
+          ],
+          "confidence": 0.99,
+          "evidence": "20個"
+        },
+        "unit_prices": {
+          "per_serving": 246.2
+        },
+        "promotion_mentioned": false
+      },
+      {
+        "id": "onestep:10000819",
+        "raw_name": "日清食品 シーフードヌードル 20個 ラーメン カップ麺 インスタント麺 即席麺 麺類 カップラーメン インスタントラーメン『送料無料（一部地域除く）』",
+        "name": "日清食品 シーフードヌードル 20個 ラーメン カップ麺 インスタント麺 即席麺 麺類 カップラーメン インスタントラーメン『送料無料（一部地域除く）』",
+        "price": 4924,
+        "shop": "よろずやマルシェ",
+        "url": "https://hb.afl.rakuten.co.jp/hgc/g00prcko.7cx6m1c4.g00prcko.7cx6nf4d/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fonestep%2Fs00384%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fonestep%2Fi%2F10000819%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
+        "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/onestep/cabinet/syoku/syoku03/s00384.jpg?_ex=128x128",
+        "postage_included": true,
+        "shipping_status": "included",
+        "quantity": {
+          "count": 20,
+          "component_counts": [
+            20
+          ],
+          "confidence": 0.99,
+          "evidence": "20個"
+        },
+        "unit_prices": {
+          "per_serving": 246.2
+        },
+        "promotion_mentioned": false
+      },
+      {
+        "id": "seicomart:10000756",
+        "raw_name": "セイコーマート Secoma 辛味噌ラーメン セコマ せいこーまーと せこま カップ麺 12個入 辛味噌 味噌ラーメン 札幌 濃厚 送料無料 ケース",
+        "name": "セイコーマート Secoma 辛味噌ラーメン セコマ せいこーまーと せこま カップ麺 12個入 辛味噌 味噌ラーメン 札幌 濃厚 ケース",
+        "price": 3011,
+        "shop": "セイコーマート楽天市場店",
+        "url": "https://hb.afl.rakuten.co.jp/hgc/g00tjbco.7cx6m5ed.g00tjbco.7cx6n60b/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fseicomart%2F724500000001%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fseicomart%2Fi%2F10000756%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
+        "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/seicomart/cabinet/4985908851038-1.jpg?_ex=128x128",
+        "postage_included": true,
+        "shipping_status": "included",
+        "quantity": {
+          "count": 12,
+          "component_counts": [
+            12
+          ],
+          "confidence": 0.99,
+          "evidence": "12個入"
+        },
+        "unit_prices": {
+          "per_serving": 250.91666666666666
+        },
+        "promotion_mentioned": false
+      },
+      {
+        "id": "tokyotmkshop:10019348",
+        "raw_name": "どん兵衛 きつねうどん (東) 日清食品 カップ麺 96g×12個 　送料無料",
+        "name": "どん兵衛 きつねうどん (東) 日清食品 カップ麺 96g×12個",
+        "price": 3167,
+        "shop": "Larutan",
+        "url": "https://hb.afl.rakuten.co.jp/hgc/g00sza4o.7cx6mad4.g00sza4o.7cx6n518/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Ftokyotmkshop%2Fla060c671835%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Ftokyotmkshop%2Fi%2F10019348%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
+        "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/tokyotmkshop/cabinet/onesell974/la060c671835.jpg?_ex=128x128",
+        "postage_included": true,
+        "shipping_status": "included",
+        "quantity": {
+          "count": 12,
+          "component_counts": [
+            12
+          ],
+          "confidence": 0.99,
+          "evidence": "12個"
+        },
+        "unit_prices": {
+          "per_serving": 263.9166666666667
+        },
+        "promotion_mentioned": false
+      },
+      {
+        "id": "nagurashoji:10001639",
+        "raw_name": "日清食品 カップヌードル 欧風チーズカレー [ビーフの味わい欧風仕立て] 日清食品 カップ麺 85g ×12個",
+        "name": "日清食品 カップヌードル 欧風チーズカレー [ビーフの味わい欧風仕立て] 日清食品 カップ麺 85g ×12個",
+        "price": 3480,
+        "shop": "名倉商事",
+        "url": "https://hb.afl.rakuten.co.jp/hgc/g00uat1o.7cx6m2a0.g00uat1o.7cx6n10f/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fnagurashoji%2F3854%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fnagurashoji%2Fi%2F10001639%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
+        "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/nagurashoji/cabinet/goq001/1428_1.jpg?_ex=128x128",
+        "postage_included": true,
+        "shipping_status": "included",
+        "quantity": {
+          "count": 12,
+          "component_counts": [
+            12
+          ],
+          "confidence": 0.99,
+          "evidence": "12個"
+        },
+        "unit_prices": {
+          "per_serving": 290.0
+        },
+        "promotion_mentioned": false
+      },
+      {
+        "id": "sese-koreachiba:10007273",
+        "raw_name": "[全国送料無料]農心 辛ラーメン トゥーンバ カップ麺 113g 12個 箱売り 1BOX / クリームパスタ風焼きそば 韓国ラーメン",
+        "name": "[全国送料無料]農心 辛ラーメン トゥーンバ カップ麺 113g 12個 箱売り 1BOX / クリームパスタ風焼きそば 韓国ラーメン",
+        "price": 3660,
+        "shop": "韓国フリーマー",
+        "url": "https://hb.afl.rakuten.co.jp/hgc/g00ssfqo.7cx6m80d.g00ssfqo.7cx6n459/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fsese-koreachiba%2F51329-16%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fsese-koreachiba%2Fi%2F10007273%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
+        "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/sese-koreachiba/cabinet/05470673/51329-12.jpg?_ex=128x128",
+        "postage_included": true,
+        "shipping_status": "included",
+        "quantity": {
+          "count": 12,
+          "component_counts": [
+            12
+          ],
+          "confidence": 0.99,
+          "evidence": "12個"
+        },
+        "unit_prices": {
+          "per_serving": 305.0
+        },
+        "promotion_mentioned": false
+      },
+      {
+        "id": "cocodecow:10699895",
+        "raw_name": "寿がきや 富山ブラックラーメン 108g×12個 カップラーメン カップ麺 ラーメン インスタント レトルト 食品",
+        "name": "寿がきや 富山ブラックラーメン 108g×12個 カップラーメン カップ麺 ラーメン インスタント レトルト 食品",
+        "price": 4085,
+        "shop": "ココデカウ",
+        "url": "https://hb.afl.rakuten.co.jp/hgc/g00qq8to.7cx6mdf4.g00qq8to.7cx6nfbb/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fcocodecow%2Fr5412e%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fcocodecow%2Fi%2F10699895%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
+        "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/cocodecow/cabinet/y47/172281.jpg?_ex=128x128",
+        "postage_included": true,
+        "shipping_status": "included",
+        "quantity": {
+          "count": 12,
+          "component_counts": [
+            12
+          ],
+          "confidence": 0.99,
+          "evidence": "12個"
+        },
+        "unit_prices": {
+          "per_serving": 340.4166666666667
+        },
+        "promotion_mentioned": false
+      }
+    ],
+    "shipping_unknown": [
+      {
+        "id": "nishimuta:10069125",
+        "raw_name": "麺のスナオシ　塩ラーメン　カップ麺　12個入り",
+        "name": "麺のスナオシ 塩ラーメン カップ麺 12個入り",
+        "price": 1495,
+        "shop": "ニシムタ 楽天市場店",
+        "url": "https://hb.afl.rakuten.co.jp/hgc/g00swwgo.7cx6m568.g00swwgo.7cx6na2c/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fnishimuta%2F4973288734584-12%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fnishimuta%2Fi%2F10069125%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
+        "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/nishimuta/cabinet/image111/4973288734584.jpg?_ex=128x128",
+        "postage_included": false,
+        "shipping_status": "extra_or_unknown",
+        "quantity": {
+          "count": 12,
+          "component_counts": [
+            12
+          ],
+          "confidence": 0.99,
+          "evidence": "12個入り"
+        },
+        "unit_prices": {
+          "per_serving": 124.58333333333333
+        },
+        "promotion_mentioned": false
+      },
+      {
+        "id": "jetprice:10694512",
+        "raw_name": "サンヨー食品 サッポロ一番 旅麺 博多 高菜豚骨ラーメン 12食 カップラーメン カップ麺 ラーメン インスタント レトルト 食品",
+        "name": "サンヨー食品 サッポロ一番 旅麺 博多 高菜豚骨ラーメン 12食 カップラーメン カップ麺 ラーメン インスタント レトルト 食品",
+        "price": 1610,
+        "shop": "JET PRICE",
+        "url": "https://hb.afl.rakuten.co.jp/hgc/g00scpco.7cx6m330.g00scpco.7cx6n146/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fjetprice%2Fx492rc%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fjetprice%2Fi%2F10694512%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
+        "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/jetprice/cabinet/bm8/j5890y.jpg?_ex=128x128",
+        "postage_included": false,
+        "shipping_status": "extra_or_unknown",
+        "quantity": {
+          "count": 12,
+          "component_counts": [
+            12
+          ],
+          "confidence": 0.99,
+          "evidence": "12食"
+        },
+        "unit_prices": {
+          "per_serving": 134.16666666666666
+        },
+        "promotion_mentioned": false
+      },
+      {
+        "id": "jetprice:10694516",
+        "raw_name": "サンヨー食品 サッポロ一番 旅麺 喜多方 醤油ラーメン 12食 カップラーメン カップ麺 ラーメン インスタント レトルト 食品",
+        "name": "サンヨー食品 サッポロ一番 旅麺 喜多方 醤油ラーメン 12食 カップラーメン カップ麺 ラーメン インスタント レトルト 食品",
+        "price": 1610,
+        "shop": "JET PRICE",
+        "url": "https://hb.afl.rakuten.co.jp/hgc/g00scpco.7cx6m330.g00scpco.7cx6n146/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fjetprice%2Fx494rc%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fjetprice%2Fi%2F10694516%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
+        "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/jetprice/cabinet/bm8/j5892y.jpg?_ex=128x128",
+        "postage_included": false,
+        "shipping_status": "extra_or_unknown",
+        "quantity": {
+          "count": 12,
+          "component_counts": [
+            12
+          ],
+          "confidence": 0.99,
+          "evidence": "12食"
+        },
+        "unit_prices": {
+          "per_serving": 134.16666666666666
+        },
+        "promotion_mentioned": false
+      },
+      {
+        "id": "onestep:10441000",
+        "raw_name": "農心ジャパン 辛ラーメン カップ 68g×12個 インスタント カップ麺 カップラーメン ラーメン 辛麺",
+        "name": "農心ジャパン 辛ラーメン カップ 68g×12個 インスタント カップ麺 カップラーメン ラーメン 辛麺",
+        "price": 1918,
+        "shop": "よろずやマルシェ",
+        "url": "https://hb.afl.rakuten.co.jp/hgc/g00prcko.7cx6m1c4.g00prcko.7cx6nf4d/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fonestep%2Fs06249%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fonestep%2Fi%2F10441000%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
+        "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/onestep/cabinet/syoku/syoku01/s06249.jpg?_ex=128x128",
+        "postage_included": false,
+        "shipping_status": "extra_or_unknown",
+        "quantity": {
+          "count": 12,
+          "component_counts": [
+            12
+          ],
+          "confidence": 0.99,
+          "evidence": "12個"
+        },
+        "unit_prices": {
+          "per_serving": 159.83333333333334
+        },
+        "promotion_mentioned": false
+      },
+      {
+        "id": "nishimuta:10075361",
+        "raw_name": "辛 カップラーメン 68g×12個",
+        "name": "辛 カップラーメン 68g×12個",
+        "price": 1974,
+        "shop": "ニシムタ 楽天市場店",
+        "url": "https://hb.afl.rakuten.co.jp/hgc/g00swwgo.7cx6m568.g00swwgo.7cx6na2c/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fnishimuta%2F8801043030694-12%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fnishimuta%2Fi%2F10075361%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
+        "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/nishimuta/cabinet/image104/8801043030694-12_1.jpg?_ex=128x128",
+        "postage_included": false,
+        "shipping_status": "extra_or_unknown",
+        "quantity": {
+          "count": 12,
+          "component_counts": [
+            12
+          ],
+          "confidence": 0.99,
+          "evidence": "12個"
+        },
+        "unit_prices": {
+          "per_serving": 164.5
+        },
+        "promotion_mentioned": false
+      },
+      {
+        "id": "wich:10025228",
+        "raw_name": "訳あり 値下げしました ※賞味期限2026年8月25日【送料無料】ユッケジャン カップラーメン 12個入 カップ麺 即席カップめん インスタント サバル ユッケジャンラーメン 韓国 NONGSHIM",
+        "name": "訳あり 値下げしました ※賞味期限2026年8月25日 ユッケジャン カップラーメン 12個入 カップ麺 即席カップめん インスタント サバル ユッケジャンラーメン 韓国 NONGSHIM",
+        "price": 2070,
+        "shop": "ウイッチ",
+        "url": "https://hb.afl.rakuten.co.jp/hgc/g00prvmo.7cx6m012.g00prvmo.7cx6nd83/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fwich%2Fyukkejannoodle12%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fwich%2Fi%2F10025228%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
+        "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/wich/cabinet/gazou67/yukkejannoodle12-1.jpg?_ex=128x128",
+        "postage_included": false,
+        "shipping_status": "extra_or_unknown",
+        "quantity": {
+          "count": 12,
+          "component_counts": [
+            12
+          ],
+          "confidence": 0.99,
+          "evidence": "12個入"
+        },
+        "unit_prices": {
+          "per_serving": 172.5
+        },
+        "promotion_mentioned": false
+      },
+      {
+        "id": "onestep:10251123",
+        "raw_name": "カップ麺 評判屋 ソース焼そば 112g 12個 明星",
+        "name": "カップ麺 評判屋 ソース焼そば 112g 12個 明星",
+        "price": 2177,
+        "shop": "よろずやマルシェ",
+        "url": "https://hb.afl.rakuten.co.jp/hgc/g00prcko.7cx6m1c4.g00prcko.7cx6nf4d/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fonestep%2Fs04787%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fonestep%2Fi%2F10251123%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
+        "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/onestep/cabinet/syoku/syoku01/s04787.jpg?_ex=128x128",
+        "postage_included": false,
+        "shipping_status": "extra_or_unknown",
+        "quantity": {
+          "count": 12,
+          "component_counts": [
+            12
+          ],
+          "confidence": 0.99,
+          "evidence": "12個"
+        },
+        "unit_prices": {
+          "per_serving": 181.41666666666666
+        },
+        "promotion_mentioned": false
+      },
+      {
+        "id": "onestep:10251125",
+        "raw_name": "カップ麺 評判屋 塩焼そば 104g 12個 明星",
+        "name": "カップ麺 評判屋 塩焼そば 104g 12個 明星",
+        "price": 2177,
+        "shop": "よろずやマルシェ",
+        "url": "https://hb.afl.rakuten.co.jp/hgc/g00prcko.7cx6m1c4.g00prcko.7cx6nf4d/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fonestep%2Fs04788%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fonestep%2Fi%2F10251125%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
+        "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/onestep/cabinet/syoku/syoku12/s04788.jpg?_ex=128x128",
+        "postage_included": false,
+        "shipping_status": "extra_or_unknown",
+        "quantity": {
+          "count": 12,
+          "component_counts": [
+            12
+          ],
+          "confidence": 0.99,
+          "evidence": "12個"
+        },
+        "unit_prices": {
+          "per_serving": 181.41666666666666
+        },
+        "promotion_mentioned": false
+      },
+      {
+        "id": "manekiyaneeds:10000088",
+        "raw_name": "日清食品 カップヌードル レギュラー 日清食品 カップ麺 78g×20個 (1)レギュラー",
+        "name": "日清食品 カップヌードル レギュラー 日清食品 カップ麺 78g×20個 (1)レギュラー",
+        "price": 3850,
+        "shop": "まねきやねっとショップ",
+        "url": "https://hb.afl.rakuten.co.jp/hgc/g00uq95o.7cx6md3e.g00uq95o.7cx6n972/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fmanekiyaneeds%2F11426%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fmanekiyaneeds%2Fi%2F10000088%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
+        "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/manekiyaneeds/cabinet/goq001/97_1.jpg?_ex=128x128",
+        "postage_included": false,
+        "shipping_status": "extra_or_unknown",
+        "quantity": {
+          "count": 20,
+          "component_counts": [
+            20
+          ],
+          "confidence": 0.99,
+          "evidence": "20個"
+        },
+        "unit_prices": {
+          "per_serving": 192.5
+        },
+        "promotion_mentioned": false
+      },
+      {
+        "id": "misono-support:10121994",
+        "raw_name": "日清食品 あっさりおいしいカップヌードル カレー 70g×20個入｜ 送料無料 ラーメン カップめん インスタント麺 即席 食品",
+        "name": "日清食品 あっさりおいしいカップヌードル カレー 70g×20個入｜ ラーメン カップめん インスタント麺 即席 食品",
+        "price": 4039,
+        "shop": "飲料 食品専門店 味園サポート",
+        "url": "https://hb.afl.rakuten.co.jp/hgc/g00q23do.7cx6mdeb.g00q23do.7cx6n015/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fmisono-support%2Fa307-217%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fmisono-support%2Fi%2F10121994%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
+        "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/misono-support/cabinet/202604_01/a307-217-1.jpg?_ex=128x128",
+        "postage_included": false,
+        "shipping_status": "extra_or_unknown",
+        "quantity": {
+          "count": 20,
+          "component_counts": [
+            20
+          ],
+          "confidence": 0.99,
+          "evidence": "20個入"
+        },
+        "unit_prices": {
+          "per_serving": 201.95
+        },
+        "promotion_mentioned": false
+      },
+      {
+        "id": "cocodecow:10705485",
+        "raw_name": "東洋水産 ごつ盛り コク豚骨ラーメン 12個 カップラーメン カップ麺 ラーメン インスタント レトルト 食品",
+        "name": "東洋水産 ごつ盛り コク豚骨ラーメン 12個 カップラーメン カップ麺 ラーメン インスタント レトルト 食品",
+        "price": 2463,
+        "shop": "ココデカウ",
+        "url": "https://hb.afl.rakuten.co.jp/hgc/g00qq8to.7cx6mdf4.g00qq8to.7cx6nfbb/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fcocodecow%2Fr6064d%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fcocodecow%2Fi%2F10705485%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
+        "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/cocodecow/cabinet/y71/j058mr.jpg?_ex=128x128",
+        "postage_included": false,
+        "shipping_status": "extra_or_unknown",
+        "quantity": {
+          "count": 12,
+          "component_counts": [
+            12
+          ],
+          "confidence": 0.99,
+          "evidence": "12個"
+        },
+        "unit_prices": {
+          "per_serving": 205.25
+        },
+        "promotion_mentioned": false
+      },
+      {
+        "id": "drink-market:10104946",
+        "raw_name": "農心ジャパン 辛カップラーメン 68g×12個入｜ 送料無料 インスタントラーメン 辛 即席",
+        "name": "農心ジャパン 辛カップラーメン 68g×12個入｜ インスタントラーメン 辛 即席",
+        "price": 2717,
+        "shop": "ドリンクマーケット",
+        "url": "https://hb.afl.rakuten.co.jp/hgc/g00s7wdo.7cx6mf7a.g00s7wdo.7cx6n171/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fdrink-market%2Fa338-1%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fdrink-market%2Fi%2F10104946%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
+        "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/drink-market/cabinet/202607_23/a338-1-1.jpg?_ex=128x128",
+        "postage_included": false,
+        "shipping_status": "extra_or_unknown",
+        "quantity": {
+          "count": 12,
+          "component_counts": [
+            12
+          ],
+          "confidence": 0.99,
+          "evidence": "12個入"
+        },
+        "unit_prices": {
+          "per_serving": 226.41666666666666
+        },
+        "promotion_mentioned": false
+      },
+      {
+        "id": "kshouhin:10024387",
+        "raw_name": "「韓国 農心」ユッケジャンカップラーメン 86g×12個セット【一部地域 送料無料】輸入食品 ユッケジャンラーメン 韓国食材/韓国料理/韓国お土産/韓国ラーメン/非常食/防災用/防災グッズ/乾麺/インスタントラーメン/ユッケジャンサバル麺カップ ユッケジャン 小 カップ",
+        "name": "「韓国 農心」ユッケジャンカップラーメン 86g×12個セット【一部地域 】輸入食品 ユッケジャンラーメン 韓国食材/韓国料理/韓国お土産/韓国ラーメン/非常食/防災用/防災グッズ/乾麺/インスタントラーメン/ユッケジャンサバル麺カップ ユッケジャン 小 カップ",
+        "price": 2986,
+        "shop": "オールネショップ",
+        "url": "https://hb.afl.rakuten.co.jp/hgc/g00re34o.7cx6mb25.g00re34o.7cx6n116/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fkshouhin%2Fkdw-202509042805-0012%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fkshouhin%2Fi%2F10024387%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
+        "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/kshouhin/cabinet/10675365/nousin/imgrc0127418022.jpg?_ex=128x128",
+        "postage_included": false,
+        "shipping_status": "extra_or_unknown",
+        "quantity": {
+          "count": 12,
+          "component_counts": [
+            12
+          ],
+          "confidence": 0.99,
+          "evidence": "12個"
+        },
+        "unit_prices": {
+          "per_serving": 248.83333333333334
+        },
+        "promotion_mentioned": false
+      },
+      {
+        "id": "kumano-nakatani:10000013",
+        "raw_name": "【日清食品】CUP NOODLE カップヌードル シーフードヌードル 75g×20個",
+        "name": "【日清食品】CUP NOODLE カップヌードル シーフードヌードル 75g×20個",
+        "price": 4984,
+        "shop": "くまの中谷商店",
+        "url": "https://hb.afl.rakuten.co.jp/hgc/g00rg0ao.7cx6m577.g00rg0ao.7cx6ne2e/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fkumano-nakatani%2F49698633-1cs%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fkumano-nakatani%2Fi%2F10000013%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
+        "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/kumano-nakatani/cabinet/ikkatu1/nissin/49698633.jpg?_ex=128x128",
+        "postage_included": false,
+        "shipping_status": "extra_or_unknown",
+        "quantity": {
+          "count": 20,
+          "component_counts": [
+            20
+          ],
+          "confidence": 0.99,
+          "evidence": "20個"
+        },
+        "unit_prices": {
+          "per_serving": 249.2
+        },
+        "promotion_mentioned": false
+      },
+      {
+        "id": "auc-hiroshimaya:10005655",
+        "raw_name": "【カップ麺】サッポロ一番 旅麺 ヤマダイニュータッチ カップ麺 コラボレーションセット 12個 関東圏送料無料",
+        "name": "【カップ麺】サッポロ一番 旅麺 ヤマダイニュータッチ カップ麺 コラボレーションセット 12個 関東圏送料無料",
+        "price": 3240,
+        "shop": "広島屋",
+        "url": "https://hb.afl.rakuten.co.jp/hgc/g00qzlio.7cx6mcdc.g00qzlio.7cx6n759/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fauc-hiroshimaya%2F9920181013-1%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fauc-hiroshimaya%2Fi%2F10005655%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
+        "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/auc-hiroshimaya/cabinet/01908867/11210492/12092164/imgrc0122556909.gif?_ex=128x128",
+        "postage_included": false,
+        "shipping_status": "extra_or_unknown",
+        "quantity": {
+          "count": 12,
+          "component_counts": [
+            12
+          ],
+          "confidence": 0.99,
+          "evidence": "12個"
+        },
+        "unit_prices": {
+          "per_serving": 270.0
+        },
+        "promotion_mentioned": false
+      },
+      {
+        "id": "misonoya:10002831",
+        "raw_name": "日清食品 カップヌードル 78g×20個入｜ 送料無料 インスタント麺 ラーメン 即席 カップラーメン",
+        "name": "日清食品 カップヌードル 78g×20個入｜ インスタント麺 ラーメン 即席 カップラーメン",
+        "price": 5421,
+        "shop": "MISONOYA楽天市場店",
+        "url": "https://hb.afl.rakuten.co.jp/hgc/g00qrf9o.7cx6mf08.g00qrf9o.7cx6n813/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fmisonoya%2Fa307-33%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fmisonoya%2Fi%2F10002831%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
+        "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/misonoya/cabinet/202604_01/a307-33-1.jpg?_ex=128x128",
+        "postage_included": false,
+        "shipping_status": "extra_or_unknown",
+        "quantity": {
+          "count": 20,
+          "component_counts": [
+            20
+          ],
+          "confidence": 0.99,
+          "evidence": "20個入"
+        },
+        "unit_prices": {
+          "per_serving": 271.05
+        },
+        "promotion_mentioned": false
+      },
+      {
+        "id": "yuidrug:10019238",
+        "raw_name": "合わせ買い不可 マルちゃん 沖縄そば カップ麺 12個入　かつおとソーキ味 ギフトセット ギフトセット お年賀 初売り ギフトセット お年賀 初売り ギフトセット/お年賀 初売り ギフトセット/お年賀 初売り ギフトセット/お年賀 初売り",
+        "name": "合わせ買い不可 マルちゃん 沖縄そば カップ麺 12個入 かつおとソーキ味 ギフトセット ギフトセット お年賀 初売り ギフトセット お年賀 初売り ギフトセット/お年賀 初売り ギフトセット/お年賀 初売り ギフトセット/お年賀 初売り",
+        "price": 3255,
+        "shop": "結ドラッグ",
+        "url": "https://hb.afl.rakuten.co.jp/hgc/g00sc3vo.7cx6m62e.g00sc3vo.7cx6n11b/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fyuidrug%2F4901990523141%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fyuidrug%2Fi%2F10019238%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
+        "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/yuidrug/cabinet/goq002/62062_1.jpg?_ex=128x128",
+        "postage_included": false,
+        "shipping_status": "extra_or_unknown",
+        "quantity": {
+          "count": 12,
+          "component_counts": [
+            12
+          ],
+          "confidence": 0.99,
+          "evidence": "12個入"
+        },
+        "unit_prices": {
+          "per_serving": 271.25
+        },
+        "promotion_mentioned": false
+      },
+      {
+        "id": "cocodecow:10699904",
+        "raw_name": "寿がきや カップ台湾ラーメン 99g×12個 カップラーメン カップ麺 ラーメン インスタント レトルト 食品",
+        "name": "寿がきや カップ台湾ラーメン 99g×12個 カップラーメン カップ麺 ラーメン インスタント レトルト 食品",
+        "price": 3318,
+        "shop": "ココデカウ",
+        "url": "https://hb.afl.rakuten.co.jp/hgc/g00qq8to.7cx6mdf4.g00qq8to.7cx6nfbb/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fcocodecow%2Fr5421e%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fcocodecow%2Fi%2F10699904%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
+        "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/cocodecow/cabinet/y47/172302.jpg?_ex=128x128",
+        "postage_included": false,
+        "shipping_status": "extra_or_unknown",
+        "quantity": {
+          "count": 12,
+          "component_counts": [
+            12
+          ],
+          "confidence": 0.99,
+          "evidence": "12個"
+        },
+        "unit_prices": {
+          "per_serving": 276.5
+        },
+        "promotion_mentioned": false
+      },
+      {
+        "id": "paldo:10006144",
+        "raw_name": "【まとめ買いお得】オットギ ヨルラーメン 熱ラーメン カップ麺 辛口 1BOX=105g×12個 カップラーメン 韓国ラーメン インスタントラーメン 韓国食品 $",
+        "name": "【まとめ買いお得】オットギ ヨルラーメン 熱ラーメン カップ麺 辛口 1BOX=105g×12個 カップラーメン 韓国ラーメン インスタントラーメン 韓国食品 $",
+        "price": 3325,
+        "shop": "八道韓国食品",
+        "url": "https://hb.afl.rakuten.co.jp/hgc/g00qpndo.7cx6m3f5.g00qpndo.7cx6n580/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fpaldo%2Fp6243-100%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fpaldo%2Fi%2F10006144%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
+        "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/paldo/cabinet/ramen/p6243-100.jpg?_ex=128x128",
+        "postage_included": false,
+        "shipping_status": "extra_or_unknown",
+        "quantity": {
+          "count": 12,
+          "component_counts": [
+            12
+          ],
+          "confidence": 0.99,
+          "evidence": "12個"
+        },
+        "unit_prices": {
+          "per_serving": 277.0833333333333
+        },
+        "promotion_mentioned": false
+      },
+      {
+        "id": "jetprice:10583143",
+        "raw_name": "寿がきや 鳥取ゴールド牛骨ラーメン 109g×12個 カップラーメン カップ麺 ラーメン インスタント レトルト 食品",
+        "name": "寿がきや 鳥取ゴールド牛骨ラーメン 109g×12個 カップラーメン カップ麺 ラーメン インスタント レトルト 食品",
+        "price": 3383,
+        "shop": "JET PRICE",
+        "url": "https://hb.afl.rakuten.co.jp/hgc/g00scpco.7cx6m330.g00scpco.7cx6n146/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fjetprice%2Fxw2809%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fjetprice%2Fi%2F10583143%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
+        "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/jetprice/cabinet/x64/172295.jpg?_ex=128x128",
+        "postage_included": false,
+        "shipping_status": "extra_or_unknown",
+        "quantity": {
+          "count": 12,
+          "component_counts": [
+            12
+          ],
+          "confidence": 0.99,
+          "evidence": "12個"
+        },
+        "unit_prices": {
+          "per_serving": 281.9166666666667
+        },
+        "promotion_mentioned": false
+      }
+    ],
+    "audit": {
+      "fetched": 90,
+      "normalized": 38,
+      "exact_duplicates": 0,
+      "practical_duplicates": 0,
+      "accepted_unique": 38,
+      "included_available": 14,
+      "shipping_unknown_available": 24,
+      "displayed_included": 14,
+      "displayed_shipping_unknown": 20,
+      "reasons": {
+        "missing_category_evidence": 11,
+        "wrong_product_type": 7,
+        "ambiguous_quantity": 25,
+        "restricted_or_selectable_product": 9
+      },
+      "cleaned_examples": [
+        {
+          "before": "セイコーマート Secoma 辛味噌ラーメン セコマ せいこーまーと せこま カップ麺 12個入 辛味噌 味噌ラーメン 札幌 濃厚 送料無料 ケース",
+          "after": "セイコーマート Secoma 辛味噌ラーメン セコマ せいこーまーと せこま カップ麺 12個入 辛味噌 味噌ラーメン 札幌 濃厚 ケース"
+        },
+        {
+          "before": "どん兵衛 きつねうどん (東) 日清食品 カップ麺 96g×12個 　送料無料",
+          "after": "どん兵衛 きつねうどん (東) 日清食品 カップ麺 96g×12個"
+        },
+        {
+          "before": "合わせ買い不可 マルちゃん 沖縄そば カップ麺 12個入　かつおとソーキ味 ギフトセット ギフトセット お年賀 初売り ギフトセット お年賀 初売り ギフトセット/お年賀 初売り ギフトセット/お年賀 初売り ギフトセット/お年賀 初売り",
+          "after": "合わせ買い不可 マルちゃん 沖縄そば カップ麺 12個入 かつおとソーキ味 ギフトセット ギフトセット お年賀 初売り ギフトセット お年賀 初売り ギフトセット/お年賀 初売り ギフトセット/お年賀 初売り ギフトセット/お年賀 初売り"
+        },
+        {
+          "before": "麺のスナオシ　塩ラーメン　カップ麺　12個入り",
+          "after": "麺のスナオシ 塩ラーメン カップ麺 12個入り"
+        },
+        {
+          "before": "日清食品 あっさりおいしいカップヌードル カレー 70g×20個入｜ 送料無料 ラーメン カップめん インスタント麺 即席 食品",
+          "after": "日清食品 あっさりおいしいカップヌードル カレー 70g×20個入｜ ラーメン カップめん インスタント麺 即席 食品"
+        },
+        {
+          "before": "日清食品 カップヌードル　シーフードヌードル　20個入",
+          "after": "日清食品 カップヌードル シーフードヌードル 20個入"
+        },
+        {
+          "before": "日清食品 カップヌードル　20個入",
+          "after": "日清食品 カップヌードル 20個入"
+        },
+        {
+          "before": "日清食品 カップヌードル 78g×20個入｜ 送料無料 インスタント麺 ラーメン 即席 カップラーメン",
+          "after": "日清食品 カップヌードル 78g×20個入｜ インスタント麺 ラーメン 即席 カップラーメン"
+        },
+        {
+          "before": "カップヌードル　シーフードヌードル×20個",
+          "after": "カップヌードル シーフードヌードル×20個"
+        },
+        {
+          "before": "訳あり 値下げしました ※賞味期限2026年8月25日【送料無料】ユッケジャン カップラーメン 12個入 カップ麺 即席カップめん インスタント サバル ユッケジャンラーメン 韓国 NONGSHIM",
+          "after": "訳あり 値下げしました ※賞味期限2026年8月25日 ユッケジャン カップラーメン 12個入 カップ麺 即席カップめん インスタント サバル ユッケジャンラーメン 韓国 NONGSHIM"
+        },
+        {
+          "before": "農心ジャパン 辛カップラーメン 68g×12個入｜ 送料無料 インスタントラーメン 辛 即席",
+          "after": "農心ジャパン 辛カップラーメン 68g×12個入｜ インスタントラーメン 辛 即席"
+        },
+        {
+          "before": "「韓国 農心」ユッケジャンカップラーメン 86g×12個セット【一部地域 送料無料】輸入食品 ユッケジャンラーメン 韓国食材/韓国料理/韓国お土産/韓国ラーメン/非常食/防災用/防災グッズ/乾麺/インスタントラーメン/ユッケジャンサバル麺カップ ユッケジャン 小 カップ",
+          "after": "「韓国 農心」ユッケジャンカップラーメン 86g×12個セット【一部地域 】輸入食品 ユッケジャンラーメン 韓国食材/韓国料理/韓国お土産/韓国ラーメン/非常食/防災用/防災グッズ/乾麺/インスタントラーメン/ユッケジャンサバル麺カップ ユッケジャン 小 カップ"
+        }
+      ],
+      "rejection_samples": {
+        "missing_category_evidence": [
+          "明星 一杯満足 スパイシーカレー味ヌードル(12個入)",
+          "明星 一杯満足 シーフード味ヌードル(12個入)(12個入)",
+          "麺之助 ソース焼そば ケース(113g*12個)【マルちゃん】"
+        ],
+        "wrong_product_type": [
+          "マルちゃん ごつ盛り ワンタン醤油ラーメン ケース(117g*12個入)【マルちゃん】[インスタントカップ麺 大盛 ラーメン 醤油 雲呑]",
+          "大黒食品 マイフレンドBIG わかめしょうゆラーメン 100g 12個 わかめラーメン カップ麺 インスタント麺 即席麺 麺類 カップラーメン インスタントラーメン",
+          "大黒食品 マイフレンドBIG カレーうどん 105g×12個 カップメン カップ麺 インスタント カップうどん うどん"
+        ],
+        "ambiguous_quantity": [
+          "12個 づくり しょうゆ カップ麺 ラーメン 送料無料 東洋水産 マルちゃん 麺づくり 鶏ガラ醤油 97g×1ケース/12個《012》『GCC』",
+          "【送料無料】東洋水産 マルちゃん 赤いきつねうどん 東向け 1ケース/96g×12個《012》『GCC』",
+          "12個 づくり みそ カップ麺 ラーメン 送料無料 東洋水産 マルちゃん 麺づくり 合わせ味噌 104g×1ケース/12個《012》『GCC』"
+        ],
+        "restricted_or_selectable_product": [
+          "新着 にぎわい広場 ヤマダイ ニュータッチ カップ ラーメン 懐かしのシリーズ 醤油 味噌 ラーメン 野菜タンメン塩味 とん汁 カレーうどん カップ麺 12個 詰め合わせセット 関東圏送料無料",
+          "カップラーメン カップヌードル 日清 選べる20個セット 単種20個 4種×5個 カップ麺 カレー 醤油 シーフード チリトマト 即席ラーメン 即席麺 謎肉 夜食 時短 ストック 常備食 手軽 インスタント CUP NOODLE 日清食品 *",
+          "【選べるセット】【日清食品】カップヌードルシリーズ＼＼18種類から選べる20個セット(2個単位選択)／／(カップ麺 カップめん カップラーメン インスタントラーメン ラーメンセット PRO プロ 塩分控えめ 低糖質 高たんぱく 詰め合わせ まとめ買い 箱買い)"
+        ]
+      }
+    }
+  }
+}

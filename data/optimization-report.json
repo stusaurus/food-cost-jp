@@ -1,18 +1,18 @@
 {
-  "generated_at": "2026-10-02T19:53:23.444400+09:00",
+  "generated_at": "2026-10-02T20:38:24.954010+09:00",
   "site_id": "food_cost_jp",
   "inventory": {
     "pack-rice": {
       "name": "パックご飯",
-      "included_count": 21,
+      "included_count": 20,
       "shipping_unknown_count": 2,
       "history_ready_count": 19,
-      "history_ready_rate": 0.9048
+      "history_ready_rate": 0.95
     },
     "rice": {
       "name": "米",
       "included_count": 22,
-      "shipping_unknown_count": 4,
+      "shipping_unknown_count": 3,
       "history_ready_count": 18,
       "history_ready_rate": 0.8182
     },
@@ -33,8 +33,8 @@
   },
   "price_history": {
     "ready_count": 75,
-    "included_count": 83,
-    "ready_rate": 0.9036,
+    "included_count": 82,
+    "ready_rate": 0.9146,
     "deal_count": 5
   },
   "auto_seo": {
@@ -44,7 +44,7 @@
       {
         "slug": "pack-rice-24-servings-cost",
         "category_id": "pack-rice",
-        "matched_count": 4,
+        "matched_count": 3,
         "title": "パックご飯24食のコスパ比較"
       },
       {
@@ -74,7 +74,7 @@
       {
         "slug": "rice-musenmai-cost",
         "category_id": "rice",
-        "matched_count": 12,
+        "matched_count": 10,
         "title": "無洗米のコスパ比較"
       },
       {
