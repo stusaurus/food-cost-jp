@@ -59,3 +59,19 @@ python -m unittest discover -s tests -v
 2. JAN / Product ID で同一商品を安全に紐付け、容量・セット違い比較を追加
 3. 水・コーヒーは日用品版との重複を整理してから食品版へ移管
 4. daily / pet / baby / food で単価計算・analytics schemaを共通化
+
+## マルシェの入口と発見棚
+
+トップは「お得 / 買い方の相談 / 買うものが決まっている」の3入口から始まります。相談の場合だけ詳細買い方を表示し、内部のcheap / large / small / budget / storage / knownは維持しています。発見棚とFinderは大きな写真と紙の単価値札、比較一覧は小画像と数値を優先します。
+
+追加イベント：`hero_primary_cta`、`entry_route_select`（deal / advisor / known）。`shopping_intent_select`、`category_select_after_intent`、`market_shelf_view`、`market_shelf_product_click`、`finder_complete`と既存の楽天クリックイベントを維持。
+
+オフラインUI確認：
+
+```bash
+python scripts/render_snapshot.py
+npm ci --ignore-scripts
+npm test
+```
+
+[設計・公開確認記録](docs/discovery-market.md)
