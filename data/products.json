@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-03T06:39:39.378130+09:00",
+  "generated_at": "2026-10-03T06:49:40.697471+09:00",
   "categories": {
     "pack-rice": {
       "included": [
@@ -13636,6 +13636,75 @@
           }
         },
         {
+          "id": "kawasakigroup:10025453",
+          "raw_name": "【20袋セット送料無料】 日本製麻 ボルカノ スパゲッティー 1.7mm 300g×20袋 ※北海道・九州・沖縄県は送料無料対象外 スパゲッチ スパゲティ パスタ まとめ買い 国産スパゲッティ [T.1304.-.SE]",
+          "name": "【20袋セット送料無料】 日本製麻 ボルカノ スパゲッティー 1.7mm 300g×20袋 ※北海道・九州・沖縄県は送料無料対象外 スパゲッチ スパゲティ パスタ まとめ買い 国産スパゲッティ [T.1304.-.SE]",
+          "price": 3200,
+          "shop": "燃えるカワサキグループ",
+          "url": "https://hb.afl.rakuten.co.jp/hgc/g00qjnao.7cx6m312.g00qjnao.7cx6n840/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fkawasakigroup%2F24042-20set%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fkawasakigroup%2Fi%2F10025453%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
+          "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/kawasakigroup/cabinet/98/imgrc0164502874.jpg?_ex=128x128",
+          "postage_included": false,
+          "shipping_status": "extra_or_unknown",
+          "quantity": {
+            "count": 20,
+            "component_counts": [
+              20
+            ],
+            "unit_weight_g": 300.0,
+            "total_weight_g": 6000.0,
+            "confidence": 0.99,
+            "evidence": "300gx20袋"
+          },
+          "unit_prices": {
+            "per_100g": 53.333333333333336,
+            "per_kg": 533.3333333333334
+          },
+          "comparison_metric": "per_100g",
+          "unit_label": "100gあたり",
+          "quantity_label": "合計6kg / 20袋・個",
+          "promotion_mentioned": false,
+          "price_history": {
+            "observed_days": 2,
+            "previous_date": "2026-10-02",
+            "previous_price": 3200,
+            "previous_unit": 53.333333333333336,
+            "previous_label": "昨日比",
+            "price_delta": 0,
+            "unit_delta": 0.0,
+            "percent_delta": 0.0,
+            "lowest_30d_unit": 53.333333333333336,
+            "highest_30d_unit": 53.333333333333336,
+            "lowest_7d_unit": 53.333333333333336,
+            "highest_7d_unit": 53.333333333333336,
+            "trend_7d": "stable",
+            "is_30d_low": true,
+            "series_7d": [
+              {
+                "date": "2026-10-02",
+                "price": 3200,
+                "unit": 53.333333333333336
+              },
+              {
+                "date": "2026-10-03",
+                "price": 3200,
+                "unit": 53.333333333333336
+              }
+            ],
+            "series_30d": [
+              {
+                "date": "2026-10-02",
+                "price": 3200,
+                "unit": 53.333333333333336
+              },
+              {
+                "date": "2026-10-03",
+                "price": 3200,
+                "unit": 53.333333333333336
+              }
+            ]
+          }
+        },
+        {
           "id": "jf-foods:10004953",
           "raw_name": "【送料一律540円】オーサワの有機スパゲッティ　500g×6袋",
           "name": "【送料一律540円】オーサワの有機スパゲッティ 500g×6袋",
@@ -14659,77 +14728,18 @@
               }
             ]
           }
-        },
-        {
-          "id": "clearstore2024:10326607",
-          "raw_name": "GAROFALO 明治屋 ガロファロ シグネチャー スパゲッティ 1.7mm 500g×6袋",
-          "name": "GAROFALO 明治屋 ガロファロ シグネチャー スパゲッティ 1.7mm 500g×6袋",
-          "price": 3843,
-          "shop": "clearstore",
-          "url": "https://hb.afl.rakuten.co.jp/hgc/g00umkao.7cx6mb54.g00umkao.7cx6ne70/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fclearstore2024%2Fdp26e35sxoloynwtloe24mwfpq%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fclearstore2024%2Fi%2F10326607%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
-          "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/clearstore2024/cabinet/11716091/42345236_1.jpg?_ex=128x128",
-          "postage_included": false,
-          "shipping_status": "extra_or_unknown",
-          "quantity": {
-            "count": 6,
-            "component_counts": [
-              6
-            ],
-            "unit_weight_g": 500.0,
-            "total_weight_g": 3000.0,
-            "confidence": 0.99,
-            "evidence": "500gx6袋"
-          },
-          "unit_prices": {
-            "per_100g": 128.1,
-            "per_kg": 1281.0
-          },
-          "comparison_metric": "per_100g",
-          "unit_label": "100gあたり",
-          "quantity_label": "合計3kg / 6袋・個",
-          "promotion_mentioned": false,
-          "price_history": {
-            "observed_days": 1,
-            "previous_date": null,
-            "previous_price": null,
-            "previous_unit": null,
-            "previous_label": null,
-            "price_delta": null,
-            "unit_delta": null,
-            "percent_delta": null,
-            "lowest_30d_unit": 128.1,
-            "highest_30d_unit": 128.1,
-            "lowest_7d_unit": 128.1,
-            "highest_7d_unit": 128.1,
-            "trend_7d": "stable",
-            "is_30d_low": false,
-            "series_7d": [
-              {
-                "date": "2026-10-03",
-                "price": 3843,
-                "unit": 128.1
-              }
-            ],
-            "series_30d": [
-              {
-                "date": "2026-10-03",
-                "price": 3843,
-                "unit": 128.1
-              }
-            ]
-          }
         }
       ],
       "quality_audit": {
         "fetch_errors": 0,
         "queries": 3,
         "fetched": 90,
-        "normalized": 52,
+        "normalized": 53,
         "exact_duplicates": 1,
         "practical_duplicates": 0,
-        "accepted_unique": 51,
+        "accepted_unique": 52,
         "included_available": 25,
-        "shipping_unknown_available": 26,
+        "shipping_unknown_available": 27,
         "displayed_included": 25,
         "displayed_shipping_unknown": 20,
         "reasons": {
@@ -14737,7 +14747,7 @@
           "ambiguous_quantity": 9,
           "restricted_or_selectable_product": 12,
           "missing_category_evidence": 4,
-          "limited_purchase": 2
+          "limited_purchase": 1
         }
       }
     },
@@ -16909,6 +16919,75 @@
           }
         },
         {
+          "id": "worldnext:10008628",
+          "raw_name": "博多華味鳥 料亭のチキンカレー 180g 30袋セット トリゼンフーズ レトルトカレー レトルト食品",
+          "name": "博多華味鳥 料亭のチキンカレー 180g 30袋セット トリゼンフーズ レトルトカレー レトルト食品",
+          "price": 8480,
+          "shop": "World NEXT",
+          "url": "https://hb.afl.rakuten.co.jp/hgc/g00tc79o.7cx6m9f3.g00tc79o.7cx6nb8d/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fworldnext%2Fjb240715-6090%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fworldnext%2Fi%2F10008628%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
+          "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/worldnext/cabinet/11070665/compass1723173040.jpg?_ex=128x128",
+          "postage_included": true,
+          "shipping_status": "included",
+          "quantity": {
+            "count": 30,
+            "component_counts": [
+              30
+            ],
+            "unit_weight_g": 180.0,
+            "total_weight_g": 5400.0,
+            "confidence": 0.99,
+            "evidence": "180g 30袋"
+          },
+          "unit_prices": {
+            "per_serving": 282.6666666666667,
+            "per_100g": 157.03703703703704
+          },
+          "comparison_metric": "per_serving",
+          "unit_label": "1食あたり",
+          "quantity_label": "合計5.4kg / 30食",
+          "promotion_mentioned": false,
+          "price_history": {
+            "observed_days": 2,
+            "previous_date": "2026-10-02",
+            "previous_price": 8480,
+            "previous_unit": 282.6666666666667,
+            "previous_label": "昨日比",
+            "price_delta": 0,
+            "unit_delta": 0.0,
+            "percent_delta": 0.0,
+            "lowest_30d_unit": 282.6666666666667,
+            "highest_30d_unit": 282.6666666666667,
+            "lowest_7d_unit": 282.6666666666667,
+            "highest_7d_unit": 282.6666666666667,
+            "trend_7d": "stable",
+            "is_30d_low": true,
+            "series_7d": [
+              {
+                "date": "2026-10-02",
+                "price": 8480,
+                "unit": 282.6666666666667
+              },
+              {
+                "date": "2026-10-03",
+                "price": 8480,
+                "unit": 282.6666666666667
+              }
+            ],
+            "series_30d": [
+              {
+                "date": "2026-10-02",
+                "price": 8480,
+                "unit": 282.6666666666667
+              },
+              {
+                "date": "2026-10-03",
+                "price": 8480,
+                "unit": 282.6666666666667
+              }
+            ]
+          }
+        },
+        {
           "id": "worldnext:10008627",
           "raw_name": "博多華味鳥 料亭のチキンカレー 180g 10袋セット トリゼンフーズ レトルトカレー レトルト食品",
           "name": "博多華味鳥 料亭のチキンカレー 180g 10袋セット トリゼンフーズ レトルトカレー レトルト食品",
@@ -18076,65 +18155,6 @@
           }
         },
         {
-          "id": "misono-support:10011036",
-          "raw_name": "ハウス食品 ビーフカレー シェフブレンド 中辛 180g×30袋入｜ 送料無料 カレー ビーフ レトルト ビーフカレー 中辛",
-          "name": "ハウス食品 ビーフカレー シェフブレンド 中辛 180g×30袋入｜ カレー ビーフ レトルト ビーフカレー 中辛",
-          "price": 5119,
-          "shop": "飲料 食品専門店 味園サポート",
-          "url": "https://hb.afl.rakuten.co.jp/hgc/g00q23do.7cx6mdeb.g00q23do.7cx6n015/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fmisono-support%2Fa310-53%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fmisono-support%2Fi%2F10011036%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
-          "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/misono-support/cabinet/202505_30/a310-53-1.jpg?_ex=128x128",
-          "postage_included": false,
-          "shipping_status": "extra_or_unknown",
-          "quantity": {
-            "count": 30,
-            "component_counts": [
-              30
-            ],
-            "unit_weight_g": 180.0,
-            "total_weight_g": 5400.0,
-            "confidence": 0.99,
-            "evidence": "180gx30袋入"
-          },
-          "unit_prices": {
-            "per_serving": 170.63333333333333,
-            "per_100g": 94.79629629629629
-          },
-          "comparison_metric": "per_serving",
-          "unit_label": "1食あたり",
-          "quantity_label": "合計5.4kg / 30食",
-          "promotion_mentioned": false,
-          "price_history": {
-            "observed_days": 1,
-            "previous_date": null,
-            "previous_price": null,
-            "previous_unit": null,
-            "previous_label": null,
-            "price_delta": null,
-            "unit_delta": null,
-            "percent_delta": null,
-            "lowest_30d_unit": 170.63333333333333,
-            "highest_30d_unit": 170.63333333333333,
-            "lowest_7d_unit": 170.63333333333333,
-            "highest_7d_unit": 170.63333333333333,
-            "trend_7d": "stable",
-            "is_30d_low": false,
-            "series_7d": [
-              {
-                "date": "2026-10-03",
-                "price": 5119,
-                "unit": 170.63333333333333
-              }
-            ],
-            "series_30d": [
-              {
-                "date": "2026-10-03",
-                "price": 5119,
-                "unit": 170.63333333333333
-              }
-            ]
-          }
-        },
-        {
           "id": "misonoya:10013211",
           "raw_name": "ハウス食品 ビーフカレー シェフブレンド 中辛 180g×30袋入｜ 送料無料 カレー ビーフ レトルト ビーフカレー 中辛",
           "name": "ハウス食品 ビーフカレー シェフブレンド 中辛 180g×30袋入｜ カレー ビーフ レトルト ビーフカレー 中辛",
@@ -18199,65 +18219,6 @@
                 "date": "2026-10-03",
                 "price": 5119,
                 "unit": 170.63333333333333
-              }
-            ]
-          }
-        },
-        {
-          "id": "drink-market:10001083",
-          "raw_name": "ハウス食品 ビーフカレー シェフブレンド 中辛 180g×30袋入｜ 送料無料 カレー ビーフ レトルト ビーフカレー 中辛",
-          "name": "ハウス食品 ビーフカレー シェフブレンド 中辛 180g×30袋入｜ カレー ビーフ レトルト ビーフカレー 中辛",
-          "price": 5140,
-          "shop": "ドリンクマーケット",
-          "url": "https://hb.afl.rakuten.co.jp/hgc/g00s7wdo.7cx6mf7a.g00s7wdo.7cx6n171/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fdrink-market%2Fa310-53%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fdrink-market%2Fi%2F10001083%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
-          "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/drink-market/cabinet/202505_30/a310-53-1.jpg?_ex=128x128",
-          "postage_included": false,
-          "shipping_status": "extra_or_unknown",
-          "quantity": {
-            "count": 30,
-            "component_counts": [
-              30
-            ],
-            "unit_weight_g": 180.0,
-            "total_weight_g": 5400.0,
-            "confidence": 0.99,
-            "evidence": "180gx30袋入"
-          },
-          "unit_prices": {
-            "per_serving": 171.33333333333334,
-            "per_100g": 95.18518518518519
-          },
-          "comparison_metric": "per_serving",
-          "unit_label": "1食あたり",
-          "quantity_label": "合計5.4kg / 30食",
-          "promotion_mentioned": false,
-          "price_history": {
-            "observed_days": 1,
-            "previous_date": null,
-            "previous_price": null,
-            "previous_unit": null,
-            "previous_label": null,
-            "price_delta": null,
-            "unit_delta": null,
-            "percent_delta": null,
-            "lowest_30d_unit": 171.33333333333334,
-            "highest_30d_unit": 171.33333333333334,
-            "lowest_7d_unit": 171.33333333333334,
-            "highest_7d_unit": 171.33333333333334,
-            "trend_7d": "stable",
-            "is_30d_low": false,
-            "series_7d": [
-              {
-                "date": "2026-10-03",
-                "price": 5140,
-                "unit": 171.33333333333334
-              }
-            ],
-            "series_30d": [
-              {
-                "date": "2026-10-03",
-                "price": 5140,
-                "unit": 171.33333333333334
               }
             ]
           }
@@ -18952,22 +18913,160 @@
               }
             ]
           }
+        },
+        {
+          "id": "misono-support:10013347",
+          "raw_name": "ハウス食品 ビーフとオニオンの欧風カレー 辛口 200g×30袋入｜ 送料無料 カレー レトルト 辛口",
+          "name": "ハウス食品 ビーフとオニオンの欧風カレー 辛口 200g×30袋入｜ カレー レトルト 辛口",
+          "price": 9007,
+          "shop": "飲料 食品専門店 味園サポート",
+          "url": "https://hb.afl.rakuten.co.jp/hgc/g00q23do.7cx6mdeb.g00q23do.7cx6n015/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fmisono-support%2Fa310-129%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fmisono-support%2Fi%2F10013347%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
+          "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/misono-support/cabinet/202505_28/a310-129-1.jpg?_ex=128x128",
+          "postage_included": false,
+          "shipping_status": "extra_or_unknown",
+          "quantity": {
+            "count": 30,
+            "component_counts": [
+              30
+            ],
+            "unit_weight_g": 200.0,
+            "total_weight_g": 6000.0,
+            "confidence": 0.99,
+            "evidence": "200gx30袋入"
+          },
+          "unit_prices": {
+            "per_serving": 300.23333333333335,
+            "per_100g": 150.11666666666667
+          },
+          "comparison_metric": "per_serving",
+          "unit_label": "1食あたり",
+          "quantity_label": "合計6kg / 30食",
+          "promotion_mentioned": false,
+          "price_history": {
+            "observed_days": 2,
+            "previous_date": "2026-10-02",
+            "previous_price": 9007,
+            "previous_unit": 300.23333333333335,
+            "previous_label": "昨日比",
+            "price_delta": 0,
+            "unit_delta": 0.0,
+            "percent_delta": 0.0,
+            "lowest_30d_unit": 300.23333333333335,
+            "highest_30d_unit": 300.23333333333335,
+            "lowest_7d_unit": 300.23333333333335,
+            "highest_7d_unit": 300.23333333333335,
+            "trend_7d": "stable",
+            "is_30d_low": true,
+            "series_7d": [
+              {
+                "date": "2026-10-02",
+                "price": 9007,
+                "unit": 300.23333333333335
+              },
+              {
+                "date": "2026-10-03",
+                "price": 9007,
+                "unit": 300.23333333333335
+              }
+            ],
+            "series_30d": [
+              {
+                "date": "2026-10-02",
+                "price": 9007,
+                "unit": 300.23333333333335
+              },
+              {
+                "date": "2026-10-03",
+                "price": 9007,
+                "unit": 300.23333333333335
+              }
+            ]
+          }
+        },
+        {
+          "id": "nozomi-market:10094129",
+          "raw_name": "カゴメ 大豆ミートのキーマカレー 180g×30個入｜ 送料無料 カレー レトルト 野菜 レトルトカレー ヴィーガン",
+          "name": "カゴメ 大豆ミートのキーマカレー 180g×30個入｜ カレー レトルト 野菜 レトルトカレー ヴィーガン",
+          "price": 9028,
+          "shop": "のぞみマーケット楽天市場店",
+          "url": "https://hb.afl.rakuten.co.jp/hgc/g00r1iqo.7cx6m46c.g00r1iqo.7cx6n261/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fnozomi-market%2Fb13-439%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fnozomi-market%2Fi%2F10094129%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
+          "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/nozomi-market/cabinet/202408_01/b13-439-1.jpg?_ex=128x128",
+          "postage_included": false,
+          "shipping_status": "extra_or_unknown",
+          "quantity": {
+            "count": 30,
+            "component_counts": [
+              30
+            ],
+            "unit_weight_g": 180.0,
+            "total_weight_g": 5400.0,
+            "confidence": 0.99,
+            "evidence": "180gx30個入"
+          },
+          "unit_prices": {
+            "per_serving": 300.93333333333334,
+            "per_100g": 167.1851851851852
+          },
+          "comparison_metric": "per_serving",
+          "unit_label": "1食あたり",
+          "quantity_label": "合計5.4kg / 30食",
+          "promotion_mentioned": false,
+          "price_history": {
+            "observed_days": 2,
+            "previous_date": "2026-10-02",
+            "previous_price": 9028,
+            "previous_unit": 300.93333333333334,
+            "previous_label": "昨日比",
+            "price_delta": 0,
+            "unit_delta": 0.0,
+            "percent_delta": 0.0,
+            "lowest_30d_unit": 300.93333333333334,
+            "highest_30d_unit": 300.93333333333334,
+            "lowest_7d_unit": 300.93333333333334,
+            "highest_7d_unit": 300.93333333333334,
+            "trend_7d": "stable",
+            "is_30d_low": true,
+            "series_7d": [
+              {
+                "date": "2026-10-02",
+                "price": 9028,
+                "unit": 300.93333333333334
+              },
+              {
+                "date": "2026-10-03",
+                "price": 9028,
+                "unit": 300.93333333333334
+              }
+            ],
+            "series_30d": [
+              {
+                "date": "2026-10-02",
+                "price": 9028,
+                "unit": 300.93333333333334
+              },
+              {
+                "date": "2026-10-03",
+                "price": 9028,
+                "unit": 300.93333333333334
+              }
+            ]
+          }
         }
       ],
       "quality_audit": {
         "fetch_errors": 0,
         "queries": 5,
         "fetched": 150,
-        "normalized": 43,
+        "normalized": 44,
         "exact_duplicates": 1,
         "practical_duplicates": 0,
-        "accepted_unique": 42,
-        "included_available": 11,
+        "accepted_unique": 43,
+        "included_available": 12,
         "shipping_unknown_available": 31,
-        "displayed_included": 11,
+        "displayed_included": 12,
         "displayed_shipping_unknown": 20,
         "reasons": {
-          "restricted_or_selectable_product": 53,
+          "restricted_or_selectable_product": 52,
           "ambiguous_quantity": 29,
           "wrong_product_type": 16,
           "missing_category_evidence": 8,
@@ -22012,72 +22111,6 @@
           }
         },
         {
-          "id": "jetprice:10672050",
-          "raw_name": "明星食品 中華三昧 タテ型 榮林 酸辣湯麺 12個 カップラーメン カップ麺 ラーメン インスタント レトルト 食品",
-          "name": "明星食品 中華三昧 タテ型 榮林 酸辣湯麺 12個 カップラーメン カップ麺 ラーメン インスタント レトルト 食品",
-          "price": 2972,
-          "shop": "JET PRICE",
-          "url": "https://hb.afl.rakuten.co.jp/hgc/g00scpco.7cx6m330.g00scpco.7cx6n146/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fjetprice%2Fx211nw%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fjetprice%2Fi%2F10672050%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
-          "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/jetprice/cabinet/ba1/j2572s.jpg?_ex=128x128",
-          "postage_included": false,
-          "shipping_status": "extra_or_unknown",
-          "quantity": {
-            "count": 12,
-            "component_counts": [
-              12
-            ],
-            "confidence": 0.99,
-            "evidence": "12個"
-          },
-          "unit_prices": {
-            "per_serving": 247.66666666666666
-          },
-          "comparison_metric": "per_serving",
-          "unit_label": "1食あたり",
-          "quantity_label": "合計12食",
-          "promotion_mentioned": false,
-          "price_history": {
-            "observed_days": 2,
-            "previous_date": "2026-10-02",
-            "previous_price": 2972,
-            "previous_unit": 247.66666666666666,
-            "previous_label": "昨日比",
-            "price_delta": 0,
-            "unit_delta": 0.0,
-            "percent_delta": 0.0,
-            "lowest_30d_unit": 247.66666666666666,
-            "highest_30d_unit": 247.66666666666666,
-            "lowest_7d_unit": 247.66666666666666,
-            "highest_7d_unit": 247.66666666666666,
-            "trend_7d": "stable",
-            "is_30d_low": true,
-            "series_7d": [
-              {
-                "date": "2026-10-02",
-                "price": 2972,
-                "unit": 247.66666666666666
-              },
-              {
-                "date": "2026-10-03",
-                "price": 2972,
-                "unit": 247.66666666666666
-              }
-            ],
-            "series_30d": [
-              {
-                "date": "2026-10-02",
-                "price": 2972,
-                "unit": 247.66666666666666
-              },
-              {
-                "date": "2026-10-03",
-                "price": 2972,
-                "unit": 247.66666666666666
-              }
-            ]
-          }
-        },
-        {
           "id": "kumano-nakatani:10000013",
           "raw_name": "【日清食品】CUP NOODLE カップヌードル シーフードヌードル 75g×20個",
           "name": "【日清食品】CUP NOODLE カップヌードル シーフードヌードル 75g×20個",
@@ -22544,18 +22577,18 @@
         "fetch_errors": 0,
         "queries": 3,
         "fetched": 90,
-        "normalized": 27,
+        "normalized": 26,
         "exact_duplicates": 0,
         "practical_duplicates": 0,
-        "accepted_unique": 27,
+        "accepted_unique": 26,
         "included_available": 12,
-        "shipping_unknown_available": 15,
+        "shipping_unknown_available": 14,
         "displayed_included": 12,
-        "displayed_shipping_unknown": 15,
+        "displayed_shipping_unknown": 14,
         "reasons": {
           "missing_category_evidence": 6,
           "wrong_product_type": 27,
-          "ambiguous_quantity": 20,
+          "ambiguous_quantity": 21,
           "restricted_or_selectable_product": 10
         }
       }

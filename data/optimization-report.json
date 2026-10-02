@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-03T06:39:39.378130+09:00",
+  "generated_at": "2026-10-03T06:49:40.697471+09:00",
   "site_id": "food_cost_jp",
   "inventory": {
     "pack-rice": {
@@ -174,8 +174,8 @@
         "rejection_samples": {
           "ambiguous_quantity": [
             "【7年産ひとめぼれ＆富山県産てんこもり50％以上ブレンド】 米5kg 10kg ブレンド米 家計応援米 精米したて お米 国産100％ 送料無料 国産 おにぎり 弁当 【お届け不可地域：北海道・沖縄・離島】",
-            "＼1袋1,740円～☆彡食いしんぼう祭/クーポン／【令和7年産100％使用】白米 無洗米 和の輝き ブレンド米 10kg (5kg×2袋) 15kg (5kg×3袋) 密封新鮮パック 脱酸素剤入り 米 お米 国産 10キロ 15キロ 低温製法米 送料無料 アイリスオーヤマ",
-            "[2026年 楽天上半期ランキング1位] 令和7年産 ブレンド米 極味精米 5kg 10kg 20kg ( きわみせいまい こめ お米 米 白米 全国 送料無料 （北海道 沖縄 離島含む） ブレンド米 安い 生活応援米 備蓄米 不使用 10キロ 5キロ ) 山川食糧"
+            "[2026年 楽天上半期ランキング1位] 令和7年産 ブレンド米 極味精米 5kg 10kg 20kg ( きわみせいまい こめ お米 米 白米 全国 送料無料 （北海道 沖縄 離島含む） ブレンド米 安い 生活応援米 備蓄米 不使用 10キロ 5キロ ) 山川食糧",
+            "＼1袋1,740円～☆彡食いしんぼう祭/クーポン／【令和7年産100％使用】白米 無洗米 和の輝き ブレンド米 10kg (5kg×2袋) 15kg (5kg×3袋) 密封新鮮パック 脱酸素剤入り 米 お米 国産 10キロ 15キロ 低温製法米 送料無料 アイリスオーヤマ"
           ],
           "wrong_product_type": [
             "【ふるさと納税】新米 令和8年産 米 コシヒカリ 品種おまかせ 5kg 10kg 15kg 20kg 精米 30kg 玄米 選べる 配送時期 茨城県つくばみらい市産 ｜ お米 こめ コメ 白米 単一米 5キロ 10キロ 15キロ 20キロ 単一原料 ブランド米 銘柄米 ランキング ごはん 人気 ふるさとのうぜい",
@@ -489,12 +489,12 @@
         "fetch_errors": 0,
         "queries": 3,
         "fetched": 90,
-        "normalized": 52,
+        "normalized": 53,
         "exact_duplicates": 1,
         "practical_duplicates": 0,
-        "accepted_unique": 51,
+        "accepted_unique": 52,
         "included_available": 25,
-        "shipping_unknown_available": 26,
+        "shipping_unknown_available": 27,
         "displayed_included": 25,
         "displayed_shipping_unknown": 20,
         "reasons": {
@@ -502,7 +502,7 @@
           "ambiguous_quantity": 9,
           "restricted_or_selectable_product": 12,
           "missing_category_evidence": 4,
-          "limited_purchase": 2
+          "limited_purchase": 1
         },
         "cleaned_examples": [
           {
@@ -530,12 +530,12 @@
             "after": "ラ・モリサーナ 有機スパゲッティ1.7mm(No.15) 500g × 6袋 [モンテ物産] 【 まとめ買い 】"
           },
           {
-            "before": "【マラソン限定クーポン配布中】明治屋 ガロファロ ヴェルミチェッリ 500g × 6袋 スパゲッティ 2.2mm 【 まとめ買い 】",
-            "after": "明治屋 ガロファロ ヴェルミチェッリ 500g × 6袋 スパゲッティ 2.2mm 【 まとめ買い 】"
-          },
-          {
             "before": "【送料一律540円】オーサワの有機スパゲッティ　500g×6袋",
             "after": "【送料一律540円】オーサワの有機スパゲッティ 500g×6袋"
+          },
+          {
+            "before": "【マラソン限定クーポン配布中】明治屋 ガロファロ ヴェルミチェッリ 500g × 6袋 スパゲッティ 2.2mm 【 まとめ買い 】",
+            "after": "明治屋 ガロファロ ヴェルミチェッリ 500g × 6袋 スパゲッティ 2.2mm 【 まとめ買い 】"
           },
           {
             "before": "昭和産業 (SHOWA) スパゲッティ1.6mm 1kg×15袋入｜ 送料無料 パスタ スパゲティ スパゲッティ 乾麺 麺",
@@ -558,7 +558,7 @@
           "wrong_product_type": [
             "カロリ ブロンズ パスタ 3kg スパゲッティ 1.9mm 500g x 6袋セット イタリア産 パスタ 手打ち風 生パスタ風 ブロンズ仕上げ 低温乾燥 乾麺 pasta caroli spaghetti 太め 太麺 買い置き 手土産 送料無料 ssbpd24",
             "【並行輸入品】【6袋セット】 パスタ ディチェコ スパゲッティーニ No.11 500g スパゲッティ 約1.6mm イタリア産 イタリア 豊かな歯ごたえ たしかなのどごし パスタソースが絡みやすい 麺 乾麺 ロングパスタ パスタ麺 まとめ買い *",
-            "【並行輸入品】【6袋セット】 パスタ ディチェコ スパゲッティーニ No.11 500g スパゲッティ 約1.6mm イタリア産 イタリア 豊かな歯ごたえ たしかなのどごし パスタソースが絡みやすい 麺 乾麺 ロングパスタ パスタ麺 まとめ買い *【wkn】"
+            "【並行輸入品】【6袋セット】 パスタ ディチェコ スパゲッティーニ No.11 500g スパゲッティ 約1.6mm イタリア産 イタリア 豊かな歯ごたえ たしかなのどごし パスタソースが絡みやすい 麺 乾麺 ロングパスタ まとめ買い パスタ麺 *"
           ],
           "ambiguous_quantity": [
             "【送料無料】【6袋】ダル・クオーレ スパゲティ　1.4mm 6袋×500g　イタリア産 ロングパスタ 南イタリア スパゲティ 1.4mm パスタ　イタリアン　有名レストラン　ダルクオーレ　DAL CUORE",
@@ -576,8 +576,7 @@
             "【マラソン限定クーポン配布中】雪和食品 デュラム小麦粉セモリナ 1kg × 3袋【まとめ買い】"
           ],
           "limited_purchase": [
-            "【ふるさと納税】【全2回定期便】「麦の匠」デュラムセモリナ100％スパゲッティ300g×40袋/ パスタ 国産 貝塚産 麺 もちもち 大阪府貝塚市 | パスタ 国産パスタ 貝塚産パスタ パスタ麺 もちもちパスタ スパゲティ 国産スパゲッティ 貝塚産スパゲティ スパゲッティ",
-            "【ふるさと納税】【全2回定期便】「麦の匠」デュラムセモリナ100％スパゲッティ300g×20袋/パスタ 国産 貝塚産 麺 もちもち 大阪府貝塚市 | パスタ 国産パスタ 貝塚産パスタ パスタ麺 もちもちパスタ スパゲティ 国産スパゲッティ 貝塚産スパゲティ スパゲッティ"
+            "【ふるさと納税】【全2回定期便】「麦の匠」デュラムセモリナ100％スパゲッティ300g×40袋/ パスタ 国産 貝塚産 麺 もちもち 大阪府貝塚市 | パスタ 国産パスタ 貝塚産パスタ パスタ麺 もちもちパスタ スパゲティ 国産スパゲッティ 貝塚産スパゲティ スパゲッティ"
           ]
         }
       },
@@ -643,12 +642,12 @@
             "after": "フルグラ 糖質オフ 1000g × 3袋 カルビー コストコ 通販"
           },
           {
-            "before": "フルグラ 糖質オフ 1000g × 4袋 カルビー コストコ 通販 送料無料",
-            "after": "フルグラ 糖質オフ 1000g × 4袋 カルビー コストコ 通販"
-          },
-          {
             "before": "フルグラ 糖質オフ 1000g × 6袋 カルビー コストコ 通販 送料無料",
             "after": "フルグラ 糖質オフ 1000g × 6袋 カルビー コストコ 通販"
+          },
+          {
+            "before": "フルグラ 糖質オフ 1000g × 4袋 カルビー コストコ 通販 送料無料",
+            "after": "フルグラ 糖質オフ 1000g × 4袋 カルビー コストコ 通販"
           },
           {
             "before": "フルグラ 糖質オフ 1000g カルビー コストコ 通販 送料無料",
@@ -698,16 +697,16 @@
         "fetch_errors": 0,
         "queries": 5,
         "fetched": 150,
-        "normalized": 43,
+        "normalized": 44,
         "exact_duplicates": 1,
         "practical_duplicates": 0,
-        "accepted_unique": 42,
-        "included_available": 11,
+        "accepted_unique": 43,
+        "included_available": 12,
         "shipping_unknown_available": 31,
-        "displayed_included": 11,
+        "displayed_included": 12,
         "displayed_shipping_unknown": 20,
         "reasons": {
-          "restricted_or_selectable_product": 53,
+          "restricted_or_selectable_product": 52,
           "ambiguous_quantity": 29,
           "wrong_product_type": 16,
           "missing_category_evidence": 8,
@@ -735,20 +734,20 @@
             "after": "ハウス食品 カレーマルシェ 辛口 180g×30個入｜ カレー レトルト カレーマルシェ レトルトカレー"
           },
           {
-            "before": "キーマカレー 180g×10箱 ≪パッケージ版≫ Keema Curry レトルトカレー 鶏挽肉 送料無料 【10%OFF】",
-            "after": "キーマカレー 180g×10箱 ≪パッケージ版≫ Keema Curry レトルトカレー 鶏挽肉"
-          },
-          {
             "before": "ハウス食品 カレーマルシェ 中辛 180g×30個入｜ 送料無料 カレー レトルト カレーマルシェ レトルトカレー",
             "after": "ハウス食品 カレーマルシェ 中辛 180g×30個入｜ カレー レトルト カレーマルシェ レトルトカレー"
+          },
+          {
+            "before": "キーマカレー 180g×5箱 ≪パッケージ版≫ Keema Curry レトルトカレー 鶏挽肉 送料無料 【10%OFF】",
+            "after": "キーマカレー 180g×5箱 ≪パッケージ版≫ Keema Curry レトルトカレー 鶏挽肉"
           },
           {
             "before": "ダールチキンカレー 180g 単品 ≪パッケージ版≫ Dal Chicken Curry レトルトカレー 豆 鶏肉 【10%OFF】",
             "after": "ダールチキンカレー 180g 単品 ≪パッケージ版≫ Dal Chicken Curry レトルトカレー 豆 鶏肉"
           },
           {
-            "before": "キーマカレー 180g×5箱 ≪パッケージ版≫ Keema Curry レトルトカレー 鶏挽肉 送料無料 【10%OFF】",
-            "after": "キーマカレー 180g×5箱 ≪パッケージ版≫ Keema Curry レトルトカレー 鶏挽肉"
+            "before": "キーマカレー 180g×10箱 ≪パッケージ版≫ Keema Curry レトルトカレー 鶏挽肉 送料無料 【10%OFF】",
+            "after": "キーマカレー 180g×10箱 ≪パッケージ版≫ Keema Curry レトルトカレー 鶏挽肉"
           },
           {
             "before": "ダールチキンカレー 180g×5箱 ≪パッケージ版≫ Dal Chicken Curry レトルトカレー 豆 鶏肉 送料無料 【10%OFF】",
@@ -767,7 +766,7 @@
           "restricted_or_selectable_product": [
             "【ふるさと納税】 カレー アサリカレー 10袋 180g×10 冷凍 無水カレー スパイス 11種類 豊富 和だし 香辛料 レトルトカレー 簡単 旨味 鰹 昆布 椎茸 出汁 薬膳 スパイスカレー 化学調味料不使用 175DENOカレー 北海道 札幌市",
             "【ふるさと納税】 カレー チキンカレー 10袋 180g×10 冷凍 無水カレー 鶏肉 ジューシー スパイス 17種類 豊富 香辛料 レトルトカレー 簡単 ヘルシー 健康 美容 花椒 薬膳 スパイスカレー 逸品 小麦粉不使用 175DENOカレー 北海道 札幌市",
-            "【ふるさと納税】 カレー 肉 グルテンフリー バターチキンカレー 180g×10袋 肉 牛 グルテンフリーカレー カレー ご当地カレー ビーフカレー 簡易包装 レトルトカレー 便利 奈良おおの農園 奈良県 奈良市 なら"
+            "【ふるさと納税】松屋 オリジナルカレーの具 180g 10袋 カレー レトルトカレー 辛口 スパイス カレギュウ レトルト 冷凍 時短 簡単 便利 手抜き レンチン おかず 保存食 備蓄 夜食 まとめ買い お取り寄せ グルメ 埼玉県 嵐山町"
           ],
           "ambiguous_quantity": [
             "てまごこちカレー 甘口(180g×1・2・5・10袋)【一部送料無料】宮崎県産 九州 国産 レトルトカレー レストラン フレンチカレー 野菜 ベジカレー チキンカレー 鶏肉 こども 子供カレー オムカレー 美味しい シェフ監修 取り寄せ プレゼント ギフト 入学 卒業祝い ホワイトデー",
@@ -789,10 +788,10 @@
           ]
         }
       },
-      "included_count": 11,
+      "included_count": 12,
       "shipping_unknown_count": 20,
-      "history_ready_count": 10,
-      "history_ready_rate": 0.9091
+      "history_ready_count": 11,
+      "history_ready_rate": 0.9167
     },
     "bag-noodles": {
       "name": "袋麺",
@@ -822,28 +821,28 @@
             "after": "サンヨー食品 サッポロ一番 塩らーめん 5食入り×6袋（合計30食） 送料無料(北海道は別途700円かかります。沖縄配送不可) / 袋めん"
           },
           {
-            "before": "【期間限定特売】サンヨー食品 サッポロ一番 みそラーメン 5食入り×6袋（合計30食） 送料無料(北海道は別途700円かかります。沖縄配送不可) / 袋めん",
-            "after": "サンヨー食品 サッポロ一番 みそラーメン 5食入り×6袋（合計30食） 送料無料(北海道は別途700円かかります。沖縄配送不可) / 袋めん"
+            "before": "サッポロ一番　塩らーめん　5食×6袋入　30食",
+            "after": "サッポロ一番 塩らーめん 5食×6袋入 30食"
           },
           {
             "before": "サッポロ一番　みそラーメン　5食×6袋入　30食",
             "after": "サッポロ一番 みそラーメン 5食×6袋入 30食"
           },
           {
-            "before": "サッポロ一番　塩らーめん　5食×6袋入　30食",
-            "after": "サッポロ一番 塩らーめん 5食×6袋入 30食"
+            "before": "【期間限定特売】サンヨー食品 サッポロ一番 みそラーメン 5食入り×6袋（合計30食） 送料無料(北海道は別途700円かかります。沖縄配送不可) / 袋めん",
+            "after": "サンヨー食品 サッポロ一番 みそラーメン 5食入り×6袋（合計30食） 送料無料(北海道は別途700円かかります。沖縄配送不可) / 袋めん"
           },
           {
             "before": "サッポロ一番　しょうゆ味　5食×6袋入　30食入",
             "after": "サッポロ一番 しょうゆ味 5食×6袋入 30食入"
           },
           {
-            "before": "マルちゃん正麺　醤油味　5食×6袋入　30食",
-            "after": "マルちゃん正麺 醤油味 5食×6袋入 30食"
-          },
-          {
             "before": "東洋水産　マルちゃん正麺　塩味5食×6袋入　30食",
             "after": "東洋水産 マルちゃん正麺 塩味5食×6袋入 30食"
+          },
+          {
+            "before": "マルちゃん正麺　醤油味　5食×6袋入　30食",
+            "after": "マルちゃん正麺 醤油味 5食×6袋入 30食"
           },
           {
             "before": "東洋水産　マルちゃん正麺　味噌味　5食×6袋入　30食",
@@ -874,7 +873,7 @@
           ],
           "ambiguous_quantity": [
             "サッポロ一番 塩ラーメン 袋麺 5食パック×6袋(30食)",
-            "サンヨー食品 サッポロ一番 みそラーメン 1箱5食入×6袋",
+            "サンヨー食品 サッポロ一番 しょうゆ味 1箱5食入×6袋",
             "サッポロ一番 塩ラーメン 袋麺 5食パック×6袋(30食)"
           ],
           "restricted_or_selectable_product": [
@@ -902,18 +901,18 @@
         "fetch_errors": 0,
         "queries": 3,
         "fetched": 90,
-        "normalized": 27,
+        "normalized": 26,
         "exact_duplicates": 0,
         "practical_duplicates": 0,
-        "accepted_unique": 27,
+        "accepted_unique": 26,
         "included_available": 12,
-        "shipping_unknown_available": 15,
+        "shipping_unknown_available": 14,
         "displayed_included": 12,
-        "displayed_shipping_unknown": 15,
+        "displayed_shipping_unknown": 14,
         "reasons": {
           "missing_category_evidence": 6,
           "wrong_product_type": 27,
-          "ambiguous_quantity": 20,
+          "ambiguous_quantity": 21,
           "restricted_or_selectable_product": 10
         },
         "cleaned_examples": [
@@ -970,20 +969,20 @@
         }
       },
       "included_count": 12,
-      "shipping_unknown_count": 15,
+      "shipping_unknown_count": 14,
       "history_ready_count": 12,
       "history_ready_rate": 1.0
     }
   },
   "price_history": {
-    "ready_count": 162,
-    "included_count": 171,
-    "ready_rate": 0.9474,
+    "ready_count": 163,
+    "included_count": 172,
+    "ready_rate": 0.9477,
     "deal_count": 0
   },
   "auto_seo": {
     "minimum_products": 3,
-    "published_count": 5,
+    "published_count": 14,
     "pages": [
       {
         "slug": "pack-rice-40plus-cost",
@@ -1014,6 +1013,60 @@
         "category_id": "oatmeal",
         "matched_count": 8,
         "title": "ロールドオーツのコスパ比較"
+      },
+      {
+        "slug": "mineral-water-500ml-24-cost",
+        "category_id": "mineral-water",
+        "matched_count": 3,
+        "title": "ミネラルウォーター500ml前後24本のコスパ比較"
+      },
+      {
+        "slug": "mineral-water-2l-cost",
+        "category_id": "mineral-water",
+        "matched_count": 3,
+        "title": "ミネラルウォーター2Lのコスパ比較"
+      },
+      {
+        "slug": "pasta-500g-cost",
+        "category_id": "pasta",
+        "matched_count": 23,
+        "title": "パスタ500g前後のコスパ比較"
+      },
+      {
+        "slug": "pasta-bulk-cost",
+        "category_id": "pasta",
+        "matched_count": 24,
+        "title": "パスタ大容量・まとめ買いのコスパ比較"
+      },
+      {
+        "slug": "granola-500g-plus-cost",
+        "category_id": "granola",
+        "matched_count": 17,
+        "title": "グラノーラ500g以上のコスパ比較"
+      },
+      {
+        "slug": "granola-bulk-cost",
+        "category_id": "granola",
+        "matched_count": 12,
+        "title": "グラノーラまとめ買いのコスパ比較"
+      },
+      {
+        "slug": "retort-curry-10-servings-cost",
+        "category_id": "retort-curry",
+        "matched_count": 9,
+        "title": "レトルトカレー10食以上のコスパ比較"
+      },
+      {
+        "slug": "bag-noodles-30-servings-cost",
+        "category_id": "bag-noodles",
+        "matched_count": 12,
+        "title": "袋麺30食以上のコスパ比較"
+      },
+      {
+        "slug": "cup-noodles-12-cost",
+        "category_id": "cup-noodles",
+        "matched_count": 4,
+        "title": "カップ麺12個セットのコスパ比較"
       }
     ]
   },
