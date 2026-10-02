@@ -65,6 +65,12 @@ test('three routes, progressive disclosure, hero CTA and route events',()=>{
  b.click('[data-entry-route="advisor"]');assert.ok(b.visible('[data-finder-purpose-stage]'));
  assert.equal(b.d.querySelectorAll('[data-finder-purpose]').length,4);
  assert.equal(b.events.find(e=>e[1]==='entry_route_select')[2].entry_route,'advisor');
- b.click('[data-hero-primary]');assert.ok(b.visible('[data-finder-route-stage]'));assert.ok(b.events.some(e=>e[1]==='hero_primary_cta'));
+ b.click('[data-hero-primary]');assert.ok(b.visible('[data-finder-purpose-stage]'));assert.ok(!b.visible('[data-finder-route-stage]'));assert.equal(b.events.find(e=>e[1]==='hero_primary_cta')[2].entry_route,'advisor');assert.equal(b.events.filter(e=>e[1]==='entry_route_select').at(-1)[2].entry_source,'hero');
  b.click('[data-hero-known]');assert.ok(b.visible('[data-finder-category-stage]'));assert.equal(b.events.filter(e=>e[1]==='entry_route_select').at(-1)[2].entry_route,'known');b.dom.window.close();
+});
+
+test('high-resolution discovery images fall back once to the API URL',()=>{
+ const b=boot();const img=b.d.querySelector('img[data-image-fallback]');assert.ok(img);const original=img.dataset.imageFallback;
+ img.dispatchEvent(new b.dom.window.Event('error'));assert.equal(img.src,original);assert.ok(!img.dataset.imageFallback);
+ img.dispatchEvent(new b.dom.window.Event('error'));assert.equal(img.src,original);b.dom.window.close();
 });

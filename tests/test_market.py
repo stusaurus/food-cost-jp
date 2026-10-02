@@ -47,3 +47,27 @@ class MarketTests(unittest.TestCase):
         self.assertIn('_ex=640x640',card)
         self.assertLess(card.index('finder-product-media'),card.index('finder-product-price'))
         self.assertLess(card.index('finder-product-price'),card.index('finder-product-name'))
+
+    def test_static_shelves_prefer_unused_eligible_candidates(self):
+        used=set()
+        first=build.cross_shelf_items(self.results,'cheap',used)
+        second=build.cross_shelf_items(self.results,'large',used)
+        self.assertFalse({i['id'] for _,i in first} & {i['id'] for _,i in second})
+        # User intent still gets the same best match, independent of static shelves.
+        self.assertEqual(first,build.cross_shelf_items(self.results,'cheap'))
+        c=build.CATEGORIES[0]
+        single={c['id']:([sample_item(c['id'],2)],[])}
+        seen=set();build.cross_shelf_items(single,'large',seen)
+        self.assertEqual(len(build.cross_shelf_items(single,'large',seen)),1)
+
+    def test_display_images_only_change_known_thumbnail_parameter(self):
+        url='https://thumbnail.image.rakuten.co.jp/a.jpg?_ex=128x128&foo=bar'
+        self.assertEqual(build.display_image_url(url),'https://thumbnail.image.rakuten.co.jp/a.jpg?_ex=640x640&foo=bar')
+        for url in ['https://example.com/a.jpg?_ex=128x128','https://thumbnail.image.rakuten.co.jp/a.jpg','https://thumbnail.image.rakuten.co.jp.evil.test/a?_ex=128x128']:
+            self.assertEqual(build.display_image_url(url),url)
+        c=build.CATEGORIES[0];item=sample_item(c['id']);item['image']='https://thumbnail.image.rakuten.co.jp/a.jpg?_ex=128x128'
+        self.assertIn('_ex=640x640',build.top3_html([item],c))
+        card=build.finder_product_card(item,c,1,'cheap')
+        self.assertNotIn('送料込み確認済み',card)
+        self.assertLess(card.index('finder-why'),card.index('data-affiliate'))
+        self.assertLess(card.index('data-affiliate'),card.index('discovery-secondary'))
