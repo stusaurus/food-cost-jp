@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-02T16:54:22.118974+09:00",
+  "generated_at": "2026-10-02T17:02:50.457149+09:00",
   "site_id": "food_cost_jp",
   "inventory": {
     "pack-rice": {
@@ -11,16 +11,16 @@
     },
     "rice": {
       "name": "米",
-      "included_count": 22,
-      "shipping_unknown_count": 4,
-      "history_ready_count": 18,
-      "history_ready_rate": 0.8182
+      "included_count": 12,
+      "shipping_unknown_count": 3,
+      "history_ready_count": 11,
+      "history_ready_rate": 0.9167
     },
     "carbonated-water": {
       "name": "炭酸水",
-      "included_count": 14,
-      "shipping_unknown_count": 19,
-      "history_ready_count": 14,
+      "included_count": 9,
+      "shipping_unknown_count": 17,
+      "history_ready_count": 9,
       "history_ready_rate": 1.0
     },
     "oatmeal": {
@@ -32,14 +32,14 @@
     }
   },
   "price_history": {
-    "ready_count": 74,
-    "included_count": 80,
-    "ready_rate": 0.925,
-    "deal_count": 4
+    "ready_count": 62,
+    "included_count": 65,
+    "ready_rate": 0.9538,
+    "deal_count": 3
   },
   "auto_seo": {
     "minimum_products": 3,
-    "published_count": 6,
+    "published_count": 5,
     "pages": [
       {
         "slug": "pack-rice-24-servings-cost",
@@ -54,12 +54,6 @@
         "title": "パックご飯40食以上のコスパ比較"
       },
       {
-        "slug": "carbonated-water-500ml-24-cost",
-        "category_id": "carbonated-water",
-        "matched_count": 6,
-        "title": "炭酸水500ml前後24本のコスパ比較"
-      },
-      {
         "slug": "carbonated-water-1l-cost",
         "category_id": "carbonated-water",
         "matched_count": 6,
@@ -68,7 +62,7 @@
       {
         "slug": "rice-musenmai-cost",
         "category_id": "rice",
-        "matched_count": 10,
+        "matched_count": 5,
         "title": "無洗米のコスパ比較"
       },
       {
@@ -97,6 +91,7 @@
       "type": "product_coverage",
       "priority": 1,
       "categories": [
+        "rice",
         "carbonated-water"
       ],
       "action": "安全な掲載候補を増やす検索・解析改善を優先"

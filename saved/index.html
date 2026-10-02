@@ -80,12 +80,27 @@ footer{padding:30px 0 100px;border-top:1px solid var(--line);font-size:10px;colo
  .market-shelf .identity-line{display:none}.market-shelf .finder-product-meta{font-size:11px;line-height:1.7}
  .market-shelf .product-actions{gap:5px}.market-shelf .utility-btn{font-size:10px;padding:6px}
  .finder{padding:22px 15px}.finder h2{font-size:25px}.finder-guide{display:none}
- .finder-purpose-options{grid-template-columns:1fr}.finder-purpose-options button{min-height:78px;padding:13px}
+ .finder-options.finder-purpose-options{grid-template-columns:1fr}.finder-purpose-options button{min-height:78px;padding:13px}
  .finder-purpose-options strong{font-size:15px}.finder-options{grid-template-columns:1fr 1fr}
  .finder-question{gap:8px}.finder-question strong{font-size:15px}.finder-art{width:100%;height:88px}
  .market-shelf .cta{font-size:11px}.aisle-group{font-size:22px}.market-shelf .trend-row:empty{display:none}
 }
 @media(prefers-reduced-motion:reduce){.finder-stage{animation:none}.finder-options button{transition:none}.finder-options button:hover{transform:none}}
+
+@keyframes shelf-in{from{opacity:.78;transform:translateY(3px)}to{opacity:1;transform:none}}
+
+.shelf-mobile-hint{display:none}
+@media(max-width:759px){
+ .deal-section .market-shelf .finder-products,.discovery-shelves .market-shelf .finder-products{display:grid;grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:90%;overflow-x:auto;scroll-snap-type:x proximity;padding-bottom:10px;scrollbar-width:thin}
+ .deal-section .finder-product,.discovery-shelves .finder-product{scroll-snap-align:start}
+ .deal-section .shelf-mobile-hint,.discovery-shelves .shelf-mobile-hint{display:block;font-size:10px;color:var(--brand);text-align:right;margin:0 0 8px}
+ .market-shelf .finder-product-price small{display:inline;margin-left:7px}
+ .market-shelf .finder-product-meta{margin:3px 0}
+ .market-shelf .shelf-shipping{margin:3px 0}
+ .market-shelf .product-actions{margin:6px 0 8px}
+ .market-shelf .product-extra{margin:5px 0}
+ .market-shelf .product-extra>summary{min-height:44px;align-items:center;padding:6px 0}
+}
 </style>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-GFVSZ8YDQ5"></script>
 <script>
@@ -101,7 +116,7 @@ gtag('config','G-GFVSZ8YDQ5',{site_id:'food_cost_jp'});
 <h1>保存した商品の<br>値下がりだけ追う。</h1>
 <p class="lead">「あとで見る」に入れた商品を、最新の楽天取得データと照合して確認します。</p>
 <div class="hero-tags"><span class="hero-tag">現在価格</span><span class="hero-tag">前回比</span><span class="hero-tag">30日最安</span></div>
-<p class="note">サイト最終更新: 2026-10-02 16:54 JST</p></div>
+<p class="note">サイト最終更新: 2026-10-02 17:02 JST</p></div>
 <div class="category-hero-art"><img class="guide-mascot" src="https://stusaurus.github.io/food-cost-jp/assets/marche-rice.webp" width="768" height="512" alt="" loading="lazy"></div></div></header>
 <nav class="service-shortcuts" aria-label="主要メニュー">
 <a href="https://stusaurus.github.io/food-cost-jp/"><span>⌂</span>トップ</a>

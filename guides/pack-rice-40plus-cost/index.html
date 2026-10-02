@@ -80,12 +80,27 @@ footer{padding:30px 0 100px;border-top:1px solid var(--line);font-size:10px;colo
  .market-shelf .identity-line{display:none}.market-shelf .finder-product-meta{font-size:11px;line-height:1.7}
  .market-shelf .product-actions{gap:5px}.market-shelf .utility-btn{font-size:10px;padding:6px}
  .finder{padding:22px 15px}.finder h2{font-size:25px}.finder-guide{display:none}
- .finder-purpose-options{grid-template-columns:1fr}.finder-purpose-options button{min-height:78px;padding:13px}
+ .finder-options.finder-purpose-options{grid-template-columns:1fr}.finder-purpose-options button{min-height:78px;padding:13px}
  .finder-purpose-options strong{font-size:15px}.finder-options{grid-template-columns:1fr 1fr}
  .finder-question{gap:8px}.finder-question strong{font-size:15px}.finder-art{width:100%;height:88px}
  .market-shelf .cta{font-size:11px}.aisle-group{font-size:22px}.market-shelf .trend-row:empty{display:none}
 }
 @media(prefers-reduced-motion:reduce){.finder-stage{animation:none}.finder-options button{transition:none}.finder-options button:hover{transform:none}}
+
+@keyframes shelf-in{from{opacity:.78;transform:translateY(3px)}to{opacity:1;transform:none}}
+
+.shelf-mobile-hint{display:none}
+@media(max-width:759px){
+ .deal-section .market-shelf .finder-products,.discovery-shelves .market-shelf .finder-products{display:grid;grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:90%;overflow-x:auto;scroll-snap-type:x proximity;padding-bottom:10px;scrollbar-width:thin}
+ .deal-section .finder-product,.discovery-shelves .finder-product{scroll-snap-align:start}
+ .deal-section .shelf-mobile-hint,.discovery-shelves .shelf-mobile-hint{display:block;font-size:10px;color:var(--brand);text-align:right;margin:0 0 8px}
+ .market-shelf .finder-product-price small{display:inline;margin-left:7px}
+ .market-shelf .finder-product-meta{margin:3px 0}
+ .market-shelf .shelf-shipping{margin:3px 0}
+ .market-shelf .product-actions{margin:6px 0 8px}
+ .market-shelf .product-extra{margin:5px 0}
+ .market-shelf .product-extra>summary{min-height:44px;align-items:center;padding:6px 0}
+}
 </style>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-GFVSZ8YDQ5"></script>
 <script>
@@ -102,7 +117,7 @@ gtag('config','G-GFVSZ8YDQ5',{site_id:'food_cost_jp'});
 <h1>パックご飯40食以上の大箱を比較</h1>
 <p class="lead">40食以上の大箱候補が3商品以上あるときだけ自動公開し、単価と支払総額を比べます。</p>
 <div class="hero-tags"><span class="hero-tag">送料込みを優先</span><span class="hero-tag">実データ連動</span><span class="hero-tag">数量曖昧は除外</span></div>
-<p class="note">最終価格確認: 2026-10-02 16:54 JST</p></div>
+<p class="note">最終価格確認: 2026-10-02 17:02 JST</p></div>
 <div class="category-hero-art pack-rice"><img class="food-art" src="https://stusaurus.github.io/food-cost-jp/assets/marche-pack-rice.webp" width="768" height="512" alt="" loading="lazy"></div>
 </div></header>
 <nav class="service-shortcuts" aria-label="主要メニュー">
@@ -715,7 +730,7 @@ const applyFilters=root=>{
   if(empty)empty.style.display=shown?'none':'block';
 };
 document.querySelectorAll('[data-filter]').forEach(s=>s.addEventListener('change',()=>{
-  const root=s.closest('[data-comparison]');delete root.dataset.shoppingIntent;applyFilters(root);
+  const root=s.closest('[data-comparison]');applyFilters(root);
   send('comparison_filter_use',{category_id:s.dataset.category,filter_value:s.value})
 }));
 document.querySelectorAll('[data-search]').forEach(input=>input.addEventListener('change',()=>{
@@ -731,7 +746,7 @@ const finder=document.querySelector('[data-finder]');
 if(finder){
   let category='all',purpose='',intent='';
   const categoryStage=finder.querySelector('[data-finder-category-stage]'),purposeStage=finder.querySelector('[data-finder-purpose-stage]'),resultStage=finder.querySelector('[data-finder-result-stage]'),status=finder.querySelector('[data-finder-status]');
-  const show=el=>{el.hidden=false;const first=el.querySelector('button');first?.focus({preventScroll:true})};
+  const show=el=>{el.hidden=false;const first=el.querySelector('button');first?.focus({preventScroll:true});const top=el.getBoundingClientRect().top;if(top<0||top>window.innerHeight*.65)el.scrollIntoView?.({block:'start',behavior:window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches?'instant':'smooth'})};
   const hide=el=>el.hidden=true;
   const results=()=>{
     hide(categoryStage);show(resultStage);
@@ -760,7 +775,7 @@ if(pick&&document.querySelector('[data-comparison]')){
   const root=document.querySelector('[data-comparison]');
   const filter=root.querySelector('[data-filter]');
   const sort=root.querySelector('[data-sort]');
-  if(filter&&(pick==='small'||pick==='large'||pick==='storage')){root.dataset.shoppingIntent=pick;filter.value=pick==='storage'?'small':pick;const label=root.querySelector('[data-intent-note]');if(label)label.textContent='買い方で絞った一覧：少量側 / 大容量側は合計量を基準にしています。'}
+  if(filter&&(pick==='small'||pick==='large'||pick==='storage')){root.dataset.shoppingIntent=pick;filter.value=pick==='storage'?'small':pick;if(filter.dataset.category==='carbonated-water'){filter.querySelector('[value=small]').textContent='合計12L以下';filter.querySelector('[value=large]').textContent='合計12L超'}const label=root.querySelector('[data-intent-note]');if(label)label.textContent='買い方で絞った一覧：少量側 / 大容量側は合計量を基準にしています。'}
   if(filter&&pick==='storage')filter.value='small';
   if(sort&&(pick==='budget'||pick==='storage')){sort.value='price';sort.dispatchEvent(new Event('change'))}
   const details=root.closest('details');if(details)details.open=true;
