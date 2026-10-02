@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-03T07:35:39.152626+09:00",
+  "generated_at": "2026-10-03T08:03:41.919906+09:00",
   "categories": {
     "pack-rice": {
       "included": [
@@ -2379,61 +2379,6 @@
           }
         },
         {
-          "id": "kuwabe:10000069",
-          "raw_name": "5％OFFクーポン配布中！ 新米 米10kg 令和8年産 三重県産 コシヒカリ 金印 送料無料 精米 白米 国内産 米屋 甘い 高品質 宅配 日付指定 【お届け不可地域：北海道・沖縄・離島】 粘り バランス 旨味 ご飯 ハンバーグ とんかつ 早い",
-          "name": "5％OFFクーポン配布中！ 新米 米10kg 令和8年産 三重県産 コシヒカリ 金印 精米 白米 国内産 米屋 甘い 高品質 宅配 日付指定 【お届け不可地域：北海道・沖縄・離島】 粘り バランス 旨味 ご飯 ハンバーグ とんかつ 早い",
-          "price": 5345,
-          "shop": "お米のクワベー",
-          "url": "https://hb.afl.rakuten.co.jp/hgc/g00u7vjo.7cx6m620.g00u7vjo.7cx6n2b4/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fkuwabe%2F10000069%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fkuwabe%2Fi%2F10000069%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
-          "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/kuwabe/cabinet/62.jpg?_ex=128x128",
-          "postage_included": true,
-          "shipping_status": "included",
-          "quantity": {
-            "total_weight_g": 10000.0,
-            "unit_weight_g": 10000.0,
-            "count": 1,
-            "confidence": 0.9,
-            "evidence": "10kg"
-          },
-          "unit_prices": {
-            "per_kg": 534.5
-          },
-          "comparison_metric": "per_kg",
-          "unit_label": "1kgあたり",
-          "quantity_label": "合計10kg",
-          "promotion_mentioned": true,
-          "price_history": {
-            "observed_days": 1,
-            "previous_date": null,
-            "previous_price": null,
-            "previous_unit": null,
-            "previous_label": null,
-            "price_delta": null,
-            "unit_delta": null,
-            "percent_delta": null,
-            "lowest_30d_unit": 534.5,
-            "highest_30d_unit": 534.5,
-            "lowest_7d_unit": 534.5,
-            "highest_7d_unit": 534.5,
-            "trend_7d": "stable",
-            "is_30d_low": false,
-            "series_7d": [
-              {
-                "date": "2026-10-03",
-                "price": 5345,
-                "unit": 534.5
-              }
-            ],
-            "series_30d": [
-              {
-                "date": "2026-10-03",
-                "price": 5345,
-                "unit": 534.5
-              }
-            ]
-          }
-        },
-        {
           "id": "okadabeikoku:10000001",
           "raw_name": "【数量限定】【送料無料】令和7年産 産地直送 島根県産 神楽の郷 石見の こしひかり 5kg コシヒカリ こしひかり 米 お米 ギフト ブランド米 白米 5キロ 国産 国内産",
           "name": "令和7年産 産地直送 島根県産 神楽の郷 石見の こしひかり 5kg コシヒカリ こしひかり 米 お米 ギフト ブランド米 白米 5キロ 国産 国内産",
@@ -3486,81 +3431,6 @@
           }
         },
         {
-          "id": "yahagishouten:10000000",
-          "raw_name": "【送料無料】山形とくとく米10kg【四国・九州への配送は+400円/沖縄・離島への配送は+1,000円加算】",
-          "name": "山形とくとく米10kg【四国・九州への配送は+400円/沖縄・離島への配送は+1,000円加算】",
-          "price": 4180,
-          "shop": "山形のお米とさくらんぼの矢萩商店",
-          "url": "https://hb.afl.rakuten.co.jp/hgc/g00qcg0o.7cx6mf70.g00qcg0o.7cx6n5ca/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fyahagishouten%2Fblend002%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fyahagishouten%2Fi%2F10000000%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
-          "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/yahagishouten/cabinet/page/flk/tokutoku10kg_n.jpg?_ex=128x128",
-          "postage_included": false,
-          "shipping_status": "extra_or_unknown",
-          "quantity": {
-            "total_weight_g": 10000.0,
-            "unit_weight_g": 10000.0,
-            "count": 1,
-            "confidence": 0.9,
-            "evidence": "10kg"
-          },
-          "unit_prices": {
-            "per_kg": 418.0
-          },
-          "comparison_metric": "per_kg",
-          "unit_label": "1kgあたり",
-          "quantity_label": "合計10kg",
-          "promotion_mentioned": false,
-          "price_history": {
-            "observed_days": 3,
-            "previous_date": "2026-10-02",
-            "previous_price": 4180,
-            "previous_unit": 418.0,
-            "previous_label": "昨日比",
-            "price_delta": 0,
-            "unit_delta": 0.0,
-            "percent_delta": 0.0,
-            "lowest_30d_unit": 418.0,
-            "highest_30d_unit": 418.0,
-            "lowest_7d_unit": 418.0,
-            "highest_7d_unit": 418.0,
-            "trend_7d": "stable",
-            "is_30d_low": true,
-            "series_7d": [
-              {
-                "date": "2026-10-01",
-                "price": 4180,
-                "unit": 418.0
-              },
-              {
-                "date": "2026-10-02",
-                "price": 4180,
-                "unit": 418.0
-              },
-              {
-                "date": "2026-10-03",
-                "price": 4180,
-                "unit": 418.0
-              }
-            ],
-            "series_30d": [
-              {
-                "date": "2026-10-01",
-                "price": 4180,
-                "unit": 418.0
-              },
-              {
-                "date": "2026-10-02",
-                "price": 4180,
-                "unit": 418.0
-              },
-              {
-                "date": "2026-10-03",
-                "price": 4180,
-                "unit": 418.0
-              }
-            ]
-          }
-        },
-        {
           "id": "tendofoods:10000265",
           "raw_name": "クーポン利用で500円OFF先着5,000枚 米 コメ はえぬき 10kg 精米 送料無料 山形県産 新米 令和8年産 【キャンセル不可・着日指定不可】rhn1007",
           "name": "5,000枚 米 コメ はえぬき 10kg 精米 山形県産 新米 令和8年産 【キャンセル不可・着日指定不可】rhn1007",
@@ -3705,19 +3575,19 @@
         "fetch_errors": 0,
         "queries": 2,
         "fetched": 60,
-        "normalized": 32,
+        "normalized": 30,
         "exact_duplicates": 4,
         "practical_duplicates": 0,
-        "accepted_unique": 28,
-        "included_available": 24,
-        "shipping_unknown_available": 4,
-        "displayed_included": 24,
-        "displayed_shipping_unknown": 4,
+        "accepted_unique": 26,
+        "included_available": 23,
+        "shipping_unknown_available": 3,
+        "displayed_included": 23,
+        "displayed_shipping_unknown": 3,
         "reasons": {
-          "ambiguous_quantity": 21,
           "set_count_conflict": 2,
-          "wrong_product_type": 2,
-          "limited_purchase": 2,
+          "wrong_product_type": 3,
+          "ambiguous_quantity": 21,
+          "limited_purchase": 3,
           "missing_category_evidence": 1
         }
       }
@@ -6521,8 +6391,8 @@
         "fetch_errors": 0,
         "queries": 3,
         "fetched": 90,
-        "normalized": 41,
-        "exact_duplicates": 8,
+        "normalized": 42,
+        "exact_duplicates": 9,
         "practical_duplicates": 0,
         "accepted_unique": 33,
         "included_available": 14,
@@ -6530,7 +6400,7 @@
         "displayed_included": 14,
         "displayed_shipping_unknown": 19,
         "reasons": {
-          "missing_category_evidence": 19,
+          "missing_category_evidence": 18,
           "ambiguous_quantity": 13,
           "set_count_conflict": 12,
           "limited_purchase": 1,
@@ -10976,75 +10846,6 @@
           }
         },
         {
-          "id": "kurashikenkou:10181000",
-          "raw_name": "シリカ 水 500ml 24本 天然水 ペットボトル 送料無料 シリカ水 ミネラルウォーター 富士清水 JAPANWATER 飲料水 軟水 ウォーター【D】【代引き不可】",
-          "name": "シリカ 水 500ml 24本 天然水 ペットボトル シリカ水 ミネラルウォーター 富士清水 JAPANWATER 飲料水 軟水 ウォーター【D】【代引き不可】",
-          "price": 1560,
-          "shop": "暮らし健康ネット館",
-          "url": "https://hb.afl.rakuten.co.jp/hgc/g00qhoao.7cx6m91b.g00qhoao.7cx6n00f/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fkurashikenkou%2F7150388%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fkurashikenkou%2Fi%2F10181000%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
-          "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/kurashikenkou/cabinet/tenposupport23/7245223.jpg?_ex=128x128",
-          "postage_included": true,
-          "shipping_status": "included",
-          "quantity": {
-            "count": 24,
-            "component_counts": [
-              24
-            ],
-            "unit_volume_ml": 500.0,
-            "total_volume_ml": 12000.0,
-            "confidence": 0.99,
-            "evidence": "500ml 24本"
-          },
-          "unit_prices": {
-            "per_liter": 130.0,
-            "per_bottle": 65.0
-          },
-          "comparison_metric": "per_liter",
-          "unit_label": "1Lあたり",
-          "quantity_label": "500ml×24本 / 合計12L",
-          "promotion_mentioned": false,
-          "price_history": {
-            "observed_days": 2,
-            "previous_date": "2026-10-02",
-            "previous_price": 1560,
-            "previous_unit": 130.0,
-            "previous_label": "昨日比",
-            "price_delta": 0,
-            "unit_delta": 0.0,
-            "percent_delta": 0.0,
-            "lowest_30d_unit": 130.0,
-            "highest_30d_unit": 130.0,
-            "lowest_7d_unit": 130.0,
-            "highest_7d_unit": 130.0,
-            "trend_7d": "stable",
-            "is_30d_low": true,
-            "series_7d": [
-              {
-                "date": "2026-10-02",
-                "price": 1560,
-                "unit": 130.0
-              },
-              {
-                "date": "2026-10-03",
-                "price": 1560,
-                "unit": 130.0
-              }
-            ],
-            "series_30d": [
-              {
-                "date": "2026-10-02",
-                "price": 1560,
-                "unit": 130.0
-              },
-              {
-                "date": "2026-10-03",
-                "price": 1560,
-                "unit": 130.0
-              }
-            ]
-          }
-        },
-        {
           "id": "onestep:10148272",
           "raw_name": "ボルヴィック 500ml 48本 送料無料 軟水 天然水 ミネラルウォーター ボルビック volvic『送料無料（一部地域除く）』",
           "name": "ボルヴィック 500ml 48本 軟水 天然水 ミネラルウォーター ボルビック volvic『送料無料（一部地域除く）』",
@@ -11396,16 +11197,16 @@
         "fetch_errors": 0,
         "queries": 3,
         "fetched": 90,
-        "normalized": 20,
+        "normalized": 19,
         "exact_duplicates": 6,
         "practical_duplicates": 0,
-        "accepted_unique": 14,
-        "included_available": 10,
+        "accepted_unique": 13,
+        "included_available": 9,
         "shipping_unknown_available": 4,
-        "displayed_included": 10,
+        "displayed_included": 9,
         "displayed_shipping_unknown": 4,
         "reasons": {
-          "wrong_product_type": 16,
+          "wrong_product_type": 17,
           "ambiguous_quantity": 39,
           "restricted_or_selectable_product": 9,
           "limited_purchase": 4,
@@ -16605,8 +16406,8 @@
           "restricted_or_selectable_product": 11,
           "wrong_product_type": 18,
           "ambiguous_quantity": 27,
-          "limited_purchase": 2,
-          "missing_category_evidence": 2
+          "missing_category_evidence": 2,
+          "limited_purchase": 2
         }
       }
     },
@@ -17977,6 +17778,65 @@
           }
         },
         {
+          "id": "drink-market:10001083",
+          "raw_name": "ハウス食品 ビーフカレー シェフブレンド 中辛 180g×30袋入｜ 送料無料 カレー ビーフ レトルト ビーフカレー 中辛",
+          "name": "ハウス食品 ビーフカレー シェフブレンド 中辛 180g×30袋入｜ カレー ビーフ レトルト ビーフカレー 中辛",
+          "price": 5140,
+          "shop": "ドリンクマーケット",
+          "url": "https://hb.afl.rakuten.co.jp/hgc/g00s7wdo.7cx6mf7a.g00s7wdo.7cx6n171/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fdrink-market%2Fa310-53%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fdrink-market%2Fi%2F10001083%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
+          "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/drink-market/cabinet/202505_30/a310-53-1.jpg?_ex=128x128",
+          "postage_included": false,
+          "shipping_status": "extra_or_unknown",
+          "quantity": {
+            "count": 30,
+            "component_counts": [
+              30
+            ],
+            "unit_weight_g": 180.0,
+            "total_weight_g": 5400.0,
+            "confidence": 0.99,
+            "evidence": "180gx30袋入"
+          },
+          "unit_prices": {
+            "per_serving": 171.33333333333334,
+            "per_100g": 95.18518518518519
+          },
+          "comparison_metric": "per_serving",
+          "unit_label": "1食あたり",
+          "quantity_label": "合計5.4kg / 30食",
+          "promotion_mentioned": false,
+          "price_history": {
+            "observed_days": 1,
+            "previous_date": null,
+            "previous_price": null,
+            "previous_unit": null,
+            "previous_label": null,
+            "price_delta": null,
+            "unit_delta": null,
+            "percent_delta": null,
+            "lowest_30d_unit": 171.33333333333334,
+            "highest_30d_unit": 171.33333333333334,
+            "lowest_7d_unit": 171.33333333333334,
+            "highest_7d_unit": 171.33333333333334,
+            "trend_7d": "stable",
+            "is_30d_low": false,
+            "series_7d": [
+              {
+                "date": "2026-10-03",
+                "price": 5140,
+                "unit": 171.33333333333334
+              }
+            ],
+            "series_30d": [
+              {
+                "date": "2026-10-03",
+                "price": 5140,
+                "unit": 171.33333333333334
+              }
+            ]
+          }
+        },
+        {
           "id": "drink-market:10112443",
           "raw_name": "ハウス食品 ポークカレー 180g×30袋入｜ 送料無料 一般食品 レトルト カレー ポーク",
           "name": "ハウス食品 ポークカレー 180g×30袋入｜ 一般食品 レトルト カレー ポーク",
@@ -18666,93 +18526,24 @@
               }
             ]
           }
-        },
-        {
-          "id": "misono-support:10013347",
-          "raw_name": "ハウス食品 ビーフとオニオンの欧風カレー 辛口 200g×30袋入｜ 送料無料 カレー レトルト 辛口",
-          "name": "ハウス食品 ビーフとオニオンの欧風カレー 辛口 200g×30袋入｜ カレー レトルト 辛口",
-          "price": 9007,
-          "shop": "飲料 食品専門店 味園サポート",
-          "url": "https://hb.afl.rakuten.co.jp/hgc/g00q23do.7cx6mdeb.g00q23do.7cx6n015/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fmisono-support%2Fa310-129%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fmisono-support%2Fi%2F10013347%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
-          "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/misono-support/cabinet/202505_28/a310-129-1.jpg?_ex=128x128",
-          "postage_included": false,
-          "shipping_status": "extra_or_unknown",
-          "quantity": {
-            "count": 30,
-            "component_counts": [
-              30
-            ],
-            "unit_weight_g": 200.0,
-            "total_weight_g": 6000.0,
-            "confidence": 0.99,
-            "evidence": "200gx30袋入"
-          },
-          "unit_prices": {
-            "per_serving": 300.23333333333335,
-            "per_100g": 150.11666666666667
-          },
-          "comparison_metric": "per_serving",
-          "unit_label": "1食あたり",
-          "quantity_label": "合計6kg / 30食",
-          "promotion_mentioned": false,
-          "price_history": {
-            "observed_days": 2,
-            "previous_date": "2026-10-02",
-            "previous_price": 9007,
-            "previous_unit": 300.23333333333335,
-            "previous_label": "昨日比",
-            "price_delta": 0,
-            "unit_delta": 0.0,
-            "percent_delta": 0.0,
-            "lowest_30d_unit": 300.23333333333335,
-            "highest_30d_unit": 300.23333333333335,
-            "lowest_7d_unit": 300.23333333333335,
-            "highest_7d_unit": 300.23333333333335,
-            "trend_7d": "stable",
-            "is_30d_low": true,
-            "series_7d": [
-              {
-                "date": "2026-10-02",
-                "price": 9007,
-                "unit": 300.23333333333335
-              },
-              {
-                "date": "2026-10-03",
-                "price": 9007,
-                "unit": 300.23333333333335
-              }
-            ],
-            "series_30d": [
-              {
-                "date": "2026-10-02",
-                "price": 9007,
-                "unit": 300.23333333333335
-              },
-              {
-                "date": "2026-10-03",
-                "price": 9007,
-                "unit": 300.23333333333335
-              }
-            ]
-          }
         }
       ],
       "quality_audit": {
         "fetch_errors": 0,
         "queries": 5,
         "fetched": 150,
-        "normalized": 42,
+        "normalized": 43,
         "exact_duplicates": 1,
         "practical_duplicates": 0,
-        "accepted_unique": 41,
+        "accepted_unique": 42,
         "included_available": 11,
-        "shipping_unknown_available": 30,
+        "shipping_unknown_available": 31,
         "displayed_included": 11,
         "displayed_shipping_unknown": 20,
         "reasons": {
           "restricted_or_selectable_product": 54,
           "ambiguous_quantity": 29,
-          "wrong_product_type": 16,
+          "wrong_product_type": 15,
           "missing_category_evidence": 8,
           "limited_purchase": 1
         }
@@ -21201,72 +20992,6 @@
       ],
       "shipping_unknown": [
         {
-          "id": "nishimuta:10069125",
-          "raw_name": "麺のスナオシ　塩ラーメン　カップ麺　12個入り",
-          "name": "麺のスナオシ 塩ラーメン カップ麺 12個入り",
-          "price": 1495,
-          "shop": "ニシムタ 楽天市場店",
-          "url": "https://hb.afl.rakuten.co.jp/hgc/g00swwgo.7cx6m568.g00swwgo.7cx6na2c/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fnishimuta%2F4973288734584-12%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fnishimuta%2Fi%2F10069125%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
-          "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/nishimuta/cabinet/image111/4973288734584.jpg?_ex=128x128",
-          "postage_included": false,
-          "shipping_status": "extra_or_unknown",
-          "quantity": {
-            "count": 12,
-            "component_counts": [
-              12
-            ],
-            "confidence": 0.99,
-            "evidence": "12個入り"
-          },
-          "unit_prices": {
-            "per_serving": 124.58333333333333
-          },
-          "comparison_metric": "per_serving",
-          "unit_label": "1食あたり",
-          "quantity_label": "合計12食",
-          "promotion_mentioned": false,
-          "price_history": {
-            "observed_days": 2,
-            "previous_date": "2026-10-02",
-            "previous_price": 1495,
-            "previous_unit": 124.58333333333333,
-            "previous_label": "昨日比",
-            "price_delta": 0,
-            "unit_delta": 0.0,
-            "percent_delta": 0.0,
-            "lowest_30d_unit": 124.58333333333333,
-            "highest_30d_unit": 124.58333333333333,
-            "lowest_7d_unit": 124.58333333333333,
-            "highest_7d_unit": 124.58333333333333,
-            "trend_7d": "stable",
-            "is_30d_low": true,
-            "series_7d": [
-              {
-                "date": "2026-10-02",
-                "price": 1495,
-                "unit": 124.58333333333333
-              },
-              {
-                "date": "2026-10-03",
-                "price": 1495,
-                "unit": 124.58333333333333
-              }
-            ],
-            "series_30d": [
-              {
-                "date": "2026-10-02",
-                "price": 1495,
-                "unit": 124.58333333333333
-              },
-              {
-                "date": "2026-10-03",
-                "price": 1495,
-                "unit": 124.58333333333333
-              }
-            ]
-          }
-        },
-        {
           "id": "jetprice:10694512",
           "raw_name": "サンヨー食品 サッポロ一番 旅麺 博多 高菜豚骨ラーメン 12食 カップラーメン カップ麺 ラーメン インスタント レトルト 食品",
           "name": "サンヨー食品 サッポロ一番 旅麺 博多 高菜豚骨ラーメン 12食 カップラーメン カップ麺 ラーメン インスタント レトルト 食品",
@@ -21663,6 +21388,72 @@
           }
         },
         {
+          "id": "misonoya:10092152",
+          "raw_name": "農心ジャパン 辛カップラーメン 68g×12個入｜ 送料無料 インスタントラーメン 辛 即席",
+          "name": "農心ジャパン 辛カップラーメン 68g×12個入｜ インスタントラーメン 辛 即席",
+          "price": 2695,
+          "shop": "MISONOYA楽天市場店",
+          "url": "https://hb.afl.rakuten.co.jp/hgc/g00qrf9o.7cx6mf08.g00qrf9o.7cx6n813/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fmisonoya%2Fa338-1%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fmisonoya%2Fi%2F10092152%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
+          "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/misonoya/cabinet/202607_23/a338-1-1.jpg?_ex=128x128",
+          "postage_included": false,
+          "shipping_status": "extra_or_unknown",
+          "quantity": {
+            "count": 12,
+            "component_counts": [
+              12
+            ],
+            "confidence": 0.99,
+            "evidence": "12個入"
+          },
+          "unit_prices": {
+            "per_serving": 224.58333333333334
+          },
+          "comparison_metric": "per_serving",
+          "unit_label": "1食あたり",
+          "quantity_label": "合計12食",
+          "promotion_mentioned": false,
+          "price_history": {
+            "observed_days": 2,
+            "previous_date": "2026-10-02",
+            "previous_price": 2695,
+            "previous_unit": 224.58333333333334,
+            "previous_label": "昨日比",
+            "price_delta": 0,
+            "unit_delta": 0.0,
+            "percent_delta": 0.0,
+            "lowest_30d_unit": 224.58333333333334,
+            "highest_30d_unit": 224.58333333333334,
+            "lowest_7d_unit": 224.58333333333334,
+            "highest_7d_unit": 224.58333333333334,
+            "trend_7d": "stable",
+            "is_30d_low": true,
+            "series_7d": [
+              {
+                "date": "2026-10-02",
+                "price": 2695,
+                "unit": 224.58333333333334
+              },
+              {
+                "date": "2026-10-03",
+                "price": 2695,
+                "unit": 224.58333333333334
+              }
+            ],
+            "series_30d": [
+              {
+                "date": "2026-10-02",
+                "price": 2695,
+                "unit": 224.58333333333334
+              },
+              {
+                "date": "2026-10-03",
+                "price": 2695,
+                "unit": 224.58333333333334
+              }
+            ]
+          }
+        },
+        {
           "id": "drink-market:10104946",
           "raw_name": "農心ジャパン 辛カップラーメン 68g×12個入｜ 送料無料 インスタントラーメン 辛 即席",
           "name": "農心ジャパン 辛カップラーメン 68g×12個入｜ インスタントラーメン 辛 即席",
@@ -21927,72 +21718,6 @@
           }
         },
         {
-          "id": "paldo:10006144",
-          "raw_name": "【まとめ買いお得】オットギ ヨルラーメン 熱ラーメン カップ麺 辛口 1BOX=105g×12個 カップラーメン 韓国ラーメン インスタントラーメン 韓国食品 $",
-          "name": "【まとめ買いお得】オットギ ヨルラーメン 熱ラーメン カップ麺 辛口 1BOX=105g×12個 カップラーメン 韓国ラーメン インスタントラーメン 韓国食品 $",
-          "price": 3325,
-          "shop": "八道韓国食品",
-          "url": "https://hb.afl.rakuten.co.jp/hgc/g00qpndo.7cx6m3f5.g00qpndo.7cx6n580/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fpaldo%2Fp6243-100%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fpaldo%2Fi%2F10006144%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
-          "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/paldo/cabinet/ramen/p6243-100.jpg?_ex=128x128",
-          "postage_included": false,
-          "shipping_status": "extra_or_unknown",
-          "quantity": {
-            "count": 12,
-            "component_counts": [
-              12
-            ],
-            "confidence": 0.99,
-            "evidence": "12個"
-          },
-          "unit_prices": {
-            "per_serving": 277.0833333333333
-          },
-          "comparison_metric": "per_serving",
-          "unit_label": "1食あたり",
-          "quantity_label": "合計12食",
-          "promotion_mentioned": false,
-          "price_history": {
-            "observed_days": 2,
-            "previous_date": "2026-10-02",
-            "previous_price": 3325,
-            "previous_unit": 277.0833333333333,
-            "previous_label": "昨日比",
-            "price_delta": 0,
-            "unit_delta": 0.0,
-            "percent_delta": 0.0,
-            "lowest_30d_unit": 277.0833333333333,
-            "highest_30d_unit": 277.0833333333333,
-            "lowest_7d_unit": 277.0833333333333,
-            "highest_7d_unit": 277.0833333333333,
-            "trend_7d": "stable",
-            "is_30d_low": true,
-            "series_7d": [
-              {
-                "date": "2026-10-02",
-                "price": 3325,
-                "unit": 277.0833333333333
-              },
-              {
-                "date": "2026-10-03",
-                "price": 3325,
-                "unit": 277.0833333333333
-              }
-            ],
-            "series_30d": [
-              {
-                "date": "2026-10-02",
-                "price": 3325,
-                "unit": 277.0833333333333
-              },
-              {
-                "date": "2026-10-03",
-                "price": 3325,
-                "unit": 277.0833333333333
-              }
-            ]
-          }
-        },
-        {
           "id": "jetprice:10583143",
           "raw_name": "寿がきや 鳥取ゴールド牛骨ラーメン 109g×12個 カップラーメン カップ麺 ラーメン インスタント レトルト 食品",
           "name": "寿がきや 鳥取ゴールド牛骨ラーメン 109g×12個 カップラーメン カップ麺 ラーメン インスタント レトルト 食品",
@@ -22195,17 +21920,17 @@
         "fetch_errors": 0,
         "queries": 3,
         "fetched": 90,
-        "normalized": 26,
+        "normalized": 25,
         "exact_duplicates": 0,
         "practical_duplicates": 0,
-        "accepted_unique": 26,
+        "accepted_unique": 25,
         "included_available": 11,
-        "shipping_unknown_available": 15,
+        "shipping_unknown_available": 14,
         "displayed_included": 11,
-        "displayed_shipping_unknown": 15,
+        "displayed_shipping_unknown": 14,
         "reasons": {
           "missing_category_evidence": 6,
-          "wrong_product_type": 27,
+          "wrong_product_type": 28,
           "ambiguous_quantity": 21,
           "restricted_or_selectable_product": 10
         }
