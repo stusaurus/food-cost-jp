@@ -85,6 +85,15 @@ AUTO_GUIDE_RULES = [
     {"slug":"rice-musenmai-cost","category_id":"rice","title":"無洗米のコスパ比較","h1":"無洗米を1kgあたりで比較","intro":"商品名で無洗米と確認できるお米を、1kgあたりで比較します。","mode":"rice_musenmai","auto":True},
     {"slug":"oatmeal-rolled-cost","category_id":"oatmeal","title":"ロールドオーツのコスパ比較","h1":"ロールドオーツを100gあたりで比較","intro":"ロールドオーツの容量と価格を、100gあたりにそろえて比較します。","mode":"oats_rolled","auto":True},
     {"slug":"oatmeal-quick-cost","category_id":"oatmeal","title":"クイックオーツのコスパ比較","h1":"クイックオーツを100gあたりで比較","intro":"クイックオーツの容量と価格を、100gあたりにそろえて比較します。","mode":"oats_quick","auto":True},
+    {"slug":"mineral-water-500ml-24-cost","category_id":"mineral-water","title":"ミネラルウォーター500ml前後24本のコスパ比較","h1":"ミネラルウォーター500ml前後×24本を比較","intro":"450〜600ml・24本セットの水を、1L・1本あたりで比較します。","mode":"new_water_500_24","auto":True},
+    {"slug":"mineral-water-2l-cost","category_id":"mineral-water","title":"ミネラルウォーター2Lのコスパ比較","h1":"ミネラルウォーター2L前後を1Lあたりで比較","intro":"1.8〜2.2Lの大容量ペットボトルを、1Lあたりの単価で比較します。","mode":"new_water_2l","auto":True},
+    {"slug":"pasta-500g-cost","category_id":"pasta","title":"パスタ500g前後のコスパ比較","h1":"パスタ500g前後を100gあたりで比較","intro":"450〜550g前後の商品を、100gあたりの単価で比較します。","mode":"unit_weight_500","auto":True},
+    {"slug":"pasta-bulk-cost","category_id":"pasta","title":"パスタ大容量・まとめ買いのコスパ比較","h1":"パスタ大容量を100gあたりで比較","intro":"合計1kgを超えるパスタを中心に、100gあたりの単価と総額を比較します。","mode":"large","auto":True},
+    {"slug":"granola-500g-plus-cost","category_id":"granola","title":"グラノーラ500g以上のコスパ比較","h1":"グラノーラ500g以上を100gあたりで比較","intro":"1袋500g以上の商品を中心に、100gあたりの単価で比較します。","mode":"unit_weight_500plus","auto":True},
+    {"slug":"granola-bulk-cost","category_id":"granola","title":"グラノーラまとめ買いのコスパ比較","h1":"グラノーラ大容量・まとめ買いを比較","intro":"合計1kgを超える商品を中心に、100gあたりの単価と総額を比較します。","mode":"large","auto":True},
+    {"slug":"retort-curry-10-servings-cost","category_id":"retort-curry","title":"レトルトカレー10食以上のコスパ比較","h1":"レトルトカレー10食以上を1食あたりで比較","intro":"10食以上のまとめ買い商品を、1食あたりの単価と総額で比較します。","mode":"count_10plus","auto":True},
+    {"slug":"bag-noodles-30-servings-cost","category_id":"bag-noodles","title":"袋麺30食以上のコスパ比較","h1":"袋麺30食以上を1食あたりで比較","intro":"30食以上の箱買い・まとめ買い商品を、1食あたりの単価で比較します。","mode":"count_30plus","auto":True},
+    {"slug":"cup-noodles-12-cost","category_id":"cup-noodles","title":"カップ麺12個セットのコスパ比較","h1":"カップ麺12個セットを1食あたりで比較","intro":"12個セットのカップ麺を、1食あたりの単価と総額で比較します。","mode":"count_12","auto":True},
 ]
 
 LIMITED_RE = re.compile(r"(?:定期購入(?:のみ)?|定期便(?:のみ)?|初回限定|会員限定|新規限定)")
@@ -1445,6 +1454,20 @@ def guide_filter_items(spec: dict, items: list[dict], category: dict) -> list[di
         picked = [x for x in items if re.search(r"ロールド\s*オーツ|ロールドオーツ", x["name"], re.I)]
     elif mode == "oats_quick":
         picked = [x for x in items if re.search(r"クイック\s*オーツ|クイックオーツ", x["name"], re.I)]
+    elif mode == "new_water_500_24":
+        picked = [x for x in items if 450 <= float(x["quantity"].get("unit_volume_ml") or 0) <= 600 and int(x["quantity"].get("count") or 0) == 24]
+    elif mode == "new_water_2l":
+        picked = [x for x in items if 1800 <= float(x["quantity"].get("unit_volume_ml") or 0) <= 2200]
+    elif mode == "unit_weight_500":
+        picked = [x for x in items if 450 <= float(x["quantity"].get("unit_weight_g") or 0) <= 550]
+    elif mode == "unit_weight_500plus":
+        picked = [x for x in items if float(x["quantity"].get("unit_weight_g") or 0) >= 500]
+    elif mode == "count_10plus":
+        picked = [x for x in items if int(x["quantity"].get("count") or 0) >= 10]
+    elif mode == "count_30plus":
+        picked = [x for x in items if int(x["quantity"].get("count") or 0) >= 30]
+    elif mode == "count_12":
+        picked = [x for x in items if int(x["quantity"].get("count") or 0) == 12]
     else:
         picked = list(items)
     return picked
