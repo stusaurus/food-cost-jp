@@ -571,7 +571,7 @@ def ga_head() -> str:
     return f"""<script async src="https://www.googletagmanager.com/gtag/js?id={safe}"></script>
 <script>
 window.dataLayer=window.dataLayer||[];
-function gtag(){{dataLayer.push(arguments)}}
+window.gtag=window.gtag||function(){{dataLayer.push(arguments)}};
 gtag('js',new Date());
 gtag('config','{safe}',{{site_id:'{SITE_ID}'}});
 </script>"""
