@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-02T22:18:41.534604+09:00",
+  "generated_at": "2026-10-02T22:23:01.569700+09:00",
   "site_id": "food_cost_jp",
   "inventory": {
     "pack-rice": {
@@ -102,17 +102,17 @@
       "publication_status": "active",
       "quality_audit": {
         "fetched": 60,
-        "normalized": 30,
-        "exact_duplicates": 5,
+        "normalized": 29,
+        "exact_duplicates": 6,
         "practical_duplicates": 0,
-        "accepted_unique": 25,
-        "included_available": 22,
+        "accepted_unique": 23,
+        "included_available": 20,
         "shipping_unknown_available": 3,
-        "displayed_included": 22,
+        "displayed_included": 20,
         "displayed_shipping_unknown": 3,
         "reasons": {
           "wrong_product_type": 2,
-          "ambiguous_quantity": 25,
+          "ambiguous_quantity": 26,
           "limited_purchase": 2,
           "missing_category_evidence": 1
         },
@@ -185,10 +185,10 @@
           ]
         }
       },
-      "included_count": 22,
+      "included_count": 20,
       "shipping_unknown_count": 3,
-      "history_ready_count": 18,
-      "history_ready_rate": 0.8182
+      "history_ready_count": 16,
+      "history_ready_rate": 0.8
     },
     "carbonated-water": {
       "name": "炭酸水",
@@ -574,26 +574,22 @@
       "publication_status": "active",
       "quality_audit": {
         "fetched": 90,
-        "normalized": 34,
+        "normalized": 30,
         "exact_duplicates": 0,
         "practical_duplicates": 0,
-        "accepted_unique": 34,
-        "included_available": 21,
-        "shipping_unknown_available": 13,
-        "displayed_included": 21,
-        "displayed_shipping_unknown": 13,
+        "accepted_unique": 30,
+        "included_available": 19,
+        "shipping_unknown_available": 11,
+        "displayed_included": 19,
+        "displayed_shipping_unknown": 11,
         "reasons": {
           "restricted_or_selectable_product": 12,
-          "ambiguous_quantity": 27,
-          "missing_category_evidence": 2,
-          "wrong_product_type": 13,
-          "limited_purchase": 2
+          "wrong_product_type": 18,
+          "ambiguous_quantity": 26,
+          "limited_purchase": 2,
+          "missing_category_evidence": 2
         },
         "cleaned_examples": [
-          {
-            "before": "【送料無料】トトノイライフ ノンオイル 米グラノーラ プレーン 750g 麹 米麹 無添加 砂糖不使用 グルテンフリー シリアル 無添加 甘くない 腸活 低糖質 低カロリー 無糖 糖質オフ 甘酒 あま酒 フルグラ 米粒 (750g, プレーン)",
-            "after": "トトノイライフ ノンオイル 米グラノーラ プレーン 750g 麹 米麹 無添加 砂糖不使用 グルテンフリー シリアル 無添加 甘くない 腸活 低糖質 低カロリー 無糖 糖質オフ 甘酒 あま酒 フルグラ 米粒 (750g, プレーン)"
-          },
           {
             "before": "フルーツグラノラ グラノーラ 脂質70％オフ ケロッグ 1kg×2袋 コストコ 通販 送料無料 関連商品 フルグラ フルーツグラノーラ",
             "after": "フルーツグラノラ グラノーラ 脂質70％オフ ケロッグ 1kg×2袋 コストコ 通販 関連商品 フルグラ フルーツグラノーラ"
@@ -627,16 +623,20 @@
             "after": "フルグラ 糖質オフ 1000g × 3袋 カルビー コストコ 通販"
           },
           {
-            "before": "フルグラ 糖質オフ 1000g × 4袋 カルビー コストコ 通販 送料無料",
-            "after": "フルグラ 糖質オフ 1000g × 4袋 カルビー コストコ 通販"
-          },
-          {
             "before": "フルグラ 糖質オフ 1000g × 6袋 カルビー コストコ 通販 送料無料",
             "after": "フルグラ 糖質オフ 1000g × 6袋 カルビー コストコ 通販"
           },
           {
+            "before": "フルグラ 糖質オフ 1000g × 4袋 カルビー コストコ 通販 送料無料",
+            "after": "フルグラ 糖質オフ 1000g × 4袋 カルビー コストコ 通販"
+          },
+          {
             "before": "フルグラ 糖質オフ 1000g カルビー コストコ 通販 送料無料",
             "after": "フルグラ 糖質オフ 1000g カルビー コストコ 通販"
+          },
+          {
+            "before": "カルビー フルグラ 700g×6袋入｜ 送料無料 フルーツグラノーラ 食物繊維 オリゴ糖 ビタミン",
+            "after": "カルビー フルグラ 700g×6袋入｜ フルーツグラノーラ 食物繊維 オリゴ糖 ビタミン"
           }
         ],
         "rejection_samples": {
@@ -645,28 +645,28 @@
             "《9種類から選べる》フルグラ 糖質オフ マイグラ フルーツグラノーラ カルビー チョコバナナ オフベリー＆カカオ 食後の血糖値ケア 焦がしキャラメル プロテイン グラノーラ 穀物 シリアル グラノラ ドライフルーツ 食物繊維 鉄分 【D】",
             "【ふるさと納税】無添加 グラノーラ 【選べる容量】250g×2袋 / 250g×3袋 / 250g×6袋 自家製 フルーツグラノーラ / オーガニック 果物 ドライフルーツ オートミール ヨーグルト 牛乳 シリアル 朝食 国産 ドライフルーツ ミックス クランベリー レーズン ナッツ グラノラ"
           ],
+          "wrong_product_type": [
+            "【送料無料】トトノイライフ ノンオイル 米グラノーラ プレーン 750g 麹 米麹 無添加 砂糖不使用 グルテンフリー シリアル 無添加 甘くない 腸活 低糖質 低カロリー 無糖 糖質オフ 甘酒 あま酒 フルグラ 米粒 (750g, プレーン)",
+            "カントリーファームハイファイバーミューズリー 750g",
+            "【6袋】マイグラ プロテイン アーモンドチョコクランチ 焦がしキャラメル 6袋 カルビー"
+          ],
           "ambiguous_quantity": [
             "送料無料 あい裸麦のグラノーラ 5袋（150g×5袋）750g 鹿児島 姶良 産地直送 食品 贈答 プレゼント",
             "フルグラ 750g よりも大容量 1200g × 3袋 カルビー コストコ 通販 送料無料",
             "【6個セット】マイグラ グラノーラ カルビー 朝食 穀物"
           ],
-          "missing_category_evidence": [
-            "カントリーF フルーツナッツミューズリー 750g",
-            "カントリーF フルーツミューズリー 750g"
-          ],
-          "wrong_product_type": [
-            "カントリーファームハイファイバーミューズリー 750g",
-            "【6袋】マイグラ プロテイン アーモンドチョコクランチ 焦がしキャラメル 6袋 カルビー",
-            "おから グラノーラ シリアル 大容量 500g おからクッキーダイス 生おから使用 乳製品不使用 ココナッツ くるみ 卵不使用 食物繊維たっぷり そのままでも牛乳でも 糖質オフ 大豆 グラノーラ 豆乳 ダイエット 低カロリー 豆腐屋 十二堂 成城石井 十二本舗"
-          ],
           "limited_purchase": [
             "【ふるさと納税】＜定期便3回＞無添加 フルーツグラノーラ 250g×3袋 750g（計2.25kg）自家製 フルーツグラノーラ ／ 着色料不使用 オーガニック 果物 ヨーグルト 牛乳 シリアル 朝食 国産 ドライフルーツ ミックス クランベリー レーズン ナッツ きび砂糖 小分け グラノラ",
             "【ふるさと納税】＜定期便6回＞ 無添加 フルーツグラノーラ 250g×3袋 750g（計4.5kg）自家製 フルーツグラノーラ ／ 着色料不使用 オーガニック 果物 ヨーグルト 牛乳 シリアル 朝食 国産 ドライフルーツ ミックス クランベリー レーズン ナッツ きび砂糖 小分け グラノラ"
+          ],
+          "missing_category_evidence": [
+            "カントリーF フルーツナッツミューズリー 750g",
+            "カントリーF フルーツミューズリー 750g"
           ]
         }
       },
-      "included_count": 21,
-      "shipping_unknown_count": 13,
+      "included_count": 19,
+      "shipping_unknown_count": 11,
       "history_ready_count": 0,
       "history_ready_rate": 0.0
     },
@@ -676,16 +676,16 @@
       "publication_status": "active",
       "quality_audit": {
         "fetched": 150,
-        "normalized": 45,
+        "normalized": 43,
         "exact_duplicates": 1,
         "practical_duplicates": 0,
-        "accepted_unique": 44,
-        "included_available": 13,
+        "accepted_unique": 42,
+        "included_available": 11,
         "shipping_unknown_available": 31,
-        "displayed_included": 13,
+        "displayed_included": 11,
         "displayed_shipping_unknown": 20,
         "reasons": {
-          "restricted_or_selectable_product": 52,
+          "restricted_or_selectable_product": 54,
           "ambiguous_quantity": 27,
           "wrong_product_type": 17,
           "missing_category_evidence": 8,
@@ -713,16 +713,16 @@
             "after": "ハウス食品 カレーマルシェ 辛口 180g×30個入｜ カレー レトルト カレーマルシェ レトルトカレー"
           },
           {
+            "before": "キーマカレー 180g×10箱 ≪パッケージ版≫ Keema Curry レトルトカレー 鶏挽肉 送料無料 【10%OFF】",
+            "after": "キーマカレー 180g×10箱 ≪パッケージ版≫ Keema Curry レトルトカレー 鶏挽肉"
+          },
+          {
             "before": "ハウス食品 カレーマルシェ 中辛 180g×30個入｜ 送料無料 カレー レトルト カレーマルシェ レトルトカレー",
             "after": "ハウス食品 カレーマルシェ 中辛 180g×30個入｜ カレー レトルト カレーマルシェ レトルトカレー"
           },
           {
             "before": "ダールチキンカレー 180g 単品 ≪パッケージ版≫ Dal Chicken Curry レトルトカレー 豆 鶏肉 【10%OFF】",
             "after": "ダールチキンカレー 180g 単品 ≪パッケージ版≫ Dal Chicken Curry レトルトカレー 豆 鶏肉"
-          },
-          {
-            "before": "キーマカレー 180g×10箱 ≪パッケージ版≫ Keema Curry レトルトカレー 鶏挽肉 送料無料 【10%OFF】",
-            "after": "キーマカレー 180g×10箱 ≪パッケージ版≫ Keema Curry レトルトカレー 鶏挽肉"
           },
           {
             "before": "ダールチキンカレー 180g×5箱 ≪パッケージ版≫ Dal Chicken Curry レトルトカレー 豆 鶏肉 送料無料 【10%OFF】",
@@ -733,19 +733,19 @@
             "after": "（沖縄離島除く）レトルトカレー 食研カレー/7612 晩餐館 焼肉のたれでお馴染み日本食研 業務用 200gx20食セット/卸 代金引換便不可品"
           },
           {
-            "before": "送料無料 S＆B ごろごろ北海道野菜のビーフカレー 中辛 200g 10食入×2箱(20食分) エスビー 業務用 レトルトカレー",
-            "after": "S＆B ごろごろ北海道野菜のビーフカレー 中辛 200g 10食入×2箱(20食分) エスビー 業務用 レトルトカレー"
-          },
-          {
             "before": "【楽天1位】 【3食】淡路牛と淡路島たまねぎカレー 200g×3個入り たまねぎ カレー レトルトカレー 淡路島 玉ねぎ 送料無料 淡路牛 玉葱 セット 通販 ギフト プレゼント 自宅用 家庭用 お取り寄せ",
             "after": "【楽天1位】 【3食】淡路牛と淡路島たまねぎカレー 200g×3個入り たまねぎ カレー レトルトカレー 淡路島 玉ねぎ 淡路牛 玉葱 セット 通販 ギフト プレゼント 自宅用 家庭用 お取り寄せ"
+          },
+          {
+            "before": "送料無料 S＆B ごろごろ北海道野菜のビーフカレー 中辛 200g 10食入×2箱(20食分) エスビー 業務用 レトルトカレー",
+            "after": "S＆B ごろごろ北海道野菜のビーフカレー 中辛 200g 10食入×2箱(20食分) エスビー 業務用 レトルトカレー"
           }
         ],
         "rejection_samples": {
           "restricted_or_selectable_product": [
             "【ふるさと納税】 カレー アサリカレー 10袋 180g×10 冷凍 無水カレー スパイス 11種類 豊富 和だし 香辛料 レトルトカレー 簡単 旨味 鰹 昆布 椎茸 出汁 薬膳 スパイスカレー 化学調味料不使用 175DENOカレー 北海道 札幌市",
-            "【ふるさと納税】 カレー チキンカレー 10袋 180g×10 冷凍 無水カレー 鶏肉 ジューシー スパイス 17種類 豊富 香辛料 レトルトカレー 簡単 ヘルシー 健康 美容 花椒 薬膳 スパイスカレー 逸品 小麦粉不使用 175DENOカレー 北海道 札幌市",
-            "【ふるさと納税】松屋 オリジナルカレーの具 180g 10袋 カレー レトルトカレー 辛口 スパイス カレギュウ レトルト 冷凍 時短 簡単 便利 手抜き レンチン おかず 保存食 備蓄 夜食 まとめ買い お取り寄せ グルメ 埼玉県 嵐山町"
+            "【ふるさと納税】松屋 オリジナルカレーの具 180g 10袋 カレー レトルトカレー 辛口 スパイス カレギュウ レトルト 冷凍 時短 簡単 便利 手抜き レンチン おかず 保存食 備蓄 夜食 まとめ買い お取り寄せ グルメ 埼玉県 嵐山町",
+            "【ふるさと納税】 カレー チキンカレー 10袋 180g×10 冷凍 無水カレー 鶏肉 ジューシー スパイス 17種類 豊富 香辛料 レトルトカレー 簡単 ヘルシー 健康 美容 花椒 薬膳 スパイスカレー 逸品 小麦粉不使用 175DENOカレー 北海道 札幌市"
           ],
           "ambiguous_quantity": [
             "てまごこちカレー 甘口(180g×1・2・5・10袋)【一部送料無料】宮崎県産 九州 国産 レトルトカレー レストラン フレンチカレー 野菜 ベジカレー チキンカレー 鶏肉 こども 子供カレー オムカレー 美味しい シェフ監修 取り寄せ プレゼント ギフト 入学 卒業祝い ホワイトデー",
@@ -767,7 +767,7 @@
           ]
         }
       },
-      "included_count": 13,
+      "included_count": 11,
       "shipping_unknown_count": 20,
       "history_ready_count": 0,
       "history_ready_rate": 0.0
@@ -778,40 +778,40 @@
       "publication_status": "active",
       "quality_audit": {
         "fetched": 120,
-        "normalized": 27,
+        "normalized": 26,
         "exact_duplicates": 0,
         "practical_duplicates": 0,
-        "accepted_unique": 27,
+        "accepted_unique": 26,
         "included_available": 12,
-        "shipping_unknown_available": 15,
+        "shipping_unknown_available": 14,
         "displayed_included": 12,
-        "displayed_shipping_unknown": 15,
+        "displayed_shipping_unknown": 14,
         "reasons": {
-          "wrong_product_type": 33,
+          "wrong_product_type": 34,
           "ambiguous_quantity": 34,
           "restricted_or_selectable_product": 20,
           "missing_category_evidence": 6
         },
         "cleaned_examples": [
           {
-            "before": "サッポロ一番　みそラーメン　5食×6袋入　30食",
-            "after": "サッポロ一番 みそラーメン 5食×6袋入 30食"
-          },
-          {
             "before": "【期間限定特売】サンヨー食品 サッポロ一番 塩らーめん 5食入り×6袋（合計30食） 送料無料(北海道は別途700円かかります。沖縄配送不可) / 袋めん",
             "after": "サンヨー食品 サッポロ一番 塩らーめん 5食入り×6袋（合計30食） 送料無料(北海道は別途700円かかります。沖縄配送不可) / 袋めん"
+          },
+          {
+            "before": "サッポロ一番　みそラーメン　5食×6袋入　30食",
+            "after": "サッポロ一番 みそラーメン 5食×6袋入 30食"
           },
           {
             "before": "サッポロ一番　塩らーめん　5食×6袋入　30食",
             "after": "サッポロ一番 塩らーめん 5食×6袋入 30食"
           },
           {
-            "before": "サッポロ一番　しょうゆ味　5食×6袋入　30食入",
-            "after": "サッポロ一番 しょうゆ味 5食×6袋入 30食入"
-          },
-          {
             "before": "【期間限定特売】サンヨー食品 サッポロ一番 みそラーメン 5食入り×6袋（合計30食） 送料無料(北海道は別途700円かかります。沖縄配送不可) / 袋めん",
             "after": "サンヨー食品 サッポロ一番 みそラーメン 5食入り×6袋（合計30食） 送料無料(北海道は別途700円かかります。沖縄配送不可) / 袋めん"
+          },
+          {
+            "before": "サッポロ一番　しょうゆ味　5食×6袋入　30食入",
+            "after": "サッポロ一番 しょうゆ味 5食×6袋入 30食入"
           },
           {
             "before": "マルちゃん正麺　醤油味　5食×6袋入　30食",
@@ -838,8 +838,8 @@
             "after": "日清食品 チキンラーメン 5食パック(85g×5食)×6袋 【 ポスト投函 】【 当日発送 】NISSIN 日清 チキンラーメン 袋麺 インスタント ラーメン 拉麺 らーめん 袋ラーメン 鶏ガラ"
           },
           {
-            "before": "一蘭 一蘭ラーメン 博多細麺 ストレート 5食入×1個入｜ 送料無料 インスタント麺 袋麺 即席 中華めん",
-            "after": "一蘭 一蘭ラーメン 博多細麺 ストレート 5食入×1個入｜ インスタント麺 袋麺 即席 中華めん"
+            "before": "日清 チキンラーメン 5食入り×6袋セット (1box) 【一部地域 送料無料】日清 チキンラーメン5食パック しょうゆ味 インスタントラーメン インスタント食品 インスタント麺 麺類 食品 ラーメン 袋麺",
+            "after": "日清 チキンラーメン 5食入り×6袋セット (1box) 【一部地域 】日清 チキンラーメン5食パック しょうゆ味 インスタントラーメン インスタント食品 インスタント麺 麺類 食品 ラーメン 袋麺"
           }
         ],
         "rejection_samples": {
@@ -851,7 +851,7 @@
           "ambiguous_quantity": [
             "サッポロ一番 塩ラーメン 袋麺 5食パック×6袋(30食)",
             "サンヨー食品 サッポロ一番 みそラーメン 1箱5食入×6袋",
-            "サンヨー食品 サッポロ一番 塩らーめん 1箱5食入×6袋"
+            "サッポロ一番 塩ラーメン 袋麺 5食パック×6袋(30食)"
           ],
           "restricted_or_selectable_product": [
             "【選べるセット】【サンヨー食品】サッポロ一番 袋麺5食パック＜4種から選べる 6袋セット(30食分)＞ (しょうゆ/しお/みそ/塩とんこつ)",
@@ -866,7 +866,7 @@
         }
       },
       "included_count": 12,
-      "shipping_unknown_count": 15,
+      "shipping_unknown_count": 14,
       "history_ready_count": 0,
       "history_ready_rate": 0.0
     },
@@ -876,17 +876,17 @@
       "publication_status": "active",
       "quality_audit": {
         "fetched": 90,
-        "normalized": 28,
+        "normalized": 27,
         "exact_duplicates": 0,
         "practical_duplicates": 0,
-        "accepted_unique": 28,
-        "included_available": 13,
-        "shipping_unknown_available": 15,
-        "displayed_included": 13,
-        "displayed_shipping_unknown": 15,
+        "accepted_unique": 27,
+        "included_available": 11,
+        "shipping_unknown_available": 16,
+        "displayed_included": 11,
+        "displayed_shipping_unknown": 16,
         "reasons": {
           "missing_category_evidence": 6,
-          "wrong_product_type": 26,
+          "wrong_product_type": 27,
           "ambiguous_quantity": 20,
           "restricted_or_selectable_product": 10
         },
@@ -918,6 +918,10 @@
           {
             "before": "農心ジャパン 辛カップラーメン 68g×12個入｜ 送料無料 インスタントラーメン 辛 即席",
             "after": "農心ジャパン 辛カップラーメン 68g×12個入｜ インスタントラーメン 辛 即席"
+          },
+          {
+            "before": "農心ジャパン 辛カップラーメン 68g×12個入｜ 送料無料 インスタントラーメン 辛 即席",
+            "after": "農心ジャパン 辛カップラーメン 68g×12個入｜ インスタントラーメン 辛 即席"
           }
         ],
         "rejection_samples": {
@@ -943,16 +947,16 @@
           ]
         }
       },
-      "included_count": 13,
-      "shipping_unknown_count": 15,
+      "included_count": 11,
+      "shipping_unknown_count": 16,
       "history_ready_count": 0,
       "history_ready_rate": 0.0
     }
   },
   "price_history": {
-    "ready_count": 75,
-    "included_count": 175,
-    "ready_rate": 0.4286,
+    "ready_count": 73,
+    "included_count": 167,
+    "ready_rate": 0.4371,
     "deal_count": 5
   },
   "auto_seo": {
@@ -992,7 +996,7 @@
       {
         "slug": "rice-musenmai-cost",
         "category_id": "rice",
-        "matched_count": 10,
+        "matched_count": 9,
         "title": "無洗米のコスパ比較"
       },
       {
@@ -1031,7 +1035,7 @@
     {
       "type": "price_history",
       "priority": 2,
-      "coverage": 0.4286,
+      "coverage": 0.4371,
       "action": "自動更新を継続し価格履歴の母数を増やす"
     },
     {

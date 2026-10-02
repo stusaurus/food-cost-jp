@@ -1715,6 +1715,19 @@
       "product_id": "seicomart:10000756",
       "quantity_key": "{\"count\":12}"
     },
+    "cup-noodles|sese-koreachiba:10003938": {
+      "category_id": "cup-noodles",
+      "name": "農心 キムチ カップラーメン 86g【12個】 キムチサバル麺 韓国ラーメン",
+      "points": [
+        {
+          "date": "2026-10-02",
+          "price": 2280,
+          "unit": 190.0
+        }
+      ],
+      "product_id": "sese-koreachiba:10003938",
+      "quantity_key": "{\"count\":12}"
+    },
     "granola|amicashop:10013714": {
       "category_id": "granola",
       "name": "ケロッグ 業務用フルーツグラノラH 500g",
@@ -4785,6 +4798,19 @@
       "product_id": "misonoya:10013211",
       "quantity_key": "{\"count\":30,\"total_weight_g\":5400.0,\"unit_weight_g\":180.0}"
     },
+    "retort-curry|misonoya:10097026": {
+      "category_id": "retort-curry",
+      "name": "ニチレイフーズ Restaurant Use Only(レストラン ユース オンリー) 中辛カレー ポーク 180g×30袋入｜ 一般食品 レトルト食品 カレー",
+      "points": [
+        {
+          "date": "2026-10-02",
+          "price": 4633,
+          "unit": 154.43333333333334
+        }
+      ],
+      "product_id": "misonoya:10097026",
+      "quantity_key": "{\"count\":30,\"total_weight_g\":5400.0,\"unit_weight_g\":180.0}"
+    },
     "retort-curry|misonoya:10097030": {
       "category_id": "retort-curry",
       "name": "ニチレイフーズ インド風 バターチキンカレー 180g×30袋入｜ 一般食品 レトルト食品 カレー バター チキンカレー",
@@ -4914,6 +4940,19 @@
       ],
       "product_id": "nozomi-market:10101904",
       "quantity_key": "{\"count\":30,\"total_weight_g\":5400.0,\"unit_weight_g\":180.0}"
+    },
+    "retort-curry|sankin-asaichi:10051808": {
+      "category_id": "retort-curry",
+      "name": "JFDA ビーフカレー 200g×10食セット(レトルトカレー) ジェフダ",
+      "points": [
+        {
+          "date": "2026-10-02",
+          "price": 1411,
+          "unit": 141.1
+        }
+      ],
+      "product_id": "sankin-asaichi:10051808",
+      "quantity_key": "{\"count\":10,\"total_weight_g\":2000.0,\"unit_weight_g\":200.0}"
     },
     "retort-curry|sweet-vege2:10000223": {
       "category_id": "retort-curry",
