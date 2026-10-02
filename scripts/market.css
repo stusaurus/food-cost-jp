@@ -1,0 +1,56 @@
+/* Intent-led discovery: open shelves, then grouped market aisles. */
+.home-hero h1{font-size:clamp(32px,3.4vw,47px)}
+.market-shelf{margin:26px 0 42px;scroll-margin-top:28px}
+.shelf-heading h3{font-family:Georgia,'Noto Serif JP',serif;font-size:25px;font-weight:500;margin:8px 0}
+.market-shelf>.sub{max-width:740px;font-size:12px;line-height:1.8}
+.market-shelf .finder-products{grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}
+.market-shelf .finder-product{box-shadow:none;grid-template-rows:135px 1fr}
+.market-shelf .finder-product-copy{padding:15px}
+.market-shelf .finder-product-price{font-size:31px;padding:8px 0;border-bottom:1px solid var(--line)}
+.market-shelf .finder-product-rank{font:10px sans-serif;letter-spacing:.08em;color:var(--brand)}
+.market-shelf .finder-why{line-height:1.7;margin:8px 0}
+.market-shelf .finder-why span{display:none}
+.shelf-shipping{font-size:10px;color:var(--brand);margin:5px 0}
+.market-shelf .cta{background:transparent;color:var(--brand);border:1px solid var(--brand);margin-top:auto;min-height:46px;font-size:11px}
+.shelf-empty{grid-column:1/-1;border-block:1px solid var(--line);padding:24px 0;line-height:1.8}
+.aisle-group{grid-column:1/-1;font:24px Georgia,'Noto Serif JP',serif;margin:15px 0 0;padding-top:20px;border-top:1px solid var(--line)}
+.finder{padding:30px;background:#ecefe5;border-block:1px solid #bdc8b7}
+.finder-intro{display:flex;justify-content:space-between;gap:20px;align-items:center}
+.finder-guide{display:flex;align-items:center;gap:10px;font-size:11px;font-style:italic}
+.finder-guide .guide-mascot{width:80px}
+.finder-question{display:flex;gap:12px;align-items:center;margin:24px 0 16px}
+.finder-question>span{font:12px Georgia,serif;letter-spacing:.08em;color:var(--brand)}
+.finder-question strong{font-size:16px;font-weight:500}
+.finder-options{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.finder-options button{min-height:48px;border:1px solid var(--line);background:var(--panel);padding:16px;color:var(--ink);transition:transform .16s,border-color .16s,background .16s}
+.finder-options button:hover{transform:translateY(-2px);border-color:var(--brand)}
+.finder-options button.selected{border-color:var(--brand);background:var(--brand-soft)}
+.finder-category{display:flex;flex-direction:column;align-items:center;gap:8px}
+.finder-art{width:110px;height:90px}.finder-art .food-art{width:100%;height:100%;object-fit:cover}
+.finder-purpose-options{grid-template-columns:repeat(2,minmax(0,1fr))}
+.finder-purpose-options button{display:grid;grid-template-columns:24px 1fr 14px;gap:12px;text-align:left;align-items:center;min-height:86px}
+.intent-number{font:italic 14px Georgia,serif;color:#927c56}
+.finder-purpose-options strong{display:block;font-size:16px;font-weight:500;line-height:1.5}
+.finder-purpose-options small{display:block;font-size:11px;color:var(--muted);margin-top:5px}
+.finder-back{border:0;background:transparent;color:var(--brand);padding:14px 0;font-size:12px;min-height:44px;text-decoration:underline;text-underline-offset:5px}
+.finder-result-actions{display:flex;gap:28px;justify-content:space-between}
+.finder-status{font-size:13px;color:var(--brand);line-height:1.8}
+.finder-status:empty{display:none}.finder-stage{animation:shelf-in .18s ease}
+.finder .market-shelf .finder-products{grid-template-columns:repeat(3,minmax(0,1fr))}
+.podium-card.rank-1{border-color:var(--line);box-shadow:none}.podium-medal{font-size:13px}
+@media(max-width:759px){
+ .home-hero h1{font-size:31px}.market-shelf{margin:20px 0 30px}.shelf-heading h3{font-size:22px}
+ .market-shelf .finder-products,.finder .market-shelf .finder-products{grid-template-columns:1fr;gap:12px}
+ .market-shelf .finder-product{grid-template-columns:76px minmax(0,1fr);grid-template-rows:auto}
+ .market-shelf .finder-product-copy{padding:13px}.market-shelf .finder-product-media{padding:8px;align-items:flex-start;padding-top:22px}
+ .market-shelf .finder-product-media img{width:100%;height:76px;object-fit:contain}
+ .market-shelf .finder-product-price{font-size:29px;margin:6px 0}.market-shelf .finder-product-name{font-size:12px;line-height:1.6}
+ .market-shelf .identity-line{display:none}.market-shelf .finder-product-meta{font-size:11px;line-height:1.7}
+ .market-shelf .product-actions{gap:5px}.market-shelf .utility-btn{font-size:10px;padding:6px}
+ .finder{padding:22px 15px}.finder h2{font-size:25px}.finder-guide{display:none}
+ .finder-purpose-options{grid-template-columns:1fr}.finder-purpose-options button{min-height:78px;padding:13px}
+ .finder-purpose-options strong{font-size:15px}.finder-options{grid-template-columns:1fr 1fr}
+ .finder-question{gap:8px}.finder-question strong{font-size:15px}.finder-art{width:100%;height:88px}
+ .market-shelf .cta{font-size:11px}.aisle-group{font-size:22px}.market-shelf .trend-row:empty{display:none}
+}
+@media(prefers-reduced-motion:reduce){.finder-stage{animation:none}.finder-options button{transition:none}.finder-options button:hover{transform:none}}

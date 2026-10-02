@@ -1,0 +1,1 @@
+{"name":"food-cost-ui-checks","private":true,"scripts":{"test":"node --test tests/market-ui.test.cjs"},"devDependencies":{"jsdom":"26.1.0"}}

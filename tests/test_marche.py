@@ -31,7 +31,7 @@ class MarcheRegressionTests(unittest.TestCase):
     def test_new_home_order_and_finder_all_twenty_outcomes(self):
         page = build.home_page(self.results, NOW)
         self.assertLess(page.index('class="section deal-section"'), page.index('id="categories"'))
-        self.assertLess(page.index('id="categories"'), page.index('id="quick-finder"'))
+        self.assertLess(page.index('id="quick-finder"'), page.index('id="categories"'))
         for c in build.CATEGORIES:
             for purpose in ['cheap', 'small', 'large', 'budget', 'storage']:
                 self.assertIn(f'data-finder-picks="{c["id"]}:{purpose}" hidden', page)
