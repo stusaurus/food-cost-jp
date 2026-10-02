@@ -3,9 +3,9 @@ const assert=require('node:assert/strict');
 const fs=require('node:fs');
 const {JSDOM}=require('jsdom');
 const source=fs.readFileSync('site/index.html','utf8').replace(/<script\b[^>]*src=[^>]*>[\s\S]*?<\/script>/gi,'');
-function boot(){
+function boot(html=source,url='https://stusaurus.github.io/food-cost-jp/?test=1'){
  const events=[];
- const dom=new JSDOM(source,{url:'https://stusaurus.github.io/food-cost-jp/?test=1',runScripts:'dangerously',beforeParse(w){w.gtag=(...args)=>events.push(args);}});
+ const dom=new JSDOM(html,{url,runScripts:'dangerously',beforeParse(w){w.gtag=(...args)=>events.push(args);}});
  const d=dom.window.document;
  return {dom,d,events,click:s=>{assert.ok(d.querySelector(s),s);d.querySelector(s).click()},visible:s=>!d.querySelector(s).closest('[hidden]')};
 }
@@ -45,4 +45,15 @@ test('shelf and affiliate click events coexist with existing conversion tracking
 });
 test('price history 7 / 30 days remains interactive',()=>{
  const b=boot();const button=b.d.querySelector('[data-market-shelf="today"] [data-history-range="30日"]');assert.ok(button);button.click();assert.ok(button.classList.contains('selected'));assert.ok(b.events.some(e=>e[1]==='price_history_range_change'));b.dom.window.close();
+});
+
+test('carbonated stock landing and later filtering consistently use total volume',()=>{
+ const html=fs.readFileSync('site/categories/carbonated-water/index.html','utf8').replace(/<script\b[^>]*src=[^>]*>[\s\S]*?<\/script>/gi,'');
+ const b=boot(html,'https://stusaurus.github.io/food-cost-jp/categories/carbonated-water/?pick=large');
+ const root=b.d.querySelector('[data-comparison]'),filter=root.querySelector('[data-filter]');
+ assert.equal(filter.querySelector('[value=large]').textContent,'合計12L超');
+ for(const row of root.querySelectorAll('tbody tr'))assert.equal(row.hidden,row.dataset.shoppingBucket!=='large');
+ filter.value='small';filter.dispatchEvent(new b.dom.window.Event('change'));
+ for(const row of root.querySelectorAll('tbody tr'))assert.equal(row.hidden,row.dataset.shoppingBucket!=='small');
+ b.dom.window.close();
 });
