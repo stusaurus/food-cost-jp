@@ -16,7 +16,7 @@ class NewQuantityTests(unittest.TestCase):
         for cid,title in cases:
             with self.subTest(title=title):self.assertIsNone(parse(title,cid))
     def test_wrong_types_and_restricted_purchases_fail(self):
-        examples={'mineral-water':['炭酸 天然水','天然水 フレーバー','天然水 ウォーターサーバー','天然水 お茶'],'pasta':['スパゲッティ ソース','生パスタ スパゲッティ','冷凍スパゲッティ','スパゲッティ ギフト'],'granola':['グラノーラバー','グラノーラ プロテイン','グラノーラ オートミール'],'retort-curry':['レトルト カレールー','レトルトカレー ご飯付き','レトルトカレー 冷凍'],'bag-noodles':['袋麺 カップ','袋麺 生麺','袋麺 麺のみ'],'cup-noodles':['カップ麺 ミニ','カップ麺 ビッグ','カップ麺 大盛']}
+        examples={'mineral-water':['炭酸 天然水','天然水 フレーバー','天然水 ウォーターサーバー','天然水 お茶'],'pasta':['スパゲッティ ソース','生パスタ スパゲッティ','冷凍スパゲッティ','スパゲッティ ギフト'],'granola':['グラノーラバー','グラノーラ プロテイン','グラノーラ オートミール','ノースイ ミックスベリーフローズン500g グラノーラのトッピングに'],'retort-curry':['レトルト カレールー','レトルトカレー ご飯付き','レトルトカレー 冷凍'],'bag-noodles':['袋麺 カップ','袋麺 生麺','袋麺 麺のみ','一蘭 ラーメン 博多細麺 5食 袋麺','一風堂監修 袋麺 5食'],'cup-noodles':['カップ麺 ミニ','カップ麺 ビッグ','カップ麺 大盛','麻辣湯 カップ麺 12個 即席春雨 さつま芋麺']}
         for cid,titles in examples.items():
             for title in titles:
                 with self.subTest(title=title):self.assertIsNotNone(rejection(cid,title))
