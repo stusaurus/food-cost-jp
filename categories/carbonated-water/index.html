@@ -45,11 +45,18 @@ footer{padding:30px 0 100px;border-top:1px solid var(--line);font-size:10px;colo
 .market-shelf .identity-line{display:none}
 .market-shelf .finder-product-name{margin:5px 0 8px}
 .market-shelf .finder-product:hover{box-shadow:none}
-#today-market .finder-products{align-items:start}
+#today-market .finder-products{align-items:start;grid-template-columns:1.25fr repeat(3,minmax(0,1fr))}
+#today-market .finder-product:first-child{grid-template-rows:240px 1fr}
+#today-market .finder-product:first-child .finder-product-media img{height:208px}
 #today-market .finder-product:nth-child(even){margin-top:24px}
 .hero-subroutes{display:flex;gap:22px;flex-wrap:wrap;font-size:12px;margin-top:16px}
 .hero-subroutes a{color:var(--brand);text-underline-offset:5px}
-.finder-route-options{grid-template-columns:repeat(3,minmax(0,1fr))}
+.finder-options.finder-route-options{grid-template-columns:1.35fr 1fr;gap:12px}
+.finder-route-options .route-main{grid-row:span 2;background:#f9f7ef;border-color:#75886f;padding:26px;min-height:196px;grid-template-columns:1fr 18px}
+.finder-route-options .route-main .intent-number{grid-column:1/-1;font:11px sans-serif;letter-spacing:.06em}
+.finder-route-options .route-main strong{font-size:21px}
+.finder-route-options .route-shortcut{min-height:92px;grid-template-columns:1fr 12px}
+.finder-route-options .route-shortcut .intent-number{display:none}
 .finder-route-options button{display:grid;grid-template-columns:20px 1fr 12px;gap:10px;align-items:center;text-align:left;min-height:120px}
 .finder-route-options strong{font-size:16px;font-weight:500;line-height:1.6;display:block}
 .finder-route-options small{display:block;font-size:11px;line-height:1.7;color:var(--muted);margin-top:6px}
@@ -57,7 +64,13 @@ footer{padding:30px 0 100px;border-top:1px solid var(--line);font-size:10px;colo
 .market-shelf .finder-product-rank{font:10px sans-serif;letter-spacing:.08em;color:var(--brand)}
 .market-shelf .finder-why{line-height:1.7;margin:8px 0}
 .market-shelf .finder-why span{display:none}
-.shelf-shipping{font-size:10px;color:var(--brand);margin:5px 0}
+.shelf-assurance{font-size:11px;color:var(--brand);margin:5px 0 18px}
+.discovery-secondary{border-top:1px solid var(--line);margin-top:14px;padding-top:7px}
+.discovery-secondary .trend-row{font-size:10px}
+.discovery-secondary .trend-row .trend-badge~.trend-badge{display:none}
+.market-shelf .discovery-secondary .utility-btn{background:transparent;border:0;text-decoration:underline;text-underline-offset:4px;font-size:11px}
+.market-shelf .discovery-secondary .product-actions{margin:0;gap:8px}
+.market-shelf .discovery-secondary .product-extra>summary{font-size:11px;min-height:44px}
 .market-shelf .cta{background:transparent;color:var(--brand);border:1px solid var(--brand);margin-top:auto;min-height:46px;font-size:11px}
 .shelf-empty{grid-column:1/-1;border-block:1px solid var(--line);padding:24px 0;line-height:1.8}
 .aisle-group{grid-column:1/-1;font:24px Georgia,'Noto Serif JP',serif;margin:15px 0 0;padding-top:20px;border-top:1px solid var(--line)}
@@ -83,7 +96,7 @@ footer{padding:30px 0 100px;border-top:1px solid var(--line);font-size:10px;colo
 .finder-result-actions{display:flex;gap:28px;justify-content:space-between}
 .finder-status{font-size:13px;color:var(--brand);line-height:1.8}
 .finder-status:empty{display:none}.finder-stage{animation:shelf-in .18s ease}
-.finder .market-shelf .finder-products{grid-template-columns:repeat(3,minmax(0,1fr))}
+.finder .market-shelf .finder-products{grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
 .podium-card.rank-1{border-color:var(--line);box-shadow:none}.podium-medal{font-size:13px}
 @media(max-width:759px){
  .home-hero h1{font-size:31px}.market-shelf{margin:20px 0 30px}.shelf-heading h3{font-size:22px}
@@ -96,9 +109,15 @@ footer{padding:30px 0 100px;border-top:1px solid var(--line);font-size:10px;colo
  .market-shelf .product-actions{gap:5px}.market-shelf .utility-btn{font-size:10px;padding:6px}
  .finder{padding:22px 15px}.finder h2{font-size:25px}.finder-guide{display:none}
  .finder-options.finder-purpose-options,.finder-options.finder-route-options{grid-template-columns:1fr}
- .finder-route-options button{min-height:84px;padding:13px}
+ .finder-route-options button{min-height:72px;padding:13px}
+ .finder-options.finder-route-options{grid-template-columns:1fr}
+ .finder-route-options .route-main{grid-row:auto;min-height:134px;padding:19px}
+ .finder-route-options .route-main strong{font-size:19px}
+ #today-market .finder-product:first-child{grid-template-rows:220px 1fr}
+ #today-market .finder-product:first-child .finder-product-media img{height:200px}
  .finder-route-options strong{font-size:15px}
  #today-market .finder-product:nth-child(even){margin-top:0}
+ #today-market .finder-products{grid-template-columns:none}
  .podium-card{grid-template-columns:115px minmax(0,1fr)}.podium-media{height:130px}.podium-img{max-height:125px}.finder-purpose-options button{min-height:78px;padding:13px}
  .finder-purpose-options strong{font-size:15px}.finder-options{grid-template-columns:1fr 1fr}
  .finder-question{gap:8px}.finder-question strong{font-size:15px}.finder-art{width:100%;height:88px}
@@ -115,7 +134,7 @@ footer{padding:30px 0 100px;border-top:1px solid var(--line);font-size:10px;colo
  .deal-section .shelf-mobile-hint,.discovery-shelves .shelf-mobile-hint{display:block;font-size:10px;color:var(--brand);text-align:right;margin:0 0 8px}
  .market-shelf .finder-product-price small{display:block;margin-left:0}
  .market-shelf .finder-product-meta{margin:3px 0}
- .market-shelf .shelf-shipping{margin:3px 0}
+ .market-shelf .shelf-assurance{margin:3px 0}
  .market-shelf .product-actions{margin:6px 0 8px}
  .market-shelf .product-extra{margin:5px 0}
  .market-shelf .product-extra>summary{min-height:44px;align-items:center;padding:6px 0}
@@ -134,7 +153,7 @@ function gtag(){dataLayer.push(arguments)}
 gtag('js',new Date());
 gtag('config','G-GFVSZ8YDQ5',{site_id:'food_cost_jp'});
 </script>
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "炭酸水は何を基準に並べていますか？", "acceptedAnswer": {"@type": "Answer", "text": "送料込み確認済みの商品を、主に1Lあたりが安い順で並べています。"}}, {"@type": "Question", "name": "クーポンやポイントは単価に含めていますか？", "acceptedAnswer": {"@type": "Answer", "text": "通常価格を公平に比べるため、クーポンやポイントは自動的に単価へ差し引いていません。"}}, {"@type": "Question", "name": "数量が選べる商品はランキングに入りますか？", "acceptedAnswer": {"@type": "Answer", "text": "購入する容量や個数を商品情報から一意に確定できない場合は、誤比較を防ぐためランキングから除外します。"}}]}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "食品コスパ比較", "item": "https://stusaurus.github.io/food-cost-jp/"}, {"@type": "ListItem", "position": 2, "name": "炭酸水", "item": "https://stusaurus.github.io/food-cost-jp/categories/carbonated-water/"}]}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "ItemList", "name": "炭酸水のコスパ比較", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "炭酸水 1L 15本 強炭酸水 炭酸 飲料 富士山の強炭酸水 ラベルレス ケース 水 ミネラルウォーター ゼロカロリー 糖類ゼロ 無糖 無果汁 富士山の強炭酸水 1L ラベルレス プレーン レモン アイリスオーヤマ", "url": "https://hb.afl.rakuten.co.jp/hgc/g00qhoao.7cx6m91b.g00qhoao.7cx6n00f/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fkurashikenkou%2F311521%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fkurashikenkou%2Fi%2F10217349%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5"}, {"@type": "ListItem", "position": 2, "name": "炭酸水 1L 15本 選べるラベルレス 強炭酸水 アイリスオーヤマ 無糖 プレーン レモン フレーバー 国産 天然水 ソーダ 割り材 まとめ買い 1000ml 炭酸飲料 ゼロカロリー クリスタルスパーク CRYSTALSPARK 富士山の強炭酸水 *無果汁 糖類ゼロ 飲料", "url": "https://hb.afl.rakuten.co.jp/hgc/g00tux1o.7cx6mb61.g00tux1o.7cx6n3ef/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fs-kodawari%2F311521%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fs-kodawari%2Fi%2F10005268%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5"}, {"@type": "ListItem", "position": 3, "name": "【選べるラベルレス！】炭酸水 富士山の強炭酸水 1L プレーン レモン ラベルあり (ケース） ラベルレス 1L×15本 強炭酸水 強炭酸 1000ml 1L 富士山 ケース 水 ミネラルウォーター 炭酸 みず 富士山 アイリスオーヤマの富士山天然水 15本 アイリスオーヤマ", "url": "https://hb.afl.rakuten.co.jp/hgc/g00qvevo.7cx6mc00.g00qvevo.7cx6n8b9/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fkadenrand%2F311521%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fkadenrand%2Fi%2F10159822%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5"}, {"@type": "ListItem", "position": 4, "name": "【楽天オリジナル】炭酸水 500ml×24本 [プレーン ソーダ 割り材 炭酸飲料 スパークリング 炭酸] まとめ買い 水 業務用 家庭用 大容量 オフィス ハイボール用 宅飲み 500ml 24本", "url": "https://hb.afl.rakuten.co.jp/hgc/g00uqzro.7cx6m99a.g00uqzro.7cx6n201/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Frakutenoriginal-daily%2Fro-b-002%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Frakutenoriginal-daily%2Fi%2F10000001%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5"}, {"@type": "ListItem", "position": 5, "name": "[エントリーでポイント最大10倍/スタンプラリー]炭酸水 500ml 24本 アイリスオーヤマ 強炭酸水 選べる ラベルレス プレーン レモン ラムネ グレープソーダ ジンジャーエール 和梨 フレーバー 天然水 無糖 ペットボトル 炭酸飲料 アイリスフーズ クリスタルスパーク *", "url": "https://hb.afl.rakuten.co.jp/hgc/g00t3zto.7cx6m5be.g00t3zto.7cx6n748/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Firisplaza-r%2F312010%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Firisplaza-r%2Fi%2F10158174%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5"}, {"@type": "ListItem", "position": 6, "name": "炭酸水 500ml 24本 選べるラベルレス 強炭酸水 アイリスオーヤマ 無糖 プレーン レモン フレーバー 天然水 ソーダ カロリーゼロ 割り材 まとめ買い 炭酸飲料 クリスタルスパーク CRYSTALSPARK 富士山の強炭酸水 * 【代引き不可】", "url": "https://hb.afl.rakuten.co.jp/hgc/g00qhoao.7cx6m91b.g00qhoao.7cx6n00f/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fkurashikenkou%2F310791%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fkurashikenkou%2Fi%2F10201356%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5"}, {"@type": "ListItem", "position": 7, "name": "炭酸水 1L 24本 シリカ32～38mg/L シリカ炭酸水 シリカ水 ラベルレス チェリオ 強炭酸水 1L 24本(12本×2ケース) 1000ml 1,000ml 1リットル 1リッター GLY", "url": "https://hb.afl.rakuten.co.jp/hgc/g00smpwo.7cx6mc98.g00smpwo.7cx6nf0d/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbeer-the-world%2F918488-2%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fbeer-the-world%2Fi%2F10003336%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5"}, {"@type": "ListItem", "position": 8, "name": "(10/3 23:59迄) 炭酸水 1L 24本 シリカ32～38mg/L シリカ炭酸水 シリカ水 ラベルレス チェリオ 強炭酸水 1L 24本(12本×2ケース) 1000ml 1,000ml 1リットル GLY", "url": "https://hb.afl.rakuten.co.jp/hgc/g00scs5o.7cx6ma62.g00scs5o.7cx6n02b/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fwhisky%2F918488-2%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fwhisky%2Fi%2F10006882%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5"}, {"@type": "ListItem", "position": 9, "name": "【公式】 炭酸水 500ml 24本 強炭酸水 レモン グレープフルーツ 水 ミネラルウォーター 500ml×24本 富士山の強炭酸水500ml", "url": "https://hb.afl.rakuten.co.jp/hgc/g00t3zto.7cx6m5be.g00t3zto.7cx6n748/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Firisplaza-r%2F310791%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Firisplaza-r%2Fi%2F10133643%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5"}, {"@type": "ListItem", "position": 10, "name": "[エントリーでポイント最大10倍/スタンプラリー]炭酸水 1L 12本 レモン プレーン 強炭酸水 炭酸 ミネラルウォーター 天然水 無糖 割り材 まとめ買い 1リットル アイリスオーヤマ CRYSTAL SPARK クリスタルスパーク *", "url": "https://hb.afl.rakuten.co.jp/hgc/g00t3zto.7cx6m5be.g00t3zto.7cx6n748/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Firisplaza-r%2F312160%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Firisplaza-r%2Fi%2F10160160%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "炭酸水は何を基準に並べていますか？", "acceptedAnswer": {"@type": "Answer", "text": "送料込み確認済みの商品を、主に1Lあたりが安い順で並べています。"}}, {"@type": "Question", "name": "クーポンやポイントは単価に含めていますか？", "acceptedAnswer": {"@type": "Answer", "text": "通常価格を公平に比べるため、クーポンやポイントは自動的に単価へ差し引いていません。"}}, {"@type": "Question", "name": "数量が選べる商品はランキングに入りますか？", "acceptedAnswer": {"@type": "Answer", "text": "購入する容量や個数を商品情報から一意に確定できない場合は、誤比較を防ぐためランキングから除外します。"}}]}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "食品コスパ比較", "item": "https://stusaurus.github.io/food-cost-jp/"}, {"@type": "ListItem", "position": 2, "name": "炭酸水", "item": "https://stusaurus.github.io/food-cost-jp/categories/carbonated-water/"}]}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "ItemList", "name": "炭酸水のコスパ比較", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "炭酸水 1L 15本 強炭酸水 炭酸 飲料 富士山の強炭酸水 ラベルレス ケース 水 ミネラルウォーター ゼロカロリー 糖類ゼロ 無糖 無果汁 富士山の強炭酸水 1L ラベルレス プレーン レモン アイリスオーヤマ", "url": "https://hb.afl.rakuten.co.jp/hgc/g00qhoao.7cx6m91b.g00qhoao.7cx6n00f/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fkurashikenkou%2F311521%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fkurashikenkou%2Fi%2F10217349%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5"}, {"@type": "ListItem", "position": 2, "name": "炭酸水 1L 15本 選べるラベルレス 強炭酸水 アイリスオーヤマ 無糖 プレーン レモン フレーバー 国産 天然水 ソーダ 割り材 まとめ買い 1000ml 炭酸飲料 ゼロカロリー クリスタルスパーク CRYSTALSPARK 富士山の強炭酸水 *無果汁 糖類ゼロ 飲料", "url": "https://hb.afl.rakuten.co.jp/hgc/g00tux1o.7cx6mb61.g00tux1o.7cx6n3ef/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fs-kodawari%2F311521%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fs-kodawari%2Fi%2F10005268%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5"}, {"@type": "ListItem", "position": 3, "name": "【公式】炭酸水 500ml 48本 (24本入×2箱) 強炭酸水 アイリスオーヤマ クリスタルスパーク 炭酸 レモン マスカット ラムネ グレープ 和梨 ジンジャーエール フレーバー プレーン 無糖 天然水 アイリスフーズ ペットボトル", "url": "https://hb.afl.rakuten.co.jp/hgc/g00t3zto.7cx6m5be.g00t3zto.7cx6n748/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Firisplaza-r%2F312012%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Firisplaza-r%2Fi%2F10158173%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5"}, {"@type": "ListItem", "position": 4, "name": "炭酸水 500ml 48本 (24本入×2ケース) 選べるラベルレス 強炭酸水 アイリスオーヤマ 無糖 プレーン レモン フレーバー 天然水 ソーダ カロリーゼロ 割り材 まとめ買い クリスタルスパーク CRYSTALSPARK 富士山の強炭酸水 *", "url": "https://hb.afl.rakuten.co.jp/hgc/g00qhoao.7cx6m91b.g00qhoao.7cx6n00f/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fkurashikenkou%2F310997%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fkurashikenkou%2Fi%2F10201845%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5"}, {"@type": "ListItem", "position": 5, "name": "＼売り切り商品が激熱価格！／アイリスオーヤマ アイリスフーズ アイリスの強炭酸水 CRYSTAL SPARK クリスタルスパーク ジンジャーエール 和梨 レモン フレーバー プレーン 選べる ラベルレス 炭酸水 500ml 24本 ペットボトル *", "url": "https://hb.afl.rakuten.co.jp/hgc/g00qhoao.7cx6m91b.g00qhoao.7cx6n00f/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fkurashikenkou%2F312012%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fkurashikenkou%2Fi%2F10220307%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5"}, {"@type": "ListItem", "position": 6, "name": "【選べるラベルレス！】炭酸水 富士山の強炭酸水 1L プレーン レモン ラベルあり (ケース） ラベルレス 1L×15本 強炭酸水 強炭酸 1000ml 1L 富士山 ケース 水 ミネラルウォーター 炭酸 みず 富士山 アイリスオーヤマの富士山天然水 15本 アイリスオーヤマ", "url": "https://hb.afl.rakuten.co.jp/hgc/g00qvevo.7cx6mc00.g00qvevo.7cx6n8b9/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fkadenrand%2F311521%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fkadenrand%2Fi%2F10159822%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5"}, {"@type": "ListItem", "position": 7, "name": "【楽天オリジナル】炭酸水 500ml×24本 [プレーン ソーダ 割り材 炭酸飲料 スパークリング 炭酸] まとめ買い 水 業務用 家庭用 大容量 オフィス ハイボール用 宅飲み 500ml 24本", "url": "https://hb.afl.rakuten.co.jp/hgc/g00uqzro.7cx6m99a.g00uqzro.7cx6n201/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Frakutenoriginal-daily%2Fro-b-002%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Frakutenoriginal-daily%2Fi%2F10000001%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5"}, {"@type": "ListItem", "position": 8, "name": "[エントリーでポイント最大10倍/スタンプラリー]炭酸水 500ml 24本 アイリスオーヤマ 強炭酸水 選べる ラベルレス プレーン レモン ラムネ グレープソーダ ジンジャーエール 和梨 フレーバー 天然水 無糖 ペットボトル 炭酸飲料 アイリスフーズ クリスタルスパーク *", "url": "https://hb.afl.rakuten.co.jp/hgc/g00t3zto.7cx6m5be.g00t3zto.7cx6n748/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Firisplaza-r%2F312010%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Firisplaza-r%2Fi%2F10158174%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5"}, {"@type": "ListItem", "position": 9, "name": "炭酸水 500ml 24本 選べるラベルレス 強炭酸水 アイリスオーヤマ 無糖 プレーン レモン フレーバー 天然水 ソーダ カロリーゼロ 割り材 まとめ買い 炭酸飲料 クリスタルスパーク CRYSTALSPARK 富士山の強炭酸水 * 【代引き不可】", "url": "https://hb.afl.rakuten.co.jp/hgc/g00qhoao.7cx6m91b.g00qhoao.7cx6n00f/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fkurashikenkou%2F310791%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fkurashikenkou%2Fi%2F10201356%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5"}, {"@type": "ListItem", "position": 10, "name": "炭酸水 1L 24本 シリカ32～38mg/L シリカ炭酸水 シリカ水 ラベルレス チェリオ 強炭酸水 1L 24本(12本×2ケース) 1000ml 1,000ml 1リットル 1リッター GLY", "url": "https://hb.afl.rakuten.co.jp/hgc/g00smpwo.7cx6mc98.g00smpwo.7cx6nf0d/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbeer-the-world%2F918488-2%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fbeer-the-world%2Fi%2F10003336%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5"}]}</script>
 </head><body>
 <div class="market-masthead"><div class="wrap"><a class="market-logo" href="https://stusaurus.github.io/food-cost-jp/"><b>Food Cost<em>EVERYDAY MARCHÉ</em></b><span>食品コスパ比較</span></a><small>GOOD FOOD. SMART CHOICES.</small></div></div><header><div class="wrap hero-layout">
 <div>
@@ -143,7 +162,7 @@ gtag('config','G-GFVSZ8YDQ5',{site_id:'food_cost_jp'});
 <h1>炭酸水を<br>1Lあたりで比較。</h1>
 <p class="lead">500ml・1L・24本・48本などを1Lあたりと1本あたりへ換算します。</p>
 <div class="hero-tags"><span class="hero-tag">送料込みを優先</span><span class="hero-tag">数量曖昧は除外</span><span class="hero-tag">クーポン未反映</span></div>
-<p class="note">最終価格確認: 2026-10-02 18:31 JST。最新価格は販売ページで確認してください。</p>
+<p class="note">最終価格確認: 2026-10-02 19:49 JST。最新価格は販売ページで確認してください。</p>
 </div>
 <div class="category-hero-art carbonated-water"><img class="food-art" src="https://stusaurus.github.io/food-cost-jp/assets/marche-carbonated-water.webp" width="768" height="512" alt="" loading="lazy"></div>
 </div></header>
@@ -157,8 +176,8 @@ gtag('config','G-GFVSZ8YDQ5',{site_id:'food_cost_jp'});
 <main class="wrap"><section class="summary" aria-label="比較サマリー">
 <div class="summary-grid">
 <div class="summary-item"><div class="summary-k">送料込み最安</div><div class="summary-v">¥105</div><div class="fine">1Lあたり</div></div>
-<div class="summary-item"><div class="summary-k">送料込み掲載</div><div class="summary-v">14件</div></div>
-<div class="summary-item"><div class="summary-k">送料別参考</div><div class="summary-v">19件</div></div>
+<div class="summary-item"><div class="summary-k">送料込み掲載</div><div class="summary-v">15件</div></div>
+<div class="summary-item"><div class="summary-k">送料別参考</div><div class="summary-v">20件</div></div>
 </div></section><section class="journey-strip" aria-label="商品の選び方">
 <div><span>1</span><strong>候補を見る</strong><small>単価と総額を確認</small></div>
 <i>→</i><div><span>2</span><strong>比較する</strong><small>最大3商品まで</small></div>
@@ -168,8 +187,8 @@ gtag('config','G-GFVSZ8YDQ5',{site_id:'food_cost_jp'});
 <div class="section-kicker">PRICE SNAPSHOT</div>
 <h2>いまの価格差をひと目で。</h2>
 <div class="insight-grid">
-<div class="insight-card"><span>1位と3位の差</span><strong>¥6.7</strong><small>1Lあたりの差</small></div>
-<div class="insight-card"><span>支払総額が低い候補</span><strong>¥1,350</strong><small>500ml×24本 / 合計12L</small></div>
+<div class="insight-card"><span>1位と3位の差</span><strong>¥0.5</strong><small>1Lあたりの差</small></div>
+<div class="insight-card"><span>支払総額が低い候補</span><strong>¥1,280</strong><small>500ml×24本 / 合計12L</small></div>
 <div class="insight-card"><span>大容量側の注目</span><strong>¥105</strong><small>1Lあたり</small></div>
 </div>
 <p class="fine">単価だけでなく、支払総額や保管量も見て選べます。価格は取得時点の参考値です。</p>
@@ -180,7 +199,7 @@ gtag('config','G-GFVSZ8YDQ5',{site_id:'food_cost_jp'});
 <div class="podium-grid"><article class="podium-card rank-1">
 <div class="podium-head"><span class="podium-medal">01</span><span>いまの最安</span></div>
 <div class="podium-badges"><span class="tag best">最安候補</span> <span class="tag lifestyle">まとめ買い向き</span></div>
-<div class="podium-media"><img class="podium-img" src="https://thumbnail.image.rakuten.co.jp/@0_mall/kurashikenkou/cabinet/jisyakura2/311521.jpg?_ex=128x128" alt="" width="320" height="320" loading="lazy"></div>
+<div class="podium-media"><img class="podium-img" src="https://thumbnail.image.rakuten.co.jp/@0_mall/kurashikenkou/cabinet/jisyakura2/311521.jpg?_ex=640x640" data-image-fallback="https://thumbnail.image.rakuten.co.jp/@0_mall/kurashikenkou/cabinet/jisyakura2/311521.jpg?_ex=128x128" alt="" width="320" height="320" loading="lazy"></div>
 <div class="identity-line"><span class="brand-chip">アイリスオーヤマ</span><span class="spec-chip">1000ml×15本 / 合計15L</span></div>
 <strong class="podium-name" title="炭酸水 1L 15本 強炭酸水 炭酸 飲料 富士山の強炭酸水 ラベルレス ケース 水 ミネラルウォーター ゼロカロリー 糖類ゼロ 無糖 無果汁 富士山の強炭酸水 1L ラベルレス プレーン レモン アイリスオーヤマ">炭酸水 1L 15本 強炭酸水 炭酸 飲料 富士山の強炭酸水 ラベルレス ケース 水 ミネラルウォーター ゼロカロリー…</strong>
 <div class="podium-unit">¥105</div>
@@ -234,7 +253,7 @@ gtag('config','G-GFVSZ8YDQ5',{site_id:'food_cost_jp'});
 </article><article class="podium-card rank-2">
 <div class="podium-head"><span class="podium-medal">02</span><span>2位</span></div>
 <div class="podium-badges"><span class="tag top-badge">TOP3</span> <span class="tag lifestyle">まとめ買い向き</span></div>
-<div class="podium-media"><img class="podium-img" src="https://thumbnail.image.rakuten.co.jp/@0_mall/s-kodawari/cabinet/eigyouyou1/311521_b.jpg?_ex=128x128" alt="" width="320" height="320" loading="lazy"></div>
+<div class="podium-media"><img class="podium-img" src="https://thumbnail.image.rakuten.co.jp/@0_mall/s-kodawari/cabinet/eigyouyou1/311521_b.jpg?_ex=640x640" data-image-fallback="https://thumbnail.image.rakuten.co.jp/@0_mall/s-kodawari/cabinet/eigyouyou1/311521_b.jpg?_ex=128x128" alt="" width="320" height="320" loading="lazy"></div>
 <div class="identity-line"><span class="brand-chip">アイリスオーヤマ</span><span class="spec-chip">1000ml×15本 / 合計15L</span></div>
 <strong class="podium-name" title="炭酸水 1L 15本 選べるラベルレス 強炭酸水 アイリスオーヤマ 無糖 プレーン レモン フレーバー 国産 天然水 ソーダ 割り材 まとめ買い 1000ml 炭酸飲料 ゼロカロリー クリスタルスパーク CRYSTALSPARK 富士山の強炭酸水 *無果汁 糖類ゼロ 飲料">炭酸水 1L 15本 選べるラベルレス 強炭酸水 無糖 プレーン レモン フレーバー 国産 天然水 ソーダ 割り材 まとめ買い…</strong>
 <div class="podium-unit">¥105</div>
@@ -287,16 +306,127 @@ gtag('config','G-GFVSZ8YDQ5',{site_id:'food_cost_jp'});
  data-unit-price="105.333333" data-shipping="included" data-cta-variant="standard">楽天で価格を確認 →</a>
 </article><article class="podium-card rank-3">
 <div class="podium-head"><span class="podium-medal">03</span><span>3位</span></div>
-<div class="podium-badges"><span class="tag top-badge">TOP3</span> <span class="tag lifestyle">まとめ買い向き</span></div>
-<div class="podium-media"><img class="podium-img" src="https://thumbnail.image.rakuten.co.jp/@0_mall/kadenrand/cabinet/11075038/12023129/311521_b.jpg?_ex=128x128" alt="" width="320" height="320" loading="lazy"></div>
-<div class="identity-line"><span class="brand-chip">アイリスオーヤマ</span><span class="spec-chip">1000ml×15本 / 合計15L</span></div>
-<strong class="podium-name" title="【選べるラベルレス！】炭酸水 富士山の強炭酸水 1L プレーン レモン ラベルあり (ケース） ラベルレス 1L×15本 強炭酸水 強炭酸 1000ml 1L 富士山 ケース 水 ミネラルウォーター 炭酸 みず 富士山 アイリスオーヤマの富士山天然水 15本 アイリスオーヤマ">選べるラベルレス！ 炭酸水 富士山の強炭酸水 1L プレーン レモン ラベルあり (ケース） ラベルレス 1L×15本…</strong>
-<div class="podium-unit">¥112</div>
+<div class="podium-badges"><span class="tag top-badge">TOP3</span> <span class="tag lifestyle">少量向き</span></div>
+<div class="podium-media"><img class="podium-img" src="https://thumbnail.image.rakuten.co.jp/@0_mall/irisplaza-r/cabinet/talent/crystalspark/312012_rg.jpg?_ex=640x640" data-image-fallback="https://thumbnail.image.rakuten.co.jp/@0_mall/irisplaza-r/cabinet/talent/crystalspark/312012_rg.jpg?_ex=128x128" alt="" width="320" height="320" loading="lazy"></div>
+<div class="identity-line"><span class="brand-chip">アイリスオーヤマ</span><span class="spec-chip">500ml×48本 / 合計24L</span></div>
+<strong class="podium-name" title="【公式】炭酸水 500ml 48本 (24本入×2箱) 強炭酸水 アイリスオーヤマ クリスタルスパーク 炭酸 レモン マスカット ラムネ グレープ 和梨 ジンジャーエール フレーバー プレーン 無糖 天然水 アイリスフーズ ペットボトル">公式 炭酸水 500ml 48本 (24本入×2箱) 強炭酸水 クリスタルスパーク 炭酸 レモン マスカット ラムネ グレープ…</strong>
+<div class="podium-unit">¥106</div>
 <div class="podium-label">1Lあたり</div>
-<div class="trend-row"><span class="trend-badge low">30日最安</span></div>
-<div class="podium-diff">最安との差 +¥6.7</div>
-<div class="podium-detail">1000ml×15本 / 合計15L ・ ¥1,680</div>
+<div class="trend-row"><span class="trend-badge drop">↓ ¥420 昨日比</span><span class="trend-badge low">30日最安</span></div>
+<div class="podium-diff">最安との差 +¥0.5</div>
+<div class="podium-detail">500ml×48本 / 合計24L ・ ¥2,540</div>
 <details class="product-extra" data-product-extra>
+<summary>価格のうごきを見る <span>＋</span></summary>
+<div class="product-extra-body"><div class="history-card" data-history-card>
+<div class="history-head"><strong>価格履歴</strong><span>3回取得</span></div>
+<div class="history-toolbar"><div class="history-tabs">
+<button type="button" class="selected" data-history-range="7日">7日</button>
+<button type="button" data-history-range="30日">30日</button>
+</div><span class="history-trend down">最近下落</span></div>
+<div class="history-range-panel" data-history-panel="7日">
+<div class="history-stats history-stats-4">
+<div><span>現在</span><b>¥106</b></div>
+<div><span>最安</span><b>¥106</b><small>10/02</small></div>
+<div><span>最高</span><b>¥123</b><small>09/30</small></div>
+<div><span>値幅</span><b>¥17.5</b></div>
+</div>
+<svg class="sparkline buy" viewBox="0 0 180 64" role="img" aria-label="7日価格推移">
+<line x1="6" y1="58" x2="174" y2="58" class="spark-grid"/>
+<polyline points="6.0,6.0 90.0,6.0 174.0,58.0" fill="none" vector-effect="non-scaling-stroke"/>
+<circle cx="174.0" cy="58.0" r="3.2"/>
+</svg></div><div class="history-range-panel" data-history-panel="30日" hidden>
+<div class="history-stats history-stats-4">
+<div><span>現在</span><b>¥106</b></div>
+<div><span>最安</span><b>¥106</b><small>10/02</small></div>
+<div><span>最高</span><b>¥123</b><small>09/30</small></div>
+<div><span>値幅</span><b>¥17.5</b></div>
+</div>
+<svg class="sparkline buy" viewBox="0 0 180 64" role="img" aria-label="30日価格推移">
+<line x1="6" y1="58" x2="174" y2="58" class="spark-grid"/>
+<polyline points="6.0,6.0 90.0,6.0 174.0,58.0" fill="none" vector-effect="non-scaling-stroke"/>
+<circle cx="174.0" cy="58.0" r="3.2"/>
+</svg></div>
+</div><div class="buy-signal buy">
+<span>買い時寄り</span><small>値下がりし、30日内の最安水準です。</small>
+</div></div>
+</details>
+<div class="product-actions">
+<button type="button" class="utility-btn" data-save-product data-product-id="irisplaza-r:10158173" data-product-name="【公式】炭酸水 500ml 48本 (24本入×2箱) 強炭酸水 アイリスオーヤマ クリスタルスパーク 炭酸 レモン マスカット ラムネ グレープ 和梨 ジンジャーエール フレーバー プレーン 無糖 天然水 アイリスフーズ ペットボトル" data-product-category="carbonated-water" data-product-category-name="炭酸水" data-product-price="2540" data-product-unit="105.833333" data-product-unit-label="1Lあたり" data-product-quantity="500ml×48本 / 合計24L" data-product-url="https://hb.afl.rakuten.co.jp/hgc/g00t3zto.7cx6m5be.g00t3zto.7cx6n748/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Firisplaza-r%2F312012%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Firisplaza-r%2Fi%2F10158173%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" data-product-image="https://thumbnail.image.rakuten.co.jp/@0_mall/irisplaza-r/cabinet/talent/crystalspark/312012_rg.jpg?_ex=128x128">＋ 買い物メモ</button>
+<button type="button" class="utility-btn" data-compare-product data-product-id="irisplaza-r:10158173" data-product-name="【公式】炭酸水 500ml 48本 (24本入×2箱) 強炭酸水 アイリスオーヤマ クリスタルスパーク 炭酸 レモン マスカット ラムネ グレープ 和梨 ジンジャーエール フレーバー プレーン 無糖 天然水 アイリスフーズ ペットボトル" data-product-category="carbonated-water" data-product-category-name="炭酸水" data-product-price="2540" data-product-unit="105.833333" data-product-unit-label="1Lあたり" data-product-quantity="500ml×48本 / 合計24L" data-product-url="https://hb.afl.rakuten.co.jp/hgc/g00t3zto.7cx6m5be.g00t3zto.7cx6n748/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Firisplaza-r%2F312012%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Firisplaza-r%2Fi%2F10158173%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" data-product-image="https://thumbnail.image.rakuten.co.jp/@0_mall/irisplaza-r/cabinet/talent/crystalspark/312012_rg.jpg?_ex=128x128">＋ 比較する</button>
+</div>
+<a class="cta podium-cta" href="https://hb.afl.rakuten.co.jp/hgc/g00t3zto.7cx6m5be.g00t3zto.7cx6n748/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Firisplaza-r%2F312012%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Firisplaza-r%2Fi%2F10158173%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" target="_blank" rel="nofollow sponsored noopener"
+ data-affiliate="rakuten" data-position="top3_card" data-category="carbonated-water" data-product-id="irisplaza-r:10158173"
+ data-product-name="【公式】炭酸水 500ml 48本 (24本入×2箱) 強炭酸水 アイリスオーヤマ クリスタルスパーク 炭酸 レモン マスカット ラムネ グレープ 和梨 ジンジャーエール フレーバー プレーン 無糖 天然水 アイリスフーズ ペットボトル" data-rank="3" data-metric="per_liter"
+ data-unit-price="105.833333" data-shipping="included" data-cta-variant="history_low">30日最安を楽天で確認 →</a>
+</article></div>
+</section><div id="included" class="after-top3"><details class="more-products" data-more-products>
+<summary>4位以下を見る（12件） <span>＋</span></summary>
+<section class="comparison-inner" data-comparison data-start-rank="4">
+<h2>4位以下を見る（12件）</h2>
+<p class="sub">必要なときだけ開いて、検索・並び替え・容量条件で絞り込めます。</p>
+<div class="toolbar">
+<input type="search" data-search data-category="carbonated-water" placeholder="商品名・ショップ名で絞る" aria-label="炭酸水の商品名・ショップ名で絞る">
+<select data-sort data-category="carbonated-water"><option value="per_liter">1Lあたりが安い順</option><option value="per_bottle">1本あたりが安い順</option><option value="price">商品価格が安い順</option></select>
+<select data-filter data-category="carbonated-water">
+<option value="all">容量・数量すべて</option>
+<option value="small">600ml以下</option>
+<option value="large">700ml以上</option>
+</select>
+</div>
+<p class="sub" data-intent-note></p><div class="empty-filter" data-empty-filter>条件に合う商品がありません。検索語や容量条件を変えてください。</div>
+<div class="table"><table>
+<thead><tr><th>順</th><th></th><th>商品</th><th>数量</th><th>商品価格</th><th>単価</th><th>販売先</th></tr></thead>
+<tbody><tr data-bucket="small" data-shopping-bucket="large" data-search-text="炭酸水 500ml 48本 (24本入×2ケース) 選べるラベルレス 強炭酸水 アイリスオーヤマ 無糖 プレーン レモン フレーバー 天然水 ソーダ カロリーゼロ 割り材 まとめ買い クリスタルスパーク crystalspark 富士山の強炭酸水 * 暮らし健康ネット館" data-price="2540" data-per_liter="105.833333" data-per_bottle="52.916667">
+<td data-cell="rank" data-rank><span class="rank">4</span></td>
+<td data-cell="image"><img class="product-img" src="https://thumbnail.image.rakuten.co.jp/@0_mall/kurashikenkou/cabinet/jisyakura2/ranking_310997.jpg?_ex=128x128" alt="" width="72" height="72" loading="lazy"></td>
+<td data-cell="product"><div class="identity-line"><span class="brand-chip">アイリスオーヤマ</span><span class="spec-chip">500ml×48本 / 合計24L</span></div>
+<strong class="product-name" title="炭酸水 500ml 48本 (24本入×2ケース) 選べるラベルレス 強炭酸水 アイリスオーヤマ 無糖 プレーン レモン フレーバー 天然水 ソーダ カロリーゼロ 割り材 まとめ買い クリスタルスパーク CRYSTALSPARK 富士山の強炭酸水 *">炭酸水 500ml 48本 (24本入×2ケース) 選べるラベルレス 強炭酸水 無糖 プレーン レモン フレーバー 天然水…</strong><div class="shop">暮らし健康ネット館</div><div class="product-badges"><span class="tag lifestyle">少量向き</span> <span class="tag ok">送料込み</span> </div><div class="trend-row"></div><details class="product-extra" data-product-extra>
+<summary>価格のうごきを見る <span>＋</span></summary>
+<div class="product-extra-body"><div class="history-card history-pending">
+<div class="history-head"><strong>価格履歴</strong><span>1回取得</span></div>
+<div class="history-stats"><div><span>現在</span><b>¥106</b></div><div><span>7日</span><b>蓄積中</b></div><div><span>30日</span><b>蓄積中</b></div></div>
+<div class="sparkline-empty">次回取得後からグラフを表示</div></div><div class="buy-signal neutral">
+<span>履歴蓄積中</span><small>2回以上の取得後に履歴ベースで判定します。</small>
+</div></div>
+</details></td>
+<td data-cell="quantity">500ml×48本 / 合計24L</td>
+<td data-cell="price">¥2,540</td>
+<td data-cell="unit"><div class="unit">¥106</div><div class="unit-label">1Lあたり</div><div class="secondary-unit">1本あたり ¥52.9</div></td>
+<td data-cell="cta"><div class="product-actions">
+<button type="button" class="utility-btn" data-save-product data-product-id="kurashikenkou:10201845" data-product-name="炭酸水 500ml 48本 (24本入×2ケース) 選べるラベルレス 強炭酸水 アイリスオーヤマ 無糖 プレーン レモン フレーバー 天然水 ソーダ カロリーゼロ 割り材 まとめ買い クリスタルスパーク CRYSTALSPARK 富士山の強炭酸水 *" data-product-category="carbonated-water" data-product-category-name="炭酸水" data-product-price="2540" data-product-unit="105.833333" data-product-unit-label="1Lあたり" data-product-quantity="500ml×48本 / 合計24L" data-product-url="https://hb.afl.rakuten.co.jp/hgc/g00qhoao.7cx6m91b.g00qhoao.7cx6n00f/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fkurashikenkou%2F310997%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Fkurashikenkou%2Fi%2F10201845%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" data-product-image="https://thumbnail.image.rakuten.co.jp/@0_mall/kurashikenkou/cabinet/jisyakura2/ranking_310997.jpg?_ex=128x128">＋ 買い物メモ</button>
+<button type="button" class="utility-btn" data-compare-product data-product-id="kurashikenkou:10201845" data-product-name="炭酸水 500ml 48本 (24本入×2ケース) 選べるラベルレス 強炭酸水 アイリスオーヤマ 無糖 プレーン レモン フレーバー 天然水 ソーダ カロリーゼロ 割り材 まとめ買い クリスタルスパーク CRYSTALSPARK 富士山の強炭酸水 *" data-product-category="carbonated-water" data-product-category-name="炭酸水" data-product-price="2540" data-product-unit="105.833333" data-product-unit-label="1Lあたり" data-product-quantity="500ml×48本 / 合計24L" data-product-url="https://hb.afl.rakuten.co.jp/hgc/g00qhoao.7cx6m91b.g00qhoao.7cx6n00f/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fkurashikenkou%2F310997%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Fkurashikenkou%2Fi%2F10201845%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" data-product-image="https://thumbnail.image.rakuten.co.jp/@0_mall/kurashikenkou/cabinet/jisyakura2/ranking_310997.jpg?_ex=128x128">＋ 比較する</button>
+</div><a class="cta" href="https://hb.afl.rakuten.co.jp/hgc/g00qhoao.7cx6m91b.g00qhoao.7cx6n00f/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fkurashikenkou%2F310997%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Fkurashikenkou%2Fi%2F10201845%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" target="_blank" rel="nofollow sponsored noopener"
+ data-affiliate="rakuten" data-category="carbonated-water" data-product-id="kurashikenkou:10201845"
+ data-product-name="炭酸水 500ml 48本 (24本入×2ケース) 選べるラベルレス 強炭酸水 アイリスオーヤマ 無糖 プレーン レモン フレーバー 天然水 ソーダ カロリーゼロ 割り材 まとめ買い クリスタルスパーク CRYSTALSPARK 富士山の強炭酸水 *" data-rank="4" data-metric="per_liter"
+ data-unit-price="105.833333" data-shipping="included" data-cta-variant="standard">楽天で価格を確認 →</a></td>
+</tr><tr data-bucket="small" data-shopping-bucket="small" data-search-text="＼売り切り商品が激熱価格！／アイリスオーヤマ アイリスフーズ アイリスの強炭酸水 crystal spark クリスタルスパーク ジンジャーエール 和梨 レモン フレーバー プレーン 選べる ラベルレス 炭酸水 500ml 24本 ペットボトル * 暮らし健康ネット館" data-price="1280" data-per_liter="106.666667" data-per_bottle="53.333333">
+<td data-cell="rank" data-rank><span class="rank">5</span></td>
+<td data-cell="image"><img class="product-img" src="https://thumbnail.image.rakuten.co.jp/@0_mall/kurashikenkou/cabinet/viby2/imgrc0111617325.jpg?_ex=128x128" alt="" width="72" height="72" loading="lazy"></td>
+<td data-cell="product"><div class="identity-line"><span class="brand-chip">アイリスオーヤマ</span><span class="spec-chip">500ml×24本 / 合計12L</span></div>
+<strong class="product-name" title="＼売り切り商品が激熱価格！／アイリスオーヤマ アイリスフーズ アイリスの強炭酸水 CRYSTAL SPARK クリスタルスパーク ジンジャーエール 和梨 レモン フレーバー プレーン 選べる ラベルレス 炭酸水 500ml 24本 ペットボトル *">＼売り切り商品が激熱価格！ アイリスフーズ アイリスの強炭酸水 CRYSTAL SPARK クリスタルスパーク…</strong><div class="shop">暮らし健康ネット館</div><div class="product-badges"><span class="tag lifestyle">少量向き</span> <span class="tag ok">送料込み</span> </div><div class="trend-row"></div><details class="product-extra" data-product-extra>
+<summary>価格のうごきを見る <span>＋</span></summary>
+<div class="product-extra-body"><div class="history-card history-pending">
+<div class="history-head"><strong>価格履歴</strong><span>1回取得</span></div>
+<div class="history-stats"><div><span>現在</span><b>¥107</b></div><div><span>7日</span><b>蓄積中</b></div><div><span>30日</span><b>蓄積中</b></div></div>
+<div class="sparkline-empty">次回取得後からグラフを表示</div></div><div class="buy-signal neutral">
+<span>履歴蓄積中</span><small>2回以上の取得後に履歴ベースで判定します。</small>
+</div></div>
+</details></td>
+<td data-cell="quantity">500ml×24本 / 合計12L</td>
+<td data-cell="price">¥1,280</td>
+<td data-cell="unit"><div class="unit">¥107</div><div class="unit-label">1Lあたり</div><div class="secondary-unit">1本あたり ¥53.3</div></td>
+<td data-cell="cta"><div class="product-actions">
+<button type="button" class="utility-btn" data-save-product data-product-id="kurashikenkou:10220307" data-product-name="＼売り切り商品が激熱価格！／アイリスオーヤマ アイリスフーズ アイリスの強炭酸水 CRYSTAL SPARK クリスタルスパーク ジンジャーエール 和梨 レモン フレーバー プレーン 選べる ラベルレス 炭酸水 500ml 24本 ペットボトル *" data-product-category="carbonated-water" data-product-category-name="炭酸水" data-product-price="1280" data-product-unit="106.666667" data-product-unit-label="1Lあたり" data-product-quantity="500ml×24本 / 合計12L" data-product-url="https://hb.afl.rakuten.co.jp/hgc/g00qhoao.7cx6m91b.g00qhoao.7cx6n00f/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fkurashikenkou%2F312012%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Fkurashikenkou%2Fi%2F10220307%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" data-product-image="https://thumbnail.image.rakuten.co.jp/@0_mall/kurashikenkou/cabinet/viby2/imgrc0111617325.jpg?_ex=128x128">＋ 買い物メモ</button>
+<button type="button" class="utility-btn" data-compare-product data-product-id="kurashikenkou:10220307" data-product-name="＼売り切り商品が激熱価格！／アイリスオーヤマ アイリスフーズ アイリスの強炭酸水 CRYSTAL SPARK クリスタルスパーク ジンジャーエール 和梨 レモン フレーバー プレーン 選べる ラベルレス 炭酸水 500ml 24本 ペットボトル *" data-product-category="carbonated-water" data-product-category-name="炭酸水" data-product-price="1280" data-product-unit="106.666667" data-product-unit-label="1Lあたり" data-product-quantity="500ml×24本 / 合計12L" data-product-url="https://hb.afl.rakuten.co.jp/hgc/g00qhoao.7cx6m91b.g00qhoao.7cx6n00f/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fkurashikenkou%2F312012%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Fkurashikenkou%2Fi%2F10220307%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" data-product-image="https://thumbnail.image.rakuten.co.jp/@0_mall/kurashikenkou/cabinet/viby2/imgrc0111617325.jpg?_ex=128x128">＋ 比較する</button>
+</div><a class="cta" href="https://hb.afl.rakuten.co.jp/hgc/g00qhoao.7cx6m91b.g00qhoao.7cx6n00f/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fkurashikenkou%2F312012%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Fkurashikenkou%2Fi%2F10220307%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" target="_blank" rel="nofollow sponsored noopener"
+ data-affiliate="rakuten" data-category="carbonated-water" data-product-id="kurashikenkou:10220307"
+ data-product-name="＼売り切り商品が激熱価格！／アイリスオーヤマ アイリスフーズ アイリスの強炭酸水 CRYSTAL SPARK クリスタルスパーク ジンジャーエール 和梨 レモン フレーバー プレーン 選べる ラベルレス 炭酸水 500ml 24本 ペットボトル *" data-rank="5" data-metric="per_liter"
+ data-unit-price="106.666667" data-shipping="included" data-cta-variant="standard">楽天で価格を確認 →</a></td>
+</tr><tr data-bucket="large" data-shopping-bucket="large" data-search-text="【選べるラベルレス！】炭酸水 富士山の強炭酸水 1l プレーン レモン ラベルあり (ケース） ラベルレス 1l×15本 強炭酸水 強炭酸 1000ml 1l 富士山 ケース 水 ミネラルウォーター 炭酸 みず 富士山 アイリスオーヤマの富士山天然水 15本 アイリスオーヤマ denden" data-price="1680" data-per_liter="112.000000" data-per_bottle="112.000000">
+<td data-cell="rank" data-rank><span class="rank">6</span></td>
+<td data-cell="image"><img class="product-img" src="https://thumbnail.image.rakuten.co.jp/@0_mall/kadenrand/cabinet/11075038/12023129/311521_b.jpg?_ex=128x128" alt="" width="72" height="72" loading="lazy"></td>
+<td data-cell="product"><div class="identity-line"><span class="brand-chip">アイリスオーヤマ</span><span class="spec-chip">1000ml×15本 / 合計15L</span></div>
+<strong class="product-name" title="【選べるラベルレス！】炭酸水 富士山の強炭酸水 1L プレーン レモン ラベルあり (ケース） ラベルレス 1L×15本 強炭酸水 強炭酸 1000ml 1L 富士山 ケース 水 ミネラルウォーター 炭酸 みず 富士山 アイリスオーヤマの富士山天然水 15本 アイリスオーヤマ">選べるラベルレス！ 炭酸水 富士山の強炭酸水 1L プレーン レモン ラベルあり (ケース） ラベルレス 1L×15本…</strong><div class="shop">DENDEN</div><div class="product-badges"><span class="tag lifestyle">まとめ買い向き</span> <span class="tag ok">送料込み</span> </div><div class="trend-row"><span class="trend-badge low">30日最安</span></div><details class="product-extra" data-product-extra>
 <summary>価格のうごきを見る <span>＋</span></summary>
 <div class="product-extra-body"><div class="history-card" data-history-card>
 <div class="history-head"><strong>価格履歴</strong><span>3回取得</span></div>
@@ -330,35 +460,19 @@ gtag('config','G-GFVSZ8YDQ5',{site_id:'food_cost_jp'});
 </div><div class="buy-signal neutral">
 <span>相場圏</span><small>直近履歴では大きな割高・値下がりは確認できません。</small>
 </div></div>
-</details>
-<div class="product-actions">
+</details></td>
+<td data-cell="quantity">1000ml×15本 / 合計15L</td>
+<td data-cell="price">¥1,680</td>
+<td data-cell="unit"><div class="unit">¥112</div><div class="unit-label">1Lあたり</div><div class="secondary-unit">1本あたり ¥112</div></td>
+<td data-cell="cta"><div class="product-actions">
 <button type="button" class="utility-btn" data-save-product data-product-id="kadenrand:10159822" data-product-name="【選べるラベルレス！】炭酸水 富士山の強炭酸水 1L プレーン レモン ラベルあり (ケース） ラベルレス 1L×15本 強炭酸水 強炭酸 1000ml 1L 富士山 ケース 水 ミネラルウォーター 炭酸 みず 富士山 アイリスオーヤマの富士山天然水 15本 アイリスオーヤマ" data-product-category="carbonated-water" data-product-category-name="炭酸水" data-product-price="1680" data-product-unit="112.000000" data-product-unit-label="1Lあたり" data-product-quantity="1000ml×15本 / 合計15L" data-product-url="https://hb.afl.rakuten.co.jp/hgc/g00qvevo.7cx6mc00.g00qvevo.7cx6n8b9/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fkadenrand%2F311521%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Fkadenrand%2Fi%2F10159822%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" data-product-image="https://thumbnail.image.rakuten.co.jp/@0_mall/kadenrand/cabinet/11075038/12023129/311521_b.jpg?_ex=128x128">＋ 買い物メモ</button>
 <button type="button" class="utility-btn" data-compare-product data-product-id="kadenrand:10159822" data-product-name="【選べるラベルレス！】炭酸水 富士山の強炭酸水 1L プレーン レモン ラベルあり (ケース） ラベルレス 1L×15本 強炭酸水 強炭酸 1000ml 1L 富士山 ケース 水 ミネラルウォーター 炭酸 みず 富士山 アイリスオーヤマの富士山天然水 15本 アイリスオーヤマ" data-product-category="carbonated-water" data-product-category-name="炭酸水" data-product-price="1680" data-product-unit="112.000000" data-product-unit-label="1Lあたり" data-product-quantity="1000ml×15本 / 合計15L" data-product-url="https://hb.afl.rakuten.co.jp/hgc/g00qvevo.7cx6mc00.g00qvevo.7cx6n8b9/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fkadenrand%2F311521%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Fkadenrand%2Fi%2F10159822%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" data-product-image="https://thumbnail.image.rakuten.co.jp/@0_mall/kadenrand/cabinet/11075038/12023129/311521_b.jpg?_ex=128x128">＋ 比較する</button>
-</div>
-<a class="cta podium-cta" href="https://hb.afl.rakuten.co.jp/hgc/g00qvevo.7cx6mc00.g00qvevo.7cx6n8b9/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fkadenrand%2F311521%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Fkadenrand%2Fi%2F10159822%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" target="_blank" rel="nofollow sponsored noopener"
- data-affiliate="rakuten" data-position="top3_card" data-category="carbonated-water" data-product-id="kadenrand:10159822"
- data-product-name="【選べるラベルレス！】炭酸水 富士山の強炭酸水 1L プレーン レモン ラベルあり (ケース） ラベルレス 1L×15本 強炭酸水 強炭酸 1000ml 1L 富士山 ケース 水 ミネラルウォーター 炭酸 みず 富士山 アイリスオーヤマの富士山天然水 15本 アイリスオーヤマ" data-rank="3" data-metric="per_liter"
- data-unit-price="112.000000" data-shipping="included" data-cta-variant="standard">楽天で価格を確認 →</a>
-</article></div>
-</section><div id="included" class="after-top3"><details class="more-products" data-more-products>
-<summary>4位以下を見る（11件） <span>＋</span></summary>
-<section class="comparison-inner" data-comparison data-start-rank="4">
-<h2>4位以下を見る（11件）</h2>
-<p class="sub">必要なときだけ開いて、検索・並び替え・容量条件で絞り込めます。</p>
-<div class="toolbar">
-<input type="search" data-search data-category="carbonated-water" placeholder="商品名・ショップ名で絞る" aria-label="炭酸水の商品名・ショップ名で絞る">
-<select data-sort data-category="carbonated-water"><option value="per_liter">1Lあたりが安い順</option><option value="per_bottle">1本あたりが安い順</option><option value="price">商品価格が安い順</option></select>
-<select data-filter data-category="carbonated-water">
-<option value="all">容量・数量すべて</option>
-<option value="small">600ml以下</option>
-<option value="large">700ml以上</option>
-</select>
-</div>
-<p class="sub" data-intent-note></p><div class="empty-filter" data-empty-filter>条件に合う商品がありません。検索語や容量条件を変えてください。</div>
-<div class="table"><table>
-<thead><tr><th>順</th><th></th><th>商品</th><th>数量</th><th>商品価格</th><th>単価</th><th>販売先</th></tr></thead>
-<tbody><tr data-bucket="small" data-shopping-bucket="small" data-search-text="【楽天オリジナル】炭酸水 500ml×24本 [プレーン ソーダ 割り材 炭酸飲料 スパークリング 炭酸] まとめ買い 水 業務用 家庭用 大容量 オフィス ハイボール用 宅飲み 500ml 24本 楽天オリジナル" data-price="1350" data-per_liter="112.500000" data-per_bottle="56.250000">
-<td data-cell="rank" data-rank><span class="rank">4</span></td>
+</div><a class="cta" href="https://hb.afl.rakuten.co.jp/hgc/g00qvevo.7cx6mc00.g00qvevo.7cx6n8b9/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fkadenrand%2F311521%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Fkadenrand%2Fi%2F10159822%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" target="_blank" rel="nofollow sponsored noopener"
+ data-affiliate="rakuten" data-category="carbonated-water" data-product-id="kadenrand:10159822"
+ data-product-name="【選べるラベルレス！】炭酸水 富士山の強炭酸水 1L プレーン レモン ラベルあり (ケース） ラベルレス 1L×15本 強炭酸水 強炭酸 1000ml 1L 富士山 ケース 水 ミネラルウォーター 炭酸 みず 富士山 アイリスオーヤマの富士山天然水 15本 アイリスオーヤマ" data-rank="6" data-metric="per_liter"
+ data-unit-price="112.000000" data-shipping="included" data-cta-variant="standard">楽天で価格を確認 →</a></td>
+</tr><tr data-bucket="small" data-shopping-bucket="small" data-search-text="【楽天オリジナル】炭酸水 500ml×24本 [プレーン ソーダ 割り材 炭酸飲料 スパークリング 炭酸] まとめ買い 水 業務用 家庭用 大容量 オフィス ハイボール用 宅飲み 500ml 24本 楽天オリジナル" data-price="1350" data-per_liter="112.500000" data-per_bottle="56.250000">
+<td data-cell="rank" data-rank><span class="rank">7</span></td>
 <td data-cell="image"><img class="product-img" src="https://thumbnail.image.rakuten.co.jp/@0_mall/rakutenoriginal-daily/cabinet/item/water/ro-b-002_e_v2.jpg?_ex=128x128" alt="" width="72" height="72" loading="lazy"></td>
 <td data-cell="product"><div class="identity-line"><span class="spec-chip">500ml×24本 / 合計12L</span></div>
 <strong class="product-name" title="【楽天オリジナル】炭酸水 500ml×24本 [プレーン ソーダ 割り材 炭酸飲料 スパークリング 炭酸] まとめ買い 水 業務用 家庭用 大容量 オフィス ハイボール用 宅飲み 500ml 24本">楽天オリジナル 炭酸水 500ml×24本 プレーン ソーダ 割り材 炭酸飲料 スパークリング 炭酸 まとめ買い 水 業務用…</strong><div class="shop">楽天オリジナル</div><div class="product-badges"><span class="tag lifestyle">少量向き</span> <span class="tag ok">送料込み</span> </div><div class="trend-row"><span class="trend-badge drop">↓ ¥100 昨日比</span><span class="trend-badge low">30日最安</span></div><details class="product-extra" data-product-extra>
@@ -404,10 +518,10 @@ gtag('config','G-GFVSZ8YDQ5',{site_id:'food_cost_jp'});
 <button type="button" class="utility-btn" data-compare-product data-product-id="rakutenoriginal-daily:10000001" data-product-name="【楽天オリジナル】炭酸水 500ml×24本 [プレーン ソーダ 割り材 炭酸飲料 スパークリング 炭酸] まとめ買い 水 業務用 家庭用 大容量 オフィス ハイボール用 宅飲み 500ml 24本" data-product-category="carbonated-water" data-product-category-name="炭酸水" data-product-price="1350" data-product-unit="112.500000" data-product-unit-label="1Lあたり" data-product-quantity="500ml×24本 / 合計12L" data-product-url="https://hb.afl.rakuten.co.jp/hgc/g00uqzro.7cx6m99a.g00uqzro.7cx6n201/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Frakutenoriginal-daily%2Fro-b-002%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Frakutenoriginal-daily%2Fi%2F10000001%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" data-product-image="https://thumbnail.image.rakuten.co.jp/@0_mall/rakutenoriginal-daily/cabinet/item/water/ro-b-002_e_v2.jpg?_ex=128x128">＋ 比較する</button>
 </div><a class="cta" href="https://hb.afl.rakuten.co.jp/hgc/g00uqzro.7cx6m99a.g00uqzro.7cx6n201/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Frakutenoriginal-daily%2Fro-b-002%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Frakutenoriginal-daily%2Fi%2F10000001%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" target="_blank" rel="nofollow sponsored noopener"
  data-affiliate="rakuten" data-category="carbonated-water" data-product-id="rakutenoriginal-daily:10000001"
- data-product-name="【楽天オリジナル】炭酸水 500ml×24本 [プレーン ソーダ 割り材 炭酸飲料 スパークリング 炭酸] まとめ買い 水 業務用 家庭用 大容量 オフィス ハイボール用 宅飲み 500ml 24本" data-rank="4" data-metric="per_liter"
+ data-product-name="【楽天オリジナル】炭酸水 500ml×24本 [プレーン ソーダ 割り材 炭酸飲料 スパークリング 炭酸] まとめ買い 水 業務用 家庭用 大容量 オフィス ハイボール用 宅飲み 500ml 24本" data-rank="7" data-metric="per_liter"
  data-unit-price="112.500000" data-shipping="included" data-cta-variant="history_low">30日最安を楽天で確認 →</a></td>
 </tr><tr data-bucket="small" data-shopping-bucket="small" data-search-text="[エントリーでポイント最大10倍/スタンプラリー]炭酸水 500ml 24本 アイリスオーヤマ 強炭酸水 選べる ラベルレス プレーン レモン ラムネ グレープソーダ ジンジャーエール 和梨 フレーバー 天然水 無糖 ペットボトル 炭酸飲料 アイリスフーズ クリスタルスパーク * アイリスオーヤマ公式 楽天市場店" data-price="1420" data-per_liter="118.333333" data-per_bottle="59.166667">
-<td data-cell="rank" data-rank><span class="rank">5</span></td>
+<td data-cell="rank" data-rank><span class="rank">8</span></td>
 <td data-cell="image"><img class="product-img" src="https://thumbnail.image.rakuten.co.jp/@0_mall/irisplaza-r/cabinet/talent/crystalspark/312010_312012_rg.jpg?_ex=128x128" alt="" width="72" height="72" loading="lazy"></td>
 <td data-cell="product"><div class="identity-line"><span class="brand-chip">アイリスオーヤマ</span><span class="spec-chip">500ml×24本 / 合計12L</span></div>
 <strong class="product-name" title="[エントリーでポイント最大10倍/スタンプラリー]炭酸水 500ml 24本 アイリスオーヤマ 強炭酸水 選べる ラベルレス プレーン レモン ラムネ グレープソーダ ジンジャーエール 和梨 フレーバー 天然水 無糖 ペットボトル 炭酸飲料 アイリスフーズ クリスタルスパーク *">エントリーでポイント最大10倍 スタンプラリー 炭酸水 500ml 24本 強炭酸水 選べる ラベルレス プレーン レモン…</strong><div class="shop">アイリスオーヤマ公式 楽天市場店</div><div class="product-badges"><span class="tag lifestyle">少量向き</span> <span class="tag ok">送料込み</span> </div><div class="trend-row"><span class="trend-badge low">30日最安</span></div><details class="product-extra" data-product-extra>
@@ -453,10 +567,10 @@ gtag('config','G-GFVSZ8YDQ5',{site_id:'food_cost_jp'});
 <button type="button" class="utility-btn" data-compare-product data-product-id="irisplaza-r:10158174" data-product-name="[エントリーでポイント最大10倍/スタンプラリー]炭酸水 500ml 24本 アイリスオーヤマ 強炭酸水 選べる ラベルレス プレーン レモン ラムネ グレープソーダ ジンジャーエール 和梨 フレーバー 天然水 無糖 ペットボトル 炭酸飲料 アイリスフーズ クリスタルスパーク *" data-product-category="carbonated-water" data-product-category-name="炭酸水" data-product-price="1420" data-product-unit="118.333333" data-product-unit-label="1Lあたり" data-product-quantity="500ml×24本 / 合計12L" data-product-url="https://hb.afl.rakuten.co.jp/hgc/g00t3zto.7cx6m5be.g00t3zto.7cx6n748/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Firisplaza-r%2F312010%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Firisplaza-r%2Fi%2F10158174%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" data-product-image="https://thumbnail.image.rakuten.co.jp/@0_mall/irisplaza-r/cabinet/talent/crystalspark/312010_312012_rg.jpg?_ex=128x128">＋ 比較する</button>
 </div><a class="cta" href="https://hb.afl.rakuten.co.jp/hgc/g00t3zto.7cx6m5be.g00t3zto.7cx6n748/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Firisplaza-r%2F312010%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Firisplaza-r%2Fi%2F10158174%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" target="_blank" rel="nofollow sponsored noopener"
  data-affiliate="rakuten" data-category="carbonated-water" data-product-id="irisplaza-r:10158174"
- data-product-name="[エントリーでポイント最大10倍/スタンプラリー]炭酸水 500ml 24本 アイリスオーヤマ 強炭酸水 選べる ラベルレス プレーン レモン ラムネ グレープソーダ ジンジャーエール 和梨 フレーバー 天然水 無糖 ペットボトル 炭酸飲料 アイリスフーズ クリスタルスパーク *" data-rank="5" data-metric="per_liter"
+ data-product-name="[エントリーでポイント最大10倍/スタンプラリー]炭酸水 500ml 24本 アイリスオーヤマ 強炭酸水 選べる ラベルレス プレーン レモン ラムネ グレープソーダ ジンジャーエール 和梨 フレーバー 天然水 無糖 ペットボトル 炭酸飲料 アイリスフーズ クリスタルスパーク *" data-rank="8" data-metric="per_liter"
  data-unit-price="118.333333" data-shipping="included" data-cta-variant="standard">楽天で価格を確認 →</a></td>
 </tr><tr data-bucket="small" data-shopping-bucket="small" data-search-text="炭酸水 500ml 24本 選べるラベルレス 強炭酸水 アイリスオーヤマ 無糖 プレーン レモン フレーバー 天然水 ソーダ カロリーゼロ 割り材 まとめ買い 炭酸飲料 クリスタルスパーク crystalspark 富士山の強炭酸水 * 【代引き不可】 暮らし健康ネット館" data-price="1420" data-per_liter="118.333333" data-per_bottle="59.166667">
-<td data-cell="rank" data-rank><span class="rank">6</span></td>
+<td data-cell="rank" data-rank><span class="rank">9</span></td>
 <td data-cell="image"><img class="product-img" src="https://thumbnail.image.rakuten.co.jp/@0_mall/kurashikenkou/cabinet/jisyakura2/ranking_310791.jpg?_ex=128x128" alt="" width="72" height="72" loading="lazy"></td>
 <td data-cell="product"><div class="identity-line"><span class="brand-chip">アイリスオーヤマ</span><span class="spec-chip">500ml×24本 / 合計12L</span></div>
 <strong class="product-name" title="炭酸水 500ml 24本 選べるラベルレス 強炭酸水 アイリスオーヤマ 無糖 プレーン レモン フレーバー 天然水 ソーダ カロリーゼロ 割り材 まとめ買い 炭酸飲料 クリスタルスパーク CRYSTALSPARK 富士山の強炭酸水 * 【代引き不可】">炭酸水 500ml 24本 選べるラベルレス 強炭酸水 無糖 プレーン レモン フレーバー 天然水 ソーダ カロリーゼロ…</strong><div class="shop">暮らし健康ネット館</div><div class="product-badges"><span class="tag lifestyle">少量向き</span> <span class="tag ok">送料込み</span> </div><div class="trend-row"><span class="trend-badge low">30日最安</span></div><details class="product-extra" data-product-extra>
@@ -502,10 +616,10 @@ gtag('config','G-GFVSZ8YDQ5',{site_id:'food_cost_jp'});
 <button type="button" class="utility-btn" data-compare-product data-product-id="kurashikenkou:10201356" data-product-name="炭酸水 500ml 24本 選べるラベルレス 強炭酸水 アイリスオーヤマ 無糖 プレーン レモン フレーバー 天然水 ソーダ カロリーゼロ 割り材 まとめ買い 炭酸飲料 クリスタルスパーク CRYSTALSPARK 富士山の強炭酸水 * 【代引き不可】" data-product-category="carbonated-water" data-product-category-name="炭酸水" data-product-price="1420" data-product-unit="118.333333" data-product-unit-label="1Lあたり" data-product-quantity="500ml×24本 / 合計12L" data-product-url="https://hb.afl.rakuten.co.jp/hgc/g00qhoao.7cx6m91b.g00qhoao.7cx6n00f/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fkurashikenkou%2F310791%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Fkurashikenkou%2Fi%2F10201356%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" data-product-image="https://thumbnail.image.rakuten.co.jp/@0_mall/kurashikenkou/cabinet/jisyakura2/ranking_310791.jpg?_ex=128x128">＋ 比較する</button>
 </div><a class="cta" href="https://hb.afl.rakuten.co.jp/hgc/g00qhoao.7cx6m91b.g00qhoao.7cx6n00f/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fkurashikenkou%2F310791%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Fkurashikenkou%2Fi%2F10201356%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" target="_blank" rel="nofollow sponsored noopener"
  data-affiliate="rakuten" data-category="carbonated-water" data-product-id="kurashikenkou:10201356"
- data-product-name="炭酸水 500ml 24本 選べるラベルレス 強炭酸水 アイリスオーヤマ 無糖 プレーン レモン フレーバー 天然水 ソーダ カロリーゼロ 割り材 まとめ買い 炭酸飲料 クリスタルスパーク CRYSTALSPARK 富士山の強炭酸水 * 【代引き不可】" data-rank="6" data-metric="per_liter"
+ data-product-name="炭酸水 500ml 24本 選べるラベルレス 強炭酸水 アイリスオーヤマ 無糖 プレーン レモン フレーバー 天然水 ソーダ カロリーゼロ 割り材 まとめ買い 炭酸飲料 クリスタルスパーク CRYSTALSPARK 富士山の強炭酸水 * 【代引き不可】" data-rank="9" data-metric="per_liter"
  data-unit-price="118.333333" data-shipping="included" data-cta-variant="standard">楽天で価格を確認 →</a></td>
 </tr><tr data-bucket="large" data-shopping-bucket="large" data-search-text="炭酸水 1l 24本 シリカ32～38mg/l シリカ炭酸水 シリカ水 ラベルレス チェリオ 強炭酸水 1l 24本(12本×2ケース) 1000ml 1,000ml 1リットル 1リッター gly 世界のビール専門店beer the world" data-price="2862" data-per_liter="119.250000" data-per_bottle="119.250000">
-<td data-cell="rank" data-rank><span class="rank">7</span></td>
+<td data-cell="rank" data-rank><span class="rank">10</span></td>
 <td data-cell="image"><img class="product-img" src="https://thumbnail.image.rakuten.co.jp/@0_mall/beer-the-world/cabinet/rakuten74/918488-2.jpg?_ex=128x128" alt="" width="72" height="72" loading="lazy"></td>
 <td data-cell="product"><div class="identity-line"><span class="spec-chip">1000ml×24本 / 合計24L</span></div>
 <strong class="product-name" title="炭酸水 1L 24本 シリカ32～38mg/L シリカ炭酸水 シリカ水 ラベルレス チェリオ 強炭酸水 1L 24本(12本×2ケース) 1000ml 1,000ml 1リットル 1リッター GLY">炭酸水 1L 24本 シリカ32～38mg L シリカ炭酸水 シリカ水 ラベルレス チェリオ 強炭酸水 1L…</strong><div class="shop">世界のビール専門店BEER THE WORLD</div><div class="product-badges"><span class="tag lifestyle">まとめ買い向き</span> <span class="tag ok">送料込み</span> </div><div class="trend-row"><span class="trend-badge low">30日最安</span></div><details class="product-extra" data-product-extra>
@@ -551,10 +665,10 @@ gtag('config','G-GFVSZ8YDQ5',{site_id:'food_cost_jp'});
 <button type="button" class="utility-btn" data-compare-product data-product-id="beer-the-world:10003336" data-product-name="炭酸水 1L 24本 シリカ32～38mg/L シリカ炭酸水 シリカ水 ラベルレス チェリオ 強炭酸水 1L 24本(12本×2ケース) 1000ml 1,000ml 1リットル 1リッター GLY" data-product-category="carbonated-water" data-product-category-name="炭酸水" data-product-price="2862" data-product-unit="119.250000" data-product-unit-label="1Lあたり" data-product-quantity="1000ml×24本 / 合計24L" data-product-url="https://hb.afl.rakuten.co.jp/hgc/g00smpwo.7cx6mc98.g00smpwo.7cx6nf0d/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbeer-the-world%2F918488-2%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Fbeer-the-world%2Fi%2F10003336%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" data-product-image="https://thumbnail.image.rakuten.co.jp/@0_mall/beer-the-world/cabinet/rakuten74/918488-2.jpg?_ex=128x128">＋ 比較する</button>
 </div><a class="cta" href="https://hb.afl.rakuten.co.jp/hgc/g00smpwo.7cx6mc98.g00smpwo.7cx6nf0d/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbeer-the-world%2F918488-2%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Fbeer-the-world%2Fi%2F10003336%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" target="_blank" rel="nofollow sponsored noopener"
  data-affiliate="rakuten" data-category="carbonated-water" data-product-id="beer-the-world:10003336"
- data-product-name="炭酸水 1L 24本 シリカ32～38mg/L シリカ炭酸水 シリカ水 ラベルレス チェリオ 強炭酸水 1L 24本(12本×2ケース) 1000ml 1,000ml 1リットル 1リッター GLY" data-rank="7" data-metric="per_liter"
+ data-product-name="炭酸水 1L 24本 シリカ32～38mg/L シリカ炭酸水 シリカ水 ラベルレス チェリオ 強炭酸水 1L 24本(12本×2ケース) 1000ml 1,000ml 1リットル 1リッター GLY" data-rank="10" data-metric="per_liter"
  data-unit-price="119.250000" data-shipping="included" data-cta-variant="standard">楽天で価格を確認 →</a></td>
 </tr><tr data-bucket="large" data-shopping-bucket="large" data-search-text="(10/3 23:59迄) 炭酸水 1l 24本 シリカ32～38mg/l シリカ炭酸水 シリカ水 ラベルレス チェリオ 強炭酸水 1l 24本(12本×2ケース) 1000ml 1,000ml 1リットル gly ウイスキー専門店 whisky life" data-price="2862" data-per_liter="119.250000" data-per_bottle="119.250000">
-<td data-cell="rank" data-rank><span class="rank">8</span></td>
+<td data-cell="rank" data-rank><span class="rank">11</span></td>
 <td data-cell="image"><img class="product-img" src="https://thumbnail.image.rakuten.co.jp/@0_mall/whisky/cabinet/rakuten74/918488-2.jpg?_ex=128x128" alt="" width="72" height="72" loading="lazy"></td>
 <td data-cell="product"><div class="identity-line"><span class="spec-chip">1000ml×24本 / 合計24L</span></div>
 <strong class="product-name" title="(10/3 23:59迄) 炭酸水 1L 24本 シリカ32～38mg/L シリカ炭酸水 シリカ水 ラベルレス チェリオ 強炭酸水 1L 24本(12本×2ケース) 1000ml 1,000ml 1リットル GLY">(10 3 23:59迄) 炭酸水 1L 24本 シリカ32～38mg L シリカ炭酸水 シリカ水 ラベルレス チェリオ…</strong><div class="shop">ウイスキー専門店 WHISKY LIFE</div><div class="product-badges"><span class="tag lifestyle">まとめ買い向き</span> <span class="tag ok">送料込み</span> <span class="tag warn">セール/クーポン表記</span></div><div class="trend-row"><span class="trend-badge low">30日最安</span></div><details class="product-extra" data-product-extra>
@@ -600,10 +714,10 @@ gtag('config','G-GFVSZ8YDQ5',{site_id:'food_cost_jp'});
 <button type="button" class="utility-btn" data-compare-product data-product-id="whisky:10006882" data-product-name="(10/3 23:59迄) 炭酸水 1L 24本 シリカ32～38mg/L シリカ炭酸水 シリカ水 ラベルレス チェリオ 強炭酸水 1L 24本(12本×2ケース) 1000ml 1,000ml 1リットル GLY" data-product-category="carbonated-water" data-product-category-name="炭酸水" data-product-price="2862" data-product-unit="119.250000" data-product-unit-label="1Lあたり" data-product-quantity="1000ml×24本 / 合計24L" data-product-url="https://hb.afl.rakuten.co.jp/hgc/g00scs5o.7cx6ma62.g00scs5o.7cx6n02b/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fwhisky%2F918488-2%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Fwhisky%2Fi%2F10006882%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" data-product-image="https://thumbnail.image.rakuten.co.jp/@0_mall/whisky/cabinet/rakuten74/918488-2.jpg?_ex=128x128">＋ 比較する</button>
 </div><a class="cta" href="https://hb.afl.rakuten.co.jp/hgc/g00scs5o.7cx6ma62.g00scs5o.7cx6n02b/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fwhisky%2F918488-2%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Fwhisky%2Fi%2F10006882%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" target="_blank" rel="nofollow sponsored noopener"
  data-affiliate="rakuten" data-category="carbonated-water" data-product-id="whisky:10006882"
- data-product-name="(10/3 23:59迄) 炭酸水 1L 24本 シリカ32～38mg/L シリカ炭酸水 シリカ水 ラベルレス チェリオ 強炭酸水 1L 24本(12本×2ケース) 1000ml 1,000ml 1リットル GLY" data-rank="8" data-metric="per_liter"
+ data-product-name="(10/3 23:59迄) 炭酸水 1L 24本 シリカ32～38mg/L シリカ炭酸水 シリカ水 ラベルレス チェリオ 強炭酸水 1L 24本(12本×2ケース) 1000ml 1,000ml 1リットル GLY" data-rank="11" data-metric="per_liter"
  data-unit-price="119.250000" data-shipping="included" data-cta-variant="standard">楽天で価格を確認 →</a></td>
 </tr><tr data-bucket="small" data-shopping-bucket="small" data-search-text="【公式】 炭酸水 500ml 24本 強炭酸水 レモン グレープフルーツ 水 ミネラルウォーター 500ml×24本 富士山の強炭酸水500ml アイリスオーヤマ公式 楽天市場店" data-price="1480" data-per_liter="123.333333" data-per_bottle="61.666667">
-<td data-cell="rank" data-rank><span class="rank">9</span></td>
+<td data-cell="rank" data-rank><span class="rank">12</span></td>
 <td data-cell="image"><img class="product-img" src="https://thumbnail.image.rakuten.co.jp/@0_mall/irisplaza-r/cabinet/11073544/12096888/311102.jpg?_ex=128x128" alt="" width="72" height="72" loading="lazy"></td>
 <td data-cell="product"><div class="identity-line"><span class="spec-chip">500ml×24本 / 合計12L</span></div>
 <strong class="product-name" title="【公式】 炭酸水 500ml 24本 強炭酸水 レモン グレープフルーツ 水 ミネラルウォーター 500ml×24本 富士山の強炭酸水500ml">公式 炭酸水 500ml 24本 強炭酸水 レモン グレープフルーツ 水 ミネラルウォーター 500ml×24本…</strong><div class="shop">アイリスオーヤマ公式 楽天市場店</div><div class="product-badges"><span class="tag lifestyle">少量向き</span> <span class="tag ok">送料込み</span> <span class="tag warn">セール/クーポン表記</span></div><div class="trend-row"><span class="trend-badge low">30日最安</span></div><details class="product-extra" data-product-extra>
@@ -649,108 +763,10 @@ gtag('config','G-GFVSZ8YDQ5',{site_id:'food_cost_jp'});
 <button type="button" class="utility-btn" data-compare-product data-product-id="irisplaza-r:10133643" data-product-name="【公式】 炭酸水 500ml 24本 強炭酸水 レモン グレープフルーツ 水 ミネラルウォーター 500ml×24本 富士山の強炭酸水500ml" data-product-category="carbonated-water" data-product-category-name="炭酸水" data-product-price="1480" data-product-unit="123.333333" data-product-unit-label="1Lあたり" data-product-quantity="500ml×24本 / 合計12L" data-product-url="https://hb.afl.rakuten.co.jp/hgc/g00t3zto.7cx6m5be.g00t3zto.7cx6n748/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Firisplaza-r%2F310791%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Firisplaza-r%2Fi%2F10133643%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" data-product-image="https://thumbnail.image.rakuten.co.jp/@0_mall/irisplaza-r/cabinet/11073544/12096888/311102.jpg?_ex=128x128">＋ 比較する</button>
 </div><a class="cta" href="https://hb.afl.rakuten.co.jp/hgc/g00t3zto.7cx6m5be.g00t3zto.7cx6n748/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Firisplaza-r%2F310791%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Firisplaza-r%2Fi%2F10133643%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" target="_blank" rel="nofollow sponsored noopener"
  data-affiliate="rakuten" data-category="carbonated-water" data-product-id="irisplaza-r:10133643"
- data-product-name="【公式】 炭酸水 500ml 24本 強炭酸水 レモン グレープフルーツ 水 ミネラルウォーター 500ml×24本 富士山の強炭酸水500ml" data-rank="9" data-metric="per_liter"
- data-unit-price="123.333333" data-shipping="included" data-cta-variant="standard">楽天で価格を確認 →</a></td>
-</tr><tr data-bucket="large" data-shopping-bucket="small" data-search-text="[エントリーでポイント最大10倍/スタンプラリー]炭酸水 1l 12本 レモン プレーン 強炭酸水 炭酸 ミネラルウォーター 天然水 無糖 割り材 まとめ買い 1リットル アイリスオーヤマ crystal spark クリスタルスパーク * アイリスオーヤマ公式 楽天市場店" data-price="1480" data-per_liter="123.333333" data-per_bottle="123.333333">
-<td data-cell="rank" data-rank><span class="rank">10</span></td>
-<td data-cell="image"><img class="product-img" src="https://thumbnail.image.rakuten.co.jp/@0_mall/irisplaza-r/cabinet/11073544/11204072/11386183/imgrc0105857491.jpg?_ex=128x128" alt="" width="72" height="72" loading="lazy"></td>
-<td data-cell="product"><div class="identity-line"><span class="brand-chip">アイリスオーヤマ</span><span class="spec-chip">1000ml×12本 / 合計12L</span></div>
-<strong class="product-name" title="[エントリーでポイント最大10倍/スタンプラリー]炭酸水 1L 12本 レモン プレーン 強炭酸水 炭酸 ミネラルウォーター 天然水 無糖 割り材 まとめ買い 1リットル アイリスオーヤマ CRYSTAL SPARK クリスタルスパーク *">エントリーでポイント最大10倍 スタンプラリー 炭酸水 1L 12本 レモン プレーン 強炭酸水 炭酸 ミネラルウォーター…</strong><div class="shop">アイリスオーヤマ公式 楽天市場店</div><div class="product-badges"><span class="tag lifestyle">まとめ買い向き</span> <span class="tag ok">送料込み</span> </div><div class="trend-row"><span class="trend-badge low">30日最安</span></div><details class="product-extra" data-product-extra>
-<summary>価格のうごきを見る <span>＋</span></summary>
-<div class="product-extra-body"><div class="history-card" data-history-card>
-<div class="history-head"><strong>価格履歴</strong><span>2回取得</span></div>
-<div class="history-toolbar"><div class="history-tabs">
-<button type="button" class="selected" data-history-range="7日">7日</button>
-<button type="button" data-history-range="30日">30日</button>
-</div><span class="history-trend stable">最近安定</span></div>
-<div class="history-range-panel" data-history-panel="7日">
-<div class="history-stats history-stats-4">
-<div><span>現在</span><b>¥123</b></div>
-<div><span>最安</span><b>¥123</b><small>10/01</small></div>
-<div><span>最高</span><b>¥123</b><small>10/01</small></div>
-<div><span>値幅</span><b>¥0.0</b></div>
-</div>
-<svg class="sparkline neutral" viewBox="0 0 180 64" role="img" aria-label="7日価格推移">
-<line x1="6" y1="58" x2="174" y2="58" class="spark-grid"/>
-<polyline points="6.0,32.0 174.0,32.0" fill="none" vector-effect="non-scaling-stroke"/>
-<circle cx="174.0" cy="32.0" r="3.2"/>
-</svg></div><div class="history-range-panel" data-history-panel="30日" hidden>
-<div class="history-stats history-stats-4">
-<div><span>現在</span><b>¥123</b></div>
-<div><span>最安</span><b>¥123</b><small>10/01</small></div>
-<div><span>最高</span><b>¥123</b><small>10/01</small></div>
-<div><span>値幅</span><b>¥0.0</b></div>
-</div>
-<svg class="sparkline neutral" viewBox="0 0 180 64" role="img" aria-label="30日価格推移">
-<line x1="6" y1="58" x2="174" y2="58" class="spark-grid"/>
-<polyline points="6.0,32.0 174.0,32.0" fill="none" vector-effect="non-scaling-stroke"/>
-<circle cx="174.0" cy="32.0" r="3.2"/>
-</svg></div>
-</div><div class="buy-signal neutral">
-<span>相場圏</span><small>直近履歴では大きな割高・値下がりは確認できません。</small>
-</div></div>
-</details></td>
-<td data-cell="quantity">1000ml×12本 / 合計12L</td>
-<td data-cell="price">¥1,480</td>
-<td data-cell="unit"><div class="unit">¥123</div><div class="unit-label">1Lあたり</div><div class="secondary-unit">1本あたり ¥123</div></td>
-<td data-cell="cta"><div class="product-actions">
-<button type="button" class="utility-btn" data-save-product data-product-id="irisplaza-r:10160160" data-product-name="[エントリーでポイント最大10倍/スタンプラリー]炭酸水 1L 12本 レモン プレーン 強炭酸水 炭酸 ミネラルウォーター 天然水 無糖 割り材 まとめ買い 1リットル アイリスオーヤマ CRYSTAL SPARK クリスタルスパーク *" data-product-category="carbonated-water" data-product-category-name="炭酸水" data-product-price="1480" data-product-unit="123.333333" data-product-unit-label="1Lあたり" data-product-quantity="1000ml×12本 / 合計12L" data-product-url="https://hb.afl.rakuten.co.jp/hgc/g00t3zto.7cx6m5be.g00t3zto.7cx6n748/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Firisplaza-r%2F312160%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Firisplaza-r%2Fi%2F10160160%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" data-product-image="https://thumbnail.image.rakuten.co.jp/@0_mall/irisplaza-r/cabinet/11073544/11204072/11386183/imgrc0105857491.jpg?_ex=128x128">＋ 買い物メモ</button>
-<button type="button" class="utility-btn" data-compare-product data-product-id="irisplaza-r:10160160" data-product-name="[エントリーでポイント最大10倍/スタンプラリー]炭酸水 1L 12本 レモン プレーン 強炭酸水 炭酸 ミネラルウォーター 天然水 無糖 割り材 まとめ買い 1リットル アイリスオーヤマ CRYSTAL SPARK クリスタルスパーク *" data-product-category="carbonated-water" data-product-category-name="炭酸水" data-product-price="1480" data-product-unit="123.333333" data-product-unit-label="1Lあたり" data-product-quantity="1000ml×12本 / 合計12L" data-product-url="https://hb.afl.rakuten.co.jp/hgc/g00t3zto.7cx6m5be.g00t3zto.7cx6n748/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Firisplaza-r%2F312160%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Firisplaza-r%2Fi%2F10160160%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" data-product-image="https://thumbnail.image.rakuten.co.jp/@0_mall/irisplaza-r/cabinet/11073544/11204072/11386183/imgrc0105857491.jpg?_ex=128x128">＋ 比較する</button>
-</div><a class="cta" href="https://hb.afl.rakuten.co.jp/hgc/g00t3zto.7cx6m5be.g00t3zto.7cx6n748/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Firisplaza-r%2F312160%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Firisplaza-r%2Fi%2F10160160%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" target="_blank" rel="nofollow sponsored noopener"
- data-affiliate="rakuten" data-category="carbonated-water" data-product-id="irisplaza-r:10160160"
- data-product-name="[エントリーでポイント最大10倍/スタンプラリー]炭酸水 1L 12本 レモン プレーン 強炭酸水 炭酸 ミネラルウォーター 天然水 無糖 割り材 まとめ買い 1リットル アイリスオーヤマ CRYSTAL SPARK クリスタルスパーク *" data-rank="10" data-metric="per_liter"
- data-unit-price="123.333333" data-shipping="included" data-cta-variant="standard">楽天で価格を確認 →</a></td>
-</tr><tr data-bucket="small" data-shopping-bucket="large" data-search-text="【公式】炭酸水 500ml 48本 (24本入×2箱) 強炭酸水 アイリスオーヤマ クリスタルスパーク 炭酸 レモン マスカット ラムネ グレープ 和梨 ジンジャーエール フレーバー プレーン 無糖 天然水 アイリスフーズ ペットボトル アイリスオーヤマ公式 楽天市場店" data-price="2960" data-per_liter="123.333333" data-per_bottle="61.666667">
-<td data-cell="rank" data-rank><span class="rank">11</span></td>
-<td data-cell="image"><img class="product-img" src="https://thumbnail.image.rakuten.co.jp/@0_mall/irisplaza-r/cabinet/talent/crystalspark/312012_rg.jpg?_ex=128x128" alt="" width="72" height="72" loading="lazy"></td>
-<td data-cell="product"><div class="identity-line"><span class="brand-chip">アイリスオーヤマ</span><span class="spec-chip">500ml×48本 / 合計24L</span></div>
-<strong class="product-name" title="【公式】炭酸水 500ml 48本 (24本入×2箱) 強炭酸水 アイリスオーヤマ クリスタルスパーク 炭酸 レモン マスカット ラムネ グレープ 和梨 ジンジャーエール フレーバー プレーン 無糖 天然水 アイリスフーズ ペットボトル">公式 炭酸水 500ml 48本 (24本入×2箱) 強炭酸水 クリスタルスパーク 炭酸 レモン マスカット ラムネ グレープ…</strong><div class="shop">アイリスオーヤマ公式 楽天市場店</div><div class="product-badges"><span class="tag lifestyle">少量向き</span> <span class="tag ok">送料込み</span> </div><div class="trend-row"><span class="trend-badge low">30日最安</span></div><details class="product-extra" data-product-extra>
-<summary>価格のうごきを見る <span>＋</span></summary>
-<div class="product-extra-body"><div class="history-card" data-history-card>
-<div class="history-head"><strong>価格履歴</strong><span>3回取得</span></div>
-<div class="history-toolbar"><div class="history-tabs">
-<button type="button" class="selected" data-history-range="7日">7日</button>
-<button type="button" data-history-range="30日">30日</button>
-</div><span class="history-trend stable">最近安定</span></div>
-<div class="history-range-panel" data-history-panel="7日">
-<div class="history-stats history-stats-4">
-<div><span>現在</span><b>¥123</b></div>
-<div><span>最安</span><b>¥123</b><small>09/30</small></div>
-<div><span>最高</span><b>¥123</b><small>09/30</small></div>
-<div><span>値幅</span><b>¥0.0</b></div>
-</div>
-<svg class="sparkline neutral" viewBox="0 0 180 64" role="img" aria-label="7日価格推移">
-<line x1="6" y1="58" x2="174" y2="58" class="spark-grid"/>
-<polyline points="6.0,32.0 90.0,32.0 174.0,32.0" fill="none" vector-effect="non-scaling-stroke"/>
-<circle cx="174.0" cy="32.0" r="3.2"/>
-</svg></div><div class="history-range-panel" data-history-panel="30日" hidden>
-<div class="history-stats history-stats-4">
-<div><span>現在</span><b>¥123</b></div>
-<div><span>最安</span><b>¥123</b><small>09/30</small></div>
-<div><span>最高</span><b>¥123</b><small>09/30</small></div>
-<div><span>値幅</span><b>¥0.0</b></div>
-</div>
-<svg class="sparkline neutral" viewBox="0 0 180 64" role="img" aria-label="30日価格推移">
-<line x1="6" y1="58" x2="174" y2="58" class="spark-grid"/>
-<polyline points="6.0,32.0 90.0,32.0 174.0,32.0" fill="none" vector-effect="non-scaling-stroke"/>
-<circle cx="174.0" cy="32.0" r="3.2"/>
-</svg></div>
-</div><div class="buy-signal neutral">
-<span>相場圏</span><small>直近履歴では大きな割高・値下がりは確認できません。</small>
-</div></div>
-</details></td>
-<td data-cell="quantity">500ml×48本 / 合計24L</td>
-<td data-cell="price">¥2,960</td>
-<td data-cell="unit"><div class="unit">¥123</div><div class="unit-label">1Lあたり</div><div class="secondary-unit">1本あたり ¥61.7</div></td>
-<td data-cell="cta"><div class="product-actions">
-<button type="button" class="utility-btn" data-save-product data-product-id="irisplaza-r:10158173" data-product-name="【公式】炭酸水 500ml 48本 (24本入×2箱) 強炭酸水 アイリスオーヤマ クリスタルスパーク 炭酸 レモン マスカット ラムネ グレープ 和梨 ジンジャーエール フレーバー プレーン 無糖 天然水 アイリスフーズ ペットボトル" data-product-category="carbonated-water" data-product-category-name="炭酸水" data-product-price="2960" data-product-unit="123.333333" data-product-unit-label="1Lあたり" data-product-quantity="500ml×48本 / 合計24L" data-product-url="https://hb.afl.rakuten.co.jp/hgc/g00t3zto.7cx6m5be.g00t3zto.7cx6n748/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Firisplaza-r%2F312012%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Firisplaza-r%2Fi%2F10158173%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" data-product-image="https://thumbnail.image.rakuten.co.jp/@0_mall/irisplaza-r/cabinet/talent/crystalspark/312012_rg.jpg?_ex=128x128">＋ 買い物メモ</button>
-<button type="button" class="utility-btn" data-compare-product data-product-id="irisplaza-r:10158173" data-product-name="【公式】炭酸水 500ml 48本 (24本入×2箱) 強炭酸水 アイリスオーヤマ クリスタルスパーク 炭酸 レモン マスカット ラムネ グレープ 和梨 ジンジャーエール フレーバー プレーン 無糖 天然水 アイリスフーズ ペットボトル" data-product-category="carbonated-water" data-product-category-name="炭酸水" data-product-price="2960" data-product-unit="123.333333" data-product-unit-label="1Lあたり" data-product-quantity="500ml×48本 / 合計24L" data-product-url="https://hb.afl.rakuten.co.jp/hgc/g00t3zto.7cx6m5be.g00t3zto.7cx6n748/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Firisplaza-r%2F312012%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Firisplaza-r%2Fi%2F10158173%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" data-product-image="https://thumbnail.image.rakuten.co.jp/@0_mall/irisplaza-r/cabinet/talent/crystalspark/312012_rg.jpg?_ex=128x128">＋ 比較する</button>
-</div><a class="cta" href="https://hb.afl.rakuten.co.jp/hgc/g00t3zto.7cx6m5be.g00t3zto.7cx6n748/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Firisplaza-r%2F312012%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Firisplaza-r%2Fi%2F10158173%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" target="_blank" rel="nofollow sponsored noopener"
- data-affiliate="rakuten" data-category="carbonated-water" data-product-id="irisplaza-r:10158173"
- data-product-name="【公式】炭酸水 500ml 48本 (24本入×2箱) 強炭酸水 アイリスオーヤマ クリスタルスパーク 炭酸 レモン マスカット ラムネ グレープ 和梨 ジンジャーエール フレーバー プレーン 無糖 天然水 アイリスフーズ ペットボトル" data-rank="11" data-metric="per_liter"
+ data-product-name="【公式】 炭酸水 500ml 24本 強炭酸水 レモン グレープフルーツ 水 ミネラルウォーター 500ml×24本 富士山の強炭酸水500ml" data-rank="12" data-metric="per_liter"
  data-unit-price="123.333333" data-shipping="included" data-cta-variant="standard">楽天で価格を確認 →</a></td>
 </tr><tr data-bucket="small" data-shopping-bucket="small" data-search-text="【24本セット】 炭酸水 500ml 24本 強炭酸水 プレーン レモン グレープフルーツ 500ml×24本 ラベルレス 炭酸 強炭酸水500ml ケース crystalspark クリスタルスパーク アイリスオーヤマ 【代引き不可】 快適ホームライフ" data-price="1520" data-per_liter="126.666667" data-per_bottle="63.333333">
-<td data-cell="rank" data-rank><span class="rank">12</span></td>
+<td data-cell="rank" data-rank><span class="rank">13</span></td>
 <td data-cell="image"><img class="product-img" src="https://thumbnail.image.rakuten.co.jp/@0_mall/k-home/cabinet/thum/naosi/syoumou_set/310791_thumb.jpg?_ex=128x128" alt="" width="72" height="72" loading="lazy"></td>
 <td data-cell="product"><div class="identity-line"><span class="brand-chip">アイリスオーヤマ</span><span class="spec-chip">500ml×24本 / 合計12L</span></div>
 <strong class="product-name" title="【24本セット】 炭酸水 500ml 24本 強炭酸水 プレーン レモン グレープフルーツ 500ml×24本 ラベルレス 炭酸 強炭酸水500ml ケース CRYSTALSPARK クリスタルスパーク アイリスオーヤマ 【代引き不可】">24本セット 炭酸水 500ml 24本 強炭酸水 プレーン レモン グレープフルーツ 500ml×24本 ラベルレス 炭酸…</strong><div class="shop">快適ホームライフ</div><div class="product-badges"><span class="tag lifestyle">少量向き</span> <span class="tag ok">送料込み</span> </div><div class="trend-row"><span class="trend-badge low">30日最安</span></div><details class="product-extra" data-product-extra>
@@ -796,10 +812,10 @@ gtag('config','G-GFVSZ8YDQ5',{site_id:'food_cost_jp'});
 <button type="button" class="utility-btn" data-compare-product data-product-id="k-home:10084344" data-product-name="【24本セット】 炭酸水 500ml 24本 強炭酸水 プレーン レモン グレープフルーツ 500ml×24本 ラベルレス 炭酸 強炭酸水500ml ケース CRYSTALSPARK クリスタルスパーク アイリスオーヤマ 【代引き不可】" data-product-category="carbonated-water" data-product-category-name="炭酸水" data-product-price="1520" data-product-unit="126.666667" data-product-unit-label="1Lあたり" data-product-quantity="500ml×24本 / 合計12L" data-product-url="https://hb.afl.rakuten.co.jp/hgc/g00rqlbo.7cx6mdc3.g00rqlbo.7cx6n70f/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fk-home%2F310791%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Fk-home%2Fi%2F10084344%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" data-product-image="https://thumbnail.image.rakuten.co.jp/@0_mall/k-home/cabinet/thum/naosi/syoumou_set/310791_thumb.jpg?_ex=128x128">＋ 比較する</button>
 </div><a class="cta" href="https://hb.afl.rakuten.co.jp/hgc/g00rqlbo.7cx6mdc3.g00rqlbo.7cx6n70f/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fk-home%2F310791%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Fk-home%2Fi%2F10084344%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" target="_blank" rel="nofollow sponsored noopener"
  data-affiliate="rakuten" data-category="carbonated-water" data-product-id="k-home:10084344"
- data-product-name="【24本セット】 炭酸水 500ml 24本 強炭酸水 プレーン レモン グレープフルーツ 500ml×24本 ラベルレス 炭酸 強炭酸水500ml ケース CRYSTALSPARK クリスタルスパーク アイリスオーヤマ 【代引き不可】" data-rank="12" data-metric="per_liter"
+ data-product-name="【24本セット】 炭酸水 500ml 24本 強炭酸水 プレーン レモン グレープフルーツ 500ml×24本 ラベルレス 炭酸 強炭酸水500ml ケース CRYSTALSPARK クリスタルスパーク アイリスオーヤマ 【代引き不可】" data-rank="13" data-metric="per_liter"
  data-unit-price="126.666667" data-shipping="included" data-cta-variant="standard">楽天で価格を確認 →</a></td>
 </tr><tr data-bucket="small" data-shopping-bucket="small" data-search-text="ウィルキンソン タンサン ラベルレスボトル(500ml×24本入)【ウィルキンソン】[炭酸水 炭酸] 楽天24" data-price="2307" data-per_liter="192.250000" data-per_bottle="96.125000">
-<td data-cell="rank" data-rank><span class="rank">13</span></td>
+<td data-cell="rank" data-rank><span class="rank">14</span></td>
 <td data-cell="image"><img class="product-img" src="https://thumbnail.image.rakuten.co.jp/@0_mall/rakuten24/cabinet/906/4514603420906.jpg?_ex=128x128" alt="" width="72" height="72" loading="lazy"></td>
 <td data-cell="product"><div class="identity-line"><span class="brand-chip">ウィルキンソン</span><span class="spec-chip">500ml×24本 / 合計12L</span></div>
 <strong class="product-name" title="ウィルキンソン タンサン ラベルレスボトル(500ml×24本入)【ウィルキンソン】[炭酸水 炭酸]">タンサン ラベルレスボトル(500ml×24本入) ウィルキンソン 炭酸水 炭酸</strong><div class="shop">楽天24</div><div class="product-badges"><span class="tag lifestyle">少量向き</span> <span class="tag ok">送料込み</span> </div><div class="trend-row"><span class="trend-badge low">30日最安</span></div><details class="product-extra" data-product-extra>
@@ -845,10 +861,10 @@ gtag('config','G-GFVSZ8YDQ5',{site_id:'food_cost_jp'});
 <button type="button" class="utility-btn" data-compare-product data-product-id="rakuten24:11109860" data-product-name="ウィルキンソン タンサン ラベルレスボトル(500ml×24本入)【ウィルキンソン】[炭酸水 炭酸]" data-product-category="carbonated-water" data-product-category-name="炭酸水" data-product-price="2307" data-product-unit="192.250000" data-product-unit-label="1Lあたり" data-product-quantity="500ml×24本 / 合計12L" data-product-url="https://hb.afl.rakuten.co.jp/hgc/g00r136o.7cx6meef.g00r136o.7cx6n891/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Frakuten24%2F4514603420906%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Frakuten24%2Fi%2F11109860%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" data-product-image="https://thumbnail.image.rakuten.co.jp/@0_mall/rakuten24/cabinet/906/4514603420906.jpg?_ex=128x128">＋ 比較する</button>
 </div><a class="cta" href="https://hb.afl.rakuten.co.jp/hgc/g00r136o.7cx6meef.g00r136o.7cx6n891/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Frakuten24%2F4514603420906%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Frakuten24%2Fi%2F11109860%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" target="_blank" rel="nofollow sponsored noopener"
  data-affiliate="rakuten" data-category="carbonated-water" data-product-id="rakuten24:11109860"
- data-product-name="ウィルキンソン タンサン ラベルレスボトル(500ml×24本入)【ウィルキンソン】[炭酸水 炭酸]" data-rank="13" data-metric="per_liter"
+ data-product-name="ウィルキンソン タンサン ラベルレスボトル(500ml×24本入)【ウィルキンソン】[炭酸水 炭酸]" data-rank="14" data-metric="per_liter"
  data-unit-price="192.250000" data-shipping="included" data-cta-variant="standard">楽天で価格を確認 →</a></td>
 </tr><tr data-bucket="small" data-shopping-bucket="large" data-search-text="サンペレグリノ 炭酸水 san pellegrino 500ml×48本 [ 水 ミネラルウォーター 飲料 硬水 炭酸水 ]『送料無料（一部地域除く）』 よろずやマルシェ" data-price="4880" data-per_liter="203.333333" data-per_bottle="101.666667">
-<td data-cell="rank" data-rank><span class="rank">14</span></td>
+<td data-cell="rank" data-rank><span class="rank">15</span></td>
 <td data-cell="image"><img class="product-img" src="https://thumbnail.image.rakuten.co.jp/@0_mall/onestep/cabinet/guideline/gl05/s01474.jpg?_ex=128x128" alt="" width="72" height="72" loading="lazy"></td>
 <td data-cell="product"><div class="identity-line"><span class="spec-chip">500ml×48本 / 合計24L</span></div>
 <strong class="product-name" title="サンペレグリノ 炭酸水 SAN PELLEGRINO 500ml×48本 [ 水 ミネラルウォーター 飲料 硬水 炭酸水 ]『送料無料（一部地域除く）』">サンペレグリノ 炭酸水 SAN PELLEGRINO 500ml×48本 水 ミネラルウォーター 飲料 硬水 炭酸水…</strong><div class="shop">よろずやマルシェ</div><div class="product-badges"><span class="tag lifestyle">少量向き</span> <span class="tag ok">送料込み</span> </div><div class="trend-row"><span class="trend-badge low">30日最安</span></div><details class="product-extra" data-product-extra>
@@ -894,15 +910,15 @@ gtag('config','G-GFVSZ8YDQ5',{site_id:'food_cost_jp'});
 <button type="button" class="utility-btn" data-compare-product data-product-id="onestep:10146250" data-product-name="サンペレグリノ 炭酸水 SAN PELLEGRINO 500ml×48本 [ 水 ミネラルウォーター 飲料 硬水 炭酸水 ]『送料無料（一部地域除く）』" data-product-category="carbonated-water" data-product-category-name="炭酸水" data-product-price="4880" data-product-unit="203.333333" data-product-unit-label="1Lあたり" data-product-quantity="500ml×48本 / 合計24L" data-product-url="https://hb.afl.rakuten.co.jp/hgc/g00prcko.7cx6m1c4.g00prcko.7cx6nf4d/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fonestep%2Fs01474%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Fonestep%2Fi%2F10146250%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" data-product-image="https://thumbnail.image.rakuten.co.jp/@0_mall/onestep/cabinet/guideline/gl05/s01474.jpg?_ex=128x128">＋ 比較する</button>
 </div><a class="cta" href="https://hb.afl.rakuten.co.jp/hgc/g00prcko.7cx6m1c4.g00prcko.7cx6nf4d/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fonestep%2Fs01474%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Fonestep%2Fi%2F10146250%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" target="_blank" rel="nofollow sponsored noopener"
  data-affiliate="rakuten" data-category="carbonated-water" data-product-id="onestep:10146250"
- data-product-name="サンペレグリノ 炭酸水 SAN PELLEGRINO 500ml×48本 [ 水 ミネラルウォーター 飲料 硬水 炭酸水 ]『送料無料（一部地域除く）』" data-rank="14" data-metric="per_liter"
+ data-product-name="サンペレグリノ 炭酸水 SAN PELLEGRINO 500ml×48本 [ 水 ミネラルウォーター 飲料 硬水 炭酸水 ]『送料無料（一部地域除く）』" data-rank="15" data-metric="per_liter"
  data-unit-price="203.333333" data-shipping="included" data-cta-variant="standard">楽天で価格を確認 →</a></td>
 </tr></tbody>
 </table></div>
 </section>
 </details></div><div id="other"><details class="more-products" data-more-products>
-<summary>送料別の参考商品を見る（19件） <span>＋</span></summary>
+<summary>送料別の参考商品を見る（20件） <span>＋</span></summary>
 <section class="comparison-inner" data-comparison data-start-rank="1">
-<h2>送料別の参考商品を見る（19件）</h2>
+<h2>送料別の参考商品を見る（20件）</h2>
 <p class="sub">単価は商品価格だけの参考値です。送料額は推測せず、送料込みランキングと混ぜません。</p>
 <div class="toolbar">
 <input type="search" data-search data-category="carbonated-water" placeholder="商品名・ショップ名で絞る" aria-label="炭酸水の商品名・ショップ名で絞る">
@@ -1651,8 +1667,57 @@ gtag('config','G-GFVSZ8YDQ5',{site_id:'food_cost_jp'});
  data-affiliate="rakuten" data-category="carbonated-water" data-product-id="soukaidrink:10012932"
  data-product-name="アイリス CRYSTAL SPARK 富士山の強炭酸水 ラベルレス( 500ml×24本入)【CRYSTALSPARK】[炭酸水 500ml 24本 ラベルレス]" data-rank="15" data-metric="per_liter"
  data-unit-price="181.333333" data-shipping="extra_or_unknown" data-cta-variant="standard">楽天で価格を確認 →</a></td>
-</tr><tr data-bucket="small" data-shopping-bucket="small" data-search-text="炭酸水 シリカ炭酸水 sol bianca 天然シリカ水 ラベルレス 42.5mg/l ミネラル炭酸水 500ml×24本 スパークリングウォーター 九州 日田産 ケイ素水 おとぎの国" data-price="2200" data-per_liter="183.333333" data-per_bottle="91.666667">
+</tr><tr data-bucket="small" data-shopping-bucket="small" data-search-text="伊藤園 強炭酸水 ミネラル ストロング シリカ含有(500ml*24本入)【伊藤園】 楽天24 ドリンク館" data-price="2188" data-per_liter="182.333333" data-per_bottle="91.166667">
 <td data-cell="rank" data-rank><span class="rank">16</span></td>
+<td data-cell="image"><img class="product-img" src="https://thumbnail.image.rakuten.co.jp/@0_mall/soukaidrink/cabinet/777/4901085637777.jpg?_ex=128x128" alt="" width="72" height="72" loading="lazy"></td>
+<td data-cell="product"><div class="identity-line"><span class="brand-chip">伊藤園</span><span class="spec-chip">500ml×24本 / 合計12L</span></div>
+<strong class="product-name" title="伊藤園 強炭酸水 ミネラル ストロング シリカ含有(500ml*24本入)【伊藤園】">強炭酸水 ミネラル ストロング シリカ含有(500ml*24本入) 伊藤園</strong><div class="shop">楽天24 ドリンク館</div><div class="product-badges"><span class="tag lifestyle">少量向き</span> <span class="tag warn">送料別・要確認</span> </div><div class="trend-row"><span class="trend-badge low">30日最安</span></div><details class="product-extra" data-product-extra>
+<summary>価格のうごきを見る <span>＋</span></summary>
+<div class="product-extra-body"><div class="history-card" data-history-card>
+<div class="history-head"><strong>価格履歴</strong><span>3回取得</span></div>
+<div class="history-toolbar"><div class="history-tabs">
+<button type="button" class="selected" data-history-range="7日">7日</button>
+<button type="button" data-history-range="30日">30日</button>
+</div><span class="history-trend stable">最近安定</span></div>
+<div class="history-range-panel" data-history-panel="7日">
+<div class="history-stats history-stats-4">
+<div><span>現在</span><b>¥182</b></div>
+<div><span>最安</span><b>¥182</b><small>09/30</small></div>
+<div><span>最高</span><b>¥182</b><small>09/30</small></div>
+<div><span>値幅</span><b>¥0.0</b></div>
+</div>
+<svg class="sparkline neutral" viewBox="0 0 180 64" role="img" aria-label="7日価格推移">
+<line x1="6" y1="58" x2="174" y2="58" class="spark-grid"/>
+<polyline points="6.0,32.0 90.0,32.0 174.0,32.0" fill="none" vector-effect="non-scaling-stroke"/>
+<circle cx="174.0" cy="32.0" r="3.2"/>
+</svg></div><div class="history-range-panel" data-history-panel="30日" hidden>
+<div class="history-stats history-stats-4">
+<div><span>現在</span><b>¥182</b></div>
+<div><span>最安</span><b>¥182</b><small>09/30</small></div>
+<div><span>最高</span><b>¥182</b><small>09/30</small></div>
+<div><span>値幅</span><b>¥0.0</b></div>
+</div>
+<svg class="sparkline neutral" viewBox="0 0 180 64" role="img" aria-label="30日価格推移">
+<line x1="6" y1="58" x2="174" y2="58" class="spark-grid"/>
+<polyline points="6.0,32.0 90.0,32.0 174.0,32.0" fill="none" vector-effect="non-scaling-stroke"/>
+<circle cx="174.0" cy="32.0" r="3.2"/>
+</svg></div>
+</div><div class="buy-signal neutral">
+<span>相場圏</span><small>直近履歴では大きな割高・値下がりは確認できません。</small>
+</div></div>
+</details></td>
+<td data-cell="quantity">500ml×24本 / 合計12L</td>
+<td data-cell="price">¥2,188</td>
+<td data-cell="unit"><div class="unit">¥182</div><div class="unit-label">1Lあたり</div><div class="secondary-unit">1本あたり ¥91.2</div></td>
+<td data-cell="cta"><div class="product-actions">
+<button type="button" class="utility-btn" data-save-product data-product-id="soukaidrink:10014152" data-product-name="伊藤園 強炭酸水 ミネラル ストロング シリカ含有(500ml*24本入)【伊藤園】" data-product-category="carbonated-water" data-product-category-name="炭酸水" data-product-price="2188" data-product-unit="182.333333" data-product-unit-label="1Lあたり" data-product-quantity="500ml×24本 / 合計12L" data-product-url="https://hb.afl.rakuten.co.jp/hgc/g00rzxdo.7cx6mad7.g00rzxdo.7cx6nfc7/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fsoukaidrink%2F4901085637777%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Fsoukaidrink%2Fi%2F10014152%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" data-product-image="https://thumbnail.image.rakuten.co.jp/@0_mall/soukaidrink/cabinet/777/4901085637777.jpg?_ex=128x128">＋ 買い物メモ</button>
+<button type="button" class="utility-btn" data-compare-product data-product-id="soukaidrink:10014152" data-product-name="伊藤園 強炭酸水 ミネラル ストロング シリカ含有(500ml*24本入)【伊藤園】" data-product-category="carbonated-water" data-product-category-name="炭酸水" data-product-price="2188" data-product-unit="182.333333" data-product-unit-label="1Lあたり" data-product-quantity="500ml×24本 / 合計12L" data-product-url="https://hb.afl.rakuten.co.jp/hgc/g00rzxdo.7cx6mad7.g00rzxdo.7cx6nfc7/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fsoukaidrink%2F4901085637777%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Fsoukaidrink%2Fi%2F10014152%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" data-product-image="https://thumbnail.image.rakuten.co.jp/@0_mall/soukaidrink/cabinet/777/4901085637777.jpg?_ex=128x128">＋ 比較する</button>
+</div><a class="cta" href="https://hb.afl.rakuten.co.jp/hgc/g00rzxdo.7cx6mad7.g00rzxdo.7cx6nfc7/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fsoukaidrink%2F4901085637777%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Fsoukaidrink%2Fi%2F10014152%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" target="_blank" rel="nofollow sponsored noopener"
+ data-affiliate="rakuten" data-category="carbonated-water" data-product-id="soukaidrink:10014152"
+ data-product-name="伊藤園 強炭酸水 ミネラル ストロング シリカ含有(500ml*24本入)【伊藤園】" data-rank="16" data-metric="per_liter"
+ data-unit-price="182.333333" data-shipping="extra_or_unknown" data-cta-variant="standard">楽天で価格を確認 →</a></td>
+</tr><tr data-bucket="small" data-shopping-bucket="small" data-search-text="炭酸水 シリカ炭酸水 sol bianca 天然シリカ水 ラベルレス 42.5mg/l ミネラル炭酸水 500ml×24本 スパークリングウォーター 九州 日田産 ケイ素水 おとぎの国" data-price="2200" data-per_liter="183.333333" data-per_bottle="91.666667">
+<td data-cell="rank" data-rank><span class="rank">17</span></td>
 <td data-cell="image"><img class="product-img" src="https://thumbnail.image.rakuten.co.jp/@0_mall/otogino/cabinet/water/sol-24bi-th600d.jpg?_ex=128x128" alt="" width="72" height="72" loading="lazy"></td>
 <td data-cell="product"><div class="identity-line"><span class="spec-chip">500ml×24本 / 合計12L</span></div>
 <strong class="product-name" title="炭酸水 シリカ炭酸水 SOL BiANCA 天然シリカ水 ラベルレス 42.5mg/L ミネラル炭酸水 500ml×24本 スパークリングウォーター 九州 日田産 ケイ素水">炭酸水 シリカ炭酸水 SOL BiANCA 天然シリカ水 ラベルレス 42.5mg L ミネラル炭酸水 500ml×24本…</strong><div class="shop">おとぎの国</div><div class="product-badges"><span class="tag lifestyle">少量向き</span> <span class="tag warn">送料別・要確認</span> </div><div class="trend-row"><span class="trend-badge low">30日最安</span></div><details class="product-extra" data-product-extra>
@@ -1698,10 +1763,10 @@ gtag('config','G-GFVSZ8YDQ5',{site_id:'food_cost_jp'});
 <button type="button" class="utility-btn" data-compare-product data-product-id="otogino:10045750" data-product-name="炭酸水 シリカ炭酸水 SOL BiANCA 天然シリカ水 ラベルレス 42.5mg/L ミネラル炭酸水 500ml×24本 スパークリングウォーター 九州 日田産 ケイ素水" data-product-category="carbonated-water" data-product-category-name="炭酸水" data-product-price="2200" data-product-unit="183.333333" data-product-unit-label="1Lあたり" data-product-quantity="500ml×24本 / 合計12L" data-product-url="https://hb.afl.rakuten.co.jp/hgc/g00pzi0o.7cx6m3b4.g00pzi0o.7cx6n24c/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fotogino%2Fsol-24%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Fotogino%2Fi%2F10045750%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" data-product-image="https://thumbnail.image.rakuten.co.jp/@0_mall/otogino/cabinet/water/sol-24bi-th600d.jpg?_ex=128x128">＋ 比較する</button>
 </div><a class="cta" href="https://hb.afl.rakuten.co.jp/hgc/g00pzi0o.7cx6m3b4.g00pzi0o.7cx6n24c/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fotogino%2Fsol-24%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Fotogino%2Fi%2F10045750%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" target="_blank" rel="nofollow sponsored noopener"
  data-affiliate="rakuten" data-category="carbonated-water" data-product-id="otogino:10045750"
- data-product-name="炭酸水 シリカ炭酸水 SOL BiANCA 天然シリカ水 ラベルレス 42.5mg/L ミネラル炭酸水 500ml×24本 スパークリングウォーター 九州 日田産 ケイ素水" data-rank="16" data-metric="per_liter"
+ data-product-name="炭酸水 シリカ炭酸水 SOL BiANCA 天然シリカ水 ラベルレス 42.5mg/L ミネラル炭酸水 500ml×24本 スパークリングウォーター 九州 日田産 ケイ素水" data-rank="17" data-metric="per_liter"
  data-unit-price="183.333333" data-shipping="extra_or_unknown" data-cta-variant="standard">楽天で価格を確認 →</a></td>
 </tr><tr data-bucket="small" data-shopping-bucket="large" data-search-text="ウィルキンソン タンサン ラベルレスボトル(500ml×48本セット)【ウィルキンソン】[炭酸水 炭酸] 楽天24 ドリンク館" data-price="4499" data-per_liter="187.458333" data-per_bottle="93.729167">
-<td data-cell="rank" data-rank><span class="rank">17</span></td>
+<td data-cell="rank" data-rank><span class="rank">18</span></td>
 <td data-cell="image"><img class="product-img" src="https://thumbnail.image.rakuten.co.jp/@0_mall/soukaidrink/cabinet/197/533197.jpg?_ex=128x128" alt="" width="72" height="72" loading="lazy"></td>
 <td data-cell="product"><div class="identity-line"><span class="brand-chip">ウィルキンソン</span><span class="spec-chip">500ml×48本 / 合計24L</span></div>
 <strong class="product-name" title="ウィルキンソン タンサン ラベルレスボトル(500ml×48本セット)【ウィルキンソン】[炭酸水 炭酸]">タンサン ラベルレスボトル(500ml×48本セット) ウィルキンソン 炭酸水 炭酸</strong><div class="shop">楽天24 ドリンク館</div><div class="product-badges"><span class="tag lifestyle">少量向き</span> <span class="tag warn">送料別・要確認</span> </div><div class="trend-row"></div><details class="product-extra" data-product-extra>
@@ -1721,10 +1786,10 @@ gtag('config','G-GFVSZ8YDQ5',{site_id:'food_cost_jp'});
 <button type="button" class="utility-btn" data-compare-product data-product-id="soukaidrink:10011624" data-product-name="ウィルキンソン タンサン ラベルレスボトル(500ml×48本セット)【ウィルキンソン】[炭酸水 炭酸]" data-product-category="carbonated-water" data-product-category-name="炭酸水" data-product-price="4499" data-product-unit="187.458333" data-product-unit-label="1Lあたり" data-product-quantity="500ml×48本 / 合計24L" data-product-url="https://hb.afl.rakuten.co.jp/hgc/g00rzxdo.7cx6mad7.g00rzxdo.7cx6nfc7/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fsoukaidrink%2F533197%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Fsoukaidrink%2Fi%2F10011624%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" data-product-image="https://thumbnail.image.rakuten.co.jp/@0_mall/soukaidrink/cabinet/197/533197.jpg?_ex=128x128">＋ 比較する</button>
 </div><a class="cta" href="https://hb.afl.rakuten.co.jp/hgc/g00rzxdo.7cx6mad7.g00rzxdo.7cx6nfc7/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fsoukaidrink%2F533197%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Fsoukaidrink%2Fi%2F10011624%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" target="_blank" rel="nofollow sponsored noopener"
  data-affiliate="rakuten" data-category="carbonated-water" data-product-id="soukaidrink:10011624"
- data-product-name="ウィルキンソン タンサン ラベルレスボトル(500ml×48本セット)【ウィルキンソン】[炭酸水 炭酸]" data-rank="17" data-metric="per_liter"
+ data-product-name="ウィルキンソン タンサン ラベルレスボトル(500ml×48本セット)【ウィルキンソン】[炭酸水 炭酸]" data-rank="18" data-metric="per_liter"
  data-unit-price="187.458333" data-shipping="extra_or_unknown" data-cta-variant="standard">楽天で価格を確認 →</a></td>
 </tr><tr data-bucket="small" data-shopping-bucket="large" data-search-text="アサヒ ウィルキンソン タンサン 500ml×24 本×2ケース（48本） 飲料【送料無料※一部地域は除く】炭酸水 水 ウィルキンソン イズミックワールド" data-price="4970" data-per_liter="207.083333" data-per_bottle="103.541667">
-<td data-cell="rank" data-rank><span class="rank">18</span></td>
+<td data-cell="rank" data-rank><span class="rank">19</span></td>
 <td data-cell="image"><img class="product-img" src="https://thumbnail.image.rakuten.co.jp/@0_mall/izmic-ec/cabinet/drink2019051002/607330-02.jpg?_ex=128x128" alt="" width="72" height="72" loading="lazy"></td>
 <td data-cell="product"><div class="identity-line"><span class="brand-chip">ウィルキンソン</span><span class="spec-chip">500ml×48本 / 合計24L</span></div>
 <strong class="product-name" title="アサヒ ウィルキンソン タンサン 500ml×24 本×2ケース（48本） 飲料【送料無料※一部地域は除く】炭酸水 水 ウィルキンソン">アサヒ タンサン 500ml×24 本×2ケース（48本） 飲料 送料無料※一部地域は除く 炭酸水 水 ウィルキンソン</strong><div class="shop">イズミックワールド</div><div class="product-badges"><span class="tag lifestyle">少量向き</span> <span class="tag warn">送料別・要確認</span> </div><div class="trend-row"><span class="trend-badge low">30日最安</span></div><details class="product-extra" data-product-extra>
@@ -1770,10 +1835,10 @@ gtag('config','G-GFVSZ8YDQ5',{site_id:'food_cost_jp'});
 <button type="button" class="utility-btn" data-compare-product data-product-id="izmic-ec:10137747" data-product-name="アサヒ ウィルキンソン タンサン 500ml×24 本×2ケース（48本） 飲料【送料無料※一部地域は除く】炭酸水 水 ウィルキンソン" data-product-category="carbonated-water" data-product-category-name="炭酸水" data-product-price="4970" data-product-unit="207.083333" data-product-unit-label="1Lあたり" data-product-quantity="500ml×48本 / 合計24L" data-product-url="https://hb.afl.rakuten.co.jp/hgc/g00pjp9o.7cx6mc74.g00pjp9o.7cx6na23/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fizmic-ec%2F629866-02%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Fizmic-ec%2Fi%2F10137747%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" data-product-image="https://thumbnail.image.rakuten.co.jp/@0_mall/izmic-ec/cabinet/drink2019051002/607330-02.jpg?_ex=128x128">＋ 比較する</button>
 </div><a class="cta" href="https://hb.afl.rakuten.co.jp/hgc/g00pjp9o.7cx6mc74.g00pjp9o.7cx6na23/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fizmic-ec%2F629866-02%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Fizmic-ec%2Fi%2F10137747%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" target="_blank" rel="nofollow sponsored noopener"
  data-affiliate="rakuten" data-category="carbonated-water" data-product-id="izmic-ec:10137747"
- data-product-name="アサヒ ウィルキンソン タンサン 500ml×24 本×2ケース（48本） 飲料【送料無料※一部地域は除く】炭酸水 水 ウィルキンソン" data-rank="18" data-metric="per_liter"
+ data-product-name="アサヒ ウィルキンソン タンサン 500ml×24 本×2ケース（48本） 飲料【送料無料※一部地域は除く】炭酸水 水 ウィルキンソン" data-rank="19" data-metric="per_liter"
  data-unit-price="207.083333" data-shipping="extra_or_unknown" data-cta-variant="standard">楽天で価格を確認 →</a></td>
 </tr><tr data-bucket="large" data-shopping-bucket="small" data-search-text="ウィルキンソン タンサン レモン(1l×12本入)【ウィルキンソン】[炭酸水 炭酸] 楽天24 ドリンク館" data-price="2630" data-per_liter="219.166667" data-per_bottle="219.166667">
-<td data-cell="rank" data-rank><span class="rank">19</span></td>
+<td data-cell="rank" data-rank><span class="rank">20</span></td>
 <td data-cell="image"><img class="product-img" src="https://thumbnail.image.rakuten.co.jp/@0_mall/soukaidrink/cabinet/503/4514603391503.jpg?_ex=128x128" alt="" width="72" height="72" loading="lazy"></td>
 <td data-cell="product"><div class="identity-line"><span class="brand-chip">ウィルキンソン</span><span class="spec-chip">1000ml×12本 / 合計12L</span></div>
 <strong class="product-name" title="ウィルキンソン タンサン レモン(1L×12本入)【ウィルキンソン】[炭酸水 炭酸]">タンサン レモン(1L×12本入) ウィルキンソン 炭酸水 炭酸</strong><div class="shop">楽天24 ドリンク館</div><div class="product-badges"><span class="tag lifestyle">まとめ買い向き</span> <span class="tag warn">送料別・要確認</span> </div><div class="trend-row"><span class="trend-badge low">30日最安</span></div><details class="product-extra" data-product-extra>
@@ -1819,7 +1884,7 @@ gtag('config','G-GFVSZ8YDQ5',{site_id:'food_cost_jp'});
 <button type="button" class="utility-btn" data-compare-product data-product-id="soukaidrink:10008783" data-product-name="ウィルキンソン タンサン レモン(1L×12本入)【ウィルキンソン】[炭酸水 炭酸]" data-product-category="carbonated-water" data-product-category-name="炭酸水" data-product-price="2630" data-product-unit="219.166667" data-product-unit-label="1Lあたり" data-product-quantity="1000ml×12本 / 合計12L" data-product-url="https://hb.afl.rakuten.co.jp/hgc/g00rzxdo.7cx6mad7.g00rzxdo.7cx6nfc7/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fsoukaidrink%2F4514603391503%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Fsoukaidrink%2Fi%2F10008783%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" data-product-image="https://thumbnail.image.rakuten.co.jp/@0_mall/soukaidrink/cabinet/503/4514603391503.jpg?_ex=128x128">＋ 比較する</button>
 </div><a class="cta" href="https://hb.afl.rakuten.co.jp/hgc/g00rzxdo.7cx6mad7.g00rzxdo.7cx6nfc7/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fsoukaidrink%2F4514603391503%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Fsoukaidrink%2Fi%2F10008783%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" target="_blank" rel="nofollow sponsored noopener"
  data-affiliate="rakuten" data-category="carbonated-water" data-product-id="soukaidrink:10008783"
- data-product-name="ウィルキンソン タンサン レモン(1L×12本入)【ウィルキンソン】[炭酸水 炭酸]" data-rank="19" data-metric="per_liter"
+ data-product-name="ウィルキンソン タンサン レモン(1L×12本入)【ウィルキンソン】[炭酸水 炭酸]" data-rank="20" data-metric="per_liter"
  data-unit-price="219.166667" data-shipping="extra_or_unknown" data-cta-variant="standard">楽天で価格を確認 →</a></td>
 </tr></tbody>
 </table></div>
@@ -1859,6 +1924,7 @@ gtag('config','G-GFVSZ8YDQ5',{site_id:'food_cost_jp'});
 <div data-compare-table></div>
 </div></div>
 </main><script>(()=>{
+document.querySelectorAll('img[data-image-fallback]').forEach(img=>{const fallback=()=>{const url=img.dataset.imageFallback;if(url){delete img.dataset.imageFallback;img.src=url}};img.addEventListener('error',fallback,{once:true});if(img.complete&&!img.naturalWidth)fallback()});
 const K='food_cost_operator_test_v1',p=new URLSearchParams(location.search);
 let op=false;
 try{op=localStorage.getItem(K)==='1'}catch(e){}
@@ -1932,17 +1998,17 @@ if(finder){
     if(!('IntersectionObserver' in window))shelfView(current?.querySelector('[data-market-shelf]'));
   };
   const reset=()=>{purpose='';category='all';route='';show(routeStage);hide(purposeStage);hide(categoryStage);hide(resultStage);status.textContent='';finder.querySelectorAll('[data-finder-picks]').forEach(x=>x.hidden=true);finder.querySelectorAll('[aria-pressed]').forEach(x=>x.setAttribute('aria-pressed','false'));finder.querySelectorAll('.selected').forEach(x=>x.classList.remove('selected'))};
-  const selectRoute=key=>{
+  const selectRoute=(key,source='entry')=>{
     route=key;category='all';status.textContent='';hide(routeStage);hide(purposeStage);hide(categoryStage);hide(resultStage);
     finder.querySelectorAll('[data-entry-route]').forEach(x=>{x.classList.toggle('selected',x.dataset.entryRoute===key);x.setAttribute('aria-pressed',String(x.dataset.entryRoute===key))});
-    send('entry_route_select',{entry_route:key});
+    send('entry_route_select',{entry_route:key,entry_source:source});
     if(key==='advisor'){show(purposeStage);return}
     intent=key==='deal'?'cheap':'known';purpose='cheap';send('shopping_intent_select',{shopping_intent:intent});
     if(key==='known'){show(categoryStage);status.textContent='いつもの食品を、売り場から選びましょう。'}else results();
   };
   finder.querySelectorAll('[data-entry-route]').forEach(btn=>btn.addEventListener('click',()=>selectRoute(btn.dataset.entryRoute)));
   document.querySelector('[data-hero-known]')?.addEventListener('click',()=>selectRoute('known'));
-  document.querySelector('[data-hero-primary]')?.addEventListener('click',()=>{reset();send('hero_primary_cta',{destination:'quick-finder'})});
+  document.querySelector('[data-hero-primary]')?.addEventListener('click',()=>{reset();selectRoute('advisor','hero');send('hero_primary_cta',{destination:'shopping-intent',entry_route:'advisor'})});
   finder.querySelectorAll('[data-finder-purpose]').forEach(btn=>btn.addEventListener('click',()=>{
     purpose=btn.dataset.finderPurpose;intent=purpose;category='all';
     finder.querySelectorAll('[data-finder-purpose]').forEach(x=>{x.classList.toggle('selected',x===btn);x.setAttribute('aria-pressed',String(x===btn))});

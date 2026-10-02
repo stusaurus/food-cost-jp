@@ -45,11 +45,18 @@ footer{padding:30px 0 100px;border-top:1px solid var(--line);font-size:10px;colo
 .market-shelf .identity-line{display:none}
 .market-shelf .finder-product-name{margin:5px 0 8px}
 .market-shelf .finder-product:hover{box-shadow:none}
-#today-market .finder-products{align-items:start}
+#today-market .finder-products{align-items:start;grid-template-columns:1.25fr repeat(3,minmax(0,1fr))}
+#today-market .finder-product:first-child{grid-template-rows:240px 1fr}
+#today-market .finder-product:first-child .finder-product-media img{height:208px}
 #today-market .finder-product:nth-child(even){margin-top:24px}
 .hero-subroutes{display:flex;gap:22px;flex-wrap:wrap;font-size:12px;margin-top:16px}
 .hero-subroutes a{color:var(--brand);text-underline-offset:5px}
-.finder-route-options{grid-template-columns:repeat(3,minmax(0,1fr))}
+.finder-options.finder-route-options{grid-template-columns:1.35fr 1fr;gap:12px}
+.finder-route-options .route-main{grid-row:span 2;background:#f9f7ef;border-color:#75886f;padding:26px;min-height:196px;grid-template-columns:1fr 18px}
+.finder-route-options .route-main .intent-number{grid-column:1/-1;font:11px sans-serif;letter-spacing:.06em}
+.finder-route-options .route-main strong{font-size:21px}
+.finder-route-options .route-shortcut{min-height:92px;grid-template-columns:1fr 12px}
+.finder-route-options .route-shortcut .intent-number{display:none}
 .finder-route-options button{display:grid;grid-template-columns:20px 1fr 12px;gap:10px;align-items:center;text-align:left;min-height:120px}
 .finder-route-options strong{font-size:16px;font-weight:500;line-height:1.6;display:block}
 .finder-route-options small{display:block;font-size:11px;line-height:1.7;color:var(--muted);margin-top:6px}
@@ -57,7 +64,13 @@ footer{padding:30px 0 100px;border-top:1px solid var(--line);font-size:10px;colo
 .market-shelf .finder-product-rank{font:10px sans-serif;letter-spacing:.08em;color:var(--brand)}
 .market-shelf .finder-why{line-height:1.7;margin:8px 0}
 .market-shelf .finder-why span{display:none}
-.shelf-shipping{font-size:10px;color:var(--brand);margin:5px 0}
+.shelf-assurance{font-size:11px;color:var(--brand);margin:5px 0 18px}
+.discovery-secondary{border-top:1px solid var(--line);margin-top:14px;padding-top:7px}
+.discovery-secondary .trend-row{font-size:10px}
+.discovery-secondary .trend-row .trend-badge~.trend-badge{display:none}
+.market-shelf .discovery-secondary .utility-btn{background:transparent;border:0;text-decoration:underline;text-underline-offset:4px;font-size:11px}
+.market-shelf .discovery-secondary .product-actions{margin:0;gap:8px}
+.market-shelf .discovery-secondary .product-extra>summary{font-size:11px;min-height:44px}
 .market-shelf .cta{background:transparent;color:var(--brand);border:1px solid var(--brand);margin-top:auto;min-height:46px;font-size:11px}
 .shelf-empty{grid-column:1/-1;border-block:1px solid var(--line);padding:24px 0;line-height:1.8}
 .aisle-group{grid-column:1/-1;font:24px Georgia,'Noto Serif JP',serif;margin:15px 0 0;padding-top:20px;border-top:1px solid var(--line)}
@@ -83,7 +96,7 @@ footer{padding:30px 0 100px;border-top:1px solid var(--line);font-size:10px;colo
 .finder-result-actions{display:flex;gap:28px;justify-content:space-between}
 .finder-status{font-size:13px;color:var(--brand);line-height:1.8}
 .finder-status:empty{display:none}.finder-stage{animation:shelf-in .18s ease}
-.finder .market-shelf .finder-products{grid-template-columns:repeat(3,minmax(0,1fr))}
+.finder .market-shelf .finder-products{grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
 .podium-card.rank-1{border-color:var(--line);box-shadow:none}.podium-medal{font-size:13px}
 @media(max-width:759px){
  .home-hero h1{font-size:31px}.market-shelf{margin:20px 0 30px}.shelf-heading h3{font-size:22px}
@@ -96,9 +109,15 @@ footer{padding:30px 0 100px;border-top:1px solid var(--line);font-size:10px;colo
  .market-shelf .product-actions{gap:5px}.market-shelf .utility-btn{font-size:10px;padding:6px}
  .finder{padding:22px 15px}.finder h2{font-size:25px}.finder-guide{display:none}
  .finder-options.finder-purpose-options,.finder-options.finder-route-options{grid-template-columns:1fr}
- .finder-route-options button{min-height:84px;padding:13px}
+ .finder-route-options button{min-height:72px;padding:13px}
+ .finder-options.finder-route-options{grid-template-columns:1fr}
+ .finder-route-options .route-main{grid-row:auto;min-height:134px;padding:19px}
+ .finder-route-options .route-main strong{font-size:19px}
+ #today-market .finder-product:first-child{grid-template-rows:220px 1fr}
+ #today-market .finder-product:first-child .finder-product-media img{height:200px}
  .finder-route-options strong{font-size:15px}
  #today-market .finder-product:nth-child(even){margin-top:0}
+ #today-market .finder-products{grid-template-columns:none}
  .podium-card{grid-template-columns:115px minmax(0,1fr)}.podium-media{height:130px}.podium-img{max-height:125px}.finder-purpose-options button{min-height:78px;padding:13px}
  .finder-purpose-options strong{font-size:15px}.finder-options{grid-template-columns:1fr 1fr}
  .finder-question{gap:8px}.finder-question strong{font-size:15px}.finder-art{width:100%;height:88px}
@@ -115,7 +134,7 @@ footer{padding:30px 0 100px;border-top:1px solid var(--line);font-size:10px;colo
  .deal-section .shelf-mobile-hint,.discovery-shelves .shelf-mobile-hint{display:block;font-size:10px;color:var(--brand);text-align:right;margin:0 0 8px}
  .market-shelf .finder-product-price small{display:block;margin-left:0}
  .market-shelf .finder-product-meta{margin:3px 0}
- .market-shelf .shelf-shipping{margin:3px 0}
+ .market-shelf .shelf-assurance{margin:3px 0}
  .market-shelf .product-actions{margin:6px 0 8px}
  .market-shelf .product-extra{margin:5px 0}
  .market-shelf .product-extra>summary{min-height:44px;align-items:center;padding:6px 0}
@@ -140,7 +159,7 @@ gtag('config','G-GFVSZ8YDQ5',{site_id:'food_cost_jp'});
 <div><a class="brand" href="../">食品コスパ比較</a><div class="eyebrow">PRICE HISTORY</div>
 <h1>今日のお買い得だけを見る。</h1>
 <p class="lead">単価ランキングとは別に、前回取得時より実際に安くなった商品だけを集めます。</p>
-<p class="note">最終価格確認: 2026-10-02 18:31 JST</p></div>
+<p class="note">最終価格確認: 2026-10-02 19:49 JST</p></div>
 <div class="category-hero-art"><img class="guide-mascot" src="https://stusaurus.github.io/food-cost-jp/assets/marche-rice.webp" width="768" height="512" alt="" loading="lazy"></div></div></header>
 <nav class="service-shortcuts" aria-label="主要メニュー">
 <a href="https://stusaurus.github.io/food-cost-jp/"><span>⌂</span>トップ</a>
@@ -149,9 +168,101 @@ gtag('config','G-GFVSZ8YDQ5',{site_id:'food_cost_jp'});
 </nav>
 <main class="wrap"><section class="section deal-section">
 <div class="section-kicker">TODAY’S PICKS</div>
-<h2>実際に値下がりした商品 4件</h2>
+<h2>実際に値下がりした商品 5件</h2>
 <p class="sub">同じ楽天商品IDかつ同じ容量構成だけを過去価格と比較しています。</p>
 <div class="deal-grid"><article class="deal-card">
+<div class="deal-media"><img src="https://thumbnail.image.rakuten.co.jp/@0_mall/irisplaza-r/cabinet/talent/crystalspark/312012_rg.jpg?_ex=128x128" alt="" width="320" height="320" loading="lazy"></div>
+<div class="deal-copy">
+<div class="deal-top"><span>🫧 炭酸水</span><span class="trend-badge drop">↓ ¥420 昨日比</span><span class="trend-badge low">30日最安</span></div>
+<div class="identity-line"><span class="brand-chip">アイリスオーヤマ</span><span class="spec-chip">500ml×48本 / 合計24L</span></div>
+<strong class="deal-name" title="【公式】炭酸水 500ml 48本 (24本入×2箱) 強炭酸水 アイリスオーヤマ クリスタルスパーク 炭酸 レモン マスカット ラムネ グレープ 和梨 ジンジャーエール フレーバー プレーン 無糖 天然水 アイリスフーズ ペットボトル">公式 炭酸水 500ml 48本 (24本入×2箱) 強炭酸水 クリスタルスパーク 炭酸 レモン マスカット ラムネ グレープ…</strong>
+<div class="deal-price-row"><span class="deal-was">¥2,960</span><strong>¥2,540</strong></div>
+<div class="deal-saving">昨日比 ¥420安い</div>
+<div class="deal-unit">¥106 <small>1Lあたり</small></div>
+<details class="product-extra" data-product-extra>
+<summary>価格のうごきを見る <span>＋</span></summary>
+<div class="product-extra-body"><div class="history-card" data-history-card>
+<div class="history-head"><strong>価格履歴</strong><span>3回取得</span></div>
+<div class="history-toolbar"><div class="history-tabs">
+<button type="button" class="selected" data-history-range="7日">7日</button>
+<button type="button" data-history-range="30日">30日</button>
+</div><span class="history-trend down">最近下落</span></div>
+<div class="history-range-panel" data-history-panel="7日">
+<div class="history-stats history-stats-4">
+<div><span>現在</span><b>¥106</b></div>
+<div><span>最安</span><b>¥106</b><small>10/02</small></div>
+<div><span>最高</span><b>¥123</b><small>09/30</small></div>
+<div><span>値幅</span><b>¥17.5</b></div>
+</div>
+<svg class="sparkline buy" viewBox="0 0 180 64" role="img" aria-label="7日価格推移">
+<line x1="6" y1="58" x2="174" y2="58" class="spark-grid"/>
+<polyline points="6.0,6.0 90.0,6.0 174.0,58.0" fill="none" vector-effect="non-scaling-stroke"/>
+<circle cx="174.0" cy="58.0" r="3.2"/>
+</svg></div><div class="history-range-panel" data-history-panel="30日" hidden>
+<div class="history-stats history-stats-4">
+<div><span>現在</span><b>¥106</b></div>
+<div><span>最安</span><b>¥106</b><small>10/02</small></div>
+<div><span>最高</span><b>¥123</b><small>09/30</small></div>
+<div><span>値幅</span><b>¥17.5</b></div>
+</div>
+<svg class="sparkline buy" viewBox="0 0 180 64" role="img" aria-label="30日価格推移">
+<line x1="6" y1="58" x2="174" y2="58" class="spark-grid"/>
+<polyline points="6.0,6.0 90.0,6.0 174.0,58.0" fill="none" vector-effect="non-scaling-stroke"/>
+<circle cx="174.0" cy="58.0" r="3.2"/>
+</svg></div>
+</div><div class="buy-signal buy">
+<span>買い時寄り</span><small>値下がりし、30日内の最安水準です。</small>
+</div></div>
+</details>
+<div class="product-actions">
+<button type="button" class="utility-btn" data-save-product data-product-id="irisplaza-r:10158173" data-product-name="【公式】炭酸水 500ml 48本 (24本入×2箱) 強炭酸水 アイリスオーヤマ クリスタルスパーク 炭酸 レモン マスカット ラムネ グレープ 和梨 ジンジャーエール フレーバー プレーン 無糖 天然水 アイリスフーズ ペットボトル" data-product-category="carbonated-water" data-product-category-name="炭酸水" data-product-price="2540" data-product-unit="105.833333" data-product-unit-label="1Lあたり" data-product-quantity="500ml×48本 / 合計24L" data-product-url="https://hb.afl.rakuten.co.jp/hgc/g00t3zto.7cx6m5be.g00t3zto.7cx6n748/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Firisplaza-r%2F312012%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Firisplaza-r%2Fi%2F10158173%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" data-product-image="https://thumbnail.image.rakuten.co.jp/@0_mall/irisplaza-r/cabinet/talent/crystalspark/312012_rg.jpg?_ex=128x128">＋ 買い物メモ</button>
+<button type="button" class="utility-btn" data-compare-product data-product-id="irisplaza-r:10158173" data-product-name="【公式】炭酸水 500ml 48本 (24本入×2箱) 強炭酸水 アイリスオーヤマ クリスタルスパーク 炭酸 レモン マスカット ラムネ グレープ 和梨 ジンジャーエール フレーバー プレーン 無糖 天然水 アイリスフーズ ペットボトル" data-product-category="carbonated-water" data-product-category-name="炭酸水" data-product-price="2540" data-product-unit="105.833333" data-product-unit-label="1Lあたり" data-product-quantity="500ml×48本 / 合計24L" data-product-url="https://hb.afl.rakuten.co.jp/hgc/g00t3zto.7cx6m5be.g00t3zto.7cx6n748/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Firisplaza-r%2F312012%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Firisplaza-r%2Fi%2F10158173%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" data-product-image="https://thumbnail.image.rakuten.co.jp/@0_mall/irisplaza-r/cabinet/talent/crystalspark/312012_rg.jpg?_ex=128x128">＋ 比較する</button>
+</div>
+<a class="cta" href="https://hb.afl.rakuten.co.jp/hgc/g00t3zto.7cx6m5be.g00t3zto.7cx6n748/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Firisplaza-r%2F312012%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Firisplaza-r%2Fi%2F10158173%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" target="_blank" rel="nofollow sponsored noopener"
+ data-affiliate="rakuten" data-position="deals_page" data-category="carbonated-water" data-product-id="irisplaza-r:10158173"
+ data-product-name="【公式】炭酸水 500ml 48本 (24本入×2箱) 強炭酸水 アイリスオーヤマ クリスタルスパーク 炭酸 レモン マスカット ラムネ グレープ 和梨 ジンジャーエール フレーバー プレーン 無糖 天然水 アイリスフーズ ペットボトル" data-rank="" data-metric="per_liter"
+ data-unit-price="105.833333" data-shipping="included" data-cta-variant="history_low">30日最安を楽天で確認 →</a>
+<div class="discovery-secondary"><div class="trend-row"><span class="trend-badge drop">↓ ¥420 昨日比</span><span class="trend-badge low">30日最安</span></div>
+<details class="product-extra" data-product-extra>
+<summary>価格のうごきを見る <span>＋</span></summary>
+<div class="product-extra-body"><div class="history-card" data-history-card>
+<div class="history-head"><strong>価格履歴</strong><span>3回取得</span></div>
+<div class="history-toolbar"><div class="history-tabs">
+<button type="button" class="selected" data-history-range="7日">7日</button>
+<button type="button" data-history-range="30日">30日</button>
+</div><span class="history-trend down">最近下落</span></div>
+<div class="history-range-panel" data-history-panel="7日">
+<div class="history-stats history-stats-4">
+<div><span>現在</span><b>¥106</b></div>
+<div><span>最安</span><b>¥106</b><small>10/02</small></div>
+<div><span>最高</span><b>¥123</b><small>09/30</small></div>
+<div><span>値幅</span><b>¥17.5</b></div>
+</div>
+<svg class="sparkline buy" viewBox="0 0 180 64" role="img" aria-label="7日価格推移">
+<line x1="6" y1="58" x2="174" y2="58" class="spark-grid"/>
+<polyline points="6.0,6.0 90.0,6.0 174.0,58.0" fill="none" vector-effect="non-scaling-stroke"/>
+<circle cx="174.0" cy="58.0" r="3.2"/>
+</svg></div><div class="history-range-panel" data-history-panel="30日" hidden>
+<div class="history-stats history-stats-4">
+<div><span>現在</span><b>¥106</b></div>
+<div><span>最安</span><b>¥106</b><small>10/02</small></div>
+<div><span>最高</span><b>¥123</b><small>09/30</small></div>
+<div><span>値幅</span><b>¥17.5</b></div>
+</div>
+<svg class="sparkline buy" viewBox="0 0 180 64" role="img" aria-label="30日価格推移">
+<line x1="6" y1="58" x2="174" y2="58" class="spark-grid"/>
+<polyline points="6.0,6.0 90.0,6.0 174.0,58.0" fill="none" vector-effect="non-scaling-stroke"/>
+<circle cx="174.0" cy="58.0" r="3.2"/>
+</svg></div>
+</div><div class="buy-signal buy">
+<span>買い時寄り</span><small>値下がりし、30日内の最安水準です。</small>
+</div></div>
+</details>
+<div class="product-actions">
+<button type="button" class="utility-btn" data-save-product data-product-id="irisplaza-r:10158173" data-product-name="【公式】炭酸水 500ml 48本 (24本入×2箱) 強炭酸水 アイリスオーヤマ クリスタルスパーク 炭酸 レモン マスカット ラムネ グレープ 和梨 ジンジャーエール フレーバー プレーン 無糖 天然水 アイリスフーズ ペットボトル" data-product-category="carbonated-water" data-product-category-name="炭酸水" data-product-price="2540" data-product-unit="105.833333" data-product-unit-label="1Lあたり" data-product-quantity="500ml×48本 / 合計24L" data-product-url="https://hb.afl.rakuten.co.jp/hgc/g00t3zto.7cx6m5be.g00t3zto.7cx6n748/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Firisplaza-r%2F312012%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Firisplaza-r%2Fi%2F10158173%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" data-product-image="https://thumbnail.image.rakuten.co.jp/@0_mall/irisplaza-r/cabinet/talent/crystalspark/312012_rg.jpg?_ex=128x128">＋ 買い物メモ</button>
+<button type="button" class="utility-btn" data-compare-product data-product-id="irisplaza-r:10158173" data-product-name="【公式】炭酸水 500ml 48本 (24本入×2箱) 強炭酸水 アイリスオーヤマ クリスタルスパーク 炭酸 レモン マスカット ラムネ グレープ 和梨 ジンジャーエール フレーバー プレーン 無糖 天然水 アイリスフーズ ペットボトル" data-product-category="carbonated-water" data-product-category-name="炭酸水" data-product-price="2540" data-product-unit="105.833333" data-product-unit-label="1Lあたり" data-product-quantity="500ml×48本 / 合計24L" data-product-url="https://hb.afl.rakuten.co.jp/hgc/g00t3zto.7cx6m5be.g00t3zto.7cx6n748/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Firisplaza-r%2F312012%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Firisplaza-r%2Fi%2F10158173%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" data-product-image="https://thumbnail.image.rakuten.co.jp/@0_mall/irisplaza-r/cabinet/talent/crystalspark/312012_rg.jpg?_ex=128x128">＋ 比較する</button>
+</div></div>
+</div></article><article class="deal-card">
 <div class="deal-media"><img src="https://thumbnail.image.rakuten.co.jp/@0_mall/slow-foods/cabinet/oatmeal/imgrc0118352263.jpg?_ex=128x128" alt="" width="320" height="320" loading="lazy"></div>
 <div class="deal-copy">
 <div class="deal-top"><span>🥣 オートミール</span><span class="trend-badge drop">↓ ¥562 昨日比</span><span class="trend-badge low">30日最安</span></div>
@@ -203,6 +314,46 @@ gtag('config','G-GFVSZ8YDQ5',{site_id:'food_cost_jp'});
  data-affiliate="rakuten" data-position="deals_page" data-category="oatmeal" data-product-id="slow-foods:10003596"
  data-product-name="//楽天お買い物マラソン 10%オフ 1g当り0.84円→0.71円// 超！超コスパ！ 直売価格 6600g (2.2Kg×3袋) プレミアム オートミール 大容量★化学農薬不使用★化学肥料不使用栽培 送料無料(沖縄県は他商品との同梱時、送料がかかる場合があります)" data-rank="" data-metric="per_100g"
  data-unit-price="76.469697" data-shipping="included" data-cta-variant="history_low">30日最安を楽天で確認 →</a>
+<div class="discovery-secondary"><div class="trend-row"><span class="trend-badge drop">↓ ¥562 昨日比</span><span class="trend-badge low">30日最安</span></div>
+<details class="product-extra" data-product-extra>
+<summary>価格のうごきを見る <span>＋</span></summary>
+<div class="product-extra-body"><div class="history-card" data-history-card>
+<div class="history-head"><strong>価格履歴</strong><span>3回取得</span></div>
+<div class="history-toolbar"><div class="history-tabs">
+<button type="button" class="selected" data-history-range="7日">7日</button>
+<button type="button" data-history-range="30日">30日</button>
+</div><span class="history-trend down">最近下落</span></div>
+<div class="history-range-panel" data-history-panel="7日">
+<div class="history-stats history-stats-4">
+<div><span>現在</span><b>¥76.5</b></div>
+<div><span>最安</span><b>¥76.5</b><small>10/02</small></div>
+<div><span>最高</span><b>¥85.0</b><small>09/30</small></div>
+<div><span>値幅</span><b>¥8.5</b></div>
+</div>
+<svg class="sparkline buy" viewBox="0 0 180 64" role="img" aria-label="7日価格推移">
+<line x1="6" y1="58" x2="174" y2="58" class="spark-grid"/>
+<polyline points="6.0,6.0 90.0,6.0 174.0,58.0" fill="none" vector-effect="non-scaling-stroke"/>
+<circle cx="174.0" cy="58.0" r="3.2"/>
+</svg></div><div class="history-range-panel" data-history-panel="30日" hidden>
+<div class="history-stats history-stats-4">
+<div><span>現在</span><b>¥76.5</b></div>
+<div><span>最安</span><b>¥76.5</b><small>10/02</small></div>
+<div><span>最高</span><b>¥85.0</b><small>09/30</small></div>
+<div><span>値幅</span><b>¥8.5</b></div>
+</div>
+<svg class="sparkline buy" viewBox="0 0 180 64" role="img" aria-label="30日価格推移">
+<line x1="6" y1="58" x2="174" y2="58" class="spark-grid"/>
+<polyline points="6.0,6.0 90.0,6.0 174.0,58.0" fill="none" vector-effect="non-scaling-stroke"/>
+<circle cx="174.0" cy="58.0" r="3.2"/>
+</svg></div>
+</div><div class="buy-signal buy">
+<span>買い時寄り</span><small>値下がりし、30日内の最安水準です。</small>
+</div></div>
+</details>
+<div class="product-actions">
+<button type="button" class="utility-btn" data-save-product data-product-id="slow-foods:10003596" data-product-name="//楽天お買い物マラソン 10%オフ 1g当り0.84円→0.71円// 超！超コスパ！ 直売価格 6600g (2.2Kg×3袋) プレミアム オートミール 大容量★化学農薬不使用★化学肥料不使用栽培 送料無料(沖縄県は他商品との同梱時、送料がかかる場合があります)" data-product-category="oatmeal" data-product-category-name="オートミール" data-product-price="5047" data-product-unit="76.469697" data-product-unit-label="100gあたり" data-product-quantity="合計6.6kg / 3個・食" data-product-url="https://hb.afl.rakuten.co.jp/hgc/g00q07so.7cx6m06d.g00q07so.7cx6ne8c/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fslow-foods%2F10003596%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Fslow-foods%2Fi%2F10003596%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" data-product-image="https://thumbnail.image.rakuten.co.jp/@0_mall/slow-foods/cabinet/oatmeal/imgrc0118352263.jpg?_ex=128x128">＋ 買い物メモ</button>
+<button type="button" class="utility-btn" data-compare-product data-product-id="slow-foods:10003596" data-product-name="//楽天お買い物マラソン 10%オフ 1g当り0.84円→0.71円// 超！超コスパ！ 直売価格 6600g (2.2Kg×3袋) プレミアム オートミール 大容量★化学農薬不使用★化学肥料不使用栽培 送料無料(沖縄県は他商品との同梱時、送料がかかる場合があります)" data-product-category="oatmeal" data-product-category-name="オートミール" data-product-price="5047" data-product-unit="76.469697" data-product-unit-label="100gあたり" data-product-quantity="合計6.6kg / 3個・食" data-product-url="https://hb.afl.rakuten.co.jp/hgc/g00q07so.7cx6m06d.g00q07so.7cx6ne8c/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fslow-foods%2F10003596%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Fslow-foods%2Fi%2F10003596%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" data-product-image="https://thumbnail.image.rakuten.co.jp/@0_mall/slow-foods/cabinet/oatmeal/imgrc0118352263.jpg?_ex=128x128">＋ 比較する</button>
+</div></div>
 </div></article><article class="deal-card">
 <div class="deal-media"><img src="https://thumbnail.image.rakuten.co.jp/@0_mall/slow-foods/cabinet/oatmeal/imgrc0118352825.jpg?_ex=128x128" alt="" width="320" height="320" loading="lazy"></div>
 <div class="deal-copy">
@@ -255,6 +406,46 @@ gtag('config','G-GFVSZ8YDQ5',{site_id:'food_cost_jp'});
  data-affiliate="rakuten" data-position="deals_page" data-category="oatmeal" data-product-id="slow-foods:10000958"
  data-product-name="//楽天お買い物マラソン 10%オフ g当り0.99円！→0.82円// 超コスパ、 大容量 2.2KG ★化学農薬不使用★化学肥料不使用栽培 プレミアム オートミール おそれいります。原料及び諸経費の高騰により3/26日より価格改定とさせていただきました。" data-rank="" data-metric="per_100g"
  data-unit-price="89.045455" data-shipping="included" data-cta-variant="history_low">30日最安を楽天で確認 →</a>
+<div class="discovery-secondary"><div class="trend-row"><span class="trend-badge drop">↓ ¥218 昨日比</span><span class="trend-badge low">30日最安</span></div>
+<details class="product-extra" data-product-extra>
+<summary>価格のうごきを見る <span>＋</span></summary>
+<div class="product-extra-body"><div class="history-card" data-history-card>
+<div class="history-head"><strong>価格履歴</strong><span>3回取得</span></div>
+<div class="history-toolbar"><div class="history-tabs">
+<button type="button" class="selected" data-history-range="7日">7日</button>
+<button type="button" data-history-range="30日">30日</button>
+</div><span class="history-trend down">最近下落</span></div>
+<div class="history-range-panel" data-history-panel="7日">
+<div class="history-stats history-stats-4">
+<div><span>現在</span><b>¥89.0</b></div>
+<div><span>最安</span><b>¥89.0</b><small>10/02</small></div>
+<div><span>最高</span><b>¥99.0</b><small>09/30</small></div>
+<div><span>値幅</span><b>¥9.9</b></div>
+</div>
+<svg class="sparkline buy" viewBox="0 0 180 64" role="img" aria-label="7日価格推移">
+<line x1="6" y1="58" x2="174" y2="58" class="spark-grid"/>
+<polyline points="6.0,6.0 90.0,6.0 174.0,58.0" fill="none" vector-effect="non-scaling-stroke"/>
+<circle cx="174.0" cy="58.0" r="3.2"/>
+</svg></div><div class="history-range-panel" data-history-panel="30日" hidden>
+<div class="history-stats history-stats-4">
+<div><span>現在</span><b>¥89.0</b></div>
+<div><span>最安</span><b>¥89.0</b><small>10/02</small></div>
+<div><span>最高</span><b>¥99.0</b><small>09/30</small></div>
+<div><span>値幅</span><b>¥9.9</b></div>
+</div>
+<svg class="sparkline buy" viewBox="0 0 180 64" role="img" aria-label="30日価格推移">
+<line x1="6" y1="58" x2="174" y2="58" class="spark-grid"/>
+<polyline points="6.0,6.0 90.0,6.0 174.0,58.0" fill="none" vector-effect="non-scaling-stroke"/>
+<circle cx="174.0" cy="58.0" r="3.2"/>
+</svg></div>
+</div><div class="buy-signal buy">
+<span>買い時寄り</span><small>値下がりし、30日内の最安水準です。</small>
+</div></div>
+</details>
+<div class="product-actions">
+<button type="button" class="utility-btn" data-save-product data-product-id="slow-foods:10000958" data-product-name="//楽天お買い物マラソン 10%オフ g当り0.99円！→0.82円// 超コスパ、 大容量 2.2KG ★化学農薬不使用★化学肥料不使用栽培 プレミアム オートミール おそれいります。原料及び諸経費の高騰により3/26日より価格改定とさせていただきました。" data-product-category="oatmeal" data-product-category-name="オートミール" data-product-price="1959" data-product-unit="89.045455" data-product-unit-label="100gあたり" data-product-quantity="合計2.2kg" data-product-url="https://hb.afl.rakuten.co.jp/hgc/g00q07so.7cx6m06d.g00q07so.7cx6ne8c/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fslow-foods%2F898518%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Fslow-foods%2Fi%2F10000958%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" data-product-image="https://thumbnail.image.rakuten.co.jp/@0_mall/slow-foods/cabinet/oatmeal/imgrc0118352825.jpg?_ex=128x128">＋ 買い物メモ</button>
+<button type="button" class="utility-btn" data-compare-product data-product-id="slow-foods:10000958" data-product-name="//楽天お買い物マラソン 10%オフ g当り0.99円！→0.82円// 超コスパ、 大容量 2.2KG ★化学農薬不使用★化学肥料不使用栽培 プレミアム オートミール おそれいります。原料及び諸経費の高騰により3/26日より価格改定とさせていただきました。" data-product-category="oatmeal" data-product-category-name="オートミール" data-product-price="1959" data-product-unit="89.045455" data-product-unit-label="100gあたり" data-product-quantity="合計2.2kg" data-product-url="https://hb.afl.rakuten.co.jp/hgc/g00q07so.7cx6m06d.g00q07so.7cx6ne8c/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fslow-foods%2F898518%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Fslow-foods%2Fi%2F10000958%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" data-product-image="https://thumbnail.image.rakuten.co.jp/@0_mall/slow-foods/cabinet/oatmeal/imgrc0118352825.jpg?_ex=128x128">＋ 比較する</button>
+</div></div>
 </div></article><article class="deal-card">
 <div class="deal-media"><img src="https://thumbnail.image.rakuten.co.jp/@0_mall/slow-foods/cabinet/oatmeal/06161930/imgrc0113913726.jpg?_ex=128x128" alt="" width="320" height="320" loading="lazy"></div>
 <div class="deal-copy">
@@ -307,6 +498,46 @@ gtag('config','G-GFVSZ8YDQ5',{site_id:'food_cost_jp'});
  data-affiliate="rakuten" data-position="deals_page" data-category="oatmeal" data-product-id="slow-foods:10003742"
  data-product-name="//楽天お買い物マラソン 10%オフ//★化学農薬不使用★化学肥料不使用栽培 クイック オートミール 大容量 2.2Kg プレミアム 通常タイプの約1/2-1/3の粒にカット ロールドオーツ 明細書不可(領収書は購入履歴ダウンロード可)" data-rank="" data-metric="per_100g"
  data-unit-price="89.954545" data-shipping="included" data-cta-variant="history_low">30日最安を楽天で確認 →</a>
+<div class="discovery-secondary"><div class="trend-row"><span class="trend-badge drop">↓ ¥220 昨日比</span><span class="trend-badge low">30日最安</span></div>
+<details class="product-extra" data-product-extra>
+<summary>価格のうごきを見る <span>＋</span></summary>
+<div class="product-extra-body"><div class="history-card" data-history-card>
+<div class="history-head"><strong>価格履歴</strong><span>3回取得</span></div>
+<div class="history-toolbar"><div class="history-tabs">
+<button type="button" class="selected" data-history-range="7日">7日</button>
+<button type="button" data-history-range="30日">30日</button>
+</div><span class="history-trend down">最近下落</span></div>
+<div class="history-range-panel" data-history-panel="7日">
+<div class="history-stats history-stats-4">
+<div><span>現在</span><b>¥90.0</b></div>
+<div><span>最安</span><b>¥90.0</b><small>10/02</small></div>
+<div><span>最高</span><b>¥100.0</b><small>09/30</small></div>
+<div><span>値幅</span><b>¥10.0</b></div>
+</div>
+<svg class="sparkline buy" viewBox="0 0 180 64" role="img" aria-label="7日価格推移">
+<line x1="6" y1="58" x2="174" y2="58" class="spark-grid"/>
+<polyline points="6.0,6.0 90.0,6.0 174.0,58.0" fill="none" vector-effect="non-scaling-stroke"/>
+<circle cx="174.0" cy="58.0" r="3.2"/>
+</svg></div><div class="history-range-panel" data-history-panel="30日" hidden>
+<div class="history-stats history-stats-4">
+<div><span>現在</span><b>¥90.0</b></div>
+<div><span>最安</span><b>¥90.0</b><small>10/02</small></div>
+<div><span>最高</span><b>¥100.0</b><small>09/30</small></div>
+<div><span>値幅</span><b>¥10.0</b></div>
+</div>
+<svg class="sparkline buy" viewBox="0 0 180 64" role="img" aria-label="30日価格推移">
+<line x1="6" y1="58" x2="174" y2="58" class="spark-grid"/>
+<polyline points="6.0,6.0 90.0,6.0 174.0,58.0" fill="none" vector-effect="non-scaling-stroke"/>
+<circle cx="174.0" cy="58.0" r="3.2"/>
+</svg></div>
+</div><div class="buy-signal buy">
+<span>買い時寄り</span><small>値下がりし、30日内の最安水準です。</small>
+</div></div>
+</details>
+<div class="product-actions">
+<button type="button" class="utility-btn" data-save-product data-product-id="slow-foods:10003742" data-product-name="//楽天お買い物マラソン 10%オフ//★化学農薬不使用★化学肥料不使用栽培 クイック オートミール 大容量 2.2Kg プレミアム 通常タイプの約1/2-1/3の粒にカット ロールドオーツ 明細書不可(領収書は購入履歴ダウンロード可)" data-product-category="oatmeal" data-product-category-name="オートミール" data-product-price="1979" data-product-unit="89.954545" data-product-unit-label="100gあたり" data-product-quantity="合計2.2kg" data-product-url="https://hb.afl.rakuten.co.jp/hgc/g00q07so.7cx6m06d.g00q07so.7cx6ne8c/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fslow-foods%2F10003742%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Fslow-foods%2Fi%2F10003742%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" data-product-image="https://thumbnail.image.rakuten.co.jp/@0_mall/slow-foods/cabinet/oatmeal/06161930/imgrc0113913726.jpg?_ex=128x128">＋ 買い物メモ</button>
+<button type="button" class="utility-btn" data-compare-product data-product-id="slow-foods:10003742" data-product-name="//楽天お買い物マラソン 10%オフ//★化学農薬不使用★化学肥料不使用栽培 クイック オートミール 大容量 2.2Kg プレミアム 通常タイプの約1/2-1/3の粒にカット ロールドオーツ 明細書不可(領収書は購入履歴ダウンロード可)" data-product-category="oatmeal" data-product-category-name="オートミール" data-product-price="1979" data-product-unit="89.954545" data-product-unit-label="100gあたり" data-product-quantity="合計2.2kg" data-product-url="https://hb.afl.rakuten.co.jp/hgc/g00q07so.7cx6m06d.g00q07so.7cx6ne8c/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fslow-foods%2F10003742%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Fslow-foods%2Fi%2F10003742%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" data-product-image="https://thumbnail.image.rakuten.co.jp/@0_mall/slow-foods/cabinet/oatmeal/06161930/imgrc0113913726.jpg?_ex=128x128">＋ 比較する</button>
+</div></div>
 </div></article><article class="deal-card">
 <div class="deal-media"><img src="https://thumbnail.image.rakuten.co.jp/@0_mall/rakutenoriginal-daily/cabinet/item/water/ro-b-002_e_v2.jpg?_ex=128x128" alt="" width="320" height="320" loading="lazy"></div>
 <div class="deal-copy">
@@ -359,6 +590,46 @@ gtag('config','G-GFVSZ8YDQ5',{site_id:'food_cost_jp'});
  data-affiliate="rakuten" data-position="deals_page" data-category="carbonated-water" data-product-id="rakutenoriginal-daily:10000001"
  data-product-name="【楽天オリジナル】炭酸水 500ml×24本 [プレーン ソーダ 割り材 炭酸飲料 スパークリング 炭酸] まとめ買い 水 業務用 家庭用 大容量 オフィス ハイボール用 宅飲み 500ml 24本" data-rank="" data-metric="per_liter"
  data-unit-price="112.500000" data-shipping="included" data-cta-variant="history_low">30日最安を楽天で確認 →</a>
+<div class="discovery-secondary"><div class="trend-row"><span class="trend-badge drop">↓ ¥100 昨日比</span><span class="trend-badge low">30日最安</span></div>
+<details class="product-extra" data-product-extra>
+<summary>価格のうごきを見る <span>＋</span></summary>
+<div class="product-extra-body"><div class="history-card" data-history-card>
+<div class="history-head"><strong>価格履歴</strong><span>3回取得</span></div>
+<div class="history-toolbar"><div class="history-tabs">
+<button type="button" class="selected" data-history-range="7日">7日</button>
+<button type="button" data-history-range="30日">30日</button>
+</div><span class="history-trend down">最近下落</span></div>
+<div class="history-range-panel" data-history-panel="7日">
+<div class="history-stats history-stats-4">
+<div><span>現在</span><b>¥112</b></div>
+<div><span>最安</span><b>¥112</b><small>10/02</small></div>
+<div><span>最高</span><b>¥121</b><small>09/30</small></div>
+<div><span>値幅</span><b>¥8.3</b></div>
+</div>
+<svg class="sparkline buy" viewBox="0 0 180 64" role="img" aria-label="7日価格推移">
+<line x1="6" y1="58" x2="174" y2="58" class="spark-grid"/>
+<polyline points="6.0,6.0 90.0,6.0 174.0,58.0" fill="none" vector-effect="non-scaling-stroke"/>
+<circle cx="174.0" cy="58.0" r="3.2"/>
+</svg></div><div class="history-range-panel" data-history-panel="30日" hidden>
+<div class="history-stats history-stats-4">
+<div><span>現在</span><b>¥112</b></div>
+<div><span>最安</span><b>¥112</b><small>10/02</small></div>
+<div><span>最高</span><b>¥121</b><small>09/30</small></div>
+<div><span>値幅</span><b>¥8.3</b></div>
+</div>
+<svg class="sparkline buy" viewBox="0 0 180 64" role="img" aria-label="30日価格推移">
+<line x1="6" y1="58" x2="174" y2="58" class="spark-grid"/>
+<polyline points="6.0,6.0 90.0,6.0 174.0,58.0" fill="none" vector-effect="non-scaling-stroke"/>
+<circle cx="174.0" cy="58.0" r="3.2"/>
+</svg></div>
+</div><div class="buy-signal buy">
+<span>買い時寄り</span><small>値下がりし、30日内の最安水準です。</small>
+</div></div>
+</details>
+<div class="product-actions">
+<button type="button" class="utility-btn" data-save-product data-product-id="rakutenoriginal-daily:10000001" data-product-name="【楽天オリジナル】炭酸水 500ml×24本 [プレーン ソーダ 割り材 炭酸飲料 スパークリング 炭酸] まとめ買い 水 業務用 家庭用 大容量 オフィス ハイボール用 宅飲み 500ml 24本" data-product-category="carbonated-water" data-product-category-name="炭酸水" data-product-price="1350" data-product-unit="112.500000" data-product-unit-label="1Lあたり" data-product-quantity="500ml×24本 / 合計12L" data-product-url="https://hb.afl.rakuten.co.jp/hgc/g00uqzro.7cx6m99a.g00uqzro.7cx6n201/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Frakutenoriginal-daily%2Fro-b-002%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Frakutenoriginal-daily%2Fi%2F10000001%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" data-product-image="https://thumbnail.image.rakuten.co.jp/@0_mall/rakutenoriginal-daily/cabinet/item/water/ro-b-002_e_v2.jpg?_ex=128x128">＋ 買い物メモ</button>
+<button type="button" class="utility-btn" data-compare-product data-product-id="rakutenoriginal-daily:10000001" data-product-name="【楽天オリジナル】炭酸水 500ml×24本 [プレーン ソーダ 割り材 炭酸飲料 スパークリング 炭酸] まとめ買い 水 業務用 家庭用 大容量 オフィス ハイボール用 宅飲み 500ml 24本" data-product-category="carbonated-water" data-product-category-name="炭酸水" data-product-price="1350" data-product-unit="112.500000" data-product-unit-label="1Lあたり" data-product-quantity="500ml×24本 / 合計12L" data-product-url="https://hb.afl.rakuten.co.jp/hgc/g00uqzro.7cx6m99a.g00uqzro.7cx6n201/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Frakutenoriginal-daily%2Fro-b-002%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Frakutenoriginal-daily%2Fi%2F10000001%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" data-product-image="https://thumbnail.image.rakuten.co.jp/@0_mall/rakutenoriginal-daily/cabinet/item/water/ro-b-002_e_v2.jpg?_ex=128x128">＋ 比較する</button>
+</div></div>
 </div></article></div>
 </section>
 <section class="section explain"><h2>「今は安め」の判定について</h2>
@@ -386,6 +657,7 @@ gtag('config','G-GFVSZ8YDQ5',{site_id:'food_cost_jp'});
 <div class="section-kicker">COMPARE</div><h2 id="compare-title">選んだ商品を比較</h2>
 <div data-compare-table></div>
 </div></div></main><script>(()=>{
+document.querySelectorAll('img[data-image-fallback]').forEach(img=>{const fallback=()=>{const url=img.dataset.imageFallback;if(url){delete img.dataset.imageFallback;img.src=url}};img.addEventListener('error',fallback,{once:true});if(img.complete&&!img.naturalWidth)fallback()});
 const K='food_cost_operator_test_v1',p=new URLSearchParams(location.search);
 let op=false;
 try{op=localStorage.getItem(K)==='1'}catch(e){}
@@ -459,17 +731,17 @@ if(finder){
     if(!('IntersectionObserver' in window))shelfView(current?.querySelector('[data-market-shelf]'));
   };
   const reset=()=>{purpose='';category='all';route='';show(routeStage);hide(purposeStage);hide(categoryStage);hide(resultStage);status.textContent='';finder.querySelectorAll('[data-finder-picks]').forEach(x=>x.hidden=true);finder.querySelectorAll('[aria-pressed]').forEach(x=>x.setAttribute('aria-pressed','false'));finder.querySelectorAll('.selected').forEach(x=>x.classList.remove('selected'))};
-  const selectRoute=key=>{
+  const selectRoute=(key,source='entry')=>{
     route=key;category='all';status.textContent='';hide(routeStage);hide(purposeStage);hide(categoryStage);hide(resultStage);
     finder.querySelectorAll('[data-entry-route]').forEach(x=>{x.classList.toggle('selected',x.dataset.entryRoute===key);x.setAttribute('aria-pressed',String(x.dataset.entryRoute===key))});
-    send('entry_route_select',{entry_route:key});
+    send('entry_route_select',{entry_route:key,entry_source:source});
     if(key==='advisor'){show(purposeStage);return}
     intent=key==='deal'?'cheap':'known';purpose='cheap';send('shopping_intent_select',{shopping_intent:intent});
     if(key==='known'){show(categoryStage);status.textContent='いつもの食品を、売り場から選びましょう。'}else results();
   };
   finder.querySelectorAll('[data-entry-route]').forEach(btn=>btn.addEventListener('click',()=>selectRoute(btn.dataset.entryRoute)));
   document.querySelector('[data-hero-known]')?.addEventListener('click',()=>selectRoute('known'));
-  document.querySelector('[data-hero-primary]')?.addEventListener('click',()=>{reset();send('hero_primary_cta',{destination:'quick-finder'})});
+  document.querySelector('[data-hero-primary]')?.addEventListener('click',()=>{reset();selectRoute('advisor','hero');send('hero_primary_cta',{destination:'shopping-intent',entry_route:'advisor'})});
   finder.querySelectorAll('[data-finder-purpose]').forEach(btn=>btn.addEventListener('click',()=>{
     purpose=btn.dataset.finderPurpose;intent=purpose;category='all';
     finder.querySelectorAll('[data-finder-purpose]').forEach(x=>{x.classList.toggle('selected',x===btn);x.setAttribute('aria-pressed',String(x===btn))});
