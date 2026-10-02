@@ -709,25 +709,6 @@ def service_shortcuts_html() -> str:
 </nav>"""
 
 
-def home_start_hub(results: dict) -> str:
-    deals, has_history = deal_entries(results)
-    deal_meta = f"{len(deals)}件の値下がり" if deals else ("価格履歴を確認" if has_history else "価格履歴を蓄積中")
-    return f"""<section class="section start-hub" aria-label="探し方を選ぶ">
-<div class="start-hub-head"><div><div class="section-kicker">START HERE</div><h2>今日は、どう探す？</h2></div><span>お気に入りを見つけに</span></div>
-<div class="start-grid">
-<a class="start-card deal-start" href="deals/" data-start-route="deals">
-<div class="start-icon">01</div><div><small>TODAY’S PICKS</small><strong>今日のお買い得</strong><p>{html.escape(deal_meta)}</p></div><b>見る →</b>
-</a>
-<a class="start-card finder-start featured" href="#quick-finder" data-start-route="finder">
-<div class="start-icon">02</div><div><small>SHOPPING GUIDE</small><strong>買い方診断</strong><p>食品と買い方を選ぶだけ</p></div><b>診断する →</b>
-</a>
-<a class="start-card category-start" href="#categories" data-start-route="categories">
-<div class="start-icon">03</div><div><small>MARKET AISLES</small><strong>カテゴリ比較</strong><p>4カテゴリを単価順で</p></div><b>選ぶ →</b>
-</a>
-</div>
-</section>"""
-
-
 def shopping_journey_html() -> str:
     return """<section class="journey-strip" aria-label="商品の選び方">
 <div><span>1</span><strong>候補を見る</strong><small>単価と総額を確認</small></div>
@@ -786,7 +767,7 @@ def deal_card_html(category: dict, item: dict, position: str = "today_deal") -> 
     history = item["price_history"]
     primary = item["unit_prices"][category["primary"]]
     image = (
-        f'<img src="{html.escape(item["image"], quote=True)}" alt="" loading="lazy">'
+        f'<img src="{html.escape(item["image"], quote=True)}" alt="" width="160" height="160" loading="lazy">'
         if item["image"] else category_illustration(category["id"], True)
     )
     label = history.get("previous_label") or "前回比"
@@ -879,50 +860,52 @@ def today_deals_html(results: dict) -> str:
 <a class="deal-more" href="deals/">値下がり商品をすべて見る →</a>
 </section>"""
 
+def shopping_bucket(item: dict, category_id: str) -> str:
+    # Bottle volume alone does not describe how much needs to be stored.
+    if category_id == "carbonated-water":
+        return "small" if item["quantity"]["total_volume_ml"] <= 12000 else "large"
+    return bucket(item, category_id)
+
+
 def finder_pick_items(items: list[dict], category: dict, purpose: str) -> list[dict]:
-    source = list(items)
-    if purpose == "small":
-        picked = [x for x in source if bucket(x, category["id"]) == "small"]
-    elif purpose == "large":
-        picked = [x for x in source if bucket(x, category["id"]) == "large"]
-    elif purpose == "budget":
-        picked = sorted(source, key=lambda x: (x["price"], x["unit_prices"][category["primary"]]))
-    elif purpose == "storage":
-        picked = [x for x in source if bucket(x, category["id"]) == "small"]
-        picked.sort(key=lambda x: (x["price"], x["unit_prices"][category["primary"]]))
-    else:
-        picked = source
-    return picked[:3] if picked else source[:3]
+    source = [x for x in items if x.get("postage_included")]
+    if purpose in ("small", "storage", "large"):
+        target = "large" if purpose == "large" else "small"
+        source = [x for x in source if shopping_bucket(x, category["id"]) == target]
+    metric = category["primary"]
+    source.sort(key=lambda x: (x["price"], x["unit_prices"][metric]) if purpose in ("budget", "storage", "small") else (x["unit_prices"][metric], x["price"]))
+    return source[:3]
 
 
 def recommendation_reason(item: dict, category: dict, purpose: str, position: int) -> str:
     if purpose == "budget":
         return "支払総額を抑えやすい候補" if position == 1 else "商品価格が低めの候補"
     if purpose == "storage":
-        return "保管しやすい少量側から選定" if position == 1 else "置き場所を取りにくい候補"
+        return "合計量が少量側・商品価格が低い候補" if position == 1 else "合計量が少量側の候補"
     if purpose == "small":
-        return "少量側の中で単価が安い候補"
+        return "少量側から商品価格の低い順で選定"
     if purpose == "large":
         return "大容量側の中で単価が安い候補"
-    return "この条件で単価が安い候補" if position == 1 else "上位の高コスパ候補"
+    return "この条件で単価が安い候補" if position == 1 else "同じ売り場で単価が低い候補"
 
 
-def finder_product_card(item: dict, category: dict, position: int, purpose: str) -> str:
+def finder_product_card(item: dict, category: dict, position: int, purpose: str, reason_override: str = "") -> str:
     primary = item["unit_prices"][category["primary"]]
     image = (
-        f'<img src="{html.escape(item["image"], quote=True)}" alt="" loading="lazy">'
+        f'<img src="{html.escape(item["image"], quote=True)}" alt="" width="160" height="160" loading="lazy">'
         if item["image"] else category_illustration(category["id"], True)
     )
-    reason = recommendation_reason(item, category, purpose, position)
+    reason = reason_override or recommendation_reason(item, category, purpose, position)
     cta_label, cta_variant = cta_copy(item, "finder", position)
     return f"""<article class="finder-product">
 <div class="finder-product-media">{image}</div>
 <div class="finder-product-copy">
-<span class="finder-product-rank">{position}</span>
+<span class="finder-product-rank">{html.escape(category["name"])}</span>
 {product_identity_html(item, category, "finder-product-name")}
 <div class="finder-product-price">{yen(primary)} <small>{html.escape(category["primary_label"])}</small></div>
+<div class="finder-product-meta">商品価格 ¥{item["price"]:,}<br>{html.escape(quantity_text(item, category["id"]))}</div>
+<div class="shelf-shipping">送料込み確認済み</div>
 <div class="trend-row">{price_history_badges(item)}</div>
-<div class="finder-product-meta">{html.escape(quantity_text(item, category["id"]))} ・ ¥{item["price"]:,}</div>
 <div class="finder-why"><span>なぜ？</span>{html.escape(reason)}</div>
 {product_history_details(item)}
 {product_action_buttons(item, category, primary)}
@@ -1052,7 +1035,7 @@ def top3_html(items: list[dict], category: dict) -> str:
         diff_text = "最安" if rank == 1 else f"最安との差 +{yen(diff)}"
         cta_label, cta_variant = cta_copy(item, "top3", rank)
         image = (
-            f'<img class="podium-img" src="{html.escape(item["image"], quote=True)}" alt="" loading="lazy">'
+            f'<img class="podium-img" src="{html.escape(item["image"], quote=True)}" alt="" width="160" height="160" loading="lazy">'
             if item["image"] else category_illustration(category["id"], True)
         )
         cards.append(f"""<article class="podium-card rank-{rank}">
@@ -1074,65 +1057,92 @@ def top3_html(items: list[dict], category: dict) -> str:
 </article>""")
     return f"""<section class="section podium-section">
 <div class="section-kicker">まずはここから</div>
-<h2>今日のおすすめ棚 <small>送料込み TOP{min(3, len(items))}</small></h2>
+<h2>この売り場のおすすめ棚 <small>送料込み TOP{min(3, len(items))}</small></h2>
 <p class="sub">現在取得できた商品の中で、{html.escape(category["primary_label"])}が安い順です。</p>
 <div class="podium-grid">{''.join(cards)}</div>
 </section>"""
 
 
-def choice_finder_html(results: dict) -> str:
-    choices = "".join(
-        f"""<button class="finder-category {category['id']}" type="button"
- data-finder-category="{category['id']}" data-finder-name="{html.escape(category['name'], quote=True)}">
-<span class="finder-art">{category_illustration(category['id'], True)}</span>
-<span>{html.escape(category['name'])}</span>
-</button>"""
-        for category in CATEGORIES
-    )
-    labels = {"cheap": "単価重視", "small": "少量で買いたい", "large": "まとめ買い", "budget": "支払総額を抑える", "storage": "保管しやすさ重視"}
-    panels = []
+SHOPPING_INTENTS = {
+    "cheap": ("今日、単価の良いものを", "値下がりと各売り場の単価上位から"),
+    "large": ("まとめてストックしたい", "大容量側の、単価が低い候補へ"),
+    "small": ("少量で気軽に買いたい", "少量側の、商品価格が低い候補へ"),
+    "budget": ("支払総額を抑えたい", "各売り場で、商品価格が低い候補へ"),
+    "storage": ("収納する量を抑えたい", "合計量が少量側の候補へ"),
+    "known": ("買うものは決まっている", "食品の売り場を選んで比べる"),
+}
+
+
+def cross_shelf_items(results: dict, purpose: str) -> list[tuple]:
+    # One candidate per aisle: never rank unlike units against one another.
+    selected = []
+    deals, _ = deal_entries(results)
     for category in CATEGORIES:
-        included, _ = results[category["id"]]
-        for purpose in ("cheap", "small", "large", "budget", "storage"):
-            picks = finder_pick_items(included, category, purpose)
-            cards = "".join(
-                finder_product_card(item, category, index, purpose)
-                for index, item in enumerate(picks, start=1)
-            )
-            panels.append(f"""<div class="finder-picks" data-finder-picks="{category['id']}:{purpose}" hidden>
-<div class="finder-picks-head"><span>あなた向け</span><strong>{html.escape(category['name'])} × {labels[purpose]}</strong></div>
-<div class="finder-products">{cards}</div>
-<a class="finder-all" href="categories/{category['id']}/?pick={purpose}#included">この条件の商品を全部見る →</a>
-</div>""")
-    return f"""<section class="section finder" id="quick-finder" data-finder>
-<div class="finder-intro">
-<div>
-<div class="section-kicker">YOUR SHOPPING GUIDE</div>
-<h2>今日は何を探していますか？</h2>
-<p class="sub">食品と買い方を、ひとつずつ。あなたに合う候補を棚に並べます。</p>
-</div>
-<div class="finder-guide">{guide_mascot(True)}<span>選んでみて</span></div>
-</div>
-<div class="finder-stage" data-finder-category-stage>
-<div class="finder-question"><span>Q1</span><strong>まずは、食品を選びましょう。</strong></div>
-<div class="finder-options finder-category-options">{choices}</div>
-</div>
-<div class="finder-stage" data-finder-purpose-stage hidden>
-<button class="finder-back" type="button" data-finder-back>← 食品を選び直す</button>
-<div class="finder-question"><span>Q2</span><strong data-finder-question-title>どんな買い方？</strong></div>
-<div class="finder-options finder-purpose-options">
-<button type="button" data-finder-purpose="cheap"><span><strong>単価重視</strong><small>とにかく安い順で</small></span></button>
-<button type="button" data-finder-purpose="small"><span><strong>少量で</strong><small>置き場所・買いやすさ重視</small></span></button>
-<button type="button" data-finder-purpose="large"><span><strong>まとめ買い</strong><small>大容量から選ぶ</small></span></button>
-<button type="button" data-finder-purpose="budget"><span><strong>支払総額を抑える</strong><small>まず安く買える商品から</small></span></button>
-<button type="button" data-finder-purpose="storage"><span><strong>保管しやすさ</strong><small>置き場所を取りにくい量から</small></span></button>
-</div>
-</div>
-<div class="finder-stage finder-result-stage" data-finder-result-stage hidden>
-<button class="finder-back" type="button" data-finder-reset>← もう一度選ぶ</button>
-{''.join(panels)}
-</div>
-</section>"""
+        items, _ = results.get(category["id"], ([], []))
+        picks = finder_pick_items(items, category, purpose)
+        if purpose == "cheap":
+            drops = [entry[4] for entry in deals if entry[3]["id"] == category["id"]]
+            if drops:
+                picks = drops
+        if picks:
+            selected.append((category, picks[0]))
+    return selected
+
+
+def market_shelf_html(entries: list[tuple], title: str, shelf_id: str, purpose: str = "cheap", note: str = "") -> str:
+    cards = []
+    for i, (category, item) in enumerate(entries, 1):
+        delta = (item.get("price_history") or {}).get("price_delta")
+        uses_drop = purpose == "cheap" and shelf_id in ("today", "finder-all-cheap")
+        reason = "前回取得時より価格が下がった掲載商品" if uses_drop and delta is not None and delta < 0 else ""
+        cards.append(finder_product_card(item, category, i, purpose, reason))
+    cards = "".join(cards)
+    if not shelf_id.startswith("finder-"):
+        cards = cards.replace('data-position="quick_finder_result"', 'data-position="market_shelf"')
+    if not cards:
+        cards = '<p class="shelf-empty">この条件の掲載候補は現在ありません。別の買い方や売り場も見てみましょう。</p>'
+    return f'''<section class="market-shelf" data-market-shelf="{shelf_id}">
+<div class="shelf-heading"><span class="section-kicker">MARKET SHELF</span><h3>{html.escape(title)}</h3></div>
+<p class="sub">{html.escape(note)}</p><div class="finder-products">{cards}</div></section>'''
+
+
+def today_market_html(results: dict) -> str:
+    entries = cross_shelf_items(results, "cheap")
+    deals, has_history = deal_entries(results)
+    history_note = "実際の値下がりを確認した商品と、各売り場の単価上位から。" if deals else "今回は値下がり候補なし。各売り場の単価上位から。" if has_history else "価格履歴を蓄積中。今は各売り場の単価上位から。"
+    return f'''<section class="section deal-section" id="today-market">
+<div class="section-kicker">A LITTLE DISCOVERY, TODAY</div><h2>今日のマルシェ、まずはこの棚から。</h2>
+{market_shelf_html(entries, "本日のおすすめ棚", "today", note=history_note+" 食品をまたぐ順位・品質のおすすめではありません。")}
+<a class="deal-more" href="deals/" data-start-route="deals">今日のお買い得・価格履歴を見る →</a>
+</section>'''
+
+
+def discovery_shelves_html(results: dict) -> str:
+    return '<section class="section discovery-shelves"><div class="section-kicker">A WALK THROUGH THE MARKET</div><h2>こんな買い方も、いいかもしれない。</h2>'+''.join(
+        market_shelf_html(cross_shelf_items(results, key), title, "discover-"+key, key, note)
+        for key,title,note in [("large","まとめて備える棚","各売り場の大容量側から単価の低い候補を1つずつ。保管場所・消費量・賞味期限は購入前に確認してください。"), ("small","小さく買ってみる棚","各売り場の少量側から商品価格の低い候補を1つずつ。異なる食品の単価は順位づけしません。")])+'</section>'
+
+
+def choice_finder_html(results: dict) -> str:
+    choices = "".join(f'''<button class="finder-category {c['id']}" type="button" aria-pressed="false" data-finder-category="{c['id']}" data-finder-name="{html.escape(c['name'], quote=True)}"><span class="finder-art">{category_illustration(c['id'], True)}</span><span>{html.escape(c['name'])}</span></button>''' for c in CATEGORIES)
+    intents = ''.join(f'''<button type="button" data-finder-purpose="{key}" aria-pressed="false"><span class="intent-number">0{i}</span><span><strong>{label}</strong><small>{hint}</small></span><span aria-hidden="true">↗</span></button>''' for i,(key,(label,hint)) in enumerate(SHOPPING_INTENTS.items(),1))
+    panels=[]
+    for purpose in ("cheap","small","large","budget","storage"):
+        label=SHOPPING_INTENTS[purpose][0]
+        entries=cross_shelf_items(results,purpose)
+        panels.append(f'<div class="finder-picks" data-finder-picks="all:{purpose}" hidden>'+market_shelf_html(entries,label,"finder-all-"+purpose,purpose,"送料込み確認済み。各売り場から1候補ずつ。単位が異なる食品を順位づけしません。")+'</div>')
+        for c in CATEGORIES:
+            picks=finder_pick_items(results.get(c['id'],([],[]))[0],c,purpose)
+            entries=[(c,x) for x in picks]
+            note='掲載候補内の比較。少量の基準：ご飯24食以下、米5kg以下、炭酸水合計12L以下、オートミール1kg以下。収納寸法の判定ではありません。'
+            panels.append(f'<div class="finder-picks" data-finder-picks="{c["id"]}:{purpose}" hidden>'+market_shelf_html(entries,c['name']+' · '+label,'finder-'+c['id']+'-'+purpose,purpose,note)+f'<a class="finder-all" href="categories/{c["id"]}/?pick={purpose}#included">この売り場の商品一覧へ →</a></div>')
+    return f'''<section class="section finder" id="quick-finder" data-finder>
+<div class="finder-intro"><div><div class="section-kicker">LET’S FIND YOUR SHELF</div><h2>今日は、どんな買い物にする？</h2><p class="sub">買うものが決まっていなくても大丈夫。気分に合う棚から見ていきましょう。</p></div><div class="finder-guide">{guide_mascot(True)}<span>一緒に、棚を探しましょう。</span></div></div>
+<div class="finder-stage" data-finder-purpose-stage><div class="finder-question"><span>STEP 1</span><strong>今日は、こんな気分。</strong></div><div class="finder-options finder-purpose-options">{intents}</div></div>
+<p class="finder-status" data-finder-status role="status" aria-live="polite"></p>
+<div class="finder-stage" data-finder-category-stage hidden><button class="finder-back" type="button" data-finder-back>← 買い方に戻る</button><div class="finder-question"><span>STEP 2</span><strong>何を探してる？</strong></div><div class="finder-options finder-category-options">{choices}</div></div>
+<div class="finder-stage finder-result-stage" data-finder-result-stage hidden><div class="finder-result-actions"><button class="finder-back" type="button" data-finder-reset>← 気分を変える</button><button class="finder-back" type="button" data-finder-narrow>売り場を絞る →</button></div>{''.join(panels)}</div></section>'''
+
 
 def item_badges(item: dict, category: dict, rank: int) -> str:
     badges = []
@@ -1162,7 +1172,7 @@ def comparison_flow_html() -> str:
 </section>"""
 
 
-CSS = (Path(__file__).parent / "marche.css").read_text(encoding="utf-8")
+CSS = (Path(__file__).parent / "marche.css").read_text(encoding="utf-8") + (Path(__file__).parent / "market.css").read_text(encoding="utf-8")
 
 
 JS = """(()=>{
@@ -1200,7 +1210,7 @@ const applyFilters=root=>{
   const term=(root.querySelector('[data-search]')?.value||'').trim().toLowerCase();
   let shown=0;
   root.querySelectorAll('tbody tr').forEach(r=>{
-    const sizeOk=size==='all'||r.dataset.bucket===size;
+    const sizeOk=size==='all'||(root.dataset.shoppingIntent?r.dataset.shoppingBucket:r.dataset.bucket)===size;
     const textOk=!term||(r.dataset.searchText||'').includes(term);
     r.hidden=!(sizeOk&&textOk);
     if(!r.hidden)shown++;
@@ -1209,42 +1219,43 @@ const applyFilters=root=>{
   if(empty)empty.style.display=shown?'none':'block';
 };
 document.querySelectorAll('[data-filter]').forEach(s=>s.addEventListener('change',()=>{
-  const root=s.closest('[data-comparison]');applyFilters(root);
+  const root=s.closest('[data-comparison]');delete root.dataset.shoppingIntent;applyFilters(root);
   send('comparison_filter_use',{category_id:s.dataset.category,filter_value:s.value})
 }));
 document.querySelectorAll('[data-search]').forEach(input=>input.addEventListener('change',()=>{
   const root=input.closest('[data-comparison]');applyFilters(root);
   send('comparison_search_use',{category_id:input.dataset.category,search_term:input.value.trim()})
 }));
+const shelfSeen=new WeakSet();
+const shelfView=el=>{if(!el||shelfSeen.has(el)||el.closest('[hidden]'))return;shelfSeen.add(el);send('market_shelf_view',{shelf_id:el.dataset.marketShelf,product_count:el.querySelectorAll('[data-affiliate]').length})};
+if(!('IntersectionObserver' in window))document.querySelectorAll('[data-market-shelf]').forEach(shelfView);
+if('IntersectionObserver' in window){const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting)shelfView(entry.target)}),{threshold:.1});document.querySelectorAll('[data-market-shelf]').forEach(el=>observer.observe(el))}
+document.addEventListener('click',e=>{const a=e.target.closest('a[data-affiliate]');const shelf=a?.closest('[data-market-shelf]');if(shelf)send('market_shelf_product_click',{shelf_id:shelf.dataset.marketShelf,category_id:a.dataset.category,product_id:a.dataset.productId,cta_variant:a.dataset.ctaVariant})});
 const finder=document.querySelector('[data-finder]');
 if(finder){
-  let category='';
-  const categoryStage=finder.querySelector('[data-finder-category-stage]');
-  const purposeStage=finder.querySelector('[data-finder-purpose-stage]');
-  const resultStage=finder.querySelector('[data-finder-result-stage]');
-  const qTitle=finder.querySelector('[data-finder-question-title]');
-  const show=el=>{if(el){el.hidden=false;const first=el.querySelector('button');if(first)first.focus({preventScroll:true})}};
-  const hide=el=>{if(el)el.hidden=true};
-  const reset=()=>{
-    category='';
-    show(categoryStage);hide(purposeStage);hide(resultStage);
-    finder.querySelectorAll('.selected').forEach(x=>x.classList.remove('selected'));
-    finder.querySelectorAll('[data-finder-picks]').forEach(x=>x.hidden=true)
+  let category='all',purpose='',intent='';
+  const categoryStage=finder.querySelector('[data-finder-category-stage]'),purposeStage=finder.querySelector('[data-finder-purpose-stage]'),resultStage=finder.querySelector('[data-finder-result-stage]'),status=finder.querySelector('[data-finder-status]');
+  const show=el=>{el.hidden=false;const first=el.querySelector('button');first?.focus({preventScroll:true})};
+  const hide=el=>el.hidden=true;
+  const results=()=>{
+    hide(categoryStage);show(resultStage);
+    let current;
+    finder.querySelectorAll('[data-finder-picks]').forEach(panel=>{panel.hidden=panel.dataset.finderPicks!==category+':'+purpose;if(!panel.hidden)current=panel});
+    const count=current?.querySelectorAll('[data-affiliate]').length||0;
+    status.textContent=count?'それなら、この棚から。 '+count+'件の候補があります。':'この条件の候補は現在ありません。別の買い方も見てみましょう。';
+    send('finder_complete',{category_id:category,shopping_intent:intent,product_count:count});
+    send('quick_finder_complete',{category_id:category,finder_purpose:purpose});
+    if(!('IntersectionObserver' in window))shelfView(current?.querySelector('[data-market-shelf]'));
   };
-  finder.querySelectorAll('[data-finder-category]').forEach(btn=>btn.addEventListener('click',()=>{
-    category=btn.dataset.finderCategory;
-    finder.querySelectorAll('[data-finder-category]').forEach(x=>x.classList.toggle('selected',x===btn));
-    qTitle.textContent=btn.dataset.finderName+'は、どう買いたい？';
-    hide(categoryStage);show(purposeStage);hide(resultStage);
-    send('quick_finder_category',{category_id:category})
-  }));
+  const reset=()=>{purpose='';category='all';show(purposeStage);hide(categoryStage);hide(resultStage);status.textContent='';finder.querySelectorAll('[data-finder-picks]').forEach(x=>x.hidden=true);finder.querySelectorAll('[aria-pressed]').forEach(x=>x.setAttribute('aria-pressed','false'));finder.querySelectorAll('.selected').forEach(x=>x.classList.remove('selected'))};
   finder.querySelectorAll('[data-finder-purpose]').forEach(btn=>btn.addEventListener('click',()=>{
-    if(!category)return;
-    const purpose=btn.dataset.finderPurpose;
-    finder.querySelectorAll('[data-finder-picks]').forEach(panel=>panel.hidden=panel.dataset.finderPicks!==category+':'+purpose);
-    hide(categoryStage);hide(purposeStage);show(resultStage);
-    send('quick_finder_complete',{category_id:category,finder_purpose:purpose})
+    purpose=btn.dataset.finderPurpose;intent=purpose;category='all';
+    finder.querySelectorAll('[data-finder-purpose]').forEach(x=>{x.classList.toggle('selected',x===btn);x.setAttribute('aria-pressed',String(x===btn))});
+    send('shopping_intent_select',{shopping_intent:intent});hide(purposeStage);
+    if(purpose==='known'){purpose='cheap';hide(resultStage);show(categoryStage);status.textContent='いつもの食品を、売り場から選びましょう。'}else results();
   }));
+  finder.querySelectorAll('[data-finder-category]').forEach(btn=>btn.addEventListener('click',()=>{category=btn.dataset.finderCategory;finder.querySelectorAll('[data-finder-category]').forEach(x=>{x.classList.toggle('selected',x===btn);x.setAttribute('aria-pressed',String(x===btn))});send('quick_finder_category',{category_id:category});send('category_select_after_intent',{category_id:category,shopping_intent:intent});results()}));
+  finder.querySelector('[data-finder-narrow]')?.addEventListener('click',()=>{hide(resultStage);show(categoryStage);status.textContent='この買い方のまま、売り場を選べます。'});
   finder.querySelector('[data-finder-back]')?.addEventListener('click',reset);
   finder.querySelector('[data-finder-reset]')?.addEventListener('click',reset);
 }
@@ -1253,7 +1264,7 @@ if(pick&&document.querySelector('[data-comparison]')){
   const root=document.querySelector('[data-comparison]');
   const filter=root.querySelector('[data-filter]');
   const sort=root.querySelector('[data-sort]');
-  if(filter&&(pick==='small'||pick==='large'))filter.value=pick;
+  if(filter&&(pick==='small'||pick==='large'||pick==='storage')){root.dataset.shoppingIntent=pick;filter.value=pick==='storage'?'small':pick;const label=root.querySelector('[data-intent-note]');if(label)label.textContent='買い方で絞った一覧：少量側 / 大容量側は合計量を基準にしています。'}
   if(filter&&pick==='storage')filter.value='small';
   if(sort&&(pick==='budget'||pick==='storage')){sort.value='price';sort.dispatchEvent(new Event('change'))}
   const details=root.closest('details');if(details)details.open=true;
@@ -1442,7 +1453,7 @@ def rows_html(items: list[dict], category: dict, start_rank: int = 1) -> str:
         rank_html = f'<span class="rank top">{rank}</span>' if rank <= 3 else f'<span class="rank">{rank}</span>'
         search_text = html.escape((item["name"] + " " + item["shop"]).lower(), quote=True)
         rows.append(
-            f"""<tr data-bucket="{bucket(item, category['id'])}" data-search-text="{search_text}" {attrs}>
+            f"""<tr data-bucket="{bucket(item, category['id'])}" data-shopping-bucket="{shopping_bucket(item, category['id'])}" data-search-text="{search_text}" {attrs}>
 <td data-cell="rank" data-rank>{rank_html}</td>
 <td data-cell="image">{image}</td>
 <td data-cell="product">{product_identity_html(item, category)}<div class="shop">{html.escape(item['shop'])}</div><div class="product-badges">{recommendation} {shipping} {promo}</div><div class="trend-row">{price_history_badges(item)}</div>{product_history_details(item)}</td>
@@ -1491,7 +1502,7 @@ def comparison_table(
 <option value="large">{html.escape(category['filter_large'])}</option>
 </select>
 </div>
-<div class="empty-filter" data-empty-filter>条件に合う商品がありません。検索語や容量条件を変えてください。</div>
+<p class="sub" data-intent-note></p><div class="empty-filter" data-empty-filter>条件に合う商品がありません。検索語や容量条件を変えてください。</div>
 <div class="table"><table>
 <thead><tr><th>順</th><th></th><th>商品</th><th>数量</th><th>商品価格</th><th>単価</th><th>販売先</th></tr></thead>
 <tbody>{rows_html(items, category, start_rank)}</tbody>
@@ -2044,23 +2055,29 @@ def home_page(results: dict, updated: datetime, guide_specs: list[dict] | None =
 <div class="hero-copy">
 <div class="eyebrow">毎日の食品を、賢く選ぶ小さなマルシェ</div>
 <span class="brand">Welcome to your everyday marché.</span>
-<h1>いい買い物は、<br>小さな発見から。</h1>
+<h1>今日の買い物を、<br>ちょっと楽しく。<br>ちょっと賢く。</h1>
 <p class="lead">いつものご飯も、朝の一杯も。<br>単価と送料をそろえて、わが家にちょうどいいものを。</p>
-<div class="hero-actions"><a class="cta" href="#categories">売り場を見て回る →</a><a href="#quick-finder">買い方を相談する</a></div>
+<div class="hero-actions"><a class="cta" href="#today-market">今日の棚をのぞく →</a><a href="#quick-finder" data-start-route="finder">買い方を相談する</a></div>
 <p class="note">最終価格確認: {updated:%Y-%m-%d %H:%M} JST</p>
 </div>
 {hero_visual()}
 </div></header>
 {service_shortcuts_html()}
 <main class="wrap">
-{home_start_hub(results)}
-{today_deals_html(results)}
+{today_market_html(results)}
+{choice_finder_html(results)}
+{discovery_shelves_html(results)}
 <section class="section" id="categories">
 <div class="section-kicker">THE MARKET AISLES</div>
-<h2>いつもの食品を、売り場から。</h2>
+<h2>売り場から探す。</h2><p class="sub">買うものが決まっているときは、こちらから。</p>
 <section class="grid">"""
     )
+    last_aisle = None
     for category in CATEGORIES:
+        aisle = {"pack-rice":"ごはん・お米", "rice":"ごはん・お米", "carbonated-water":"飲みもの", "oatmeal":"朝食・穀物"}.get(category["id"],"その他の売り場")
+        if aisle != last_aisle:
+            parts.append(f'<h3 class="aisle-group">{aisle}</h3>')
+            last_aisle = aisle
         included, _ = results[category["id"]]
         best = included[0]["unit_prices"][category["primary"]] if included else None
         message = (
@@ -2068,21 +2085,20 @@ def home_page(results: dict, updated: datetime, guide_specs: list[dict] | None =
             if best is not None else "比較データを準備中"
         )
         parts.append(
-            f"""<a class="card category-card {category['id']}" href="categories/{category['id']}/">
+            f"""<a class="card category-card {category['id']}" href="categories/{category['id']}/" data-start-route="categories">
 <div class="category-art">{category_illustration(category["id"], True)}</div>
 <div class="category-copy">
-<span class="aisle-name">{html.escape({"pack-rice":"READY TO EAT", "rice":"RICE & GRAINS", "carbonated-water":"DRINKS", "oatmeal":"BREAKFAST"}[category["id"]])}</span><div class="category-name">{category['name']}</div>
+<span class="aisle-name">{html.escape({"pack-rice":"READY TO EAT", "rice":"RICE & GRAINS", "carbonated-water":"DRINKS", "oatmeal":"BREAKFAST"}.get(category["id"], "MARKET AISLE"))}</span><div class="category-name">{category['name']}</div>
 <div class="category-price">{html.escape(message.replace('取得商品では ', ''))}</div>
 <div class="category-meta">送料込み {len(included)}件を比較中</div>
 <p>{html.escape(category['intro'])}</p>
-<span class="category-go">ランキングを見る →</span>
+<span class="category-go">この売り場へ →</span>
 </div>
 </a>"""
         )
     parts.append(
         """</section></section>"""
     )
-    parts.append(choice_finder_html(results))
     parts.append(shopping_journey_html())
     parts.append(guide_links_html(guide_specs))
     parts.append(comparison_flow_html())
