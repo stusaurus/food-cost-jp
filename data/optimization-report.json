@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-02T18:11:35.057708+09:00",
+  "generated_at": "2026-10-02T18:25:02.799970+09:00",
   "site_id": "food_cost_jp",
   "inventory": {
     "pack-rice": {
@@ -25,16 +25,16 @@
     },
     "oatmeal": {
       "name": "オートミール",
-      "included_count": 25,
-      "shipping_unknown_count": 20,
-      "history_ready_count": 25,
+      "included_count": 15,
+      "shipping_unknown_count": 6,
+      "history_ready_count": 15,
       "history_ready_rate": 1.0
     }
   },
   "price_history": {
-    "ready_count": 74,
-    "included_count": 81,
-    "ready_rate": 0.9136,
+    "ready_count": 64,
+    "included_count": 71,
+    "ready_rate": 0.9014,
     "deal_count": 4
   },
   "auto_seo": {
@@ -74,7 +74,7 @@
       {
         "slug": "oatmeal-rolled-cost",
         "category_id": "oatmeal",
-        "matched_count": 8,
+        "matched_count": 3,
         "title": "ロールドオーツのコスパ比較"
       }
     ]
