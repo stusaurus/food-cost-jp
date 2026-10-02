@@ -76,6 +76,11 @@ def parse(title, cid):
         grams = {float(m.group(1))*(1000 if m.group(2).lower()=='kg' else 1) for m in amounts}
         if len(grams) != 1 or not 65 <= next(iter(grams)) <= 130: return None
     remainder = t.replace(evidence, ' ', 1)
+    # Parenthesized/repeated total servings may restate a correctly parsed
+    # pack chain, e.g. "5食x6袋(30食)". Remove only an exact total; any
+    # different visible serving count remains a conflict below.
+    if count_only:
+        remainder = re.sub(r'(?<!\\d)'+str(count)+r'\\s*食(?:分)?', ' ', remainder)
     # Bare multipliers and missing units are unsafe; do not silently take an inner pack.
     if re.search(r'x\s*\d+', remainder, re.I): return None
     allowed = {count, *counts}
