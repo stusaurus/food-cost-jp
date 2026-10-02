@@ -1,26 +1,26 @@
 {
-  "generated_at": "2026-10-02T09:00:16.413548+09:00",
+  "generated_at": "2026-10-02T16:54:22.118974+09:00",
   "site_id": "food_cost_jp",
   "inventory": {
     "pack-rice": {
       "name": "パックご飯",
-      "included_count": 18,
+      "included_count": 19,
       "shipping_unknown_count": 2,
       "history_ready_count": 17,
-      "history_ready_rate": 0.9444
+      "history_ready_rate": 0.8947
     },
     "rice": {
       "name": "米",
-      "included_count": 20,
-      "shipping_unknown_count": 6,
-      "history_ready_count": 17,
-      "history_ready_rate": 0.85
+      "included_count": 22,
+      "shipping_unknown_count": 4,
+      "history_ready_count": 18,
+      "history_ready_rate": 0.8182
     },
     "carbonated-water": {
       "name": "炭酸水",
-      "included_count": 12,
-      "shipping_unknown_count": 20,
-      "history_ready_count": 12,
+      "included_count": 14,
+      "shipping_unknown_count": 19,
+      "history_ready_count": 14,
       "history_ready_rate": 1.0
     },
     "oatmeal": {
@@ -32,10 +32,10 @@
     }
   },
   "price_history": {
-    "ready_count": 71,
-    "included_count": 75,
-    "ready_rate": 0.9467,
-    "deal_count": 1
+    "ready_count": 74,
+    "included_count": 80,
+    "ready_rate": 0.925,
+    "deal_count": 4
   },
   "auto_seo": {
     "minimum_products": 3,
@@ -44,7 +44,7 @@
       {
         "slug": "pack-rice-24-servings-cost",
         "category_id": "pack-rice",
-        "matched_count": 3,
+        "matched_count": 4,
         "title": "パックご飯24食のコスパ比較"
       },
       {
@@ -62,7 +62,7 @@
       {
         "slug": "carbonated-water-1l-cost",
         "category_id": "carbonated-water",
-        "matched_count": 4,
+        "matched_count": 6,
         "title": "炭酸水1L前後のコスパ比較"
       },
       {
