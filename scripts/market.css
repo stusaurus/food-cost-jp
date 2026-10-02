@@ -69,3 +69,9 @@
  .market-shelf .product-extra{margin:5px 0}
  .market-shelf .product-extra>summary{min-height:44px;align-items:center;padding:6px 0}
 }
+@media(max-width:759px){
+ .compare-bar-items{display:none}
+ .compare-bar{flex-wrap:nowrap;min-height:60px}
+ .compare-bar [data-open-compare]{margin-left:auto}
+ .has-compare .site-toast{bottom:calc(80px + env(safe-area-inset-bottom,0px))}
+}
