@@ -34,6 +34,8 @@ class MarketTests(unittest.TestCase):
         self.assertIn('data-finder-category-stage hidden',page)
         self.assertIn('data-entry-route="known"',page)
         self.assertIn('価格履歴を蓄積中',page)
+        self.assertIn('type="application/ld+json"', page)
+        self.assertIn('"@type": "WebSite"', page)
     def test_price_order_versus_unit_order(self):
         c=build.CATEGORIES[0];items=self.results[c['id']][0]
         items[0]['price']=9000
