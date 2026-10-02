@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-02T17:12:45.464210+09:00",
+  "generated_at": "2026-10-02T18:11:35.057708+09:00",
   "site_id": "food_cost_jp",
   "inventory": {
     "pack-rice": {
@@ -13,8 +13,8 @@
       "name": "米",
       "included_count": 23,
       "shipping_unknown_count": 4,
-      "history_ready_count": 19,
-      "history_ready_rate": 0.8261
+      "history_ready_count": 18,
+      "history_ready_rate": 0.7826
     },
     "carbonated-water": {
       "name": "炭酸水",
@@ -32,9 +32,9 @@
     }
   },
   "price_history": {
-    "ready_count": 75,
+    "ready_count": 74,
     "included_count": 81,
-    "ready_rate": 0.9259,
+    "ready_rate": 0.9136,
     "deal_count": 4
   },
   "auto_seo": {
@@ -68,7 +68,7 @@
       {
         "slug": "rice-musenmai-cost",
         "category_id": "rice",
-        "matched_count": 12,
+        "matched_count": 10,
         "title": "無洗米のコスパ比較"
       },
       {

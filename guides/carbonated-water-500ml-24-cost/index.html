@@ -36,9 +36,24 @@ footer{padding:30px 0 100px;border-top:1px solid var(--line);font-size:10px;colo
 .shelf-heading h3{font-family:Georgia,'Noto Serif JP',serif;font-size:25px;font-weight:500;margin:8px 0}
 .market-shelf>.sub{max-width:740px;font-size:12px;line-height:1.8}
 .market-shelf .finder-products{grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}
-.market-shelf .finder-product{box-shadow:none;grid-template-rows:135px 1fr}
+.market-shelf .finder-product{box-shadow:none;grid-template-rows:220px 1fr}
 .market-shelf .finder-product-copy{padding:15px}
-.market-shelf .finder-product-price{font-size:31px;padding:8px 0;border-bottom:1px solid var(--line)}
+.market-shelf .finder-product-price{font:31px Georgia,serif;background:#f1ecdf;border-left:2px solid #b79c68;padding:9px 12px;margin:-32px 0 12px;position:relative;align-self:flex-start}
+.market-shelf .finder-product-price small{display:block;font:10px sans-serif;margin-top:3px}
+.market-shelf .finder-product-media{padding:16px;background:#fffefb}
+.market-shelf .finder-product-media img{width:100%;height:188px;max-height:none;object-fit:contain}
+.market-shelf .identity-line{display:none}
+.market-shelf .finder-product-name{margin:5px 0 8px}
+.market-shelf .finder-product:hover{box-shadow:none}
+#today-market .finder-products{align-items:start}
+#today-market .finder-product:nth-child(even){margin-top:24px}
+.hero-subroutes{display:flex;gap:22px;flex-wrap:wrap;font-size:12px;margin-top:16px}
+.hero-subroutes a{color:var(--brand);text-underline-offset:5px}
+.finder-route-options{grid-template-columns:repeat(3,minmax(0,1fr))}
+.finder-route-options button{display:grid;grid-template-columns:20px 1fr 12px;gap:10px;align-items:center;text-align:left;min-height:120px}
+.finder-route-options strong{font-size:16px;font-weight:500;line-height:1.6;display:block}
+.finder-route-options small{display:block;font-size:11px;line-height:1.7;color:var(--muted);margin-top:6px}
+.podium-media{height:165px}.podium-img{max-height:160px}
 .market-shelf .finder-product-rank{font:10px sans-serif;letter-spacing:.08em;color:var(--brand)}
 .market-shelf .finder-why{line-height:1.7;margin:8px 0}
 .market-shelf .finder-why span{display:none}
@@ -73,14 +88,18 @@ footer{padding:30px 0 100px;border-top:1px solid var(--line);font-size:10px;colo
 @media(max-width:759px){
  .home-hero h1{font-size:31px}.market-shelf{margin:20px 0 30px}.shelf-heading h3{font-size:22px}
  .market-shelf .finder-products,.finder .market-shelf .finder-products{grid-template-columns:1fr;gap:12px}
- .market-shelf .finder-product{grid-template-columns:76px minmax(0,1fr);grid-template-rows:auto}
- .market-shelf .finder-product-copy{padding:13px}.market-shelf .finder-product-media{padding:8px;align-items:flex-start;padding-top:22px}
- .market-shelf .finder-product-media img{width:100%;height:76px;object-fit:contain}
- .market-shelf .finder-product-price{font-size:29px;margin:6px 0}.market-shelf .finder-product-name{font-size:12px;line-height:1.6}
+ .market-shelf .finder-product{grid-template-columns:minmax(0,1fr);grid-template-rows:200px 1fr}
+ .market-shelf .finder-product-copy{padding:13px}.market-shelf .finder-product-media{padding:10px;align-items:center}
+ .market-shelf .finder-product-media img{width:100%;height:180px;max-height:none;object-fit:contain}
+ .market-shelf .finder-product-price{font-size:29px;margin:-30px 0 10px}.market-shelf .finder-product-name{font-size:12px;line-height:1.6}
  .market-shelf .identity-line{display:none}.market-shelf .finder-product-meta{font-size:11px;line-height:1.7}
  .market-shelf .product-actions{gap:5px}.market-shelf .utility-btn{font-size:10px;padding:6px}
  .finder{padding:22px 15px}.finder h2{font-size:25px}.finder-guide{display:none}
- .finder-options.finder-purpose-options{grid-template-columns:1fr}.finder-purpose-options button{min-height:78px;padding:13px}
+ .finder-options.finder-purpose-options,.finder-options.finder-route-options{grid-template-columns:1fr}
+ .finder-route-options button{min-height:84px;padding:13px}
+ .finder-route-options strong{font-size:15px}
+ #today-market .finder-product:nth-child(even){margin-top:0}
+ .podium-card{grid-template-columns:115px minmax(0,1fr)}.podium-media{height:130px}.podium-img{max-height:125px}.finder-purpose-options button{min-height:78px;padding:13px}
  .finder-purpose-options strong{font-size:15px}.finder-options{grid-template-columns:1fr 1fr}
  .finder-question{gap:8px}.finder-question strong{font-size:15px}.finder-art{width:100%;height:88px}
  .market-shelf .cta{font-size:11px}.aisle-group{font-size:22px}.market-shelf .trend-row:empty{display:none}
@@ -94,7 +113,7 @@ footer{padding:30px 0 100px;border-top:1px solid var(--line);font-size:10px;colo
  .deal-section .market-shelf .finder-products,.discovery-shelves .market-shelf .finder-products{display:grid;grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:90%;overflow-x:auto;scroll-snap-type:x proximity;padding-bottom:10px;scrollbar-width:thin}
  .deal-section .finder-product,.discovery-shelves .finder-product{scroll-snap-align:start}
  .deal-section .shelf-mobile-hint,.discovery-shelves .shelf-mobile-hint{display:block;font-size:10px;color:var(--brand);text-align:right;margin:0 0 8px}
- .market-shelf .finder-product-price small{display:inline;margin-left:7px}
+ .market-shelf .finder-product-price small{display:block;margin-left:0}
  .market-shelf .finder-product-meta{margin:3px 0}
  .market-shelf .shelf-shipping{margin:3px 0}
  .market-shelf .product-actions{margin:6px 0 8px}
@@ -123,7 +142,7 @@ gtag('config','G-GFVSZ8YDQ5',{site_id:'food_cost_jp'});
 <h1>炭酸水500ml前後×24本を比較</h1>
 <p class="lead">450〜600ml・24本の候補が3商品以上あるときだけ自動公開し、1L・1本あたりで比較します。</p>
 <div class="hero-tags"><span class="hero-tag">送料込みを優先</span><span class="hero-tag">実データ連動</span><span class="hero-tag">数量曖昧は除外</span></div>
-<p class="note">最終価格確認: 2026-10-02 17:12 JST</p></div>
+<p class="note">最終価格確認: 2026-10-02 18:11 JST</p></div>
 <div class="category-hero-art carbonated-water"><img class="food-art" src="https://stusaurus.github.io/food-cost-jp/assets/marche-carbonated-water.webp" width="768" height="512" alt="" loading="lazy"></div>
 </div></header>
 <nav class="service-shortcuts" aria-label="主要メニュー">
@@ -143,7 +162,7 @@ gtag('config','G-GFVSZ8YDQ5',{site_id:'food_cost_jp'});
 <div class="podium-grid"><article class="podium-card rank-1">
 <div class="podium-head"><span class="podium-medal">01</span><span>いまの最安</span></div>
 <div class="podium-badges"><span class="tag best">最安候補</span> <span class="tag lifestyle">少量向き</span></div>
-<div class="podium-media"><img class="podium-img" src="https://thumbnail.image.rakuten.co.jp/@0_mall/rakutenoriginal-daily/cabinet/item/water/ro-b-002_e_v2.jpg?_ex=128x128" alt="" width="160" height="160" loading="lazy"></div>
+<div class="podium-media"><img class="podium-img" src="https://thumbnail.image.rakuten.co.jp/@0_mall/rakutenoriginal-daily/cabinet/item/water/ro-b-002_e_v2.jpg?_ex=128x128" alt="" width="320" height="320" loading="lazy"></div>
 <div class="identity-line"><span class="spec-chip">500ml×24本 / 合計12L</span></div>
 <strong class="podium-name" title="【楽天オリジナル】炭酸水 500ml×24本 [プレーン ソーダ 割り材 炭酸飲料 スパークリング 炭酸] まとめ買い 水 業務用 家庭用 大容量 オフィス ハイボール用 宅飲み 500ml 24本">楽天オリジナル 炭酸水 500ml×24本 プレーン ソーダ 割り材 炭酸飲料 スパークリング 炭酸 まとめ買い 水 業務用…</strong>
 <div class="podium-unit">¥112</div>
@@ -197,7 +216,7 @@ gtag('config','G-GFVSZ8YDQ5',{site_id:'food_cost_jp'});
 </article><article class="podium-card rank-2">
 <div class="podium-head"><span class="podium-medal">02</span><span>2位</span></div>
 <div class="podium-badges"><span class="tag top-badge">TOP3</span> <span class="tag lifestyle">少量向き</span></div>
-<div class="podium-media"><img class="podium-img" src="https://thumbnail.image.rakuten.co.jp/@0_mall/irisplaza-r/cabinet/talent/crystalspark/312010_312012_rg.jpg?_ex=128x128" alt="" width="160" height="160" loading="lazy"></div>
+<div class="podium-media"><img class="podium-img" src="https://thumbnail.image.rakuten.co.jp/@0_mall/irisplaza-r/cabinet/talent/crystalspark/312010_312012_rg.jpg?_ex=128x128" alt="" width="320" height="320" loading="lazy"></div>
 <div class="identity-line"><span class="brand-chip">アイリスオーヤマ</span><span class="spec-chip">500ml×24本 / 合計12L</span></div>
 <strong class="podium-name" title="[エントリーでポイント最大10倍/スタンプラリー]炭酸水 500ml 24本 アイリスオーヤマ 強炭酸水 選べる ラベルレス プレーン レモン ラムネ グレープソーダ ジンジャーエール 和梨 フレーバー 天然水 無糖 ペットボトル 炭酸飲料 アイリスフーズ クリスタルスパーク *">エントリーでポイント最大10倍 スタンプラリー 炭酸水 500ml 24本 強炭酸水 選べる ラベルレス プレーン レモン…</strong>
 <div class="podium-unit">¥118</div>
@@ -251,7 +270,7 @@ gtag('config','G-GFVSZ8YDQ5',{site_id:'food_cost_jp'});
 </article><article class="podium-card rank-3">
 <div class="podium-head"><span class="podium-medal">03</span><span>3位</span></div>
 <div class="podium-badges"><span class="tag top-badge">TOP3</span> <span class="tag lifestyle">少量向き</span></div>
-<div class="podium-media"><img class="podium-img" src="https://thumbnail.image.rakuten.co.jp/@0_mall/kurashikenkou/cabinet/jisyakura2/ranking_310791.jpg?_ex=128x128" alt="" width="160" height="160" loading="lazy"></div>
+<div class="podium-media"><img class="podium-img" src="https://thumbnail.image.rakuten.co.jp/@0_mall/kurashikenkou/cabinet/jisyakura2/ranking_310791.jpg?_ex=128x128" alt="" width="320" height="320" loading="lazy"></div>
 <div class="identity-line"><span class="brand-chip">アイリスオーヤマ</span><span class="spec-chip">500ml×24本 / 合計12L</span></div>
 <strong class="podium-name" title="炭酸水 500ml 24本 選べるラベルレス 強炭酸水 アイリスオーヤマ 無糖 プレーン レモン フレーバー 天然水 ソーダ カロリーゼロ 割り材 まとめ買い 炭酸飲料 クリスタルスパーク CRYSTALSPARK 富士山の強炭酸水 * 【代引き不可】">炭酸水 500ml 24本 選べるラベルレス 強炭酸水 無糖 プレーン レモン フレーバー 天然水 ソーダ カロリーゼロ…</strong>
 <div class="podium-unit">¥118</div>
@@ -554,12 +573,13 @@ if('IntersectionObserver' in window){const observer=new IntersectionObserver(ent
 document.addEventListener('click',e=>{const a=e.target.closest('a[data-affiliate]');const shelf=a?.closest('[data-market-shelf]');if(shelf)send('market_shelf_product_click',{shelf_id:shelf.dataset.marketShelf,category_id:a.dataset.category,product_id:a.dataset.productId,cta_variant:a.dataset.ctaVariant})});
 const finder=document.querySelector('[data-finder]');
 if(finder){
-  let category='all',purpose='',intent='';
+  let category='all',purpose='',intent='',route='';
+  const routeStage=finder.querySelector('[data-finder-route-stage]');
   const categoryStage=finder.querySelector('[data-finder-category-stage]'),purposeStage=finder.querySelector('[data-finder-purpose-stage]'),resultStage=finder.querySelector('[data-finder-result-stage]'),status=finder.querySelector('[data-finder-status]');
   const show=el=>{el.hidden=false;const first=el.querySelector('button');first?.focus({preventScroll:true});const top=el.getBoundingClientRect().top;if(top<0||top>window.innerHeight*.65)el.scrollIntoView?.({block:'start',behavior:window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches?'instant':'smooth'})};
   const hide=el=>el.hidden=true;
   const results=()=>{
-    hide(categoryStage);show(resultStage);
+    hide(routeStage);hide(purposeStage);hide(categoryStage);show(resultStage);
     let current;
     finder.querySelectorAll('[data-finder-picks]').forEach(panel=>{panel.hidden=panel.dataset.finderPicks!==category+':'+purpose;if(!panel.hidden)current=panel});
     const count=current?.querySelectorAll('[data-affiliate]').length||0;
@@ -568,16 +588,26 @@ if(finder){
     send('quick_finder_complete',{category_id:category,finder_purpose:purpose});
     if(!('IntersectionObserver' in window))shelfView(current?.querySelector('[data-market-shelf]'));
   };
-  const reset=()=>{purpose='';category='all';show(purposeStage);hide(categoryStage);hide(resultStage);status.textContent='';finder.querySelectorAll('[data-finder-picks]').forEach(x=>x.hidden=true);finder.querySelectorAll('[aria-pressed]').forEach(x=>x.setAttribute('aria-pressed','false'));finder.querySelectorAll('.selected').forEach(x=>x.classList.remove('selected'))};
+  const reset=()=>{purpose='';category='all';route='';show(routeStage);hide(purposeStage);hide(categoryStage);hide(resultStage);status.textContent='';finder.querySelectorAll('[data-finder-picks]').forEach(x=>x.hidden=true);finder.querySelectorAll('[aria-pressed]').forEach(x=>x.setAttribute('aria-pressed','false'));finder.querySelectorAll('.selected').forEach(x=>x.classList.remove('selected'))};
+  const selectRoute=key=>{
+    route=key;category='all';status.textContent='';hide(routeStage);hide(purposeStage);hide(categoryStage);hide(resultStage);
+    finder.querySelectorAll('[data-entry-route]').forEach(x=>{x.classList.toggle('selected',x.dataset.entryRoute===key);x.setAttribute('aria-pressed',String(x.dataset.entryRoute===key))});
+    send('entry_route_select',{entry_route:key});
+    if(key==='advisor'){show(purposeStage);return}
+    intent=key==='deal'?'cheap':'known';purpose='cheap';send('shopping_intent_select',{shopping_intent:intent});
+    if(key==='known'){show(categoryStage);status.textContent='いつもの食品を、売り場から選びましょう。'}else results();
+  };
+  finder.querySelectorAll('[data-entry-route]').forEach(btn=>btn.addEventListener('click',()=>selectRoute(btn.dataset.entryRoute)));
+  document.querySelector('[data-hero-known]')?.addEventListener('click',()=>selectRoute('known'));
+  document.querySelector('[data-hero-primary]')?.addEventListener('click',()=>{reset();send('hero_primary_cta',{destination:'quick-finder'})});
   finder.querySelectorAll('[data-finder-purpose]').forEach(btn=>btn.addEventListener('click',()=>{
     purpose=btn.dataset.finderPurpose;intent=purpose;category='all';
     finder.querySelectorAll('[data-finder-purpose]').forEach(x=>{x.classList.toggle('selected',x===btn);x.setAttribute('aria-pressed',String(x===btn))});
-    send('shopping_intent_select',{shopping_intent:intent});hide(purposeStage);
-    if(purpose==='known'){purpose='cheap';hide(resultStage);show(categoryStage);status.textContent='いつもの食品を、売り場から選びましょう。'}else results();
+    send('shopping_intent_select',{shopping_intent:intent});results();
   }));
   finder.querySelectorAll('[data-finder-category]').forEach(btn=>btn.addEventListener('click',()=>{category=btn.dataset.finderCategory;finder.querySelectorAll('[data-finder-category]').forEach(x=>{x.classList.toggle('selected',x===btn);x.setAttribute('aria-pressed',String(x===btn))});send('quick_finder_category',{category_id:category});send('category_select_after_intent',{category_id:category,shopping_intent:intent});results()}));
   finder.querySelector('[data-finder-narrow]')?.addEventListener('click',()=>{hide(resultStage);show(categoryStage);status.textContent='この買い方のまま、売り場を選べます。'});
-  finder.querySelector('[data-finder-back]')?.addEventListener('click',reset);
+  finder.querySelectorAll('[data-finder-back]').forEach(btn=>btn.addEventListener('click',reset));
   finder.querySelector('[data-finder-reset]')?.addEventListener('click',reset);
 }
 const pick=new URLSearchParams(location.search).get('pick');
