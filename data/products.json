@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-02T22:23:01.569700+09:00",
+  "generated_at": "2026-10-02T22:37:22.001038+09:00",
   "categories": {
     "pack-rice": {
       "included": [
@@ -2657,6 +2657,68 @@
           }
         },
         {
+          "id": "adachi-umai:10000130",
+          "raw_name": "新米 米 白米 10kg 送料無料 コシヒカリ 5kg×2袋 愛知県産 令和8年産 コシヒカリ お米 10キロ あす楽 安い 送料無料【沖縄、配送不可】",
+          "name": "新米 米 白米 10kg コシヒカリ 5kg×2袋 愛知県産 令和8年産 コシヒカリ お米 10キロ あす楽 安い 【沖縄、配送不可】",
+          "price": 5898,
+          "shop": "あだちねっと 美米屋",
+          "url": "https://hb.afl.rakuten.co.jp/hgc/g00qbbko.7cx6m4cb.g00qbbko.7cx6n1bd/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fadachi-umai%2Fhiraiwakosi10-7823%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fadachi-umai%2Fi%2F10000130%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
+          "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/adachi-umai/cabinet/rice2023-new/hk-10.jpg?_ex=128x128",
+          "postage_included": true,
+          "shipping_status": "included",
+          "quantity": {
+            "total_weight_g": 10000.0,
+            "unit_weight_g": 5000.0,
+            "count": 2,
+            "confidence": 0.99,
+            "evidence": "5kgx2袋"
+          },
+          "unit_prices": {
+            "per_kg": 589.8
+          },
+          "promotion_mentioned": false,
+          "price_history": {
+            "observed_days": 2,
+            "previous_date": "2026-09-30",
+            "previous_price": 5599,
+            "previous_unit": 559.9,
+            "previous_label": "前回比",
+            "price_delta": 299,
+            "unit_delta": 29.899999999999977,
+            "percent_delta": 5.340239328451509,
+            "lowest_30d_unit": 559.9,
+            "highest_30d_unit": 589.8,
+            "lowest_7d_unit": 559.9,
+            "highest_7d_unit": 589.8,
+            "trend_7d": "up",
+            "is_30d_low": false,
+            "series_7d": [
+              {
+                "date": "2026-09-30",
+                "price": 5599,
+                "unit": 559.9
+              },
+              {
+                "date": "2026-10-02",
+                "price": 5898,
+                "unit": 589.8
+              }
+            ],
+            "series_30d": [
+              {
+                "date": "2026-09-30",
+                "price": 5599,
+                "unit": 559.9
+              },
+              {
+                "date": "2026-10-02",
+                "price": 5898,
+                "unit": 589.8
+              }
+            ]
+          }
+        },
+        {
           "id": "kyusyukome:10000034",
           "raw_name": "マラソン期間中ポイント5倍【令和7年産】無洗米 福岡県産ヒノヒカリ 10kg（5kg×2袋） 送料無料【沖縄・北海道は別途送料プラス500円】",
           "name": "マラソン期間中ポイント5倍【令和7年産】無洗米 福岡県産ヒノヒカリ 10kg（5kg×2袋） 【沖縄・北海道は別途送料プラス500円】",
@@ -3095,17 +3157,17 @@
       ],
       "quality_audit": {
         "fetched": 60,
-        "normalized": 29,
+        "normalized": 30,
         "exact_duplicates": 6,
         "practical_duplicates": 0,
-        "accepted_unique": 23,
-        "included_available": 20,
+        "accepted_unique": 24,
+        "included_available": 21,
         "shipping_unknown_available": 3,
-        "displayed_included": 20,
+        "displayed_included": 21,
         "displayed_shipping_unknown": 3,
         "reasons": {
           "wrong_product_type": 2,
-          "ambiguous_quantity": 26,
+          "ambiguous_quantity": 25,
           "limited_purchase": 2,
           "missing_category_evidence": 1
         }
@@ -13850,8 +13912,8 @@
           "restricted_or_selectable_product": 12,
           "wrong_product_type": 18,
           "ambiguous_quantity": 26,
-          "limited_purchase": 2,
-          "missing_category_evidence": 2
+          "missing_category_evidence": 2,
+          "limited_purchase": 2
         }
       }
     },
@@ -13909,6 +13971,62 @@
                 "date": "2026-10-02",
                 "price": 3780,
                 "unit": 126.0
+              }
+            ]
+          }
+        },
+        {
+          "id": "worldnext:10008628",
+          "raw_name": "博多華味鳥 料亭のチキンカレー 180g 30袋セット トリゼンフーズ レトルトカレー レトルト食品",
+          "name": "博多華味鳥 料亭のチキンカレー 180g 30袋セット トリゼンフーズ レトルトカレー レトルト食品",
+          "price": 8480,
+          "shop": "World NEXT",
+          "url": "https://hb.afl.rakuten.co.jp/hgc/g00tc79o.7cx6m9f3.g00tc79o.7cx6nb8d/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fworldnext%2Fjb240715-6090%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fworldnext%2Fi%2F10008628%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
+          "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/worldnext/cabinet/11070665/compass1723173040.jpg?_ex=128x128",
+          "postage_included": true,
+          "shipping_status": "included",
+          "quantity": {
+            "count": 30,
+            "component_counts": [
+              30
+            ],
+            "unit_weight_g": 180.0,
+            "total_weight_g": 5400.0,
+            "confidence": 0.99,
+            "evidence": "180g 30袋"
+          },
+          "unit_prices": {
+            "per_serving": 282.6666666666667,
+            "per_100g": 157.03703703703704
+          },
+          "promotion_mentioned": false,
+          "price_history": {
+            "observed_days": 1,
+            "previous_date": null,
+            "previous_price": null,
+            "previous_unit": null,
+            "previous_label": null,
+            "price_delta": null,
+            "unit_delta": null,
+            "percent_delta": null,
+            "lowest_30d_unit": 282.6666666666667,
+            "highest_30d_unit": 282.6666666666667,
+            "lowest_7d_unit": 282.6666666666667,
+            "highest_7d_unit": 282.6666666666667,
+            "trend_7d": "stable",
+            "is_30d_low": false,
+            "series_7d": [
+              {
+                "date": "2026-10-02",
+                "price": 8480,
+                "unit": 282.6666666666667
+              }
+            ],
+            "series_30d": [
+              {
+                "date": "2026-10-02",
+                "price": 8480,
+                "unit": 282.6666666666667
               }
             ]
           }
@@ -14590,62 +14708,6 @@
           }
         },
         {
-          "id": "sankin-asaichi:10051808",
-          "raw_name": "JFDA ビーフカレー 200g×10食セット(レトルトカレー) ジェフダ",
-          "name": "JFDA ビーフカレー 200g×10食セット(レトルトカレー) ジェフダ",
-          "price": 1411,
-          "shop": "食品のネットスーパー・さんきん",
-          "url": "https://hb.afl.rakuten.co.jp/hgc/g00puiwo.7cx6me8c.g00puiwo.7cx6n81d/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fsankin-asaichi%2Fjfd90186%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fsankin-asaichi%2Fi%2F10051808%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
-          "image": "https://thumbnail.image.rakuten.co.jp/@0_gold/sankin-asaichi/images/jfd90186.jpg?_ex=128x128",
-          "postage_included": false,
-          "shipping_status": "extra_or_unknown",
-          "quantity": {
-            "count": 10,
-            "component_counts": [
-              10
-            ],
-            "unit_weight_g": 200.0,
-            "total_weight_g": 2000.0,
-            "confidence": 0.99,
-            "evidence": "200gx10食"
-          },
-          "unit_prices": {
-            "per_serving": 141.1,
-            "per_100g": 70.55
-          },
-          "promotion_mentioned": false,
-          "price_history": {
-            "observed_days": 1,
-            "previous_date": null,
-            "previous_price": null,
-            "previous_unit": null,
-            "previous_label": null,
-            "price_delta": null,
-            "unit_delta": null,
-            "percent_delta": null,
-            "lowest_30d_unit": 141.1,
-            "highest_30d_unit": 141.1,
-            "lowest_7d_unit": 141.1,
-            "highest_7d_unit": 141.1,
-            "trend_7d": "stable",
-            "is_30d_low": false,
-            "series_7d": [
-              {
-                "date": "2026-10-02",
-                "price": 1411,
-                "unit": 141.1
-              }
-            ],
-            "series_30d": [
-              {
-                "date": "2026-10-02",
-                "price": 1411,
-                "unit": 141.1
-              }
-            ]
-          }
-        },
-        {
           "id": "misonoya:10097026",
           "raw_name": "ニチレイフーズ Restaurant Use Only(レストラン ユース オンリー) 中辛カレー ポーク 180g×30袋入｜ 送料無料 一般食品 レトルト食品 カレー",
           "name": "ニチレイフーズ Restaurant Use Only(レストラン ユース オンリー) 中辛カレー ポーク 180g×30袋入｜ 一般食品 レトルト食品 カレー",
@@ -15033,6 +15095,62 @@
                 "date": "2026-10-02",
                 "price": 6598,
                 "unit": 219.93333333333334
+              }
+            ]
+          }
+        },
+        {
+          "id": "misonoya:10097030",
+          "raw_name": "ニチレイフーズ インド風 バターチキンカレー 180g×30袋入｜ 送料無料 一般食品 レトルト食品 カレー バター チキンカレー",
+          "name": "ニチレイフーズ インド風 バターチキンカレー 180g×30袋入｜ 一般食品 レトルト食品 カレー バター チキンカレー",
+          "price": 7095,
+          "shop": "MISONOYA楽天市場店",
+          "url": "https://hb.afl.rakuten.co.jp/hgc/g00qrf9o.7cx6mf08.g00qrf9o.7cx6n813/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fmisonoya%2Fb34-57%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fmisonoya%2Fi%2F10097030%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
+          "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/misonoya/cabinet/202603_09/b34-57-1.jpg?_ex=128x128",
+          "postage_included": false,
+          "shipping_status": "extra_or_unknown",
+          "quantity": {
+            "count": 30,
+            "component_counts": [
+              30
+            ],
+            "unit_weight_g": 180.0,
+            "total_weight_g": 5400.0,
+            "confidence": 0.99,
+            "evidence": "180gx30袋入"
+          },
+          "unit_prices": {
+            "per_serving": 236.5,
+            "per_100g": 131.38888888888889
+          },
+          "promotion_mentioned": false,
+          "price_history": {
+            "observed_days": 1,
+            "previous_date": null,
+            "previous_price": null,
+            "previous_unit": null,
+            "previous_label": null,
+            "price_delta": null,
+            "unit_delta": null,
+            "percent_delta": null,
+            "lowest_30d_unit": 236.5,
+            "highest_30d_unit": 236.5,
+            "lowest_7d_unit": 236.5,
+            "highest_7d_unit": 236.5,
+            "trend_7d": "stable",
+            "is_30d_low": false,
+            "series_7d": [
+              {
+                "date": "2026-10-02",
+                "price": 7095,
+                "unit": 236.5
+              }
+            ],
+            "series_30d": [
+              {
+                "date": "2026-10-02",
+                "price": 7095,
+                "unit": 236.5
               }
             ]
           }
@@ -15605,14 +15723,14 @@
         "exact_duplicates": 1,
         "practical_duplicates": 0,
         "accepted_unique": 42,
-        "included_available": 11,
-        "shipping_unknown_available": 31,
-        "displayed_included": 11,
+        "included_available": 12,
+        "shipping_unknown_available": 30,
+        "displayed_included": 12,
         "displayed_shipping_unknown": 20,
         "reasons": {
-          "restricted_or_selectable_product": 54,
-          "ambiguous_quantity": 27,
-          "wrong_product_type": 17,
+          "restricted_or_selectable_product": 53,
+          "ambiguous_quantity": 29,
+          "wrong_product_type": 16,
           "missing_category_evidence": 8,
           "limited_purchase": 1
         }
@@ -17856,59 +17974,6 @@
           }
         },
         {
-          "id": "sese-koreachiba:10003938",
-          "raw_name": "農心 キムチ カップラーメン 86g【12個】 キムチサバル麺 韓国ラーメン",
-          "name": "農心 キムチ カップラーメン 86g【12個】 キムチサバル麺 韓国ラーメン",
-          "price": 2280,
-          "shop": "韓国フリーマー",
-          "url": "https://hb.afl.rakuten.co.jp/hgc/g00ssfqo.7cx6m80d.g00ssfqo.7cx6n459/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fsese-koreachiba%2F20468-12%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fsese-koreachiba%2Fi%2F10003938%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
-          "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/sese-koreachiba/cabinet/05470673/-------12.jpg?_ex=128x128",
-          "postage_included": false,
-          "shipping_status": "extra_or_unknown",
-          "quantity": {
-            "count": 12,
-            "component_counts": [
-              12
-            ],
-            "confidence": 0.99,
-            "evidence": "12個"
-          },
-          "unit_prices": {
-            "per_serving": 190.0
-          },
-          "promotion_mentioned": false,
-          "price_history": {
-            "observed_days": 1,
-            "previous_date": null,
-            "previous_price": null,
-            "previous_unit": null,
-            "previous_label": null,
-            "price_delta": null,
-            "unit_delta": null,
-            "percent_delta": null,
-            "lowest_30d_unit": 190.0,
-            "highest_30d_unit": 190.0,
-            "lowest_7d_unit": 190.0,
-            "highest_7d_unit": 190.0,
-            "trend_7d": "stable",
-            "is_30d_low": false,
-            "series_7d": [
-              {
-                "date": "2026-10-02",
-                "price": 2280,
-                "unit": 190.0
-              }
-            ],
-            "series_30d": [
-              {
-                "date": "2026-10-02",
-                "price": 2280,
-                "unit": 190.0
-              }
-            ]
-          }
-        },
-        {
           "id": "manekiyaneeds:10000088",
           "raw_name": "日清食品 カップヌードル レギュラー 日清食品 カップ麺 78g×20個 (1)レギュラー",
           "name": "日清食品 カップヌードル レギュラー 日清食品 カップ麺 78g×20個 (1)レギュラー",
@@ -18494,17 +18559,17 @@
       ],
       "quality_audit": {
         "fetched": 90,
-        "normalized": 27,
+        "normalized": 26,
         "exact_duplicates": 0,
         "practical_duplicates": 0,
-        "accepted_unique": 27,
+        "accepted_unique": 26,
         "included_available": 11,
-        "shipping_unknown_available": 16,
+        "shipping_unknown_available": 15,
         "displayed_included": 11,
-        "displayed_shipping_unknown": 16,
+        "displayed_shipping_unknown": 15,
         "reasons": {
           "missing_category_evidence": 6,
-          "wrong_product_type": 27,
+          "wrong_product_type": 28,
           "ambiguous_quantity": 20,
           "restricted_or_selectable_product": 10
         }

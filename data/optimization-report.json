@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-02T22:23:01.569700+09:00",
+  "generated_at": "2026-10-02T22:37:22.001038+09:00",
   "site_id": "food_cost_jp",
   "inventory": {
     "pack-rice": {
@@ -102,17 +102,17 @@
       "publication_status": "active",
       "quality_audit": {
         "fetched": 60,
-        "normalized": 29,
+        "normalized": 30,
         "exact_duplicates": 6,
         "practical_duplicates": 0,
-        "accepted_unique": 23,
-        "included_available": 20,
+        "accepted_unique": 24,
+        "included_available": 21,
         "shipping_unknown_available": 3,
-        "displayed_included": 20,
+        "displayed_included": 21,
         "displayed_shipping_unknown": 3,
         "reasons": {
           "wrong_product_type": 2,
-          "ambiguous_quantity": 26,
+          "ambiguous_quantity": 25,
           "limited_purchase": 2,
           "missing_category_evidence": 1
         },
@@ -185,10 +185,10 @@
           ]
         }
       },
-      "included_count": 20,
+      "included_count": 21,
       "shipping_unknown_count": 3,
-      "history_ready_count": 16,
-      "history_ready_rate": 0.8
+      "history_ready_count": 17,
+      "history_ready_rate": 0.8095
     },
     "carbonated-water": {
       "name": "炭酸水",
@@ -453,8 +453,8 @@
           ],
           "ambiguous_quantity": [
             "『送料無料！』（地域限定）エスオーシー 温泉水99 500mlペットボトル（24本入り1ケース）SOC ミネラルウォーター 天然水 お水 アルカリイオン水",
-            "【500ml×24本】天然水 水 500ml 24本 送料無料 LDC 500 24 国産 熊野古道水 軟水 ミネラルウォーター 熊野 鉱水 みず mizu 古道 500ml ナチュラル ペットボトル 飲料 備蓄 非常用 保存 まとめ買い 大容量 【代引き不可】",
-            "アイリス 富士山の天然水 ラベルレス( 500ml×24本入)【アイリスの天然水】[水 500ml 天然水 ペットボトル ミネラルウォーター]"
+            "アイリス 富士山の天然水 ラベルレス( 500ml×24本入)【アイリスの天然水】[水 500ml 天然水 ペットボトル ミネラルウォーター]",
+            "【500ml×24本】天然水 水 500ml 24本 送料無料 LDC 500 24 国産 熊野古道水 軟水 ミネラルウォーター 熊野 鉱水 みず mizu 古道 500ml ナチュラル ペットボトル 飲料 備蓄 非常用 保存 まとめ買い 大容量 【代引き不可】"
           ],
           "missing_category_evidence": [
             "【6本】伊藤園　磨かれて、澄みきった日本の水　2L　備蓄水　ペットボトル　1ケース（6本）",
@@ -586,8 +586,8 @@
           "restricted_or_selectable_product": 12,
           "wrong_product_type": 18,
           "ambiguous_quantity": 26,
-          "limited_purchase": 2,
-          "missing_category_evidence": 2
+          "missing_category_evidence": 2,
+          "limited_purchase": 2
         },
         "cleaned_examples": [
           {
@@ -655,13 +655,13 @@
             "フルグラ 750g よりも大容量 1200g × 3袋 カルビー コストコ 通販 送料無料",
             "【6個セット】マイグラ グラノーラ カルビー 朝食 穀物"
           ],
-          "limited_purchase": [
-            "【ふるさと納税】＜定期便3回＞無添加 フルーツグラノーラ 250g×3袋 750g（計2.25kg）自家製 フルーツグラノーラ ／ 着色料不使用 オーガニック 果物 ヨーグルト 牛乳 シリアル 朝食 国産 ドライフルーツ ミックス クランベリー レーズン ナッツ きび砂糖 小分け グラノラ",
-            "【ふるさと納税】＜定期便6回＞ 無添加 フルーツグラノーラ 250g×3袋 750g（計4.5kg）自家製 フルーツグラノーラ ／ 着色料不使用 オーガニック 果物 ヨーグルト 牛乳 シリアル 朝食 国産 ドライフルーツ ミックス クランベリー レーズン ナッツ きび砂糖 小分け グラノラ"
-          ],
           "missing_category_evidence": [
             "カントリーF フルーツナッツミューズリー 750g",
             "カントリーF フルーツミューズリー 750g"
+          ],
+          "limited_purchase": [
+            "【ふるさと納税】＜定期便3回＞無添加 フルーツグラノーラ 250g×3袋 750g（計2.25kg）自家製 フルーツグラノーラ ／ 着色料不使用 オーガニック 果物 ヨーグルト 牛乳 シリアル 朝食 国産 ドライフルーツ ミックス クランベリー レーズン ナッツ きび砂糖 小分け グラノラ",
+            "【ふるさと納税】＜定期便6回＞ 無添加 フルーツグラノーラ 250g×3袋 750g（計4.5kg）自家製 フルーツグラノーラ ／ 着色料不使用 オーガニック 果物 ヨーグルト 牛乳 シリアル 朝食 国産 ドライフルーツ ミックス クランベリー レーズン ナッツ きび砂糖 小分け グラノラ"
           ]
         }
       },
@@ -680,14 +680,14 @@
         "exact_duplicates": 1,
         "practical_duplicates": 0,
         "accepted_unique": 42,
-        "included_available": 11,
-        "shipping_unknown_available": 31,
-        "displayed_included": 11,
+        "included_available": 12,
+        "shipping_unknown_available": 30,
+        "displayed_included": 12,
         "displayed_shipping_unknown": 20,
         "reasons": {
-          "restricted_or_selectable_product": 54,
-          "ambiguous_quantity": 27,
-          "wrong_product_type": 17,
+          "restricted_or_selectable_product": 53,
+          "ambiguous_quantity": 29,
+          "wrong_product_type": 16,
           "missing_category_evidence": 8,
           "limited_purchase": 1
         },
@@ -709,20 +709,20 @@
             "after": "カゴメ 大豆ミートのキーマカレー 180g×30個入｜ カレー レトルト 野菜 レトルトカレー ヴィーガン"
           },
           {
-            "before": "ハウス食品 カレーマルシェ 辛口 180g×30個入｜ 送料無料 カレー レトルト カレーマルシェ レトルトカレー",
-            "after": "ハウス食品 カレーマルシェ 辛口 180g×30個入｜ カレー レトルト カレーマルシェ レトルトカレー"
-          },
-          {
-            "before": "キーマカレー 180g×10箱 ≪パッケージ版≫ Keema Curry レトルトカレー 鶏挽肉 送料無料 【10%OFF】",
-            "after": "キーマカレー 180g×10箱 ≪パッケージ版≫ Keema Curry レトルトカレー 鶏挽肉"
-          },
-          {
             "before": "ハウス食品 カレーマルシェ 中辛 180g×30個入｜ 送料無料 カレー レトルト カレーマルシェ レトルトカレー",
             "after": "ハウス食品 カレーマルシェ 中辛 180g×30個入｜ カレー レトルト カレーマルシェ レトルトカレー"
           },
           {
             "before": "ダールチキンカレー 180g 単品 ≪パッケージ版≫ Dal Chicken Curry レトルトカレー 豆 鶏肉 【10%OFF】",
             "after": "ダールチキンカレー 180g 単品 ≪パッケージ版≫ Dal Chicken Curry レトルトカレー 豆 鶏肉"
+          },
+          {
+            "before": "ハウス食品 カレーマルシェ 辛口 180g×30個入｜ 送料無料 カレー レトルト カレーマルシェ レトルトカレー",
+            "after": "ハウス食品 カレーマルシェ 辛口 180g×30個入｜ カレー レトルト カレーマルシェ レトルトカレー"
+          },
+          {
+            "before": "キーマカレー 180g×10箱 ≪パッケージ版≫ Keema Curry レトルトカレー 鶏挽肉 送料無料 【10%OFF】",
+            "after": "キーマカレー 180g×10箱 ≪パッケージ版≫ Keema Curry レトルトカレー 鶏挽肉"
           },
           {
             "before": "ダールチキンカレー 180g×5箱 ≪パッケージ版≫ Dal Chicken Curry レトルトカレー 豆 鶏肉 送料無料 【10%OFF】",
@@ -744,8 +744,8 @@
         "rejection_samples": {
           "restricted_or_selectable_product": [
             "【ふるさと納税】 カレー アサリカレー 10袋 180g×10 冷凍 無水カレー スパイス 11種類 豊富 和だし 香辛料 レトルトカレー 簡単 旨味 鰹 昆布 椎茸 出汁 薬膳 スパイスカレー 化学調味料不使用 175DENOカレー 北海道 札幌市",
-            "【ふるさと納税】松屋 オリジナルカレーの具 180g 10袋 カレー レトルトカレー 辛口 スパイス カレギュウ レトルト 冷凍 時短 簡単 便利 手抜き レンチン おかず 保存食 備蓄 夜食 まとめ買い お取り寄せ グルメ 埼玉県 嵐山町",
-            "【ふるさと納税】 カレー チキンカレー 10袋 180g×10 冷凍 無水カレー 鶏肉 ジューシー スパイス 17種類 豊富 香辛料 レトルトカレー 簡単 ヘルシー 健康 美容 花椒 薬膳 スパイスカレー 逸品 小麦粉不使用 175DENOカレー 北海道 札幌市"
+            "【ふるさと納税】 カレー チキンカレー 10袋 180g×10 冷凍 無水カレー 鶏肉 ジューシー スパイス 17種類 豊富 香辛料 レトルトカレー 簡単 ヘルシー 健康 美容 花椒 薬膳 スパイスカレー 逸品 小麦粉不使用 175DENOカレー 北海道 札幌市",
+            "【ふるさと納税】松屋 オリジナルカレーの具 180g 10袋 カレー レトルトカレー 辛口 スパイス カレギュウ レトルト 冷凍 時短 簡単 便利 手抜き レンチン おかず 保存食 備蓄 夜食 まとめ買い お取り寄せ グルメ 埼玉県 嵐山町"
           ],
           "ambiguous_quantity": [
             "てまごこちカレー 甘口(180g×1・2・5・10袋)【一部送料無料】宮崎県産 九州 国産 レトルトカレー レストラン フレンチカレー 野菜 ベジカレー チキンカレー 鶏肉 こども 子供カレー オムカレー 美味しい シェフ監修 取り寄せ プレゼント ギフト 入学 卒業祝い ホワイトデー",
@@ -767,7 +767,7 @@
           ]
         }
       },
-      "included_count": 11,
+      "included_count": 12,
       "shipping_unknown_count": 20,
       "history_ready_count": 0,
       "history_ready_rate": 0.0
@@ -814,12 +814,12 @@
             "after": "サッポロ一番 しょうゆ味 5食×6袋入 30食入"
           },
           {
-            "before": "マルちゃん正麺　醤油味　5食×6袋入　30食",
-            "after": "マルちゃん正麺 醤油味 5食×6袋入 30食"
-          },
-          {
             "before": "東洋水産　マルちゃん正麺　塩味5食×6袋入　30食",
             "after": "東洋水産 マルちゃん正麺 塩味5食×6袋入 30食"
+          },
+          {
+            "before": "マルちゃん正麺　醤油味　5食×6袋入　30食",
+            "after": "マルちゃん正麺 醤油味 5食×6袋入 30食"
           },
           {
             "before": "東洋水産　マルちゃん正麺　味噌味　5食×6袋入　30食",
@@ -851,12 +851,12 @@
           "ambiguous_quantity": [
             "サッポロ一番 塩ラーメン 袋麺 5食パック×6袋(30食)",
             "サンヨー食品 サッポロ一番 みそラーメン 1箱5食入×6袋",
-            "サッポロ一番 塩ラーメン 袋麺 5食パック×6袋(30食)"
+            "サンヨー食品 サッポロ一番 塩らーめん 1箱5食入×6袋"
           ],
           "restricted_or_selectable_product": [
             "【選べるセット】【サンヨー食品】サッポロ一番 袋麺5食パック＜4種から選べる 6袋セット(30食分)＞ (しょうゆ/しお/みそ/塩とんこつ)",
             "【選べるセット】【サンヨー食品】サッポロ一番 袋麺5食パック＜4種から選べる 6袋セット(30食分)＞ (しょうゆ/しお/みそ/塩とんこつ)",
-            "袋麺 食べ比べセット 6種 6袋（各5食パック）人気セット / 醤油 味噌 塩 辛味噌 しょうゆ みそ しお 辛みそ ラーメン 焼きそば 袋麺 即席麺 インスタントラーメン 屋台十八番 サッポロ一番 ホンコンやきそば やきっぺ 食べ比べ アソート 詰め合わせ"
+            "【全17種】選べる6袋セット！ インスタント 袋麺 5食パック 詰め合わせ セット / ラーメン 袋麺 即席麺 インスタントラーメン 正麺 サッポロ一番 屋台十八番 ホンコンやきそば やきっぺ 食べ比べ アソート"
           ],
           "missing_category_evidence": [
             "【日清食品】 ミニーズ ＜西＞ 30食 (5食×6袋)",
@@ -876,17 +876,17 @@
       "publication_status": "active",
       "quality_audit": {
         "fetched": 90,
-        "normalized": 27,
+        "normalized": 26,
         "exact_duplicates": 0,
         "practical_duplicates": 0,
-        "accepted_unique": 27,
+        "accepted_unique": 26,
         "included_available": 11,
-        "shipping_unknown_available": 16,
+        "shipping_unknown_available": 15,
         "displayed_included": 11,
-        "displayed_shipping_unknown": 16,
+        "displayed_shipping_unknown": 15,
         "reasons": {
           "missing_category_evidence": 6,
-          "wrong_product_type": 27,
+          "wrong_product_type": 28,
           "ambiguous_quantity": 20,
           "restricted_or_selectable_product": 10
         },
@@ -948,15 +948,15 @@
         }
       },
       "included_count": 11,
-      "shipping_unknown_count": 16,
+      "shipping_unknown_count": 15,
       "history_ready_count": 0,
       "history_ready_rate": 0.0
     }
   },
   "price_history": {
-    "ready_count": 73,
-    "included_count": 167,
-    "ready_rate": 0.4371,
+    "ready_count": 74,
+    "included_count": 169,
+    "ready_rate": 0.4379,
     "deal_count": 5
   },
   "auto_seo": {
@@ -1035,7 +1035,7 @@
     {
       "type": "price_history",
       "priority": 2,
-      "coverage": 0.4371,
+      "coverage": 0.4379,
       "action": "自動更新を継続し価格履歴の母数を増やす"
     },
     {
