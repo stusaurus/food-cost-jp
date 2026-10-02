@@ -32,14 +32,19 @@ def sample_item(category_id: str, rank: int = 1):
         base["name"] = f"テスト米 {grams/1000:g}kg"
         base["quantity"] = {"unit_weight_g": grams, "count": 1, "total_weight_g": grams}
         base["unit_prices"] = {"per_kg": 470 + rank * 10}
-    elif category_id == "carbonated-water":
+    elif category_id in {"carbonated-water", "mineral-water"}:
         ml = 500 if rank % 2 else 1000
-        base["name"] = f"テスト炭酸水 {ml}ml×24本"
+        base["name"] = f"テスト {category_id} {ml}ml×24本"
         base["quantity"] = {"unit_volume_ml": ml, "count": 24, "total_volume_ml": ml * 24}
         base["unit_prices"] = {"per_liter": 190 + rank * 10, "per_bottle": 90 + rank * 10}
+    elif category_id in {"retort-curry", "bag-noodles", "cup-noodles"}:
+        count=6 if rank % 2 else 30
+        base['name']=f'テスト {category_id} {count}食'
+        base['quantity']={'count':count,'unit_weight_g':180,'total_weight_g':180*count}
+        base['unit_prices']={'per_serving':90+rank*10,'per_100g':50+rank*5}
     else:
         grams = 1000 if rank % 2 else 2000
-        base["name"] = f"テスト オートミール {grams/1000:g}kg"
+        base["name"] = f"テスト {category_id} {grams/1000:g}kg"
         base["quantity"] = {"unit_weight_g": grams, "count": 1, "total_weight_g": grams}
         base["unit_prices"] = {"per_100g": 230 + rank * 10, "per_kg": 2300 + rank * 100}
     return base
@@ -99,8 +104,8 @@ class PresentationTests(unittest.TestCase):
             for category in CATEGORIES
         }
         html = home_page(results, NOW)
-        self.assertIn("送料込み 4件を比較中", html)
-        self.assertIn("この売り場へ →", html)
+        self.assertIn("送料込み 20商品を比較中", html)
+        self.assertIn('class="aisle-links"', html)
         self.assertIn("毎日の食品を、賢く選ぶ小さなマルシェ", html)
         self.assertIn("今日の買い物を、", html)
         self.assertIn('class="hero-visual"', html)

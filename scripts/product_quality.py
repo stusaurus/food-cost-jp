@@ -64,7 +64,7 @@ def quantity_conflict(title: str, category_id: str, quantity: dict) -> bool:
     expected = int(quantity.get("count") or 1)
     # A remaining inner-pack decomposition is harmless when it exactly
     # reconciles to the parsed total, e.g. 48本 (24本×2ケース).
-    if category_id == "carbonated-water":
+    if category_id in {"carbonated-water", "mineral-water"}:
         def remove_consistent_case(match):
             inner, outer = int(match.group(1)), int(match.group(2))
             return " " if inner * outer == expected else match.group(0)
@@ -77,7 +77,7 @@ def quantity_conflict(title: str, category_id: str, quantity: dict) -> bool:
 
     if category_id == "pack-rice":
         units = r"食|個|パック|ケース|箱|セット|袋"
-    elif category_id == "carbonated-water":
+    elif category_id in {"carbonated-water", "mineral-water"}:
         units = r"本|個|缶|パック|ケース|箱|セット"
     else:
         units = r"袋|個|パック|ケース|箱|セット"
@@ -95,7 +95,7 @@ def quantity_conflict(title: str, category_id: str, quantity: dict) -> bool:
 
 
 def quantity_signature(category_id: str, quantity: dict):
-    if category_id == "carbonated-water":
+    if category_id in {"carbonated-water", "mineral-water"}:
         return (
             round(float(quantity.get("unit_volume_ml") or 0), 3),
             int(quantity.get("count") or 0),

@@ -14,6 +14,7 @@ from datetime import datetime
 from pathlib import Path
 from zoneinfo import ZoneInfo
 
+from new_food import categories as new_categories, parse as parse_new_quantity, rejection as new_rejection, RULES as NEW_RULES
 from product_display import clean_display_name
 from product_quality import (
     category_rejection,
@@ -39,6 +40,28 @@ CATEGORIES = [
     {"id":"carbonated-water","name":"炭酸水","emoji":"🫧","queries":["炭酸水 500ml 24本","炭酸水 500ml 48本","炭酸水 1L"],"primary":"per_liter","primary_label":"1Lあたり","secondary":"per_bottle","secondary_label":"1本あたり","intro":"500ml・1L・24本・48本などを1Lあたりと1本あたりへ換算します。","filter_small":"600ml以下","filter_large":"700ml以上","guide":["持ち歩き中心なら1本あたり、自宅利用なら1Lあたりの単価を見ると選びやすくなります。","24本×2ケースなど明確な箱数は合計本数へ換算して比較します。","通常のミネラルウォーターや炭酸メーカー用品は炭酸水ランキングへ混ぜません。"]},
     {"id":"oatmeal","name":"オートミール","emoji":"🥣","queries":["オートミール 1kg","オートミール 2kg"],"primary":"per_100g","primary_label":"100gあたり","secondary":"per_kg","secondary_label":"1kgあたり","intro":"1kg袋・複数袋セットを100gあたりと1kgあたりへ換算します。","filter_small":"1kg以下","filter_large":"1kg超","guide":["袋サイズが違っても100gあたりへ換算すると価格差を比較しやすくなります。","複数袋セットは総重量へ換算し、セット数が曖昧な商品は除外しています。","ロールドオーツ・クイックオーツなどタイプは商品名で確認できるよう残しています。"]},
 ] 
+
+CATEGORIES += new_categories()
+LEGACY_IDS = {'pack-rice', 'rice', 'carbonated-water', 'oatmeal'}
+ACTIVE_CATEGORY_IDS = {c['id'] for c in CATEGORIES}
+MIN_CATEGORY_ITEMS = 3
+AISLES = [
+    dict(id='staples', name='ごはん・主食', english='RICE & EVERYDAY STAPLES', description='毎日の食卓を、1食・1kg・100gあたりで賢く。', art='rice', categories=['rice','pack-rice','pasta','bag-noodles','cup-noodles']),
+    dict(id='drinks', name='飲みもの', english='WATER & REFRESHMENTS', description='いつもの一杯も、箱買いも。容量をそろえて比べる。', art='carbonated-water', categories=['carbonated-water','mineral-water']),
+    dict(id='breakfast', name='朝食・シリアル', english='A GOOD MORNING', description='朝のいつものひと皿を、100gあたりで選ぶ。', art='oatmeal', categories=['oatmeal','granola']),
+    dict(id='stock', name='ストック食品', english='PANTRY FAVORITES', description='忙しい日の味方を、1食あたりで備える。', art='pack-rice', categories=['retort-curry']),
+]
+
+
+def active_categories(results):
+    return [c for c in CATEGORIES if c['id'] in LEGACY_IDS or len(results.get(c['id'], ([],[]))[0]) >= MIN_CATEGORY_ITEMS]
+
+
+def category_visual(category, items):
+    if category['id'] in LEGACY_IDS:
+        return category_illustration(category['id'])
+    return product_image_html(items[0], 'food-art') if items and items[0].get('image') else category_illustration(category['id'])
+
 
 GUIDE_SPECS = [
     {"slug":"pack-rice-200g-cost","category_id":"pack-rice","title":"パックご飯200g前後のコスパ比較","h1":"パックご飯200g前後を1食あたりで比較","intro":"180〜210g前後のパックご飯から、送料込みで比較できる商品を1食あたりの単価で見ます。","mode":"pack_200"},
@@ -79,6 +102,8 @@ def norm(text: str) -> str:
 
 
 def parse_quantity(title: str, category_id: str):
+    if category_id in NEW_RULES:
+        return parse_new_quantity(title, category_id)
     text = norm(title)
     if SELECTABLE_RE.search(text):
         return None
@@ -302,15 +327,17 @@ def parse_quantity(title: str, category_id: str):
 
 def unit_prices(price: int, quantity: dict, category_id: str) -> dict:
     out = {}
-    if category_id == "pack-rice":
+    if category_id in {"bag-noodles", "cup-noodles"}:
+        return {"per_serving": price / quantity["count"]}
+    if category_id in {"pack-rice", "retort-curry"}:
         out["per_serving"] = price / quantity["count"]
         out["per_100g"] = price / (quantity["total_weight_g"] / 100)
     elif category_id == "rice":
         out["per_kg"] = price / (quantity["total_weight_g"] / 1000)
-    elif category_id == "carbonated-water":
+    elif category_id in {"carbonated-water", "mineral-water"}:
         out["per_liter"] = price / (quantity["total_volume_ml"] / 1000)
         out["per_bottle"] = price / quantity["count"]
-    elif category_id == "oatmeal":
+    elif category_id in {"oatmeal", "pasta", "granola"}:
         out["per_100g"] = price / (quantity["total_weight_g"] / 100)
         out["per_kg"] = price / (quantity["total_weight_g"] / 1000)
     return out
@@ -389,7 +416,7 @@ def normalize_item_with_reason(raw: dict, category: dict):
     if LIMITED_RE.search(norm(raw_name)):
         return None, "limited_purchase"
 
-    category_reason = category_rejection(category["id"], raw_name)
+    category_reason = new_rejection(category["id"], raw_name) if category["id"] in NEW_RULES else category_rejection(category["id"], raw_name)
     if category_reason:
         return None, category_reason
 
@@ -525,9 +552,11 @@ def yen(value):
 
 def quantity_text(item: dict, category_id: str) -> str:
     q = item["quantity"]
-    if category_id == "carbonated-water":
+    if category_id in {"carbonated-water", "mineral-water"}:
         return f"{q['unit_volume_ml']:g}ml×{q['count']}本 / 合計{q['total_volume_ml']/1000:g}L"
 
+    if category_id in {"bag-noodles", "cup-noodles"}:
+        return f"合計{q['count']}食"
     grams = q.get("total_weight_g", 0)
     text = f"合計{grams/1000:g}kg" if grams >= 1000 else f"合計{grams:g}g"
     if q.get("count", 1) > 1:
@@ -550,6 +579,8 @@ gtag('config','{safe}',{{site_id:'{SITE_ID}'}});
 
 def category_illustration(category_id: str, compact: bool = False) -> str:
     cls = "food-art compact" if compact else "food-art"
+    if category_id not in LEGACY_IDS:
+        return f'<span class="category-symbol" aria-hidden="true">{next((c["emoji"] for c in CATEGORIES if c["id"] == category_id), "🍽️")}</span>'
     return f'<img class="{cls}" src="{SITE_URL}assets/marche-{category_id}.webp" width="768" height="512" alt="" loading="lazy">'
 
 
@@ -886,7 +917,7 @@ def today_deals_html(results: dict) -> str:
 
 def shopping_bucket(item: dict, category_id: str) -> str:
     # Bottle volume alone does not describe how much needs to be stored.
-    if category_id == "carbonated-water":
+    if category_id in {"carbonated-water", "mineral-water"}:
         return "small" if item["quantity"]["total_volume_ml"] <= 12000 else "large"
     return bucket(item, category_id)
 
@@ -1094,7 +1125,7 @@ def cross_shelf_items(results: dict, purpose: str, used: set | None = None) -> l
     # One candidate per aisle: never rank unlike units against one another.
     selected = []
     deals, _ = deal_entries(results)
-    for category in CATEGORIES:
+    for category in active_categories(results):
         items, _ = results.get(category["id"], ([], []))
         picks = finder_pick_items(items, category, purpose, None if used is not None else 3)
         if purpose == "cheap":
@@ -1149,7 +1180,13 @@ def discovery_shelves_html(results: dict) -> str:
 
 
 def choice_finder_html(results: dict) -> str:
-    choices = "".join(f'''<button class="finder-category {c['id']}" type="button" aria-pressed="false" data-finder-category="{c['id']}" data-finder-name="{html.escape(c['name'], quote=True)}"><span class="finder-art">{category_illustration(c['id'], True)}</span><span>{html.escape(c['name'])}</span></button>''' for c in CATEGORIES)
+    active = {c['id']:c for c in active_categories(results)}
+    choices = ''
+    for aisle in AISLES:
+        members = [active[cid] for cid in aisle['categories'] if cid in active]
+        if not members: continue
+        buttons = ''.join(f'<button class="finder-category" type="button" aria-pressed="false" data-finder-category="{c["id"]}" data-finder-name="{html.escape(c["name"], quote=True)}"><span>{html.escape(c["name"])}</span><small>{html.escape(c["primary_label"])}</small></button>' for c in members)
+        choices += f'<details class="finder-aisle"><summary>{html.escape(aisle["name"])}<small>{len(members)}カテゴリ</small></summary><div class="finder-options finder-category-options">{buttons}</div></details>'
     intents = ''.join(f'''<button type="button" data-finder-purpose="{key}" aria-pressed="false"><span class="intent-number">0{i}</span><span><strong>{label}</strong><small>{hint}</small></span><span aria-hidden="true">↗</span></button>''' for i,(key,(label,hint)) in enumerate(((k,v) for k,v in SHOPPING_INTENTS.items() if k in ("large","small","budget","storage")),1))
     routes = ''.join(f'<button class="{ "route-main" if key == "advisor" else "route-shortcut" }" type="button" data-entry-route="{key}" aria-pressed="false"><span class="intent-number">{ "迷ったらこちら" if key == "advisor" else "ショートカット" }</span><span><strong>{label}</strong><small>{hint}</small></span><span aria-hidden="true">→</span></button>' for key,label,hint in [('advisor','わたしに合う買い方で探す','量と出費を選ぶだけ。あなた向けの棚へ。'),('deal','今日のお得を見る','値下がりと、売り場の単価上位から'),('known','買うものが決まっている','いつもの食品の売り場へ')])
     panels=[]
@@ -1157,17 +1194,17 @@ def choice_finder_html(results: dict) -> str:
         label=SHOPPING_INTENTS[purpose][0]
         entries=cross_shelf_items(results,purpose)
         panels.append(f'<div class="finder-picks" data-finder-picks="all:{purpose}" hidden>'+market_shelf_html(entries,label,"finder-all-"+purpose,purpose,"送料込み確認済み。各売り場から1候補ずつ。単位が異なる食品を順位づけしません。")+'</div>')
-        for c in CATEGORIES:
+        for c in active_categories(results):
             picks=finder_pick_items(results.get(c['id'],([],[]))[0],c,purpose)
             entries=[(c,x) for x in picks]
-            note='掲載候補内の比較。少量の基準：ご飯24食以下、米5kg以下、炭酸水合計12L以下、オートミール1kg以下。収納寸法の判定ではありません。'
+            note='掲載候補内の比較。少量の基準：ご飯24食以下、米5kg以下、水合計12L以下、穀物・パスタ合計1kg以下、カレー・麺12食以下。収納寸法の判定ではありません。'
             panels.append(f'<div class="finder-picks" data-finder-picks="{c["id"]}:{purpose}" hidden>'+market_shelf_html(entries,c['name']+' · '+label,'finder-'+c['id']+'-'+purpose,purpose,note)+f'<a class="finder-all" href="categories/{c["id"]}/?pick={purpose}#included">この売り場の商品一覧へ →</a></div>')
     return f'''<section class="section finder" id="quick-finder" data-finder>
 <div class="finder-intro"><div><div class="section-kicker">LET’S FIND YOUR SHELF</div><h2>今日は、どう探す？</h2><p class="sub">買うものが決まっていなくても大丈夫。気分に合う棚から見ていきましょう。</p></div><div class="finder-guide">{guide_mascot(True)}<span>一緒に、棚を探しましょう。</span></div></div>
 <div class="finder-stage" data-finder-route-stage><div class="finder-options finder-route-options">{routes}</div></div>
 <div class="finder-stage" data-finder-purpose-stage hidden><button class="finder-back" type="button" data-finder-back>← 探し方に戻る</button><div class="finder-question"><span>YOUR SHOPPING</span><strong>どんな量・出費で買いたい？</strong></div><div class="finder-options finder-purpose-options">{intents}</div></div>
 <p class="finder-status" data-finder-status role="status" aria-live="polite"></p>
-<div class="finder-stage" data-finder-category-stage hidden><button class="finder-back" type="button" data-finder-back>← 探し方に戻る</button><div class="finder-question"><span>STEP 2</span><strong>何を探してる？</strong></div><div class="finder-options finder-category-options">{choices}</div></div>
+<div class="finder-stage" data-finder-category-stage hidden><button class="finder-back" type="button" data-finder-back>← 探し方に戻る</button><div class="finder-question"><span>STEP 2</span><strong>何を探してる？</strong></div><div class="finder-aisles">{choices}</div></div>
 <div class="finder-stage finder-result-stage" data-finder-result-stage hidden><div class="finder-result-actions"><button class="finder-back" type="button" data-finder-reset>← 探し方を変える</button><button class="finder-back" type="button" data-finder-narrow>売り場を絞る →</button></div>{''.join(panels)}</div></section>'''
 
 
@@ -1255,7 +1292,7 @@ document.querySelectorAll('[data-search]').forEach(input=>input.addEventListener
   send('comparison_search_use',{category_id:input.dataset.category,search_term:input.value.trim()})
 }));
 const shelfSeen=new WeakSet();
-const shelfView=el=>{if(!el||shelfSeen.has(el)||el.closest('[hidden]'))return;shelfSeen.add(el);send('market_shelf_view',{shelf_id:el.dataset.marketShelf,product_count:el.querySelectorAll('[data-affiliate]').length})};
+const shelfView=el=>{if(!el||shelfSeen.has(el)||el.closest('[hidden]'))return;shelfSeen.add(el);send('market_shelf_view',{shelf_id:el.dataset.marketShelf,product_count:el.querySelectorAll('[data-affiliate]').length,category_id:[...new Set([...el.querySelectorAll('[data-affiliate]')].map(a=>a.dataset.category))].length===1?el.querySelector('[data-affiliate]')?.dataset.category:'all',category_ids:[...new Set([...el.querySelectorAll('[data-affiliate]')].map(a=>a.dataset.category))].join(',')})};
 if(!('IntersectionObserver' in window))document.querySelectorAll('[data-market-shelf]').forEach(shelfView);
 if('IntersectionObserver' in window){const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting)shelfView(entry.target)}),{threshold:.1});document.querySelectorAll('[data-market-shelf]').forEach(el=>observer.observe(el))}
 document.addEventListener('click',e=>{const a=e.target.closest('a[data-affiliate]');const shelf=a?.closest('[data-market-shelf]');if(shelf)send('market_shelf_product_click',{shelf_id:shelf.dataset.marketShelf,category_id:a.dataset.category,product_id:a.dataset.productId,cta_variant:a.dataset.ctaVariant})});
@@ -1264,7 +1301,7 @@ if(finder){
   let category='all',purpose='',intent='',route='';
   const routeStage=finder.querySelector('[data-finder-route-stage]');
   const categoryStage=finder.querySelector('[data-finder-category-stage]'),purposeStage=finder.querySelector('[data-finder-purpose-stage]'),resultStage=finder.querySelector('[data-finder-result-stage]'),status=finder.querySelector('[data-finder-status]');
-  const show=el=>{el.hidden=false;const first=el.querySelector('button');first?.focus({preventScroll:true});const top=el.getBoundingClientRect().top;if(top<0||top>window.innerHeight*.65)el.scrollIntoView?.({block:'start',behavior:window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches?'instant':'smooth'})};
+  const show=el=>{el.hidden=false;const first=el.querySelector('summary,button');first?.focus({preventScroll:true});const top=el.getBoundingClientRect().top;if(top<0||top>window.innerHeight*.65)el.scrollIntoView?.({block:'start',behavior:window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches?'instant':'smooth'})};
   const hide=el=>el.hidden=true;
   const results=()=>{
     hide(routeStage);hide(purposeStage);hide(categoryStage);show(resultStage);
@@ -1276,7 +1313,7 @@ if(finder){
     send('quick_finder_complete',{category_id:category,finder_purpose:purpose});
     if(!('IntersectionObserver' in window))shelfView(current?.querySelector('[data-market-shelf]'));
   };
-  const reset=()=>{purpose='';category='all';route='';show(routeStage);hide(purposeStage);hide(categoryStage);hide(resultStage);status.textContent='';finder.querySelectorAll('[data-finder-picks]').forEach(x=>x.hidden=true);finder.querySelectorAll('[aria-pressed]').forEach(x=>x.setAttribute('aria-pressed','false'));finder.querySelectorAll('.selected').forEach(x=>x.classList.remove('selected'))};
+  const reset=()=>{purpose='';category='all';route='';show(routeStage);hide(purposeStage);hide(categoryStage);hide(resultStage);status.textContent='';finder.querySelectorAll('[data-finder-picks]').forEach(x=>x.hidden=true);finder.querySelectorAll('[aria-pressed]').forEach(x=>x.setAttribute('aria-pressed','false'));finder.querySelectorAll('.selected').forEach(x=>x.classList.remove('selected'));finder.querySelectorAll('.finder-aisle').forEach(x=>x.open=false)};
   const selectRoute=(key,source='entry')=>{
     route=key;category='all';status.textContent='';hide(routeStage);hide(purposeStage);hide(categoryStage);hide(resultStage);
     finder.querySelectorAll('[data-entry-route]').forEach(x=>{x.classList.toggle('selected',x.dataset.entryRoute===key);x.setAttribute('aria-pressed',String(x.dataset.entryRoute===key))});
@@ -1303,7 +1340,7 @@ if(pick&&document.querySelector('[data-comparison]')){
   const root=document.querySelector('[data-comparison]');
   const filter=root.querySelector('[data-filter]');
   const sort=root.querySelector('[data-sort]');
-  if(filter&&(pick==='small'||pick==='large'||pick==='storage')){root.dataset.shoppingIntent=pick;filter.value=pick==='storage'?'small':pick;if(filter.dataset.category==='carbonated-water'){filter.querySelector('[value=small]').textContent='合計12L以下';filter.querySelector('[value=large]').textContent='合計12L超'}const label=root.querySelector('[data-intent-note]');if(label)label.textContent='買い方で絞った一覧：少量側 / 大容量側は合計量を基準にしています。'}
+  if(filter&&(pick==='small'||pick==='large'||pick==='storage')){root.dataset.shoppingIntent=pick;filter.value=pick==='storage'?'small':pick;if(['carbonated-water','mineral-water'].includes(filter.dataset.category)){filter.querySelector('[value=small]').textContent='合計12L以下';filter.querySelector('[value=large]').textContent='合計12L超'}const label=root.querySelector('[data-intent-note]');if(label)label.textContent='買い方で絞った一覧：少量側 / 大容量側は合計量を基準にしています。'}
   if(filter&&pick==='storage')filter.value='small';
   if(sort&&(pick==='budget'||pick==='storage')){sort.value='price';sort.dispatchEvent(new Event('change'))}
   const details=root.closest('details');if(details)details.open=true;
@@ -1462,7 +1499,11 @@ def bucket(item: dict, category_id: str) -> str:
         return "small" if q["total_weight_g"] <= 5000 else "large"
     if category_id == "carbonated-water":
         return "small" if q["unit_volume_ml"] <= 600 else "large"
-    if category_id == "oatmeal":
+    if category_id in {"mineral-water"}:
+        return "small" if q["total_volume_ml"] <= 12000 else "large"
+    if category_id in {"retort-curry", "bag-noodles", "cup-noodles"}:
+        return "small" if q["count"] <= 12 else "large"
+    if category_id in {"oatmeal", "pasta", "granola"}:
         return "small" if q["total_weight_g"] <= 1000 else "large"
     return "all"
 
@@ -1663,7 +1704,7 @@ def eligible_auto_guides(results: dict, min_items: int = 3) -> list[dict]:
     return eligible
 
 
-def optimization_report(results: dict, auto_guides: list[dict], updated: datetime) -> dict:
+def optimization_report(results: dict, auto_guides: list[dict], updated: datetime, audits: dict | None = None) -> dict:
     category_rows = {}
     total_included = 0
     history_ready = 0
@@ -1678,6 +1719,9 @@ def optimization_report(results: dict, auto_guides: list[dict], updated: datetim
         history_ready += ready
         category_rows[category["id"]] = {
             "name": category["name"],
+            "comparison_unit": category["primary_label"],
+            "publication_status": "active" if category in active_categories(results) else "deferred_insufficient_safe_inventory",
+            "quality_audit": (audits or {}).get(category["id"], {}),
             "included_count": len(included),
             "shipping_unknown_count": len(other),
             "history_ready_count": ready,
@@ -1850,12 +1894,7 @@ def saved_watch_page(updated: datetime) -> str:
     script = r"""<script>
 (()=>{
 const KEY='food_cost_saved_v1';
-const CATEGORY_META={
-  'pack-rice':{name:'パックご飯',metric:'per_serving',unit:'1食あたり'},
-  'rice':{name:'米',metric:'per_kg',unit:'1kgあたり'},
-  'carbonated-water':{name:'炭酸水',metric:'per_liter',unit:'1Lあたり'},
-  'oatmeal':{name:'オートミール',metric:'per_100g',unit:'100gあたり'}
-};
+const CATEGORY_META=__CATEGORY_META__;
 const esc=s=>String(s==null?'':s).replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
 const money=n=>'¥'+Number(n||0).toLocaleString('ja-JP',{maximumFractionDigits:1});
 const compact=s=>{s=String(s||'').replace(/[【】\[\]〈〉《》]/g,' ').replace(/\s*[｜|／/]\s*/g,' ').replace(/\s+/g,' ').trim();return s.length>64?s.slice(0,63)+'…':s};
@@ -1924,6 +1963,7 @@ fetch('../data/products.json',{cache:'no-store'}).then(r=>r.json()).then(data=>{
 }).catch(()=>{rows=saved.map(s=>({saved:s,live:null}));status.textContent='最新データを取得できませんでした。保存内容のみ表示します。';render()});
 })();
 </script>"""
+    script = script.replace("__CATEGORY_META__", json.dumps({c["id"]:dict(name=c["name"],metric=c["primary"],unit=c["primary_label"]) for c in CATEGORIES}, ensure_ascii=False))
     return head + body + script + """<footer><div class="wrap">保存データはこのブラウザ内に保持されます。</div></footer></body></html>"""
 
 
@@ -1971,7 +2011,7 @@ def other_categories_html(current_id: str) -> str:
     links = "".join(
         f'<a href="../{category["id"]}/">{category["emoji"]} {html.escape(category["name"])}</a>'
         for category in CATEGORIES
-        if category["id"] != current_id
+        if category["id"] != current_id and category["id"] in ACTIVE_CATEGORY_IDS
     )
     return f"""<section class="section">
 <h2>ほかの食品も単価で比べる</h2>
@@ -2004,7 +2044,7 @@ def category_page(category: dict, included: list[dict], other: list[dict], updat
 <div class="hero-tags"><span class="hero-tag">送料込みを優先</span><span class="hero-tag">数量曖昧は除外</span><span class="hero-tag">クーポン未反映</span></div>
 <p class="note">最終価格確認: {updated:%Y-%m-%d %H:%M} JST。最新価格は販売ページで確認してください。</p>
 </div>
-<div class="category-hero-art {category['id']}">{category_illustration(category["id"])}</div>
+<div class="category-hero-art {category['id']}">{category_visual(category, included)}</div>
 </div></header>
 <nav class="nav"><div class="wrap">
 <a href="#included">送料込み比較</a>
@@ -2015,6 +2055,8 @@ def category_page(category: dict, included: list[dict], other: list[dict], updat
 </div></nav>
 <main class="wrap">"""
     )
+    if len(included) < MIN_CATEGORY_ITEMS:
+        parts[0] = parts[0].replace('content="index,follow"', 'content="noindex,follow"')
     parts.append(category_summary(category, included, other))
     parts.append(shopping_journey_html())
     parts.append(category_insights_html(category, included))
@@ -2081,11 +2123,28 @@ def guide_links_html(specs: list[dict] | None = None) -> str:
 
 
 
+def aisles_html(results):
+    active = {c['id']:c for c in active_categories(results)}
+    cards=[]
+    for aisle in AISLES:
+        members=[active[cid] for cid in aisle['categories'] if cid in active]
+        if not members: continue
+        count=sum(len(results.get(c['id'], ([],[]))[0]) for c in members)
+        links=''
+        for c in members:
+            included=results.get(c['id'], ([],[]))[0]
+            label=f"{len(included)}件 · {c['primary_label']}"
+            links+=f'<a href="categories/{c["id"]}/" data-start-route="categories" data-aisle-category="{c["id"]}"><span>{html.escape(c["name"])} →</span><small>{html.escape(label)}</small></a>'
+        art = category_visual(members[0], results.get(members[0]['id'], ([],[]))[0]) if aisle['id']=='stock' else category_illustration(aisle['art'])
+        cards.append(f'<article class="aisle-card" data-aisle="{aisle["id"]}"><div class="aisle-visual">{art}</div><div class="aisle-copy"><span class="aisle-name">{aisle["english"]}</span><h3>{aisle["name"]}</h3><p>{aisle["description"]}</p><div class="aisle-inventory">送料込み {count}商品を比較中</div><nav class="aisle-links" aria-label="{aisle["name"]}">{links}</nav></div></article>')
+    return ''.join(cards)
+
+
 def home_page(results: dict, updated: datetime, guide_specs: list[dict] | None = None) -> str:
     parts = [
         page_head(
             "食品コスパ比較｜容量・数量・送料をそろえて単価比較",
-            "米、パックご飯、炭酸水、オートミールを1kg・1L・1食・100gあたりへ換算し、送料条件を分けて比較します。",
+            "ごはん・主食、飲みもの、朝食、ストック食品の売り場から、容量・食数と送料をそろえて食品を比較します。",
             SITE_URL,
         )
     ]
@@ -2109,35 +2168,10 @@ def home_page(results: dict, updated: datetime, guide_specs: list[dict] | None =
 <section class="section" id="categories">
 <div class="section-kicker">THE MARKET AISLES</div>
 <h2>売り場から探す。</h2><p class="sub">買うものが決まっているときは、こちらから。</p>
-<section class="grid">"""
+<section class="aisle-grid">"""
     )
-    last_aisle = None
-    for category in CATEGORIES:
-        aisle = {"pack-rice":"ごはん・お米", "rice":"ごはん・お米", "carbonated-water":"飲みもの", "oatmeal":"朝食・穀物"}.get(category["id"],"その他の売り場")
-        if aisle != last_aisle:
-            parts.append(f'<h3 class="aisle-group">{aisle}</h3>')
-            last_aisle = aisle
-        included, _ = results[category["id"]]
-        best = included[0]["unit_prices"][category["primary"]] if included else None
-        message = (
-            f"取得商品では {category['primary_label']} {yen(best)}〜"
-            if best is not None else "比較データを準備中"
-        )
-        parts.append(
-            f"""<a class="card category-card {category['id']}" href="categories/{category['id']}/" data-start-route="categories">
-<div class="category-art">{category_illustration(category["id"], True)}</div>
-<div class="category-copy">
-<span class="aisle-name">{html.escape({"pack-rice":"READY TO EAT", "rice":"RICE & GRAINS", "carbonated-water":"DRINKS", "oatmeal":"BREAKFAST"}.get(category["id"], "MARKET AISLE"))}</span><div class="category-name">{category['name']}</div>
-<div class="category-price">{html.escape(message.replace('取得商品では ', ''))}</div>
-<div class="category-meta">送料込み {len(included)}件を比較中</div>
-<p>{html.escape(category['intro'])}</p>
-<span class="category-go">この売り場へ →</span>
-</div>
-</a>"""
-        )
-    parts.append(
-        """</section></section>"""
-    )
+    parts.append(aisles_html(results))
+    parts.append("</section></section>")
     parts.append(shopping_journey_html())
     parts.append(guide_links_html(guide_specs))
     parts.append(comparison_flow_html())
@@ -2163,6 +2197,7 @@ def home_page(results: dict, updated: datetime, guide_specs: list[dict] | None =
 
 
 def main():
+    global ACTIVE_CATEGORY_IDS
     if not APP_ID or not ACCESS_KEY:
         raise SystemExit("RAKUTEN_APPLICATION_ID and RAKUTEN_ACCESS_KEY are required")
 
@@ -2174,8 +2209,12 @@ def main():
     results = {}
     export = {"generated_at": updated.isoformat(), "categories": {}}
 
-    for category in CATEGORIES:
+    audits = {}
+    for category_index, category in enumerate(CATEGORIES):
+        if category_index:
+            time.sleep(1.1)
         included, other, audit = collect(category)
+        audits[category["id"]] = audit
         apply_price_history(history, category, included + other, updated.date())
         results[category["id"]] = (included, other)
         export["categories"][category["id"]] = {
@@ -2219,6 +2258,10 @@ def main():
                     json.dumps(sample, ensure_ascii=False),
                 )
 
+    ACTIVE_CATEGORY_IDS = {c['id'] for c in active_categories(results)}
+    for category in CATEGORIES:
+        included, other = results[category['id']]
+        (OUT / 'categories' / category['id'] / 'index.html').write_text(category_page(category, included, other, updated), encoding='utf-8')
     category_by_id = {category["id"]: category for category in CATEGORIES}
     auto_guides = eligible_auto_guides(results)
     all_guides = GUIDE_SPECS + auto_guides
@@ -2254,7 +2297,7 @@ def main():
     )
     save_price_history(history, OUT / "data" / "price-history.json")
     (OUT / "data" / "optimization-report.json").write_text(
-        json.dumps(optimization_report(results, auto_guides, updated), ensure_ascii=False, indent=2),
+        json.dumps(optimization_report(results, auto_guides, updated, audits), ensure_ascii=False, indent=2),
         encoding="utf-8",
     )
 
@@ -2265,7 +2308,7 @@ def main():
 
     urls = [SITE_URL, f"{SITE_URL}deals/"] + [
         f"{SITE_URL}categories/{category['id']}/"
-        for category in CATEGORIES
+        for category in CATEGORIES if len(results.get(category["id"], ([],[]))[0]) >= MIN_CATEGORY_ITEMS
     ] + [
         f"{SITE_URL}guides/{spec['slug']}/"
         for spec in all_guides

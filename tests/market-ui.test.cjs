@@ -74,3 +74,39 @@ test('high-resolution discovery images fall back once to the API URL',()=>{
  img.dispatchEvent(new b.dom.window.Event('error'));assert.equal(img.src,original);assert.ok(!img.dataset.imageFallback);
  img.dispatchEvent(new b.dom.window.Event('error'));assert.equal(img.src,original);b.dom.window.close();
 });
+
+test('all eligible categories are grouped by department and complete Finder with their own IDs',()=>{
+ const data=JSON.parse(fs.readFileSync('site/data/products.json','utf8'));
+ const legacy=['pack-rice','rice','carbonated-water','oatmeal'];
+ const eligible=Object.entries(data.categories).filter(([id,v])=>legacy.includes(id)||v.included.length>=3).map(([id])=>id);
+ const b=boot();b.click('[data-entry-route="known"]');
+ assert.ok(b.d.querySelectorAll('.finder-aisle').length>=3);
+ assert.equal(b.d.querySelectorAll('[data-finder-category]').length,eligible.length);
+ assert.equal(b.d.querySelectorAll('[data-aisle-category]').length,eligible.length);
+ for(const id of eligible){
+  b.click('[data-finder-reset]');b.click('[data-entry-route="known"]');
+  const button=b.d.querySelector(`[data-finder-category="${id}"]`);
+  assert.ok(button.closest('.finder-aisle'));
+  button.closest('details').open=true;button.click();
+  assert.ok(b.visible(`[data-finder-picks="${id}:cheap"]`));
+  const event=b.events.filter(e=>e[1]==='finder_complete').at(-1);assert.equal(event[2].category_id,id);
+  const link=b.d.querySelector(`[data-finder-picks="${id}:cheap"] [data-affiliate]`);
+  if(link){link.addEventListener('click',e=>e.preventDefault());link.click();assert.equal(b.events.filter(e=>e[1]==='affiliate_click').at(-1)[2].category_id,id)}
+ }
+ b.dom.window.close();
+});
+
+test('new category save, comparison and history links retain category-specific units',()=>{
+ const b=boot();
+ for(const id of ['mineral-water','pasta','granola','retort-curry','bag-noodles','cup-noodles']){
+  const panel=b.d.querySelector(`[data-finder-picks="${id}:cheap"]`);if(!panel)continue;
+  const saves=panel.querySelectorAll('[data-save-product]'),compares=panel.querySelectorAll('[data-compare-product]');
+  if(!saves.length)continue;
+  saves[0].click();const saved=JSON.parse(b.dom.window.localStorage.getItem('food_cost_saved_v1')).find(x=>x.category===id);assert.equal(saved.category,id);assert.ok(saved.unit>0);assert.ok(saved.unitLabel);
+  compares[0].click();if(compares.length>1)compares[1].click();
+  const compared=JSON.parse(b.dom.window.localStorage.getItem('food_cost_compare_v1'));assert.ok(compared.every(x=>x.category===id));
+  assert.equal(b.events.filter(e=>e[1]==='product_save_toggle').at(-1)[2].category_id,id);
+  b.click('[data-clear-compare]');
+ }
+ b.dom.window.close();
+});

@@ -22,7 +22,7 @@ class MarcheRegressionTests(unittest.TestCase):
         self.assertNotIn('{SITE_URL}', page)
 
     def test_real_illustration_assets_and_reduced_motion(self):
-        for c in build.CATEGORIES:
+        for c in [c for c in build.CATEGORIES if c["id"] in build.LEGACY_IDS]:
             self.assertTrue((Path(__file__).parents[1] / 'assets' / f"marche-{c['id']}.webp").exists())
             self.assertNotIn('<svg', build.category_illustration(c['id']))
         self.assertIn('prefers-reduced-motion', build.CSS)

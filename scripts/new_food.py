@@ -16,7 +16,7 @@ RULES = {
  'granola': (r'グラノーラ|フルグラ|グラノラ', r'プロテイン|サプリ|バー|クッキー|チョコレート菓子|詰め合わせ|コーンフレーク|オートミール'),
  'retort-curry': (r'レトルト.{0,12}カレー|カレー.{0,12}レトルト', r'ルー|ルウ|カレー粉|スープカレー|ご飯|ごはん|ライス|米飯|福袋|冷凍|詰め合わせ|カレーの素'),
  'bag-noodles': (r'袋麺|袋めん|袋ラーメン|袋入り|インスタントラーメン|即席袋|サッポロ一番|チキンラーメン|出前一丁|マルちゃん正麺|うまかっちゃん', r'カップ|どんぶり|スープのみ|麺のみ|替え玉|生麺|冷凍|ラーメン店|ご当地|詰め合わせ|乾麺|棒ラーメン|うどん|そば|焼きそば|焼そば|アソート'),
- 'cup-noodles': (r'カップ麺|カップめん|カップラーメン|カップヌードル|どん兵衛|赤いきつね|緑のたぬき', r'袋麺|袋めん|袋ラーメン|ミニ|mini|小サイズ|詰め合わせ|福袋|ビッグ|BIG|大盛|デカ|メガ|特盛|ごつ盛り|うどん|そば|焼そば|焼きそば|コラボ|ギフトセット|賞味期限20'),
+ 'cup-noodles': (r'カップ麺|カップめん|カップラーメン|カップヌードル|どん兵衛|赤いきつね|緑のたぬき', r'袋麺|袋めん|袋ラーメン|ミニ|mini|小サイズ|詰め合わせ|福袋|ビッグ|BIG|大盛|デカ|メガ|特盛|小サイズ|小カップ|小 カップ|ごつ盛り|うどん|そば|焼そば|焼きそば|コラボ|ギフトセット|賞味期限20'),
 }
 COMMON = re.compile(r'選べ|選択|よりどり|福袋|詰め合わせ|ふるさと納税|返礼品|定期|初回限定|会員限定|新規限定|お試し価格|アソート|より取り|容量不明', re.I)
 
@@ -33,6 +33,7 @@ def parse(title, cid):
     """Parse a unique explicit pack chain; validate every remaining capacity/count."""
     t = normalize(title)
     if COMMON.search(t): return None
+    if cid == 'bag-noodles' and not re.search(r'\d+\s*食', t): return None
     volume = cid == 'mineral-water'
     count_only = cid in {'bag-noodles','cup-noodles'}
     amount_pattern = r'(?<![\w.])(\d+(?:\.\d+)?)\s*(ml|l)' if volume else r'(?<![\w.])(\d+(?:\.\d+)?)\s*(kg|g)'
@@ -86,6 +87,7 @@ def parse(title, cid):
 
 def categories():
     out=[]
+    scope = {'mineral-water':'無味・非炭酸の飲料水', 'pasta':'乾燥スパゲッティ系のパスタ', 'granola':'バー・プロテイン食品を除くグラノーラ', 'retort-curry':'ご飯付きセットを除く1食用のレトルトカレー', 'bag-noodles':'スープ付きの即席袋ラーメン', 'cup-noodles':'ミニ・大盛りを除く通常サイズのカップラーメン'}
     for cid,name,emoji,queries,primary,label,secondary,slabel in SPECS:
-        out.append(dict(id=cid,name=name,emoji=emoji,queries=queries,primary=primary,primary_label=label,secondary=secondary,secondary_label=slabel,intro=f'{name}の容量・食数を確定し、{label}で比べます。',filter_small='少量',filter_large='まとめ買い',guide=['内容量とセット数を一意に確認できる商品だけを掲載します。','送料込みの商品と送料別・送料不明の商品を分けています。','種類・賞味期限・保管場所は購入前に販売ページで確認してください。']))
+        out.append(dict(id=cid,name=name,emoji=emoji,queries=queries,primary=primary,primary_label=label,secondary=secondary,secondary_label=slabel,intro=f'{scope[cid]}を対象に、容量・食数を確定して{label}で比べます。',filter_small=('合計12L以下' if cid=='mineral-water' else '12食以下' if primary=='per_serving' else '合計1kg以下'),filter_large=('合計12L超' if cid=='mineral-water' else '13食以上' if primary=='per_serving' else '合計1kg超'),guide=[f'対象は{scope[cid]}です。', '内容量とセット数を一意に確認できる商品だけを掲載します。','送料込みの商品と送料別・送料不明の商品を分けています。','種類・賞味期限・保管場所は購入前に販売ページで確認してください。']))
     return out
