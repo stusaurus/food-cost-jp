@@ -59,7 +59,32 @@ def quantity_conflict(title: str, category_id: str, quantity: dict) -> bool:
     text = re.sub(r"\d+\s*個以上購入で[^】\]]*(?=[】\]]|$)", " ", text)
     evidence = normalize(quantity.get("evidence") or "")
     if evidence:
-        text = text.replace(evidence, " ", 1)
+        text = text.replace(evidence, " ")
+    text = re.sub(r'x\s*1(?!\d)\s*(?:個|袋|ケース|箱|セット)?', ' ', text, flags=re.I)
+
+    # A partially parsed pack chain must not silently lose an outer multiplier.
+    # Keep only explicit decompositions whose product reconciles to the total.
+    if re.search(r"x\s*\d+", text, re.I):
+        chains = list(re.finditer(r"(\d+)\s*(?:食|本|個|袋|パック)(?:入)?\s*x\s*(\d+)\s*(?:袋|ケース|箱|セット)", text, re.I))
+        for match in chains:
+            if int(match.group(1)) * int(match.group(2)) == int(quantity.get('count') or 1):
+                text = text.replace(match.group(0), ' ', 1)
+        if re.search(r"x\s*\d+", text, re.I):
+            return True
+
+    # Capacity claims used in promotional unit prices are not package evidence.
+    capacity_title = re.sub(r"\d+(?:\.\d+)?\s*(?:kg|g|ml|l)\s*(?:当り|当たり|あたり)[^\s/]*", " ", normalize(title), flags=re.I)
+    capacity_title = re.sub(r"実質\s*\d+(?:\.\d+)?\s*(?:kg|g|ml|l)\s*[\d.]+円", ' ', capacity_title, flags=re.I)
+    amount_unit = 'volume_ml' if category_id in {'carbonated-water', 'mineral-water'} else 'weight_g'
+    allowed_amounts = {round(float(quantity.get(prefix + amount_unit) or 0), 3) for prefix in ('unit_', 'total_')}
+    if allowed_amounts != {0}:
+        pattern = r"(?<![A-Za-z0-9.])(\d+(?:\.\d+)?)\s*(ml|l)" if amount_unit == 'volume_ml' else r"(?<![A-Za-z0-9.])(\d+(?:\.\d+)?)\s*(kg|g)"
+        for amount, unit in re.findall(pattern, capacity_title, re.I):
+            value = float(amount) * (1000 if unit.lower() in {'kg', 'l'} else 1)
+            if round(value, 3) not in allowed_amounts:
+                return True
+        if not re.search(pattern, capacity_title, re.I):
+            return True
 
     expected = int(quantity.get("count") or 1)
     # A remaining inner-pack decomposition is harmless when it exactly

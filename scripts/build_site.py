@@ -1,7 +1,9 @@
 from __future__ import annotations
 
 import html
+import hashlib
 import json
+import math
 import os
 import re
 import sys
@@ -54,7 +56,7 @@ AISLES = [
 
 
 def active_categories(results):
-    return [c for c in CATEGORIES if c['id'] in LEGACY_IDS or len(results.get(c['id'], ([],[]))[0]) >= MIN_CATEGORY_ITEMS]
+    return [c for c in CATEGORIES if len(results.get(c['id'], ([],[]))[0]) >= MIN_CATEGORY_ITEMS]
 
 
 def category_visual(category, items):
@@ -75,14 +77,14 @@ GUIDE_SPECS = [
 ]
 
 AUTO_GUIDE_RULES = [
-    {"slug":"pack-rice-24-servings-cost","category_id":"pack-rice","title":"パックご飯24食のコスパ比較","h1":"パックご飯24食を1食あたりで比較","intro":"24食セットのパックご飯が3商品以上あるときだけ自動公開し、1食あたりの単価で比較します。","mode":"pack_count_24","auto":True},
-    {"slug":"pack-rice-40plus-cost","category_id":"pack-rice","title":"パックご飯40食以上のコスパ比較","h1":"パックご飯40食以上の大箱を比較","intro":"40食以上の大箱候補が3商品以上あるときだけ自動公開し、単価と支払総額を比べます。","mode":"pack_count_40plus","auto":True},
-    {"slug":"carbonated-water-500ml-24-cost","category_id":"carbonated-water","title":"炭酸水500ml前後24本のコスパ比較","h1":"炭酸水500ml前後×24本を比較","intro":"450〜600ml・24本の候補が3商品以上あるときだけ自動公開し、1L・1本あたりで比較します。","mode":"water_500_24","auto":True},
-    {"slug":"carbonated-water-500ml-48-cost","category_id":"carbonated-water","title":"炭酸水500ml前後48本のコスパ比較","h1":"炭酸水500ml前後×48本を比較","intro":"450〜600ml・48本の候補が3商品以上あるときだけ自動公開し、まとめ買い単価を比べます。","mode":"water_500_48","auto":True},
-    {"slug":"carbonated-water-1l-cost","category_id":"carbonated-water","title":"炭酸水1L前後のコスパ比較","h1":"炭酸水1L前後を1Lあたりで比較","intro":"900〜1100mlの商品が3商品以上あるときだけ自動公開し、1Lあたりの単価で比較します。","mode":"water_1l","auto":True},
-    {"slug":"rice-musenmai-cost","category_id":"rice","title":"無洗米のコスパ比較","h1":"無洗米を1kgあたりで比較","intro":"商品名から無洗米と確認できる候補が3商品以上あるときだけ自動公開します。","mode":"rice_musenmai","auto":True},
-    {"slug":"oatmeal-rolled-cost","category_id":"oatmeal","title":"ロールドオーツのコスパ比較","h1":"ロールドオーツを100gあたりで比較","intro":"商品名からロールドオーツと確認できる候補が3商品以上あるときだけ自動公開します。","mode":"oats_rolled","auto":True},
-    {"slug":"oatmeal-quick-cost","category_id":"oatmeal","title":"クイックオーツのコスパ比較","h1":"クイックオーツを100gあたりで比較","intro":"商品名からクイックオーツと確認できる候補が3商品以上あるときだけ自動公開します。","mode":"oats_quick","auto":True},
+    {"slug":"pack-rice-24-servings-cost","category_id":"pack-rice","title":"パックご飯24食のコスパ比較","h1":"パックご飯24食を1食あたりで比較","intro":"24食セットのパックご飯を、1食あたりの単価と内容量で比較します。","mode":"pack_count_24","auto":True},
+    {"slug":"pack-rice-40plus-cost","category_id":"pack-rice","title":"パックご飯40食以上のコスパ比較","h1":"パックご飯40食以上の大箱を比較","intro":"40食以上のパックご飯を、単価・総額・保管する量から比べます。","mode":"pack_count_40plus","auto":True},
+    {"slug":"carbonated-water-500ml-24-cost","category_id":"carbonated-water","title":"炭酸水500ml前後24本のコスパ比較","h1":"炭酸水500ml前後×24本を比較","intro":"450〜600ml・24本セットを、1L・1本あたりで比較します。","mode":"water_500_24","auto":True},
+    {"slug":"carbonated-water-500ml-48-cost","category_id":"carbonated-water","title":"炭酸水500ml前後48本のコスパ比較","h1":"炭酸水500ml前後×48本を比較","intro":"450〜600ml・48本セットの単価と支払総額を比べます。","mode":"water_500_48","auto":True},
+    {"slug":"carbonated-water-1l-cost","category_id":"carbonated-water","title":"炭酸水1L前後のコスパ比較","h1":"炭酸水1L前後を1Lあたりで比較","intro":"900〜1100mlの炭酸水を、1Lあたりの単価で比較します。","mode":"water_1l","auto":True},
+    {"slug":"rice-musenmai-cost","category_id":"rice","title":"無洗米のコスパ比較","h1":"無洗米を1kgあたりで比較","intro":"商品名で無洗米と確認できるお米を、1kgあたりで比較します。","mode":"rice_musenmai","auto":True},
+    {"slug":"oatmeal-rolled-cost","category_id":"oatmeal","title":"ロールドオーツのコスパ比較","h1":"ロールドオーツを100gあたりで比較","intro":"ロールドオーツの容量と価格を、100gあたりにそろえて比較します。","mode":"oats_rolled","auto":True},
+    {"slug":"oatmeal-quick-cost","category_id":"oatmeal","title":"クイックオーツのコスパ比較","h1":"クイックオーツを100gあたりで比較","intro":"クイックオーツの容量と価格を、100gあたりにそろえて比較します。","mode":"oats_quick","auto":True},
 ]
 
 LIMITED_RE = re.compile(r"(?:定期購入(?:のみ)?|定期便(?:のみ)?|初回限定|会員限定|新規限定)")
@@ -110,7 +112,7 @@ def parse_quantity(title: str, category_id: str):
 
     if category_id == "pack-rice":
         nested = list(re.finditer(
-            r"(\d+(?:\.\d+)?)\s*g\s*x\s*(\d+)\s*(?:食|個|パック)\s*\)?\s*x\s*(\d+)\s*(?:袋|箱|ケース|セット)",
+            r"(\d+(?:\.\d+)?)\s*g\s*x\s*(\d+)\s*(?:食|個|パック)(?:入り|入)?\s*\)?\s*x\s*(\d+)\s*(?:袋|箱|ケース|セット|個)",
             text,
             re.I,
         ))
@@ -429,6 +431,10 @@ def normalize_item_with_reason(raw: dict, category: dict):
     prices = unit_prices(price, quantity, category["id"])
     if category["primary"] not in prices:
         return None, "unit_price_unavailable"
+    minimums = {'per_serving': 10, 'per_100g': 1, 'per_kg': 10, 'per_liter': 5, 'per_bottle': 5}
+    maximums = {'per_serving': 5000, 'per_100g': 5000, 'per_kg': 50000, 'per_liter': 10000, 'per_bottle': 5000}
+    if any(not math.isfinite(v) or not minimums[k] <= v <= maximums[k] for k,v in prices.items()):
+        return None, 'abnormal_unit_price'
 
     postage_included = str(item.get("postageFlag")) == "0"
     url = str(item.get("affiliateUrl") or item.get("itemUrl") or "")
@@ -448,6 +454,9 @@ def normalize_item_with_reason(raw: dict, category: dict):
         "shipping_status": "included" if postage_included else "extra_or_unknown",
         "quantity": quantity,
         "unit_prices": prices,
+        "comparison_metric": category['primary'],
+        "unit_label": category['primary_label'],
+        "quantity_label": quantity_text({'quantity': quantity}, category['id']),
         "promotion_mentioned": bool(PROMO_RE.search(norm(raw_name))),
     }, None
 
@@ -459,12 +468,14 @@ def normalize_item(raw: dict, category: dict):
 
 def collect(category: dict):
     rows = []
+    fetch_errors = 0
     for index, query in enumerate(category["queries"]):
         if index:
             time.sleep(1.1)
         try:
             rows.extend(fetch(query))
         except Exception as exc:
+            fetch_errors += 1
             print(f"fetch failed {category['id']} {query}: {exc}", file=sys.stderr)
 
     reasons = Counter()
@@ -493,7 +504,7 @@ def collect(category: dict):
     exact_unique = []
     exact_duplicates = 0
     for item in normalized:
-        key = (item["id"], item["price"])
+        key = item["id"]
         if key in exact_seen:
             exact_duplicates += 1
             continue
@@ -529,6 +540,8 @@ def collect(category: dict):
     other = other_all[:20]
 
     audit = {
+        "fetch_errors": fetch_errors,
+        "queries": len(category['queries']),
         "fetched": len(rows),
         "normalized": len(normalized),
         "exact_duplicates": exact_duplicates,
@@ -560,20 +573,23 @@ def quantity_text(item: dict, category_id: str) -> str:
     grams = q.get("total_weight_g", 0)
     text = f"合計{grams/1000:g}kg" if grams >= 1000 else f"合計{grams:g}g"
     if q.get("count", 1) > 1:
-        text += f" / {q['count']}個・食"
+        unit = '食' if category_id in {'pack-rice', 'retort-curry'} else '袋・個'
+        text += f" / {q['count']}{unit}"
     return text
 
 
 def ga_head() -> str:
+    # Resolve operator mode before GA's automatic first page_view is queued.
+    init = """<script>(()=>{const k='food_cost_operator_test_v1',p=new URLSearchParams(location.search);let op=false;try{op=localStorage.getItem(k)==='1'}catch(e){}if(['1','0'].includes(p.get('test'))){op=p.get('test')==='1';try{op?localStorage.setItem(k,'1'):localStorage.removeItem(k)}catch(e){}const u=new URL(location.href);u.searchParams.delete('test');history.replaceState(history.state,'',u.href)}window.foodCostOperatorTest=op;})();</script>"""
     if not GA_ID:
-        return ""
+        return init
     safe = html.escape(GA_ID, quote=True)
-    return f"""<script async src="https://www.googletagmanager.com/gtag/js?id={safe}"></script>
+    return init + f"""<script async src="https://www.googletagmanager.com/gtag/js?id={safe}"></script>
 <script>
 window.dataLayer=window.dataLayer||[];
 window.gtag=window.gtag||function(){{dataLayer.push(arguments)}};
 gtag('js',new Date());
-gtag('config','{safe}',{{site_id:'{SITE_ID}'}});
+gtag('config','{safe}',{{site_id:'{SITE_ID}',operator_test:window.foodCostOperatorTest?'1':'0'}});
 </script>"""
 
 
@@ -647,7 +663,7 @@ def price_history_badges(item: dict) -> str:
             f'<span class="trend-badge drop">↓ ¥{abs(int(delta)):,} {html.escape(label)}</span>'
         )
     if history.get("is_30d_low"):
-        parts.append('<span class="trend-badge low">30日最安</span>')
+        parts.append('<span class="trend-badge low">記録内最安</span>')
     return "".join(parts)
 
 
@@ -774,7 +790,7 @@ def cta_copy(item: dict, context: str, rank: int | None = None) -> tuple[str, st
     history = item.get("price_history") or {}
     delta = history.get("price_delta")
     if history.get("is_30d_low") and delta is not None and delta < 0:
-        return "30日最安を楽天で確認 →", "history_low"
+        return "記録内最安を楽天で確認 →", "history_low"
     if delta is not None and delta < 0:
         return "値下がり価格を楽天で確認 →", "price_drop"
     if context == "top3" and rank == 1:
@@ -978,6 +994,8 @@ def product_action_buttons(item: dict, category: dict, primary: float) -> str:
         f'data-product-price="{item["price"]}" '
         f'data-product-unit="{primary:.6f}" '
         f'data-product-unit-label="{html.escape(category["primary_label"], quote=True)}" '
+        f'data-product-metric="{category["primary"]}" '
+        f'data-product-shipping="{item["shipping_status"]}" '
         f'data-product-quantity="{html.escape(quantity, quote=True)}" '
         f'data-product-url="{html.escape(item["url"], quote=True)}" '
         f'data-product-image="{html.escape(item["image"] or "", quote=True)}"'
@@ -1121,7 +1139,7 @@ SHOPPING_INTENTS = {
 }
 
 
-def cross_shelf_items(results: dict, purpose: str, used: set | None = None) -> list[tuple]:
+def cross_shelf_items(results: dict, purpose: str, used: set | None = None, day: str = '') -> list[tuple]:
     # One candidate per aisle: never rank unlike units against one another.
     selected = []
     deals, _ = deal_entries(results)
@@ -1132,6 +1150,13 @@ def cross_shelf_items(results: dict, purpose: str, used: set | None = None) -> l
             drops = [entry[4] for entry in deals if entry[3]["id"] == category["id"]]
             if drops:
                 picks = drops
+            elif day and picks:
+                # Discovery only: rotate among top-three offers within 5% of
+                # the category minimum. Comparison rankings stay price-sorted.
+                best = picks[0]['unit_prices'][category['primary']]
+                near = [x for x in picks[:3] if x['unit_prices'][category['primary']] <= best * 1.05]
+                offset = int(hashlib.sha256((day + category['id']).encode()).hexdigest(), 16) % len(near)
+                picks = near[offset:] + near[:offset]
         if picks:
             # Static shelves can use the next eligible candidate; Finder keeps its best match.
             identity = lambda item: product_fingerprint(item["name"]) or item["id"]
@@ -1159,12 +1184,13 @@ def market_shelf_html(entries: list[tuple], title: str, shelf_id: str, purpose: 
 <p class="sub">{html.escape(note)}</p><p class="shelf-assurance">この棚は送料込み確認済みの商品から選定</p><p class="shelf-mobile-hint">棚を横に見る →</p><div class="finder-products">{cards}</div></section>'''
 
 
-def today_market_html(results: dict) -> str:
-    entries = cross_shelf_items(results, "cheap")
+def today_market_html(results: dict, updated: datetime | None = None) -> str:
+    entries = cross_shelf_items(results, "cheap", day=updated.strftime('%Y-%m-%d') if updated else '')
     # A genuine drop can lead the display; this is editorial placement, not a global rank.
     entries.sort(key=lambda entry: 0 if ((entry[1].get("price_history") or {}).get("price_delta") or 0) < 0 else 1)
     deals, has_history = deal_entries(results)
-    history_note = "実際の値下がりを確認した商品と、各売り場の単価上位から。" if deals else "今回は値下がり候補なし。各売り場の単価上位から。" if has_history else "価格履歴を蓄積中。今は各売り場の単価上位から。"
+    history_note = "実際の値下がりを確認した商品を優先。" if deals else "今回は値下がり候補なし。" if has_history else "価格履歴を蓄積中。"
+    history_note += "値下がりのない売り場は、単価上位3件かつ最安との差5%以内から日替わりで紹介します。"
     return f'''<section class="section deal-section" id="today-market">
 <div class="section-kicker">A LITTLE DISCOVERY, TODAY</div><h2>今日のマルシェ、まずはこの棚から。</h2>
 {market_shelf_html(entries, "本日のおすすめ棚", "today", note=history_note+" 食品をまたぐ順位・品質のおすすめではありません。")}
@@ -1239,256 +1265,7 @@ def comparison_flow_html() -> str:
 CSS = (Path(__file__).parent / "marche.css").read_text(encoding="utf-8") + (Path(__file__).parent / "market.css").read_text(encoding="utf-8")
 
 
-JS = """(()=>{
-document.querySelectorAll('img[data-image-fallback]').forEach(img=>{const fallback=()=>{const url=img.dataset.imageFallback;if(url){delete img.dataset.imageFallback;img.src=url}};img.addEventListener('error',fallback,{once:true});if(img.complete&&!img.naturalWidth)fallback()});
-const K='food_cost_operator_test_v1',p=new URLSearchParams(location.search);
-let op=false;
-try{op=localStorage.getItem(K)==='1'}catch(e){}
-if(p.get('test')==='1'||p.get('test')==='0'){
-  op=p.get('test')==='1';
-  try{op?localStorage.setItem(K,'1'):localStorage.removeItem(K)}catch(e){}
-  const u=new URL(location.href);u.searchParams.delete('test');history.replaceState(history.state,'',u.href)
-}
-const send=(n,x={})=>{if(typeof gtag==='function')gtag('event',n,{site_id:'food_cost_jp',...(op?{operator_test:'1'}:{}),...x})};
-document.addEventListener('click',e=>{
-  const a=e.target.closest('a[data-affiliate]');if(!a)return;
-  const pos=a.dataset.position||'comparison_table';
-  const x={affiliate:'rakuten',conversion_source:pos,category_id:a.dataset.category,product_id:a.dataset.productId,product_name:a.dataset.productName,rank:a.dataset.rank,comparison_metric:a.dataset.metric,unit_price:Number(a.dataset.unitPrice||0),shipping_status:a.dataset.shipping,click_position:pos,cta_variant:a.dataset.ctaVariant||'standard',cta_text:(a.textContent||'').trim(),page_path:location.pathname,link_url:a.href};
-  send('product_result_click',x);send('affiliate_click',x)
-});
-document.querySelectorAll('[data-start-route]').forEach(a=>a.addEventListener('click',()=>send('home_start_route',{route:a.dataset.startRoute||''})));
-document.querySelectorAll('[data-product-extra]').forEach(d=>d.addEventListener('toggle',()=>{if(d.open)send('product_detail_open',{page_path:location.pathname})}));
-document.querySelectorAll('[data-sort]').forEach(s=>s.addEventListener('change',()=>{
-  const root=s.closest('[data-comparison]'),body=root.querySelector('tbody'),rows=[...body.querySelectorAll('tr')],m=s.value;
-  rows.sort((a,b)=>Number(a.dataset[m]||Infinity)-Number(b.dataset[m]||Infinity));
-  const base=Number(root.dataset.startRank||1);
-  rows.forEach((r,i)=>{
-    const n=base+i,rankCell=r.querySelector('[data-rank]'),rankSpan=rankCell?.querySelector('.rank');
-    if(rankSpan){rankSpan.textContent=n;rankSpan.classList.toggle('top',n<=3)}
-    const link=r.querySelector('a[data-affiliate]');if(link)link.dataset.rank=String(n);
-    body.appendChild(r)
-  });
-  send('comparison_sort',{category_id:s.dataset.category,comparison_metric:m})
-}));
-const applyFilters=root=>{
-  const size=root.querySelector('[data-filter]')?.value||'all';
-  const term=(root.querySelector('[data-search]')?.value||'').trim().toLowerCase();
-  let shown=0;
-  root.querySelectorAll('tbody tr').forEach(r=>{
-    const sizeOk=size==='all'||(root.dataset.shoppingIntent?r.dataset.shoppingBucket:r.dataset.bucket)===size;
-    const textOk=!term||(r.dataset.searchText||'').includes(term);
-    r.hidden=!(sizeOk&&textOk);
-    if(!r.hidden)shown++;
-  });
-  const empty=root.querySelector('[data-empty-filter]');
-  if(empty)empty.style.display=shown?'none':'block';
-};
-document.querySelectorAll('[data-filter]').forEach(s=>s.addEventListener('change',()=>{
-  const root=s.closest('[data-comparison]');applyFilters(root);
-  send('comparison_filter_use',{category_id:s.dataset.category,filter_value:s.value})
-}));
-document.querySelectorAll('[data-search]').forEach(input=>input.addEventListener('change',()=>{
-  const root=input.closest('[data-comparison]');applyFilters(root);
-  send('comparison_search_use',{category_id:input.dataset.category,search_term:input.value.trim()})
-}));
-const shelfSeen=new WeakSet();
-const shelfView=el=>{if(!el||shelfSeen.has(el)||el.closest('[hidden]'))return;shelfSeen.add(el);send('market_shelf_view',{shelf_id:el.dataset.marketShelf,product_count:el.querySelectorAll('[data-affiliate]').length,category_id:[...new Set([...el.querySelectorAll('[data-affiliate]')].map(a=>a.dataset.category))].length===1?el.querySelector('[data-affiliate]')?.dataset.category:'all',category_ids:[...new Set([...el.querySelectorAll('[data-affiliate]')].map(a=>a.dataset.category))].join(',')})};
-if(!('IntersectionObserver' in window))document.querySelectorAll('[data-market-shelf]').forEach(shelfView);
-if('IntersectionObserver' in window){const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting)shelfView(entry.target)}),{threshold:.1});document.querySelectorAll('[data-market-shelf]').forEach(el=>observer.observe(el))}
-document.addEventListener('click',e=>{const a=e.target.closest('a[data-affiliate]');const shelf=a?.closest('[data-market-shelf]');if(shelf)send('market_shelf_product_click',{shelf_id:shelf.dataset.marketShelf,category_id:a.dataset.category,product_id:a.dataset.productId,cta_variant:a.dataset.ctaVariant})});
-const finder=document.querySelector('[data-finder]');
-if(finder){
-  let category='all',purpose='',intent='',route='';
-  const routeStage=finder.querySelector('[data-finder-route-stage]');
-  const categoryStage=finder.querySelector('[data-finder-category-stage]'),purposeStage=finder.querySelector('[data-finder-purpose-stage]'),resultStage=finder.querySelector('[data-finder-result-stage]'),status=finder.querySelector('[data-finder-status]');
-  const show=el=>{el.hidden=false;const first=el.querySelector('summary,button');first?.focus({preventScroll:true});const top=el.getBoundingClientRect().top;if(top<0||top>window.innerHeight*.65)el.scrollIntoView?.({block:'start',behavior:window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches?'instant':'smooth'})};
-  const hide=el=>el.hidden=true;
-  const results=()=>{
-    hide(routeStage);hide(purposeStage);hide(categoryStage);show(resultStage);
-    let current;
-    finder.querySelectorAll('[data-finder-picks]').forEach(panel=>{panel.hidden=panel.dataset.finderPicks!==category+':'+purpose;if(!panel.hidden)current=panel});
-    const count=current?.querySelectorAll('[data-affiliate]').length||0;
-    status.textContent=count?'それなら、この棚から。 '+count+'件の候補があります。':'この条件の候補は現在ありません。別の買い方も見てみましょう。';
-    send('finder_complete',{category_id:category,shopping_intent:intent,product_count:count});
-    send('quick_finder_complete',{category_id:category,finder_purpose:purpose});
-    if(!('IntersectionObserver' in window))shelfView(current?.querySelector('[data-market-shelf]'));
-  };
-  const reset=()=>{purpose='';category='all';route='';show(routeStage);hide(purposeStage);hide(categoryStage);hide(resultStage);status.textContent='';finder.querySelectorAll('[data-finder-picks]').forEach(x=>x.hidden=true);finder.querySelectorAll('[aria-pressed]').forEach(x=>x.setAttribute('aria-pressed','false'));finder.querySelectorAll('.selected').forEach(x=>x.classList.remove('selected'));finder.querySelectorAll('.finder-aisle').forEach(x=>x.open=false)};
-  const selectRoute=(key,source='entry')=>{
-    route=key;category='all';status.textContent='';hide(routeStage);hide(purposeStage);hide(categoryStage);hide(resultStage);
-    finder.querySelectorAll('[data-entry-route]').forEach(x=>{x.classList.toggle('selected',x.dataset.entryRoute===key);x.setAttribute('aria-pressed',String(x.dataset.entryRoute===key))});
-    send('entry_route_select',{entry_route:key,entry_source:source});
-    if(key==='advisor'){show(purposeStage);return}
-    intent=key==='deal'?'cheap':'known';purpose='cheap';send('shopping_intent_select',{shopping_intent:intent});
-    if(key==='known'){show(categoryStage);status.textContent='いつもの食品を、売り場から選びましょう。'}else results();
-  };
-  finder.querySelectorAll('[data-entry-route]').forEach(btn=>btn.addEventListener('click',()=>selectRoute(btn.dataset.entryRoute)));
-  document.querySelector('[data-hero-known]')?.addEventListener('click',()=>selectRoute('known'));
-  document.querySelector('[data-hero-primary]')?.addEventListener('click',()=>{reset();selectRoute('advisor','hero');send('hero_primary_cta',{destination:'shopping-intent',entry_route:'advisor'})});
-  finder.querySelectorAll('[data-finder-purpose]').forEach(btn=>btn.addEventListener('click',()=>{
-    purpose=btn.dataset.finderPurpose;intent=purpose;category='all';
-    finder.querySelectorAll('[data-finder-purpose]').forEach(x=>{x.classList.toggle('selected',x===btn);x.setAttribute('aria-pressed',String(x===btn))});
-    send('shopping_intent_select',{shopping_intent:intent});results();
-  }));
-  finder.querySelectorAll('[data-finder-category]').forEach(btn=>btn.addEventListener('click',()=>{category=btn.dataset.finderCategory;finder.querySelectorAll('[data-finder-category]').forEach(x=>{x.classList.toggle('selected',x===btn);x.setAttribute('aria-pressed',String(x===btn))});send('quick_finder_category',{category_id:category});send('category_select_after_intent',{category_id:category,shopping_intent:intent});results()}));
-  finder.querySelector('[data-finder-narrow]')?.addEventListener('click',()=>{hide(resultStage);show(categoryStage);status.textContent='この買い方のまま、売り場を選べます。'});
-  finder.querySelectorAll('[data-finder-back]').forEach(btn=>btn.addEventListener('click',reset));
-  finder.querySelector('[data-finder-reset]')?.addEventListener('click',reset);
-}
-const pick=new URLSearchParams(location.search).get('pick');
-if(pick&&document.querySelector('[data-comparison]')){
-  const root=document.querySelector('[data-comparison]');
-  const filter=root.querySelector('[data-filter]');
-  const sort=root.querySelector('[data-sort]');
-  if(filter&&(pick==='small'||pick==='large'||pick==='storage')){root.dataset.shoppingIntent=pick;filter.value=pick==='storage'?'small':pick;if(['carbonated-water','mineral-water'].includes(filter.dataset.category)){filter.querySelector('[value=small]').textContent='合計12L以下';filter.querySelector('[value=large]').textContent='合計12L超'}const label=root.querySelector('[data-intent-note]');if(label)label.textContent='買い方で絞った一覧：少量側 / 大容量側は合計量を基準にしています。'}
-  if(filter&&pick==='storage')filter.value='small';
-  if(sort&&(pick==='budget'||pick==='storage')){sort.value='price';sort.dispatchEvent(new Event('change'))}
-  const details=root.closest('details');if(details)details.open=true;
-  applyFilters(root);
-  send('quick_finder_landing',{category_id:filter?.dataset.category||'',finder_purpose:pick})
-}
-
-document.addEventListener('click',e=>{
-  const rangeBtn=e.target.closest('[data-history-range]');
-  if(!rangeBtn)return;
-  const card=rangeBtn.closest('[data-history-card]');if(!card)return;
-  const range=rangeBtn.dataset.historyRange;
-  card.querySelectorAll('[data-history-range]').forEach(btn=>btn.classList.toggle('selected',btn===rangeBtn));
-  card.querySelectorAll('[data-history-panel]').forEach(panel=>panel.hidden=panel.dataset.historyPanel!==range);
-  send('price_history_range_change',{range_value:range,page_path:location.pathname})
-});
-const SAVED_KEY='food_cost_saved_v1',COMPARE_KEY='food_cost_compare_v1';
-const readList=key=>{try{const v=JSON.parse(localStorage.getItem(key)||'[]');return Array.isArray(v)?v:[]}catch(e){return[]}};
-const writeList=(key,value)=>{try{localStorage.setItem(key,JSON.stringify(value))}catch(e){}};
-const itemKey=x=>x.category+'|'+x.id;
-const fromButton=btn=>({
-  id:btn.dataset.productId||'',
-  name:btn.dataset.productName||'',
-  category:btn.dataset.productCategory||'',
-  categoryName:btn.dataset.productCategoryName||'',
-  price:Number(btn.dataset.productPrice||0),
-  unit:Number(btn.dataset.productUnit||0),
-  unitLabel:btn.dataset.productUnitLabel||'',
-  quantity:btn.dataset.productQuantity||'',
-  url:btn.dataset.productUrl||'',
-  image:btn.dataset.productImage||''
-});
-const esc=s=>String(s==null?'':s).replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
-const money=n=>'¥'+Number(n||0).toLocaleString('ja-JP',{maximumFractionDigits:1});
-let saved=readList(SAVED_KEY),compared=readList(COMPARE_KEY).slice(0,3);
-const toastEl=document.querySelector('[data-toast]');
-let toastTimer;
-const toast=message=>{
-  if(!toastEl)return;
-  toastEl.textContent=message;toastEl.hidden=false;
-  clearTimeout(toastTimer);toastTimer=setTimeout(()=>toastEl.hidden=true,1800)
-};
-const syncUtilityButtons=()=>{
-  const savedKeys=new Set(saved.map(itemKey)),compareKeys=new Set(compared.map(itemKey));
-  document.querySelectorAll('[data-save-product]').forEach(btn=>{
-    const active=savedKeys.has((btn.dataset.productCategory||'')+'|'+(btn.dataset.productId||''));
-    btn.classList.toggle('active',active);btn.setAttribute('aria-pressed',String(active));btn.textContent=active?'✓ メモ済み':'＋ 買い物メモ'
-  });
-  document.querySelectorAll('[data-compare-product]').forEach(btn=>{
-    const active=compareKeys.has((btn.dataset.productCategory||'')+'|'+(btn.dataset.productId||''));
-    btn.classList.toggle('active',active);btn.setAttribute('aria-pressed',String(active));btn.textContent=active?'✓ 比較中':'＋ 比較する'
-  });
-  const count=document.querySelector('[data-saved-count]');if(count)count.textContent=String(saved.length)
-};
-const renderSaved=()=>{
-  const root=document.querySelector('[data-saved-list]');if(!root)return;
-  if(!saved.length){root.innerHTML='<div class="utility-empty">保存した商品はまだありません。</div>';return}
-  root.innerHTML=saved.map(x=>'<div class="saved-item">'+
-    (x.image?'<img src="'+esc(x.image)+'" alt="">':'<div></div>')+
-    '<div><strong>'+esc(x.name)+'</strong><small>'+esc(x.categoryName)+' ・ '+money(x.unit)+' '+esc(x.unitLabel)+' ・ '+money(x.price)+'</small><a href="'+esc(x.url)+'" target="_blank" rel="nofollow sponsored noopener">楽天で見る →</a></div>'+
-    '<button type="button" data-remove-saved="'+esc(itemKey(x))+'" aria-label="保存から削除">削除</button></div>').join('')
-};
-const renderCompare=()=>{
-  const root=document.querySelector('[data-compare-table]');if(!root)return;
-  if(!compared.length){root.innerHTML='<div class="utility-empty">「比較する」から最大3商品を選べます。</div>';return}
-  const cells=(label,fn)=>'<tr><td>'+esc(label)+'</td>'+compared.map(x=>'<td>'+fn(x)+'</td>').join('')+'</tr>';
-  root.innerHTML='<div class="compare-table"><table><thead><tr><th>比較項目</th>'+
-    compared.map(x=>'<th>'+esc(x.name)+'</th>').join('')+
-    '</tr></thead><tbody>'+
-    cells('商品価格',x=>money(x.price))+
-    cells('内容量',x=>esc(x.quantity))+
-    cells(compared[0]&&compared[0].unitLabel?compared[0].unitLabel:'主要単価',x=>'<strong>'+money(x.unit)+'</strong>')+
-    cells('販売先',x=>'<a href="'+esc(x.url)+'" target="_blank" rel="nofollow sponsored noopener">楽天で見る →</a>')+
-    '</tbody></table></div>'
-};
-const syncCompareBar=()=>{
-  const bar=document.querySelector('[data-compare-bar]');if(!bar)return;
-  bar.hidden=!compared.length;
-  document.body.classList.toggle('has-compare',Boolean(compared.length));
-  const summary=bar.querySelector('[data-compare-summary]');if(summary)summary.textContent=compared.length+'/3';
-  const items=bar.querySelector('[data-compare-bar-items]');
-  if(items)items.innerHTML=compared.map(x=>'<span class="compare-chip">'+(x.image?'<img src="'+esc(x.image)+'" alt="">':'')+'<span>'+esc(x.name)+'</span><button type="button" class="compare-remove" data-remove-compare="'+esc(itemKey(x))+'" aria-label="'+esc(x.name)+'を比較から外す">×</button></span>').join('');
-  const open=bar.querySelector('[data-open-compare]');if(open)open.textContent=compared.length+'商品を比べる'
-};
-const persistUtilities=()=>{
-  writeList(SAVED_KEY,saved);writeList(COMPARE_KEY,compared);
-  syncUtilityButtons();syncCompareBar();renderSaved();renderCompare()
-};
-let activeModal=null,modalTrigger=null,modalScroll=0;
-const focusable=modal=>Array.from(modal.querySelectorAll('button,a[href],input,select,summary,[tabindex="0"]')).filter(el=>!el.disabled&&el.getClientRects().length);
-const closeModal=()=>{
-  if(!activeModal)return;
-  activeModal.hidden=true;activeModal=null;
-  document.body.classList.remove('modal-open');document.body.style.top='';
-  document.querySelectorAll('.market-masthead,header,nav,main,footer').forEach(el=>el.inert=false);
-  window.scrollTo({top:modalScroll,behavior:'instant'});
-  if(modalTrigger?.isConnected)modalTrigger.focus({preventScroll:true});
-};
-const openModal=modal=>{
-  if(!modal)return;
-  if(activeModal)closeModal();
-  modalTrigger=document.activeElement;modalScroll=window.scrollY;activeModal=modal;
-  document.body.style.top=-modalScroll+'px';document.body.classList.add('modal-open');
-  // Some dialogs live inside main; keep their ancestor active and trap focus below.
-  document.querySelectorAll('.market-masthead,header,nav,main,footer').forEach(el=>el.inert=!el.contains(modal));
-  modal.hidden=false;focusable(modal)[0]?.focus({preventScroll:true});
-};
-document.addEventListener('click',e=>{
-  const saveBtn=e.target.closest('[data-save-product]');
-  if(saveBtn){
-    const item=fromButton(saveBtn),key=itemKey(item),exists=saved.some(x=>itemKey(x)===key);
-    saved=exists?saved.filter(x=>itemKey(x)!==key):[item,...saved].slice(0,30);
-    persistUtilities();toast(exists?'保存から外しました':'買い物メモに保存しました');
-    send('product_save_toggle',{category_id:item.category,product_id:item.id,saved:exists?0:1});return
-  }
-  const compareBtn=e.target.closest('[data-compare-product]');
-  if(compareBtn){
-    const item=fromButton(compareBtn),key=itemKey(item),exists=compared.some(x=>itemKey(x)===key);
-    if(exists){compared=compared.filter(x=>itemKey(x)!==key);persistUtilities();toast('比較から外しました');return}
-    if(compared.length&&compared[0].category!==item.category){toast('比較は同じ食品カテゴリで選んでください');return}
-    if(compared.length>=3){toast('比較できるのは3商品までです');return}
-    compared.push(item);persistUtilities();toast('比較に追加しました');
-    send('product_compare_add',{category_id:item.category,product_id:item.id,compare_count:compared.length});return
-  }
-  const remove=e.target.closest('[data-remove-saved]');
-  if(remove){saved=saved.filter(x=>itemKey(x)!==remove.dataset.removeSaved);persistUtilities();return}
-  const removeCompare=e.target.closest('[data-remove-compare]');
-  if(removeCompare){compared=compared.filter(x=>itemKey(x)!==removeCompare.dataset.removeCompare);persistUtilities();toast('比較から外しました');document.querySelector(compared.length?'[data-open-compare]':'[data-open-saved]')?.focus({preventScroll:true});return}
-  if(e.target.closest('[data-open-saved]')){renderSaved();openModal(document.querySelector('[data-saved-modal]'));return}
-  if(e.target.closest('[data-close-saved]')){closeModal();return}
-  if(e.target.closest('[data-open-compare]')){renderCompare();openModal(document.querySelector('[data-compare-modal]'));send('product_compare_open',{compare_count:compared.length});return}
-  if(e.target.closest('[data-close-compare]')){closeModal();return}
-  if(e.target.closest('[data-clear-compare]')){compared=[];persistUtilities();toast('比較をクリアしました');return}
-  const modal=e.target.closest('.utility-modal');
-  if(modal&&e.target===modal)closeModal()
-});
-document.addEventListener('keydown',e=>{
-  if(!activeModal)return;
-  if(e.key==='Escape'){e.preventDefault();closeModal();return}
-  if(e.key==='Tab'){
-    const controls=focusable(activeModal),first=controls[0],last=controls[controls.length-1];
-    if(!first)return;
-    if(e.shiftKey&&(document.activeElement===first||!activeModal.contains(document.activeElement))){e.preventDefault();last.focus()}
-    else if(!e.shiftKey&&(document.activeElement===last||!activeModal.contains(document.activeElement))){e.preventDefault();first.focus()}
-  }
-});
-persistUtilities();
-})();"""
+JS = Path(__file__).with_name('market.js').read_text(encoding='utf-8')
 
 
 def bucket(item: dict, category_id: str) -> str:
@@ -1541,7 +1318,7 @@ def rows_html(items: list[dict], category: dict, start_rank: int = 1) -> str:
 <td data-cell="price">¥{item['price']:,}</td>
 <td data-cell="unit"><div class="unit">{yen(primary)}</div><div class="unit-label">{html.escape(category['primary_label'])}</div>{secondary}</td>
 <td data-cell="cta">{product_action_buttons(item, category, primary)}<a class="cta" href="{html.escape(item['url'], quote=True)}" target="_blank" rel="nofollow sponsored noopener"
- data-affiliate="rakuten" data-category="{category['id']}" data-product-id="{html.escape(item['id'], quote=True)}"
+ data-affiliate="rakuten" data-position="comparison_table" data-category="{category['id']}" data-product-id="{html.escape(item['id'], quote=True)}"
  data-product-name="{html.escape(item['name'], quote=True)}" data-rank="{rank}" data-metric="{primary_metric}"
  data-unit-price="{primary:.6f}" data-shipping="{item['shipping_status']}" {cta_attrs(cta_variant)}>{html.escape(cta_label)}</a></td>
 </tr>"""
@@ -1575,8 +1352,8 @@ def comparison_table(
 <p class="sub">{html.escape(note)}</p>
 <div class="toolbar">
 <input type="search" data-search data-category="{category['id']}" placeholder="商品名・ショップ名で絞る" aria-label="{html.escape(category['name'])}の商品名・ショップ名で絞る">
-<select data-sort data-category="{category['id']}">{''.join(options)}</select>
-<select data-filter data-category="{category['id']}">
+<select data-sort data-category="{category['id']}" aria-label="並び順">{''.join(options)}</select>
+<select data-filter data-category="{category['id']}" aria-label="容量・数量で絞る">
 <option value="all">容量・数量すべて</option>
 <option value="small">{html.escape(category['filter_small'])}</option>
 <option value="large">{html.escape(category['filter_large'])}</option>
@@ -1704,6 +1481,23 @@ def eligible_auto_guides(results: dict, min_items: int = 3) -> list[dict]:
     return eligible
 
 
+def publication_guides(results: dict) -> tuple[list[dict], dict]:
+    """Apply the same inventory floor to every guide; consolidate identical lists."""
+    published, aliases, signatures = [], {}, {}
+    for spec in GUIDE_SPECS + eligible_auto_guides(results):
+        category = next(c for c in CATEGORIES if c['id'] == spec['category_id'])
+        picked = guide_filter_items(spec, results.get(category['id'], ([], []))[0], category)
+        if len(picked) < MIN_CATEGORY_ITEMS:
+            continue
+        signature = (category['id'], tuple(sorted(x['id'] for x in picked)))
+        if signature in signatures:
+            aliases[spec['slug']] = signatures[signature]
+            continue
+        signatures[signature] = spec['slug']
+        published.append(spec)
+    return published, aliases
+
+
 def optimization_report(results: dict, auto_guides: list[dict], updated: datetime, audits: dict | None = None) -> dict:
     category_rows = {}
     total_included = 0
@@ -1755,7 +1549,7 @@ def optimization_report(results: dict, auto_guides: list[dict], updated: datetim
     priorities.append({
         "type": "search_console",
         "priority": 4,
-        "action": "Search Console接続時に自動SEOページの表示回数・CTR・順位を取り込み評価",
+        "action": "継続監査でSearch Consoleのクエリ×ページ、表示回数・クリック・CTR・平均順位を取得。十分な表示がある平均順位5〜20位を優先し、データ不足ならSEO変更を見送る",
     })
     return {
         "generated_at": updated.isoformat(),
@@ -1798,10 +1592,10 @@ def optimization_report(results: dict, auto_guides: list[dict], updated: datetim
 
 
 
-def guide_page(spec: dict, category: dict, items: list[dict], updated: datetime) -> str:
+def guide_page(spec: dict, category: dict, items: list[dict], updated: datetime, canonical_slug: str | None = None) -> str:
     picked = guide_filter_items(spec, items, category)
     faqs = guide_faq(spec, category)
-    canonical = f"{SITE_URL}guides/{spec['slug']}/"
+    canonical = f"{SITE_URL}guides/{canonical_slug or spec['slug']}/"
     head = page_head(
         f"{spec['title']}｜食品コスパ比較",
         spec["intro"],
@@ -1814,6 +1608,8 @@ def guide_page(spec: dict, category: dict, items: list[dict], updated: datetime)
         ])
         + item_list_json_ld(picked, category),
     )
+    if len(picked) < MIN_CATEGORY_ITEMS:
+        head = head.replace('content="index,follow"', 'content="noindex,follow"')
     cards = top3_html(picked, category) if picked else f"""<section class="section explain">
 <h2>現在、条件に一致する掲載候補はありません</h2>
 <p>別サイズの商品で穴埋めせず、条件に一致する商品を確認できたときだけ掲載します。</p>
@@ -1837,10 +1633,7 @@ def guide_page(spec: dict, category: dict, items: list[dict], updated: datetime)
 </div></header>
 {service_shortcuts_html()}
 <main class="wrap">
-<section class="section explain"><h2>このページの見方</h2>
-<p>{html.escape(spec['intro'])}</p>
-<p class="fine">商品名・容量・セット数を安全に読み取れない候補は除外し、クーポンやポイントは通常単価へ自動反映しません。</p>
-</section>
+<nav aria-label="パンくず"><a href="../../">マルシェ</a> / <a href="../../categories/{category['id']}/">{html.escape(category['name'])}</a> / {html.escape(spec['title'])}</nav>
 {cards}
 {more}
 {faq_html(faqs)}
@@ -1855,17 +1648,17 @@ def guide_page(spec: dict, category: dict, items: list[dict], updated: datetime)
 def saved_watch_page(updated: datetime) -> str:
     head = page_head(
         "買い物メモ｜食品コスパ比較",
-        "ブラウザに保存した食品だけを、最新価格・値下がり・30日最安・価格履歴で確認します。",
+        "ブラウザに保存した食品だけを、最新価格・値下がり・記録内最安・価格履歴で確認します。",
         f"{SITE_URL}saved/",
     ).replace(
         '<meta name="robots" content="index,follow">',
-        '<meta name="robots" content="noindex,nofollow">',
+        '<meta name="robots" content="noindex,follow">',
     )
     body = f"""<header><div class="wrap hero-layout">
 <div><a class="brand" href="../">食品コスパ比較</a><div class="eyebrow">MY WATCH</div>
 <h1>保存した商品の<br>値下がりだけ追う。</h1>
 <p class="lead">「あとで見る」に入れた商品を、最新の楽天取得データと照合して確認します。</p>
-<div class="hero-tags"><span class="hero-tag">現在価格</span><span class="hero-tag">前回比</span><span class="hero-tag">30日最安</span></div>
+<div class="hero-tags"><span class="hero-tag">現在価格</span><span class="hero-tag">前回比</span><span class="hero-tag">記録内最安</span></div>
 <p class="note">サイト最終更新: {updated:%Y-%m-%d %H:%M} JST</p></div>
 <div class="category-hero-art">{guide_mascot()}</div></div></header>
 {service_shortcuts_html()}
@@ -1875,19 +1668,19 @@ def saved_watch_page(updated: datetime) -> str:
 <div class="saved-watch-summary">
 <div><span>保存中</span><strong data-watch-total>0</strong></div>
 <div><span>値下がり</span><strong data-watch-drops>0</strong></div>
-<div><span>30日最安</span><strong data-watch-lows>0</strong></div>
+<div><span>記録内最安</span><strong data-watch-lows>0</strong></div>
 </div>
 <div class="saved-watch-tabs">
 <button type="button" class="selected" data-watch-filter="all">すべて</button>
 <button type="button" data-watch-filter="drop">値下がり</button>
-<button type="button" data-watch-filter="low">30日最安</button>
+<button type="button" data-watch-filter="low">記録内最安</button>
 </div>
 <div data-watch-status class="saved-watch-status">最新データを確認しています…</div>
 <div data-watch-list class="saved-watch-list"></div>
 </section>
 <section class="section explain">
 <h2>この画面について</h2>
-<p>保存内容はこのブラウザ内だけに残ります。価格判定は未来予測ではなく、当サイトが取得した実測履歴との比較です。</p>
+<p>保存内容はこのブラウザ内だけに残ります。「記録内最安」は直近30日以内に実際に取得した価格の最安値です。記録が30日未満の商品も含み、未取得日の価格は補完しません。</p>
 <p><a class="finder-go" href="../">食品を探しに戻る →</a></p>
 </section>
 </main>"""
@@ -1942,20 +1735,21 @@ const render=()=>{
     const prev=h.previous_price==null?'—':money(h.previous_price);
     const low=h.lowest_30d_unit==null?'—':money(h.lowest_30d_unit);
     const drop=Number(h.price_delta)<0?'<span class="trend-badge drop">↓ '+money(Math.abs(Number(h.price_delta)))+' 前回比</span>':'';
-    const lowBadge=h.is_30d_low?'<span class="trend-badge low">30日最安</span>':'';
+    const lowBadge=h.is_30d_low?'<span class="trend-badge low">記録内最安</span>':'';
     return '<article class="watch-card"><div class="watch-media">'+(l.image?'<img src="'+esc(l.image)+'" alt="">':'')+'</div><div class="watch-copy">'+
       '<div class="watch-top"><span>'+esc(meta.name)+'</span><div>'+drop+lowBadge+'</div></div>'+
       '<h3 title="'+esc(l.name)+'">'+esc(compact(l.name))+'</h3>'+
       '<div class="watch-price"><strong>'+money(l.price)+'</strong><span>'+money(unit)+' '+esc(meta.unit)+'</span></div>'+
-      '<div class="watch-history-stats"><div><span>前回価格</span><b>'+prev+'</b></div><div><span>30日最安単価</span><b>'+low+'</b></div><div><span>取得回数</span><b>'+Number(h.observed_days||0)+'回</b></div></div>'+
+      '<div class="watch-history-stats"><div><span>前回価格</span><b>'+prev+'</b></div><div><span>記録内最安単価</span><b>'+low+'</b></div><div><span>取得回数</span><b>'+Number(h.observed_days||0)+'回</b></div></div>'+
       chart(l)+'<div class="buy-signal '+sig[1]+'"><span>'+sig[0]+'</span></div>'+
-      '<div class="watch-actions"><a class="cta" href="'+esc(l.url)+'" target="_blank" rel="nofollow sponsored noopener">楽天で確認 →</a><button data-watch-remove="'+esc(s.category+'|'+s.id)+'">保存から削除</button></div></div></article>'
+      '<p class="fine">'+esc(l.shipping_status==='included'?'送料込み（地域別追加送料は販売ページで確認）':'送料別・送料不明。単価に送料は含みません。')+'</p>'+
+      '<div class="watch-actions"><a class="cta" href="'+esc(l.url)+'" target="_blank" rel="nofollow sponsored noopener" data-affiliate="rakuten" data-position="saved_watch" data-category="'+esc(s.category)+'" data-product-id="'+esc(l.id)+'" data-product-name="'+esc(l.name)+'" data-rank="'+(view.indexOf(r)+1)+'" data-metric="'+esc(metric)+'" data-unit-price="'+unit+'" data-shipping="'+esc(l.shipping_status)+'">楽天で確認 →</a><button data-watch-remove="'+esc(s.category+'|'+s.id)+'">保存から削除</button></div></div></article>'
   }).join('');
 };
 document.querySelectorAll('[data-watch-filter]').forEach(btn=>btn.addEventListener('click',()=>{active=btn.dataset.watchFilter;document.querySelectorAll('[data-watch-filter]').forEach(x=>x.classList.toggle('selected',x===btn));render()}));
-document.addEventListener('click',e=>{const b=e.target.closest('[data-watch-remove]');if(!b)return;const key=b.dataset.watchRemove;saved=saved.filter(x=>x.category+'|'+x.id!==key);localStorage.setItem(KEY,JSON.stringify(saved));rows=rows.filter(r=>r.saved.category+'|'+r.saved.id!==key);render()});
+document.addEventListener('click',e=>{const b=e.target.closest('[data-watch-remove]');if(!b)return;const key=b.dataset.watchRemove;const item=saved.find(x=>x.category+'|'+x.id===key);saved=saved.filter(x=>x.category+'|'+x.id!==key);try{localStorage.setItem(KEY,JSON.stringify(saved))}catch(e){}rows=rows.filter(r=>r.saved.category+'|'+r.saved.id!==key);window.foodCostTrack?.('product_save_toggle',{category_id:item?.category,product_id:item?.id,saved:0});render()});
 if(!saved.length){status.textContent='「あとで見る」に商品を追加すると、ここで価格を追えます。';render();return}
-fetch('../data/products.json',{cache:'no-store'}).then(r=>r.json()).then(data=>{
+fetch('../data/products.json',{cache:'no-store'}).then(r=>{if(!r.ok)throw Error('snapshot');return r.json()}).then(data=>{
   const live=new Map();
   Object.entries(data.categories||{}).forEach(([cat,payload])=>[...(payload.included||[]),...(payload.shipping_unknown||[])].forEach(item=>live.set(cat+'|'+item.id,item)));
   rows=saved.map(s=>({saved:s,live:live.get(s.category+'|'+s.id)||null}));
@@ -1964,7 +1758,7 @@ fetch('../data/products.json',{cache:'no-store'}).then(r=>r.json()).then(data=>{
 })();
 </script>"""
     script = script.replace("__CATEGORY_META__", json.dumps({c["id"]:dict(name=c["name"],metric=c["primary"],unit=c["primary_label"]) for c in CATEGORIES}, ensure_ascii=False))
-    return head + body + script + """<footer><div class="wrap">保存データはこのブラウザ内に保持されます。</div></footer></body></html>"""
+    return head + body + f'<script>{JS}</script>' + script + """<footer><div class="wrap">保存データはこのブラウザ内に保持されます。</div></footer></body></html>"""
 
 
 
@@ -1989,10 +1783,10 @@ def category_summary(category: dict, included: list[dict], other: list[dict]) ->
     if not all_items:
         return ""
     primary = category["primary"]
-    best = included[0]["unit_prices"][primary] if included else min(x["unit_prices"][primary] for x in all_items)
+    best = included[0]["unit_prices"][primary] if included else None
     return f"""<section class="summary" aria-label="比較サマリー">
 <div class="summary-grid">
-<div class="summary-item"><div class="summary-k">送料込み最安</div><div class="summary-v">{yen(best)}</div><div class="fine">{html.escape(category['primary_label'])}</div></div>
+<div class="summary-item"><div class="summary-k">掲載内の送料込み最安</div><div class="summary-v">{yen(best)}</div><div class="fine">{html.escape(category['primary_label'])}</div></div>
 <div class="summary-item"><div class="summary-k">送料込み掲載</div><div class="summary-v">{len(included)}件</div></div>
 <div class="summary-item"><div class="summary-k">送料別参考</div><div class="summary-v">{len(other)}件</div></div>
 </div></section>"""
@@ -2048,7 +1842,7 @@ def category_page(category: dict, included: list[dict], other: list[dict], updat
 </div></header>
 <nav class="nav"><div class="wrap">
 <a href="#included">送料込み比較</a>
-<a href="#other">送料別参考</a>
+{'<a href="#other">送料別参考</a>' if other else ''}
 <a href="../../deals/">今日のお買い得</a>
 <a href="../../saved/">買い物メモ</a>
 <a href="../../">トップ</a>
@@ -2060,11 +1854,11 @@ def category_page(category: dict, included: list[dict], other: list[dict], updat
     parts.append(category_summary(category, included, other))
     parts.append(shopping_journey_html())
     parts.append(category_insights_html(category, included))
-    parts.append(top3_html(included, category))
+    parts.append('<div id="included">' + top3_html(included, category) + '</div>')
     remaining = included[3:]
     if remaining:
         parts.append(
-            '<div id="included" class="after-top3">'
+            '<div class="after-top3">'
             + comparison_table(
                 remaining,
                 category,
@@ -2108,7 +1902,9 @@ def category_page(category: dict, included: list[dict], other: list[dict], updat
 
 
 def guide_links_html(specs: list[dict] | None = None) -> str:
-    specs = specs or GUIDE_SPECS
+    specs = GUIDE_SPECS if specs is None else specs
+    if not specs:
+        return ''
     links = "".join(
         f"""<a class="intent-card" href="guides/{spec['slug']}/">
 <span>{html.escape(spec['title'])}</span><small>{html.escape(spec['intro'])}</small><b>比較を見る →</b>
@@ -2116,8 +1912,8 @@ def guide_links_html(specs: list[dict] | None = None) -> str:
         for spec in specs
     )
     return f"""<section class="section intent-section">
-<div class="section-kicker">POPULAR SEARCHES</div>
-<h2>よく比べられる条件から探す。</h2>
+<div class="section-kicker">FIND YOUR SIZE</div>
+<h2>容量・タイプで絞って探す。</h2>
 <div class="intent-grid">{links}</div>
 </section>"""
 
@@ -2176,7 +1972,7 @@ def home_page(results: dict, updated: datetime, guide_specs: list[dict] | None =
 {service_shortcuts_html()}
 <main class="wrap">
 {choice_finder_html(results)}
-{today_market_html(results)}
+{today_market_html(results, updated)}
 {discovery_shelves_html(results)}
 <section class="section" id="categories">
 <div class="section-kicker">THE MARKET AISLES</div>
@@ -2207,6 +2003,76 @@ def home_page(results: dict, updated: datetime, guide_specs: list[dict] | None =
 </body></html>"""
     )
     return "".join(parts)
+
+
+def not_found_page() -> str:
+    return page_head("ページが見つかりません｜食品コスパ比較", "食品の売り場へ戻って探せます。", SITE_URL + '404.html').replace('content="index,follow"', 'content="noindex,follow"') + f'<main class="wrap section"><h1>この棚は見つかりませんでした。</h1><p>ページの場所が変わった可能性があります。</p><p><a class="finder-go" href="{SITE_URL}">マルシェの売り場へ戻る →</a></p></main></body></html>'
+
+
+def render_pages(results: dict, updated: datetime) -> list[dict]:
+    global ACTIVE_CATEGORY_IDS
+    import shutil
+    for folder in ("categories", "guides"):
+        if (OUT / folder).exists():
+            shutil.rmtree(OUT / folder)
+    active = active_categories(results)
+    ACTIVE_CATEGORY_IDS = {c['id'] for c in active}
+    for category in CATEGORIES:
+        (OUT / "categories" / category["id"]).mkdir(parents=True, exist_ok=True)
+        included, other = results[category['id']]
+        (OUT / 'categories' / category['id'] / 'index.html').write_text(category_page(category, included, other, updated), encoding='utf-8')
+    category_by_id = {category["id"]: category for category in CATEGORIES}
+    auto_guides = eligible_auto_guides(results)
+    all_guides, aliases = publication_guides(results)
+    for spec in GUIDE_SPECS + AUTO_GUIDE_RULES:
+        category = category_by_id[spec["category_id"]]
+        included, _ = results[category["id"]]
+        target = OUT / "guides" / spec["slug"]
+        target.mkdir(parents=True, exist_ok=True)
+        (target / "index.html").write_text(
+            guide_page(spec, category, included, updated, aliases.get(spec["slug"])),
+            encoding="utf-8",
+        )
+
+    deals_target = OUT / "deals"
+    deals_target.mkdir(parents=True, exist_ok=True)
+    (deals_target / "index.html").write_text(
+        deals_page(results, updated),
+        encoding="utf-8",
+    )
+
+    saved_target = OUT / "saved"
+    saved_target.mkdir(parents=True, exist_ok=True)
+    (saved_target / "index.html").write_text(
+        saved_watch_page(updated),
+        encoding="utf-8",
+    )
+
+    (OUT / "index.html").write_text(home_page(results, updated, all_guides), encoding="utf-8")
+    (OUT / '404.html').write_text(not_found_page(), encoding='utf-8')
+    (OUT / "robots.txt").write_text(
+        f"User-agent: *\nAllow: /\nSitemap: {SITE_URL}sitemap.xml\n",
+        encoding="utf-8",
+    )
+
+    urls = [SITE_URL, f"{SITE_URL}deals/"] + [
+        f"{SITE_URL}categories/{category['id']}/"
+        for category in CATEGORIES if len(results.get(category["id"], ([],[]))[0]) >= MIN_CATEGORY_ITEMS
+    ] + [
+        f"{SITE_URL}guides/{spec['slug']}/"
+        for spec in all_guides
+    ]
+    sitemap = (
+        '<?xml version="1.0" encoding="UTF-8"?>'
+        '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'
+        + "".join(
+            f"<url><loc>{url}</loc><lastmod>{updated:%Y-%m-%d}</lastmod></url>"
+            for url in urls
+        )
+        + "</urlset>"
+    )
+    (OUT / "sitemap.xml").write_text(sitemap, encoding="utf-8")
+    return [g for g in all_guides if g.get('auto')]
 
 
 def main():
@@ -2240,12 +2106,6 @@ def main():
             },
         }
 
-        target = OUT / "categories" / category["id"]
-        target.mkdir(parents=True, exist_ok=True)
-        (target / "index.html").write_text(
-            category_page(category, included, other, updated),
-            encoding="utf-8",
-        )
         print(category["id"], len(included), len(other))
         print(
             "AUDIT",
@@ -2271,39 +2131,7 @@ def main():
                     json.dumps(sample, ensure_ascii=False),
                 )
 
-    active = active_categories(results)
-    ACTIVE_CATEGORY_IDS = {c['id'] for c in active}
-    for category in active:
-        included, other = results[category['id']]
-        (OUT / 'categories' / category['id'] / 'index.html').write_text(category_page(category, included, other, updated), encoding='utf-8')
-    category_by_id = {category["id"]: category for category in CATEGORIES}
-    auto_guides = eligible_auto_guides(results)
-    all_guides = GUIDE_SPECS + auto_guides
-    for spec in all_guides:
-        category = category_by_id[spec["category_id"]]
-        included, _ = results[category["id"]]
-        target = OUT / "guides" / spec["slug"]
-        target.mkdir(parents=True, exist_ok=True)
-        (target / "index.html").write_text(
-            guide_page(spec, category, included, updated),
-            encoding="utf-8",
-        )
-
-    deals_target = OUT / "deals"
-    deals_target.mkdir(parents=True, exist_ok=True)
-    (deals_target / "index.html").write_text(
-        deals_page(results, updated),
-        encoding="utf-8",
-    )
-
-    saved_target = OUT / "saved"
-    saved_target.mkdir(parents=True, exist_ok=True)
-    (saved_target / "index.html").write_text(
-        saved_watch_page(updated),
-        encoding="utf-8",
-    )
-
-    (OUT / "index.html").write_text(home_page(results, updated, all_guides), encoding="utf-8")
+    auto_guides = render_pages(results, updated)
     (OUT / "data").mkdir(exist_ok=True)
     (OUT / "data" / "products.json").write_text(
         json.dumps(export, ensure_ascii=False, indent=2),
@@ -2315,28 +2143,7 @@ def main():
         encoding="utf-8",
     )
 
-    (OUT / "robots.txt").write_text(
-        f"User-agent: *\nAllow: /\nSitemap: {SITE_URL}sitemap.xml\n",
-        encoding="utf-8",
-    )
 
-    urls = [SITE_URL, f"{SITE_URL}deals/"] + [
-        f"{SITE_URL}categories/{category['id']}/"
-        for category in CATEGORIES if len(results.get(category["id"], ([],[]))[0]) >= MIN_CATEGORY_ITEMS
-    ] + [
-        f"{SITE_URL}guides/{spec['slug']}/"
-        for spec in all_guides
-    ]
-    sitemap = (
-        '<?xml version="1.0" encoding="UTF-8"?>'
-        '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'
-        + "".join(
-            f"<url><loc>{url}</loc><lastmod>{updated:%Y-%m-%d}</lastmod></url>"
-            for url in urls
-        )
-        + "</urlset>"
-    )
-    (OUT / "sitemap.xml").write_text(sitemap, encoding="utf-8")
 
 
 if __name__ == "__main__":

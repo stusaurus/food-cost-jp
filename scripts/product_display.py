@@ -63,6 +63,10 @@ def _promotion_group(match: re.Match) -> str:
 def clean_display_name(name: str) -> str:
     original = str(name or "").strip()
     text = original
+    # Some merchants put a complete promotional unit-price claim in //...//.
+    # Remove that wrapper only, leaving actual package quantities untouched.
+    text = re.sub(r"^\s*//[^/]*(?:マラソン|オフ|OFF)[^/]*//\s*", '', text, flags=re.I)
+    text = re.sub(r"^[\\＼]売り切り商品が激熱価格[!！]*[／/]\s*", '', text)
 
     while match := LEADING_LABEL.match(text):
         if not promotion_only(_promotion_group(match)):

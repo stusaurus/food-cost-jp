@@ -110,7 +110,7 @@ class PriceHistoryTests(unittest.TestCase):
         deal_html = today_deals_html({"rice": ([second], [])})
         self.assertIn("今日のお買い得", deal_html)
         self.assertIn("昨日比 ¥500安い", deal_html)
-        self.assertIn("30日最安", deal_html)
+        self.assertIn("記録内最安", deal_html)
 
     def test_product_identity_separates_brand_and_quantity(self):
         item = rice_item()
@@ -173,10 +173,10 @@ class PriceHistoryTests(unittest.TestCase):
 
     def test_saved_watch_page_is_personal_noindex_dashboard(self):
         rendered = saved_watch_page(__import__("datetime").datetime(2026, 9, 30, 19, 0))
-        self.assertIn('content="noindex,nofollow"', rendered)
+        self.assertIn('content="noindex,follow"', rendered)
         self.assertIn("保存した商品の", rendered)
         self.assertIn("値下がり", rendered)
-        self.assertIn("30日最安", rendered)
+        self.assertIn("記録内最安", rendered)
         self.assertIn("../data/products.json", rendered)
         self.assertIn("food_cost_saved_v1", rendered)
         self.assertIn('data-watch-filter="drop"', rendered)
@@ -194,7 +194,7 @@ class PriceHistoryTests(unittest.TestCase):
         apply_price_history(history, category("rice"), [second], date(2026, 10, 1))
         label, variant = cta_copy(second, "table", 4)
         self.assertEqual(variant, "history_low")
-        self.assertIn("30日最安", label)
+        self.assertIn("記録内最安", label)
 
 
 if __name__ == "__main__":
