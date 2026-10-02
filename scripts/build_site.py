@@ -1103,7 +1103,7 @@ def market_shelf_html(entries: list[tuple], title: str, shelf_id: str, purpose: 
         cards = '<p class="shelf-empty">この条件の掲載候補は現在ありません。別の買い方や売り場も見てみましょう。</p>'
     return f'''<section class="market-shelf" data-market-shelf="{shelf_id}">
 <div class="shelf-heading"><span class="section-kicker">MARKET SHELF</span><h3>{html.escape(title)}</h3></div>
-<p class="sub">{html.escape(note)}</p><div class="finder-products">{cards}</div></section>'''
+<p class="sub">{html.escape(note)}</p><p class="shelf-mobile-hint">棚を横に見る →</p><div class="finder-products">{cards}</div></section>'''
 
 
 def today_market_html(results: dict) -> str:
@@ -1219,7 +1219,7 @@ const applyFilters=root=>{
   if(empty)empty.style.display=shown?'none':'block';
 };
 document.querySelectorAll('[data-filter]').forEach(s=>s.addEventListener('change',()=>{
-  const root=s.closest('[data-comparison]');delete root.dataset.shoppingIntent;applyFilters(root);
+  const root=s.closest('[data-comparison]');applyFilters(root);
   send('comparison_filter_use',{category_id:s.dataset.category,filter_value:s.value})
 }));
 document.querySelectorAll('[data-search]').forEach(input=>input.addEventListener('change',()=>{
@@ -1235,7 +1235,7 @@ const finder=document.querySelector('[data-finder]');
 if(finder){
   let category='all',purpose='',intent='';
   const categoryStage=finder.querySelector('[data-finder-category-stage]'),purposeStage=finder.querySelector('[data-finder-purpose-stage]'),resultStage=finder.querySelector('[data-finder-result-stage]'),status=finder.querySelector('[data-finder-status]');
-  const show=el=>{el.hidden=false;const first=el.querySelector('button');first?.focus({preventScroll:true})};
+  const show=el=>{el.hidden=false;const first=el.querySelector('button');first?.focus({preventScroll:true});const top=el.getBoundingClientRect().top;if(top<0||top>window.innerHeight*.65)el.scrollIntoView?.({block:'start',behavior:window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches?'instant':'smooth'})};
   const hide=el=>el.hidden=true;
   const results=()=>{
     hide(categoryStage);show(resultStage);
@@ -1264,7 +1264,7 @@ if(pick&&document.querySelector('[data-comparison]')){
   const root=document.querySelector('[data-comparison]');
   const filter=root.querySelector('[data-filter]');
   const sort=root.querySelector('[data-sort]');
-  if(filter&&(pick==='small'||pick==='large'||pick==='storage')){root.dataset.shoppingIntent=pick;filter.value=pick==='storage'?'small':pick;const label=root.querySelector('[data-intent-note]');if(label)label.textContent='買い方で絞った一覧：少量側 / 大容量側は合計量を基準にしています。'}
+  if(filter&&(pick==='small'||pick==='large'||pick==='storage')){root.dataset.shoppingIntent=pick;filter.value=pick==='storage'?'small':pick;if(filter.dataset.category==='carbonated-water'){filter.querySelector('[value=small]').textContent='合計12L以下';filter.querySelector('[value=large]').textContent='合計12L超'}const label=root.querySelector('[data-intent-note]');if(label)label.textContent='買い方で絞った一覧：少量側 / 大容量側は合計量を基準にしています。'}
   if(filter&&pick==='storage')filter.value='small';
   if(sort&&(pick==='budget'||pick==='storage')){sort.value='price';sort.dispatchEvent(new Event('change'))}
   const details=root.closest('details');if(details)details.open=true;
