@@ -2258,8 +2258,9 @@ def main():
                     json.dumps(sample, ensure_ascii=False),
                 )
 
-    ACTIVE_CATEGORY_IDS = {c['id'] for c in active_categories(results)}
-    for category in CATEGORIES:
+    active = active_categories(results)
+    ACTIVE_CATEGORY_IDS = {c['id'] for c in active}
+    for category in active:
         included, other = results[category['id']]
         (OUT / 'categories' / category['id'] / 'index.html').write_text(category_page(category, included, other, updated), encoding='utf-8')
     category_by_id = {category["id"]: category for category in CATEGORIES}
