@@ -56,6 +56,9 @@ jobs:
       - name: Verify live market navigation, storage and tracking
         run: npm test
 
+      - name: Add IndexNow verification key
+        run: printf '%s' '7d4f93c2a6814eb5b0d87f216ca9e403' > site/7d4f93c2a6814eb5b0d87f216ca9e403.txt
+
       - name: Publish verified generated site to the configured Pages branch
         run: |
           rm -rf categories guides deals saved data
@@ -69,11 +72,32 @@ jobs:
           if [ -d site/data ]; then cp -R site/data ./data; fi
           cp site/robots.txt ./robots.txt
           cp site/sitemap.xml ./sitemap.xml
+          cp site/7d4f93c2a6814eb5b0d87f216ca9e403.txt ./7d4f93c2a6814eb5b0d87f216ca9e403.txt
           touch .nojekyll
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add index.html 404.html categories guides deals saved data robots.txt sitemap.xml .nojekyll
+          git add index.html 404.html categories guides deals saved data robots.txt sitemap.xml 7d4f93c2a6814eb5b0d87f216ca9e403.txt .nojekyll
           if ! git diff --cached --quiet; then
             git commit -m "Publish generated food comparison site"
             git push origin HEAD:main
           fi
+
+      - name: Submit sitemap URLs to IndexNow
+        env:
+          SITE_URL: https://stusaurus.github.io/food-cost-jp/
+          INDEXNOW_KEY: 7d4f93c2a6814eb5b0d87f216ca9e403
+        run: |
+          python - <<'PY'
+          import json, os, time, urllib.request, xml.etree.ElementTree as ET
+          base=os.environ["SITE_URL"]; key=os.environ["INDEXNOW_KEY"]; key_url=base+key+".txt"
+          for _ in range(12):
+              try:
+                  if urllib.request.urlopen(key_url, timeout=10).read().decode().strip()==key: break
+              except Exception: pass
+              time.sleep(10)
+          else: raise SystemExit("IndexNow key is not live yet")
+          xml=urllib.request.urlopen(base+"sitemap.xml", timeout=20).read()
+          root=ET.fromstring(xml); urls=[e.text.strip() for e in root.iter() if e.tag.endswith("loc") and e.text]
+          req=urllib.request.Request("https://api.indexnow.org/IndexNow", data=json.dumps({"host":"stusaurus.github.io","key":key,"keyLocation":key_url,"urlList":urls}).encode(), headers={"Content-Type":"application/json; charset=utf-8"}, method="POST")
+          with urllib.request.urlopen(req, timeout=30) as r: print("IndexNow", r.status, "URLs", len(urls))
+          PY
