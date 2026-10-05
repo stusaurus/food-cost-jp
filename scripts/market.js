@@ -61,7 +61,8 @@ if(finder){
     let current;
     finder.querySelectorAll('[data-finder-picks]').forEach(panel=>{panel.hidden=panel.dataset.finderPicks!==category+':'+purpose;if(!panel.hidden)current=panel});
     const count=current?.querySelectorAll('[data-affiliate]').length||0;
-    status.textContent=count?'それなら、この棚から。 '+count+'件の候補があります。':'この条件の候補は現在ありません。別の買い方も見てみましょう。';
+    const tailored=Boolean(current?.querySelector('[data-recommendation-shelf]'));
+    status.textContent=count?(tailored?'条件に合わせて、役割の違う'+count+'候補に絞りました。単価だけでなく総額も比べて選べます。':'それなら、この棚から。 '+count+'件の候補があります。'):'この条件の候補は現在ありません。別の買い方も見てみましょう。';
     send('finder_complete',{category_id:category,shopping_intent:intent,product_count:count});
     send('quick_finder_complete',{category_id:category,finder_purpose:purpose});
     if(!('IntersectionObserver' in window))shelfView(current?.querySelector('[data-market-shelf]'));
@@ -124,6 +125,8 @@ const fromButton=btn=>({
   unitLabel:btn.dataset.productUnitLabel||'',
   metric:btn.dataset.productMetric||'',
   shipping:btn.dataset.productShipping||'',
+  signal:btn.dataset.productSignal||'',
+  signalTone:btn.dataset.productSignalTone||'neutral',
   verified:true,
   quantity:btn.dataset.productQuantity||'',
   url:btn.dataset.productUrl||'',
@@ -163,24 +166,35 @@ const syncUtilityButtons=()=>{
 };
 const renderSaved=()=>{
   const root=document.querySelector('[data-saved-list]');if(!root)return;
-  if(!saved.length){root.innerHTML='<div class="utility-empty">保存した商品はまだありません。</div>';return}
-  root.innerHTML=saved.map((x,i)=>'<div class="saved-item">'+
-    (x.image?'<img src="'+esc(x.image)+'" alt="">':'<div></div>')+
-    '<div><strong>'+esc(x.name)+'</strong><small>'+esc(x.categoryName)+' ・ '+(x.verified?'掲載価格 ':'保存時価格 ')+money(x.unit)+' '+esc(x.unitLabel)+' ・ '+money(x.price)+' ・ '+esc(x.shipping==='included'?'送料込み':'送料別・不明')+'</small>'+retailLink(x,'saved_modal',i+1)+'</div>'+
-    '<button type="button" data-remove-saved="'+esc(itemKey(x))+'" aria-label="保存から削除">削除</button></div>').join('')
+  if(!saved.length){root.innerHTML='<div class="utility-empty">保存した商品はまだありません。商品カードの「買い物メモ」から残せます。</div>';return}
+  const compareKeys=new Set(compared.map(itemKey));
+  root.innerHTML=saved.map((x,i)=>{
+    const key=itemKey(x),tone=['buy','wait','neutral'].includes(x.signalTone)?x.signalTone:'neutral';
+    const signal=x.signal?'<span class="saved-signal '+tone+'">'+esc(x.signal)+'</span>':'';
+    const compareLabel=compareKeys.has(key)?'✓ 比較中':'＋ 比較に追加';
+    return '<div class="saved-item">'+
+      (x.image?'<img src="'+esc(x.image)+'" alt="">':'<div></div>')+
+      '<div class="saved-item-main"><div class="saved-item-head">'+signal+'<strong>'+esc(x.name)+'</strong></div><small>'+esc(x.categoryName)+' ・ '+(x.verified?'掲載価格 ':'保存時価格 ')+money(x.unit)+' '+esc(x.unitLabel)+' ・ '+money(x.price)+' ・ '+esc(x.shipping==='included'?'送料込み':'送料別・不明')+'</small><div class="saved-item-actions"><button type="button" class="saved-compare" data-compare-saved="'+esc(key)+'">'+compareLabel+'</button>'+retailLink(x,'saved_modal',i+1)+'</div></div>'+
+      '<button type="button" class="saved-remove" data-remove-saved="'+esc(key)+'" aria-label="保存から削除">削除</button></div>'
+  }).join('')
 };
 const renderCompare=()=>{
   const root=document.querySelector('[data-compare-table]');if(!root)return;
-  if(!compared.length){root.innerHTML='<div class="utility-empty">「比較する」から最大3商品を選べます。</div>';return}
+  if(!compared.length){root.innerHTML='<div class="utility-empty">「比較する」から同じ食品を最大3商品まで選べます。</div>';return}
   const cells=(label,fn)=>'<tr><th scope="row">'+esc(label)+'</th>'+compared.map((x,i)=>'<td>'+fn(x,i)+'</td>').join('')+'</tr>';
+  const signalCell=x=>{
+    const tone=['buy','wait','neutral'].includes(x.signalTone)?x.signalTone:'neutral';
+    return x.signal?'<span class="compare-signal '+tone+'">'+esc(x.signal)+'</span>':'—'
+  };
   root.innerHTML='<div class="compare-table"><table><thead><tr><th>比較項目</th>'+
     compared.map(x=>'<th>'+esc(x.name)+'</th>').join('')+
     '</tr></thead><tbody>'+
     cells('商品価格',x=>money(x.price))+
     cells('内容量',x=>esc(x.quantity))+
-    cells('価格の状態',x=>x.verified?'掲載価格':'保存時価格・要確認')+
+    cells('主要単価',x=>'<strong>'+money(x.unit)+'</strong><small class="compare-unit-label">'+esc(x.unitLabel)+'</small>')+
+    cells('価格の状態',signalCell)+
     cells('送料',x=>x.shipping==='included'?'送料込み':'送料別・不明')+
-    cells(compared[0]&&compared[0].unitLabel?compared[0].unitLabel:'主要単価',x=>'<strong>'+money(x.unit)+'</strong>')+
+    cells('データ',x=>x.verified?'現在の掲載価格':'保存時価格・要確認')+
     cells('販売先',(x,i)=>retailLink(x,'compare_modal',i+1))+
     '</tbody></table></div>'
 };
@@ -221,8 +235,19 @@ document.addEventListener('click',e=>{
   if(saveBtn){
     const item=fromButton(saveBtn),key=itemKey(item),exists=saved.some(x=>itemKey(x)===key);
     saved=exists?saved.filter(x=>itemKey(x)!==key):[item,...saved].slice(0,30);
-    persistUtilities();toast(exists?'保存から外しました':'買い物メモに保存しました');
+    persistUtilities();toast(exists?'保存から外しました':'買い物メモに保存しました。あとで価格と比較できます');
     send('product_save_toggle',{category_id:item.category,product_id:item.id,saved:exists?0:1});return
+  }
+  const compareSaved=e.target.closest('[data-compare-saved]');
+  if(compareSaved){
+    const item=saved.find(x=>itemKey(x)===compareSaved.dataset.compareSaved);
+    if(!item)return;
+    const key=itemKey(item),exists=compared.some(x=>itemKey(x)===key);
+    if(exists){toast('この商品は比較中です');return}
+    if(compared.length&&compared[0].category!==item.category){toast('比較は同じ食品カテゴリで選んでください');return}
+    if(compared.length>=3){toast('比較できるのは3商品までです');return}
+    compared.push(item);persistUtilities();toast('買い物メモから比較に追加しました');
+    send('saved_to_compare',{category_id:item.category,product_id:item.id,compare_count:compared.length});return
   }
   const compareBtn=e.target.closest('[data-compare-product]');
   if(compareBtn){
