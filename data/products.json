@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-05T08:24:03.633625+09:00",
+  "generated_at": "2026-10-05T09:39:13.302919+09:00",
   "categories": {
     "pack-rice": {
       "included": [
@@ -1666,6 +1666,116 @@
           }
         },
         {
+          "id": "likaman:10034744",
+          "raw_name": "【最強翌日配送】サトウのごはん 銀シャリ 5食パック (200g×5食)×8袋入 サトウ食品 レトルトご飯 そのまま おいしいごはん KOB",
+          "name": "【最強翌日配送】サトウのごはん 銀シャリ 5食パック (200g×5食)×8袋入 サトウ食品 レトルトご飯 そのまま おいしいごはん KOB",
+          "price": 8499,
+          "shop": "お酒の専門店 リカマン楽天市場店",
+          "url": "https://hb.afl.rakuten.co.jp/hgc/g00qo2ro.7cx6me4a.g00qo2ro.7cx6n6c0/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Flikaman%2F950871-8%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Flikaman%2Fi%2F10034744%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
+          "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/likaman/cabinet/rakuten71/950871-8.jpg?_ex=128x128",
+          "postage_included": true,
+          "shipping_status": "included",
+          "quantity": {
+            "total_weight_g": 8000.0,
+            "unit_weight_g": 200.0,
+            "count": 40,
+            "component_counts": [
+              5,
+              8
+            ],
+            "confidence": 0.997,
+            "evidence": "200gx5食)x8袋"
+          },
+          "unit_prices": {
+            "per_serving": 212.475,
+            "per_100g": 106.2375
+          },
+          "comparison_metric": "per_serving",
+          "unit_label": "1食あたり",
+          "quantity_label": "合計8kg / 40食",
+          "promotion_mentioned": false,
+          "price_history": {
+            "observed_days": 6,
+            "previous_date": "2026-10-04",
+            "previous_price": 8499,
+            "previous_unit": 212.475,
+            "previous_label": "昨日比",
+            "price_delta": 0,
+            "unit_delta": 0.0,
+            "percent_delta": 0.0,
+            "lowest_30d_unit": 212.475,
+            "highest_30d_unit": 212.475,
+            "lowest_7d_unit": 212.475,
+            "highest_7d_unit": 212.475,
+            "trend_7d": "stable",
+            "is_30d_low": true,
+            "series_7d": [
+              {
+                "date": "2026-09-30",
+                "price": 8499,
+                "unit": 212.475
+              },
+              {
+                "date": "2026-10-01",
+                "price": 8499,
+                "unit": 212.475
+              },
+              {
+                "date": "2026-10-02",
+                "price": 8499,
+                "unit": 212.475
+              },
+              {
+                "date": "2026-10-03",
+                "price": 8499,
+                "unit": 212.475
+              },
+              {
+                "date": "2026-10-04",
+                "price": 8499,
+                "unit": 212.475
+              },
+              {
+                "date": "2026-10-05",
+                "price": 8499,
+                "unit": 212.475
+              }
+            ],
+            "series_30d": [
+              {
+                "date": "2026-09-30",
+                "price": 8499,
+                "unit": 212.475
+              },
+              {
+                "date": "2026-10-01",
+                "price": 8499,
+                "unit": 212.475
+              },
+              {
+                "date": "2026-10-02",
+                "price": 8499,
+                "unit": 212.475
+              },
+              {
+                "date": "2026-10-03",
+                "price": 8499,
+                "unit": 212.475
+              },
+              {
+                "date": "2026-10-04",
+                "price": 8499,
+                "unit": 212.475
+              },
+              {
+                "date": "2026-10-05",
+                "price": 8499,
+                "unit": 212.475
+              }
+            ]
+          }
+        },
+        {
           "id": "yunotani:10000061",
           "raw_name": "『ふんわりごはん（1食200g）』×24食セット【送料無料】　レトルトご飯　南魚沼産こしひかり「特別栽培米」使用",
           "name": "『ふんわりごはん（1食200g）』×24食セット レトルトご飯 南魚沼産こしひかり「特別栽培米」使用",
@@ -1884,20 +1994,20 @@
         "fetch_errors": 0,
         "queries": 2,
         "fetched": 60,
-        "normalized": 23,
+        "normalized": 24,
         "exact_duplicates": 3,
         "practical_duplicates": 0,
-        "accepted_unique": 20,
-        "included_available": 19,
+        "accepted_unique": 21,
+        "included_available": 20,
         "shipping_unknown_available": 1,
-        "displayed_included": 19,
+        "displayed_included": 20,
         "displayed_shipping_unknown": 1,
         "reasons": {
           "ambiguous_quantity": 15,
           "limited_purchase": 7,
           "wrong_product_type": 9,
-          "missing_category_evidence": 1,
-          "set_count_conflict": 5
+          "set_count_conflict": 4,
+          "missing_category_evidence": 1
         }
       }
     },
@@ -2304,13 +2414,13 @@
           }
         },
         {
-          "id": "fuchigami:10000276",
-          "raw_name": "【7年産最終SALE！在庫限りの大赤字特価！】 米 10kg 令和7年 熊本県産 くまさんの輝き 米 10kg 送料無料 白米 10kg 送料無料 お米 10kg 無洗米 送料無料 10キロ こめたつ 備蓄用 非常用 あす楽",
-          "name": "【7年産】 米 10kg 令和7年 熊本県産 くまさんの輝き 米 10kg 白米 10kg お米 10kg 無洗米 10キロ こめたつ 備蓄用 非常用 あす楽",
-          "price": 4080,
+          "id": "fuchigami:10000061",
+          "raw_name": "【新米入りブレンド 入荷！】 米 10kg 令和8年産米入り 訳あり ほほえみ米 お米マイスター厳選米 米 10kg 送料無料 白米 10kg 送料無料 お米 10kg 無洗米 送料無料 10キロ 国産 こめたつ 備蓄用 あす楽",
+          "name": "【新米入りブレンド 入荷！】 米 10kg 令和8年産米入り 訳あり ほほえみ米 お米マイスター厳選米 米 10kg 白米 10kg お米 10kg 無洗米 10キロ 国産 こめたつ 備蓄用 あす楽",
+          "price": 3980,
           "shop": "こめたつ",
-          "url": "https://hb.afl.rakuten.co.jp/hgc/g00rxaro.7cx6m798.g00rxaro.7cx6n2f7/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Ffuchigami%2Fkagayaki-10%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Ffuchigami%2Fi%2F10000276%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
-          "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/fuchigami/cabinet/rakurip/kome/kinkyu_kgyk_10.jpg?_ex=128x128",
+          "url": "https://hb.afl.rakuten.co.jp/hgc/g00rxaro.7cx6m798.g00rxaro.7cx6n2f7/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Ffuchigami%2F10000061%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Ffuchigami%2Fi%2F10000061%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
+          "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/fuchigami/cabinet/hoho/r8-hoho-smn-s10.jpg?_ex=128x128",
           "postage_included": true,
           "shipping_status": "included",
           "quantity": {
@@ -2321,89 +2431,89 @@
             "evidence": "10kg"
           },
           "unit_prices": {
-            "per_kg": 408.0
+            "per_kg": 398.0
           },
           "comparison_metric": "per_kg",
           "unit_label": "1kgあたり",
           "quantity_label": "合計10kg",
-          "promotion_mentioned": true,
+          "promotion_mentioned": false,
           "price_history": {
             "observed_days": 6,
             "previous_date": "2026-10-04",
-            "previous_price": 4080,
-            "previous_unit": 408.0,
+            "previous_price": 3980,
+            "previous_unit": 398.0,
             "previous_label": "昨日比",
             "price_delta": 0,
             "unit_delta": 0.0,
             "percent_delta": 0.0,
-            "lowest_30d_unit": 408.0,
-            "highest_30d_unit": 408.0,
-            "lowest_7d_unit": 408.0,
-            "highest_7d_unit": 408.0,
-            "trend_7d": "stable",
-            "is_30d_low": true,
+            "lowest_30d_unit": 378.0,
+            "highest_30d_unit": 398.0,
+            "lowest_7d_unit": 378.0,
+            "highest_7d_unit": 398.0,
+            "trend_7d": "up",
+            "is_30d_low": false,
             "series_7d": [
               {
                 "date": "2026-09-30",
-                "price": 4080,
-                "unit": 408.0
+                "price": 3780,
+                "unit": 378.0
               },
               {
                 "date": "2026-10-01",
-                "price": 4080,
-                "unit": 408.0
+                "price": 3780,
+                "unit": 378.0
               },
               {
                 "date": "2026-10-02",
-                "price": 4080,
-                "unit": 408.0
+                "price": 3980,
+                "unit": 398.0
               },
               {
                 "date": "2026-10-03",
-                "price": 4080,
-                "unit": 408.0
+                "price": 3980,
+                "unit": 398.0
               },
               {
                 "date": "2026-10-04",
-                "price": 4080,
-                "unit": 408.0
+                "price": 3980,
+                "unit": 398.0
               },
               {
                 "date": "2026-10-05",
-                "price": 4080,
-                "unit": 408.0
+                "price": 3980,
+                "unit": 398.0
               }
             ],
             "series_30d": [
               {
                 "date": "2026-09-30",
-                "price": 4080,
-                "unit": 408.0
+                "price": 3780,
+                "unit": 378.0
               },
               {
                 "date": "2026-10-01",
-                "price": 4080,
-                "unit": 408.0
+                "price": 3780,
+                "unit": 378.0
               },
               {
                 "date": "2026-10-02",
-                "price": 4080,
-                "unit": 408.0
+                "price": 3980,
+                "unit": 398.0
               },
               {
                 "date": "2026-10-03",
-                "price": 4080,
-                "unit": 408.0
+                "price": 3980,
+                "unit": 398.0
               },
               {
                 "date": "2026-10-04",
-                "price": 4080,
-                "unit": 408.0
+                "price": 3980,
+                "unit": 398.0
               },
               {
                 "date": "2026-10-05",
-                "price": 4080,
-                "unit": 408.0
+                "price": 3980,
+                "unit": 398.0
               }
             ]
           }
@@ -2619,6 +2729,61 @@
           }
         },
         {
+          "id": "anzai-rice:10000159",
+          "raw_name": "セール 新米 10kg 送料無料 8年産 10キロ 『令和8年茨城県産あきたこまち白米10kg』",
+          "name": "新米 10kg 8年産 10キロ 『令和8年茨城県産あきたこまち白米10kg』",
+          "price": 4680,
+          "shop": "まんま屋",
+          "url": "https://hb.afl.rakuten.co.jp/hgc/g00qemeo.7cx6me7c.g00qemeo.7cx6n1cb/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fanzai-rice%2Fia10%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fanzai-rice%2Fi%2F10000159%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
+          "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/anzai-rice/cabinet/02207291/02207304/iba/r8-ia10.jpg?_ex=128x128",
+          "postage_included": true,
+          "shipping_status": "included",
+          "quantity": {
+            "total_weight_g": 10000.0,
+            "unit_weight_g": 10000.0,
+            "count": 1,
+            "confidence": 0.9,
+            "evidence": "10kg"
+          },
+          "unit_prices": {
+            "per_kg": 468.0
+          },
+          "comparison_metric": "per_kg",
+          "unit_label": "1kgあたり",
+          "quantity_label": "合計10kg",
+          "promotion_mentioned": true,
+          "price_history": {
+            "observed_days": 1,
+            "previous_date": null,
+            "previous_price": null,
+            "previous_unit": null,
+            "previous_label": null,
+            "price_delta": null,
+            "unit_delta": null,
+            "percent_delta": null,
+            "lowest_30d_unit": 468.0,
+            "highest_30d_unit": 468.0,
+            "lowest_7d_unit": 468.0,
+            "highest_7d_unit": 468.0,
+            "trend_7d": "stable",
+            "is_30d_low": false,
+            "series_7d": [
+              {
+                "date": "2026-10-05",
+                "price": 4680,
+                "unit": 468.0
+              }
+            ],
+            "series_30d": [
+              {
+                "date": "2026-10-05",
+                "price": 4680,
+                "unit": 468.0
+              }
+            ]
+          }
+        },
+        {
           "id": "rs-takeo:10000165",
           "raw_name": "【在庫処分価格！】送料無料 令和7年産 秋田県産 あきたこまち 10kg 白米 米",
           "name": "【在庫処分価格！】送料無料 令和7年産 秋田県産 あきたこまち 10kg 白米 米",
@@ -2776,61 +2941,6 @@
           "shop": "こめたつ",
           "url": "https://hb.afl.rakuten.co.jp/hgc/g00rxaro.7cx6m798.g00rxaro.7cx6n2f7/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Ffuchigami%2F10000069%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Ffuchigami%2Fi%2F10000069%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
           "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/fuchigami/cabinet/rakurip/kome/aso_miru_10_s.jpg?_ex=128x128",
-          "postage_included": true,
-          "shipping_status": "included",
-          "quantity": {
-            "total_weight_g": 10000.0,
-            "unit_weight_g": 10000.0,
-            "count": 1,
-            "confidence": 0.9,
-            "evidence": "10kg"
-          },
-          "unit_prices": {
-            "per_kg": 498.0
-          },
-          "comparison_metric": "per_kg",
-          "unit_label": "1kgあたり",
-          "quantity_label": "合計10kg",
-          "promotion_mentioned": false,
-          "price_history": {
-            "observed_days": 1,
-            "previous_date": null,
-            "previous_price": null,
-            "previous_unit": null,
-            "previous_label": null,
-            "price_delta": null,
-            "unit_delta": null,
-            "percent_delta": null,
-            "lowest_30d_unit": 498.0,
-            "highest_30d_unit": 498.0,
-            "lowest_7d_unit": 498.0,
-            "highest_7d_unit": 498.0,
-            "trend_7d": "stable",
-            "is_30d_low": false,
-            "series_7d": [
-              {
-                "date": "2026-10-05",
-                "price": 4980,
-                "unit": 498.0
-              }
-            ],
-            "series_30d": [
-              {
-                "date": "2026-10-05",
-                "price": 4980,
-                "unit": 498.0
-              }
-            ]
-          }
-        },
-        {
-          "id": "fuchigami:10000359",
-          "raw_name": "【8年産新米大特価！！】 米 10kg 令和8年産 ちょっぴりセレブなコシヒカリ コシヒカリ 10kg 送料無料 米 10kg 送料無料 白米 10kg 送料無料 お米 10kg 無洗米 10キロ 国内産 こめたつ 備蓄用",
-          "name": "【8年産新米大特価！！】 米 10kg 令和8年産 ちょっぴりセレブなコシヒカリ コシヒカリ 10kg 米 10kg 白米 10kg お米 10kg 無洗米 10キロ 国内産 こめたつ 備蓄用",
-          "price": 4980,
-          "shop": "こめたつ",
-          "url": "https://hb.afl.rakuten.co.jp/hgc/g00rxaro.7cx6m798.g00rxaro.7cx6n2f7/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Ffuchigami%2Fkoshi-srv10%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Ffuchigami%2Fi%2F10000359%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
-          "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/fuchigami/cabinet/rakurip/kome/skoshi_10_s.jpg?_ex=128x128",
           "postage_included": true,
           "shipping_status": "included",
           "quantity": {
@@ -3194,6 +3304,101 @@
                 "date": "2026-10-05",
                 "price": 2780,
                 "unit": 556.0
+              }
+            ]
+          }
+        },
+        {
+          "id": "adachi-umai:10000130",
+          "raw_name": "299円OFF sale セール 値引 割引 限定 特別 お得 新米 米 白米 10kg 送料無料 コシヒカリ 5kg×2袋 愛知県産 令和8年産 コシヒカリ お米 10キロ あす楽 安い 送料無料【沖縄、配送不可】",
+          "name": "sale セール 値引 割引 限定 特別 お得 新米 米 白米 10kg コシヒカリ 5kg×2袋 愛知県産 令和8年産 コシヒカリ お米 10キロ あす楽 安い 【沖縄、配送不可】",
+          "price": 5599,
+          "shop": "あだちねっと 美米屋",
+          "url": "https://hb.afl.rakuten.co.jp/hgc/g00qbbko.7cx6m4cb.g00qbbko.7cx6n1bd/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fadachi-umai%2Fhiraiwakosi10-7823%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fadachi-umai%2Fi%2F10000130%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
+          "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/adachi-umai/cabinet/rice2023-new/hk-10.jpg?_ex=128x128",
+          "postage_included": true,
+          "shipping_status": "included",
+          "quantity": {
+            "total_weight_g": 10000.0,
+            "unit_weight_g": 5000.0,
+            "count": 2,
+            "confidence": 0.99,
+            "evidence": "5kgx2袋"
+          },
+          "unit_prices": {
+            "per_kg": 559.9
+          },
+          "comparison_metric": "per_kg",
+          "unit_label": "1kgあたり",
+          "quantity_label": "合計10kg / 2袋・個",
+          "promotion_mentioned": true,
+          "price_history": {
+            "observed_days": 5,
+            "previous_date": "2026-10-04",
+            "previous_price": 5898,
+            "previous_unit": 589.8,
+            "previous_label": "昨日比",
+            "price_delta": -299,
+            "unit_delta": -29.899999999999977,
+            "percent_delta": -5.069515089860969,
+            "lowest_30d_unit": 559.9,
+            "highest_30d_unit": 589.8,
+            "lowest_7d_unit": 559.9,
+            "highest_7d_unit": 589.8,
+            "trend_7d": "stable",
+            "is_30d_low": true,
+            "series_7d": [
+              {
+                "date": "2026-09-30",
+                "price": 5599,
+                "unit": 559.9
+              },
+              {
+                "date": "2026-10-02",
+                "price": 5898,
+                "unit": 589.8
+              },
+              {
+                "date": "2026-10-03",
+                "price": 5898,
+                "unit": 589.8
+              },
+              {
+                "date": "2026-10-04",
+                "price": 5898,
+                "unit": 589.8
+              },
+              {
+                "date": "2026-10-05",
+                "price": 5599,
+                "unit": 559.9
+              }
+            ],
+            "series_30d": [
+              {
+                "date": "2026-09-30",
+                "price": 5599,
+                "unit": 559.9
+              },
+              {
+                "date": "2026-10-02",
+                "price": 5898,
+                "unit": 589.8
+              },
+              {
+                "date": "2026-10-03",
+                "price": 5898,
+                "unit": 589.8
+              },
+              {
+                "date": "2026-10-04",
+                "price": 5898,
+                "unit": 589.8
+              },
+              {
+                "date": "2026-10-05",
+                "price": 5599,
+                "unit": 559.9
               }
             ]
           }
@@ -4014,101 +4219,6 @@
               }
             ]
           }
-        },
-        {
-          "id": "imagi:10000084",
-          "raw_name": "新米入荷 令和8年産 新潟県産こしいぶき 10kg（5kg×2袋）【送料無料】（北海道、九州、沖縄除く）",
-          "name": "新米入荷 令和8年産 新潟県産こしいぶき 10kg（5kg×2袋） （北海道、九州、沖縄除く）",
-          "price": 5650,
-          "shop": "お米プラザ新潟[楽天市場店]",
-          "url": "https://hb.afl.rakuten.co.jp/hgc/g00pjpfo.7cx6m9e7.g00pjpfo.7cx6n091/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fimagi%2Fkoshiibuki-10%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fimagi%2Fi%2F10000084%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
-          "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/imagi/cabinet/item01/04/002/r8_ibuki_10kg_s.jpg?_ex=128x128",
-          "postage_included": false,
-          "shipping_status": "extra_or_unknown",
-          "quantity": {
-            "total_weight_g": 10000.0,
-            "unit_weight_g": 5000.0,
-            "count": 2,
-            "confidence": 0.99,
-            "evidence": "5kgx2袋"
-          },
-          "unit_prices": {
-            "per_kg": 565.0
-          },
-          "comparison_metric": "per_kg",
-          "unit_label": "1kgあたり",
-          "quantity_label": "合計10kg / 2袋・個",
-          "promotion_mentioned": false,
-          "price_history": {
-            "observed_days": 5,
-            "previous_date": "2026-10-03",
-            "previous_price": 5650,
-            "previous_unit": 565.0,
-            "previous_label": "前回比",
-            "price_delta": 0,
-            "unit_delta": 0.0,
-            "percent_delta": 0.0,
-            "lowest_30d_unit": 565.0,
-            "highest_30d_unit": 565.0,
-            "lowest_7d_unit": 565.0,
-            "highest_7d_unit": 565.0,
-            "trend_7d": "stable",
-            "is_30d_low": true,
-            "series_7d": [
-              {
-                "date": "2026-09-30",
-                "price": 5650,
-                "unit": 565.0
-              },
-              {
-                "date": "2026-10-01",
-                "price": 5650,
-                "unit": 565.0
-              },
-              {
-                "date": "2026-10-02",
-                "price": 5650,
-                "unit": 565.0
-              },
-              {
-                "date": "2026-10-03",
-                "price": 5650,
-                "unit": 565.0
-              },
-              {
-                "date": "2026-10-05",
-                "price": 5650,
-                "unit": 565.0
-              }
-            ],
-            "series_30d": [
-              {
-                "date": "2026-09-30",
-                "price": 5650,
-                "unit": 565.0
-              },
-              {
-                "date": "2026-10-01",
-                "price": 5650,
-                "unit": 565.0
-              },
-              {
-                "date": "2026-10-02",
-                "price": 5650,
-                "unit": 565.0
-              },
-              {
-                "date": "2026-10-03",
-                "price": 5650,
-                "unit": 565.0
-              },
-              {
-                "date": "2026-10-05",
-                "price": 5650,
-                "unit": 565.0
-              }
-            ]
-          }
         }
       ],
       "quality_audit": {
@@ -4119,14 +4229,14 @@
         "exact_duplicates": 5,
         "practical_duplicates": 0,
         "accepted_unique": 25,
-        "included_available": 22,
-        "shipping_unknown_available": 3,
-        "displayed_included": 22,
-        "displayed_shipping_unknown": 3,
+        "included_available": 23,
+        "shipping_unknown_available": 2,
+        "displayed_included": 23,
+        "displayed_shipping_unknown": 2,
         "reasons": {
-          "ambiguous_quantity": 26,
+          "ambiguous_quantity": 27,
           "wrong_product_type": 2,
-          "limited_purchase": 2
+          "limited_purchase": 1
         }
       }
     },
@@ -6423,72 +6533,6 @@
           }
         },
         {
-          "id": "voltsparkling:10000002",
-          "raw_name": "【公式】VOLT 強炭酸 炭酸水 強炭酸水 500ml×24本 無糖 プレーン 炭酸水 スパークリングウォーター 送料無料 (一部地域を除く)箱買い ケース買い まとめ買い 割材 ハイボール レモンサワー 美容 常温保存 長期保存 サーフビバレッジ",
-          "name": "【公式】VOLT 強炭酸 炭酸水 強炭酸水 500ml×24本 無糖 プレーン 炭酸水 スパークリングウォーター (一部地域を除く)箱買い ケース買い まとめ買い 割材 ハイボール レモンサワー 美容 常温保存 長期保存 サーフビバレッジ",
-          "price": 1380,
-          "shop": "VOLT SPARKLING",
-          "url": "https://hb.afl.rakuten.co.jp/hgc/g00uqe2o.7cx6m35d.g00uqe2o.7cx6n510/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fvoltsparkling%2Fvolt500-copy-plane%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fvoltsparkling%2Fi%2F10000002%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
-          "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/voltsparkling/cabinet/volt500/copy/p_500m_24_2508.jpg?_ex=128x128",
-          "postage_included": false,
-          "shipping_status": "extra_or_unknown",
-          "quantity": {
-            "total_volume_ml": 12000.0,
-            "unit_volume_ml": 500.0,
-            "count": 24,
-            "confidence": 0.96,
-            "evidence": "500mlx24本"
-          },
-          "unit_prices": {
-            "per_liter": 115.0,
-            "per_bottle": 57.5
-          },
-          "comparison_metric": "per_liter",
-          "unit_label": "1Lあたり",
-          "quantity_label": "500ml×24本 / 合計12L",
-          "promotion_mentioned": false,
-          "price_history": {
-            "observed_days": 2,
-            "previous_date": "2026-09-30",
-            "previous_price": 1380,
-            "previous_unit": 115.0,
-            "previous_label": "前回比",
-            "price_delta": 0,
-            "unit_delta": 0.0,
-            "percent_delta": 0.0,
-            "lowest_30d_unit": 115.0,
-            "highest_30d_unit": 115.0,
-            "lowest_7d_unit": 115.0,
-            "highest_7d_unit": 115.0,
-            "trend_7d": "stable",
-            "is_30d_low": true,
-            "series_7d": [
-              {
-                "date": "2026-09-30",
-                "price": 1380,
-                "unit": 115.0
-              },
-              {
-                "date": "2026-10-05",
-                "price": 1380,
-                "unit": 115.0
-              }
-            ],
-            "series_30d": [
-              {
-                "date": "2026-09-30",
-                "price": 1380,
-                "unit": 115.0
-              },
-              {
-                "date": "2026-10-05",
-                "price": 1380,
-                "unit": 115.0
-              }
-            ]
-          }
-        },
-        {
           "id": "voltsparkling:10000005",
           "raw_name": "【最安値挑戦中】【公式】VOLT 強炭酸 炭酸水 強炭酸水 1l×12本 1000ml 1リットル 無糖 プレーン 炭酸水 スパークリングウォーター 送料無料 (一部地域を除く) 箱買い ケース買い まとめ買い 割材 ハイボール レモンサワー 美容 常温保存 長期保存",
           "name": "【最安値挑戦中】【公式】VOLT 強炭酸 炭酸水 強炭酸水 1l×12本 1000ml 1リットル 無糖 プレーン 炭酸水 スパークリングウォーター (一部地域を除く) 箱買い ケース買い まとめ買い 割材 ハイボール レモンサワー 美容 常温保存 長期保存",
@@ -7233,96 +7277,6 @@
           }
         },
         {
-          "id": "izmic-ec:10163397",
-          "raw_name": "《ラベルレス》イズミック SODA (ソーダ) 天然水 強炭酸水 500ml×24本×1ケース (24本) 飲料【送料無料※一部地域は除く】シリカ25mg/本 イズミックソーダ 炭酸 タンサン オリジナルPB",
-          "name": "《ラベルレス》イズミック SODA (ソーダ) 天然水 強炭酸水 500ml×24本×1ケース (24本) 飲料【送料無料※一部地域は除く】シリカ25mg/本 イズミックソーダ 炭酸 タンサン オリジナルPB",
-          "price": 1720,
-          "shop": "イズミックワールド",
-          "url": "https://hb.afl.rakuten.co.jp/hgc/g00pjp9o.7cx6mc74.g00pjp9o.7cx6na23/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fizmic-ec%2F662441-01%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fizmic-ec%2Fi%2F10163397%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
-          "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/izmic-ec/cabinet/662441-01-1.jpg?_ex=128x128",
-          "postage_included": false,
-          "shipping_status": "extra_or_unknown",
-          "quantity": {
-            "total_volume_ml": 12000.0,
-            "unit_volume_ml": 500.0,
-            "count": 24,
-            "component_counts": [
-              24,
-              1
-            ],
-            "confidence": 0.997,
-            "evidence": "500mlx24本x1ケース"
-          },
-          "unit_prices": {
-            "per_liter": 143.33333333333334,
-            "per_bottle": 71.66666666666667
-          },
-          "comparison_metric": "per_liter",
-          "unit_label": "1Lあたり",
-          "quantity_label": "500ml×24本 / 合計12L",
-          "promotion_mentioned": false,
-          "price_history": {
-            "observed_days": 4,
-            "previous_date": "2026-10-04",
-            "previous_price": 1720,
-            "previous_unit": 143.33333333333334,
-            "previous_label": "昨日比",
-            "price_delta": 0,
-            "unit_delta": 0.0,
-            "percent_delta": 0.0,
-            "lowest_30d_unit": 143.33333333333334,
-            "highest_30d_unit": 143.33333333333334,
-            "lowest_7d_unit": 143.33333333333334,
-            "highest_7d_unit": 143.33333333333334,
-            "trend_7d": "stable",
-            "is_30d_low": true,
-            "series_7d": [
-              {
-                "date": "2026-09-30",
-                "price": 1720,
-                "unit": 143.33333333333334
-              },
-              {
-                "date": "2026-10-01",
-                "price": 1720,
-                "unit": 143.33333333333334
-              },
-              {
-                "date": "2026-10-04",
-                "price": 1720,
-                "unit": 143.33333333333334
-              },
-              {
-                "date": "2026-10-05",
-                "price": 1720,
-                "unit": 143.33333333333334
-              }
-            ],
-            "series_30d": [
-              {
-                "date": "2026-09-30",
-                "price": 1720,
-                "unit": 143.33333333333334
-              },
-              {
-                "date": "2026-10-01",
-                "price": 1720,
-                "unit": 143.33333333333334
-              },
-              {
-                "date": "2026-10-04",
-                "price": 1720,
-                "unit": 143.33333333333334
-              },
-              {
-                "date": "2026-10-05",
-                "price": 1720,
-                "unit": 143.33333333333334
-              }
-            ]
-          }
-        },
-        {
           "id": "soukaidrink:10012932",
           "raw_name": "アイリス CRYSTAL SPARK 富士山の強炭酸水 ラベルレス( 500ml×24本入)【CRYSTALSPARK】[炭酸水 500ml 24本 ラベルレス]",
           "name": "アイリス CRYSTAL SPARK 富士山の強炭酸水 ラベルレス( 500ml×24本入)【CRYSTALSPARK】[炭酸水 500ml 24本 ラベルレス]",
@@ -7725,19 +7679,19 @@
         "fetch_errors": 0,
         "queries": 3,
         "fetched": 90,
-        "normalized": 48,
+        "normalized": 45,
         "exact_duplicates": 11,
         "practical_duplicates": 0,
-        "accepted_unique": 37,
+        "accepted_unique": 34,
         "included_available": 16,
-        "shipping_unknown_available": 21,
+        "shipping_unknown_available": 18,
         "displayed_included": 16,
-        "displayed_shipping_unknown": 20,
+        "displayed_shipping_unknown": 18,
         "reasons": {
-          "missing_category_evidence": 13,
+          "missing_category_evidence": 16,
+          "ambiguous_quantity": 15,
           "limited_purchase": 3,
-          "ambiguous_quantity": 16,
-          "set_count_conflict": 7,
+          "set_count_conflict": 8,
           "wrong_product_type": 3
         }
       }
@@ -13180,85 +13134,6 @@
           }
         },
         {
-          "id": "kurashikenkou:10181000",
-          "raw_name": "≪ポイント2倍★10日9:59迄≫シリカ 水 500ml 24本 天然水 ペットボトル 送料無料 シリカ水 ミネラルウォーター 富士清水 JAPANWATER 飲料水 軟水 ウォーター【D】【代引き不可】",
-          "name": "≪ポイント2倍★10日9:59迄≫シリカ 水 500ml 24本 天然水 ペットボトル シリカ水 ミネラルウォーター 富士清水 JAPANWATER 飲料水 軟水 ウォーター【D】【代引き不可】",
-          "price": 1560,
-          "shop": "暮らし健康ネット館",
-          "url": "https://hb.afl.rakuten.co.jp/hgc/g00qhoao.7cx6m91b.g00qhoao.7cx6n00f/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fkurashikenkou%2F7150388%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fkurashikenkou%2Fi%2F10181000%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
-          "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/kurashikenkou/cabinet/tenposupport23/7245223.jpg?_ex=128x128",
-          "postage_included": true,
-          "shipping_status": "included",
-          "quantity": {
-            "count": 24,
-            "component_counts": [
-              24
-            ],
-            "unit_volume_ml": 500.0,
-            "total_volume_ml": 12000.0,
-            "confidence": 0.99,
-            "evidence": "500ml 24本"
-          },
-          "unit_prices": {
-            "per_liter": 130.0,
-            "per_bottle": 65.0
-          },
-          "comparison_metric": "per_liter",
-          "unit_label": "1Lあたり",
-          "quantity_label": "500ml×24本 / 合計12L",
-          "promotion_mentioned": true,
-          "price_history": {
-            "observed_days": 3,
-            "previous_date": "2026-10-03",
-            "previous_price": 1560,
-            "previous_unit": 130.0,
-            "previous_label": "前回比",
-            "price_delta": 0,
-            "unit_delta": 0.0,
-            "percent_delta": 0.0,
-            "lowest_30d_unit": 130.0,
-            "highest_30d_unit": 130.0,
-            "lowest_7d_unit": 130.0,
-            "highest_7d_unit": 130.0,
-            "trend_7d": "stable",
-            "is_30d_low": true,
-            "series_7d": [
-              {
-                "date": "2026-10-02",
-                "price": 1560,
-                "unit": 130.0
-              },
-              {
-                "date": "2026-10-03",
-                "price": 1560,
-                "unit": 130.0
-              },
-              {
-                "date": "2026-10-05",
-                "price": 1560,
-                "unit": 130.0
-              }
-            ],
-            "series_30d": [
-              {
-                "date": "2026-10-02",
-                "price": 1560,
-                "unit": 130.0
-              },
-              {
-                "date": "2026-10-03",
-                "price": 1560,
-                "unit": 130.0
-              },
-              {
-                "date": "2026-10-05",
-                "price": 1560,
-                "unit": 130.0
-              }
-            ]
-          }
-        },
-        {
           "id": "onestep:10148272",
           "raw_name": "ボルヴィック 500ml 48本 送料無料 軟水 天然水 ミネラルウォーター ボルビック volvic『送料無料（一部地域除く）』",
           "name": "ボルヴィック 500ml 48本 軟水 天然水 ミネラルウォーター ボルビック volvic『送料無料（一部地域除く）』",
@@ -13680,19 +13555,19 @@
         "fetch_errors": 0,
         "queries": 3,
         "fetched": 90,
-        "normalized": 20,
+        "normalized": 19,
         "exact_duplicates": 6,
         "practical_duplicates": 0,
-        "accepted_unique": 14,
-        "included_available": 11,
+        "accepted_unique": 13,
+        "included_available": 10,
         "shipping_unknown_available": 3,
-        "displayed_included": 11,
+        "displayed_included": 10,
         "displayed_shipping_unknown": 3,
         "reasons": {
           "limited_purchase": 5,
-          "wrong_product_type": 11,
-          "restricted_or_selectable_product": 9,
-          "ambiguous_quantity": 45
+          "wrong_product_type": 10,
+          "restricted_or_selectable_product": 10,
+          "ambiguous_quantity": 46
         }
       }
     },
@@ -19045,65 +18920,6 @@
           }
         },
         {
-          "id": "psj1:10009567",
-          "raw_name": "ラブクランチ オーガニックグラノーラ チョコ ベリー 907gx3袋 ネイチャーズパス コストコ 通販 送料無料",
-          "name": "ラブクランチ オーガニックグラノーラ チョコ ベリー 907gx3袋 ネイチャーズパス コストコ 通販",
-          "price": 9180,
-          "shop": "PrimeSellerJapan 楽天市場店",
-          "url": "https://hb.afl.rakuten.co.jp/hgc/g00tg47o.7cx6me07.g00tg47o.7cx6nad8/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fpsj1%2Fss-cs11619-058449192206-03%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fpsj1%2Fi%2F10009567%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
-          "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/psj1/cabinet/2025/2025_03/11619_4.jpg?_ex=128x128",
-          "postage_included": true,
-          "shipping_status": "included",
-          "quantity": {
-            "count": 3,
-            "component_counts": [
-              3
-            ],
-            "unit_weight_g": 907.0,
-            "total_weight_g": 2721.0,
-            "confidence": 0.99,
-            "evidence": "907gx3袋"
-          },
-          "unit_prices": {
-            "per_100g": 337.37596471885337,
-            "per_kg": 3373.7596471885336
-          },
-          "comparison_metric": "per_100g",
-          "unit_label": "100gあたり",
-          "quantity_label": "合計2.721kg / 3袋・個",
-          "promotion_mentioned": false,
-          "price_history": {
-            "observed_days": 1,
-            "previous_date": null,
-            "previous_price": null,
-            "previous_unit": null,
-            "previous_label": null,
-            "price_delta": null,
-            "unit_delta": null,
-            "percent_delta": null,
-            "lowest_30d_unit": 337.37596471885337,
-            "highest_30d_unit": 337.37596471885337,
-            "lowest_7d_unit": 337.37596471885337,
-            "highest_7d_unit": 337.37596471885337,
-            "trend_7d": "stable",
-            "is_30d_low": false,
-            "series_7d": [
-              {
-                "date": "2026-10-05",
-                "price": 9180,
-                "unit": 337.37596471885337
-              }
-            ],
-            "series_30d": [
-              {
-                "date": "2026-10-05",
-                "price": 9180,
-                "unit": 337.37596471885337
-              }
-            ]
-          }
-        },
-        {
           "id": "hybridjapan:10001938",
           "raw_name": "アリサン クラシック グラノラ 1kg オーガニック グラノーラ 有機 オーツ 大容量 朝食 シリアル 無添加 アメリカ産",
           "name": "アリサン クラシック グラノラ 1kg オーガニック グラノーラ 有機 オーツ 大容量 朝食 シリアル 無添加 アメリカ産",
@@ -19188,6 +19004,65 @@
                 "date": "2026-10-05",
                 "price": 3650,
                 "unit": 365.0
+              }
+            ]
+          }
+        },
+        {
+          "id": "psj1:10009565",
+          "raw_name": "ラブクランチ オーガニックグラノーラ チョコ ベリー 907gx1袋 ネイチャーズパス コストコ 通販 送料無料",
+          "name": "ラブクランチ オーガニックグラノーラ チョコ ベリー 907gx1袋 ネイチャーズパス コストコ 通販",
+          "price": 3590,
+          "shop": "PrimeSellerJapan 楽天市場店",
+          "url": "https://hb.afl.rakuten.co.jp/hgc/g00tg47o.7cx6me07.g00tg47o.7cx6nad8/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fpsj1%2Fss-cs11619-058449192206%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fpsj1%2Fi%2F10009565%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
+          "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/psj1/cabinet/2025/2025_03/11619_0.jpg?_ex=128x128",
+          "postage_included": true,
+          "shipping_status": "included",
+          "quantity": {
+            "count": 1,
+            "component_counts": [
+              1
+            ],
+            "unit_weight_g": 907.0,
+            "total_weight_g": 907.0,
+            "confidence": 0.99,
+            "evidence": "907gx1袋"
+          },
+          "unit_prices": {
+            "per_100g": 395.8103638368247,
+            "per_kg": 3958.1036383682467
+          },
+          "comparison_metric": "per_100g",
+          "unit_label": "100gあたり",
+          "quantity_label": "合計907g",
+          "promotion_mentioned": false,
+          "price_history": {
+            "observed_days": 1,
+            "previous_date": null,
+            "previous_price": null,
+            "previous_unit": null,
+            "previous_label": null,
+            "price_delta": null,
+            "unit_delta": null,
+            "percent_delta": null,
+            "lowest_30d_unit": 395.8103638368247,
+            "highest_30d_unit": 395.8103638368247,
+            "lowest_7d_unit": 395.8103638368247,
+            "highest_7d_unit": 395.8103638368247,
+            "trend_7d": "stable",
+            "is_30d_low": false,
+            "series_7d": [
+              {
+                "date": "2026-10-05",
+                "price": 3590,
+                "unit": 395.8103638368247
+              }
+            ],
+            "series_30d": [
+              {
+                "date": "2026-10-05",
+                "price": 3590,
+                "unit": 395.8103638368247
               }
             ]
           }
@@ -20279,8 +20154,8 @@
           "restricted_or_selectable_product": 12,
           "wrong_product_type": 19,
           "ambiguous_quantity": 25,
-          "missing_category_evidence": 2,
-          "limited_purchase": 2
+          "limited_purchase": 2,
+          "missing_category_evidence": 2
         }
       }
     },
@@ -20638,85 +20513,6 @@
                 "date": "2026-10-05",
                 "price": 3280,
                 "unit": 328.0
-              }
-            ]
-          }
-        },
-        {
-          "id": "minamimatumoto:10000316",
-          "raw_name": "明治 のこだわり仕込み 特製ビーフカレー中辛 165g×10食【送料無料】【常温便】 meiji カレー レトルト レトルトカレー 常備食 非常食 まとめ買い ビーフカレー おいしいカレー 香典返し 贈答 イベントレトルトレトルトカレー カレー",
-          "name": "明治 のこだわり仕込み 特製ビーフカレー中辛 165g×10食 【常温便】 meiji カレー レトルト レトルトカレー 常備食 非常食 まとめ買い ビーフカレー おいしいカレー 香典返し 贈答 イベントレトルトレトルトカレー カレー",
-          "price": 3308,
-          "shop": "信濃商店",
-          "url": "https://hb.afl.rakuten.co.jp/hgc/g00st62o.7cx6me88.g00st62o.7cx6n180/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fminamimatumoto%2Fcurry_10%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fminamimatumoto%2Fi%2F10000316%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
-          "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/minamimatumoto/cabinet/05578107/10955781/curry_03.jpg?_ex=128x128",
-          "postage_included": true,
-          "shipping_status": "included",
-          "quantity": {
-            "count": 10,
-            "component_counts": [
-              10
-            ],
-            "unit_weight_g": 165.0,
-            "total_weight_g": 1650.0,
-            "confidence": 0.99,
-            "evidence": "165gx10食"
-          },
-          "unit_prices": {
-            "per_serving": 330.8,
-            "per_100g": 200.4848484848485
-          },
-          "comparison_metric": "per_serving",
-          "unit_label": "1食あたり",
-          "quantity_label": "合計1.65kg / 10食",
-          "promotion_mentioned": false,
-          "price_history": {
-            "observed_days": 3,
-            "previous_date": "2026-10-03",
-            "previous_price": 3308,
-            "previous_unit": 330.8,
-            "previous_label": "前回比",
-            "price_delta": 0,
-            "unit_delta": 0.0,
-            "percent_delta": 0.0,
-            "lowest_30d_unit": 330.8,
-            "highest_30d_unit": 330.8,
-            "lowest_7d_unit": 330.8,
-            "highest_7d_unit": 330.8,
-            "trend_7d": "stable",
-            "is_30d_low": true,
-            "series_7d": [
-              {
-                "date": "2026-10-02",
-                "price": 3308,
-                "unit": 330.8
-              },
-              {
-                "date": "2026-10-03",
-                "price": 3308,
-                "unit": 330.8
-              },
-              {
-                "date": "2026-10-05",
-                "price": 3308,
-                "unit": 330.8
-              }
-            ],
-            "series_30d": [
-              {
-                "date": "2026-10-02",
-                "price": 3308,
-                "unit": 330.8
-              },
-              {
-                "date": "2026-10-03",
-                "price": 3308,
-                "unit": 330.8
-              },
-              {
-                "date": "2026-10-05",
-                "price": 3308,
-                "unit": 330.8
               }
             ]
           }
@@ -22219,13 +22015,13 @@
           }
         },
         {
-          "id": "nozomi-market:10010467",
-          "raw_name": "ハウス食品 ビーフカレー シェフブレンド 中辛 180g×30袋入｜ 送料無料 カレー ビーフ レトルト ビーフカレー 中辛",
-          "name": "ハウス食品 ビーフカレー シェフブレンド 中辛 180g×30袋入｜ カレー ビーフ レトルト ビーフカレー 中辛",
-          "price": 5140,
-          "shop": "のぞみマーケット楽天市場店",
-          "url": "https://hb.afl.rakuten.co.jp/hgc/g00r1iqo.7cx6m46c.g00r1iqo.7cx6n261/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fnozomi-market%2Fa310-53%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fnozomi-market%2Fi%2F10010467%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
-          "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/nozomi-market/cabinet/202505_30/a310-53-1.jpg?_ex=128x128",
+          "id": "drink-market:10112443",
+          "raw_name": "ハウス食品 ポークカレー 180g×30袋入｜ 送料無料 一般食品 レトルト カレー ポーク",
+          "name": "ハウス食品 ポークカレー 180g×30袋入｜ 一般食品 レトルト カレー ポーク",
+          "price": 6598,
+          "shop": "ドリンクマーケット",
+          "url": "https://hb.afl.rakuten.co.jp/hgc/g00s7wdo.7cx6mf7a.g00s7wdo.7cx6n171/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fdrink-market%2Fa310-295%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fdrink-market%2Fi%2F10112443%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
+          "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/drink-market/cabinet/202505_28/a310-295-1.jpg?_ex=128x128",
           "postage_included": false,
           "shipping_status": "extra_or_unknown",
           "quantity": {
@@ -22239,8 +22035,8 @@
             "evidence": "180gx30袋入"
           },
           "unit_prices": {
-            "per_serving": 171.33333333333334,
-            "per_100g": 95.18518518518519
+            "per_serving": 219.93333333333334,
+            "per_100g": 122.18518518518519
           },
           "comparison_metric": "per_serving",
           "unit_label": "1食あたり",
@@ -22249,60 +22045,60 @@
           "price_history": {
             "observed_days": 4,
             "previous_date": "2026-10-04",
-            "previous_price": 5140,
-            "previous_unit": 171.33333333333334,
+            "previous_price": 6598,
+            "previous_unit": 219.93333333333334,
             "previous_label": "昨日比",
             "price_delta": 0,
             "unit_delta": 0.0,
             "percent_delta": 0.0,
-            "lowest_30d_unit": 171.33333333333334,
-            "highest_30d_unit": 171.33333333333334,
-            "lowest_7d_unit": 171.33333333333334,
-            "highest_7d_unit": 171.33333333333334,
+            "lowest_30d_unit": 219.93333333333334,
+            "highest_30d_unit": 219.93333333333334,
+            "lowest_7d_unit": 219.93333333333334,
+            "highest_7d_unit": 219.93333333333334,
             "trend_7d": "stable",
             "is_30d_low": true,
             "series_7d": [
               {
                 "date": "2026-10-02",
-                "price": 5140,
-                "unit": 171.33333333333334
+                "price": 6598,
+                "unit": 219.93333333333334
               },
               {
                 "date": "2026-10-03",
-                "price": 5140,
-                "unit": 171.33333333333334
+                "price": 6598,
+                "unit": 219.93333333333334
               },
               {
                 "date": "2026-10-04",
-                "price": 5140,
-                "unit": 171.33333333333334
+                "price": 6598,
+                "unit": 219.93333333333334
               },
               {
                 "date": "2026-10-05",
-                "price": 5140,
-                "unit": 171.33333333333334
+                "price": 6598,
+                "unit": 219.93333333333334
               }
             ],
             "series_30d": [
               {
                 "date": "2026-10-02",
-                "price": 5140,
-                "unit": 171.33333333333334
+                "price": 6598,
+                "unit": 219.93333333333334
               },
               {
                 "date": "2026-10-03",
-                "price": 5140,
-                "unit": 171.33333333333334
+                "price": 6598,
+                "unit": 219.93333333333334
               },
               {
                 "date": "2026-10-04",
-                "price": 5140,
-                "unit": 171.33333333333334
+                "price": 6598,
+                "unit": 219.93333333333334
               },
               {
                 "date": "2026-10-05",
-                "price": 5140,
-                "unit": 171.33333333333334
+                "price": 6598,
+                "unit": 219.93333333333334
               }
             ]
           }
@@ -23183,20 +22979,20 @@
         "fetch_errors": 0,
         "queries": 5,
         "fetched": 150,
-        "normalized": 46,
-        "exact_duplicates": 2,
+        "normalized": 44,
+        "exact_duplicates": 1,
         "practical_duplicates": 0,
-        "accepted_unique": 44,
-        "included_available": 13,
+        "accepted_unique": 43,
+        "included_available": 12,
         "shipping_unknown_available": 31,
-        "displayed_included": 13,
+        "displayed_included": 12,
         "displayed_shipping_unknown": 20,
         "reasons": {
-          "restricted_or_selectable_product": 51,
-          "ambiguous_quantity": 27,
+          "restricted_or_selectable_product": 53,
+          "ambiguous_quantity": 28,
           "wrong_product_type": 16,
           "limited_purchase": 2,
-          "missing_category_evidence": 8
+          "missing_category_evidence": 7
         }
       }
     },
@@ -27472,92 +27268,6 @@
           }
         },
         {
-          "id": "jetprice:10583143",
-          "raw_name": "寿がきや 鳥取ゴールド牛骨ラーメン 109g×12個 カップラーメン カップ麺 ラーメン インスタント レトルト 食品",
-          "name": "寿がきや 鳥取ゴールド牛骨ラーメン 109g×12個 カップラーメン カップ麺 ラーメン インスタント レトルト 食品",
-          "price": 3383,
-          "shop": "JET PRICE",
-          "url": "https://hb.afl.rakuten.co.jp/hgc/g00scpco.7cx6m330.g00scpco.7cx6n146/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fjetprice%2Fxw2809%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fjetprice%2Fi%2F10583143%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
-          "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/jetprice/cabinet/x64/172295.jpg?_ex=128x128",
-          "postage_included": false,
-          "shipping_status": "extra_or_unknown",
-          "quantity": {
-            "count": 12,
-            "component_counts": [
-              12
-            ],
-            "confidence": 0.99,
-            "evidence": "12個"
-          },
-          "unit_prices": {
-            "per_serving": 281.9166666666667
-          },
-          "comparison_metric": "per_serving",
-          "unit_label": "1食あたり",
-          "quantity_label": "合計12食",
-          "promotion_mentioned": false,
-          "price_history": {
-            "observed_days": 4,
-            "previous_date": "2026-10-04",
-            "previous_price": 3383,
-            "previous_unit": 281.9166666666667,
-            "previous_label": "昨日比",
-            "price_delta": 0,
-            "unit_delta": 0.0,
-            "percent_delta": 0.0,
-            "lowest_30d_unit": 281.9166666666667,
-            "highest_30d_unit": 281.9166666666667,
-            "lowest_7d_unit": 281.9166666666667,
-            "highest_7d_unit": 281.9166666666667,
-            "trend_7d": "stable",
-            "is_30d_low": true,
-            "series_7d": [
-              {
-                "date": "2026-10-02",
-                "price": 3383,
-                "unit": 281.9166666666667
-              },
-              {
-                "date": "2026-10-03",
-                "price": 3383,
-                "unit": 281.9166666666667
-              },
-              {
-                "date": "2026-10-04",
-                "price": 3383,
-                "unit": 281.9166666666667
-              },
-              {
-                "date": "2026-10-05",
-                "price": 3383,
-                "unit": 281.9166666666667
-              }
-            ],
-            "series_30d": [
-              {
-                "date": "2026-10-02",
-                "price": 3383,
-                "unit": 281.9166666666667
-              },
-              {
-                "date": "2026-10-03",
-                "price": 3383,
-                "unit": 281.9166666666667
-              },
-              {
-                "date": "2026-10-04",
-                "price": 3383,
-                "unit": 281.9166666666667
-              },
-              {
-                "date": "2026-10-05",
-                "price": 3383,
-                "unit": 281.9166666666667
-              }
-            ]
-          }
-        },
-        {
           "id": "cocodecow:10770545",
           "raw_name": "サンヨー食品 サッポロ一番 カップスター 旨塩 75g×12個 カップラーメン カップ麺 ラーメン インスタント レトルト 食品",
           "name": "サンヨー食品 サッポロ一番 カップスター 旨塩 75g×12個 カップラーメン カップ麺 ラーメン インスタント レトルト 食品",
@@ -27790,17 +27500,17 @@
         "fetch_errors": 0,
         "queries": 3,
         "fetched": 90,
-        "normalized": 27,
+        "normalized": 26,
         "exact_duplicates": 0,
         "practical_duplicates": 0,
-        "accepted_unique": 27,
+        "accepted_unique": 26,
         "included_available": 11,
-        "shipping_unknown_available": 16,
+        "shipping_unknown_available": 15,
         "displayed_included": 11,
-        "displayed_shipping_unknown": 16,
+        "displayed_shipping_unknown": 15,
         "reasons": {
           "missing_category_evidence": 6,
-          "wrong_product_type": 27,
+          "wrong_product_type": 28,
           "ambiguous_quantity": 19,
           "restricted_or_selectable_product": 11
         }

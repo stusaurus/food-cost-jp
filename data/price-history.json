@@ -3847,6 +3847,19 @@
       "product_id": "psj1:10007584",
       "quantity_key": "{\"count\":6,\"total_weight_g\":6000.0,\"unit_weight_g\":1000.0}"
     },
+    "granola|psj1:10009565": {
+      "category_id": "granola",
+      "name": "ラブクランチ オーガニックグラノーラ チョコ ベリー 907gx1袋 ネイチャーズパス コストコ 通販",
+      "points": [
+        {
+          "date": "2026-10-05",
+          "price": 3590,
+          "unit": 395.8103638368247
+        }
+      ],
+      "product_id": "psj1:10009565",
+      "quantity_key": "{\"count\":1,\"total_weight_g\":907.0,\"unit_weight_g\":907.0}"
+    },
     "granola|psj1:10009567": {
       "category_id": "granola",
       "name": "ラブクランチ オーガニックグラノーラ チョコ ベリー 907gx3袋 ネイチャーズパス コストコ 通販",
@@ -6824,6 +6837,11 @@
           "date": "2026-10-04",
           "price": 8499,
           "unit": 212.475
+        },
+        {
+          "date": "2026-10-05",
+          "price": 8499,
+          "unit": 212.475
         }
       ],
       "product_id": "likaman:10034744",
@@ -8579,6 +8597,11 @@
           "date": "2026-10-04",
           "price": 6598,
           "unit": 219.93333333333334
+        },
+        {
+          "date": "2026-10-05",
+          "price": 6598,
+          "unit": 219.93333333333334
         }
       ],
       "product_id": "drink-market:10112443",
@@ -9428,7 +9451,7 @@
     },
     "rice|adachi-umai:10000130": {
       "category_id": "rice",
-      "name": "新米 米 白米 10kg コシヒカリ 5kg×2袋 愛知県産 令和8年産 コシヒカリ お米 10キロ あす楽 安い 【沖縄、配送不可】",
+      "name": "sale セール 値引 割引 限定 特別 お得 新米 米 白米 10kg コシヒカリ 5kg×2袋 愛知県産 令和8年産 コシヒカリ お米 10キロ あす楽 安い 【沖縄、配送不可】",
       "points": [
         {
           "date": "2026-09-30",
@@ -9449,10 +9472,28 @@
           "date": "2026-10-04",
           "price": 5898,
           "unit": 589.8
+        },
+        {
+          "date": "2026-10-05",
+          "price": 5599,
+          "unit": 559.9
         }
       ],
       "product_id": "adachi-umai:10000130",
       "quantity_key": "{\"count\":2,\"total_weight_g\":10000.0,\"unit_weight_g\":5000.0}"
+    },
+    "rice|anzai-rice:10000159": {
+      "category_id": "rice",
+      "name": "新米 10kg 8年産 10キロ 『令和8年茨城県産あきたこまち白米10kg』",
+      "points": [
+        {
+          "date": "2026-10-05",
+          "price": 4680,
+          "unit": 468.0
+        }
+      ],
+      "product_id": "anzai-rice:10000159",
+      "quantity_key": "{\"count\":1,\"total_weight_g\":10000.0,\"unit_weight_g\":10000.0}"
     },
     "rice|anzai-rice:10000437": {
       "category_id": "rice",
@@ -9610,6 +9651,11 @@
         },
         {
           "date": "2026-10-04",
+          "price": 3980,
+          "unit": 398.0
+        },
+        {
+          "date": "2026-10-05",
           "price": 3980,
           "unit": 398.0
         }
