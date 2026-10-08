@@ -57,6 +57,17 @@ class GuideTests(unittest.TestCase):
         self.assertIn("carbonated-water-24-cost", slugs)
         self.assertIn("carbonated-water-48-cost", slugs)
 
+    def test_category_links_only_to_published_matching_guides(self):
+        from build_site import category_guide_navigation
+        category = next(x for x in CATEGORIES if x["id"] == "rice")
+        rice = next(x for x in GUIDE_SPECS if x["slug"] == "rice-5kg-cost")
+        water = next(x for x in GUIDE_SPECS if x["slug"] == "carbonated-water-24-cost")
+        html = category_guide_navigation(category, [rice, water])
+        self.assertIn("../../guides/rice-5kg-cost/", html)
+        self.assertNotIn("carbonated-water-24-cost", html)
+        self.assertNotIn("rice-10kg-cost", html)
+        self.assertEqual(category_guide_navigation(category, []), "")
+
     def test_guide_filters_do_not_backfill_wrong_sizes(self):
         category = next(x for x in CATEGORIES if x["id"] == "rice")
         spec = next(x for x in GUIDE_SPECS if x["slug"] == "rice-5kg-cost")
