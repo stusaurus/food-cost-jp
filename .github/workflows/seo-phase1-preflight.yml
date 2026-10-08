@@ -1,0 +1,30 @@
+name: SEO phase one preflight
+on:
+  pull_request:
+    branches: [main]
+    paths: ['scripts/**', 'src/**', 'tests/**', '.github/workflows/seo-phase1-preflight.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  preflight:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.12' }
+      - uses: actions/setup-node@v4
+        with: { node-version: '22' }
+      - name: Validate stored-data rendering, SEO and purchase UI
+        run: |
+          python -m unittest discover -s tests -v
+          python scripts/render_snapshot.py
+          python scripts/validate_generated_site.py site
+          npm ci --ignore-scripts
+          npm test
+          python - <<'PY'
+          from pathlib import Path
+          page=(Path("site")/"categories/rice/index.html").read_text()
+          assert "米5kg・10kgの価格比較" in page
+          PY

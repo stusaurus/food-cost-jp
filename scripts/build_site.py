@@ -1905,12 +1905,27 @@ def other_categories_html(current_id: str) -> str:
 </section>"""
 
 
+def category_search_metadata(category: dict) -> tuple[str, str]:
+    """Describe the comparison users can actually perform, without price claims."""
+    details = {
+        'rice': ('米5kg・10kgの価格比較｜1kg単価・送料込み', '米の5kg・10kgなど容量の異なる商品を、送料込み対象の1kg単価で比較。銘柄・容量・支払総額も確認できます。'),
+        'pack-rice': ('パックご飯の価格比較｜1食単価・送料込み', 'パックご飯の食数と内容量をそろえ、送料込み対象の1食単価で比較。24食などのまとめ買いも支払総額と合わせて確認できます。'),
+        'carbonated-water': ('炭酸水24本・48本の価格比較｜1L単価・送料込み', '炭酸水の500ml・1L、24本・48本などの容量違いを、送料込み対象の1L単価と1本単価で比較します。'),
+        'oatmeal': ('オートミールの価格比較｜100g単価・送料込み', 'オートミールの1kg袋やまとめ買い商品を100gあたりの単価で比較。数量が曖昧な商品は除外します。'),
+    }
+    return details.get(category['id'], (
+        f"{category['name']}の価格比較｜{category['primary_label']}・送料込み",
+        f"{category['name']}の内容量・数量をそろえ、送料込み対象の{category['primary_label']}単価と支払総額を比較します。",
+    ))
+
+
 def category_page(category: dict, included: list[dict], other: list[dict], updated: datetime) -> str:
     faqs = category_faq(category)
+    seo_title, seo_description = category_search_metadata(category)
     parts = [
         page_head(
-            f"{category['name']}のコスパ比較｜{category['primary_label']}・送料込み",
-            f"{category['name']}を{category['primary_label']}へ換算し、容量・セット数・送料条件をそろえて比較します。",
+            seo_title,
+            seo_description,
             f"{SITE_URL}categories/{category['id']}/",
             faq_json_ld(faqs)
             + breadcrumb_json_ld([

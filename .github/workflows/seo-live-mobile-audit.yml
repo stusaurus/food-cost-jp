@@ -1,0 +1,74 @@
+name: SEO live mobile audit
+on:
+  workflow_dispatch:
+  workflow_run:
+    workflows: ["Build and publish food-cost-jp"]
+    types: [completed]
+permissions:
+  contents: read
+jobs:
+  audit:
+    if: ${{ github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install real Chromium test environment
+        run: |
+          npm install --prefix /tmp/seo-audit --no-audit --no-fund playwright@1.56.1
+          /tmp/seo-audit/node_modules/.bin/playwright install --with-deps chromium
+      - name: Audit public desktop and mobile pages
+        env:
+          SEO_BASE: https://stusaurus.github.io/food-cost-jp/
+          SEO_PATHS: "categories/rice/,categories/pack-rice/,categories/carbonated-water/"
+        run: |
+          node <<'AUDIT_NODE'
+            const {chromium}=require('/tmp/seo-audit/node_modules/playwright');
+            const fs=require('fs');
+            const base=process.env.SEO_BASE;
+            const paths=['',...process.env.SEO_PATHS.split(',')];
+            (async()=>{
+              fs.mkdirSync('seo-mobile-evidence',{recursive:true});
+              const browser=await chromium.launch();
+              const results=[];
+              for(const width of [320,390,1440]){
+                const context=await browser.newContext({viewport:{width,height:900},isMobile:width<500,hasTouch:width<500,locale:'ja-JP'});
+                for(const p of paths){
+                  const page=await context.newPage();
+                  const url=base+p, issues=[],warnings=[];
+                  try{
+                    const response=await page.goto(url,{waitUntil:'domcontentloaded',timeout:45000});
+                    await page.waitForTimeout(750);
+                    const data=await page.evaluate(()=>{
+                      const meta=(q,a='content')=>document.querySelector(q)?.getAttribute(a)||'';
+                      const schemas=[...document.querySelectorAll('script[type="application/ld+json"]')];
+                      return {title:document.title,description:meta('meta[name="description"]'),canonical:meta('link[rel="canonical"]','href'),robots:meta('meta[name="robots"]'),viewport:meta('meta[name="viewport"]'),h1:document.querySelectorAll('h1').length,documentWidth:document.documentElement.scrollWidth,viewportWidth:innerWidth,invalidSchemas:schemas.filter(x=>{try{JSON.parse(x.textContent);return false}catch{return true}}).length};
+                    });
+                    if(response.status()!==200)issues.push('HTTP '+response.status());
+                    if(!data.title||!data.description||data.canonical!==url||data.h1!==1||!data.viewport.includes('width=device-width')||data.invalidSchemas||/noindex/i.test(data.robots))issues.push('SEO metadata or canonical inconsistent');
+                    if(data.documentWidth>data.viewportWidth+2)warnings.push('horizontal overflow '+data.documentWidth+' > '+data.viewportWidth);
+                    if(width<500)await page.screenshot({path:'seo-mobile-evidence/'+width+'-'+(p.replace(/\//g,'-')||'home')+'.png',animations:'disabled'});
+                    results.push({width,url,status:response.status(),...data,issues,warnings});
+                    console.log(JSON.stringify({width,path:p||'/',status:response.status(),issues,warnings}));
+                  }catch(e){issues.push(e.message);results.push({width,url,issues,warnings});console.error(url,e.message)}
+                  await page.close();
+                }
+                await context.close();
+              }
+              await browser.close();
+              const fatal=results.filter(x=>x.issues.length);
+              fs.writeFileSync('seo-mobile-evidence/report.json',JSON.stringify({results,fatal},null,2));
+              console.log('SEO_MOBILE_SUMMARY '+JSON.stringify({checked:results.length,failed:fatal.length,overflow:results.filter(x=>x.warnings.length).length}));
+              if(fatal.length)process.exitCode=1;
+            })().catch(e=>{console.error(e);process.exitCode=1});
+            
+          AUDIT_NODE
+      - name: Preserve screenshot and audit report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: seo-mobile-evidence
+          path: seo-mobile-evidence/
+          retention-days: 14
