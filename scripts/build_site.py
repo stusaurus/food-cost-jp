@@ -1919,7 +1919,30 @@ def category_search_metadata(category: dict) -> tuple[str, str]:
     ))
 
 
-def category_page(category: dict, included: list[dict], other: list[dict], updated: datetime) -> str:
+def category_guide_navigation(category: dict, published_guides: list[dict] | None) -> str:
+    """Link only to inventory-backed, canonical search-intent guide pages."""
+    guides = [
+        spec for spec in (published_guides or [])
+        if spec['category_id'] == category['id']
+    ][:6]
+    if not guides:
+        return ''
+    links = ''.join(
+        f'<a class="intent-card" href="../../guides/{html.escape(spec["slug"])}/">'
+        f'<span>{html.escape(spec["title"])}</span>'
+        f'<small>{html.escape(spec["intro"])}</small>'
+        f'<b>この条件で比較する →</b></a>'
+        for spec in guides
+    )
+    return f'''<section class="section intent-section" aria-label="容量や食数で絞り込む">
+<div class="section-kicker">SEARCH BY SIZE</div>
+<h2>{html.escape(category['name'])}を容量・セット数から探す</h2>
+<p class="fine">条件を確認できた商品が3件以上ある比較だけを案内します。別サイズの商品で穴埋めしません。</p>
+<div class="intent-grid">{links}</div>
+</section>'''
+
+
+def category_page(category: dict, included: list[dict], other: list[dict], updated: datetime, published_guides: list[dict] | None = None) -> str:
     faqs = category_faq(category)
     seo_title, seo_description = category_search_metadata(category)
     parts = [
@@ -1961,6 +1984,7 @@ def category_page(category: dict, included: list[dict], other: list[dict], updat
     parts.append(category_summary(category, included, other))
     parts.append(shopping_journey_html())
     parts.append(category_insights_html(category, included))
+    parts.append(category_guide_navigation(category, published_guides))
     parts.append('<div id="included">' + top3_html(included, category) + '</div>')
     remaining = included[3:]
     if remaining:
@@ -2127,13 +2151,13 @@ def render_pages(results: dict, updated: datetime) -> list[dict]:
             shutil.rmtree(OUT / folder)
     active = active_categories(results)
     ACTIVE_CATEGORY_IDS = {c['id'] for c in active}
+    all_guides, aliases = publication_guides(results)
     for category in CATEGORIES:
         (OUT / "categories" / category["id"]).mkdir(parents=True, exist_ok=True)
         included, other = results[category['id']]
-        (OUT / 'categories' / category['id'] / 'index.html').write_text(category_page(category, included, other, updated), encoding='utf-8')
+        (OUT / 'categories' / category['id'] / 'index.html').write_text(category_page(category, included, other, updated, all_guides), encoding='utf-8')
     category_by_id = {category["id"]: category for category in CATEGORIES}
     auto_guides = eligible_auto_guides(results)
-    all_guides, aliases = publication_guides(results)
     for spec in GUIDE_SPECS + AUTO_GUIDE_RULES:
         category = category_by_id[spec["category_id"]]
         included, _ = results[category["id"]]
