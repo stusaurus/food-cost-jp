@@ -8,7 +8,8 @@ const output='pack-size-evidence', root=path.resolve('site');
  assert(expected.length>=3);
  const server=http.createServer((req,res)=>{
   const pathname=new URL(req.url,'http://localhost').pathname.replace(/^\/food-cost-jp\//,'');
-  const file=path.resolve(root,pathname)+(pathname.endsWith('/')?'index.html':'');
+  const resolved=path.resolve(root,pathname);
+  const file=pathname.endsWith('/')?path.join(resolved,'index.html'):resolved;
   if(!file.startsWith(root+path.sep)||!fs.existsSync(file)){res.writeHead(404);res.end();return;}
   res.setHeader('Content-Type',file.endsWith('.html')?'text/html; charset=utf-8':file.endsWith('.js')?'application/javascript':file.endsWith('.css')?'text/css':file.endsWith('.svg')?'image/svg+xml':'image/webp');res.end(fs.readFileSync(file));
  });
