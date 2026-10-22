@@ -1157,7 +1157,7 @@ def utility_panels_html() -> str:
 </div></div>"""
 
 
-def top3_html(items: list[dict], category: dict) -> str:
+def top3_html(items: list[dict], category: dict, show_pack_size: bool = False) -> str:
     if not items:
         return ""
     cards = []
@@ -1171,6 +1171,12 @@ def top3_html(items: list[dict], category: dict) -> str:
         diff_text = "最安" if rank == 1 else f"最安との差 +{yen(diff)}"
         cta_label, cta_variant = cta_copy(item, "top3", rank)
         image = product_image_html(item, "podium-img") or category_illustration(category["id"], True)
+        pack_detail = ''
+        if show_pack_size and category['id'] == 'pack-rice':
+            grams = item['quantity'].get('unit_weight_g')
+            per_100g = item['unit_prices'].get('per_100g')
+            if grams and per_100g is not None:
+                pack_detail = f'<p class="podium-size-comparison">1食 {grams:g}g ・ 100gあたり {yen(per_100g)}</p>'
         cards.append(f"""<article class="podium-card rank-{rank}">
 <div class="podium-head"><span class="podium-medal">{medal[index]}</span><span>{labels[index]}</span></div>
 <div class="podium-badges">{item_badges(item, category, rank)}</div>
@@ -1178,6 +1184,7 @@ def top3_html(items: list[dict], category: dict) -> str:
 {product_identity_html(item, category, "podium-name")}
 <div class="podium-unit">{yen(primary)}</div>
 <div class="podium-label">{html.escape(category["primary_label"])}</div>
+{pack_detail}
 <div class="trend-row">{price_history_badges(item)}</div>
 <div class="podium-diff">{html.escape(diff_text)}</div>
 <div class="podium-detail">{html.escape(quantity_text(item, category["id"]))} ・ ¥{item["price"]:,}</div>
@@ -1702,7 +1709,8 @@ def guide_page(spec: dict, category: dict, items: list[dict], updated: datetime,
     )
     if len(picked) < MIN_CATEGORY_ITEMS:
         head = head.replace('content="index,follow"', 'content="noindex,follow"')
-    cards = top3_html(picked, category) if picked else f"""<section class="section explain">
+    size_comparison = category['id'] == 'pack-rice' and spec.get('mode') == 'pack_count_24'
+    cards = top3_html(picked, category, show_pack_size=size_comparison) if picked else f"""<section class="section explain">
 <h2>現在、条件に一致する掲載候補はありません</h2>
 <p>別サイズの商品で穴埋めせず、条件に一致する商品を確認できたときだけ掲載します。</p>
 </section>"""
@@ -1727,6 +1735,7 @@ def guide_page(spec: dict, category: dict, items: list[dict], updated: datetime,
 <main class="wrap">
 <nav aria-label="パンくず"><a href="../../">マルシェ</a> / <a href="../../categories/{category['id']}/">{html.escape(category['name'])}</a> / {html.escape(spec['title'])}</nav>
 {cards}
+{'<p class="note">24食でも1食の量は商品ごとに異なります。1食価格と100g単価を見比べ、必要な量を選んでください。順位は1食価格順のままです。</p>' if size_comparison and picked else ''}
 {more}
 {faq_html(faqs)}
 <section class="section explain"><h2>もっと広く比較する</h2><p><a class="finder-go" href="../../categories/{category['id']}/">{html.escape(category['name'])}の全ランキングを見る →</a></p></section>
