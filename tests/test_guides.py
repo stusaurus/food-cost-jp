@@ -49,6 +49,21 @@ def item(category_id, *, grams=0, ml=0, count=1, price=2000):
 
 
 class GuideTests(unittest.TestCase):
+    def test_24_servings_cards_expose_weight_and_existing_100g_unit_without_reordering(self):
+        category = next(x for x in CATEGORIES if x['id'] == 'pack-rice')
+        spec = next(x for x in AUTO_GUIDE_RULES if x.get('mode') == 'pack_count_24')
+        products = [item('pack-rice', grams=180, count=24, price=3600),
+                    item('pack-rice', grams=200, count=24, price=3840),
+                    item('pack-rice', grams=180, count=24, price=4200)]
+        html = guide_page(spec, category, products, NOW)
+        self.assertIn('1食 180g ・ 100gあたり ¥83.3', html)
+        self.assertIn('1食 200g ・ 100gあたり ¥80.0', html)
+        self.assertLess(html.index('¥83.3'), html.index('¥80.0'))
+        self.assertIn('順位は1食価格順のまま', html)
+        self.assertEqual([p['price'] for p in products], [3600,3840,4200])
+        other = next(x for x in GUIDE_SPECS if x['category_id'] == 'rice')
+        self.assertNotIn('podium-size-comparison', guide_page(other, next(x for x in CATEGORIES if x['id']=='rice'), [], NOW))
+
     def test_eight_search_intent_guides_exist(self):
         self.assertEqual(len(GUIDE_SPECS), 8)
         slugs = {x["slug"] for x in GUIDE_SPECS}
