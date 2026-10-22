@@ -1176,7 +1176,7 @@ def top3_html(items: list[dict], category: dict, show_pack_size: bool = False) -
             grams = item['quantity'].get('unit_weight_g')
             per_100g = item['unit_prices'].get('per_100g')
             if grams and per_100g is not None:
-                pack_detail = f'<p class="podium-size-comparison">1食 {grams:g}g ・ 100gあたり {yen(per_100g)}</p>'
+                pack_detail = f'<p class="podium-detail podium-size-comparison">1食 {grams:g}g ・ 100gあたり {yen(per_100g)}</p>'
         cards.append(f"""<article class="podium-card rank-{rank}">
 <div class="podium-head"><span class="podium-medal">{medal[index]}</span><span>{labels[index]}</span></div>
 <div class="podium-badges">{item_badges(item, category, rank)}</div>
