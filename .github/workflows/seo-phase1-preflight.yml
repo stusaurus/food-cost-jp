@@ -28,3 +28,18 @@ jobs:
           page=(Path("site")/"categories/rice/index.html").read_text()
           assert "米5kg・10kgの価格比較" in page
           PY
+      - name: Check 24-serving capacity comparison on three viewports
+        env:
+          PLAYWRIGHT_MODULE: /tmp/food-qa/node_modules/playwright
+          LIGHTHOUSE_MODULE: /tmp/food-qa/node_modules/lighthouse/core/index.js
+          CHROME_LAUNCHER_MODULE: /tmp/food-qa/node_modules/chrome-launcher/dist/index.js
+        run: |
+          npm install --prefix /tmp/food-qa --no-audit --no-fund playwright@1.56.1 lighthouse@12.8.2 chrome-launcher@1.2.1
+          /tmp/food-qa/node_modules/.bin/playwright install --with-deps chromium
+          node scripts/check_24_servings.cjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: pack-size-evidence
+          path: pack-size-evidence
+          if-no-files-found: error
