@@ -2152,6 +2152,16 @@ def not_found_page() -> str:
     return page_head("ページが見つかりません｜食品コスパ比較", "食品の売り場へ戻って探せます。", SITE_URL + '404.html').replace('content="index,follow"', 'content="noindex,follow"') + f'<main class="wrap section"><h1>この棚は見つかりませんでした。</h1><p>ページの場所が変わった可能性があります。</p><p><a class="finder-go" href="{SITE_URL}">マルシェの売り場へ戻る →</a></p></main></body></html>'
 
 
+def render_sitemap(urls: list[str]) -> str:
+    """List canonical URLs without claiming unverified page modification dates."""
+    # Rebuild time is not reliable evidence of a meaningful change to each page.
+    return (
+        '<?xml version="1.0" encoding="UTF-8"?>'
+        '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'
+        + "".join(f"<url><loc>{html.escape(url, quote=False)}</loc></url>" for url in urls)
+        + "</urlset>"
+    )
+
 def render_pages(results: dict, updated: datetime) -> list[dict]:
     global ACTIVE_CATEGORY_IDS
     import shutil
@@ -2205,15 +2215,7 @@ def render_pages(results: dict, updated: datetime) -> list[dict]:
         f"{SITE_URL}guides/{spec['slug']}/"
         for spec in all_guides
     ]
-    sitemap = (
-        '<?xml version="1.0" encoding="UTF-8"?>'
-        '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'
-        + "".join(
-            f"<url><loc>{url}</loc><lastmod>{updated:%Y-%m-%d}</lastmod></url>"
-            for url in urls
-        )
-        + "</urlset>"
-    )
+    sitemap = render_sitemap(urls)
     (OUT / "sitemap.xml").write_text(sitemap, encoding="utf-8")
     return [g for g in all_guides if g.get('auto')]
 
