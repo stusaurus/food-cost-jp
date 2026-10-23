@@ -132,6 +132,27 @@ class PresentationTests(unittest.TestCase):
         self.assertIn("home_start_route", html)
         self.assertIn("product_detail_open", html)
 
+    def test_home_features_published_24_servings_before_large_product_lists(self):
+        from build_site import AUTO_GUIDE_RULES
+
+        results = {
+            category["id"]: ([sample_item(category["id"], i) for i in range(1, 5)], [])
+            for category in CATEGORIES
+        }
+        guide = next(g for g in AUTO_GUIDE_RULES if g["slug"] == "pack-rice-24-servings-cost")
+        published = home_page(results, NOW, [guide])
+        target = 'href="guides/pack-rice-24-servings-cost/"'
+        # This link is visible in the opening hero, not only after hundreds of products.
+        self.assertIn(target, published.split("<main", 1)[0])
+        self.assertIn("パックご飯24食の量と価格を比べる", published)
+        self.assertLess(published.index(target), published.index('id="today-market"'))
+        self.assertIn('rel="canonical"', published)
+
+        absent = home_page(results, NOW, [])
+        self.assertNotIn(target, absent)
+        other = AUTO_GUIDE_RULES[1]
+        self.assertNotIn(target, home_page(results, NOW, [other]))
+
     def test_finder_embeds_real_product_recommendations(self):
         results = {
             category["id"]: ([sample_item(category["id"], i) for i in range(1, 5)], [])
