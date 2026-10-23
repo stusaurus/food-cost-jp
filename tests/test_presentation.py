@@ -6,7 +6,7 @@ from zoneinfo import ZoneInfo
 
 sys.path.insert(0, str(Path(__file__).parents[1] / "scripts"))
 
-from build_site import CATEGORIES, CSS, category_page, home_page
+from build_site import AUTO_GUIDE_RULES, CATEGORIES, CSS, category_page, home_page
 
 
 def sample_item(category_id: str, rank: int = 1):
@@ -131,6 +131,22 @@ class PresentationTests(unittest.TestCase):
         self.assertIn("買い物メモ", html)
         self.assertIn("home_start_route", html)
         self.assertIn("product_detail_open", html)
+
+    def test_rice_24_home_hero_entry_requires_published_guide(self):
+        results = {
+            c["id"]: ([sample_item(c["id"], i) for i in range(1, 5)], [])
+            for c in CATEGORIES
+        }
+        guide = next(g for g in AUTO_GUIDE_RULES if g["slug"] == "pack-rice-24-servings-cost")
+        html = home_page(results, NOW, [guide])
+        target = 'href="guides/pack-rice-24-servings-cost/" data-start-route="guide_pack_rice_24"'
+        self.assertIn(target, html)
+        self.assertLess(html.index(target), html.index('id="quick-finder"'))
+        self.assertLess(html.index(target), html.index('id="categories"'))
+        self.assertEqual(html.count('href="guides/pack-rice-24-servings-cost/"'), 2)
+        self.assertNotIn('data-start-route="guide_pack_rice_24"', home_page(results, NOW, []))
+        self.assertNotIn('data-start-route="guide_pack_rice_24"', home_page(results, NOW))
+
 
     def test_finder_embeds_real_product_recommendations(self):
         results = {
