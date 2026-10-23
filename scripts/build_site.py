@@ -2077,6 +2077,9 @@ def aisles_html(results):
 
 
 def home_page(results: dict, updated: datetime, guide_specs: list[dict] | None = None) -> str:
+    # Show the published 24-serving comparison near the top; keep unavailable guides unlinked.
+    featured_24 = ('<a href="guides/pack-rice-24-servings-cost/">パックご飯24食の量と価格を比べる</a>'
+                   if any(spec['slug'] == 'pack-rice-24-servings-cost' for spec in (guide_specs or [])) else '')
     parts = [
         page_head(
             "食品コスパ比較｜容量・数量・送料をそろえて単価比較",
@@ -2106,7 +2109,7 @@ def home_page(results: dict, updated: datetime, guide_specs: list[dict] | None =
 <span class="brand">Welcome to your everyday marché.</span>
 <h1>今日の買い物を、<br>ちょっと楽しく。<br>ちょっと賢く。</h1>
 <p class="lead">いつものご飯も、朝の一杯も。<br>単価と送料をそろえて、わが家にちょうどいいものを。</p>
-<div class="hero-actions"><a class="cta" href="#quick-finder" data-hero-primary data-start-route="finder">わたしに合う買い方を探す →</a></div><div class="hero-subroutes"><a href="#today-market">今日のお得を見る</a><a href="#quick-finder" data-hero-known>買うものが決まっている</a></div>
+<div class="hero-actions"><a class="cta" href="#quick-finder" data-hero-primary data-start-route="finder">わたしに合う買い方を探す →</a></div><div class="hero-subroutes"><a href="#today-market">今日のお得を見る</a><a href="#quick-finder" data-hero-known>買うものが決まっている</a>{featured_24}</div>
 <div class="hero-proof"><span><strong>{active_count}</strong><small>売り場</small></span><span><strong>{included_count}</strong><small>送料込み確認商品</small></span><span><strong>毎日</strong><small>価格を更新</small></span></div>
 <p class="note">最終価格確認: {updated:%Y-%m-%d %H:%M} JST</p>
 </div>
