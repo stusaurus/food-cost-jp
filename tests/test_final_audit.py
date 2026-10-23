@@ -3,6 +3,7 @@ import json
 import sys
 import tempfile
 import unittest
+import xml.etree.ElementTree as ET
 from datetime import datetime
 from pathlib import Path
 from unittest.mock import patch
@@ -83,6 +84,30 @@ class FinalAuditTests(unittest.TestCase):
                 self.assertTrue(any(kind in e for e in errors),errors)
             (root/'sitemap.xml').write_text('<broken')
             self.assertTrue(validate_sitemap(root,[root/'index.html']))
+
+    def test_sitemap_omits_build_time_lastmod_and_keeps_canonical_urls(self):
+        urls = [
+            b.SITE_URL,
+            b.SITE_URL + "categories/pack-rice/",
+            b.SITE_URL + "guides/pack-rice-24-servings-cost/",
+        ]
+        xml = b.render_sitemap(urls)
+        ns = "{http://www.sitemaps.org/schemas/sitemap/0.9}"
+        root = ET.fromstring(xml)
+        self.assertEqual(root.tag, f"{ns}urlset")
+        self.assertEqual([node.text for node in root.findall(f"{ns}url/{ns}loc")], urls)
+        self.assertEqual(root.findall(f".//{ns}lastmod"), [])
+
+    def test_sitemap_escapes_xml_unsafe_characters_in_url(self):
+        url = b.SITE_URL + "categories/pack-rice/?a=1&b=2"
+        xml = b.render_sitemap([url])
+        self.assertIn("a=1&amp;b=2", xml)
+        self.assertEqual(
+            ET.fromstring(xml).findtext(
+                ".//{http://www.sitemaps.org/schemas/sitemap/0.9}loc"
+            ),
+            url,
+        )
 
     def test_query_overlap_deduplicates_same_listing_with_changed_price(self):
         c=next(c for c in b.CATEGORIES if c['id']=='rice')
