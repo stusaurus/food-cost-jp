@@ -1,5 +1,13 @@
 # food-cost-jp
 
+## 公開サイト
+
+- [食品コスパ比較・トップページ](https://stusaurus.github.io/food-cost-jp/)
+- [パックご飯24食を容量・1食単価・100g単価で比べる](https://stusaurus.github.io/food-cost-jp/guides/pack-rice-24-servings-cost/)
+- [パックご飯を食数と送料条件で比較する](https://stusaurus.github.io/food-cost-jp/categories/pack-rice/)
+
+公開サイト内には楽天アフィリエイト広告を含みます。最新の価格・在庫・送料は販売店で確認してください。
+
 食品を「表示価格」ではなく、容量・本数・食数をそろえた単価で比較する静的サイトです。
 
 比較カテゴリ：
