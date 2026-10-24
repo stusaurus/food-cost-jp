@@ -66,7 +66,8 @@ def clean_display_name(name: str) -> str:
     # Some merchants put a complete promotional unit-price claim in //...//.
     # Remove that wrapper only, leaving actual package quantities untouched.
     text = re.sub(r"^\s*//[^/]*(?:マラソン|オフ|OFF)[^/]*//\s*", '', text, flags=re.I)
-    text = re.sub(r"^[\\＼]売り切り商品が激熱価格[!！]*[／/]\s*", '', text)
+    text = re.sub(r"^[\\＼](?:売り切り商品が)?激熱価格[!！]*[／/]?\s*", '', text)
+    text = re.sub(r"^\s*超[!！]\s*超コスパ[!！]*\s*(?:直売価格[!！]*\s*)?", '', text)
 
     while match := LEADING_LABEL.match(text):
         if not promotion_only(_promotion_group(match)):
@@ -115,11 +116,13 @@ def clean_display_name(name: str) -> str:
     # Bare exact promotion prefixes. Unknown/mixed wording is intentionally kept.
     bare = re.compile(
         r"^\s*(?:(?:送料無料|送料込み|本日限定|本日限り|お買い物マラソン|食いしんぼう祭|イーグルス勝利|"
-        r"楽天(?:スーパー)?SALE|スーパーSALE|タイムセール|SALE|セール中?|楽天ランキング受賞|特売)"
+        r"楽天(?:スーパー)?SALE|スーパーSALE|タイムセール|SALE|セール中?|楽天ランキング受賞|楽天\s*\d+\s*位|新米特価|特売)"
         r"\s*[!！★☆＋+・|｜:：\-/／]*\s*)+",
         re.I,
     )
     text = bare.sub("", text)
+    # Preserve crop-year identity when a bare promo follows it.
+    text = re.sub(r"^(\s*令和\d+年産\s+)新米特価[!！]*\s*", r"\1", text)
 
     # A leading standalone numeric coupon phrase is safe to remove only when it
     # is followed by clear punctuation/whitespace and real product text remains.
