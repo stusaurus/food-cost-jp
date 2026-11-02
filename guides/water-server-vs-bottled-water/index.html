@@ -30,10 +30,22 @@ button{border:0;border-radius:12px;background:var(--green);color:white;font-size
 .metric strong{font-size:clamp(19px,3.5vw,28px);display:block}
 .table-wrap{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:14px}th,td{padding:12px 8px;text-align:left;border-bottom:1px solid var(--line)}td:last-child{text-align:right;font-weight:700}
 .cta{display:block;margin:12px 0;background:var(--green);border-radius:11px;text-align:center;color:white;padding:13px 18px;text-decoration:none;font-weight:800}
+.sponsor-box{border:2px solid #cad8cf;background:#f0f5ed}
+.sponsor-box .ad-label{display:inline-block;margin:0 0 9px;font-size:12px;font-weight:700;color:#48574d}
+.sponsor-box .sponsor-link a{display:block;padding:15px 17px;min-height:48px;border-radius:11px;background:#285242;color:white;text-decoration:none;text-align:center;font-size:16px;font-weight:700}
+.sponsor-box .sponsor-link a:focus-visible{outline:3px solid #88a992;outline-offset:3px}
+.sponsor-box .sponsor-link{margin:15px 0 10px}
 ul{padding-left:24px}li{margin:9px 0}
 @media(max-width:640px){.cols,.metrics{grid-template-columns:1fr}.brand .tag{display:none}.wrap{padding:15px 14px 50px}}
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"ウォーターサーバーとペットボトルの年間費用比較","url":"https://stusaurus.github.io/food-cost-jp/guides/water-server-vs-bottled-water/","description":"入力値だけで両方式の費用を計算する無料比較ツール"}</script>
+<script>(()=>{const k='food_cost_operator_test_v1',p=new URLSearchParams(location.search);let op=false;try{op=localStorage.getItem(k)==='1'}catch(e){}if(['1','0'].includes(p.get('test'))){op=p.get('test')==='1';try{op?localStorage.setItem(k,'1'):localStorage.removeItem(k)}catch(e){}const u=new URL(location.href);u.searchParams.delete('test');history.replaceState(history.state,'',u.href)}window.foodCostOperatorTest=op;})();</script><script async src="https://www.googletagmanager.com/gtag/js?id=G-GFVSZ8YDQ5"></script>
+<script>
+window.dataLayer=window.dataLayer||[];
+window.gtag=window.gtag||function(){dataLayer.push(arguments)};
+gtag('js',new Date());
+gtag('config','G-GFVSZ8YDQ5',{site_id:'food_cost_jp',operator_test:window.foodCostOperatorTest?'1':'0'});
+</script>
 </head>
 <body>
 <div class="wrap">
@@ -83,6 +95,14 @@ ul{padding-left:24px}li{margin:9px 0}
 <p class="muted">飲み水だけを比べています。温水の利便性、電源・設置面積、水の種類や味は比較に含めていません。</p>
 </div>
 </section>
+<section class="box sponsor-box" id="a8-every-frecious-ad" aria-label="広告・ウォーターサーバー">
+<p class="ad-label">広告｜A8.netアフィリエイト</p>
+<h2>ウォーターサーバーの契約条件を確認する</h2>
+<p>浄水型ウォーターサーバーの選択肢として、エブリィフレシャスの案内ページを確認できます。月額料金・電気代・初期費用・契約期間・解約条件を確認し、上の計算機に入力してください。</p>
+<p class="sponsor-link"><a href="https://px.a8.net/svt/ejp?a8mat=4BGCF1+53DLEY+2B8Y+15OK2A" rel="nofollow">【every frecious（エブリィフレシャス）】</a>
+<img border="0" width="1" height="1" src="https://www17.a8.net/0.gif?a8mat=4BGCF1+53DLEY+2B8Y+15OK2A" alt=""></p>
+<p class="muted">広告を経由して契約すると、サイトに報酬が発生する場合があります。広告の有無は年間費用の計算結果や判定に影響しません。</p>
+</section>
 <section class="box">
 <h2>比較する前に見るべきポイント</h2>
 <ul>
@@ -92,7 +112,7 @@ ul{padding-left:24px}li{margin:9px 0}
 <li><strong>安全性と用途：</strong>乳幼児の調乳用途などはコストだけで判断せず、製品・自治体・医療機関の指示を確認してください。</li>
 </ul>
 <a class="cta" href="../../categories/mineral-water/">楽天のペットボトル水を送料込みで比較する</a>
-<p class="muted">※上のリンク先には楽天アフィリエイト広告が含まれます。ウォーターサーバーの広告案件は提携確認前のため掲載していません。</p>
+<p class="muted">※上のリンク先には楽天アフィリエイト広告が含まれます。ウォーターサーバーの広告は別途「広告」と表示しています。</p>
 </section>
 </main>
 </div>
@@ -104,6 +124,19 @@ const fields = ["liters","bottle-liters","case-count","case-price","case-shippin
 const money = amount => Math.round(amount).toLocaleString("ja-JP") + "円";
 const litersText = amount => (Math.round(amount * 100) / 100).toLocaleString("ja-JP") + "L";
 const error = $("error"), results = $("results");
+// Outbound ad clicks use the site's established GA4 event and operator filter.
+const a8Creative = document.querySelector("#a8-every-frecious-ad a[href^='https://px.a8.net/svt/ejp?']");
+if (a8Creative) a8Creative.addEventListener("click", () => {
+  if (typeof window.gtag === "function") window.gtag("event", "affiliate_click", {
+    site_id: "food_cost_jp",
+    affiliate: "a8",
+    program: "every_frecious",
+    category_id: "mineral-water",
+    conversion_source: "water_server_cost_comparison",
+    click_position: "water_comparison_sponsored_link",
+    operator_test: window.foodCostOperatorTest ? "1" : "0"
+  });
+});
 $("calculate").addEventListener("click", () => {
   results.classList.remove("visible");
   const inputs = Object.fromEntries(fields.map(id => [id, Number($(id).value)]));
