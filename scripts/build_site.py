@@ -18,6 +18,7 @@ from zoneinfo import ZoneInfo
 
 from new_food import categories as new_categories, parse as parse_new_quantity, rejection as new_rejection, RULES as NEW_RULES
 from product_display import clean_display_name
+from pack_rice_budget import budget_panel, BUDGET_CSS, BUDGET_JS
 from product_quality import (
     category_rejection,
     product_fingerprint,
@@ -1710,6 +1711,10 @@ def guide_page(spec: dict, category: dict, items: list[dict], updated: datetime,
     if len(picked) < MIN_CATEGORY_ITEMS:
         head = head.replace('content="index,follow"', 'content="noindex,follow"')
     size_comparison = category['id'] == 'pack-rice' and spec.get('mode') == 'pack_count_24'
+    budget = budget_panel(picked) if size_comparison and picked else ""
+    if budget:
+        head = head.replace("</head>", "<style>" + BUDGET_CSS + "</style></head>", 1)
+    budget_script = "<script>" + BUDGET_JS + "</script>" if budget else ""
     cards = top3_html(picked, category, show_pack_size=size_comparison) if picked else f"""<section class="section explain">
 <h2>現在、条件に一致する掲載候補はありません</h2>
 <p>別サイズの商品で穴埋めせず、条件に一致する商品を確認できたときだけ掲載します。</p>
@@ -1728,19 +1733,21 @@ def guide_page(spec: dict, category: dict, items: list[dict], updated: datetime,
 <h1>{html.escape(spec['h1'])}</h1>
 <p class="lead">{html.escape(spec['intro'])}</p>
 <div class="hero-tags"><span class="hero-tag">送料込みを優先</span><span class="hero-tag">実データ連動</span><span class="hero-tag">数量曖昧は除外</span></div>
-<p class="note">最終価格確認: {updated:%Y-%m-%d %H:%M} JST</p></div>
+<p class="note">最終価格確認: {updated:%Y-%m-%d %H:%M} JST</p>
+{'<p><a class="finder-go" href="#pack-rice-budget">24食の購入箱数と30日分の費用を計算 →</a></p>' if budget else ''}</div>
 <div class="category-hero-art {category['id']}">{category_illustration(category['id'])}</div>
 </div></header>
 {service_shortcuts_html()}
 <main class="wrap">
 <nav aria-label="パンくず"><a href="../../">マルシェ</a> / <a href="../../categories/{category['id']}/">{html.escape(category['name'])}</a> / {html.escape(spec['title'])}</nav>
-{cards}
+{budget}
+{('<div id="pack-rice-24-products">' + cards + '</div>') if budget else cards}
 {'<p class="note">24食でも1食の量は商品ごとに異なります。1食価格と100g単価を見比べ、必要な量を選んでください。順位は1食価格順のままです。</p>' if size_comparison and picked else ''}
 {more}
 {faq_html(faqs)}
 <section class="section explain"><h2>もっと広く比較する</h2><p><a class="finder-go" href="../../categories/{category['id']}/">{html.escape(category['name'])}の全ランキングを見る →</a></p></section>
 {utility_panels_html()}
-</main><script>{JS}</script>
+</main><script>{JS}</script>{budget_script}
 <footer><div class="wrap">当サイトは楽天アフィリエイトを利用しています。価格は取得時点の参考情報です。</div></footer>
 </body></html>"""
 
