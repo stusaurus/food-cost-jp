@@ -26,7 +26,7 @@ jobs:
       - name: Audit public desktop and mobile pages
         env:
           SEO_BASE: https://stusaurus.github.io/food-cost-jp/
-          SEO_PATHS: "categories/rice/,categories/pack-rice/,categories/carbonated-water/"
+          SEO_PATHS: "categories/rice/,categories/pack-rice/,categories/carbonated-water/,guides/pack-rice-24-servings-cost/"
         run: |
           node <<'AUDIT_NODE'
             const {chromium}=require('/tmp/seo-audit/node_modules/playwright');
@@ -53,6 +53,31 @@ jobs:
                     if(response.status()!==200)issues.push('HTTP '+response.status());
                     if(!data.title||!data.description||data.canonical!==url||data.h1!==1||!data.viewport.includes('width=device-width')||data.invalidSchemas||/noindex/i.test(data.robots))issues.push('SEO metadata or canonical inconsistent');
                     if(data.documentWidth>data.viewportWidth+2)warnings.push('horizontal overflow '+data.documentWidth+' > '+data.viewportWidth);
+                    if(p==='guides/pack-rice-24-servings-cost/'){
+                      const tool=page.locator('[data-rice-planner]');
+                      if(await tool.count()!==1)issues.push('24-meal usage planner missing');
+                      else{
+                        const input=tool.locator('#rice-meals-day');
+                        const selected=tool.locator('[data-rice-planner-product]');
+                        const buy=tool.locator('[data-rice-planner-buy]');
+                        if((await tool.locator('[data-rice-days]').innerText()).trim()!=='24日')issues.push('24-meal planner initial days incorrect');
+                        if((await tool.locator('[data-rice-boxes]').innerText()).trim()!=='2箱')issues.push('24-meal planner initial boxes incorrect');
+                        await input.fill('2');
+                        if((await tool.locator('[data-rice-days]').innerText()).trim()!=='12日')issues.push('24-meal planner 2/day incorrect');
+                        if((await tool.locator('[data-rice-boxes]').innerText()).trim()!=='3箱')issues.push('24-meal planner 30-day boxes incorrect');
+                        if(await selected.locator('option').count()>1){
+                          const before=await buy.getAttribute('href');
+                          await selected.selectOption('1');
+                          const after=await buy.getAttribute('href');
+                          if(before===after||!after.startsWith('https://')||!(new URL(after).hostname.endsWith('.rakuten.co.jp')))issues.push('24-meal planner product handoff inconsistent');
+                        }
+                        await input.fill('0');
+                        if(!(await tool.locator('[data-rice-planner-results]').isHidden()))issues.push('24-meal planner invalid input not rejected');
+                        await input.fill('1');
+                        await selected.selectOption('0');
+                        if(!(await tool.locator('[data-rice-planner-results]').isVisible()))issues.push('24-meal planner not restored');
+                      }
+                    }
                     if(width<500)await page.screenshot({path:'seo-mobile-evidence/'+width+'-'+(p.replace(/\//g,'-')||'home')+'.png',animations:'disabled'});
                     results.push({width,url,status:response.status(),...data,issues,warnings});
                     console.log(JSON.stringify({width,path:p||'/',status:response.status(),issues,warnings}));
