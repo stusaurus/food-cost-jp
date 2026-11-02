@@ -2228,7 +2228,7 @@ def render_pages(results: dict, updated: datetime) -> list[dict]:
     (OUT / "sitemap.xml").write_text(sitemap, encoding="utf-8")
     # Adjacent high-intent cost decision guide: no new product feed or ASP links.
     from water_server_compare import publish as publish_water_cost
-    publish_water_cost(OUT)
+    publish_water_cost(OUT, analytics_markup=ga_head())
     return [g for g in all_guides if g.get('auto')]
 
 

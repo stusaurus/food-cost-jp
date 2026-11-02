@@ -11,8 +11,13 @@ BASE = "https://stusaurus.github.io/food-cost-jp/"
 URL = BASE + "guides/" + SLUG + "/"
 MARKER = '<!-- water-cost-decision-pilot-v1 -->'
 
+# Preserve the A8.net ad creative exactly, including its attribution pixel.
+A8_EVERY_FRECIOUS_AD = '''<a href="https://px.a8.net/svt/ejp?a8mat=4BGCF1+53DLEY+2B8Y+15OK2A" rel="nofollow">【every frecious（エブリィフレシャス）】</a>
+<img border="0" width="1" height="1" src="https://www17.a8.net/0.gif?a8mat=4BGCF1+53DLEY+2B8Y+15OK2A" alt="">'''
 
-def page():
+
+
+def page(analytics_markup=""):
     return r'''<!doctype html>
 <html lang="ja">
 <head>
@@ -45,6 +50,11 @@ button{border:0;border-radius:12px;background:var(--green);color:white;font-size
 .metric strong{font-size:clamp(19px,3.5vw,28px);display:block}
 .table-wrap{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:14px}th,td{padding:12px 8px;text-align:left;border-bottom:1px solid var(--line)}td:last-child{text-align:right;font-weight:700}
 .cta{display:block;margin:12px 0;background:var(--green);border-radius:11px;text-align:center;color:white;padding:13px 18px;text-decoration:none;font-weight:800}
+.sponsor-box{border:2px solid #cad8cf;background:#f0f5ed}
+.sponsor-box .ad-label{display:inline-block;margin:0 0 9px;font-size:12px;font-weight:700;color:#48574d}
+.sponsor-box .sponsor-link a{display:block;padding:15px 17px;min-height:48px;border-radius:11px;background:#285242;color:white;text-decoration:none;text-align:center;font-size:16px;font-weight:700}
+.sponsor-box .sponsor-link a:focus-visible{outline:3px solid #88a992;outline-offset:3px}
+.sponsor-box .sponsor-link{margin:15px 0 10px}
 ul{padding-left:24px}li{margin:9px 0}
 @media(max-width:640px){.cols,.metrics{grid-template-columns:1fr}.brand .tag{display:none}.wrap{padding:15px 14px 50px}}
 </style>
@@ -98,6 +108,13 @@ ul{padding-left:24px}li{margin:9px 0}
 <p class="muted">飲み水だけを比べています。温水の利便性、電源・設置面積、水の種類や味は比較に含めていません。</p>
 </div>
 </section>
+<section class="box sponsor-box" id="a8-every-frecious-ad" aria-label="広告・ウォーターサーバー">
+<p class="ad-label">広告｜A8.netアフィリエイト</p>
+<h2>ウォーターサーバーの契約条件を確認する</h2>
+<p>浄水型ウォーターサーバーの選択肢として、エブリィフレシャスの案内ページを確認できます。月額料金・電気代・初期費用・契約期間・解約条件を確認し、上の計算機に入力してください。</p>
+<p class="sponsor-link">__A8_EVERY_FRECIOUS_CREATIVE__</p>
+<p class="muted">広告を経由して契約すると、サイトに報酬が発生する場合があります。広告の有無は年間費用の計算結果や判定に影響しません。</p>
+</section>
 <section class="box">
 <h2>比較する前に見るべきポイント</h2>
 <ul>
@@ -107,7 +124,7 @@ ul{padding-left:24px}li{margin:9px 0}
 <li><strong>安全性と用途：</strong>乳幼児の調乳用途などはコストだけで判断せず、製品・自治体・医療機関の指示を確認してください。</li>
 </ul>
 <a class="cta" href="../../categories/mineral-water/">楽天のペットボトル水を送料込みで比較する</a>
-<p class="muted">※上のリンク先には楽天アフィリエイト広告が含まれます。ウォーターサーバーの広告案件は提携確認前のため掲載していません。</p>
+<p class="muted">※上のリンク先には楽天アフィリエイト広告が含まれます。ウォーターサーバーの広告は別途「広告」と表示しています。</p>
 </section>
 </main>
 </div>
@@ -119,6 +136,19 @@ const fields = ["liters","bottle-liters","case-count","case-price","case-shippin
 const money = amount => Math.round(amount).toLocaleString("ja-JP") + "円";
 const litersText = amount => (Math.round(amount * 100) / 100).toLocaleString("ja-JP") + "L";
 const error = $("error"), results = $("results");
+// Outbound ad clicks use the site's established GA4 event and operator filter.
+const a8Creative = document.querySelector("#a8-every-frecious-ad a[href^='https://px.a8.net/svt/ejp?']");
+if (a8Creative) a8Creative.addEventListener("click", () => {
+  if (typeof window.gtag === "function") window.gtag("event", "affiliate_click", {
+    site_id: "food_cost_jp",
+    affiliate: "a8",
+    program: "every_frecious",
+    category_id: "mineral-water",
+    conversion_source: "water_server_cost_comparison",
+    click_position: "water_comparison_sponsored_link",
+    operator_test: window.foodCostOperatorTest ? "1" : "0"
+  });
+});
 $("calculate").addEventListener("click", () => {
   results.classList.remove("visible");
   const inputs = Object.fromEntries(fields.map(id => [id, Number($(id).value)]));
@@ -156,7 +186,7 @@ $("calculate").addEventListener("click", () => {
 })();
 </script>
 </body>
-</html>'''
+</html>'''.replace("__A8_EVERY_FRECIOUS_CREATIVE__", A8_EVERY_FRECIOUS_AD, 1).replace("</head>", analytics_markup + "\n</head>", 1)
 
 
 def inject_link(page):
@@ -179,12 +209,12 @@ def inject_link(page):
     page.write_text(content.replace("</main>", snippet + "</main>", 1), encoding="utf-8")
 
 
-def publish(site=Path("site")):
+def publish(site=Path("site"), analytics_markup=""):
     if not (site / "index.html").exists() or not (site / "sitemap.xml").exists():
         raise ValueError("generated site must exist")
     target = site / "guides" / SLUG / "index.html"
     target.parent.mkdir(parents=True, exist_ok=True)
-    target.write_text(page(), encoding="utf-8")
+    target.write_text(page(analytics_markup), encoding="utf-8")
     inject_link(site / "index.html")
     inject_link(site / "categories" / "mineral-water" / "index.html")
     sitemap = site / "sitemap.xml"

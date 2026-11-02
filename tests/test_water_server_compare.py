@@ -7,7 +7,7 @@ from scripts import water_server_compare as w
 
 
 class WaterServerCompareTests(unittest.TestCase):
-    def test_page_has_canonical_and_no_fake_server_offer(self):
+    def test_page_has_canonical_and_official_a8_creative(self):
         page = w.page()
         self.assertIn('<link rel="canonical" href="' + w.URL + '">', page)
         self.assertIn('ペットボトル', page)
@@ -16,10 +16,24 @@ class WaterServerCompareTests(unittest.TestCase):
         self.assertIn("Math.ceil(L * 12 / (b * c))", page)
         self.assertIn("inputs[\"server-per-liter\"]", page)
         self.assertIn('results.classList.add("visible")', page)
-        self.assertIn('提携確認前のため掲載していません', page)
-        self.assertNotIn('a8.net/', page)
+        self.assertIn('広告｜A8.netアフィリエイト', page)
+        self.assertIn('サーバーの契約条件を確認する', page)
+        self.assertIn(w.A8_EVERY_FRECIOUS_AD, page)
+        self.assertEqual(page.count(w.A8_EVERY_FRECIOUS_AD), 1)
+        self.assertEqual(page.count('https://px.a8.net/svt/ejp?'), 2)  # in creative and tracking selector
+        self.assertIn('<img border="0" width="1" height="1" src="https://www17.a8.net/0.gif?', page)
+        self.assertIn('"affiliate_click"', page)
+        self.assertIn('"water_server_cost_comparison"', page)
+        self.assertIn("window.foodCostOperatorTest", page)
         self.assertNotIn('shizukuria', page.lower())
         self.assertNotIn('nosh', page.lower())
+
+    def test_reuses_the_existing_ga4_head_in_generated_page(self):
+        ga = '<script>window.gtag=function(){return true};window.foodCostOperatorTest=true;</script>'
+        page = w.page(ga)
+        self.assertEqual(page.count(ga), 1)
+        self.assertLess(page.index(ga), page.index('</head>'))
+        self.assertEqual(page.count(w.A8_EVERY_FRECIOUS_AD), 1)
 
     def test_publishes_page_and_links_idempotently(self):
         with tempfile.TemporaryDirectory() as d:
@@ -37,7 +51,9 @@ class WaterServerCompareTests(unittest.TestCase):
                 self.assertEqual(text.count(w.MARKER), 1)
                 self.assertIn("/food-cost-jp/guides/"+w.SLUG+"/",text)
             self.assertEqual((root/"sitemap.xml").read_text().count(w.URL),1)
-            self.assertTrue((root/"guides"/w.SLUG/"index.html").exists())
+            published = (root/"guides"/w.SLUG/"index.html").read_text()
+            self.assertIn(w.A8_EVERY_FRECIOUS_AD, published)
+            self.assertEqual(published.count('a8mat=4BGCF1+53DLEY+2B8Y+15OK2A'), 2)
 
     def test_fails_closed_for_unexpected_missing_page(self):
         with tempfile.TemporaryDirectory() as d:
