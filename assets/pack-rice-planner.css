@@ -42,3 +42,6 @@
 }
 @media(max-width:360px){.rice-planner-grid{gap:7px}.rice-planner-grid>div{padding:11px 9px}.rice-planner-grid strong{font-size:19px}}
 @media(prefers-reduced-motion:reduce){.rice-planner *{scroll-behavior:auto!important}}
+
+/* Keep the persistent memo control out of the planner's number tiles. */
+.saved-fab.rice-planner-occluded{visibility:hidden!important;pointer-events:none!important;opacity:0!important}
