@@ -99,7 +99,7 @@ class GuideTests(unittest.TestCase):
         self.assertIn('<style>/* 24食ガイド専用', page)
         self.assertIn('data-budget-product', page)
         self.assertIn('data-budget-payment', page)
-        self.assertEqual(page.count('data-pack-rice-budget'), 1)
+        self.assertEqual(page.count('<section class="budget-panel section" id="pack-rice-budget" data-pack-rice-budget'), 1)
         self.assertIn('content="index,follow"', page)
         self.assertIn('guides/pack-rice-24-servings-cost/', page)
         other_spec = next(x for x in GUIDE_SPECS if x["category_id"] == "rice")
