@@ -25,6 +25,7 @@ from product_quality import (
     quantity_signature,
 )
 from price_history import apply_price_history, load_price_history, save_price_history
+from pack_rice_planner import render_planner
 
 SITE_ID = "food_cost_jp"
 SITE_URL = "https://stusaurus.github.io/food-cost-jp/"
@@ -1710,6 +1711,9 @@ def guide_page(spec: dict, category: dict, items: list[dict], updated: datetime,
     if len(picked) < MIN_CATEGORY_ITEMS:
         head = head.replace('content="index,follow"', 'content="noindex,follow"')
     size_comparison = category['id'] == 'pack-rice' and spec.get('mode') == 'pack_count_24'
+    planner = render_planner(picked, updated) if size_comparison and picked else ""
+    if planner:
+        head = head.replace("</head>", '<link rel="stylesheet" href="../../assets/pack-rice-planner.css"></head>', 1)
     cards = top3_html(picked, category, show_pack_size=size_comparison) if picked else f"""<section class="section explain">
 <h2>現在、条件に一致する掲載候補はありません</h2>
 <p>別サイズの商品で穴埋めせず、条件に一致する商品を確認できたときだけ掲載します。</p>
@@ -1734,6 +1738,7 @@ def guide_page(spec: dict, category: dict, items: list[dict], updated: datetime,
 {service_shortcuts_html()}
 <main class="wrap">
 <nav aria-label="パンくず"><a href="../../">マルシェ</a> / <a href="../../categories/{category['id']}/">{html.escape(category['name'])}</a> / {html.escape(spec['title'])}</nav>
+{planner}
 {cards}
 {'<p class="note">24食でも1食の量は商品ごとに異なります。1食価格と100g単価を見比べ、必要な量を選んでください。順位は1食価格順のままです。</p>' if size_comparison and picked else ''}
 {more}
@@ -1741,6 +1746,7 @@ def guide_page(spec: dict, category: dict, items: list[dict], updated: datetime,
 <section class="section explain"><h2>もっと広く比較する</h2><p><a class="finder-go" href="../../categories/{category['id']}/">{html.escape(category['name'])}の全ランキングを見る →</a></p></section>
 {utility_panels_html()}
 </main><script>{JS}</script>
+{'<script defer src="../../assets/pack-rice-planner.js"></script>' if planner else ''}
 <footer><div class="wrap">当サイトは楽天アフィリエイトを利用しています。価格は取得時点の参考情報です。</div></footer>
 </body></html>"""
 

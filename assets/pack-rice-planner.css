@@ -1,0 +1,47 @@
+/* Usage-first buying experience, scoped to 24-meal guide only. */
+.rice-planner{border:1px solid #d7d5c4;border-radius:22px;overflow:hidden;background:#fffdf8;box-shadow:0 16px 42px #263b3112;margin:24px 0 30px}
+.rice-planner-intro{padding:26px 30px 18px;background:linear-gradient(125deg,#e8eee4 0%,#f7f3e9 70%);border-bottom:1px solid #dedbca}
+.rice-planner-kicker{font-size:11px;font-weight:800;letter-spacing:.14em;color:#315c4b}
+.rice-planner-intro h2{font-size:clamp(23px,3.2vw,34px);letter-spacing:-.035em;line-height:1.4;margin:8px 0 11px;color:#263b31}
+.rice-planner-intro p{font-size:14px;line-height:1.8;margin:0;max-width:66ch;color:#46594d}
+.rice-planner-body{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:24px;padding:25px 30px}
+.rice-planner-form{display:flex;flex-direction:column;gap:10px;min-width:0}
+.rice-planner-form label{font-weight:800;font-size:14px;line-height:1.5}
+.rice-planner-number{display:flex;align-items:center;gap:10px;background:#fff;border:1px solid #c4cbbd;border-radius:13px;padding:5px 12px;max-width:270px}
+.rice-planner-number:focus-within{outline:3px solid #bad3bd}
+.rice-planner-number input{font-size:24px;font-weight:800;padding:8px 4px;max-width:130px;width:100%;color:#263b31;border:0;background:none}
+.rice-planner-number input:focus{outline:none}
+.rice-planner-number span{color:#4a6654;font-weight:700}
+.rice-planner-form select{display:block;width:100%;max-width:100%;min-height:50px;background:#fff;border:1px solid #a7bbaa;border-radius:12px;color:#263b31;padding:10px 12px;font-size:14px}
+.rice-planner-form select:focus-visible{outline:3px solid #bad3bd;outline-offset:2px}
+.rice-planner-help{font-size:12px;line-height:1.7;color:#636e5f;margin:0 0 9px}
+.rice-planner-error{color:#a32022;font-weight:800;font-size:13px}
+.rice-planner-results{min-width:0;display:flex;flex-direction:column;gap:14px}
+.rice-planner-highlight{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;border-radius:15px;padding:16px 18px;background:#244c3e;color:#fefdfa}
+.rice-planner-highlight span{font-size:13px;font-weight:700}
+.rice-planner-highlight strong{font-size:clamp(29px,4vw,42px);line-height:1.2;white-space:nowrap}
+.rice-planner-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.rice-planner-grid>div{min-width:0;border-radius:12px;padding:14px 13px;background:#f4f4ea;border:1px solid #e2e3d6}
+.rice-planner-grid span{display:block;font-size:11px;font-weight:700;line-height:1.5;color:#54675a}
+.rice-planner-grid strong{display:block;margin-top:5px;font-size:clamp(19px,2.4vw,27px);line-height:1.25;overflow-wrap:anywhere;color:#263b31}
+.rice-planner-detail{margin:0;line-height:1.7;font-size:12px;color:#4f5e52}
+.rice-planner-buy{min-height:48px;display:flex;align-items:center;justify-content:center;text-align:center;text-decoration:none;font-weight:800;font-size:14px;background:#9d5532;color:#fffdf8;border-radius:12px;padding:11px 16px}
+.rice-planner-buy:hover{background:#814127}
+.rice-planner-buy:focus-visible{outline:3px solid #315c4b;outline-offset:3px}
+.rice-planner-disclaimer,.rice-planner-examples{margin:0;padding:0 30px 15px;font-size:12px;line-height:1.75;color:#5a675c}
+.rice-planner-examples{padding-bottom:24px}
+.rice-planner[hidden],.rice-planner-results[hidden]{display:none!important}
+@media(max-width:760px){
+ .rice-planner{border-radius:17px;margin:16px 0 26px}
+ .rice-planner-intro{padding:22px 17px 17px}
+ .rice-planner-body{grid-template-columns:minmax(0,1fr);gap:15px;padding:17px}
+ .rice-planner-form select{font-size:16px}
+ .rice-planner-intro h2{font-size:24px}
+ .rice-planner-disclaimer,.rice-planner-examples{padding-left:17px;padding-right:17px}
+ .rice-planner-number input{font-size:24px}
+}
+@media(max-width:360px){.rice-planner-grid{gap:7px}.rice-planner-grid>div{padding:11px 9px}.rice-planner-grid strong{font-size:19px}}
+@media(prefers-reduced-motion:reduce){.rice-planner *{scroll-behavior:auto!important}}
+
+/* Keep the persistent memo control out of the planner's number tiles. */
+.saved-fab.rice-planner-occluded{visibility:hidden!important;pointer-events:none!important;opacity:0!important}
