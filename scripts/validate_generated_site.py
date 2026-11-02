@@ -184,7 +184,8 @@ def audit_site(site, previous=None):
     errors+=validate_sitemap(site,pages)
     results={c:(p['included'],p['shipping_unknown']) for c,p in data['categories'].items()}
     published,aliases=build.publication_guides(results)
-    expected={SITE_URL,SITE_URL+'deals/'}|{SITE_URL+f'categories/{c}/' for c in eligible_categories(data)}|{SITE_URL+f'guides/{s["slug"]}/' for s in published}
+    from water_server_compare import URL as WATER_COST_URL
+    expected={SITE_URL,SITE_URL+'deals/',WATER_COST_URL}|{SITE_URL+f'categories/{c}/' for c in eligible_categories(data)}|{SITE_URL+f'guides/{s["slug"]}/' for s in published}
     if {expected_url_for(p,site) for p in pages} != expected: errors.append('publication inventory and indexable pages disagree')
     for slug,target in aliases.items():
         a=PageAudit();a.feed((site/f'guides/{slug}/index.html').read_text())
