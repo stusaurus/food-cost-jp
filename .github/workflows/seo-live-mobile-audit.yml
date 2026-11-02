@@ -11,7 +11,7 @@ permissions:
   contents: read
 jobs:
   audit:
-    if: ${{ github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success' }}
+    if: ${{ github.event_name == 'workflow_dispatch' || github.event_name == 'push' || github.event.workflow_run.conclusion == 'success' }}
     # Playwright 1.56.1 does not support browser dependency install on Ubuntu 26.04.
     runs-on: ubuntu-24.04
     timeout-minutes: 15
