@@ -8,7 +8,9 @@ permissions:
   contents: read
 jobs:
   preflight:
-    runs-on: ubuntu-latest
+    # Playwright 1.56.1 does not support the newer Ubuntu 26.04 runner image.
+    # Keep this preflight aligned with the existing SEO audit PR #22.
+    runs-on: ubuntu-24.04
     timeout-minutes: 12
     steps:
       - uses: actions/checkout@v4
