@@ -64,6 +64,64 @@ class GuideTests(unittest.TestCase):
         other = next(x for x in GUIDE_SPECS if x['category_id'] == 'rice')
         self.assertNotIn('podium-size-comparison', guide_page(other, next(x for x in CATEGORIES if x['id']=='rice'), [], NOW))
 
+    def test_pack_rice_budget_is_a_real_24_meal_calculation(self):
+        from pack_rice_budget import budget_projection, budget_panel
+        from build_site import AUTO_GUIDE_RULES
+        category = next(x for x in CATEGORIES if x["id"] == "pack-rice")
+        spec = next(x for x in AUTO_GUIDE_RULES if x.get("mode") == "pack_count_24")
+        products = [item("pack-rice", grams=180, count=24, price=3600),
+                    item("pack-rice", grams=200, count=24, price=4800),
+                    item("pack-rice", grams=150, count=24, price=3000)]
+        result = budget_projection(3600, 24, 1)
+        self.assertEqual(result["days_per_box"], 24)
+        self.assertEqual(result["monthly_meals"], 30)
+        self.assertEqual(result["boxes"], 2)
+        self.assertEqual(result["total_payment"], 7200)
+        self.assertEqual(result["remaining_meals"], 18)
+        twice = budget_projection(3600, 24, 2)
+        self.assertEqual((twice["days_per_box"], twice["boxes"], twice["total_payment"]), (12, 3, 10800))
+        half = budget_projection(3600, 24, .5)
+        self.assertEqual((half["days_per_box"], half["boxes"]), (48, 1))
+        for bad in (0, -.5, 12.5, float("nan"), float("inf")):
+            with self.subTest(bad=bad), self.assertRaises(ValueError):
+                budget_projection(3600, 24, bad)
+        markup = budget_panel(products)
+        self.assertIn('data-pack-rice-budget', markup)
+        self.assertIn('24食が持つ日数', markup)
+        self.assertIn('30日分に必要な箱数', markup)
+        self.assertIn('¥7,200', markup)
+        self.assertIn('200g×24食', markup)
+        self.assertEqual(markup.count('<option '), 3)
+        page = guide_page(spec, category, products, NOW)
+        self.assertIn('id="pack-rice-budget"', page)
+        self.assertIn('href="#pack-rice-24-products"', page)
+        self.assertLess(page.index('id="pack-rice-budget"'), page.index('class="podium-grid"'))
+        self.assertIn('<style>/* 24食ガイド専用', page)
+        self.assertIn('data-budget-product', page)
+        self.assertIn('data-budget-payment', page)
+        self.assertEqual(page.count('data-pack-rice-budget'), 1)
+        self.assertIn('content="index,follow"', page)
+        self.assertIn('guides/pack-rice-24-servings-cost/', page)
+        other_spec = next(x for x in GUIDE_SPECS if x["category_id"] == "rice")
+        other_category = next(x for x in CATEGORIES if x["id"] == "rice")
+        other_page = guide_page(other_spec, other_category, [], NOW)
+        self.assertNotIn('data-pack-rice-budget', other_page)
+        self.assertNotIn('BUDGET_JS', other_page)
+        without_products = guide_page(spec, category, [], NOW)
+        self.assertNotIn('data-pack-rice-budget', without_products)
+        self.assertIn('content="noindex,follow"', without_products)
+
+    def test_pack_rice_budget_never_fabricates_other_pack_size(self):
+        from pack_rice_budget import valid_candidates
+        products = [item("pack-rice", grams=180, count=24, price=3600),
+                    item("pack-rice", grams=180, count=40, price=6000),
+                    item("pack-rice", grams=180, count=24, price=4000)]
+        products[2]["postage_included"] = False
+        accepted = valid_candidates(products)
+        self.assertEqual(len(accepted), 1)
+        self.assertEqual(accepted[0]["price"], 3600)
+        self.assertEqual(accepted[0]["count"], 24)
+
     def test_eight_search_intent_guides_exist(self):
         self.assertEqual(len(GUIDE_SPECS), 8)
         slugs = {x["slug"] for x in GUIDE_SPECS}
