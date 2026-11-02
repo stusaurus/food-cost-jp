@@ -1,6 +1,9 @@
 name: SEO live mobile audit
 on:
   workflow_dispatch:
+  push:
+    branches: [main]
+    paths: [".github/workflows/seo-live-mobile-audit.yml"]
   workflow_run:
     workflows: ["Build and publish food-cost-jp"]
     types: [completed]
