@@ -108,7 +108,7 @@ def render_planner(items: list[dict], updated: datetime) -> str:
        data-product-name="{html.escape(first["name"], quote=True)}"
        data-rank="1" data-metric="per_serving"
        data-unit-price="{first["price"] / 24:.6f}" data-shipping="included" data-cta-variant="usage_planner">
-       この24食セットを楽天で確認する →
+       選んだ商品を楽天で確認する →
     </a>
   </div>
 </div>
