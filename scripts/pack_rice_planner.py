@@ -7,6 +7,7 @@ from __future__ import annotations
 import html
 import math
 from datetime import datetime
+from urllib.parse import urlsplit
 
 
 def calculation(count: int, price: int, meals_per_day: int, period_days: int = 30) -> dict:
@@ -42,7 +43,9 @@ def render_planner(items: list[dict], updated: datetime) -> str:
                 and isinstance(grams, (int, float)) and math.isfinite(grams) and grams > 0
                 and row.get("postage_included") is True
                 and row.get("shipping_status") == "included"
-                and isinstance(row.get("url"), str) and row["url"].startswith("https://")):
+                and isinstance(row.get("url"), str)
+                and urlsplit(row["url"]).scheme == "https"
+                and (urlsplit(row["url"]).hostname or "").endswith(".rakuten.co.jp")):
             eligible.append(row)
     if not eligible:
         return ""
