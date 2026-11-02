@@ -90,6 +90,23 @@
     }
   }
 
+  // The legacy fixed "shopping memo" button must not cover calculator results.
+  const floatingMemo = document.querySelector('.saved-fab');
+  if (floatingMemo && typeof IntersectionObserver !== 'undefined') {
+    const observer = new IntersectionObserver(entries => {
+      const occludes = entries.some(entry => entry.isIntersecting);
+      floatingMemo.classList.toggle('rice-planner-occluded', occludes);
+      if (occludes) {
+        floatingMemo.setAttribute('aria-hidden', 'true');
+        floatingMemo.setAttribute('tabindex', '-1');
+      } else {
+        floatingMemo.removeAttribute('aria-hidden');
+        floatingMemo.removeAttribute('tabindex');
+      }
+    }, { rootMargin: '-15px 0px -15px 0px', threshold: 0 });
+    observer.observe(root);
+  }
+
   form.addEventListener('submit', e => { e.preventDefault(); update(true); });
   input.addEventListener('input', () => update(false));
   input.addEventListener('change', () => update(true));
