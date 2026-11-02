@@ -1,6 +1,9 @@
 name: SEO live mobile audit
 on:
   workflow_dispatch:
+  push:
+    branches: [main]
+    paths: [".github/workflows/seo-live-mobile-audit.yml"]
   workflow_run:
     workflows: ["Build and publish food-cost-jp"]
     types: [completed]
@@ -9,7 +12,8 @@ permissions:
 jobs:
   audit:
     if: ${{ github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success' }}
-    runs-on: ubuntu-latest
+    # Playwright 1.56.1 does not support browser dependency install on Ubuntu 26.04.
+    runs-on: ubuntu-24.04
     timeout-minutes: 15
     steps:
       - uses: actions/setup-node@v4
