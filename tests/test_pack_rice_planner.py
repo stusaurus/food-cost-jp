@@ -83,7 +83,7 @@ class PlannerTests(unittest.TestCase):
         items = [offer(1), offer(2, price=3840, grams=200), offer(3, price=4200)]
         page = guide_page(spec, category, items, NOW)
         self.assertEqual(page.count('id="pack-rice-planner"'), 1)
-        self.assertLess(page.index('id="pack-rice-planner"'), page.index("podium-section"))
+        self.assertLess(page.index('id="pack-rice-planner"'), page.index('<section class="section podium-section">'))
         self.assertIn('<title>パックご飯24食のコスパ比較｜食品コスパ比較</title>', page)
         self.assertIn('<meta name="robots" content="index,follow">', page)
         self.assertIn('href="../../assets/pack-rice-planner.css"', page)
