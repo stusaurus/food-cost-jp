@@ -56,6 +56,13 @@ const output='pack-size-evidence', root=path.resolve('site');
    await selected.selectOption('0');
    assert.equal(await planner.locator('[data-rice-planner-results]').isVisible(),true);
    assert.equal(await planner.locator('[data-rice-planner-error]').isVisible(),false);
+   await planner.scrollIntoViewIfNeeded();
+   await page.waitForFunction(() => {
+     const memo = document.querySelector('.saved-fab');
+     return !memo || memo.classList.contains('rice-planner-occluded');
+   });
+   const floatingMemo = page.locator('.saved-fab');
+   if (await floatingMemo.count()) assert.equal(await floatingMemo.isVisible(), false);
    await planner.screenshot({path:output+'/'+width+'-planner.png'});
    const overflow=await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth+2);assert(!overflow);assert.deepEqual(errors,[]);
    await cards.first().scrollIntoViewIfNeeded();await page.screenshot({path:output+'/'+width+'.png'});
