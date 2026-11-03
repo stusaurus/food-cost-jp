@@ -52,6 +52,48 @@ test('real water calculator works with precise annual purchase count and honest 
   b.dom.window.close();
 });
 
+test('changing annual cost inputs hides stale results until explicitly recalculated', () => {
+  const b = boot();
+  try {
+    fillTypical(b);
+    b.click('calculate');
+    const results = b.document.getElementById('results');
+    const error = b.document.getElementById('error');
+    assert.ok(results.classList.contains('visible'));
+    assert.equal(b.document.getElementById('server-year').textContent, '42,000円');
+    const monthly = b.document.getElementById('monthly-fee');
+    monthly.value = '8000';
+    monthly.dispatchEvent(new b.dom.window.Event('input', { bubbles: true }));
+    assert.ok(!results.classList.contains('visible'), 'Old calculated annual price must be hidden after input');
+    assert.match(error.textContent, /条件が変わりました/);
+    b.click('calculate');
+    assert.ok(results.classList.contains('visible'));
+    assert.equal(b.document.getElementById('server-year').textContent, '102,000円');
+    const count = b.document.getElementById('case-count');
+    count.value = '12';
+    count.dispatchEvent(new b.dom.window.Event('change', { bubbles: true }));
+    assert.ok(!results.classList.contains('visible'), 'Change event must also invalidate old quotes');
+    assert.equal(b.events.filter(e => e[1] === 'affiliate_click').length, 0);
+  } finally { b.dom.window.close(); }
+});
+
+test('fractional yen input is rejected instead of silently rounding checkout cost', () => {
+  const b = boot();
+  try {
+    fillTypical(b);
+    b.set('case-price', '900.5');
+    b.click('calculate');
+    const results = b.document.getElementById('results');
+    const error = b.document.getElementById('error');
+    assert.ok(!results.classList.contains('visible'));
+    assert.match(error.textContent, /金額・ケース本数は整数/);
+    b.set('case-price', '900');
+    b.click('calculate');
+    assert.ok(results.classList.contains('visible'));
+    assert.equal(b.document.getElementById('bottle-year').textContent, '43,200円');
+  } finally { b.dom.window.close(); }
+});
+
 test('official A8 creative and attribution pixel are exact and ad is clearly disclosed', () => {
   const b = boot();
   const ad = b.document.getElementById('a8-every-frecious-ad');
