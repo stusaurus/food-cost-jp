@@ -59,8 +59,15 @@ jobs:
       - name: Add IndexNow verification key
         run: printf '%s' '7d4f93c2a6814eb5b0d87f216ca9e403' > site/7d4f93c2a6814eb5b0d87f216ca9e403.txt
 
+      - name: Check current main before publishing the generated pages
+        id: release_preflight
+        run: python scripts/check_publish_freshness.py
+
       - name: Publish verified generated site to the configured Pages branch
+        id: publish_site
+        if: steps.release_preflight.outputs.publish == 'true'
         run: |
+          set -euo pipefail
           rm -rf categories guides deals saved data
           rm -f index.html 404.html robots.txt sitemap.xml .nojekyll
           cp site/index.html ./index.html
@@ -77,12 +84,32 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add index.html 404.html categories guides deals saved data robots.txt sitemap.xml 7d4f93c2a6814eb5b0d87f216ca9e403.txt .nojekyll
-          if ! git diff --cached --quiet; then
-            git commit -m "Publish generated food comparison site"
-            git push origin HEAD:main
+          if git diff --cached --quiet; then
+            echo "Generated HTML and product data unchanged; no publish push needed."
+            echo "published=false" >> "$GITHUB_OUTPUT"
+            exit 0
           fi
+          # Race guard #2. A new source edit, or another automated site
+          # publication, may have landed after the expensive build. Never
+          # rebase stale generated HTML onto newer source code.
+          current_main="$(git ls-remote origin refs/heads/main | awk '{print $1}')"
+          if [[ ! "$current_main" =~ ^[0-9a-f]{40}$ ]]; then
+            echo "::error::Cannot verify current food main; refusing to publish."
+            exit 1
+          fi
+          if [[ "$current_main" != "$GITHUB_SHA" ]]; then
+            echo "::notice::main moved after build ($GITHUB_SHA → $current_main); generated snapshot skipped."
+            echo "published=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          git commit -m "Publish generated food comparison site"
+          # Never force-push. Git rejects a race after the final freshness
+          # check instead of overwriting newer catalog/source changes.
+          git push origin HEAD:main
+          echo "published=true" >> "$GITHUB_OUTPUT"
 
       - name: Submit sitemap URLs to IndexNow
+        if: steps.publish_site.outputs.published == 'true'
         env:
           SITE_URL: https://stusaurus.github.io/food-cost-jp/
           INDEXNOW_KEY: 7d4f93c2a6814eb5b0d87f216ca9e403
