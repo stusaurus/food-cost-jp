@@ -29,8 +29,10 @@ class MarketTests(unittest.TestCase):
         self.assertNotIn('前回取得時より価格が下がった掲載商品',build.market_shelf_html([(build.CATEGORIES[1],item)],'単価','finder-rice-cheap'))
     def test_home_information_order_and_hidden_category_step(self):
         page=build.home_page(self.results,NOW)
-        positions=[page.index(x) for x in ['class="home-hero"','id="quick-finder"','id="today-market"','class="section discovery-shelves"','id="categories"']]
+        positions=[page.index(x) for x in ['class="home-hero"','id="today-market"','id="quick-finder"','class="section discovery-shelves"','id="categories"']]
         self.assertEqual(positions,sorted(positions))
+        self.assertIn('href="#today-market" data-start-route="today"',page)
+        self.assertIn('href="#quick-finder" data-hero-primary',page)
         self.assertIn('data-finder-category-stage hidden',page)
         self.assertIn('data-entry-route="known"',page)
         self.assertIn('価格履歴を蓄積中',page)
