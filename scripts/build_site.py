@@ -2113,9 +2113,9 @@ def home_page(results: dict, updated: datetime, guide_specs: list[dict] | None =
 <div class="hero-copy">
 <div class="eyebrow">毎日の食品を、賢く選ぶ小さなマルシェ</div>
 <span class="brand">Welcome to your everyday marché.</span>
-<h1>今日の買い物を、<br>ちょっと楽しく。<br>ちょっと賢く。</h1>
-<p class="lead">いつものご飯も、朝の一杯も。<br>単価と送料をそろえて、わが家にちょうどいいものを。</p>
-<div class="hero-actions"><a class="cta" href="#quick-finder" data-hero-primary data-start-route="finder">わたしに合う買い方を探す →</a></div><div class="hero-subroutes"><a href="#today-market">今日のお得を見る</a><a href="#quick-finder" data-hero-known>買うものが決まっている</a>{featured_24}</div>
+<h1>いつもの食品を、<br>買う量まで比べて選ぶ。</h1>
+<p class="lead">1食・1本あたりの単価と、実際に払う金額。<br>条件をそろえた商品から、必要な分を選べます。</p>
+<div class="hero-actions"><a class="cta" href="#today-market" data-start-route="today">いま比べられる商品を見る →</a></div><div class="hero-subroutes"><a href="#quick-finder" data-hero-primary data-start-route="finder">条件でさらに絞り込む</a><a href="#categories">売り場から選ぶ</a>{featured_24}</div>
 <div class="hero-proof"><span><strong>{active_count}</strong><small>売り場</small></span><span><strong>{included_count}</strong><small>送料込み確認商品</small></span><span><strong>毎日</strong><small>価格を更新</small></span></div>
 <p class="note">最終価格確認: {updated:%Y-%m-%d %H:%M} JST</p>
 </div>
@@ -2123,8 +2123,8 @@ def home_page(results: dict, updated: datetime, guide_specs: list[dict] | None =
 </div></header>
 {service_shortcuts_html()}
 <main class="wrap">
-{choice_finder_html(results)}
 {today_market_html(results, updated)}
+{choice_finder_html(results)}
 {discovery_shelves_html(results)}
 <section class="section" id="categories">
 <div class="section-kicker">THE MARKET AISLES</div>
