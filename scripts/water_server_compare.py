@@ -149,12 +149,25 @@ if (a8Creative) a8Creative.addEventListener("click", () => {
     operator_test: window.foodCostOperatorTest ? "1" : "0"
   });
 });
+// Never leave an old annual quote visible after a household or price input changes.
+fields.forEach(id => {
+  const invalidate = () => {
+    if (!results.classList.contains("visible")) return;
+    results.classList.remove("visible");
+    error.textContent = "条件が変わりました。新しい金額を見るには、もう一度「年間支払額を比較する」を押してください。";
+  };
+  $(id).addEventListener("input", invalidate);
+  $(id).addEventListener("change", invalidate);
+});
 $("calculate").addEventListener("click", () => {
   results.classList.remove("visible");
   const inputs = Object.fromEntries(fields.map(id => [id, Number($(id).value)]));
   if (fields.some(id => $(id).value.trim() === "" || !Number.isFinite(inputs[id]) ||
        inputs[id] < 0 || inputs[id] > Number($(id).max))) {
     error.textContent = "すべての項目に0以上の数値を入力してください。"; return;
+  }
+  if (fields.some(id => !$(id).checkValidity())) {
+    error.textContent = "入力範囲と入力単位を確認してください。金額・ケース本数は整数で入力してください。"; return;
   }
   const L = inputs.liters, b = inputs["bottle-liters"], c = inputs["case-count"];
   if (!(L > 0 && b > 0 && Number.isInteger(c) && c >= 1)) {
