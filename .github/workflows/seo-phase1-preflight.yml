@@ -37,9 +37,12 @@ jobs:
           npm install --prefix /tmp/food-qa --no-audit --no-fund playwright@1.56.1 lighthouse@12.8.2 chrome-launcher@1.2.1
           /tmp/food-qa/node_modules/.bin/playwright install --with-deps chromium
           node scripts/check_24_servings.cjs
+          node scripts/check_family_meal_budget.cjs
       - uses: actions/upload-artifact@v4
         if: always()
         with:
           name: pack-size-evidence
-          path: pack-size-evidence
+          path: |
+            pack-size-evidence
+            meal-budget-evidence
           if-no-files-found: error
