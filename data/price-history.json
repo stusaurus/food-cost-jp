@@ -10646,6 +10646,11 @@
           "date": "2026-11-01",
           "price": 1380,
           "unit": 115.0
+        },
+        {
+          "date": "2026-11-03",
+          "price": 1380,
+          "unit": 115.0
         }
       ],
       "product_id": "voltsparkling:10000005",
@@ -15668,6 +15673,19 @@
         }
       ],
       "product_id": "sese-koreachiba:10003938",
+      "quantity_key": "{\"count\":12}"
+    },
+    "cup-noodles|suzukidenkioutlets:10013751": {
+      "category_id": "cup-noodles",
+      "name": "カップヌードルPRO 高たんぱく＆低糖質さらに塩分控えめ チリトマトヌードル [おいしさそのまま] 日清食品 カップ麺 80g ×12個",
+      "points": [
+        {
+          "date": "2026-11-03",
+          "price": 3980,
+          "unit": 331.6666666666667
+        }
+      ],
+      "product_id": "suzukidenkioutlets:10013751",
       "quantity_key": "{\"count\":12}"
     },
     "cup-noodles|suzukidenkioutlets:10013884": {
@@ -24004,6 +24022,19 @@
       ],
       "product_id": "rakutensokuhaimart:10020882",
       "quantity_key": "{\"count\":6,\"total_volume_ml\":12000.0,\"unit_volume_ml\":2000.0}"
+    },
+    "mineral-water|rakutensokuhaimart:10045592": {
+      "category_id": "mineral-water",
+      "name": "【楽天オリジナル】水 500ml×48本 天然水 ミネラルウォーター 飲料水 安い 業務用 家庭用 大容量 オフィス コスパ最強 500ml 48本",
+      "points": [
+        {
+          "date": "2026-11-03",
+          "price": 1631,
+          "unit": 67.95833333333333
+        }
+      ],
+      "product_id": "rakutensokuhaimart:10045592",
+      "quantity_key": "{\"count\":48,\"total_volume_ml\":24000.0,\"unit_volume_ml\":500.0}"
     },
     "mineral-water|shaddy:10374728": {
       "category_id": "mineral-water",
@@ -44972,6 +45003,11 @@
           "date": "2026-10-30",
           "price": 3780,
           "unit": 756.0
+        },
+        {
+          "date": "2026-11-03",
+          "price": 3780,
+          "unit": 756.0
         }
       ],
       "product_id": "aarti:10005133",
@@ -46848,6 +46884,11 @@
         },
         {
           "date": "2026-11-02",
+          "price": 9007,
+          "unit": 300.23333333333335
+        },
+        {
+          "date": "2026-11-03",
           "price": 9007,
           "unit": 300.23333333333335
         }
@@ -48866,6 +48907,11 @@
           "date": "2026-10-31",
           "price": 9028,
           "unit": 300.93333333333334
+        },
+        {
+          "date": "2026-11-03",
+          "price": 9028,
+          "unit": 300.93333333333334
         }
       ],
       "product_id": "nozomi-market:10094129",
@@ -49115,6 +49161,11 @@
         },
         {
           "date": "2026-11-02",
+          "price": 6598,
+          "unit": 219.93333333333334
+        },
+        {
+          "date": "2026-11-03",
           "price": 6598,
           "unit": 219.93333333333334
         }
@@ -53306,6 +53357,11 @@
           "date": "2026-10-29",
           "price": 3080,
           "unit": 616.0
+        },
+        {
+          "date": "2026-11-03",
+          "price": 3080,
+          "unit": 616.0
         }
       ],
       "product_id": "kyusyukome:10000003",
@@ -53746,6 +53802,11 @@
           "date": "2026-11-02",
           "price": 4980,
           "unit": 498.0
+        },
+        {
+          "date": "2026-11-03",
+          "price": 4980,
+          "unit": 498.0
         }
       ],
       "product_id": "kyusyukome:10000128",
@@ -53789,6 +53850,19 @@
       ],
       "product_id": "marukichi-kayano:10000010",
       "quantity_key": "{\"count\":2,\"total_weight_g\":10000.0,\"unit_weight_g\":5000.0}"
+    },
+    "rice|marukichi-kayano:10000016": {
+      "category_id": "rice",
+      "name": "【新米】瀬川さんが育てた ふっくりんこ 5kg 北海道深川市稲田産 玄米 白米 分づき米 令和8年産 鮮度保持パック変更可",
+      "points": [
+        {
+          "date": "2026-11-03",
+          "price": 3580,
+          "unit": 716.0
+        }
+      ],
+      "product_id": "marukichi-kayano:10000016",
+      "quantity_key": "{\"count\":1,\"total_weight_g\":5000.0,\"unit_weight_g\":5000.0}"
     },
     "rice|marukichi-kayano:10000017": {
       "category_id": "rice",
@@ -54116,6 +54190,11 @@
         },
         {
           "date": "2026-11-02",
+          "price": 3290,
+          "unit": 658.0
+        },
+        {
+          "date": "2026-11-03",
           "price": 3290,
           "unit": 658.0
         }
