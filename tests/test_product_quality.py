@@ -34,6 +34,17 @@ class ProductDisplayTests(unittest.TestCase):
             with self.subTest(prefix=prefix):
                 self.assertEqual(clean_display_name(prefix + product), product)
 
+    def test_public_market_promotion_prefixes_are_removed(self):
+        cases = {
+            "＼激熱価格！ 炭酸水 1L 15本": "炭酸水 1L 15本",
+            "超！超コスパ！ 直売価格 6600g オートミール": "6600g オートミール",
+            "楽天1位 3食 淡路牛カレー": "3食 淡路牛カレー",
+            "令和8年産 新米特価！ 新米 5kg": "令和8年産 新米 5kg",
+        }
+        for raw, expected in cases.items():
+            with self.subTest(raw=raw):
+                self.assertEqual(clean_display_name(raw), expected)
+
     def test_trailing_promotion_label_is_removed(self):
         self.assertEqual(
             clean_display_name("国産米 5kg【最大1000円引クーポン】"),
