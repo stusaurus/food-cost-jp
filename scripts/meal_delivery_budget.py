@@ -15,6 +15,10 @@ MARKER = "<!-- chef-muten-family-budget-entry-v1 -->"
 A8_CHEF_MUTEN = '''<a href="https://px.a8.net/svt/ejp?a8mat=4BGCF1+8J7R8Q+57YO+5YJRM" rel="nofollow">お子様にも安心！"添加物不使用"のつくりおきおかず</a>
 <img border="0" width="1" height="1" src="https://www19.a8.net/0.gif?a8mat=4BGCF1+8J7R8Q+57YO+5YJRM" alt="">'''
 
+A8_CHEF_MUTEN_BANNER = '''<a href="https://px.a8.net/svt/ejp?a8mat=4BGCF1+8J7R8Q+57YO+61C2P" rel="nofollow">
+<img border="0" width="300" height="250" alt="" src="https://www25.a8.net/svt/bgt?aid=261103069516&wid=004&eno=01&mid=s00000024360001014000&mc=1"></a>
+<img border="0" width="1" height="1" src="https://www11.a8.net/0.gif?a8mat=4BGCF1+8J7R8Q+57YO+61C2P" alt="">'''
+
 # The provider's published examples are not prices guaranteed by this site.
 # Keep them as opt-in inputs, not automatically filled "current prices".
 EXAMPLES = {
@@ -77,6 +81,9 @@ ul{padding-left:22px}li{margin:11px 0}
 .sponsor-creative{margin:18px 0 11px}
 .sponsor-creative a{display:block;max-width:730px;min-height:48px;background:#285b44;border-radius:11px;color:#fff;text-decoration:none;padding:15px 17px;font-weight:800;font-size:16px;line-height:1.6;overflow-wrap:anywhere}
 .sponsor-creative a:hover{background:#1d4433}
+.sponsor-banner{margin:16px 0;max-width:100%}
+.sponsor-banner a{display:block;max-width:300px;line-height:0}
+.sponsor-banner img[width="300"][height="250"]{display:block;max-width:100%;height:auto}
 .home-link{display:inline-block;margin:9px 0 0}
 @media(max-width:600px){.form-grid,.metrics,.breakdown{grid-template-columns:1fr}.actions{flex-direction:column}.actions>*{min-width:0;width:100%}.masthead .tag{display:none}}
 </style>
@@ -164,7 +171,9 @@ __ANALYTICS__
 <h2 id="meal-ad-title">シェフの無添つくりおきを検討する</h2>
 <p>家族向けの冷蔵おかず宅配サービスです。プランごとの食事量・注文額・送料・配送地域と、次回配送の変更期限を確認してから、
 上の計算機に金額を入力できます。</p>
-<div class="sponsor-creative">__A8_OFFICIAL_CREATIVE__</div>
+<div class="sponsor-creative" data-a8-creative="text">__A8_OFFICIAL_CREATIVE__</div>
+<p class="muted">同じサービスの公式バナー広告（300×250）。画像が表示されない場合は上のテキストリンクをご利用ください。</p>
+<div class="sponsor-banner" data-a8-creative="banner">__A8_OFFICIAL_BANNER__</div>
 <p class="muted">リンク内の宣伝文句は広告主提供の表現です。当サイトでは「必ず安心」「誰にでも適合」などの保証はしません。
 広告リンクから購入すると当サイトに成果報酬が発生する場合があります。広告の有無は計算結果に影響しません。</p>
 </section>
@@ -231,27 +240,34 @@ __ANALYTICS__
       operator_test:window.foodCostOperatorTest?'1':'0'
     });
   });
-  const ad = document.querySelector('#chef-muten-ad a[href^="https://px.a8.net/svt/ejp?"]');
-  if (ad) ad.addEventListener('click', () => {
-    if (typeof window.gtag === 'function') window.gtag('event','affiliate_click',{
-      site_id:'food_cost_jp', affiliate:'a8', program:'chef_muten_tsukurioki',
-      category_id:'family_meal_delivery', conversion_source:'family_meal_budget_planner',
-      click_position:'family_meal_sponsored_card', operator_test:window.foodCostOperatorTest?'1':'0'
+  document.querySelectorAll('#chef-muten-ad a[href^="https://px.a8.net/svt/ejp?"]').forEach(ad => {
+    ad.addEventListener('click', () => {
+      const adCreative = ad.closest('[data-a8-creative]')?.getAttribute('data-a8-creative') || 'unknown';
+      if (typeof window.gtag === 'function') window.gtag('event','affiliate_click',{
+        site_id:'food_cost_jp', affiliate:'a8', program:'chef_muten_tsukurioki',
+        category_id:'family_meal_delivery', conversion_source:'family_meal_budget_planner',
+        click_position:'family_meal_sponsored_card', ad_creative:adCreative,
+        operator_test:window.foodCostOperatorTest?'1':'0'
+      });
     });
   });
 })();
 </script>
 </body></html>'''
-    if markup.count("__A8_OFFICIAL_CREATIVE__") != 1 or markup.count("__ANALYTICS__") != 1:
+    if (markup.count("__A8_OFFICIAL_CREATIVE__") != 1 or markup.count("__A8_OFFICIAL_BANNER__") != 1 or markup.count("__ANALYTICS__") != 1):
         raise ValueError("meal budget markup placeholders missing")
-    output = markup.replace("__A8_OFFICIAL_CREATIVE__", A8_CHEF_MUTEN).replace("__ANALYTICS__", analytics_markup)
+    output = (markup.replace("__A8_OFFICIAL_CREATIVE__", A8_CHEF_MUTEN)
+              .replace("__A8_OFFICIAL_BANNER__", A8_CHEF_MUTEN_BANNER)
+              .replace("__ANALYTICS__", analytics_markup))
     validate_creative(output)
     return output
 
 
 def validate_creative(markup: str) -> None:
     if markup.count(A8_CHEF_MUTEN) != 1:
-        raise ValueError("A8 official creative must be preserved exactly once")
+        raise ValueError("A8 original text creative must be preserved exactly once")
+    if markup.count(A8_CHEF_MUTEN_BANNER) != 1:
+        raise ValueError("A8 original banner creative must be preserved exactly once")
     if markup.count('href="https://px.a8.net/svt/ejp?a8mat=4BGCF1+8J7R8Q+57YO+5YJRM" rel="nofollow"') != 1:
         raise ValueError("wrong A8 destination")
     if markup.count('src="https://www19.a8.net/0.gif?a8mat=4BGCF1+8J7R8Q+57YO+5YJRM"') != 1:

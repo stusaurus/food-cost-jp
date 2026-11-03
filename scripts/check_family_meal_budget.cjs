@@ -38,10 +38,37 @@ const PIXEL='https://www19.a8.net/0.gif?a8mat=4BGCF1+8J7R8Q+57YO+5YJRM';
    assert.equal(await page.locator('h1').count(),1);
    assert.equal(await page.locator('link[rel=canonical]').getAttribute('href'),'https://stusaurus.github.io/food-cost-jp/guides/family-meal-delivery-budget/');
    const ad=page.locator('#chef-muten-ad');
-   assert.equal(await ad.locator('a[href^="https://px.a8.net"]').getAttribute('href'),A8);
-   assert.equal(await ad.locator('a[href^="https://px.a8.net"]').getAttribute('rel'),'nofollow');
-   assert.equal(await ad.locator('img').getAttribute('src'),PIXEL);
+   const textCreative=ad.locator('[data-a8-creative="text"]');
+   const bannerCreative=ad.locator('[data-a8-creative="banner"]');
+   const bannerUrl='https://px.a8.net/svt/ejp?a8mat=4BGCF1+8J7R8Q+57YO+61C2P';
+   const bannerImage='https://www25.a8.net/svt/bgt?aid=261103069516&wid=004&eno=01&mid=s00000024360001014000&mc=1';
+   const bannerPixel='https://www11.a8.net/0.gif?a8mat=4BGCF1+8J7R8Q+57YO+61C2P';
+   assert.equal(await textCreative.locator('a').getAttribute('href'),A8);
+   assert.equal(await textCreative.locator('a').getAttribute('rel'),'nofollow');
+   assert.equal(await textCreative.locator('img').getAttribute('src'),PIXEL);
+   assert.equal(await bannerCreative.locator('a').getAttribute('href'),bannerUrl);
+   assert.equal(await bannerCreative.locator('a').getAttribute('rel'),'nofollow');
+   assert.equal(await bannerCreative.locator('img[width="300"]').getAttribute('src'),bannerImage);
+   assert.equal(await bannerCreative.locator('img[width="300"]').getAttribute('height'),'250');
+   assert.equal(await bannerCreative.locator('img[width="1"]').getAttribute('src'),bannerPixel);
+   assert.equal(await ad.locator('a[href^="https://px.a8.net"]').count(),2);
    assert.match(await ad.innerText(),/広告｜A8.netアフィリエイト/);
+   const clicks=await page.evaluate(() => {
+     const results=[];
+     window.gtag=(...args)=>results.push(args);
+     for(const link of document.querySelectorAll('#chef-muten-ad a[href^="https://px.a8.net"]')){
+       link.addEventListener('click',event=>event.preventDefault(),{once:true});
+       link.click();
+     }
+     return results.filter(args=>args[0]==='event'&&args[1]==='affiliate_click').map(args=>args[2]);
+   });
+   assert.equal(clicks.length,2);
+   assert.deepEqual(clicks.map(click=>click.ad_creative),['text','banner']);
+   for(const click of clicks){
+     assert.equal(click.affiliate,'a8');
+     assert.equal(click.program,'chef_muten_tsukurioki');
+     assert.equal(click.operator_test,'1');
+   }
    await page.locator('#meal-example').click();
    await page.locator('#meal-calculate').click();
    assert.equal(await page.locator('#meal-total').innerText(),'22,288円');

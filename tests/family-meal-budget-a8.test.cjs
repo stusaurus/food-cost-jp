@@ -29,25 +29,48 @@ test('official A8 ad is clearly disclosed and click+pixel remain exactly provide
     assert.ok(card);
     assert.match(card.textContent,/広告｜A8.netアフィリエイト/);
     assert.match(card.textContent,/広告主提供の表現/);
-    const a=card.querySelector('a');
-    const img=card.querySelector('img');
+    const textCard=card.querySelector('[data-a8-creative="text"]');
+    const bannerCard=card.querySelector('[data-a8-creative="banner"]');
+    assert.ok(textCard && bannerCard);
+    const a=textCard.querySelector('a');
+    const img=textCard.querySelector('img');
+    const bannerLink=bannerCard.querySelector('a');
+    const bannerImage=bannerCard.querySelector('img[width="300"]');
+    const bannerPixel=bannerCard.querySelector('img[width="1"]');
+    const bannerHref='https://px.a8.net/svt/ejp?a8mat=4BGCF1+8J7R8Q+57YO+61C2P';
+    const bannerSrc='https://www25.a8.net/svt/bgt?aid=261103069516&wid=004&eno=01&mid=s00000024360001014000&mc=1';
+    const bannerPixelSrc='https://www11.a8.net/0.gif?a8mat=4BGCF1+8J7R8Q+57YO+61C2P';
     assert.equal(a.getAttribute('href'),href);
     assert.equal(a.getAttribute('rel'),'nofollow');
     assert.equal(a.textContent,'お子様にも安心！"添加物不使用"のつくりおきおかず');
     assert.equal(img.getAttribute('src'),pixel);
     assert.equal(img.getAttribute('width'),'1');
     assert.equal(img.getAttribute('height'),'1');
-    assert.equal(b.d.querySelectorAll('a[href^="https://px.a8.net"]').length,1);
-    a.addEventListener('click',e=>e.preventDefault());
-    a.dispatchEvent(new b.dom.window.MouseEvent('click',{bubbles:true,cancelable:true}));
+    assert.equal(bannerLink.getAttribute('href'),bannerHref);
+    assert.equal(bannerLink.getAttribute('rel'),'nofollow');
+    assert.equal(bannerImage.getAttribute('src'),bannerSrc);
+    assert.equal(bannerImage.getAttribute('width'),'300');
+    assert.equal(bannerImage.getAttribute('height'),'250');
+    assert.equal(bannerPixel.getAttribute('src'),bannerPixelSrc);
+    assert.equal(bannerPixel.getAttribute('width'),'1');
+    assert.equal(bannerPixel.getAttribute('height'),'1');
+    assert.equal(b.d.querySelectorAll('#chef-muten-ad a[href^="https://px.a8.net"]').length,2);
+    for(const link of [a,bannerLink]) {
+      link.addEventListener('click',e=>e.preventDefault());
+      link.dispatchEvent(new b.dom.window.MouseEvent('click',{bubbles:true,cancelable:true}));
+    }
     const hits=b.events.filter(e=>e[0]==='event'&&e[1]==='affiliate_click');
-    assert.equal(hits.length,1);
-    assert.equal(hits[0][2].affiliate,'a8');
-    assert.equal(hits[0][2].program,'chef_muten_tsukurioki');
-    assert.equal(hits[0][2].site_id,'food_cost_jp');
-    assert.equal(hits[0][2].operator_test,'1');
-    assert.equal(hits[0][2].conversion_source,'family_meal_budget_planner');
+    assert.equal(hits.length,2);
+    assert.deepEqual(hits.map(h=>h[2].ad_creative),['text','banner']);
+    for(const hit of hits) {
+      assert.equal(hit[2].affiliate,'a8');
+      assert.equal(hit[2].program,'chef_muten_tsukurioki');
+      assert.equal(hit[2].site_id,'food_cost_jp');
+      assert.equal(hit[2].operator_test,'1');
+      assert.equal(hit[2].conversion_source,'family_meal_budget_planner');
+    }
     assert.equal(a.getAttribute('href'),href);
+    assert.equal(bannerLink.getAttribute('href'),bannerHref);
   } finally {b.dom.window.close();}
 });
 
