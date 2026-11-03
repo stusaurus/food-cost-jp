@@ -28,6 +28,16 @@ class WaterServerCompareTests(unittest.TestCase):
         self.assertNotIn('shizukuria', page.lower())
         self.assertNotIn('nosh', page.lower())
 
+    def test_changed_inputs_invalidate_old_annual_result_and_respect_yen_step(self):
+        page = w.page()
+        self.assertIn('fields.forEach(id => {', page)
+        self.assertIn('results.classList.remove("visible");', page)
+        self.assertIn('$(id).addEventListener("input", invalidate);', page)
+        self.assertIn('$(id).addEventListener("change", invalidate);', page)
+        self.assertIn('fields.some(id => !$(id).checkValidity())', page)
+        self.assertIn("金額・ケース本数は整数で入力してください", page)
+        self.assertEqual(page.count(w.A8_EVERY_FRECIOUS_AD), 1)
+
     def test_reuses_the_existing_ga4_head_in_generated_page(self):
         ga = '<script>window.gtag=function(){return true};window.foodCostOperatorTest=true;</script>'
         page = w.page(ga)
