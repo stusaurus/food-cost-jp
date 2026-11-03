@@ -67,7 +67,8 @@ test('three routes, progressive disclosure, hero CTA and route events',()=>{
  assert.equal(b.d.querySelectorAll('[data-finder-purpose]').length,4);
  assert.equal(b.events.find(e=>e[1]==='entry_route_select')[2].entry_route,'advisor');
  b.click('[data-hero-primary]');assert.ok(b.visible('[data-finder-purpose-stage]'));assert.ok(!b.visible('[data-finder-route-stage]'));assert.equal(b.events.find(e=>e[1]==='hero_primary_cta')[2].entry_route,'advisor');assert.equal(b.events.filter(e=>e[1]==='entry_route_select').at(-1)[2].entry_source,'hero');
- b.click('[data-hero-known]');assert.ok(b.visible('[data-finder-category-stage]'));assert.equal(b.events.filter(e=>e[1]==='entry_route_select').at(-1)[2].entry_route,'known');b.dom.window.close();
+ b.click('[data-start-route="today"]');assert.ok(b.d.querySelector('#today-market .finder-products'));assert.equal(b.events.filter(e=>e[1]==='home_start_route').at(-1)[2].route,'today');
+ b.click('[data-entry-route="known"]');assert.ok(b.visible('[data-finder-category-stage]'));assert.equal(b.events.filter(e=>e[1]==='entry_route_select').at(-1)[2].entry_route,'known');b.dom.window.close();
 });
 
 test('high-resolution discovery images fall back once to the API URL',()=>{
