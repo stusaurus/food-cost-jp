@@ -2058,6 +2058,20 @@ def category_page(category: dict, included: list[dict], other: list[dict], updat
     return "".join(parts)
 
 
+def standalone_cost_guide_links_html() -> str:
+    """Link to existing non-catalog calculators, not to invented ranked products."""
+    return """<section class="section intent-section" id="family-cost-tools" aria-label="家庭の支払総額を比較する計算機">
+<div class="section-kicker">BEFORE YOU BUY</div>
+<h2>買う前に、家庭の支払総額も計算。</h2>
+<p class="sub">価格や使用量を入力して比較する計算機です。入力前から安い商品を断定しません。</p>
+<div class="intent-grid">
+<a class="intent-card" href="guides/water-server-vs-bottled-water/"><span>ウォーターサーバーとペットボトル、年間でいくら違う？</span><small>水代・送料・電気代・初期費用と家庭の使用量を入力</small><b>年間費用を計算する →</b></a>
+<a class="intent-card" href="guides/family-meal-delivery-budget/"><span>冷蔵つくりおき宅配、4週間の支払総額はいくら？</span><small>初回価格・通常価格・送料・配送回数を入力</small><b>4週間の費用を計算する →</b></a>
+</div>
+<p class="small">商品価格は入力時点の条件によります。購入を前提にしない比較です。</p>
+</section>"""
+
+
 def guide_links_html(specs: list[dict] | None = None) -> str:
     specs = GUIDE_SPECS if specs is None else specs
     if not specs:
@@ -2146,6 +2160,7 @@ def home_page(results: dict, updated: datetime, guide_specs: list[dict] | None =
     parts.append("</section></section>")
     parts.append(shopping_journey_html())
     parts.append(guide_links_html(guide_specs))
+    parts.append(standalone_cost_guide_links_html())
     parts.append(comparison_flow_html())
     parts.append(
         f"""<section class="section explain">
