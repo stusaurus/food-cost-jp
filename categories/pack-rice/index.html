@@ -236,6 +236,19 @@ footer{padding:30px 0 100px;border-top:1px solid var(--line);font-size:10px;colo
  .saved-item-actions{gap:8px}
  .saved-compare{min-height:44px}
 }
+
+/* FOOD CHOICE MEMORY 20261104: optional recall, never a purchase prerequisite. */
+.hero-last-choice[hidden]{display:none!important}
+.hero-last-choice{display:flex;align-items:center;gap:8px 12px;flex-wrap:wrap;margin-top:12px;font-size:12px}
+.hero-last-choice [data-finder-last-choice-label]{color:var(--muted);font-size:11px}
+.hero-last-choice a{display:inline-flex;align-items:center;min-height:44px;padding:9px 13px;border-radius:999px;border:1px solid var(--brand);background:#fffbf3;color:var(--brand);font-size:12px;font-weight:700;text-decoration:none}
+.hero-last-choice button{border:0;border-bottom:1px solid currentColor;background:transparent;color:var(--muted);min-height:44px;padding:9px 2px;font:inherit;cursor:pointer}
+.finder-remember-tools{display:flex;align-items:center;gap:8px 14px;flex-wrap:wrap;margin:10px 0 20px;padding:12px 14px;background:#faf7ef;border:1px solid #d6c9b0;border-radius:10px}
+.finder-remember-tools button{min-height:44px;padding:8px 14px;border:1px solid var(--brand);border-radius:8px;background:#fff;color:var(--brand);font:inherit;font-size:12px;font-weight:750;cursor:pointer}
+.finder-remember-tools button[aria-pressed="true"]{background:#e9f0e4}
+.finder-remember-tools span{font-size:11px;line-height:1.6;color:var(--muted)}
+.hero-last-choice a:focus-visible,.hero-last-choice button:focus-visible,.finder-remember-tools button:focus-visible{outline:3px solid #126477;outline-offset:3px}
+@media(max-width:620px){.hero-last-choice{align-items:flex-start}.hero-last-choice [data-finder-last-choice-label]{flex-basis:100%}.finder-remember-tools{align-items:flex-start}}
 </style>
 <script>(()=>{const k='food_cost_operator_test_v1',p=new URLSearchParams(location.search);let op=false;try{op=localStorage.getItem(k)==='1'}catch(e){}if(['1','0'].includes(p.get('test'))){op=p.get('test')==='1';try{op?localStorage.setItem(k,'1'):localStorage.removeItem(k)}catch(e){}const u=new URL(location.href);u.searchParams.delete('test');history.replaceState(history.state,'',u.href)}window.foodCostOperatorTest=op;})();</script><script async src="https://www.googletagmanager.com/gtag/js?id=G-GFVSZ8YDQ5"></script>
 <script>
@@ -244,7 +257,7 @@ window.gtag=window.gtag||function(){dataLayer.push(arguments)};
 gtag('js',new Date());
 gtag('config','G-GFVSZ8YDQ5',{site_id:'food_cost_jp',operator_test:window.foodCostOperatorTest?'1':'0'});
 </script>
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "パックご飯は何を基準に並べていますか？", "acceptedAnswer": {"@type": "Answer", "text": "送料込み確認済みの商品を、主に1食あたりが安い順で並べています。"}}, {"@type": "Question", "name": "クーポンやポイントは単価に含めていますか？", "acceptedAnswer": {"@type": "Answer", "text": "通常価格を公平に比べるため、クーポンやポイントは自動的に単価へ差し引いていません。"}}, {"@type": "Question", "name": "数量が選べる商品はランキングに入りますか？", "acceptedAnswer": {"@type": "Answer", "text": "購入する容量や個数を商品情報から一意に確定できない場合は、誤比較を防ぐためランキングから除外します。"}}]}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "食品コスパ比較", "item": "https://stusaurus.github.io/food-cost-jp/"}, {"@type": "ListItem", "position": 2, "name": "パックご飯", "item": "https://stusaurus.github.io/food-cost-jp/categories/pack-rice/"}]}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "ItemList", "name": "パックご飯のコスパ比較", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "【公式】 パックご飯 180g ×80食 レトルトご飯 パックごはん 備蓄用 米 お米 ひとり暮らし 非常食 防災 仕送り ご飯 低温製法米", "url": "https://hb.afl.rakuten.co.jp/hgc/g00t3zto.7cx6m5be.g00t3zto.7cx6n748/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Firisplaza-r%2F310489%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Firisplaza-r%2Fi%2F10105218%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5"}, {"@type": "ListItem", "position": 2, "name": "米 パックご飯 180g ×80食 大容量 ご飯パック パックごはん レトルトご飯 パック米 パックライス パック 備蓄 米 ご飯 米 お米 白米 非常食 防災 保存食 低温製法米のおいしいごはん アイリスオーヤマ アイリスフーズ こめ", "url": "https://hb.afl.rakuten.co.jp/hgc/g00qhoao.7cx6m91b.g00qhoao.7cx6n00f/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fkurashikenkou%2F310489%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fkurashikenkou%2Fi%2F10180939%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5"}, {"@type": "ListItem", "position": 3, "name": "パックご飯 180g×80食パック アイリスオーヤマ 国産米 レトルトご飯 パックごはんレトルトごはん 備蓄用 防災 常温保存可 保存食 非常食 一人暮らし 仕送り 低温製法米のおいしいごはん アイリスフーズ", "url": "https://hb.afl.rakuten.co.jp/hgc/g00pjh9o.7cx6mb80.g00pjh9o.7cx6n412/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Funidy%2F310489%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Funidy%2Fi%2F11096473%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5"}, {"@type": "ListItem", "position": 4, "name": "【公式】 パックご飯 180g ×40食 レトルトご飯 パックごはん 備蓄用 アイリスオーヤマ 米 お米 ひとり暮らし 非常食 防災 仕送り ご飯 低温製法米 低温製法米のおいしいごはん", "url": "https://hb.afl.rakuten.co.jp/hgc/g00t3zto.7cx6m5be.g00t3zto.7cx6n748/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Firisplaza-r%2F1901913%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Firisplaza-r%2Fi%2F10000903%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5"}, {"@type": "ListItem", "position": 5, "name": "パックご飯 米 180g×40食パック アイリスオーヤマ 国産米 180g 40食 レトルトご飯 レトルトごはん パックごはん 防災 常温保存可 保存食 非常食 一人暮らし 仕送り 大容量 アイリスフーズ", "url": "https://hb.afl.rakuten.co.jp/hgc/g00tux1o.7cx6mb61.g00tux1o.7cx6n3ef/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fs-kodawari%2F1901913-cp%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fs-kodawari%2Fi%2F10004173%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5"}, {"@type": "ListItem", "position": 6, "name": "米 パックご飯 200g ×80食 大容量 ご飯パック パックごはん レトルトご飯 パック米 パック 備蓄 米 ご飯 お米 白米 防災 保存食 仕送り 常温保存可 低温製法米のおいしいごはん アイリスオーヤマ アイリスフーズ こめ", "url": "https://hb.afl.rakuten.co.jp/hgc/g00qhoao.7cx6m91b.g00qhoao.7cx6n00f/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fkurashikenkou%2F1918346%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fkurashikenkou%2Fi%2F10219255%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5"}, {"@type": "ListItem", "position": 7, "name": "パックご飯 200g ×80食 大容量 ご飯パック パックごはん レトルトご飯 パック米 パックライス パック ご飯 米 お米 白米 備蓄 非常食 防災 保存食 仕送り 常温保存可 低温製法米のおいしいごはん アイリスオーヤマ", "url": "https://hb.afl.rakuten.co.jp/hgc/g00pr3yo.7cx6mafa.g00pr3yo.7cx6n654/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Frack-kan%2F1918346%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Frack-kan%2Fi%2F10117025%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5"}, {"@type": "ListItem", "position": 8, "name": "パックご飯 米 180g×80食パック アイリスオーヤマ 国産米 レトルトご飯 パックごはんレトルトごはん 備蓄用 防災 常温保存可 保存食 非常食 一人暮らし 仕送り 低温製法米のおいしいごはん アイリスフーズ", "url": "https://hb.afl.rakuten.co.jp/hgc/g00tux1o.7cx6mb61.g00tux1o.7cx6n3ef/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fs-kodawari%2F310489%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fs-kodawari%2Fi%2F10003573%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5"}, {"@type": "ListItem", "position": 9, "name": "米 パックご飯 200g ×30食 ご飯パック パックごはん レトルトご飯 パック米 パックライス パック 備蓄 米 ご飯 米 お米 白米 非常食 防災 保存食 仕送り 常温保存可 キャンプ 低温製法米のおいしいごはん アイリスオーヤマ こめ", "url": "https://hb.afl.rakuten.co.jp/hgc/g00qhoao.7cx6m91b.g00qhoao.7cx6n00f/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fkurashikenkou%2F1919146%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fkurashikenkou%2Fi%2F10219256%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5"}, {"@type": "ListItem", "position": 10, "name": "パックご飯 180g ×24食 レトルトご飯 パックごはん 備蓄用 アイリスオーヤマ 米 お米 ひとり暮らし 非常食 防災 仕送り ご飯 低温製法米 低温製法米のおいしいごはんパックご飯 180g ×24食", "url": "https://hb.afl.rakuten.co.jp/hgc/g00t3zto.7cx6m5be.g00t3zto.7cx6n748/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Firisplaza-r%2F1901107-cp%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Firisplaza-r%2Fi%2F10173835%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "パックご飯は何を基準に並べていますか？", "acceptedAnswer": {"@type": "Answer", "text": "送料込み確認済みの商品を、主に1食あたりが安い順で並べています。"}}, {"@type": "Question", "name": "クーポンやポイントは単価に含めていますか？", "acceptedAnswer": {"@type": "Answer", "text": "通常価格を公平に比べるため、クーポンやポイントは自動的に単価へ差し引いていません。"}}, {"@type": "Question", "name": "数量が選べる商品はランキングに入りますか？", "acceptedAnswer": {"@type": "Answer", "text": "購入する容量や個数を商品情報から一意に確定できない場合は、誤比較を防ぐためランキングから除外します。"}}]}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "食品コスパ比較", "item": "https://stusaurus.github.io/food-cost-jp/"}, {"@type": "ListItem", "position": 2, "name": "パックご飯", "item": "https://stusaurus.github.io/food-cost-jp/categories/pack-rice/"}]}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "ItemList", "name": "パックご飯のコスパ比較", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "＼ポイント5倍☆彡〜11日迄／【公式】 パックご飯 180g ×80食 レトルトご飯 パックごはん 備蓄用 米 お米 ひとり暮らし 非常食 防災 仕送り ご飯 低温製法米", "url": "https://hb.afl.rakuten.co.jp/hgc/g00t3zto.7cx6m5be.g00t3zto.7cx6n748/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Firisplaza-r%2F310489%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Firisplaza-r%2Fi%2F10105218%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5"}, {"@type": "ListItem", "position": 2, "name": "≪ポイント7倍★11日9:59迄≫米 パックご飯 180g ×80食 大容量 ご飯パック パックごはん レトルトご飯 パック米 パックライス パック 備蓄 米 ご飯 米 お米 白米 非常食 防災 保存食 低温製法米のおいしいごはん アイリスオーヤマ アイリスフーズ こめ", "url": "https://hb.afl.rakuten.co.jp/hgc/g00qhoao.7cx6m91b.g00qhoao.7cx6n00f/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fkurashikenkou%2F310489%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fkurashikenkou%2Fi%2F10180939%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5"}, {"@type": "ListItem", "position": 3, "name": "パックご飯 180g×80食パック アイリスオーヤマ 国産米 レトルトご飯 パックごはんレトルトごはん 備蓄用 防災 常温保存可 保存食 非常食 一人暮らし 仕送り 低温製法米のおいしいごはん アイリスフーズ", "url": "https://hb.afl.rakuten.co.jp/hgc/g00pjh9o.7cx6mb80.g00pjh9o.7cx6n412/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Funidy%2F310489%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Funidy%2Fi%2F11096473%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5"}, {"@type": "ListItem", "position": 4, "name": "パックご飯 米 180g×80食パック アイリスオーヤマ 国産米 レトルトご飯 パックごはんレトルトごはん 備蓄用 防災 常温保存可 保存食 非常食 一人暮らし 仕送り 低温製法米のおいしいごはん アイリスフーズ", "url": "https://hb.afl.rakuten.co.jp/hgc/g00tux1o.7cx6mb61.g00tux1o.7cx6n3ef/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fs-kodawari%2F310489%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fs-kodawari%2Fi%2F10003573%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5"}, {"@type": "ListItem", "position": 5, "name": "＼ポイント5倍☆彡〜11日迄／【公式】 パックご飯 180g ×40食 レトルトご飯 パックごはん 備蓄用 アイリスオーヤマ 米 お米 ひとり暮らし 非常食 防災 仕送り ご飯 低温製法米 低温製法米のおいしいごはん", "url": "https://hb.afl.rakuten.co.jp/hgc/g00t3zto.7cx6m5be.g00t3zto.7cx6n748/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Firisplaza-r%2F1901913%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Firisplaza-r%2Fi%2F10000903%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5"}, {"@type": "ListItem", "position": 6, "name": "パックご飯 米 180g×40食パック アイリスオーヤマ 国産米 180g 40食 レトルトご飯 レトルトごはん パックごはん 防災 常温保存可 保存食 非常食 一人暮らし 仕送り 大容量 アイリスフーズ", "url": "https://hb.afl.rakuten.co.jp/hgc/g00tux1o.7cx6mb61.g00tux1o.7cx6n3ef/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fs-kodawari%2F1901913-cp%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fs-kodawari%2Fi%2F10004173%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5"}, {"@type": "ListItem", "position": 7, "name": "≪ポイント7倍★11日9:59迄≫米 パックご飯 200g ×80食 大容量 ご飯パック パックごはん レトルトご飯 パック米 パック 備蓄 米 ご飯 お米 白米 防災 保存食 仕送り 常温保存可 低温製法米のおいしいごはん アイリスオーヤマ アイリスフーズ こめ", "url": "https://hb.afl.rakuten.co.jp/hgc/g00qhoao.7cx6m91b.g00qhoao.7cx6n00f/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fkurashikenkou%2F1918346%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fkurashikenkou%2Fi%2F10219255%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5"}, {"@type": "ListItem", "position": 8, "name": "パックご飯 200g ×80食 大容量 ご飯パック パックごはん レトルトご飯 パック米 パックライス パック ご飯 米 お米 白米 備蓄 非常食 防災 保存食 仕送り 常温保存可 低温製法米のおいしいごはん アイリスオーヤマ", "url": "https://hb.afl.rakuten.co.jp/hgc/g00pr3yo.7cx6mafa.g00pr3yo.7cx6n654/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Frack-kan%2F1918346%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Frack-kan%2Fi%2F10117025%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5"}, {"@type": "ListItem", "position": 9, "name": "パックごはん180g×24食 サキホコレ 秋田県大潟村産 特別栽培米 パックライス パックご飯 送料無料※沖縄・離島別途", "url": "https://hb.afl.rakuten.co.jp/hgc/g00uuojo.7cx6mc6a.g00uuojo.7cx6n959/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fnouyu%2Fkomachinofurusato4%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fnouyu%2Fi%2F10000005%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5"}, {"@type": "ListItem", "position": 10, "name": "米 パックご飯 200g ×30食 ご飯パック パックごはん レトルトご飯 パック米 パックライス パック 備蓄 米 ご飯 米 お米 白米 非常食 防災 保存食 仕送り 常温保存可 キャンプ 低温製法米のおいしいごはん アイリスオーヤマ こめ", "url": "https://hb.afl.rakuten.co.jp/hgc/g00qhoao.7cx6m91b.g00qhoao.7cx6n00f/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fkurashikenkou%2F1919146%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fkurashikenkou%2Fi%2F10219256%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5"}]}</script>
 </head><body>
 <div class="market-masthead"><div class="wrap"><a class="market-logo" href="https://stusaurus.github.io/food-cost-jp/"><b>Food Cost<em>EVERYDAY MARCHÉ</em></b><span>食品コスパ比較</span></a><small>GOOD FOOD. SMART CHOICES.</small></div></div><header><div class="wrap hero-layout">
 <div>
@@ -253,7 +266,7 @@ gtag('config','G-GFVSZ8YDQ5',{site_id:'food_cost_jp',operator_test:window.foodCo
 <h1>パックご飯を<br>1食あたりで比較。</h1>
 <p class="lead">食数と内容量をそろえ、24食・40食などの箱違いを公平に比較します。</p>
 <div class="hero-tags"><span class="hero-tag">送料込みを優先</span><span class="hero-tag">数量曖昧は除外</span><span class="hero-tag">クーポン未反映</span></div>
-<p class="note">最終価格確認: 2026-11-04 08:32 JST。最新価格は販売ページで確認してください。</p>
+<p class="note">最終価格確認: 2026-11-04 20:26 JST。最新価格は販売ページで確認してください。</p>
 </div>
 <div class="category-hero-art pack-rice"><div class="category-vignette" data-category-visual="pack-rice">
 <div class="category-vignette-media"><img class="food-art" src="https://stusaurus.github.io/food-cost-jp/assets/marche-pack-rice.webp" width="768" height="512" alt="" loading="lazy"></div>
@@ -270,7 +283,7 @@ gtag('config','G-GFVSZ8YDQ5',{site_id:'food_cost_jp',operator_test:window.foodCo
 <main class="wrap"><section class="summary" aria-label="比較サマリー">
 <div class="summary-grid">
 <div class="summary-item"><div class="summary-k">掲載内の送料込み最安</div><div class="summary-v">¥131</div><div class="fine">1食あたり</div></div>
-<div class="summary-item"><div class="summary-k">送料込み掲載</div><div class="summary-v">21件</div></div>
+<div class="summary-item"><div class="summary-k">送料込み掲載</div><div class="summary-v">18件</div></div>
 <div class="summary-item"><div class="summary-k">送料別参考</div><div class="summary-v">2件</div></div>
 </div></section><section class="journey-strip" aria-label="商品の選び方">
 <div><span>1</span><strong>候補を見る</strong><small>単価と総額を確認</small></div>
@@ -300,7 +313,7 @@ gtag('config','G-GFVSZ8YDQ5',{site_id:'food_cost_jp',operator_test:window.foodCo
 <div class="podium-badges"><span class="tag best">最安候補</span> <span class="tag lifestyle">まとめ買い向き</span></div>
 <div class="podium-media"><img class="podium-img" src="https://thumbnail.image.rakuten.co.jp/@0_mall/irisplaza-r/cabinet/11073544/12380730/imgrc0112473666.jpg?_ex=640x640" data-image-fallback="https://thumbnail.image.rakuten.co.jp/@0_mall/irisplaza-r/cabinet/11073544/12380730/imgrc0112473666.jpg?_ex=128x128" alt="" width="320" height="320" loading="lazy"></div>
 <div class="identity-line"><span class="spec-chip">合計14.4kg / 80食</span></div>
-<strong class="podium-name" title="【公式】 パックご飯 180g ×80食 レトルトご飯 パックごはん 備蓄用 米 お米 ひとり暮らし 非常食 防災 仕送り ご飯 低温製法米">公式 パックご飯 180g ×80食 レトルトご飯 パックごはん 備蓄用 米 お米 ひとり暮らし 非常食 防災 仕送り ご飯…</strong>
+<strong class="podium-name" title="＼ポイント5倍☆彡〜11日迄／【公式】 パックご飯 180g ×80食 レトルトご飯 パックごはん 備蓄用 米 お米 ひとり暮らし 非常食 防災 仕送り ご飯 低温製法米">＼ポイント5倍☆彡〜11日迄 公式 パックご飯 180g ×80食 レトルトご飯 パックごはん 備蓄用 米 お米 ひとり暮らし…</strong>
 <div class="podium-unit">¥131</div>
 <div class="podium-label">1食あたり</div>
 
@@ -343,19 +356,19 @@ gtag('config','G-GFVSZ8YDQ5',{site_id:'food_cost_jp',operator_test:window.foodCo
 </div></div>
 </details>
 <div class="product-actions">
-<button type="button" class="utility-btn" data-save-product data-product-id="irisplaza-r:10105218" data-product-name="【公式】 パックご飯 180g ×80食 レトルトご飯 パックごはん 備蓄用 米 お米 ひとり暮らし 非常食 防災 仕送り ご飯 低温製法米" data-product-category="pack-rice" data-product-category-name="パックご飯" data-product-price="10480" data-product-unit="131.000000" data-product-unit-label="1食あたり" data-product-metric="per_serving" data-product-shipping="included" data-product-signal="相場圏" data-product-signal-tone="neutral" data-product-quantity="合計14.4kg / 80食" data-product-url="https://hb.afl.rakuten.co.jp/hgc/g00t3zto.7cx6m5be.g00t3zto.7cx6n748/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Firisplaza-r%2F310489%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Firisplaza-r%2Fi%2F10105218%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" data-product-image="https://thumbnail.image.rakuten.co.jp/@0_mall/irisplaza-r/cabinet/11073544/12380730/imgrc0112473666.jpg?_ex=128x128">＋ 買い物メモ</button>
-<button type="button" class="utility-btn" data-compare-product data-product-id="irisplaza-r:10105218" data-product-name="【公式】 パックご飯 180g ×80食 レトルトご飯 パックごはん 備蓄用 米 お米 ひとり暮らし 非常食 防災 仕送り ご飯 低温製法米" data-product-category="pack-rice" data-product-category-name="パックご飯" data-product-price="10480" data-product-unit="131.000000" data-product-unit-label="1食あたり" data-product-metric="per_serving" data-product-shipping="included" data-product-signal="相場圏" data-product-signal-tone="neutral" data-product-quantity="合計14.4kg / 80食" data-product-url="https://hb.afl.rakuten.co.jp/hgc/g00t3zto.7cx6m5be.g00t3zto.7cx6n748/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Firisplaza-r%2F310489%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Firisplaza-r%2Fi%2F10105218%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" data-product-image="https://thumbnail.image.rakuten.co.jp/@0_mall/irisplaza-r/cabinet/11073544/12380730/imgrc0112473666.jpg?_ex=128x128">＋ 比較する</button>
+<button type="button" class="utility-btn" data-save-product data-product-id="irisplaza-r:10105218" data-product-name="＼ポイント5倍☆彡〜11日迄／【公式】 パックご飯 180g ×80食 レトルトご飯 パックごはん 備蓄用 米 お米 ひとり暮らし 非常食 防災 仕送り ご飯 低温製法米" data-product-category="pack-rice" data-product-category-name="パックご飯" data-product-price="10480" data-product-unit="131.000000" data-product-unit-label="1食あたり" data-product-metric="per_serving" data-product-shipping="included" data-product-signal="相場圏" data-product-signal-tone="neutral" data-product-quantity="合計14.4kg / 80食" data-product-url="https://hb.afl.rakuten.co.jp/hgc/g00t3zto.7cx6m5be.g00t3zto.7cx6n748/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Firisplaza-r%2F310489%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Firisplaza-r%2Fi%2F10105218%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" data-product-image="https://thumbnail.image.rakuten.co.jp/@0_mall/irisplaza-r/cabinet/11073544/12380730/imgrc0112473666.jpg?_ex=128x128">＋ 買い物メモ</button>
+<button type="button" class="utility-btn" data-compare-product data-product-id="irisplaza-r:10105218" data-product-name="＼ポイント5倍☆彡〜11日迄／【公式】 パックご飯 180g ×80食 レトルトご飯 パックごはん 備蓄用 米 お米 ひとり暮らし 非常食 防災 仕送り ご飯 低温製法米" data-product-category="pack-rice" data-product-category-name="パックご飯" data-product-price="10480" data-product-unit="131.000000" data-product-unit-label="1食あたり" data-product-metric="per_serving" data-product-shipping="included" data-product-signal="相場圏" data-product-signal-tone="neutral" data-product-quantity="合計14.4kg / 80食" data-product-url="https://hb.afl.rakuten.co.jp/hgc/g00t3zto.7cx6m5be.g00t3zto.7cx6n748/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Firisplaza-r%2F310489%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Firisplaza-r%2Fi%2F10105218%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" data-product-image="https://thumbnail.image.rakuten.co.jp/@0_mall/irisplaza-r/cabinet/11073544/12380730/imgrc0112473666.jpg?_ex=128x128">＋ 比較する</button>
 </div>
 <a class="cta podium-cta" href="https://hb.afl.rakuten.co.jp/hgc/g00t3zto.7cx6m5be.g00t3zto.7cx6n748/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Firisplaza-r%2F310489%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Firisplaza-r%2Fi%2F10105218%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" target="_blank" rel="nofollow sponsored noopener"
  data-affiliate="rakuten" data-position="top3_card" data-category="pack-rice" data-product-id="irisplaza-r:10105218"
- data-product-name="【公式】 パックご飯 180g ×80食 レトルトご飯 パックごはん 備蓄用 米 お米 ひとり暮らし 非常食 防災 仕送り ご飯 低温製法米" data-rank="1" data-metric="per_serving"
+ data-product-name="＼ポイント5倍☆彡〜11日迄／【公式】 パックご飯 180g ×80食 レトルトご飯 パックごはん 備蓄用 米 お米 ひとり暮らし 非常食 防災 仕送り ご飯 低温製法米" data-rank="1" data-metric="per_serving"
  data-unit-price="131.000000" data-shipping="included" data-cta-variant="rank1">最安候補を楽天で確認 →</a>
 </article><article class="podium-card rank-2">
 <div class="podium-head"><span class="podium-medal">02</span><span>2位</span></div>
 <div class="podium-badges"><span class="tag top-badge">TOP3</span> <span class="tag lifestyle">まとめ買い向き</span></div>
 <div class="podium-media"><img class="podium-img" src="https://thumbnail.image.rakuten.co.jp/@0_mall/kurashikenkou/cabinet/jisyakura/310489.jpg?_ex=640x640" data-image-fallback="https://thumbnail.image.rakuten.co.jp/@0_mall/kurashikenkou/cabinet/jisyakura/310489.jpg?_ex=128x128" alt="" width="320" height="320" loading="lazy"></div>
 <div class="identity-line"><span class="brand-chip">アイリスオーヤマ</span><span class="spec-chip">合計14.4kg / 80食</span></div>
-<strong class="podium-name" title="米 パックご飯 180g ×80食 大容量 ご飯パック パックごはん レトルトご飯 パック米 パックライス パック 備蓄 米 ご飯 米 お米 白米 非常食 防災 保存食 低温製法米のおいしいごはん アイリスオーヤマ アイリスフーズ こめ">米 パックご飯 180g ×80食 大容量 ご飯パック パックごはん レトルトご飯 パック米 パックライス パック 備蓄 米…</strong>
+<strong class="podium-name" title="≪ポイント7倍★11日9:59迄≫米 パックご飯 180g ×80食 大容量 ご飯パック パックごはん レトルトご飯 パック米 パックライス パック 備蓄 米 ご飯 米 お米 白米 非常食 防災 保存食 低温製法米のおいしいごはん アイリスオーヤマ アイリスフーズ こめ">≪ポイント7倍★11日9:59迄≫米 パックご飯 180g ×80食 大容量 ご飯パック パックごはん レトルトご飯 パック米…</strong>
 <div class="podium-unit">¥131</div>
 <div class="podium-label">1食あたり</div>
 
@@ -398,12 +411,12 @@ gtag('config','G-GFVSZ8YDQ5',{site_id:'food_cost_jp',operator_test:window.foodCo
 </div></div>
 </details>
 <div class="product-actions">
-<button type="button" class="utility-btn" data-save-product data-product-id="kurashikenkou:10180939" data-product-name="米 パックご飯 180g ×80食 大容量 ご飯パック パックごはん レトルトご飯 パック米 パックライス パック 備蓄 米 ご飯 米 お米 白米 非常食 防災 保存食 低温製法米のおいしいごはん アイリスオーヤマ アイリスフーズ こめ" data-product-category="pack-rice" data-product-category-name="パックご飯" data-product-price="10480" data-product-unit="131.000000" data-product-unit-label="1食あたり" data-product-metric="per_serving" data-product-shipping="included" data-product-signal="相場圏" data-product-signal-tone="neutral" data-product-quantity="合計14.4kg / 80食" data-product-url="https://hb.afl.rakuten.co.jp/hgc/g00qhoao.7cx6m91b.g00qhoao.7cx6n00f/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fkurashikenkou%2F310489%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Fkurashikenkou%2Fi%2F10180939%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" data-product-image="https://thumbnail.image.rakuten.co.jp/@0_mall/kurashikenkou/cabinet/jisyakura/310489.jpg?_ex=128x128">＋ 買い物メモ</button>
-<button type="button" class="utility-btn" data-compare-product data-product-id="kurashikenkou:10180939" data-product-name="米 パックご飯 180g ×80食 大容量 ご飯パック パックごはん レトルトご飯 パック米 パックライス パック 備蓄 米 ご飯 米 お米 白米 非常食 防災 保存食 低温製法米のおいしいごはん アイリスオーヤマ アイリスフーズ こめ" data-product-category="pack-rice" data-product-category-name="パックご飯" data-product-price="10480" data-product-unit="131.000000" data-product-unit-label="1食あたり" data-product-metric="per_serving" data-product-shipping="included" data-product-signal="相場圏" data-product-signal-tone="neutral" data-product-quantity="合計14.4kg / 80食" data-product-url="https://hb.afl.rakuten.co.jp/hgc/g00qhoao.7cx6m91b.g00qhoao.7cx6n00f/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fkurashikenkou%2F310489%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Fkurashikenkou%2Fi%2F10180939%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" data-product-image="https://thumbnail.image.rakuten.co.jp/@0_mall/kurashikenkou/cabinet/jisyakura/310489.jpg?_ex=128x128">＋ 比較する</button>
+<button type="button" class="utility-btn" data-save-product data-product-id="kurashikenkou:10180939" data-product-name="≪ポイント7倍★11日9:59迄≫米 パックご飯 180g ×80食 大容量 ご飯パック パックごはん レトルトご飯 パック米 パックライス パック 備蓄 米 ご飯 米 お米 白米 非常食 防災 保存食 低温製法米のおいしいごはん アイリスオーヤマ アイリスフーズ こめ" data-product-category="pack-rice" data-product-category-name="パックご飯" data-product-price="10480" data-product-unit="131.000000" data-product-unit-label="1食あたり" data-product-metric="per_serving" data-product-shipping="included" data-product-signal="相場圏" data-product-signal-tone="neutral" data-product-quantity="合計14.4kg / 80食" data-product-url="https://hb.afl.rakuten.co.jp/hgc/g00qhoao.7cx6m91b.g00qhoao.7cx6n00f/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fkurashikenkou%2F310489%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Fkurashikenkou%2Fi%2F10180939%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" data-product-image="https://thumbnail.image.rakuten.co.jp/@0_mall/kurashikenkou/cabinet/jisyakura/310489.jpg?_ex=128x128">＋ 買い物メモ</button>
+<button type="button" class="utility-btn" data-compare-product data-product-id="kurashikenkou:10180939" data-product-name="≪ポイント7倍★11日9:59迄≫米 パックご飯 180g ×80食 大容量 ご飯パック パックごはん レトルトご飯 パック米 パックライス パック 備蓄 米 ご飯 米 お米 白米 非常食 防災 保存食 低温製法米のおいしいごはん アイリスオーヤマ アイリスフーズ こめ" data-product-category="pack-rice" data-product-category-name="パックご飯" data-product-price="10480" data-product-unit="131.000000" data-product-unit-label="1食あたり" data-product-metric="per_serving" data-product-shipping="included" data-product-signal="相場圏" data-product-signal-tone="neutral" data-product-quantity="合計14.4kg / 80食" data-product-url="https://hb.afl.rakuten.co.jp/hgc/g00qhoao.7cx6m91b.g00qhoao.7cx6n00f/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fkurashikenkou%2F310489%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Fkurashikenkou%2Fi%2F10180939%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" data-product-image="https://thumbnail.image.rakuten.co.jp/@0_mall/kurashikenkou/cabinet/jisyakura/310489.jpg?_ex=128x128">＋ 比較する</button>
 </div>
 <a class="cta podium-cta" href="https://hb.afl.rakuten.co.jp/hgc/g00qhoao.7cx6m91b.g00qhoao.7cx6n00f/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fkurashikenkou%2F310489%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Fkurashikenkou%2Fi%2F10180939%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" target="_blank" rel="nofollow sponsored noopener"
  data-affiliate="rakuten" data-position="top3_card" data-category="pack-rice" data-product-id="kurashikenkou:10180939"
- data-product-name="米 パックご飯 180g ×80食 大容量 ご飯パック パックごはん レトルトご飯 パック米 パックライス パック 備蓄 米 ご飯 米 お米 白米 非常食 防災 保存食 低温製法米のおいしいごはん アイリスオーヤマ アイリスフーズ こめ" data-rank="2" data-metric="per_serving"
+ data-product-name="≪ポイント7倍★11日9:59迄≫米 パックご飯 180g ×80食 大容量 ご飯パック パックごはん レトルトご飯 パック米 パックライス パック 備蓄 米 ご飯 米 お米 白米 非常食 防災 保存食 低温製法米のおいしいごはん アイリスオーヤマ アイリスフーズ こめ" data-rank="2" data-metric="per_serving"
  data-unit-price="131.000000" data-shipping="included" data-cta-variant="standard">楽天で価格を確認 →</a>
 </article><article class="podium-card rank-3">
 <div class="podium-head"><span class="podium-medal">03</span><span>3位</span></div>
@@ -462,9 +475,9 @@ gtag('config','G-GFVSZ8YDQ5',{site_id:'food_cost_jp',operator_test:window.foodCo
  data-unit-price="131.000000" data-shipping="included" data-cta-variant="standard">楽天で価格を確認 →</a>
 </article></div>
 </section></div><div class="after-top3"><details class="more-products" data-more-products>
-<summary>4位以下を見る（18件） <span>＋</span></summary>
+<summary>4位以下を見る（15件） <span>＋</span></summary>
 <section class="comparison-inner" data-comparison data-start-rank="4">
-<h2>4位以下を見る（18件）</h2>
+<h2>4位以下を見る（15件）</h2>
 <p class="sub">必要なときだけ開いて、検索・並び替え・容量条件で絞り込めます。</p>
 <div class="toolbar">
 <input type="search" data-search data-category="pack-rice" placeholder="商品名・ショップ名で絞る" aria-label="パックご飯の商品名・ショップ名で絞る">
@@ -478,11 +491,60 @@ gtag('config','G-GFVSZ8YDQ5',{site_id:'food_cost_jp',operator_test:window.foodCo
 <p class="sub" data-intent-note></p><div class="empty-filter" data-empty-filter>条件に合う商品がありません。検索語や容量条件を変えてください。</div>
 <div class="table"><table>
 <thead><tr><th>順</th><th></th><th>商品</th><th>数量</th><th>商品価格</th><th>単価</th><th>販売先</th></tr></thead>
-<tbody><tr data-bucket="large" data-shopping-bucket="large" data-search-text="【公式】 パックご飯 180g ×40食 レトルトご飯 パックごはん 備蓄用 アイリスオーヤマ 米 お米 ひとり暮らし 非常食 防災 仕送り ご飯 低温製法米 低温製法米のおいしいごはん アイリスオーヤマ公式 楽天市場店" data-price="5580" data-per_serving="139.500000" data-per_100g="77.500000">
+<tbody><tr data-bucket="large" data-shopping-bucket="large" data-search-text="パックご飯 米 180g×80食パック アイリスオーヤマ 国産米 レトルトご飯 パックごはんレトルトごはん 備蓄用 防災 常温保存可 保存食 非常食 一人暮らし 仕送り 低温製法米のおいしいごはん アイリスフーズ 食のこだわり総本舗 食彩館" data-price="10800" data-per_serving="135.000000" data-per_100g="75.000000">
 <td data-cell="rank" data-rank><span class="rank">4</span></td>
+<td data-cell="image"><img class="product-img" src="https://thumbnail.image.rakuten.co.jp/@0_mall/s-kodawari/cabinet/web01/310489.jpg?_ex=128x128" alt="" width="72" height="72" loading="lazy"></td>
+<td data-cell="product"><div class="identity-line"><span class="brand-chip">アイリスオーヤマ</span><span class="spec-chip">合計14.4kg / 80食</span></div>
+<strong class="product-name" title="パックご飯 米 180g×80食パック アイリスオーヤマ 国産米 レトルトご飯 パックごはんレトルトごはん 備蓄用 防災 常温保存可 保存食 非常食 一人暮らし 仕送り 低温製法米のおいしいごはん アイリスフーズ">パックご飯 米 180g×80食パック 国産米 レトルトご飯 パックごはんレトルトごはん 備蓄用 防災 常温保存可 保存食…</strong><div class="shop">食のこだわり総本舗 食彩館</div><div class="product-badges"><span class="tag lifestyle">まとめ買い向き</span> <span class="tag ok">送料込み</span> </div><div class="trend-row"><span class="trend-badge drop">↓ ¥1,000 昨日比</span><span class="trend-badge low">記録内最安</span></div><details class="product-extra" data-product-extra>
+<summary>価格のうごきを見る <span>＋</span></summary>
+<div class="product-extra-body"><div class="history-card" data-history-card>
+<div class="history-head"><strong>価格履歴</strong><span>33回取得</span></div>
+<div class="history-toolbar"><div class="history-tabs">
+<button type="button" class="selected" data-history-range="7日">7日</button>
+<button type="button" data-history-range="30日">30日</button>
+</div><span class="history-trend down">最近下落</span></div>
+<div class="history-range-panel" data-history-panel="7日">
+<div class="history-stats history-stats-4">
+<div><span>現在</span><b>¥135</b></div>
+<div><span>最安</span><b>¥135</b><small>11/04</small></div>
+<div><span>最高</span><b>¥148</b><small>10/28</small></div>
+<div><span>値幅</span><b>¥12.5</b></div>
+</div>
+<svg class="sparkline buy" viewBox="0 0 180 64" role="img" aria-label="7日価格推移">
+<line x1="6" y1="58" x2="174" y2="58" class="spark-grid"/>
+<polyline points="6.0,6.0 30.0,6.0 54.0,6.0 78.0,6.0 102.0,6.0 126.0,6.0 150.0,6.0 174.0,58.0" fill="none" vector-effect="non-scaling-stroke"/>
+<circle cx="174.0" cy="58.0" r="3.2"/>
+</svg></div><div class="history-range-panel" data-history-panel="30日" hidden>
+<div class="history-stats history-stats-4">
+<div><span>現在</span><b>¥135</b></div>
+<div><span>最安</span><b>¥135</b><small>10/05</small></div>
+<div><span>最高</span><b>¥148</b><small>10/10</small></div>
+<div><span>値幅</span><b>¥12.5</b></div>
+</div>
+<svg class="sparkline buy" viewBox="0 0 180 64" role="img" aria-label="30日価格推移">
+<line x1="6" y1="58" x2="174" y2="58" class="spark-grid"/>
+<polyline points="6.0,58.0 12.2,58.0 18.4,58.0 24.7,6.0 30.9,6.0 37.1,6.0 43.3,6.0 49.6,6.0 55.8,6.0 62.0,6.0 68.2,6.0 74.4,6.0 80.7,6.0 86.9,6.0 93.1,6.0 99.3,58.0 105.6,58.0 111.8,58.0 118.0,58.0 124.2,58.0 130.4,6.0 136.7,6.0 142.9,6.0 149.1,6.0 155.3,6.0 161.6,6.0 167.8,6.0 174.0,58.0" fill="none" vector-effect="non-scaling-stroke"/>
+<circle cx="174.0" cy="58.0" r="3.2"/>
+</svg></div>
+</div><div class="buy-signal buy">
+<span>買い時寄り</span><small>値下がりし、30日内の最安水準です。</small>
+</div></div>
+</details></td>
+<td data-cell="quantity">合計14.4kg / 80食</td>
+<td data-cell="price">¥10,800</td>
+<td data-cell="unit"><div class="unit">¥135</div><div class="unit-label">1食あたり</div><div class="secondary-unit">100gあたり ¥75.0</div></td>
+<td data-cell="cta"><div class="product-actions">
+<button type="button" class="utility-btn" data-save-product data-product-id="s-kodawari:10003573" data-product-name="パックご飯 米 180g×80食パック アイリスオーヤマ 国産米 レトルトご飯 パックごはんレトルトごはん 備蓄用 防災 常温保存可 保存食 非常食 一人暮らし 仕送り 低温製法米のおいしいごはん アイリスフーズ" data-product-category="pack-rice" data-product-category-name="パックご飯" data-product-price="10800" data-product-unit="135.000000" data-product-unit-label="1食あたり" data-product-metric="per_serving" data-product-shipping="included" data-product-signal="買い時寄り" data-product-signal-tone="buy" data-product-quantity="合計14.4kg / 80食" data-product-url="https://hb.afl.rakuten.co.jp/hgc/g00tux1o.7cx6mb61.g00tux1o.7cx6n3ef/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fs-kodawari%2F310489%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Fs-kodawari%2Fi%2F10003573%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" data-product-image="https://thumbnail.image.rakuten.co.jp/@0_mall/s-kodawari/cabinet/web01/310489.jpg?_ex=128x128">＋ 買い物メモ</button>
+<button type="button" class="utility-btn" data-compare-product data-product-id="s-kodawari:10003573" data-product-name="パックご飯 米 180g×80食パック アイリスオーヤマ 国産米 レトルトご飯 パックごはんレトルトごはん 備蓄用 防災 常温保存可 保存食 非常食 一人暮らし 仕送り 低温製法米のおいしいごはん アイリスフーズ" data-product-category="pack-rice" data-product-category-name="パックご飯" data-product-price="10800" data-product-unit="135.000000" data-product-unit-label="1食あたり" data-product-metric="per_serving" data-product-shipping="included" data-product-signal="買い時寄り" data-product-signal-tone="buy" data-product-quantity="合計14.4kg / 80食" data-product-url="https://hb.afl.rakuten.co.jp/hgc/g00tux1o.7cx6mb61.g00tux1o.7cx6n3ef/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fs-kodawari%2F310489%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Fs-kodawari%2Fi%2F10003573%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" data-product-image="https://thumbnail.image.rakuten.co.jp/@0_mall/s-kodawari/cabinet/web01/310489.jpg?_ex=128x128">＋ 比較する</button>
+</div><a class="cta" href="https://hb.afl.rakuten.co.jp/hgc/g00tux1o.7cx6mb61.g00tux1o.7cx6n3ef/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fs-kodawari%2F310489%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Fs-kodawari%2Fi%2F10003573%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" target="_blank" rel="nofollow sponsored noopener"
+ data-affiliate="rakuten" data-position="comparison_table" data-category="pack-rice" data-product-id="s-kodawari:10003573"
+ data-product-name="パックご飯 米 180g×80食パック アイリスオーヤマ 国産米 レトルトご飯 パックごはんレトルトごはん 備蓄用 防災 常温保存可 保存食 非常食 一人暮らし 仕送り 低温製法米のおいしいごはん アイリスフーズ" data-rank="4" data-metric="per_serving"
+ data-unit-price="135.000000" data-shipping="included" data-cta-variant="history_low">記録内最安を楽天で確認 →</a></td>
+</tr><tr data-bucket="large" data-shopping-bucket="large" data-search-text="＼ポイント5倍☆彡〜11日迄／【公式】 パックご飯 180g ×40食 レトルトご飯 パックごはん 備蓄用 アイリスオーヤマ 米 お米 ひとり暮らし 非常食 防災 仕送り ご飯 低温製法米 低温製法米のおいしいごはん アイリスオーヤマ公式 楽天市場店" data-price="5580" data-per_serving="139.500000" data-per_100g="77.500000">
+<td data-cell="rank" data-rank><span class="rank">5</span></td>
 <td data-cell="image"><img class="product-img" src="https://thumbnail.image.rakuten.co.jp/@0_mall/irisplaza-r/cabinet/12351902/imgrc0123303071.jpg?_ex=128x128" alt="" width="72" height="72" loading="lazy"></td>
 <td data-cell="product"><div class="identity-line"><span class="brand-chip">アイリスオーヤマ</span><span class="spec-chip">合計7.2kg / 40食</span></div>
-<strong class="product-name" title="【公式】 パックご飯 180g ×40食 レトルトご飯 パックごはん 備蓄用 アイリスオーヤマ 米 お米 ひとり暮らし 非常食 防災 仕送り ご飯 低温製法米 低温製法米のおいしいごはん">公式 パックご飯 180g ×40食 レトルトご飯 パックごはん 備蓄用 米 お米 ひとり暮らし 非常食 防災 仕送り ご飯…</strong><div class="shop">アイリスオーヤマ公式 楽天市場店</div><div class="product-badges"><span class="tag lifestyle">まとめ買い向き</span> <span class="tag ok">送料込み</span> </div><div class="trend-row"><span class="trend-badge low">記録内最安</span></div><details class="product-extra" data-product-extra>
+<strong class="product-name" title="＼ポイント5倍☆彡〜11日迄／【公式】 パックご飯 180g ×40食 レトルトご飯 パックごはん 備蓄用 アイリスオーヤマ 米 お米 ひとり暮らし 非常食 防災 仕送り ご飯 低温製法米 低温製法米のおいしいごはん">＼ポイント5倍☆彡〜11日迄 公式 パックご飯 180g ×40食 レトルトご飯 パックごはん 備蓄用 米 お米 ひとり暮らし…</strong><div class="shop">アイリスオーヤマ公式 楽天市場店</div><div class="product-badges"><span class="tag lifestyle">まとめ買い向き</span> <span class="tag ok">送料込み</span> <span class="tag warn">セール/クーポン表記</span></div><div class="trend-row"><span class="trend-badge low">記録内最安</span></div><details class="product-extra" data-product-extra>
 <summary>価格のうごきを見る <span>＋</span></summary>
 <div class="product-extra-body"><div class="history-card" data-history-card>
 <div class="history-head"><strong>価格履歴</strong><span>36回取得</span></div>
@@ -521,14 +583,14 @@ gtag('config','G-GFVSZ8YDQ5',{site_id:'food_cost_jp',operator_test:window.foodCo
 <td data-cell="price">¥5,580</td>
 <td data-cell="unit"><div class="unit">¥140</div><div class="unit-label">1食あたり</div><div class="secondary-unit">100gあたり ¥77.5</div></td>
 <td data-cell="cta"><div class="product-actions">
-<button type="button" class="utility-btn" data-save-product data-product-id="irisplaza-r:10000903" data-product-name="【公式】 パックご飯 180g ×40食 レトルトご飯 パックごはん 備蓄用 アイリスオーヤマ 米 お米 ひとり暮らし 非常食 防災 仕送り ご飯 低温製法米 低温製法米のおいしいごはん" data-product-category="pack-rice" data-product-category-name="パックご飯" data-product-price="5580" data-product-unit="139.500000" data-product-unit-label="1食あたり" data-product-metric="per_serving" data-product-shipping="included" data-product-signal="相場圏" data-product-signal-tone="neutral" data-product-quantity="合計7.2kg / 40食" data-product-url="https://hb.afl.rakuten.co.jp/hgc/g00t3zto.7cx6m5be.g00t3zto.7cx6n748/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Firisplaza-r%2F1901913%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Firisplaza-r%2Fi%2F10000903%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" data-product-image="https://thumbnail.image.rakuten.co.jp/@0_mall/irisplaza-r/cabinet/12351902/imgrc0123303071.jpg?_ex=128x128">＋ 買い物メモ</button>
-<button type="button" class="utility-btn" data-compare-product data-product-id="irisplaza-r:10000903" data-product-name="【公式】 パックご飯 180g ×40食 レトルトご飯 パックごはん 備蓄用 アイリスオーヤマ 米 お米 ひとり暮らし 非常食 防災 仕送り ご飯 低温製法米 低温製法米のおいしいごはん" data-product-category="pack-rice" data-product-category-name="パックご飯" data-product-price="5580" data-product-unit="139.500000" data-product-unit-label="1食あたり" data-product-metric="per_serving" data-product-shipping="included" data-product-signal="相場圏" data-product-signal-tone="neutral" data-product-quantity="合計7.2kg / 40食" data-product-url="https://hb.afl.rakuten.co.jp/hgc/g00t3zto.7cx6m5be.g00t3zto.7cx6n748/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Firisplaza-r%2F1901913%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Firisplaza-r%2Fi%2F10000903%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" data-product-image="https://thumbnail.image.rakuten.co.jp/@0_mall/irisplaza-r/cabinet/12351902/imgrc0123303071.jpg?_ex=128x128">＋ 比較する</button>
+<button type="button" class="utility-btn" data-save-product data-product-id="irisplaza-r:10000903" data-product-name="＼ポイント5倍☆彡〜11日迄／【公式】 パックご飯 180g ×40食 レトルトご飯 パックごはん 備蓄用 アイリスオーヤマ 米 お米 ひとり暮らし 非常食 防災 仕送り ご飯 低温製法米 低温製法米のおいしいごはん" data-product-category="pack-rice" data-product-category-name="パックご飯" data-product-price="5580" data-product-unit="139.500000" data-product-unit-label="1食あたり" data-product-metric="per_serving" data-product-shipping="included" data-product-signal="相場圏" data-product-signal-tone="neutral" data-product-quantity="合計7.2kg / 40食" data-product-url="https://hb.afl.rakuten.co.jp/hgc/g00t3zto.7cx6m5be.g00t3zto.7cx6n748/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Firisplaza-r%2F1901913%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Firisplaza-r%2Fi%2F10000903%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" data-product-image="https://thumbnail.image.rakuten.co.jp/@0_mall/irisplaza-r/cabinet/12351902/imgrc0123303071.jpg?_ex=128x128">＋ 買い物メモ</button>
+<button type="button" class="utility-btn" data-compare-product data-product-id="irisplaza-r:10000903" data-product-name="＼ポイント5倍☆彡〜11日迄／【公式】 パックご飯 180g ×40食 レトルトご飯 パックごはん 備蓄用 アイリスオーヤマ 米 お米 ひとり暮らし 非常食 防災 仕送り ご飯 低温製法米 低温製法米のおいしいごはん" data-product-category="pack-rice" data-product-category-name="パックご飯" data-product-price="5580" data-product-unit="139.500000" data-product-unit-label="1食あたり" data-product-metric="per_serving" data-product-shipping="included" data-product-signal="相場圏" data-product-signal-tone="neutral" data-product-quantity="合計7.2kg / 40食" data-product-url="https://hb.afl.rakuten.co.jp/hgc/g00t3zto.7cx6m5be.g00t3zto.7cx6n748/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Firisplaza-r%2F1901913%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Firisplaza-r%2Fi%2F10000903%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" data-product-image="https://thumbnail.image.rakuten.co.jp/@0_mall/irisplaza-r/cabinet/12351902/imgrc0123303071.jpg?_ex=128x128">＋ 比較する</button>
 </div><a class="cta" href="https://hb.afl.rakuten.co.jp/hgc/g00t3zto.7cx6m5be.g00t3zto.7cx6n748/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Firisplaza-r%2F1901913%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Firisplaza-r%2Fi%2F10000903%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" target="_blank" rel="nofollow sponsored noopener"
  data-affiliate="rakuten" data-position="comparison_table" data-category="pack-rice" data-product-id="irisplaza-r:10000903"
- data-product-name="【公式】 パックご飯 180g ×40食 レトルトご飯 パックごはん 備蓄用 アイリスオーヤマ 米 お米 ひとり暮らし 非常食 防災 仕送り ご飯 低温製法米 低温製法米のおいしいごはん" data-rank="4" data-metric="per_serving"
+ data-product-name="＼ポイント5倍☆彡〜11日迄／【公式】 パックご飯 180g ×40食 レトルトご飯 パックごはん 備蓄用 アイリスオーヤマ 米 お米 ひとり暮らし 非常食 防災 仕送り ご飯 低温製法米 低温製法米のおいしいごはん" data-rank="5" data-metric="per_serving"
  data-unit-price="139.500000" data-shipping="included" data-cta-variant="standard">楽天で価格を確認 →</a></td>
 </tr><tr data-bucket="large" data-shopping-bucket="large" data-search-text="パックご飯 米 180g×40食パック アイリスオーヤマ 国産米 180g 40食 レトルトご飯 レトルトごはん パックごはん 防災 常温保存可 保存食 非常食 一人暮らし 仕送り 大容量 アイリスフーズ 食のこだわり総本舗 食彩館" data-price="5580" data-per_serving="139.500000" data-per_100g="77.500000">
-<td data-cell="rank" data-rank><span class="rank">5</span></td>
+<td data-cell="rank" data-rank><span class="rank">6</span></td>
 <td data-cell="image"><img class="product-img" src="https://thumbnail.image.rakuten.co.jp/@0_mall/s-kodawari/cabinet/eigyouyou1/1901913_b.jpg?_ex=128x128" alt="" width="72" height="72" loading="lazy"></td>
 <td data-cell="product"><div class="identity-line"><span class="brand-chip">アイリスオーヤマ</span><span class="spec-chip">合計7.2kg / 40食</span></div>
 <strong class="product-name" title="パックご飯 米 180g×40食パック アイリスオーヤマ 国産米 180g 40食 レトルトご飯 レトルトごはん パックごはん 防災 常温保存可 保存食 非常食 一人暮らし 仕送り 大容量 アイリスフーズ">パックご飯 米 180g×40食パック 国産米 180g 40食 レトルトご飯 レトルトごはん パックごはん 防災 常温保存可…</strong><div class="shop">食のこだわり総本舗 食彩館</div><div class="product-badges"><span class="tag lifestyle">まとめ買い向き</span> <span class="tag ok">送料込み</span> </div><div class="trend-row"><span class="trend-badge low">記録内最安</span></div><details class="product-extra" data-product-extra>
@@ -574,13 +636,13 @@ gtag('config','G-GFVSZ8YDQ5',{site_id:'food_cost_jp',operator_test:window.foodCo
 <button type="button" class="utility-btn" data-compare-product data-product-id="s-kodawari:10004173" data-product-name="パックご飯 米 180g×40食パック アイリスオーヤマ 国産米 180g 40食 レトルトご飯 レトルトごはん パックごはん 防災 常温保存可 保存食 非常食 一人暮らし 仕送り 大容量 アイリスフーズ" data-product-category="pack-rice" data-product-category-name="パックご飯" data-product-price="5580" data-product-unit="139.500000" data-product-unit-label="1食あたり" data-product-metric="per_serving" data-product-shipping="included" data-product-signal="相場圏" data-product-signal-tone="neutral" data-product-quantity="合計7.2kg / 40食" data-product-url="https://hb.afl.rakuten.co.jp/hgc/g00tux1o.7cx6mb61.g00tux1o.7cx6n3ef/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fs-kodawari%2F1901913-cp%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Fs-kodawari%2Fi%2F10004173%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" data-product-image="https://thumbnail.image.rakuten.co.jp/@0_mall/s-kodawari/cabinet/eigyouyou1/1901913_b.jpg?_ex=128x128">＋ 比較する</button>
 </div><a class="cta" href="https://hb.afl.rakuten.co.jp/hgc/g00tux1o.7cx6mb61.g00tux1o.7cx6n3ef/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fs-kodawari%2F1901913-cp%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Fs-kodawari%2Fi%2F10004173%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" target="_blank" rel="nofollow sponsored noopener"
  data-affiliate="rakuten" data-position="comparison_table" data-category="pack-rice" data-product-id="s-kodawari:10004173"
- data-product-name="パックご飯 米 180g×40食パック アイリスオーヤマ 国産米 180g 40食 レトルトご飯 レトルトごはん パックごはん 防災 常温保存可 保存食 非常食 一人暮らし 仕送り 大容量 アイリスフーズ" data-rank="5" data-metric="per_serving"
+ data-product-name="パックご飯 米 180g×40食パック アイリスオーヤマ 国産米 180g 40食 レトルトご飯 レトルトごはん パックごはん 防災 常温保存可 保存食 非常食 一人暮らし 仕送り 大容量 アイリスフーズ" data-rank="6" data-metric="per_serving"
  data-unit-price="139.500000" data-shipping="included" data-cta-variant="standard">楽天で価格を確認 →</a></td>
-</tr><tr data-bucket="large" data-shopping-bucket="large" data-search-text="米 パックご飯 200g ×80食 大容量 ご飯パック パックごはん レトルトご飯 パック米 パック 備蓄 米 ご飯 お米 白米 防災 保存食 仕送り 常温保存可 低温製法米のおいしいごはん アイリスオーヤマ アイリスフーズ こめ 暮らし健康ネット館" data-price="11280" data-per_serving="141.000000" data-per_100g="70.500000">
-<td data-cell="rank" data-rank><span class="rank">6</span></td>
+</tr><tr data-bucket="large" data-shopping-bucket="large" data-search-text="≪ポイント7倍★11日9:59迄≫米 パックご飯 200g ×80食 大容量 ご飯パック パックごはん レトルトご飯 パック米 パック 備蓄 米 ご飯 お米 白米 防災 保存食 仕送り 常温保存可 低温製法米のおいしいごはん アイリスオーヤマ アイリスフーズ こめ 暮らし健康ネット館" data-price="11280" data-per_serving="141.000000" data-per_100g="70.500000">
+<td data-cell="rank" data-rank><span class="rank">7</span></td>
 <td data-cell="image"><img class="product-img" src="https://thumbnail.image.rakuten.co.jp/@0_mall/kurashikenkou/cabinet/bn/imgrc0092897545.jpg?_ex=128x128" alt="" width="72" height="72" loading="lazy"></td>
 <td data-cell="product"><div class="identity-line"><span class="brand-chip">アイリスオーヤマ</span><span class="spec-chip">合計16kg / 80食</span></div>
-<strong class="product-name" title="米 パックご飯 200g ×80食 大容量 ご飯パック パックごはん レトルトご飯 パック米 パック 備蓄 米 ご飯 お米 白米 防災 保存食 仕送り 常温保存可 低温製法米のおいしいごはん アイリスオーヤマ アイリスフーズ こめ">米 パックご飯 200g ×80食 大容量 ご飯パック パックごはん レトルトご飯 パック米 パック 備蓄 米 ご飯 お米…</strong><div class="shop">暮らし健康ネット館</div><div class="product-badges"><span class="tag lifestyle">まとめ買い向き</span> <span class="tag ok">送料込み</span> </div><div class="trend-row"><span class="trend-badge low">記録内最安</span></div><details class="product-extra" data-product-extra>
+<strong class="product-name" title="≪ポイント7倍★11日9:59迄≫米 パックご飯 200g ×80食 大容量 ご飯パック パックごはん レトルトご飯 パック米 パック 備蓄 米 ご飯 お米 白米 防災 保存食 仕送り 常温保存可 低温製法米のおいしいごはん アイリスオーヤマ アイリスフーズ こめ">≪ポイント7倍★11日9:59迄≫米 パックご飯 200g ×80食 大容量 ご飯パック パックごはん レトルトご飯 パック米…</strong><div class="shop">暮らし健康ネット館</div><div class="product-badges"><span class="tag lifestyle">まとめ買い向き</span> <span class="tag ok">送料込み</span> <span class="tag warn">セール/クーポン表記</span></div><div class="trend-row"><span class="trend-badge low">記録内最安</span></div><details class="product-extra" data-product-extra>
 <summary>価格のうごきを見る <span>＋</span></summary>
 <div class="product-extra-body"><div class="history-card" data-history-card>
 <div class="history-head"><strong>価格履歴</strong><span>36回取得</span></div>
@@ -619,14 +681,14 @@ gtag('config','G-GFVSZ8YDQ5',{site_id:'food_cost_jp',operator_test:window.foodCo
 <td data-cell="price">¥11,280</td>
 <td data-cell="unit"><div class="unit">¥141</div><div class="unit-label">1食あたり</div><div class="secondary-unit">100gあたり ¥70.5</div></td>
 <td data-cell="cta"><div class="product-actions">
-<button type="button" class="utility-btn" data-save-product data-product-id="kurashikenkou:10219255" data-product-name="米 パックご飯 200g ×80食 大容量 ご飯パック パックごはん レトルトご飯 パック米 パック 備蓄 米 ご飯 お米 白米 防災 保存食 仕送り 常温保存可 低温製法米のおいしいごはん アイリスオーヤマ アイリスフーズ こめ" data-product-category="pack-rice" data-product-category-name="パックご飯" data-product-price="11280" data-product-unit="141.000000" data-product-unit-label="1食あたり" data-product-metric="per_serving" data-product-shipping="included" data-product-signal="相場圏" data-product-signal-tone="neutral" data-product-quantity="合計16kg / 80食" data-product-url="https://hb.afl.rakuten.co.jp/hgc/g00qhoao.7cx6m91b.g00qhoao.7cx6n00f/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fkurashikenkou%2F1918346%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Fkurashikenkou%2Fi%2F10219255%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" data-product-image="https://thumbnail.image.rakuten.co.jp/@0_mall/kurashikenkou/cabinet/bn/imgrc0092897545.jpg?_ex=128x128">＋ 買い物メモ</button>
-<button type="button" class="utility-btn" data-compare-product data-product-id="kurashikenkou:10219255" data-product-name="米 パックご飯 200g ×80食 大容量 ご飯パック パックごはん レトルトご飯 パック米 パック 備蓄 米 ご飯 お米 白米 防災 保存食 仕送り 常温保存可 低温製法米のおいしいごはん アイリスオーヤマ アイリスフーズ こめ" data-product-category="pack-rice" data-product-category-name="パックご飯" data-product-price="11280" data-product-unit="141.000000" data-product-unit-label="1食あたり" data-product-metric="per_serving" data-product-shipping="included" data-product-signal="相場圏" data-product-signal-tone="neutral" data-product-quantity="合計16kg / 80食" data-product-url="https://hb.afl.rakuten.co.jp/hgc/g00qhoao.7cx6m91b.g00qhoao.7cx6n00f/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fkurashikenkou%2F1918346%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Fkurashikenkou%2Fi%2F10219255%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" data-product-image="https://thumbnail.image.rakuten.co.jp/@0_mall/kurashikenkou/cabinet/bn/imgrc0092897545.jpg?_ex=128x128">＋ 比較する</button>
+<button type="button" class="utility-btn" data-save-product data-product-id="kurashikenkou:10219255" data-product-name="≪ポイント7倍★11日9:59迄≫米 パックご飯 200g ×80食 大容量 ご飯パック パックごはん レトルトご飯 パック米 パック 備蓄 米 ご飯 お米 白米 防災 保存食 仕送り 常温保存可 低温製法米のおいしいごはん アイリスオーヤマ アイリスフーズ こめ" data-product-category="pack-rice" data-product-category-name="パックご飯" data-product-price="11280" data-product-unit="141.000000" data-product-unit-label="1食あたり" data-product-metric="per_serving" data-product-shipping="included" data-product-signal="相場圏" data-product-signal-tone="neutral" data-product-quantity="合計16kg / 80食" data-product-url="https://hb.afl.rakuten.co.jp/hgc/g00qhoao.7cx6m91b.g00qhoao.7cx6n00f/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fkurashikenkou%2F1918346%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Fkurashikenkou%2Fi%2F10219255%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" data-product-image="https://thumbnail.image.rakuten.co.jp/@0_mall/kurashikenkou/cabinet/bn/imgrc0092897545.jpg?_ex=128x128">＋ 買い物メモ</button>
+<button type="button" class="utility-btn" data-compare-product data-product-id="kurashikenkou:10219255" data-product-name="≪ポイント7倍★11日9:59迄≫米 パックご飯 200g ×80食 大容量 ご飯パック パックごはん レトルトご飯 パック米 パック 備蓄 米 ご飯 お米 白米 防災 保存食 仕送り 常温保存可 低温製法米のおいしいごはん アイリスオーヤマ アイリスフーズ こめ" data-product-category="pack-rice" data-product-category-name="パックご飯" data-product-price="11280" data-product-unit="141.000000" data-product-unit-label="1食あたり" data-product-metric="per_serving" data-product-shipping="included" data-product-signal="相場圏" data-product-signal-tone="neutral" data-product-quantity="合計16kg / 80食" data-product-url="https://hb.afl.rakuten.co.jp/hgc/g00qhoao.7cx6m91b.g00qhoao.7cx6n00f/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fkurashikenkou%2F1918346%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Fkurashikenkou%2Fi%2F10219255%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" data-product-image="https://thumbnail.image.rakuten.co.jp/@0_mall/kurashikenkou/cabinet/bn/imgrc0092897545.jpg?_ex=128x128">＋ 比較する</button>
 </div><a class="cta" href="https://hb.afl.rakuten.co.jp/hgc/g00qhoao.7cx6m91b.g00qhoao.7cx6n00f/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fkurashikenkou%2F1918346%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Fkurashikenkou%2Fi%2F10219255%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" target="_blank" rel="nofollow sponsored noopener"
  data-affiliate="rakuten" data-position="comparison_table" data-category="pack-rice" data-product-id="kurashikenkou:10219255"
- data-product-name="米 パックご飯 200g ×80食 大容量 ご飯パック パックごはん レトルトご飯 パック米 パック 備蓄 米 ご飯 お米 白米 防災 保存食 仕送り 常温保存可 低温製法米のおいしいごはん アイリスオーヤマ アイリスフーズ こめ" data-rank="6" data-metric="per_serving"
+ data-product-name="≪ポイント7倍★11日9:59迄≫米 パックご飯 200g ×80食 大容量 ご飯パック パックごはん レトルトご飯 パック米 パック 備蓄 米 ご飯 お米 白米 防災 保存食 仕送り 常温保存可 低温製法米のおいしいごはん アイリスオーヤマ アイリスフーズ こめ" data-rank="7" data-metric="per_serving"
  data-unit-price="141.000000" data-shipping="included" data-cta-variant="standard">楽天で価格を確認 →</a></td>
 </tr><tr data-bucket="large" data-shopping-bucket="large" data-search-text="パックご飯 200g ×80食 大容量 ご飯パック パックごはん レトルトご飯 パック米 パックライス パック ご飯 米 お米 白米 備蓄 非常食 防災 保存食 仕送り 常温保存可 低温製法米のおいしいごはん アイリスオーヤマ 収納・家具・寝具の収納宅配館" data-price="11280" data-per_serving="141.000000" data-per_100g="70.500000">
-<td data-cell="rank" data-rank><span class="rank">7</span></td>
+<td data-cell="rank" data-rank><span class="rank">8</span></td>
 <td data-cell="image"><img class="product-img" src="https://thumbnail.image.rakuten.co.jp/@0_mall/rack-kan/cabinet/samune01/1918346.jpg?_ex=128x128" alt="" width="72" height="72" loading="lazy"></td>
 <td data-cell="product"><div class="identity-line"><span class="brand-chip">アイリスオーヤマ</span><span class="spec-chip">合計16kg / 80食</span></div>
 <strong class="product-name" title="パックご飯 200g ×80食 大容量 ご飯パック パックごはん レトルトご飯 パック米 パックライス パック ご飯 米 お米 白米 備蓄 非常食 防災 保存食 仕送り 常温保存可 低温製法米のおいしいごはん アイリスオーヤマ">パックご飯 200g ×80食 大容量 ご飯パック パックごはん レトルトご飯 パック米 パックライス パック ご飯 米 お米…</strong><div class="shop">収納・家具・寝具の収納宅配館</div><div class="product-badges"><span class="tag lifestyle">まとめ買い向き</span> <span class="tag ok">送料込み</span> </div><div class="trend-row"><span class="trend-badge low">記録内最安</span></div><details class="product-extra" data-product-extra>
@@ -672,59 +734,59 @@ gtag('config','G-GFVSZ8YDQ5',{site_id:'food_cost_jp',operator_test:window.foodCo
 <button type="button" class="utility-btn" data-compare-product data-product-id="rack-kan:10117025" data-product-name="パックご飯 200g ×80食 大容量 ご飯パック パックごはん レトルトご飯 パック米 パックライス パック ご飯 米 お米 白米 備蓄 非常食 防災 保存食 仕送り 常温保存可 低温製法米のおいしいごはん アイリスオーヤマ" data-product-category="pack-rice" data-product-category-name="パックご飯" data-product-price="11280" data-product-unit="141.000000" data-product-unit-label="1食あたり" data-product-metric="per_serving" data-product-shipping="included" data-product-signal="相場圏" data-product-signal-tone="neutral" data-product-quantity="合計16kg / 80食" data-product-url="https://hb.afl.rakuten.co.jp/hgc/g00pr3yo.7cx6mafa.g00pr3yo.7cx6n654/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Frack-kan%2F1918346%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Frack-kan%2Fi%2F10117025%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" data-product-image="https://thumbnail.image.rakuten.co.jp/@0_mall/rack-kan/cabinet/samune01/1918346.jpg?_ex=128x128">＋ 比較する</button>
 </div><a class="cta" href="https://hb.afl.rakuten.co.jp/hgc/g00pr3yo.7cx6mafa.g00pr3yo.7cx6n654/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Frack-kan%2F1918346%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Frack-kan%2Fi%2F10117025%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" target="_blank" rel="nofollow sponsored noopener"
  data-affiliate="rakuten" data-position="comparison_table" data-category="pack-rice" data-product-id="rack-kan:10117025"
- data-product-name="パックご飯 200g ×80食 大容量 ご飯パック パックごはん レトルトご飯 パック米 パックライス パック ご飯 米 お米 白米 備蓄 非常食 防災 保存食 仕送り 常温保存可 低温製法米のおいしいごはん アイリスオーヤマ" data-rank="7" data-metric="per_serving"
+ data-product-name="パックご飯 200g ×80食 大容量 ご飯パック パックごはん レトルトご飯 パック米 パックライス パック ご飯 米 お米 白米 備蓄 非常食 防災 保存食 仕送り 常温保存可 低温製法米のおいしいごはん アイリスオーヤマ" data-rank="8" data-metric="per_serving"
  data-unit-price="141.000000" data-shipping="included" data-cta-variant="standard">楽天で価格を確認 →</a></td>
-</tr><tr data-bucket="large" data-shopping-bucket="large" data-search-text="パックご飯 米 180g×80食パック アイリスオーヤマ 国産米 レトルトご飯 パックごはんレトルトごはん 備蓄用 防災 常温保存可 保存食 非常食 一人暮らし 仕送り 低温製法米のおいしいごはん アイリスフーズ 食のこだわり総本舗 食彩館" data-price="11800" data-per_serving="147.500000" data-per_100g="81.944444">
-<td data-cell="rank" data-rank><span class="rank">8</span></td>
-<td data-cell="image"><img class="product-img" src="https://thumbnail.image.rakuten.co.jp/@0_mall/s-kodawari/cabinet/web01/310489.jpg?_ex=128x128" alt="" width="72" height="72" loading="lazy"></td>
-<td data-cell="product"><div class="identity-line"><span class="brand-chip">アイリスオーヤマ</span><span class="spec-chip">合計14.4kg / 80食</span></div>
-<strong class="product-name" title="パックご飯 米 180g×80食パック アイリスオーヤマ 国産米 レトルトご飯 パックごはんレトルトごはん 備蓄用 防災 常温保存可 保存食 非常食 一人暮らし 仕送り 低温製法米のおいしいごはん アイリスフーズ">パックご飯 米 180g×80食パック 国産米 レトルトご飯 パックごはんレトルトごはん 備蓄用 防災 常温保存可 保存食…</strong><div class="shop">食のこだわり総本舗 食彩館</div><div class="product-badges"><span class="tag lifestyle">まとめ買い向き</span> <span class="tag ok">送料込み</span> </div><div class="trend-row"></div><details class="product-extra" data-product-extra>
+</tr><tr data-bucket="small" data-shopping-bucket="small" data-search-text="パックごはん180g×24食 サキホコレ 秋田県大潟村産 特別栽培米 パックライス パックご飯 送料無料※沖縄・離島別途 こまちのふるさと" data-price="3600" data-per_serving="150.000000" data-per_100g="83.333333">
+<td data-cell="rank" data-rank><span class="rank">9</span></td>
+<td data-cell="image"><img class="product-img" src="https://thumbnail.image.rakuten.co.jp/@0_mall/nouyu/cabinet/test/13083943/imgrc0134714397.jpg?_ex=128x128" alt="" width="72" height="72" loading="lazy"></td>
+<td data-cell="product"><div class="identity-line"><span class="spec-chip">合計4.32kg / 24食</span></div>
+<strong class="product-name" title="パックごはん180g×24食 サキホコレ 秋田県大潟村産 特別栽培米 パックライス パックご飯 送料無料※沖縄・離島別途">パックごはん180g×24食 サキホコレ 秋田県大潟村産 特別栽培米 パックライス パックご飯 送料無料※沖縄・離島別途</strong><div class="shop">こまちのふるさと</div><div class="product-badges"><span class="tag lifestyle">少量向き</span> <span class="tag ok">送料込み</span> </div><div class="trend-row"><span class="trend-badge low">記録内最安</span></div><details class="product-extra" data-product-extra>
 <summary>価格のうごきを見る <span>＋</span></summary>
 <div class="product-extra-body"><div class="history-card" data-history-card>
-<div class="history-head"><strong>価格履歴</strong><span>33回取得</span></div>
+<div class="history-head"><strong>価格履歴</strong><span>8回取得</span></div>
 <div class="history-toolbar"><div class="history-tabs">
 <button type="button" class="selected" data-history-range="7日">7日</button>
 <button type="button" data-history-range="30日">30日</button>
 </div><span class="history-trend stable">最近安定</span></div>
 <div class="history-range-panel" data-history-panel="7日">
 <div class="history-stats history-stats-4">
-<div><span>現在</span><b>¥148</b></div>
-<div><span>最安</span><b>¥148</b><small>10/28</small></div>
-<div><span>最高</span><b>¥148</b><small>10/28</small></div>
+<div><span>現在</span><b>¥150</b></div>
+<div><span>最安</span><b>¥150</b><small>10/29</small></div>
+<div><span>最高</span><b>¥150</b><small>10/29</small></div>
 <div><span>値幅</span><b>¥0.0</b></div>
 </div>
-<svg class="sparkline wait" viewBox="0 0 180 64" role="img" aria-label="7日価格推移">
+<svg class="sparkline neutral" viewBox="0 0 180 64" role="img" aria-label="7日価格推移">
 <line x1="6" y1="58" x2="174" y2="58" class="spark-grid"/>
-<polyline points="6.0,32.0 30.0,32.0 54.0,32.0 78.0,32.0 102.0,32.0 126.0,32.0 150.0,32.0 174.0,32.0" fill="none" vector-effect="non-scaling-stroke"/>
+<polyline points="6.0,32.0 34.0,32.0 62.0,32.0 90.0,32.0 118.0,32.0 146.0,32.0 174.0,32.0" fill="none" vector-effect="non-scaling-stroke"/>
 <circle cx="174.0" cy="32.0" r="3.2"/>
 </svg></div><div class="history-range-panel" data-history-panel="30日" hidden>
 <div class="history-stats history-stats-4">
-<div><span>現在</span><b>¥148</b></div>
-<div><span>最安</span><b>¥135</b><small>10/05</small></div>
-<div><span>最高</span><b>¥148</b><small>10/10</small></div>
-<div><span>値幅</span><b>¥12.5</b></div>
+<div><span>現在</span><b>¥150</b></div>
+<div><span>最安</span><b>¥150</b><small>10/05</small></div>
+<div><span>最高</span><b>¥150</b><small>10/05</small></div>
+<div><span>値幅</span><b>¥0.0</b></div>
 </div>
-<svg class="sparkline wait" viewBox="0 0 180 64" role="img" aria-label="30日価格推移">
+<svg class="sparkline neutral" viewBox="0 0 180 64" role="img" aria-label="30日価格推移">
 <line x1="6" y1="58" x2="174" y2="58" class="spark-grid"/>
-<polyline points="6.0,58.0 12.2,58.0 18.4,58.0 24.7,6.0 30.9,6.0 37.1,6.0 43.3,6.0 49.6,6.0 55.8,6.0 62.0,6.0 68.2,6.0 74.4,6.0 80.7,6.0 86.9,6.0 93.1,6.0 99.3,58.0 105.6,58.0 111.8,58.0 118.0,58.0 124.2,58.0 130.4,6.0 136.7,6.0 142.9,6.0 149.1,6.0 155.3,6.0 161.6,6.0 167.8,6.0 174.0,6.0" fill="none" vector-effect="non-scaling-stroke"/>
-<circle cx="174.0" cy="6.0" r="3.2"/>
+<polyline points="6.0,32.0 30.0,32.0 54.0,32.0 78.0,32.0 102.0,32.0 126.0,32.0 150.0,32.0 174.0,32.0" fill="none" vector-effect="non-scaling-stroke"/>
+<circle cx="174.0" cy="32.0" r="3.2"/>
 </svg></div>
-</div><div class="buy-signal wait">
-<span>様子見寄り</span><small>30日内の最安水準より5%以上高い状態です。</small>
+</div><div class="buy-signal neutral">
+<span>相場圏</span><small>直近履歴では大きな割高・値下がりは確認できません。</small>
 </div></div>
 </details></td>
-<td data-cell="quantity">合計14.4kg / 80食</td>
-<td data-cell="price">¥11,800</td>
-<td data-cell="unit"><div class="unit">¥148</div><div class="unit-label">1食あたり</div><div class="secondary-unit">100gあたり ¥81.9</div></td>
+<td data-cell="quantity">合計4.32kg / 24食</td>
+<td data-cell="price">¥3,600</td>
+<td data-cell="unit"><div class="unit">¥150</div><div class="unit-label">1食あたり</div><div class="secondary-unit">100gあたり ¥83.3</div></td>
 <td data-cell="cta"><div class="product-actions">
-<button type="button" class="utility-btn" data-save-product data-product-id="s-kodawari:10003573" data-product-name="パックご飯 米 180g×80食パック アイリスオーヤマ 国産米 レトルトご飯 パックごはんレトルトごはん 備蓄用 防災 常温保存可 保存食 非常食 一人暮らし 仕送り 低温製法米のおいしいごはん アイリスフーズ" data-product-category="pack-rice" data-product-category-name="パックご飯" data-product-price="11800" data-product-unit="147.500000" data-product-unit-label="1食あたり" data-product-metric="per_serving" data-product-shipping="included" data-product-signal="様子見寄り" data-product-signal-tone="wait" data-product-quantity="合計14.4kg / 80食" data-product-url="https://hb.afl.rakuten.co.jp/hgc/g00tux1o.7cx6mb61.g00tux1o.7cx6n3ef/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fs-kodawari%2F310489%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Fs-kodawari%2Fi%2F10003573%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" data-product-image="https://thumbnail.image.rakuten.co.jp/@0_mall/s-kodawari/cabinet/web01/310489.jpg?_ex=128x128">＋ 買い物メモ</button>
-<button type="button" class="utility-btn" data-compare-product data-product-id="s-kodawari:10003573" data-product-name="パックご飯 米 180g×80食パック アイリスオーヤマ 国産米 レトルトご飯 パックごはんレトルトごはん 備蓄用 防災 常温保存可 保存食 非常食 一人暮らし 仕送り 低温製法米のおいしいごはん アイリスフーズ" data-product-category="pack-rice" data-product-category-name="パックご飯" data-product-price="11800" data-product-unit="147.500000" data-product-unit-label="1食あたり" data-product-metric="per_serving" data-product-shipping="included" data-product-signal="様子見寄り" data-product-signal-tone="wait" data-product-quantity="合計14.4kg / 80食" data-product-url="https://hb.afl.rakuten.co.jp/hgc/g00tux1o.7cx6mb61.g00tux1o.7cx6n3ef/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fs-kodawari%2F310489%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Fs-kodawari%2Fi%2F10003573%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" data-product-image="https://thumbnail.image.rakuten.co.jp/@0_mall/s-kodawari/cabinet/web01/310489.jpg?_ex=128x128">＋ 比較する</button>
-</div><a class="cta" href="https://hb.afl.rakuten.co.jp/hgc/g00tux1o.7cx6mb61.g00tux1o.7cx6n3ef/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fs-kodawari%2F310489%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Fs-kodawari%2Fi%2F10003573%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" target="_blank" rel="nofollow sponsored noopener"
- data-affiliate="rakuten" data-position="comparison_table" data-category="pack-rice" data-product-id="s-kodawari:10003573"
- data-product-name="パックご飯 米 180g×80食パック アイリスオーヤマ 国産米 レトルトご飯 パックごはんレトルトごはん 備蓄用 防災 常温保存可 保存食 非常食 一人暮らし 仕送り 低温製法米のおいしいごはん アイリスフーズ" data-rank="8" data-metric="per_serving"
- data-unit-price="147.500000" data-shipping="included" data-cta-variant="standard">楽天で価格を確認 →</a></td>
+<button type="button" class="utility-btn" data-save-product data-product-id="nouyu:10000005" data-product-name="パックごはん180g×24食 サキホコレ 秋田県大潟村産 特別栽培米 パックライス パックご飯 送料無料※沖縄・離島別途" data-product-category="pack-rice" data-product-category-name="パックご飯" data-product-price="3600" data-product-unit="150.000000" data-product-unit-label="1食あたり" data-product-metric="per_serving" data-product-shipping="included" data-product-signal="相場圏" data-product-signal-tone="neutral" data-product-quantity="合計4.32kg / 24食" data-product-url="https://hb.afl.rakuten.co.jp/hgc/g00uuojo.7cx6mc6a.g00uuojo.7cx6n959/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fnouyu%2Fkomachinofurusato4%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Fnouyu%2Fi%2F10000005%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" data-product-image="https://thumbnail.image.rakuten.co.jp/@0_mall/nouyu/cabinet/test/13083943/imgrc0134714397.jpg?_ex=128x128">＋ 買い物メモ</button>
+<button type="button" class="utility-btn" data-compare-product data-product-id="nouyu:10000005" data-product-name="パックごはん180g×24食 サキホコレ 秋田県大潟村産 特別栽培米 パックライス パックご飯 送料無料※沖縄・離島別途" data-product-category="pack-rice" data-product-category-name="パックご飯" data-product-price="3600" data-product-unit="150.000000" data-product-unit-label="1食あたり" data-product-metric="per_serving" data-product-shipping="included" data-product-signal="相場圏" data-product-signal-tone="neutral" data-product-quantity="合計4.32kg / 24食" data-product-url="https://hb.afl.rakuten.co.jp/hgc/g00uuojo.7cx6mc6a.g00uuojo.7cx6n959/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fnouyu%2Fkomachinofurusato4%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Fnouyu%2Fi%2F10000005%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" data-product-image="https://thumbnail.image.rakuten.co.jp/@0_mall/nouyu/cabinet/test/13083943/imgrc0134714397.jpg?_ex=128x128">＋ 比較する</button>
+</div><a class="cta" href="https://hb.afl.rakuten.co.jp/hgc/g00uuojo.7cx6mc6a.g00uuojo.7cx6n959/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fnouyu%2Fkomachinofurusato4%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Fnouyu%2Fi%2F10000005%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" target="_blank" rel="nofollow sponsored noopener"
+ data-affiliate="rakuten" data-position="comparison_table" data-category="pack-rice" data-product-id="nouyu:10000005"
+ data-product-name="パックごはん180g×24食 サキホコレ 秋田県大潟村産 特別栽培米 パックライス パックご飯 送料無料※沖縄・離島別途" data-rank="9" data-metric="per_serving"
+ data-unit-price="150.000000" data-shipping="included" data-cta-variant="standard">楽天で価格を確認 →</a></td>
 </tr><tr data-bucket="large" data-shopping-bucket="large" data-search-text="米 パックご飯 200g ×30食 ご飯パック パックごはん レトルトご飯 パック米 パックライス パック 備蓄 米 ご飯 米 お米 白米 非常食 防災 保存食 仕送り 常温保存可 キャンプ 低温製法米のおいしいごはん アイリスオーヤマ こめ 暮らし健康ネット館" data-price="4600" data-per_serving="153.333333" data-per_100g="76.666667">
-<td data-cell="rank" data-rank><span class="rank">9</span></td>
+<td data-cell="rank" data-rank><span class="rank">10</span></td>
 <td data-cell="image"><img class="product-img" src="https://thumbnail.image.rakuten.co.jp/@0_mall/kurashikenkou/cabinet/11663202/12096460/1919146_enet2.jpg?_ex=128x128" alt="" width="72" height="72" loading="lazy"></td>
 <td data-cell="product"><div class="identity-line"><span class="brand-chip">アイリスオーヤマ</span><span class="spec-chip">合計6kg / 30食</span></div>
 <strong class="product-name" title="米 パックご飯 200g ×30食 ご飯パック パックごはん レトルトご飯 パック米 パックライス パック 備蓄 米 ご飯 米 お米 白米 非常食 防災 保存食 仕送り 常温保存可 キャンプ 低温製法米のおいしいごはん アイリスオーヤマ こめ">米 パックご飯 200g ×30食 ご飯パック パックごはん レトルトご飯 パック米 パックライス パック 備蓄 米 ご飯 米…</strong><div class="shop">暮らし健康ネット館</div><div class="product-badges"><span class="tag lifestyle">まとめ買い向き</span> <span class="tag ok">送料込み</span> </div><div class="trend-row"><span class="trend-badge low">記録内最安</span></div><details class="product-extra" data-product-extra>
@@ -770,108 +832,10 @@ gtag('config','G-GFVSZ8YDQ5',{site_id:'food_cost_jp',operator_test:window.foodCo
 <button type="button" class="utility-btn" data-compare-product data-product-id="kurashikenkou:10219256" data-product-name="米 パックご飯 200g ×30食 ご飯パック パックごはん レトルトご飯 パック米 パックライス パック 備蓄 米 ご飯 米 お米 白米 非常食 防災 保存食 仕送り 常温保存可 キャンプ 低温製法米のおいしいごはん アイリスオーヤマ こめ" data-product-category="pack-rice" data-product-category-name="パックご飯" data-product-price="4600" data-product-unit="153.333333" data-product-unit-label="1食あたり" data-product-metric="per_serving" data-product-shipping="included" data-product-signal="相場圏" data-product-signal-tone="neutral" data-product-quantity="合計6kg / 30食" data-product-url="https://hb.afl.rakuten.co.jp/hgc/g00qhoao.7cx6m91b.g00qhoao.7cx6n00f/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fkurashikenkou%2F1919146%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Fkurashikenkou%2Fi%2F10219256%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" data-product-image="https://thumbnail.image.rakuten.co.jp/@0_mall/kurashikenkou/cabinet/11663202/12096460/1919146_enet2.jpg?_ex=128x128">＋ 比較する</button>
 </div><a class="cta" href="https://hb.afl.rakuten.co.jp/hgc/g00qhoao.7cx6m91b.g00qhoao.7cx6n00f/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fkurashikenkou%2F1919146%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Fkurashikenkou%2Fi%2F10219256%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" target="_blank" rel="nofollow sponsored noopener"
  data-affiliate="rakuten" data-position="comparison_table" data-category="pack-rice" data-product-id="kurashikenkou:10219256"
- data-product-name="米 パックご飯 200g ×30食 ご飯パック パックごはん レトルトご飯 パック米 パックライス パック 備蓄 米 ご飯 米 お米 白米 非常食 防災 保存食 仕送り 常温保存可 キャンプ 低温製法米のおいしいごはん アイリスオーヤマ こめ" data-rank="9" data-metric="per_serving"
+ data-product-name="米 パックご飯 200g ×30食 ご飯パック パックごはん レトルトご飯 パック米 パックライス パック 備蓄 米 ご飯 米 お米 白米 非常食 防災 保存食 仕送り 常温保存可 キャンプ 低温製法米のおいしいごはん アイリスオーヤマ こめ" data-rank="10" data-metric="per_serving"
  data-unit-price="153.333333" data-shipping="included" data-cta-variant="standard">楽天で価格を確認 →</a></td>
-</tr><tr data-bucket="small" data-shopping-bucket="small" data-search-text="パックご飯 180g ×24食 レトルトご飯 パックごはん 備蓄用 アイリスオーヤマ 米 お米 ひとり暮らし 非常食 防災 仕送り ご飯 低温製法米 低温製法米のおいしいごはんパックご飯 180g ×24食 アイリスオーヤマ公式 楽天市場店" data-price="3780" data-per_serving="157.500000" data-per_100g="87.500000">
-<td data-cell="rank" data-rank><span class="rank">10</span></td>
-<td data-cell="image"><img class="product-img" src="https://thumbnail.image.rakuten.co.jp/@0_mall/irisplaza-r/cabinet/11073544/12380730/imgrc0112473668.jpg?_ex=128x128" alt="" width="72" height="72" loading="lazy"></td>
-<td data-cell="product"><div class="identity-line"><span class="brand-chip">アイリスオーヤマ</span><span class="spec-chip">合計4.32kg / 24食</span></div>
-<strong class="product-name" title="パックご飯 180g ×24食 レトルトご飯 パックごはん 備蓄用 アイリスオーヤマ 米 お米 ひとり暮らし 非常食 防災 仕送り ご飯 低温製法米 低温製法米のおいしいごはんパックご飯 180g ×24食">パックご飯 180g ×24食 レトルトご飯 パックごはん 備蓄用 米 お米 ひとり暮らし 非常食 防災 仕送り ご飯…</strong><div class="shop">アイリスオーヤマ公式 楽天市場店</div><div class="product-badges"><span class="tag lifestyle">少量向き</span> <span class="tag ok">送料込み</span> </div><div class="trend-row"></div><details class="product-extra" data-product-extra>
-<summary>価格のうごきを見る <span>＋</span></summary>
-<div class="product-extra-body"><div class="history-card" data-history-card>
-<div class="history-head"><strong>価格履歴</strong><span>35回取得</span></div>
-<div class="history-toolbar"><div class="history-tabs">
-<button type="button" class="selected" data-history-range="7日">7日</button>
-<button type="button" data-history-range="30日">30日</button>
-</div><span class="history-trend stable">最近安定</span></div>
-<div class="history-range-panel" data-history-panel="7日">
-<div class="history-stats history-stats-4">
-<div><span>現在</span><b>¥158</b></div>
-<div><span>最安</span><b>¥158</b><small>10/28</small></div>
-<div><span>最高</span><b>¥158</b><small>10/28</small></div>
-<div><span>値幅</span><b>¥0.0</b></div>
-</div>
-<svg class="sparkline wait" viewBox="0 0 180 64" role="img" aria-label="7日価格推移">
-<line x1="6" y1="58" x2="174" y2="58" class="spark-grid"/>
-<polyline points="6.0,32.0 30.0,32.0 54.0,32.0 78.0,32.0 102.0,32.0 126.0,32.0 150.0,32.0 174.0,32.0" fill="none" vector-effect="non-scaling-stroke"/>
-<circle cx="174.0" cy="32.0" r="3.2"/>
-</svg></div><div class="history-range-panel" data-history-panel="30日" hidden>
-<div class="history-stats history-stats-4">
-<div><span>現在</span><b>¥158</b></div>
-<div><span>最安</span><b>¥146</b><small>10/05</small></div>
-<div><span>最高</span><b>¥158</b><small>10/10</small></div>
-<div><span>値幅</span><b>¥11.7</b></div>
-</div>
-<svg class="sparkline wait" viewBox="0 0 180 64" role="img" aria-label="30日価格推移">
-<line x1="6" y1="58" x2="174" y2="58" class="spark-grid"/>
-<polyline points="6.0,58.0 11.8,58.0 17.6,58.0 23.4,58.0 29.2,58.0 35.0,6.0 40.8,6.0 46.6,6.0 52.3,6.0 58.1,6.0 63.9,6.0 69.7,6.0 75.5,6.0 81.3,6.0 87.1,6.0 92.9,6.0 98.7,6.0 104.5,6.0 110.3,6.0 116.1,6.0 121.9,6.0 127.7,6.0 133.4,6.0 139.2,6.0 145.0,6.0 150.8,6.0 156.6,6.0 162.4,6.0 168.2,6.0 174.0,6.0" fill="none" vector-effect="non-scaling-stroke"/>
-<circle cx="174.0" cy="6.0" r="3.2"/>
-</svg></div>
-</div><div class="buy-signal wait">
-<span>様子見寄り</span><small>30日内の最安水準より5%以上高い状態です。</small>
-</div></div>
-</details></td>
-<td data-cell="quantity">合計4.32kg / 24食</td>
-<td data-cell="price">¥3,780</td>
-<td data-cell="unit"><div class="unit">¥158</div><div class="unit-label">1食あたり</div><div class="secondary-unit">100gあたり ¥87.5</div></td>
-<td data-cell="cta"><div class="product-actions">
-<button type="button" class="utility-btn" data-save-product data-product-id="irisplaza-r:10173835" data-product-name="パックご飯 180g ×24食 レトルトご飯 パックごはん 備蓄用 アイリスオーヤマ 米 お米 ひとり暮らし 非常食 防災 仕送り ご飯 低温製法米 低温製法米のおいしいごはんパックご飯 180g ×24食" data-product-category="pack-rice" data-product-category-name="パックご飯" data-product-price="3780" data-product-unit="157.500000" data-product-unit-label="1食あたり" data-product-metric="per_serving" data-product-shipping="included" data-product-signal="様子見寄り" data-product-signal-tone="wait" data-product-quantity="合計4.32kg / 24食" data-product-url="https://hb.afl.rakuten.co.jp/hgc/g00t3zto.7cx6m5be.g00t3zto.7cx6n748/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Firisplaza-r%2F1901107-cp%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Firisplaza-r%2Fi%2F10173835%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" data-product-image="https://thumbnail.image.rakuten.co.jp/@0_mall/irisplaza-r/cabinet/11073544/12380730/imgrc0112473668.jpg?_ex=128x128">＋ 買い物メモ</button>
-<button type="button" class="utility-btn" data-compare-product data-product-id="irisplaza-r:10173835" data-product-name="パックご飯 180g ×24食 レトルトご飯 パックごはん 備蓄用 アイリスオーヤマ 米 お米 ひとり暮らし 非常食 防災 仕送り ご飯 低温製法米 低温製法米のおいしいごはんパックご飯 180g ×24食" data-product-category="pack-rice" data-product-category-name="パックご飯" data-product-price="3780" data-product-unit="157.500000" data-product-unit-label="1食あたり" data-product-metric="per_serving" data-product-shipping="included" data-product-signal="様子見寄り" data-product-signal-tone="wait" data-product-quantity="合計4.32kg / 24食" data-product-url="https://hb.afl.rakuten.co.jp/hgc/g00t3zto.7cx6m5be.g00t3zto.7cx6n748/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Firisplaza-r%2F1901107-cp%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Firisplaza-r%2Fi%2F10173835%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" data-product-image="https://thumbnail.image.rakuten.co.jp/@0_mall/irisplaza-r/cabinet/11073544/12380730/imgrc0112473668.jpg?_ex=128x128">＋ 比較する</button>
-</div><a class="cta" href="https://hb.afl.rakuten.co.jp/hgc/g00t3zto.7cx6m5be.g00t3zto.7cx6n748/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Firisplaza-r%2F1901107-cp%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Firisplaza-r%2Fi%2F10173835%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" target="_blank" rel="nofollow sponsored noopener"
- data-affiliate="rakuten" data-position="comparison_table" data-category="pack-rice" data-product-id="irisplaza-r:10173835"
- data-product-name="パックご飯 180g ×24食 レトルトご飯 パックごはん 備蓄用 アイリスオーヤマ 米 お米 ひとり暮らし 非常食 防災 仕送り ご飯 低温製法米 低温製法米のおいしいごはんパックご飯 180g ×24食" data-rank="10" data-metric="per_serving"
- data-unit-price="157.500000" data-shipping="included" data-cta-variant="standard">楽天で価格を確認 →</a></td>
-</tr><tr data-bucket="small" data-shopping-bucket="small" data-search-text="【公式】 パックご飯 あきたこまち 180g ×24食 レトルトご飯 パックごはん 備蓄用 アイリスオーヤマ 米 お米 ひとり暮らし 非常食 防災 仕送り ご飯 低温製法米 低温製法米のおいしいごはん アイリスオーヤマ公式 楽天市場店" data-price="3880" data-per_serving="161.666667" data-per_100g="89.814815">
-<td data-cell="rank" data-rank><span class="rank">11</span></td>
-<td data-cell="image"><img class="product-img" src="https://thumbnail.image.rakuten.co.jp/@0_mall/irisplaza-r/cabinet/10172579/12541977/imgrc0114937354.jpg?_ex=128x128" alt="" width="72" height="72" loading="lazy"></td>
-<td data-cell="product"><div class="identity-line"><span class="brand-chip">アイリスオーヤマ</span><span class="spec-chip">合計4.32kg / 24食</span></div>
-<strong class="product-name" title="【公式】 パックご飯 あきたこまち 180g ×24食 レトルトご飯 パックごはん 備蓄用 アイリスオーヤマ 米 お米 ひとり暮らし 非常食 防災 仕送り ご飯 低温製法米 低温製法米のおいしいごはん">公式 パックご飯 あきたこまち 180g ×24食 レトルトご飯 パックごはん 備蓄用 米 お米 ひとり暮らし 非常食 防災…</strong><div class="shop">アイリスオーヤマ公式 楽天市場店</div><div class="product-badges"><span class="tag lifestyle">少量向き</span> <span class="tag ok">送料込み</span> </div><div class="trend-row"><span class="trend-badge low">記録内最安</span></div><details class="product-extra" data-product-extra>
-<summary>価格のうごきを見る <span>＋</span></summary>
-<div class="product-extra-body"><div class="history-card" data-history-card>
-<div class="history-head"><strong>価格履歴</strong><span>5回取得</span></div>
-<div class="history-toolbar"><div class="history-tabs">
-<button type="button" class="selected" data-history-range="7日">7日</button>
-<button type="button" data-history-range="30日">30日</button>
-</div><span class="history-trend stable">最近安定</span></div>
-<div class="history-range-panel" data-history-panel="7日">
-<div class="history-stats history-stats-4">
-<div><span>現在</span><b>¥162</b></div>
-<div><span>最安</span><b>¥162</b><small>10/30</small></div>
-<div><span>最高</span><b>¥162</b><small>10/30</small></div>
-<div><span>値幅</span><b>¥0.0</b></div>
-</div>
-<svg class="sparkline neutral" viewBox="0 0 180 64" role="img" aria-label="7日価格推移">
-<line x1="6" y1="58" x2="174" y2="58" class="spark-grid"/>
-<polyline points="6.0,32.0 174.0,32.0" fill="none" vector-effect="non-scaling-stroke"/>
-<circle cx="174.0" cy="32.0" r="3.2"/>
-</svg></div><div class="history-range-panel" data-history-panel="30日" hidden>
-<div class="history-stats history-stats-4">
-<div><span>現在</span><b>¥162</b></div>
-<div><span>最安</span><b>¥162</b><small>10/30</small></div>
-<div><span>最高</span><b>¥162</b><small>10/30</small></div>
-<div><span>値幅</span><b>¥0.0</b></div>
-</div>
-<svg class="sparkline neutral" viewBox="0 0 180 64" role="img" aria-label="30日価格推移">
-<line x1="6" y1="58" x2="174" y2="58" class="spark-grid"/>
-<polyline points="6.0,32.0 174.0,32.0" fill="none" vector-effect="non-scaling-stroke"/>
-<circle cx="174.0" cy="32.0" r="3.2"/>
-</svg></div>
-</div><div class="buy-signal neutral">
-<span>相場圏</span><small>直近履歴では大きな割高・値下がりは確認できません。</small>
-</div></div>
-</details></td>
-<td data-cell="quantity">合計4.32kg / 24食</td>
-<td data-cell="price">¥3,880</td>
-<td data-cell="unit"><div class="unit">¥162</div><div class="unit-label">1食あたり</div><div class="secondary-unit">100gあたり ¥89.8</div></td>
-<td data-cell="cta"><div class="product-actions">
-<button type="button" class="utility-btn" data-save-product data-product-id="irisplaza-r:10146901" data-product-name="【公式】 パックご飯 あきたこまち 180g ×24食 レトルトご飯 パックごはん 備蓄用 アイリスオーヤマ 米 お米 ひとり暮らし 非常食 防災 仕送り ご飯 低温製法米 低温製法米のおいしいごはん" data-product-category="pack-rice" data-product-category-name="パックご飯" data-product-price="3880" data-product-unit="161.666667" data-product-unit-label="1食あたり" data-product-metric="per_serving" data-product-shipping="included" data-product-signal="相場圏" data-product-signal-tone="neutral" data-product-quantity="合計4.32kg / 24食" data-product-url="https://hb.afl.rakuten.co.jp/hgc/g00t3zto.7cx6m5be.g00t3zto.7cx6n748/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Firisplaza-r%2F1902962%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Firisplaza-r%2Fi%2F10146901%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" data-product-image="https://thumbnail.image.rakuten.co.jp/@0_mall/irisplaza-r/cabinet/10172579/12541977/imgrc0114937354.jpg?_ex=128x128">＋ 買い物メモ</button>
-<button type="button" class="utility-btn" data-compare-product data-product-id="irisplaza-r:10146901" data-product-name="【公式】 パックご飯 あきたこまち 180g ×24食 レトルトご飯 パックごはん 備蓄用 アイリスオーヤマ 米 お米 ひとり暮らし 非常食 防災 仕送り ご飯 低温製法米 低温製法米のおいしいごはん" data-product-category="pack-rice" data-product-category-name="パックご飯" data-product-price="3880" data-product-unit="161.666667" data-product-unit-label="1食あたり" data-product-metric="per_serving" data-product-shipping="included" data-product-signal="相場圏" data-product-signal-tone="neutral" data-product-quantity="合計4.32kg / 24食" data-product-url="https://hb.afl.rakuten.co.jp/hgc/g00t3zto.7cx6m5be.g00t3zto.7cx6n748/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Firisplaza-r%2F1902962%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Firisplaza-r%2Fi%2F10146901%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" data-product-image="https://thumbnail.image.rakuten.co.jp/@0_mall/irisplaza-r/cabinet/10172579/12541977/imgrc0114937354.jpg?_ex=128x128">＋ 比較する</button>
-</div><a class="cta" href="https://hb.afl.rakuten.co.jp/hgc/g00t3zto.7cx6m5be.g00t3zto.7cx6n748/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Firisplaza-r%2F1902962%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Firisplaza-r%2Fi%2F10146901%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" target="_blank" rel="nofollow sponsored noopener"
- data-affiliate="rakuten" data-position="comparison_table" data-category="pack-rice" data-product-id="irisplaza-r:10146901"
- data-product-name="【公式】 パックご飯 あきたこまち 180g ×24食 レトルトご飯 パックごはん 備蓄用 アイリスオーヤマ 米 お米 ひとり暮らし 非常食 防災 仕送り ご飯 低温製法米 低温製法米のおいしいごはん" data-rank="11" data-metric="per_serving"
- data-unit-price="161.666667" data-shipping="included" data-cta-variant="standard">楽天で価格を確認 →</a></td>
 </tr><tr data-bucket="large" data-shopping-bucket="large" data-search-text="お歳暮 プレゼント ギフト 福島県 浜通り 被災12市町村米使用 パックご飯 180g×36食 ふくふくご飯 国産米100％ （沖縄除く） パック飯 パックごはん レトルト ご飯 米 無菌化包装米飯 常温保存 保存食 一人暮らし 仕送り okome 漬物・佃煮・ご飯のお供「西野屋」" data-price="5940" data-per_serving="165.000000" data-per_100g="91.666667">
-<td data-cell="rank" data-rank><span class="rank">12</span></td>
+<td data-cell="rank" data-rank><span class="rank">11</span></td>
 <td data-cell="image"><img class="product-img" src="https://thumbnail.image.rakuten.co.jp/@0_gold/nishinoya-k/img/firstpicture/f10-0-680.jpg?_ex=128x128" alt="" width="72" height="72" loading="lazy"></td>
 <td data-cell="product"><div class="identity-line"><span class="spec-chip">合計6.48kg / 36食</span></div>
 <strong class="product-name" title="お歳暮 プレゼント ギフト 福島県 浜通り 被災12市町村米使用 パックご飯 180g×36食 ふくふくご飯 国産米100％ （沖縄除く） パック飯 パックごはん レトルト ご飯 米 無菌化包装米飯 常温保存 保存食 一人暮らし 仕送り OKOME">お歳暮 プレゼント ギフト 福島県 浜通り 被災12市町村米使用 パックご飯 180g×36食 ふくふくご飯 国産米100％…</strong><div class="shop">漬物・佃煮・ご飯のお供「西野屋」</div><div class="product-badges"><span class="tag lifestyle">まとめ買い向き</span> <span class="tag ok">送料込み</span> </div><div class="trend-row"><span class="trend-badge low">記録内最安</span></div><details class="product-extra" data-product-extra>
@@ -917,10 +881,10 @@ gtag('config','G-GFVSZ8YDQ5',{site_id:'food_cost_jp',operator_test:window.foodCo
 <button type="button" class="utility-btn" data-compare-product data-product-id="nishinoya-k:10000319" data-product-name="お歳暮 プレゼント ギフト 福島県 浜通り 被災12市町村米使用 パックご飯 180g×36食 ふくふくご飯 国産米100％ （沖縄除く） パック飯 パックごはん レトルト ご飯 米 無菌化包装米飯 常温保存 保存食 一人暮らし 仕送り OKOME" data-product-category="pack-rice" data-product-category-name="パックご飯" data-product-price="5940" data-product-unit="165.000000" data-product-unit-label="1食あたり" data-product-metric="per_serving" data-product-shipping="included" data-product-signal="相場圏" data-product-signal-tone="neutral" data-product-quantity="合計6.48kg / 36食" data-product-url="https://hb.afl.rakuten.co.jp/hgc/g00ss5eo.7cx6md0d.g00ss5eo.7cx6n904/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fnishinoya-k%2F10-0-680%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Fnishinoya-k%2Fi%2F10000319%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" data-product-image="https://thumbnail.image.rakuten.co.jp/@0_gold/nishinoya-k/img/firstpicture/f10-0-680.jpg?_ex=128x128">＋ 比較する</button>
 </div><a class="cta" href="https://hb.afl.rakuten.co.jp/hgc/g00ss5eo.7cx6md0d.g00ss5eo.7cx6n904/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fnishinoya-k%2F10-0-680%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Fnishinoya-k%2Fi%2F10000319%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" target="_blank" rel="nofollow sponsored noopener"
  data-affiliate="rakuten" data-position="comparison_table" data-category="pack-rice" data-product-id="nishinoya-k:10000319"
- data-product-name="お歳暮 プレゼント ギフト 福島県 浜通り 被災12市町村米使用 パックご飯 180g×36食 ふくふくご飯 国産米100％ （沖縄除く） パック飯 パックごはん レトルト ご飯 米 無菌化包装米飯 常温保存 保存食 一人暮らし 仕送り OKOME" data-rank="12" data-metric="per_serving"
+ data-product-name="お歳暮 プレゼント ギフト 福島県 浜通り 被災12市町村米使用 パックご飯 180g×36食 ふくふくご飯 国産米100％ （沖縄除く） パック飯 パックごはん レトルト ご飯 米 無菌化包装米飯 常温保存 保存食 一人暮らし 仕送り OKOME" data-rank="11" data-metric="per_serving"
  data-unit-price="165.000000" data-shipping="included" data-cta-variant="standard">楽天で価格を確認 →</a></td>
 </tr><tr data-bucket="large" data-shopping-bucket="large" data-search-text="【公式】 パックご飯 200g ×40食 レトルトご飯 パックごはん 備蓄用 米 お米 ひとり暮らし 非常食 防災 仕送り ご飯 低温製法米 低温製法米のおいしいごはん アイリスオーヤマ公式 楽天市場店" data-price="6600" data-per_serving="165.000000" data-per_100g="82.500000">
-<td data-cell="rank" data-rank><span class="rank">13</span></td>
+<td data-cell="rank" data-rank><span class="rank">12</span></td>
 <td data-cell="image"><img class="product-img" src="https://thumbnail.image.rakuten.co.jp/@0_mall/irisplaza-r/cabinet/12351902/imgrc0123303106.jpg?_ex=128x128" alt="" width="72" height="72" loading="lazy"></td>
 <td data-cell="product"><div class="identity-line"><span class="spec-chip">合計8kg / 40食</span></div>
 <strong class="product-name" title="【公式】 パックご飯 200g ×40食 レトルトご飯 パックごはん 備蓄用 米 お米 ひとり暮らし 非常食 防災 仕送り ご飯 低温製法米 低温製法米のおいしいごはん">公式 パックご飯 200g ×40食 レトルトご飯 パックごはん 備蓄用 米 お米 ひとり暮らし 非常食 防災 仕送り ご飯…</strong><div class="shop">アイリスオーヤマ公式 楽天市場店</div><div class="product-badges"><span class="tag lifestyle">まとめ買い向き</span> <span class="tag ok">送料込み</span> </div><div class="trend-row"><span class="trend-badge low">記録内最安</span></div><details class="product-extra" data-product-extra>
@@ -966,10 +930,10 @@ gtag('config','G-GFVSZ8YDQ5',{site_id:'food_cost_jp',operator_test:window.foodCo
 <button type="button" class="utility-btn" data-compare-product data-product-id="irisplaza-r:10152531" data-product-name="【公式】 パックご飯 200g ×40食 レトルトご飯 パックごはん 備蓄用 米 お米 ひとり暮らし 非常食 防災 仕送り ご飯 低温製法米 低温製法米のおいしいごはん" data-product-category="pack-rice" data-product-category-name="パックご飯" data-product-price="6600" data-product-unit="165.000000" data-product-unit-label="1食あたり" data-product-metric="per_serving" data-product-shipping="included" data-product-signal="相場圏" data-product-signal-tone="neutral" data-product-quantity="合計8kg / 40食" data-product-url="https://hb.afl.rakuten.co.jp/hgc/g00t3zto.7cx6m5be.g00t3zto.7cx6n748/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Firisplaza-r%2F310717%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Firisplaza-r%2Fi%2F10152531%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" data-product-image="https://thumbnail.image.rakuten.co.jp/@0_mall/irisplaza-r/cabinet/12351902/imgrc0123303106.jpg?_ex=128x128">＋ 比較する</button>
 </div><a class="cta" href="https://hb.afl.rakuten.co.jp/hgc/g00t3zto.7cx6m5be.g00t3zto.7cx6n748/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Firisplaza-r%2F310717%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Firisplaza-r%2Fi%2F10152531%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" target="_blank" rel="nofollow sponsored noopener"
  data-affiliate="rakuten" data-position="comparison_table" data-category="pack-rice" data-product-id="irisplaza-r:10152531"
- data-product-name="【公式】 パックご飯 200g ×40食 レトルトご飯 パックごはん 備蓄用 米 お米 ひとり暮らし 非常食 防災 仕送り ご飯 低温製法米 低温製法米のおいしいごはん" data-rank="13" data-metric="per_serving"
+ data-product-name="【公式】 パックご飯 200g ×40食 レトルトご飯 パックごはん 備蓄用 米 お米 ひとり暮らし 非常食 防災 仕送り ご飯 低温製法米 低温製法米のおいしいごはん" data-rank="12" data-metric="per_serving"
  data-unit-price="165.000000" data-shipping="included" data-cta-variant="standard">楽天で価格を確認 →</a></td>
 </tr><tr data-bucket="large" data-shopping-bucket="large" data-search-text="＼20%ポイントバック〜11日迄☆彡／【公式】 パックご飯 180g ×30食 レトルトご飯 パックごはん 備蓄用 アイリスオーヤマ 米 お米 ひとり暮らし 非常食 防災 仕送り ご飯 低温製法米 低温製法米のおいしいごはん【iris_dl05】 アイリスオーヤマ公式 楽天市場店" data-price="5280" data-per_serving="176.000000" data-per_100g="97.777778">
-<td data-cell="rank" data-rank><span class="rank">14</span></td>
+<td data-cell="rank" data-rank><span class="rank">13</span></td>
 <td data-cell="image"><img class="product-img" src="https://thumbnail.image.rakuten.co.jp/@0_mall/irisplaza-r/cabinet/06256662/imgrc0102509579.jpg?_ex=128x128" alt="" width="72" height="72" loading="lazy"></td>
 <td data-cell="product"><div class="identity-line"><span class="brand-chip">アイリスオーヤマ</span><span class="spec-chip">合計5.4kg / 30食</span></div>
 <strong class="product-name" title="＼20%ポイントバック〜11日迄☆彡／【公式】 パックご飯 180g ×30食 レトルトご飯 パックごはん 備蓄用 アイリスオーヤマ 米 お米 ひとり暮らし 非常食 防災 仕送り ご飯 低温製法米 低温製法米のおいしいごはん【iris_dl05】">＼20%ポイントバック〜11日迄☆彡 公式 パックご飯 180g ×30食 レトルトご飯 パックごはん 備蓄用 米 お米…</strong><div class="shop">アイリスオーヤマ公式 楽天市場店</div><div class="product-badges"><span class="tag lifestyle">まとめ買い向き</span> <span class="tag ok">送料込み</span> </div><div class="trend-row"><span class="trend-badge low">記録内最安</span></div><details class="product-extra" data-product-extra>
@@ -1015,59 +979,10 @@ gtag('config','G-GFVSZ8YDQ5',{site_id:'food_cost_jp',operator_test:window.foodCo
 <button type="button" class="utility-btn" data-compare-product data-product-id="irisplaza-r:10097865" data-product-name="＼20%ポイントバック〜11日迄☆彡／【公式】 パックご飯 180g ×30食 レトルトご飯 パックごはん 備蓄用 アイリスオーヤマ 米 お米 ひとり暮らし 非常食 防災 仕送り ご飯 低温製法米 低温製法米のおいしいごはん【iris_dl05】" data-product-category="pack-rice" data-product-category-name="パックご飯" data-product-price="5280" data-product-unit="176.000000" data-product-unit-label="1食あたり" data-product-metric="per_serving" data-product-shipping="included" data-product-signal="相場圏" data-product-signal-tone="neutral" data-product-quantity="合計5.4kg / 30食" data-product-url="https://hb.afl.rakuten.co.jp/hgc/g00t3zto.7cx6m5be.g00t3zto.7cx6n748/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Firisplaza-r%2F1901114%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Firisplaza-r%2Fi%2F10097865%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" data-product-image="https://thumbnail.image.rakuten.co.jp/@0_mall/irisplaza-r/cabinet/06256662/imgrc0102509579.jpg?_ex=128x128">＋ 比較する</button>
 </div><a class="cta" href="https://hb.afl.rakuten.co.jp/hgc/g00t3zto.7cx6m5be.g00t3zto.7cx6n748/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Firisplaza-r%2F1901114%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Firisplaza-r%2Fi%2F10097865%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" target="_blank" rel="nofollow sponsored noopener"
  data-affiliate="rakuten" data-position="comparison_table" data-category="pack-rice" data-product-id="irisplaza-r:10097865"
- data-product-name="＼20%ポイントバック〜11日迄☆彡／【公式】 パックご飯 180g ×30食 レトルトご飯 パックごはん 備蓄用 アイリスオーヤマ 米 お米 ひとり暮らし 非常食 防災 仕送り ご飯 低温製法米 低温製法米のおいしいごはん【iris_dl05】" data-rank="14" data-metric="per_serving"
+ data-product-name="＼20%ポイントバック〜11日迄☆彡／【公式】 パックご飯 180g ×30食 レトルトご飯 パックごはん 備蓄用 アイリスオーヤマ 米 お米 ひとり暮らし 非常食 防災 仕送り ご飯 低温製法米 低温製法米のおいしいごはん【iris_dl05】" data-rank="13" data-metric="per_serving"
  data-unit-price="176.000000" data-shipping="included" data-cta-variant="standard">楽天で価格を確認 →</a></td>
-</tr><tr data-bucket="small" data-shopping-bucket="small" data-search-text="【公式】 パックご飯 180g ×10食 レトルトご飯 パックごはん 備蓄用 米 お米 ひとり暮らし 非常食 防災 仕送り ご飯 低温製法米 アイリスオーヤマ公式 楽天市場店" data-price="1980" data-per_serving="198.000000" data-per_100g="110.000000">
-<td data-cell="rank" data-rank><span class="rank">15</span></td>
-<td data-cell="image"><img class="product-img" src="https://thumbnail.image.rakuten.co.jp/@0_mall/irisplaza-r/cabinet/11073544/12380730/imgrc0112473664.jpg?_ex=128x128" alt="" width="72" height="72" loading="lazy"></td>
-<td data-cell="product"><div class="identity-line"><span class="spec-chip">合計1.8kg / 10食</span></div>
-<strong class="product-name" title="【公式】 パックご飯 180g ×10食 レトルトご飯 パックごはん 備蓄用 米 お米 ひとり暮らし 非常食 防災 仕送り ご飯 低温製法米">公式 パックご飯 180g ×10食 レトルトご飯 パックごはん 備蓄用 米 お米 ひとり暮らし 非常食 防災 仕送り ご飯…</strong><div class="shop">アイリスオーヤマ公式 楽天市場店</div><div class="product-badges"><span class="tag lifestyle">少量向き</span> <span class="tag ok">送料込み</span> </div><div class="trend-row"><span class="trend-badge low">記録内最安</span></div><details class="product-extra" data-product-extra>
-<summary>価格のうごきを見る <span>＋</span></summary>
-<div class="product-extra-body"><div class="history-card" data-history-card>
-<div class="history-head"><strong>価格履歴</strong><span>11回取得</span></div>
-<div class="history-toolbar"><div class="history-tabs">
-<button type="button" class="selected" data-history-range="7日">7日</button>
-<button type="button" data-history-range="30日">30日</button>
-</div><span class="history-trend stable">最近安定</span></div>
-<div class="history-range-panel" data-history-panel="7日">
-<div class="history-stats history-stats-4">
-<div><span>現在</span><b>¥198</b></div>
-<div><span>最安</span><b>¥198</b><small>10/28</small></div>
-<div><span>最高</span><b>¥198</b><small>10/28</small></div>
-<div><span>値幅</span><b>¥0.0</b></div>
-</div>
-<svg class="sparkline neutral" viewBox="0 0 180 64" role="img" aria-label="7日価格推移">
-<line x1="6" y1="58" x2="174" y2="58" class="spark-grid"/>
-<polyline points="6.0,32.0 62.0,32.0 118.0,32.0 174.0,32.0" fill="none" vector-effect="non-scaling-stroke"/>
-<circle cx="174.0" cy="32.0" r="3.2"/>
-</svg></div><div class="history-range-panel" data-history-panel="30日" hidden>
-<div class="history-stats history-stats-4">
-<div><span>現在</span><b>¥198</b></div>
-<div><span>最安</span><b>¥198</b><small>10/05</small></div>
-<div><span>最高</span><b>¥198</b><small>10/05</small></div>
-<div><span>値幅</span><b>¥0.0</b></div>
-</div>
-<svg class="sparkline neutral" viewBox="0 0 180 64" role="img" aria-label="30日価格推移">
-<line x1="6" y1="58" x2="174" y2="58" class="spark-grid"/>
-<polyline points="6.0,32.0 22.8,32.0 39.6,32.0 56.4,32.0 73.2,32.0 90.0,32.0 106.8,32.0 123.6,32.0 140.4,32.0 157.2,32.0 174.0,32.0" fill="none" vector-effect="non-scaling-stroke"/>
-<circle cx="174.0" cy="32.0" r="3.2"/>
-</svg></div>
-</div><div class="buy-signal neutral">
-<span>相場圏</span><small>直近履歴では大きな割高・値下がりは確認できません。</small>
-</div></div>
-</details></td>
-<td data-cell="quantity">合計1.8kg / 10食</td>
-<td data-cell="price">¥1,980</td>
-<td data-cell="unit"><div class="unit">¥198</div><div class="unit-label">1食あたり</div><div class="secondary-unit">100gあたり ¥110</div></td>
-<td data-cell="cta"><div class="product-actions">
-<button type="button" class="utility-btn" data-save-product data-product-id="irisplaza-r:10097864" data-product-name="【公式】 パックご飯 180g ×10食 レトルトご飯 パックごはん 備蓄用 米 お米 ひとり暮らし 非常食 防災 仕送り ご飯 低温製法米" data-product-category="pack-rice" data-product-category-name="パックご飯" data-product-price="1980" data-product-unit="198.000000" data-product-unit-label="1食あたり" data-product-metric="per_serving" data-product-shipping="included" data-product-signal="相場圏" data-product-signal-tone="neutral" data-product-quantity="合計1.8kg / 10食" data-product-url="https://hb.afl.rakuten.co.jp/hgc/g00t3zto.7cx6m5be.g00t3zto.7cx6n748/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Firisplaza-r%2F310325%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Firisplaza-r%2Fi%2F10097864%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" data-product-image="https://thumbnail.image.rakuten.co.jp/@0_mall/irisplaza-r/cabinet/11073544/12380730/imgrc0112473664.jpg?_ex=128x128">＋ 買い物メモ</button>
-<button type="button" class="utility-btn" data-compare-product data-product-id="irisplaza-r:10097864" data-product-name="【公式】 パックご飯 180g ×10食 レトルトご飯 パックごはん 備蓄用 米 お米 ひとり暮らし 非常食 防災 仕送り ご飯 低温製法米" data-product-category="pack-rice" data-product-category-name="パックご飯" data-product-price="1980" data-product-unit="198.000000" data-product-unit-label="1食あたり" data-product-metric="per_serving" data-product-shipping="included" data-product-signal="相場圏" data-product-signal-tone="neutral" data-product-quantity="合計1.8kg / 10食" data-product-url="https://hb.afl.rakuten.co.jp/hgc/g00t3zto.7cx6m5be.g00t3zto.7cx6n748/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Firisplaza-r%2F310325%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Firisplaza-r%2Fi%2F10097864%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" data-product-image="https://thumbnail.image.rakuten.co.jp/@0_mall/irisplaza-r/cabinet/11073544/12380730/imgrc0112473664.jpg?_ex=128x128">＋ 比較する</button>
-</div><a class="cta" href="https://hb.afl.rakuten.co.jp/hgc/g00t3zto.7cx6m5be.g00t3zto.7cx6n748/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Firisplaza-r%2F310325%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Firisplaza-r%2Fi%2F10097864%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" target="_blank" rel="nofollow sponsored noopener"
- data-affiliate="rakuten" data-position="comparison_table" data-category="pack-rice" data-product-id="irisplaza-r:10097864"
- data-product-name="【公式】 パックご飯 180g ×10食 レトルトご飯 パックごはん 備蓄用 米 お米 ひとり暮らし 非常食 防災 仕送り ご飯 低温製法米" data-rank="15" data-metric="per_serving"
- data-unit-price="198.000000" data-shipping="included" data-cta-variant="standard">楽天で価格を確認 →</a></td>
 </tr><tr data-bucket="small" data-shopping-bucket="small" data-search-text="米 パックご飯 あきたこまち 180g ×10食 ご飯パック パックごはん レトルトご飯 パック米 パックライス パック 備蓄 米 ご飯 お米 白米 非常食 仕送り 常温保存可 アウトドア 低温製法米のおいしいごはん アイリスオーヤマ こめ 暮らし健康ネット館" data-price="1980" data-per_serving="198.000000" data-per_100g="110.000000">
-<td data-cell="rank" data-rank><span class="rank">16</span></td>
+<td data-cell="rank" data-rank><span class="rank">14</span></td>
 <td data-cell="image"><img class="product-img" src="https://thumbnail.image.rakuten.co.jp/@0_mall/kurashikenkou/cabinet/web06/imgrc0089142826.jpg?_ex=128x128" alt="" width="72" height="72" loading="lazy"></td>
 <td data-cell="product"><div class="identity-line"><span class="brand-chip">アイリスオーヤマ</span><span class="spec-chip">合計1.8kg / 10食</span></div>
 <strong class="product-name" title="米 パックご飯 あきたこまち 180g ×10食 ご飯パック パックごはん レトルトご飯 パック米 パックライス パック 備蓄 米 ご飯 お米 白米 非常食 仕送り 常温保存可 アウトドア 低温製法米のおいしいごはん アイリスオーヤマ こめ">米 パックご飯 あきたこまち 180g ×10食 ご飯パック パックごはん レトルトご飯 パック米 パックライス パック 備蓄…</strong><div class="shop">暮らし健康ネット館</div><div class="product-badges"><span class="tag lifestyle">少量向き</span> <span class="tag ok">送料込み</span> </div><div class="trend-row"><span class="trend-badge low">記録内最安</span></div><details class="product-extra" data-product-extra>
@@ -1113,10 +1028,10 @@ gtag('config','G-GFVSZ8YDQ5',{site_id:'food_cost_jp',operator_test:window.foodCo
 <button type="button" class="utility-btn" data-compare-product data-product-id="kurashikenkou:10157467" data-product-name="米 パックご飯 あきたこまち 180g ×10食 ご飯パック パックごはん レトルトご飯 パック米 パックライス パック 備蓄 米 ご飯 お米 白米 非常食 仕送り 常温保存可 アウトドア 低温製法米のおいしいごはん アイリスオーヤマ こめ" data-product-category="pack-rice" data-product-category-name="パックご飯" data-product-price="1980" data-product-unit="198.000000" data-product-unit-label="1食あたり" data-product-metric="per_serving" data-product-shipping="included" data-product-signal="相場圏" data-product-signal-tone="neutral" data-product-quantity="合計1.8kg / 10食" data-product-url="https://hb.afl.rakuten.co.jp/hgc/g00qhoao.7cx6m91b.g00qhoao.7cx6n00f/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fkurashikenkou%2F310353%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Fkurashikenkou%2Fi%2F10157467%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" data-product-image="https://thumbnail.image.rakuten.co.jp/@0_mall/kurashikenkou/cabinet/web06/imgrc0089142826.jpg?_ex=128x128">＋ 比較する</button>
 </div><a class="cta" href="https://hb.afl.rakuten.co.jp/hgc/g00qhoao.7cx6m91b.g00qhoao.7cx6n00f/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fkurashikenkou%2F310353%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Fkurashikenkou%2Fi%2F10157467%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" target="_blank" rel="nofollow sponsored noopener"
  data-affiliate="rakuten" data-position="comparison_table" data-category="pack-rice" data-product-id="kurashikenkou:10157467"
- data-product-name="米 パックご飯 あきたこまち 180g ×10食 ご飯パック パックごはん レトルトご飯 パック米 パックライス パック 備蓄 米 ご飯 お米 白米 非常食 仕送り 常温保存可 アウトドア 低温製法米のおいしいごはん アイリスオーヤマ こめ" data-rank="16" data-metric="per_serving"
+ data-product-name="米 パックご飯 あきたこまち 180g ×10食 ご飯パック パックごはん レトルトご飯 パック米 パックライス パック 備蓄 米 ご飯 お米 白米 非常食 仕送り 常温保存可 アウトドア 低温製法米のおいしいごはん アイリスオーヤマ こめ" data-rank="14" data-metric="per_serving"
  data-unit-price="198.000000" data-shipping="included" data-cta-variant="standard">楽天で価格を確認 →</a></td>
 </tr><tr data-bucket="large" data-shopping-bucket="large" data-search-text="【最強翌日配送】【80食】サトウのごはん 銀シャリ 5食パック (200g×5食)×16袋入 サトウ食品 レトルトご飯 そのまま おいしいごはん kob お酒の専門店 リカマン楽天市場店" data-price="16300" data-per_serving="203.750000" data-per_100g="101.875000">
-<td data-cell="rank" data-rank><span class="rank">17</span></td>
+<td data-cell="rank" data-rank><span class="rank">15</span></td>
 <td data-cell="image"><img class="product-img" src="https://thumbnail.image.rakuten.co.jp/@0_mall/likaman/cabinet/rakuten71/950871-16.jpg?_ex=128x128" alt="" width="72" height="72" loading="lazy"></td>
 <td data-cell="product"><div class="identity-line"><span class="brand-chip">サトウのごはん</span><span class="spec-chip">合計16kg / 80食</span></div>
 <strong class="product-name" title="【最強翌日配送】【80食】サトウのごはん 銀シャリ 5食パック (200g×5食)×16袋入 サトウ食品 レトルトご飯 そのまま おいしいごはん KOB">最強翌日配送 80食 銀シャリ 5食パック (200g×5食)×16袋入 サトウ食品 レトルトご飯 そのまま おいしいごはん…</strong><div class="shop">お酒の専門店 リカマン楽天市場店</div><div class="product-badges"><span class="tag lifestyle">まとめ買い向き</span> <span class="tag ok">送料込み</span> </div><div class="trend-row"><span class="trend-badge low">記録内最安</span></div><details class="product-extra" data-product-extra>
@@ -1162,10 +1077,10 @@ gtag('config','G-GFVSZ8YDQ5',{site_id:'food_cost_jp',operator_test:window.foodCo
 <button type="button" class="utility-btn" data-compare-product data-product-id="likaman:10040020" data-product-name="【最強翌日配送】【80食】サトウのごはん 銀シャリ 5食パック (200g×5食)×16袋入 サトウ食品 レトルトご飯 そのまま おいしいごはん KOB" data-product-category="pack-rice" data-product-category-name="パックご飯" data-product-price="16300" data-product-unit="203.750000" data-product-unit-label="1食あたり" data-product-metric="per_serving" data-product-shipping="included" data-product-signal="相場圏" data-product-signal-tone="neutral" data-product-quantity="合計16kg / 80食" data-product-url="https://hb.afl.rakuten.co.jp/hgc/g00qo2ro.7cx6me4a.g00qo2ro.7cx6n6c0/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Flikaman%2F950871-16%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Flikaman%2Fi%2F10040020%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" data-product-image="https://thumbnail.image.rakuten.co.jp/@0_mall/likaman/cabinet/rakuten71/950871-16.jpg?_ex=128x128">＋ 比較する</button>
 </div><a class="cta" href="https://hb.afl.rakuten.co.jp/hgc/g00qo2ro.7cx6me4a.g00qo2ro.7cx6n6c0/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Flikaman%2F950871-16%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Flikaman%2Fi%2F10040020%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" target="_blank" rel="nofollow sponsored noopener"
  data-affiliate="rakuten" data-position="comparison_table" data-category="pack-rice" data-product-id="likaman:10040020"
- data-product-name="【最強翌日配送】【80食】サトウのごはん 銀シャリ 5食パック (200g×5食)×16袋入 サトウ食品 レトルトご飯 そのまま おいしいごはん KOB" data-rank="17" data-metric="per_serving"
+ data-product-name="【最強翌日配送】【80食】サトウのごはん 銀シャリ 5食パック (200g×5食)×16袋入 サトウ食品 レトルトご飯 そのまま おいしいごはん KOB" data-rank="15" data-metric="per_serving"
  data-unit-price="203.750000" data-shipping="included" data-cta-variant="standard">楽天で価格を確認 →</a></td>
 </tr><tr data-bucket="small" data-shopping-bucket="small" data-search-text="ウーケ 神明 ふんわりごはん 北海道産ゆめぴりか 200g×24個 ゆめぴりか レトルトご飯 パックご飯 レトルトごはん ご飯付き レトルト ご飯 パック パックごはん ご飯パック ごはん yulago(ユラゴ)" data-price="4980" data-per_serving="207.500000" data-per_100g="103.750000">
-<td data-cell="rank" data-rank><span class="rank">18</span></td>
+<td data-cell="rank" data-rank><span class="rank">16</span></td>
 <td data-cell="image"><img class="product-img" src="https://thumbnail.image.rakuten.co.jp/@0_mall/yukinosizuku/cabinet/10096083/001-2.jpg?_ex=128x128" alt="" width="72" height="72" loading="lazy"></td>
 <td data-cell="product"><div class="identity-line"><span class="brand-chip">ウーケ</span><span class="spec-chip">合計4.8kg / 24食</span></div>
 <strong class="product-name" title="ウーケ 神明 ふんわりごはん 北海道産ゆめぴりか 200g×24個 ゆめぴりか レトルトご飯 パックご飯 レトルトごはん ご飯付き レトルト ご飯 パック パックごはん ご飯パック ごはん">神明 ふんわりごはん 北海道産ゆめぴりか 200g×24個 ゆめぴりか レトルトご飯 パックご飯 レトルトごはん ご飯付き…</strong><div class="shop">YuLago(ユラゴ)</div><div class="product-badges"><span class="tag lifestyle">少量向き</span> <span class="tag ok">送料込み</span> </div><div class="trend-row"><span class="trend-badge low">記録内最安</span></div><details class="product-extra" data-product-extra>
@@ -1211,59 +1126,10 @@ gtag('config','G-GFVSZ8YDQ5',{site_id:'food_cost_jp',operator_test:window.foodCo
 <button type="button" class="utility-btn" data-compare-product data-product-id="yukinosizuku:10010659" data-product-name="ウーケ 神明 ふんわりごはん 北海道産ゆめぴりか 200g×24個 ゆめぴりか レトルトご飯 パックご飯 レトルトごはん ご飯付き レトルト ご飯 パック パックごはん ご飯パック ごはん" data-product-category="pack-rice" data-product-category-name="パックご飯" data-product-price="4980" data-product-unit="207.500000" data-product-unit-label="1食あたり" data-product-metric="per_serving" data-product-shipping="included" data-product-signal="相場圏" data-product-signal-tone="neutral" data-product-quantity="合計4.8kg / 24食" data-product-url="https://hb.afl.rakuten.co.jp/hgc/g00tjb1o.7cx6m4a6.g00tjb1o.7cx6ncfe/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fyukinosizuku%2Fn-b0089874li-24%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Fyukinosizuku%2Fi%2F10010659%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" data-product-image="https://thumbnail.image.rakuten.co.jp/@0_mall/yukinosizuku/cabinet/10096083/001-2.jpg?_ex=128x128">＋ 比較する</button>
 </div><a class="cta" href="https://hb.afl.rakuten.co.jp/hgc/g00tjb1o.7cx6m4a6.g00tjb1o.7cx6ncfe/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fyukinosizuku%2Fn-b0089874li-24%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Fyukinosizuku%2Fi%2F10010659%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" target="_blank" rel="nofollow sponsored noopener"
  data-affiliate="rakuten" data-position="comparison_table" data-category="pack-rice" data-product-id="yukinosizuku:10010659"
- data-product-name="ウーケ 神明 ふんわりごはん 北海道産ゆめぴりか 200g×24個 ゆめぴりか レトルトご飯 パックご飯 レトルトごはん ご飯付き レトルト ご飯 パック パックごはん ご飯パック ごはん" data-rank="18" data-metric="per_serving"
+ data-product-name="ウーケ 神明 ふんわりごはん 北海道産ゆめぴりか 200g×24個 ゆめぴりか レトルトご飯 パックご飯 レトルトごはん ご飯付き レトルト ご飯 パック パックごはん ご飯パック ごはん" data-rank="16" data-metric="per_serving"
  data-unit-price="207.500000" data-shipping="included" data-cta-variant="standard">楽天で価格を確認 →</a></td>
-</tr><tr data-bucket="large" data-shopping-bucket="large" data-search-text="【最強翌日配送】サトウのごはん 銀シャリ 5食パック (200g×5食)×8袋入 サトウ食品 レトルトご飯 そのまま おいしいごはん kob お酒の専門店 リカマン楽天市場店" data-price="8499" data-per_serving="212.475000" data-per_100g="106.237500">
-<td data-cell="rank" data-rank><span class="rank">19</span></td>
-<td data-cell="image"><img class="product-img" src="https://thumbnail.image.rakuten.co.jp/@0_mall/likaman/cabinet/rakuten71/950871-8.jpg?_ex=128x128" alt="" width="72" height="72" loading="lazy"></td>
-<td data-cell="product"><div class="identity-line"><span class="brand-chip">サトウのごはん</span><span class="spec-chip">合計8kg / 40食</span></div>
-<strong class="product-name" title="【最強翌日配送】サトウのごはん 銀シャリ 5食パック (200g×5食)×8袋入 サトウ食品 レトルトご飯 そのまま おいしいごはん KOB">最強翌日配送 銀シャリ 5食パック (200g×5食)×8袋入 サトウ食品 レトルトご飯 そのまま おいしいごはん KOB</strong><div class="shop">お酒の専門店 リカマン楽天市場店</div><div class="product-badges"><span class="tag lifestyle">まとめ買い向き</span> <span class="tag ok">送料込み</span> </div><div class="trend-row"><span class="trend-badge low">記録内最安</span></div><details class="product-extra" data-product-extra>
-<summary>価格のうごきを見る <span>＋</span></summary>
-<div class="product-extra-body"><div class="history-card" data-history-card>
-<div class="history-head"><strong>価格履歴</strong><span>33回取得</span></div>
-<div class="history-toolbar"><div class="history-tabs">
-<button type="button" class="selected" data-history-range="7日">7日</button>
-<button type="button" data-history-range="30日">30日</button>
-</div><span class="history-trend stable">最近安定</span></div>
-<div class="history-range-panel" data-history-panel="7日">
-<div class="history-stats history-stats-4">
-<div><span>現在</span><b>¥212</b></div>
-<div><span>最安</span><b>¥212</b><small>10/28</small></div>
-<div><span>最高</span><b>¥212</b><small>10/28</small></div>
-<div><span>値幅</span><b>¥0.0</b></div>
-</div>
-<svg class="sparkline neutral" viewBox="0 0 180 64" role="img" aria-label="7日価格推移">
-<line x1="6" y1="58" x2="174" y2="58" class="spark-grid"/>
-<polyline points="6.0,32.0 30.0,32.0 54.0,32.0 78.0,32.0 102.0,32.0 126.0,32.0 150.0,32.0 174.0,32.0" fill="none" vector-effect="non-scaling-stroke"/>
-<circle cx="174.0" cy="32.0" r="3.2"/>
-</svg></div><div class="history-range-panel" data-history-panel="30日" hidden>
-<div class="history-stats history-stats-4">
-<div><span>現在</span><b>¥212</b></div>
-<div><span>最安</span><b>¥212</b><small>10/05</small></div>
-<div><span>最高</span><b>¥212</b><small>10/05</small></div>
-<div><span>値幅</span><b>¥0.0</b></div>
-</div>
-<svg class="sparkline neutral" viewBox="0 0 180 64" role="img" aria-label="30日価格推移">
-<line x1="6" y1="58" x2="174" y2="58" class="spark-grid"/>
-<polyline points="6.0,32.0 12.2,32.0 18.4,32.0 24.7,32.0 30.9,32.0 37.1,32.0 43.3,32.0 49.6,32.0 55.8,32.0 62.0,32.0 68.2,32.0 74.4,32.0 80.7,32.0 86.9,32.0 93.1,32.0 99.3,32.0 105.6,32.0 111.8,32.0 118.0,32.0 124.2,32.0 130.4,32.0 136.7,32.0 142.9,32.0 149.1,32.0 155.3,32.0 161.6,32.0 167.8,32.0 174.0,32.0" fill="none" vector-effect="non-scaling-stroke"/>
-<circle cx="174.0" cy="32.0" r="3.2"/>
-</svg></div>
-</div><div class="buy-signal neutral">
-<span>相場圏</span><small>直近履歴では大きな割高・値下がりは確認できません。</small>
-</div></div>
-</details></td>
-<td data-cell="quantity">合計8kg / 40食</td>
-<td data-cell="price">¥8,499</td>
-<td data-cell="unit"><div class="unit">¥212</div><div class="unit-label">1食あたり</div><div class="secondary-unit">100gあたり ¥106</div></td>
-<td data-cell="cta"><div class="product-actions">
-<button type="button" class="utility-btn" data-save-product data-product-id="likaman:10034744" data-product-name="【最強翌日配送】サトウのごはん 銀シャリ 5食パック (200g×5食)×8袋入 サトウ食品 レトルトご飯 そのまま おいしいごはん KOB" data-product-category="pack-rice" data-product-category-name="パックご飯" data-product-price="8499" data-product-unit="212.475000" data-product-unit-label="1食あたり" data-product-metric="per_serving" data-product-shipping="included" data-product-signal="相場圏" data-product-signal-tone="neutral" data-product-quantity="合計8kg / 40食" data-product-url="https://hb.afl.rakuten.co.jp/hgc/g00qo2ro.7cx6me4a.g00qo2ro.7cx6n6c0/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Flikaman%2F950871-8%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Flikaman%2Fi%2F10034744%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" data-product-image="https://thumbnail.image.rakuten.co.jp/@0_mall/likaman/cabinet/rakuten71/950871-8.jpg?_ex=128x128">＋ 買い物メモ</button>
-<button type="button" class="utility-btn" data-compare-product data-product-id="likaman:10034744" data-product-name="【最強翌日配送】サトウのごはん 銀シャリ 5食パック (200g×5食)×8袋入 サトウ食品 レトルトご飯 そのまま おいしいごはん KOB" data-product-category="pack-rice" data-product-category-name="パックご飯" data-product-price="8499" data-product-unit="212.475000" data-product-unit-label="1食あたり" data-product-metric="per_serving" data-product-shipping="included" data-product-signal="相場圏" data-product-signal-tone="neutral" data-product-quantity="合計8kg / 40食" data-product-url="https://hb.afl.rakuten.co.jp/hgc/g00qo2ro.7cx6me4a.g00qo2ro.7cx6n6c0/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Flikaman%2F950871-8%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Flikaman%2Fi%2F10034744%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" data-product-image="https://thumbnail.image.rakuten.co.jp/@0_mall/likaman/cabinet/rakuten71/950871-8.jpg?_ex=128x128">＋ 比較する</button>
-</div><a class="cta" href="https://hb.afl.rakuten.co.jp/hgc/g00qo2ro.7cx6me4a.g00qo2ro.7cx6n6c0/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Flikaman%2F950871-8%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Flikaman%2Fi%2F10034744%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" target="_blank" rel="nofollow sponsored noopener"
- data-affiliate="rakuten" data-position="comparison_table" data-category="pack-rice" data-product-id="likaman:10034744"
- data-product-name="【最強翌日配送】サトウのごはん 銀シャリ 5食パック (200g×5食)×8袋入 サトウ食品 レトルトご飯 そのまま おいしいごはん KOB" data-rank="19" data-metric="per_serving"
- data-unit-price="212.475000" data-shipping="included" data-cta-variant="standard">楽天で価格を確認 →</a></td>
 </tr><tr data-bucket="large" data-shopping-bucket="large" data-search-text="【最強翌日配送】サトウのごはん 新潟産コシヒカリ 5食パック 200g×5食×8袋 40個 kob お酒の専門店 リカマン楽天市場店" data-price="8780" data-per_serving="219.500000" data-per_100g="109.750000">
-<td data-cell="rank" data-rank><span class="rank">20</span></td>
+<td data-cell="rank" data-rank><span class="rank">17</span></td>
 <td data-cell="image"><img class="product-img" src="https://thumbnail.image.rakuten.co.jp/@0_mall/likaman/cabinet/rakuten71/951915-8.jpg?_ex=128x128" alt="" width="72" height="72" loading="lazy"></td>
 <td data-cell="product"><div class="identity-line"><span class="brand-chip">サトウのごはん</span><span class="spec-chip">合計8kg / 40食</span></div>
 <strong class="product-name" title="【最強翌日配送】サトウのごはん 新潟産コシヒカリ 5食パック 200g×5食×8袋 40個 KOB">最強翌日配送 新潟産コシヒカリ 5食パック 200g×5食×8袋 40個 KOB</strong><div class="shop">お酒の専門店 リカマン楽天市場店</div><div class="product-badges"><span class="tag lifestyle">まとめ買い向き</span> <span class="tag ok">送料込み</span> </div><div class="trend-row"><span class="trend-badge low">記録内最安</span></div><details class="product-extra" data-product-extra>
@@ -1309,10 +1175,10 @@ gtag('config','G-GFVSZ8YDQ5',{site_id:'food_cost_jp',operator_test:window.foodCo
 <button type="button" class="utility-btn" data-compare-product data-product-id="likaman:10041171" data-product-name="【最強翌日配送】サトウのごはん 新潟産コシヒカリ 5食パック 200g×5食×8袋 40個 KOB" data-product-category="pack-rice" data-product-category-name="パックご飯" data-product-price="8780" data-product-unit="219.500000" data-product-unit-label="1食あたり" data-product-metric="per_serving" data-product-shipping="included" data-product-signal="相場圏" data-product-signal-tone="neutral" data-product-quantity="合計8kg / 40食" data-product-url="https://hb.afl.rakuten.co.jp/hgc/g00qo2ro.7cx6me4a.g00qo2ro.7cx6n6c0/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Flikaman%2F951915-8%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Flikaman%2Fi%2F10041171%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" data-product-image="https://thumbnail.image.rakuten.co.jp/@0_mall/likaman/cabinet/rakuten71/951915-8.jpg?_ex=128x128">＋ 比較する</button>
 </div><a class="cta" href="https://hb.afl.rakuten.co.jp/hgc/g00qo2ro.7cx6me4a.g00qo2ro.7cx6n6c0/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Flikaman%2F951915-8%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Flikaman%2Fi%2F10041171%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" target="_blank" rel="nofollow sponsored noopener"
  data-affiliate="rakuten" data-position="comparison_table" data-category="pack-rice" data-product-id="likaman:10041171"
- data-product-name="【最強翌日配送】サトウのごはん 新潟産コシヒカリ 5食パック 200g×5食×8袋 40個 KOB" data-rank="20" data-metric="per_serving"
+ data-product-name="【最強翌日配送】サトウのごはん 新潟産コシヒカリ 5食パック 200g×5食×8袋 40個 KOB" data-rank="17" data-metric="per_serving"
  data-unit-price="219.500000" data-shipping="included" data-cta-variant="standard">楽天で価格を確認 →</a></td>
 </tr><tr data-bucket="small" data-shopping-bucket="small" data-search-text="『ふんわりごはん（1食200g）』×24食セット レトルトご飯 南魚沼産こしひかり「特別栽培米」使用 ゆのたに 楽天市場店" data-price="6200" data-per_serving="258.333333" data-per_100g="129.166667">
-<td data-cell="rank" data-rank><span class="rank">21</span></td>
+<td data-cell="rank" data-rank><span class="rank">18</span></td>
 <td data-cell="image"><img class="product-img" src="https://thumbnail.image.rakuten.co.jp/@0_mall/yunotani/cabinet/reto_can/rnfg24_1.jpg?_ex=128x128" alt="" width="72" height="72" loading="lazy"></td>
 <td data-cell="product"><div class="identity-line"><span class="spec-chip">合計4.8kg / 24食</span></div>
 <strong class="product-name" title="『ふんわりごはん（1食200g）』×24食セット レトルトご飯 南魚沼産こしひかり「特別栽培米」使用">『ふんわりごはん（1食200g）』×24食セット レトルトご飯 南魚沼産こしひかり「特別栽培米」使用</strong><div class="shop">ゆのたに 楽天市場店</div><div class="product-badges"><span class="tag lifestyle">少量向き</span> <span class="tag ok">送料込み</span> </div><div class="trend-row"><span class="trend-badge low">記録内最安</span></div><details class="product-extra" data-product-extra>
@@ -1358,7 +1224,7 @@ gtag('config','G-GFVSZ8YDQ5',{site_id:'food_cost_jp',operator_test:window.foodCo
 <button type="button" class="utility-btn" data-compare-product data-product-id="yunotani:10000061" data-product-name="『ふんわりごはん（1食200g）』×24食セット レトルトご飯 南魚沼産こしひかり「特別栽培米」使用" data-product-category="pack-rice" data-product-category-name="パックご飯" data-product-price="6200" data-product-unit="258.333333" data-product-unit-label="1食あたり" data-product-metric="per_serving" data-product-shipping="included" data-product-signal="相場圏" data-product-signal-tone="neutral" data-product-quantity="合計4.8kg / 24食" data-product-url="https://hb.afl.rakuten.co.jp/hgc/g00to7zo.7cx6md89.g00to7zo.7cx6n6d7/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fyunotani%2Ffg-24%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Fyunotani%2Fi%2F10000061%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" data-product-image="https://thumbnail.image.rakuten.co.jp/@0_mall/yunotani/cabinet/reto_can/rnfg24_1.jpg?_ex=128x128">＋ 比較する</button>
 </div><a class="cta" href="https://hb.afl.rakuten.co.jp/hgc/g00to7zo.7cx6md89.g00to7zo.7cx6n6d7/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fyunotani%2Ffg-24%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Fyunotani%2Fi%2F10000061%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" target="_blank" rel="nofollow sponsored noopener"
  data-affiliate="rakuten" data-position="comparison_table" data-category="pack-rice" data-product-id="yunotani:10000061"
- data-product-name="『ふんわりごはん（1食200g）』×24食セット レトルトご飯 南魚沼産こしひかり「特別栽培米」使用" data-rank="21" data-metric="per_serving"
+ data-product-name="『ふんわりごはん（1食200g）』×24食セット レトルトご飯 南魚沼産こしひかり「特別栽培米」使用" data-rank="18" data-metric="per_serving"
  data-unit-price="258.333333" data-shipping="included" data-cta-variant="standard">楽天で価格を確認 →</a></td>
 </tr></tbody>
 </table></div>
@@ -1380,7 +1246,7 @@ gtag('config','G-GFVSZ8YDQ5',{site_id:'food_cost_jp',operator_test:window.foodCo
 <p class="sub" data-intent-note></p><div class="empty-filter" data-empty-filter>条件に合う商品がありません。検索語や容量条件を変えてください。</div>
 <div class="table"><table>
 <thead><tr><th>順</th><th></th><th>商品</th><th>数量</th><th>商品価格</th><th>単価</th><th>販売先</th></tr></thead>
-<tbody><tr data-bucket="large" data-shopping-bucket="large" data-search-text="パックごはん180g×40食 秋田米100％のごはん オール秋田県産米使用 パックライス パックご飯 送料無料※沖縄・離島別途 こまちのふるさと" data-price="4350" data-per_serving="108.750000" data-per_100g="60.416667">
+<tbody><tr data-bucket="large" data-shopping-bucket="large" data-search-text="パックごはん180g×40食 秋田米100％のごはん オール秋田県産米使用 パックライス パックご飯 送料無料※沖縄・離島別途 こまちのふるさと" data-price="4450" data-per_serving="111.250000" data-per_100g="61.805556">
 <td data-cell="rank" data-rank><span class="rank top">1</span></td>
 <td data-cell="image"><img class="product-img" src="https://thumbnail.image.rakuten.co.jp/@0_mall/nouyu/cabinet/test/13083945/imgrc0134434077.jpg?_ex=128x128" alt="" width="72" height="72" loading="lazy"></td>
 <td data-cell="product"><div class="identity-line"><span class="spec-chip">合計7.2kg / 40食</span></div>
@@ -1391,44 +1257,44 @@ gtag('config','G-GFVSZ8YDQ5',{site_id:'food_cost_jp',operator_test:window.foodCo
 <div class="history-toolbar"><div class="history-tabs">
 <button type="button" class="selected" data-history-range="7日">7日</button>
 <button type="button" data-history-range="30日">30日</button>
-</div><span class="history-trend stable">最近安定</span></div>
+</div><span class="history-trend up">最近上昇</span></div>
 <div class="history-range-panel" data-history-panel="7日">
 <div class="history-stats history-stats-4">
-<div><span>現在</span><b>¥109</b></div>
+<div><span>現在</span><b>¥111</b></div>
 <div><span>最安</span><b>¥109</b><small>10/28</small></div>
-<div><span>最高</span><b>¥109</b><small>10/28</small></div>
-<div><span>値幅</span><b>¥0.0</b></div>
+<div><span>最高</span><b>¥111</b><small>11/04</small></div>
+<div><span>値幅</span><b>¥2.5</b></div>
 </div>
-<svg class="sparkline neutral" viewBox="0 0 180 64" role="img" aria-label="7日価格推移">
+<svg class="sparkline wait" viewBox="0 0 180 64" role="img" aria-label="7日価格推移">
 <line x1="6" y1="58" x2="174" y2="58" class="spark-grid"/>
-<polyline points="6.0,32.0 30.0,32.0 54.0,32.0 78.0,32.0 102.0,32.0 126.0,32.0 150.0,32.0 174.0,32.0" fill="none" vector-effect="non-scaling-stroke"/>
-<circle cx="174.0" cy="32.0" r="3.2"/>
+<polyline points="6.0,58.0 30.0,58.0 54.0,58.0 78.0,58.0 102.0,58.0 126.0,58.0 150.0,58.0 174.0,6.0" fill="none" vector-effect="non-scaling-stroke"/>
+<circle cx="174.0" cy="6.0" r="3.2"/>
 </svg></div><div class="history-range-panel" data-history-panel="30日" hidden>
 <div class="history-stats history-stats-4">
-<div><span>現在</span><b>¥109</b></div>
+<div><span>現在</span><b>¥111</b></div>
 <div><span>最安</span><b>¥104</b><small>10/05</small></div>
 <div><span>最高</span><b>¥118</b><small>10/16</small></div>
 <div><span>値幅</span><b>¥13.8</b></div>
 </div>
-<svg class="sparkline neutral" viewBox="0 0 180 64" role="img" aria-label="30日価格推移">
+<svg class="sparkline wait" viewBox="0 0 180 64" role="img" aria-label="30日価格推移">
 <line x1="6" y1="58" x2="174" y2="58" class="spark-grid"/>
-<polyline points="6.0,58.0 11.6,58.0 17.2,58.0 22.8,58.0 28.4,58.0 34.0,58.0 39.6,58.0 45.2,58.0 50.8,58.0 56.4,58.0 62.0,58.0 67.6,6.0 73.2,6.0 78.8,6.0 84.4,6.0 90.0,39.1 95.6,39.1 101.2,39.1 106.8,39.1 112.4,39.1 118.0,39.1 123.6,39.1 129.2,39.1 134.8,39.1 140.4,39.1 146.0,39.1 151.6,39.1 157.2,39.1 162.8,39.1 168.4,39.1 174.0,39.1" fill="none" vector-effect="non-scaling-stroke"/>
-<circle cx="174.0" cy="39.1" r="3.2"/>
+<polyline points="6.0,58.0 11.6,58.0 17.2,58.0 22.8,58.0 28.4,58.0 34.0,58.0 39.6,58.0 45.2,58.0 50.8,58.0 56.4,58.0 62.0,58.0 67.6,6.0 73.2,6.0 78.8,6.0 84.4,6.0 90.0,39.1 95.6,39.1 101.2,39.1 106.8,39.1 112.4,39.1 118.0,39.1 123.6,39.1 129.2,39.1 134.8,39.1 140.4,39.1 146.0,39.1 151.6,39.1 157.2,39.1 162.8,39.1 168.4,39.1 174.0,29.6" fill="none" vector-effect="non-scaling-stroke"/>
+<circle cx="174.0" cy="29.6" r="3.2"/>
 </svg></div>
-</div><div class="buy-signal neutral">
-<span>相場圏</span><small>直近履歴では大きな割高・値下がりは確認できません。</small>
+</div><div class="buy-signal wait">
+<span>様子見寄り</span><small>30日内の最安水準より5%以上高い状態です。</small>
 </div></div>
 </details></td>
 <td data-cell="quantity">合計7.2kg / 40食</td>
-<td data-cell="price">¥4,350</td>
-<td data-cell="unit"><div class="unit">¥109</div><div class="unit-label">1食あたり</div><div class="secondary-unit">100gあたり ¥60.4</div></td>
+<td data-cell="price">¥4,450</td>
+<td data-cell="unit"><div class="unit">¥111</div><div class="unit-label">1食あたり</div><div class="secondary-unit">100gあたり ¥61.8</div></td>
 <td data-cell="cta"><div class="product-actions">
-<button type="button" class="utility-btn" data-save-product data-product-id="nouyu:10000006" data-product-name="パックごはん180g×40食 秋田米100％のごはん オール秋田県産米使用 パックライス パックご飯 送料無料※沖縄・離島別途" data-product-category="pack-rice" data-product-category-name="パックご飯" data-product-price="4350" data-product-unit="108.750000" data-product-unit-label="1食あたり" data-product-metric="per_serving" data-product-shipping="extra_or_unknown" data-product-signal="相場圏" data-product-signal-tone="neutral" data-product-quantity="合計7.2kg / 40食" data-product-url="https://hb.afl.rakuten.co.jp/hgc/g00uuojo.7cx6mc6a.g00uuojo.7cx6n959/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fnouyu%2Fkomachinofurusato5%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Fnouyu%2Fi%2F10000006%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" data-product-image="https://thumbnail.image.rakuten.co.jp/@0_mall/nouyu/cabinet/test/13083945/imgrc0134434077.jpg?_ex=128x128">＋ 買い物メモ</button>
-<button type="button" class="utility-btn" data-compare-product data-product-id="nouyu:10000006" data-product-name="パックごはん180g×40食 秋田米100％のごはん オール秋田県産米使用 パックライス パックご飯 送料無料※沖縄・離島別途" data-product-category="pack-rice" data-product-category-name="パックご飯" data-product-price="4350" data-product-unit="108.750000" data-product-unit-label="1食あたり" data-product-metric="per_serving" data-product-shipping="extra_or_unknown" data-product-signal="相場圏" data-product-signal-tone="neutral" data-product-quantity="合計7.2kg / 40食" data-product-url="https://hb.afl.rakuten.co.jp/hgc/g00uuojo.7cx6mc6a.g00uuojo.7cx6n959/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fnouyu%2Fkomachinofurusato5%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Fnouyu%2Fi%2F10000006%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" data-product-image="https://thumbnail.image.rakuten.co.jp/@0_mall/nouyu/cabinet/test/13083945/imgrc0134434077.jpg?_ex=128x128">＋ 比較する</button>
+<button type="button" class="utility-btn" data-save-product data-product-id="nouyu:10000006" data-product-name="パックごはん180g×40食 秋田米100％のごはん オール秋田県産米使用 パックライス パックご飯 送料無料※沖縄・離島別途" data-product-category="pack-rice" data-product-category-name="パックご飯" data-product-price="4450" data-product-unit="111.250000" data-product-unit-label="1食あたり" data-product-metric="per_serving" data-product-shipping="extra_or_unknown" data-product-signal="様子見寄り" data-product-signal-tone="wait" data-product-quantity="合計7.2kg / 40食" data-product-url="https://hb.afl.rakuten.co.jp/hgc/g00uuojo.7cx6mc6a.g00uuojo.7cx6n959/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fnouyu%2Fkomachinofurusato5%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Fnouyu%2Fi%2F10000006%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" data-product-image="https://thumbnail.image.rakuten.co.jp/@0_mall/nouyu/cabinet/test/13083945/imgrc0134434077.jpg?_ex=128x128">＋ 買い物メモ</button>
+<button type="button" class="utility-btn" data-compare-product data-product-id="nouyu:10000006" data-product-name="パックごはん180g×40食 秋田米100％のごはん オール秋田県産米使用 パックライス パックご飯 送料無料※沖縄・離島別途" data-product-category="pack-rice" data-product-category-name="パックご飯" data-product-price="4450" data-product-unit="111.250000" data-product-unit-label="1食あたり" data-product-metric="per_serving" data-product-shipping="extra_or_unknown" data-product-signal="様子見寄り" data-product-signal-tone="wait" data-product-quantity="合計7.2kg / 40食" data-product-url="https://hb.afl.rakuten.co.jp/hgc/g00uuojo.7cx6mc6a.g00uuojo.7cx6n959/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fnouyu%2Fkomachinofurusato5%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Fnouyu%2Fi%2F10000006%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" data-product-image="https://thumbnail.image.rakuten.co.jp/@0_mall/nouyu/cabinet/test/13083945/imgrc0134434077.jpg?_ex=128x128">＋ 比較する</button>
 </div><a class="cta" href="https://hb.afl.rakuten.co.jp/hgc/g00uuojo.7cx6mc6a.g00uuojo.7cx6n959/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fnouyu%2Fkomachinofurusato5%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Fnouyu%2Fi%2F10000006%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" target="_blank" rel="nofollow sponsored noopener"
  data-affiliate="rakuten" data-position="comparison_table" data-category="pack-rice" data-product-id="nouyu:10000006"
  data-product-name="パックごはん180g×40食 秋田米100％のごはん オール秋田県産米使用 パックライス パックご飯 送料無料※沖縄・離島別途" data-rank="1" data-metric="per_serving"
- data-unit-price="108.750000" data-shipping="extra_or_unknown" data-cta-variant="standard">楽天で価格を確認 →</a></td>
+ data-unit-price="111.250000" data-shipping="extra_or_unknown" data-cta-variant="standard">楽天で価格を確認 →</a></td>
 </tr><tr data-bucket="large" data-shopping-bucket="large" data-search-text="低温製法米のおいしいごはん(10食入×4袋セット( 1食180g))【アイリスフーズ】[パックご飯 180g 40食 パック米 レトルト 米] 楽天24" data-price="8438" data-per_serving="210.950000" data-per_100g="117.194444">
 <td data-cell="rank" data-rank><span class="rank top">2</span></td>
 <td data-cell="image"><img class="product-img" src="https://thumbnail.image.rakuten.co.jp/@0_mall/rakuten24/cabinet/581/4562403554581.jpg?_ex=128x128" alt="" width="72" height="72" loading="lazy"></td>
@@ -1571,6 +1437,45 @@ document.addEventListener('click',e=>{const a=e.target.closest('a[data-affiliate
 const finder=document.querySelector('[data-finder]');
 if(finder){
   let category='all',purpose='',intent='',route='';
+  // Only explicit, validated category + purpose choices are stored on this device.
+  // Clicks, product links and raw searches are never treated as purchases.
+  const MEMORY_KEY='food_cost_finder_choice_v1';
+  const purposeLabels={cheap:'単価を比べる',small:'少量を選ぶ',large:'まとめ買い',budget:'支払総額を抑える',storage:'備蓄を考える'};
+  const recallBox=document.querySelector('[data-finder-last-choice]');
+  const recallLabel=document.querySelector('[data-finder-last-choice-label]');
+  const recallLink=document.querySelector('[data-finder-resume]');
+  const forgetButton=document.querySelector('[data-finder-forget]');
+  const rememberButton=finder.querySelector('[data-finder-remember]');
+  const memoryStatus=finder.querySelector('[data-finder-memory-status]');
+  const knownCategories=new Set(['all',...Array.from(finder.querySelectorAll('[data-finder-category]')).map(e=>e.dataset.finderCategory)]);
+  const validChoice=choice=>Boolean(choice&&typeof choice==='object'&&
+    Object.hasOwn(purposeLabels,choice.purpose)&&
+    typeof choice.category==='string'&&knownCategories.has(choice.category)&&
+    finder.querySelector('[data-finder-picks="'+choice.category+':'+choice.purpose+'"]'));
+  const readChoice=()=>{
+    try{const parsed=JSON.parse(localStorage.getItem(MEMORY_KEY)||'null');return validChoice(parsed)?parsed:null}
+    catch(_){return null}
+  };
+  let remembered=readChoice();
+  const choiceLabel=choice=>{
+    const found=finder.querySelector('[data-finder-category="'+choice.category+'"]');
+    return (found?.dataset.finderName||'すべての売り場')+'・'+purposeLabels[choice.purpose];
+  };
+  const reflectMemory=()=>{
+    if(recallBox){
+      recallBox.hidden=!remembered;
+      if(remembered&&recallLabel)recallLabel.textContent='前回保存：'+choiceLabel(remembered);
+    }
+    const same=Boolean(remembered&&remembered.category===category&&remembered.purpose===purpose);
+    if(rememberButton){
+      rememberButton.setAttribute('aria-pressed',String(same));
+      rememberButton.textContent=same?'この買い方の記憶を解除':'この買い方を次回も使う';
+    }
+  };
+  const forgetChoice=()=>{
+    try{localStorage.removeItem(MEMORY_KEY)}catch(_){}
+    remembered=null;reflectMemory();
+  };
   const routeStage=finder.querySelector('[data-finder-route-stage]');
   const categoryStage=finder.querySelector('[data-finder-category-stage]'),purposeStage=finder.querySelector('[data-finder-purpose-stage]'),resultStage=finder.querySelector('[data-finder-result-stage]'),status=finder.querySelector('[data-finder-status]');
   const show=el=>{el.hidden=false;const first=el.querySelector('summary,button');first?.focus({preventScroll:true});const top=el.getBoundingClientRect().top;if(top<0||top>window.innerHeight*.65)el.scrollIntoView?.({block:'start',behavior:window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches?'instant':'smooth'})};
@@ -1584,6 +1489,7 @@ if(finder){
     status.textContent=count?(tailored?'条件に合わせて、役割の違う'+count+'候補に絞りました。単価だけでなく総額も比べて選べます。':'それなら、この棚から。 '+count+'件の候補があります。'):'この条件の候補は現在ありません。別の買い方も見てみましょう。';
     send('finder_complete',{category_id:category,shopping_intent:intent,product_count:count});
     send('quick_finder_complete',{category_id:category,finder_purpose:purpose});
+    reflectMemory();
     if(!('IntersectionObserver' in window))shelfView(current?.querySelector('[data-market-shelf]'));
   };
   const reset=()=>{purpose='';category='all';route='';show(routeStage);hide(purposeStage);hide(categoryStage);hide(resultStage);status.textContent='';finder.querySelectorAll('[data-finder-picks]').forEach(x=>x.hidden=true);finder.querySelectorAll('[aria-pressed]').forEach(x=>x.setAttribute('aria-pressed','false'));finder.querySelectorAll('.selected').forEach(x=>x.classList.remove('selected'));finder.querySelectorAll('.finder-aisle').forEach(x=>x.open=false)};
@@ -1607,6 +1513,38 @@ if(finder){
   finder.querySelector('[data-finder-narrow]')?.addEventListener('click',()=>{hide(resultStage);show(categoryStage);status.textContent='この買い方のまま、売り場を選べます。'});
   finder.querySelectorAll('[data-finder-back]').forEach(btn=>btn.addEventListener('click',reset));
   finder.querySelector('[data-finder-reset]')?.addEventListener('click',reset);
+  rememberButton?.addEventListener('click',()=>{
+    if(!purpose||!validChoice({category,purpose}))return;
+    if(remembered&&remembered.category===category&&remembered.purpose===purpose){
+      forgetChoice();
+      memoryStatus.textContent='記憶を解除しました。比較した商品は引き続き見られます。';
+      send('finder_choice_memory',{action:'forget',category_id:category,finder_purpose:purpose});
+      return;
+    }
+    const candidate={category,purpose};
+    try{
+      localStorage.setItem(MEMORY_KEY,JSON.stringify(candidate));
+      if(localStorage.getItem(MEMORY_KEY)!==JSON.stringify(candidate))throw Error('not saved');
+      remembered=candidate;reflectMemory();
+      memoryStatus.textContent='保存しました。次回は前回の条件に1タップで戻れます。';
+      send('finder_choice_memory',{action:'save',category_id:category,finder_purpose:purpose});
+    }catch(_){memoryStatus.textContent='この端末では条件を保存できません。比較はそのまま利用できます。'}
+  });
+  recallLink?.addEventListener('click',()=>{
+    if(!validChoice(remembered)){forgetChoice();return}
+    category=remembered.category;purpose=remembered.purpose;intent=purpose;route='recalled';
+    finder.querySelectorAll('[data-finder-purpose]').forEach(e=>e.setAttribute('aria-pressed',String(e.dataset.finderPurpose===purpose)));
+    finder.querySelectorAll('[data-finder-category]').forEach(e=>e.setAttribute('aria-pressed',String(e.dataset.finderCategory===category)));
+    results();
+    send('finder_choice_resume',{category_id:category,finder_purpose:purpose});
+  });
+  forgetButton?.addEventListener('click',()=>{
+    if(!remembered)return;
+    const old=remembered;
+    forgetChoice();
+    send('finder_choice_memory',{action:'forget',category_id:old.category,finder_purpose:old.purpose});
+  });
+  reflectMemory();
 }
 const pick=new URLSearchParams(location.search).get('pick');
 if(pick&&document.querySelector('[data-comparison]')){

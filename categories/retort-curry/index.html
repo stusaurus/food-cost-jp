@@ -236,6 +236,19 @@ footer{padding:30px 0 100px;border-top:1px solid var(--line);font-size:10px;colo
  .saved-item-actions{gap:8px}
  .saved-compare{min-height:44px}
 }
+
+/* FOOD CHOICE MEMORY 20261104: optional recall, never a purchase prerequisite. */
+.hero-last-choice[hidden]{display:none!important}
+.hero-last-choice{display:flex;align-items:center;gap:8px 12px;flex-wrap:wrap;margin-top:12px;font-size:12px}
+.hero-last-choice [data-finder-last-choice-label]{color:var(--muted);font-size:11px}
+.hero-last-choice a{display:inline-flex;align-items:center;min-height:44px;padding:9px 13px;border-radius:999px;border:1px solid var(--brand);background:#fffbf3;color:var(--brand);font-size:12px;font-weight:700;text-decoration:none}
+.hero-last-choice button{border:0;border-bottom:1px solid currentColor;background:transparent;color:var(--muted);min-height:44px;padding:9px 2px;font:inherit;cursor:pointer}
+.finder-remember-tools{display:flex;align-items:center;gap:8px 14px;flex-wrap:wrap;margin:10px 0 20px;padding:12px 14px;background:#faf7ef;border:1px solid #d6c9b0;border-radius:10px}
+.finder-remember-tools button{min-height:44px;padding:8px 14px;border:1px solid var(--brand);border-radius:8px;background:#fff;color:var(--brand);font:inherit;font-size:12px;font-weight:750;cursor:pointer}
+.finder-remember-tools button[aria-pressed="true"]{background:#e9f0e4}
+.finder-remember-tools span{font-size:11px;line-height:1.6;color:var(--muted)}
+.hero-last-choice a:focus-visible,.hero-last-choice button:focus-visible,.finder-remember-tools button:focus-visible{outline:3px solid #126477;outline-offset:3px}
+@media(max-width:620px){.hero-last-choice{align-items:flex-start}.hero-last-choice [data-finder-last-choice-label]{flex-basis:100%}.finder-remember-tools{align-items:flex-start}}
 </style>
 <script>(()=>{const k='food_cost_operator_test_v1',p=new URLSearchParams(location.search);let op=false;try{op=localStorage.getItem(k)==='1'}catch(e){}if(['1','0'].includes(p.get('test'))){op=p.get('test')==='1';try{op?localStorage.setItem(k,'1'):localStorage.removeItem(k)}catch(e){}const u=new URL(location.href);u.searchParams.delete('test');history.replaceState(history.state,'',u.href)}window.foodCostOperatorTest=op;})();</script><script async src="https://www.googletagmanager.com/gtag/js?id=G-GFVSZ8YDQ5"></script>
 <script>
@@ -244,7 +257,7 @@ window.gtag=window.gtag||function(){dataLayer.push(arguments)};
 gtag('js',new Date());
 gtag('config','G-GFVSZ8YDQ5',{site_id:'food_cost_jp',operator_test:window.foodCostOperatorTest?'1':'0'});
 </script>
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "レトルトカレーは何を基準に並べていますか？", "acceptedAnswer": {"@type": "Answer", "text": "送料込み確認済みの商品を、主に1食あたりが安い順で並べています。"}}, {"@type": "Question", "name": "クーポンやポイントは単価に含めていますか？", "acceptedAnswer": {"@type": "Answer", "text": "通常価格を公平に比べるため、クーポンやポイントは自動的に単価へ差し引いていません。"}}, {"@type": "Question", "name": "数量が選べる商品はランキングに入りますか？", "acceptedAnswer": {"@type": "Answer", "text": "購入する容量や個数を商品情報から一意に確定できない場合は、誤比較を防ぐためランキングから除外します。"}}]}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "食品コスパ比較", "item": "https://stusaurus.github.io/food-cost-jp/"}, {"@type": "ListItem", "position": 2, "name": "レトルトカレー", "item": "https://stusaurus.github.io/food-cost-jp/categories/retort-curry/"}]}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "ItemList", "name": "レトルトカレーのコスパ比較", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "アール・シー・フードパック レトルト屋さんのビーフカレー 甘口 180g×30袋", "url": "https://hb.afl.rakuten.co.jp/hgc/g00s0vmo.7cx6mf25.g00s0vmo.7cx6n1c3/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbeisia%2F4970842032421%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fbeisia%2Fi%2F10029805%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5"}, {"@type": "ListItem", "position": 2, "name": "博多華味鳥 料亭のチキンカレー 180g 30袋セット トリゼンフーズ レトルトカレー レトルト食品", "url": "https://hb.afl.rakuten.co.jp/hgc/g00tc79o.7cx6m9f3.g00tc79o.7cx6nb8d/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fworldnext%2Fjb240715-6090%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fworldnext%2Fi%2F10008628%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5"}, {"@type": "ListItem", "position": 3, "name": "博多華味鳥 料亭のチキンカレー 180g 10袋セット トリゼンフーズ レトルトカレー レトルト食品", "url": "https://hb.afl.rakuten.co.jp/hgc/g00tc79o.7cx6m9f3.g00tc79o.7cx6nb8d/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fworldnext%2Fjb240715-2030%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fworldnext%2Fi%2F10008627%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5"}, {"@type": "ListItem", "position": 4, "name": "博多華味鳥 料亭のチキンカレー 180g 10袋セット ギフトボックス付 トリゼンフーズ レトルトカレー レトルト食品", "url": "https://hb.afl.rakuten.co.jp/hgc/g00tc79o.7cx6m9f3.g00tc79o.7cx6nb8d/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fworldnext%2Fjb240716-1339%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fworldnext%2Fi%2F10008641%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5"}, {"@type": "ListItem", "position": 5, "name": "【10袋セット】 カレー レトルト カゴメ KAGOME 大豆ミートのキーマカレー 中辛 180g 10袋セット まとめ買い レトルトカレー キーマカレー 植物由来 プラントベース レトルト食品 常温保存 *", "url": "https://hb.afl.rakuten.co.jp/hgc/g00qzr8o.7cx6m7c5.g00qzr8o.7cx6nae2/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fk-kitchen%2F7251288%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fk-kitchen%2Fi%2F10128618%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5"}, {"@type": "ListItem", "position": 6, "name": "【10袋セット】 カレー レトルト カゴメ KAGOME 大豆ミートのキーマカレー 中辛 180g 10袋セット まとめ買い レトルトカレー キーマカレー 植物由来 プラントベース レトルト食品 常温保存 *", "url": "https://hb.afl.rakuten.co.jp/hgc/g00tux1o.7cx6mb61.g00tux1o.7cx6n3ef/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fs-kodawari%2F7251288%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fs-kodawari%2Fi%2F10004364%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5"}, {"@type": "ListItem", "position": 7, "name": "ハウス食品 カレー レトルト 選ばれし人気店 濃厚 ビーフカレー 180g 30袋 ハウス 食べログ 百名店 パウチ レンジ 常温", "url": "https://hb.afl.rakuten.co.jp/hgc/g00tij4o.7cx6m9a7.g00tij4o.7cx6n0d8/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Ftokyo-shusui%2F8285664030%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Ftokyo-shusui%2Fi%2F10006820%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5"}, {"@type": "ListItem", "position": 8, "name": "ハウス食品 カレー レトルト 選ばれし人気店 スリランカカリー チキン 180g 30袋 ハウス 食べログ 百名店 パウチ レンジ 常温", "url": "https://hb.afl.rakuten.co.jp/hgc/g00tij4o.7cx6m9a7.g00tij4o.7cx6n0d8/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Ftokyo-shusui%2F8285658030%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Ftokyo-shusui%2Fi%2F10006808%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5"}, {"@type": "ListItem", "position": 9, "name": "【楽天1位】 【3食】淡路牛と淡路島たまねぎカレー 200g×3個入り たまねぎ カレー レトルトカレー 淡路島 玉ねぎ 淡路牛 玉葱 セット 通販 ギフト プレゼント 自宅用 家庭用 お取り寄せ", "url": "https://hb.afl.rakuten.co.jp/hgc/g00tarwo.7cx6m5cb.g00tarwo.7cx6n5d6/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Ftokka31%2Fk-imaif-0006%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Ftokka31%2Fi%2F10050330%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5"}, {"@type": "ListItem", "position": 10, "name": "神戸アールティー トマトベースのベジタブルカレー 180g×10箱 ≪パッケージ版≫ Tomato Vegetable Curry レトルトカレー 野菜 長期保存 常温保存 ギフト まとめ買い セット商品", "url": "https://hb.afl.rakuten.co.jp/hgc/g00q6hbo.7cx6mf67.g00q6hbo.7cx6nc04/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Faarti%2F10003824%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Faarti%2Fi%2F10003824%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "レトルトカレーは何を基準に並べていますか？", "acceptedAnswer": {"@type": "Answer", "text": "送料込み確認済みの商品を、主に1食あたりが安い順で並べています。"}}, {"@type": "Question", "name": "クーポンやポイントは単価に含めていますか？", "acceptedAnswer": {"@type": "Answer", "text": "通常価格を公平に比べるため、クーポンやポイントは自動的に単価へ差し引いていません。"}}, {"@type": "Question", "name": "数量が選べる商品はランキングに入りますか？", "acceptedAnswer": {"@type": "Answer", "text": "購入する容量や個数を商品情報から一意に確定できない場合は、誤比較を防ぐためランキングから除外します。"}}]}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "食品コスパ比較", "item": "https://stusaurus.github.io/food-cost-jp/"}, {"@type": "ListItem", "position": 2, "name": "レトルトカレー", "item": "https://stusaurus.github.io/food-cost-jp/categories/retort-curry/"}]}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "ItemList", "name": "レトルトカレーのコスパ比較", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "アール・シー・フードパック レトルト屋さんのビーフカレー 甘口 180g×30袋", "url": "https://hb.afl.rakuten.co.jp/hgc/g00s0vmo.7cx6mf25.g00s0vmo.7cx6n1c3/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbeisia%2F4970842032421%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fbeisia%2Fi%2F10029805%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5"}, {"@type": "ListItem", "position": 2, "name": "博多華味鳥 料亭のチキンカレー 180g 30袋セット トリゼンフーズ レトルトカレー レトルト食品", "url": "https://hb.afl.rakuten.co.jp/hgc/g00tc79o.7cx6m9f3.g00tc79o.7cx6nb8d/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fworldnext%2Fjb240715-6090%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fworldnext%2Fi%2F10008628%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5"}, {"@type": "ListItem", "position": 3, "name": "博多華味鳥 料亭のチキンカレー 180g 10袋セット トリゼンフーズ レトルトカレー レトルト食品", "url": "https://hb.afl.rakuten.co.jp/hgc/g00tc79o.7cx6m9f3.g00tc79o.7cx6nb8d/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fworldnext%2Fjb240715-2030%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fworldnext%2Fi%2F10008627%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5"}, {"@type": "ListItem", "position": 4, "name": "博多華味鳥 料亭のチキンカレー 180g 10袋セット ギフトボックス付 トリゼンフーズ レトルトカレー レトルト食品", "url": "https://hb.afl.rakuten.co.jp/hgc/g00tc79o.7cx6m9f3.g00tc79o.7cx6nb8d/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fworldnext%2Fjb240716-1339%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fworldnext%2Fi%2F10008641%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5"}, {"@type": "ListItem", "position": 5, "name": "明治 のこだわり仕込み 特製ビーフカレー中辛 165g×10食 【常温便】 meiji カレー レトルト レトルトカレー 常備食 非常食 まとめ買い ビーフカレー おいしいカレー 香典返し 贈答 イベントレトルトレトルトカレー カレー", "url": "https://hb.afl.rakuten.co.jp/hgc/g00st62o.7cx6me88.g00st62o.7cx6n180/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fminamimatumoto%2Fcurry_10%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fminamimatumoto%2Fi%2F10000316%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5"}, {"@type": "ListItem", "position": 6, "name": "【10袋セット】 カレー レトルト カゴメ KAGOME 大豆ミートのキーマカレー 中辛 180g 10袋セット まとめ買い レトルトカレー キーマカレー 植物由来 プラントベース レトルト食品 常温保存 *", "url": "https://hb.afl.rakuten.co.jp/hgc/g00qzr8o.7cx6m7c5.g00qzr8o.7cx6nae2/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fk-kitchen%2F7251288%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fk-kitchen%2Fi%2F10128618%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5"}, {"@type": "ListItem", "position": 7, "name": "【10袋セット】 カレー レトルト カゴメ KAGOME 大豆ミートのキーマカレー 中辛 180g 10袋セット まとめ買い レトルトカレー キーマカレー 植物由来 プラントベース レトルト食品 常温保存 *", "url": "https://hb.afl.rakuten.co.jp/hgc/g00tux1o.7cx6mb61.g00tux1o.7cx6n3ef/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fs-kodawari%2F7251288%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fs-kodawari%2Fi%2F10004364%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5"}, {"@type": "ListItem", "position": 8, "name": "ハウス食品 カレー レトルト 選ばれし人気店 スリランカカリー チキン 180g 30袋 ハウス 食べログ 百名店 パウチ レンジ 常温", "url": "https://hb.afl.rakuten.co.jp/hgc/g00tij4o.7cx6m9a7.g00tij4o.7cx6n0d8/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Ftokyo-shusui%2F8285658030%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Ftokyo-shusui%2Fi%2F10006808%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5"}, {"@type": "ListItem", "position": 9, "name": "【楽天1位】 【3食】淡路牛と淡路島たまねぎカレー 200g×3個入り たまねぎ カレー レトルトカレー 淡路島 玉ねぎ 淡路牛 玉葱 セット 通販 ギフト プレゼント 自宅用 家庭用 お取り寄せ", "url": "https://hb.afl.rakuten.co.jp/hgc/g00tarwo.7cx6m5cb.g00tarwo.7cx6n5d6/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Ftokka31%2Fk-imaif-0006%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Ftokka31%2Fi%2F10050330%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5"}, {"@type": "ListItem", "position": 10, "name": "神戸アールティー トマトベースのベジタブルカレー 180g×10箱 ≪パッケージ版≫ Tomato Vegetable Curry レトルトカレー 野菜 長期保存 常温保存 ギフト まとめ買い セット商品", "url": "https://hb.afl.rakuten.co.jp/hgc/g00q6hbo.7cx6mf67.g00q6hbo.7cx6nc04/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Faarti%2F10003824%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Faarti%2Fi%2F10003824%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5"}]}</script>
 </head><body>
 <div class="market-masthead"><div class="wrap"><a class="market-logo" href="https://stusaurus.github.io/food-cost-jp/"><b>Food Cost<em>EVERYDAY MARCHÉ</em></b><span>食品コスパ比較</span></a><small>GOOD FOOD. SMART CHOICES.</small></div></div><header><div class="wrap hero-layout">
 <div>
@@ -253,7 +266,7 @@ gtag('config','G-GFVSZ8YDQ5',{site_id:'food_cost_jp',operator_test:window.foodCo
 <h1>レトルトカレーを<br>1食あたりで比較。</h1>
 <p class="lead">ご飯付きセットを除く1食用のレトルトカレーを対象に、容量・食数を確定して1食あたりで比べます。</p>
 <div class="hero-tags"><span class="hero-tag">送料込みを優先</span><span class="hero-tag">数量曖昧は除外</span><span class="hero-tag">クーポン未反映</span></div>
-<p class="note">最終価格確認: 2026-11-04 08:32 JST。最新価格は販売ページで確認してください。</p>
+<p class="note">最終価格確認: 2026-11-04 20:26 JST。最新価格は販売ページで確認してください。</p>
 </div>
 <div class="category-hero-art retort-curry"><div class="category-vignette" data-category-visual="retort-curry">
 <div class="category-vignette-media"><img class="food-art" src="https://thumbnail.image.rakuten.co.jp/@0_mall/beisia/cabinet/chiba/syokuhinn/4970842032421_00.jpg?_ex=640x640" data-image-fallback="https://thumbnail.image.rakuten.co.jp/@0_mall/beisia/cabinet/chiba/syokuhinn/4970842032421_00.jpg?_ex=128x128" alt="" width="320" height="320" loading="lazy"></div>
@@ -270,7 +283,7 @@ gtag('config','G-GFVSZ8YDQ5',{site_id:'food_cost_jp',operator_test:window.foodCo
 <main class="wrap"><section class="summary" aria-label="比較サマリー">
 <div class="summary-grid">
 <div class="summary-item"><div class="summary-k">掲載内の送料込み最安</div><div class="summary-v">¥126</div><div class="fine">1食あたり</div></div>
-<div class="summary-item"><div class="summary-k">送料込み掲載</div><div class="summary-v">16件</div></div>
+<div class="summary-item"><div class="summary-k">送料込み掲載</div><div class="summary-v">15件</div></div>
 <div class="summary-item"><div class="summary-k">送料別参考</div><div class="summary-v">20件</div></div>
 </div></section><section class="journey-strip" aria-label="商品の選び方">
 <div><span>1</span><strong>候補を見る</strong><small>単価と総額を確認</small></div>
@@ -462,9 +475,9 @@ gtag('config','G-GFVSZ8YDQ5',{site_id:'food_cost_jp',operator_test:window.foodCo
  data-unit-price="318.000000" data-shipping="included" data-cta-variant="standard">楽天で価格を確認 →</a>
 </article></div>
 </section></div><div class="after-top3"><details class="more-products" data-more-products>
-<summary>4位以下を見る（13件） <span>＋</span></summary>
+<summary>4位以下を見る（12件） <span>＋</span></summary>
 <section class="comparison-inner" data-comparison data-start-rank="4">
-<h2>4位以下を見る（13件）</h2>
+<h2>4位以下を見る（12件）</h2>
 <p class="sub">必要なときだけ開いて、検索・並び替え・容量条件で絞り込めます。</p>
 <div class="toolbar">
 <input type="search" data-search data-category="retort-curry" placeholder="商品名・ショップ名で絞る" aria-label="レトルトカレーの商品名・ショップ名で絞る">
@@ -527,8 +540,57 @@ gtag('config','G-GFVSZ8YDQ5',{site_id:'food_cost_jp',operator_test:window.foodCo
  data-affiliate="rakuten" data-position="comparison_table" data-category="retort-curry" data-product-id="worldnext:10008641"
  data-product-name="博多華味鳥 料亭のチキンカレー 180g 10袋セット ギフトボックス付 トリゼンフーズ レトルトカレー レトルト食品" data-rank="4" data-metric="per_serving"
  data-unit-price="328.000000" data-shipping="included" data-cta-variant="standard">楽天で価格を確認 →</a></td>
-</tr><tr data-bucket="small" data-shopping-bucket="small" data-search-text="【10袋セット】 カレー レトルト カゴメ kagome 大豆ミートのキーマカレー 中辛 180g 10袋セット まとめ買い レトルトカレー キーマカレー 植物由来 プラントベース レトルト食品 常温保存 * 調理器具専門店 i-cook" data-price="3480" data-per_serving="348.000000" data-per_100g="193.333333">
+</tr><tr data-bucket="small" data-shopping-bucket="small" data-search-text="明治 のこだわり仕込み 特製ビーフカレー中辛 165g×10食 【常温便】 meiji カレー レトルト レトルトカレー 常備食 非常食 まとめ買い ビーフカレー おいしいカレー 香典返し 贈答 イベントレトルトレトルトカレー カレー 信濃商店" data-price="3308" data-per_serving="330.800000" data-per_100g="200.484848">
 <td data-cell="rank" data-rank><span class="rank">5</span></td>
+<td data-cell="image"><img class="product-img" src="https://thumbnail.image.rakuten.co.jp/@0_mall/minamimatumoto/cabinet/05578107/10955781/curry_03.jpg?_ex=128x128" alt="" width="72" height="72" loading="lazy"></td>
+<td data-cell="product"><div class="identity-line"><span class="spec-chip">合計1.65kg / 10食</span></div>
+<strong class="product-name" title="明治 のこだわり仕込み 特製ビーフカレー中辛 165g×10食 【常温便】 meiji カレー レトルト レトルトカレー 常備食 非常食 まとめ買い ビーフカレー おいしいカレー 香典返し 贈答 イベントレトルトレトルトカレー カレー">明治 のこだわり仕込み 特製ビーフカレー中辛 165g×10食 常温便 meiji カレー レトルト レトルトカレー 常備食…</strong><div class="shop">信濃商店</div><div class="product-badges"><span class="tag lifestyle">少量向き</span> <span class="tag ok">送料込み</span> </div><div class="trend-row"><span class="trend-badge low">記録内最安</span></div><details class="product-extra" data-product-extra>
+<summary>価格のうごきを見る <span>＋</span></summary>
+<div class="product-extra-body"><div class="history-card" data-history-card>
+<div class="history-head"><strong>価格履歴</strong><span>17回取得</span></div>
+<div class="history-toolbar"><div class="history-tabs">
+<button type="button" class="selected" data-history-range="7日">7日</button>
+<button type="button" data-history-range="30日">30日</button>
+</div><span class="history-trend stable">最近安定</span></div>
+<div class="history-range-panel" data-history-panel="7日">
+<div class="history-stats history-stats-4">
+<div><span>現在</span><b>¥331</b></div>
+<div><span>最安</span><b>¥331</b><small>10/30</small></div>
+<div><span>最高</span><b>¥331</b><small>10/30</small></div>
+<div><span>値幅</span><b>¥0.0</b></div>
+</div>
+<svg class="sparkline neutral" viewBox="0 0 180 64" role="img" aria-label="7日価格推移">
+<line x1="6" y1="58" x2="174" y2="58" class="spark-grid"/>
+<polyline points="6.0,32.0 62.0,32.0 118.0,32.0 174.0,32.0" fill="none" vector-effect="non-scaling-stroke"/>
+<circle cx="174.0" cy="32.0" r="3.2"/>
+</svg></div><div class="history-range-panel" data-history-panel="30日" hidden>
+<div class="history-stats history-stats-4">
+<div><span>現在</span><b>¥331</b></div>
+<div><span>最安</span><b>¥331</b><small>10/05</small></div>
+<div><span>最高</span><b>¥331</b><small>10/05</small></div>
+<div><span>値幅</span><b>¥0.0</b></div>
+</div>
+<svg class="sparkline neutral" viewBox="0 0 180 64" role="img" aria-label="30日価格推移">
+<line x1="6" y1="58" x2="174" y2="58" class="spark-grid"/>
+<polyline points="6.0,32.0 18.0,32.0 30.0,32.0 42.0,32.0 54.0,32.0 66.0,32.0 78.0,32.0 90.0,32.0 102.0,32.0 114.0,32.0 126.0,32.0 138.0,32.0 150.0,32.0 162.0,32.0 174.0,32.0" fill="none" vector-effect="non-scaling-stroke"/>
+<circle cx="174.0" cy="32.0" r="3.2"/>
+</svg></div>
+</div><div class="buy-signal neutral">
+<span>相場圏</span><small>直近履歴では大きな割高・値下がりは確認できません。</small>
+</div></div>
+</details></td>
+<td data-cell="quantity">合計1.65kg / 10食</td>
+<td data-cell="price">¥3,308</td>
+<td data-cell="unit"><div class="unit">¥331</div><div class="unit-label">1食あたり</div><div class="secondary-unit">100gあたり ¥200</div></td>
+<td data-cell="cta"><div class="product-actions">
+<button type="button" class="utility-btn" data-save-product data-product-id="minamimatumoto:10000316" data-product-name="明治 のこだわり仕込み 特製ビーフカレー中辛 165g×10食 【常温便】 meiji カレー レトルト レトルトカレー 常備食 非常食 まとめ買い ビーフカレー おいしいカレー 香典返し 贈答 イベントレトルトレトルトカレー カレー" data-product-category="retort-curry" data-product-category-name="レトルトカレー" data-product-price="3308" data-product-unit="330.800000" data-product-unit-label="1食あたり" data-product-metric="per_serving" data-product-shipping="included" data-product-signal="相場圏" data-product-signal-tone="neutral" data-product-quantity="合計1.65kg / 10食" data-product-url="https://hb.afl.rakuten.co.jp/hgc/g00st62o.7cx6me88.g00st62o.7cx6n180/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fminamimatumoto%2Fcurry_10%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Fminamimatumoto%2Fi%2F10000316%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" data-product-image="https://thumbnail.image.rakuten.co.jp/@0_mall/minamimatumoto/cabinet/05578107/10955781/curry_03.jpg?_ex=128x128">＋ 買い物メモ</button>
+<button type="button" class="utility-btn" data-compare-product data-product-id="minamimatumoto:10000316" data-product-name="明治 のこだわり仕込み 特製ビーフカレー中辛 165g×10食 【常温便】 meiji カレー レトルト レトルトカレー 常備食 非常食 まとめ買い ビーフカレー おいしいカレー 香典返し 贈答 イベントレトルトレトルトカレー カレー" data-product-category="retort-curry" data-product-category-name="レトルトカレー" data-product-price="3308" data-product-unit="330.800000" data-product-unit-label="1食あたり" data-product-metric="per_serving" data-product-shipping="included" data-product-signal="相場圏" data-product-signal-tone="neutral" data-product-quantity="合計1.65kg / 10食" data-product-url="https://hb.afl.rakuten.co.jp/hgc/g00st62o.7cx6me88.g00st62o.7cx6n180/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fminamimatumoto%2Fcurry_10%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Fminamimatumoto%2Fi%2F10000316%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" data-product-image="https://thumbnail.image.rakuten.co.jp/@0_mall/minamimatumoto/cabinet/05578107/10955781/curry_03.jpg?_ex=128x128">＋ 比較する</button>
+</div><a class="cta" href="https://hb.afl.rakuten.co.jp/hgc/g00st62o.7cx6me88.g00st62o.7cx6n180/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fminamimatumoto%2Fcurry_10%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Fminamimatumoto%2Fi%2F10000316%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" target="_blank" rel="nofollow sponsored noopener"
+ data-affiliate="rakuten" data-position="comparison_table" data-category="retort-curry" data-product-id="minamimatumoto:10000316"
+ data-product-name="明治 のこだわり仕込み 特製ビーフカレー中辛 165g×10食 【常温便】 meiji カレー レトルト レトルトカレー 常備食 非常食 まとめ買い ビーフカレー おいしいカレー 香典返し 贈答 イベントレトルトレトルトカレー カレー" data-rank="5" data-metric="per_serving"
+ data-unit-price="330.800000" data-shipping="included" data-cta-variant="standard">楽天で価格を確認 →</a></td>
+</tr><tr data-bucket="small" data-shopping-bucket="small" data-search-text="【10袋セット】 カレー レトルト カゴメ kagome 大豆ミートのキーマカレー 中辛 180g 10袋セット まとめ買い レトルトカレー キーマカレー 植物由来 プラントベース レトルト食品 常温保存 * 調理器具専門店 i-cook" data-price="3480" data-per_serving="348.000000" data-per_100g="193.333333">
+<td data-cell="rank" data-rank><span class="rank">6</span></td>
 <td data-cell="image"><img class="product-img" src="https://thumbnail.image.rakuten.co.jp/@0_mall/k-kitchen/cabinet/tasya100/7251288-e.jpg?_ex=128x128" alt="" width="72" height="72" loading="lazy"></td>
 <td data-cell="product"><div class="identity-line"><span class="spec-chip">合計1.8kg / 10食</span></div>
 <strong class="product-name" title="【10袋セット】 カレー レトルト カゴメ KAGOME 大豆ミートのキーマカレー 中辛 180g 10袋セット まとめ買い レトルトカレー キーマカレー 植物由来 プラントベース レトルト食品 常温保存 *">10袋セット カレー レトルト カゴメ KAGOME 大豆ミートのキーマカレー 中辛 180g 10袋セット まとめ買い…</strong><div class="shop">調理器具専門店 i-cook</div><div class="product-badges"><span class="tag lifestyle">少量向き</span> <span class="tag ok">送料込み</span> </div><div class="trend-row"><span class="trend-badge low">記録内最安</span></div><details class="product-extra" data-product-extra>
@@ -574,10 +636,10 @@ gtag('config','G-GFVSZ8YDQ5',{site_id:'food_cost_jp',operator_test:window.foodCo
 <button type="button" class="utility-btn" data-compare-product data-product-id="k-kitchen:10128618" data-product-name="【10袋セット】 カレー レトルト カゴメ KAGOME 大豆ミートのキーマカレー 中辛 180g 10袋セット まとめ買い レトルトカレー キーマカレー 植物由来 プラントベース レトルト食品 常温保存 *" data-product-category="retort-curry" data-product-category-name="レトルトカレー" data-product-price="3480" data-product-unit="348.000000" data-product-unit-label="1食あたり" data-product-metric="per_serving" data-product-shipping="included" data-product-signal="相場圏" data-product-signal-tone="neutral" data-product-quantity="合計1.8kg / 10食" data-product-url="https://hb.afl.rakuten.co.jp/hgc/g00qzr8o.7cx6m7c5.g00qzr8o.7cx6nae2/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fk-kitchen%2F7251288%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Fk-kitchen%2Fi%2F10128618%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" data-product-image="https://thumbnail.image.rakuten.co.jp/@0_mall/k-kitchen/cabinet/tasya100/7251288-e.jpg?_ex=128x128">＋ 比較する</button>
 </div><a class="cta" href="https://hb.afl.rakuten.co.jp/hgc/g00qzr8o.7cx6m7c5.g00qzr8o.7cx6nae2/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fk-kitchen%2F7251288%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Fk-kitchen%2Fi%2F10128618%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" target="_blank" rel="nofollow sponsored noopener"
  data-affiliate="rakuten" data-position="comparison_table" data-category="retort-curry" data-product-id="k-kitchen:10128618"
- data-product-name="【10袋セット】 カレー レトルト カゴメ KAGOME 大豆ミートのキーマカレー 中辛 180g 10袋セット まとめ買い レトルトカレー キーマカレー 植物由来 プラントベース レトルト食品 常温保存 *" data-rank="5" data-metric="per_serving"
+ data-product-name="【10袋セット】 カレー レトルト カゴメ KAGOME 大豆ミートのキーマカレー 中辛 180g 10袋セット まとめ買い レトルトカレー キーマカレー 植物由来 プラントベース レトルト食品 常温保存 *" data-rank="6" data-metric="per_serving"
  data-unit-price="348.000000" data-shipping="included" data-cta-variant="standard">楽天で価格を確認 →</a></td>
 </tr><tr data-bucket="small" data-shopping-bucket="small" data-search-text="【10袋セット】 カレー レトルト カゴメ kagome 大豆ミートのキーマカレー 中辛 180g 10袋セット まとめ買い レトルトカレー キーマカレー 植物由来 プラントベース レトルト食品 常温保存 * 食のこだわり総本舗 食彩館" data-price="3480" data-per_serving="348.000000" data-per_100g="193.333333">
-<td data-cell="rank" data-rank><span class="rank">6</span></td>
+<td data-cell="rank" data-rank><span class="rank">7</span></td>
 <td data-cell="image"><img class="product-img" src="https://thumbnail.image.rakuten.co.jp/@0_mall/s-kodawari/cabinet/tasya100/7251288-e.jpg?_ex=128x128" alt="" width="72" height="72" loading="lazy"></td>
 <td data-cell="product"><div class="identity-line"><span class="spec-chip">合計1.8kg / 10食</span></div>
 <strong class="product-name" title="【10袋セット】 カレー レトルト カゴメ KAGOME 大豆ミートのキーマカレー 中辛 180g 10袋セット まとめ買い レトルトカレー キーマカレー 植物由来 プラントベース レトルト食品 常温保存 *">10袋セット カレー レトルト カゴメ KAGOME 大豆ミートのキーマカレー 中辛 180g 10袋セット まとめ買い…</strong><div class="shop">食のこだわり総本舗 食彩館</div><div class="product-badges"><span class="tag lifestyle">少量向き</span> <span class="tag ok">送料込み</span> </div><div class="trend-row"><span class="trend-badge low">記録内最安</span></div><details class="product-extra" data-product-extra>
@@ -623,57 +685,8 @@ gtag('config','G-GFVSZ8YDQ5',{site_id:'food_cost_jp',operator_test:window.foodCo
 <button type="button" class="utility-btn" data-compare-product data-product-id="s-kodawari:10004364" data-product-name="【10袋セット】 カレー レトルト カゴメ KAGOME 大豆ミートのキーマカレー 中辛 180g 10袋セット まとめ買い レトルトカレー キーマカレー 植物由来 プラントベース レトルト食品 常温保存 *" data-product-category="retort-curry" data-product-category-name="レトルトカレー" data-product-price="3480" data-product-unit="348.000000" data-product-unit-label="1食あたり" data-product-metric="per_serving" data-product-shipping="included" data-product-signal="相場圏" data-product-signal-tone="neutral" data-product-quantity="合計1.8kg / 10食" data-product-url="https://hb.afl.rakuten.co.jp/hgc/g00tux1o.7cx6mb61.g00tux1o.7cx6n3ef/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fs-kodawari%2F7251288%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Fs-kodawari%2Fi%2F10004364%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" data-product-image="https://thumbnail.image.rakuten.co.jp/@0_mall/s-kodawari/cabinet/tasya100/7251288-e.jpg?_ex=128x128">＋ 比較する</button>
 </div><a class="cta" href="https://hb.afl.rakuten.co.jp/hgc/g00tux1o.7cx6mb61.g00tux1o.7cx6n3ef/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fs-kodawari%2F7251288%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Fs-kodawari%2Fi%2F10004364%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" target="_blank" rel="nofollow sponsored noopener"
  data-affiliate="rakuten" data-position="comparison_table" data-category="retort-curry" data-product-id="s-kodawari:10004364"
- data-product-name="【10袋セット】 カレー レトルト カゴメ KAGOME 大豆ミートのキーマカレー 中辛 180g 10袋セット まとめ買い レトルトカレー キーマカレー 植物由来 プラントベース レトルト食品 常温保存 *" data-rank="6" data-metric="per_serving"
+ data-product-name="【10袋セット】 カレー レトルト カゴメ KAGOME 大豆ミートのキーマカレー 中辛 180g 10袋セット まとめ買い レトルトカレー キーマカレー 植物由来 プラントベース レトルト食品 常温保存 *" data-rank="7" data-metric="per_serving"
  data-unit-price="348.000000" data-shipping="included" data-cta-variant="standard">楽天で価格を確認 →</a></td>
-</tr><tr data-bucket="large" data-shopping-bucket="large" data-search-text="ハウス食品 カレー レトルト 選ばれし人気店 濃厚 ビーフカレー 180g 30袋 ハウス 食べログ 百名店 パウチ レンジ 常温 東京酒粋" data-price="11180" data-per_serving="372.666667" data-per_100g="207.037037">
-<td data-cell="rank" data-rank><span class="rank">7</span></td>
-<td data-cell="image"><img class="product-img" src="https://thumbnail.image.rakuten.co.jp/@0_mall/tokyo-shusui/cabinet/07978345/20231211house291.jpg?_ex=128x128" alt="" width="72" height="72" loading="lazy"></td>
-<td data-cell="product"><div class="identity-line"><span class="spec-chip">合計5.4kg / 30食</span></div>
-<strong class="product-name" title="ハウス食品 カレー レトルト 選ばれし人気店 濃厚 ビーフカレー 180g 30袋 ハウス 食べログ 百名店 パウチ レンジ 常温">ハウス食品 カレー レトルト 選ばれし人気店 濃厚 ビーフカレー 180g 30袋 ハウス 食べログ 百名店 パウチ レンジ…</strong><div class="shop">東京酒粋</div><div class="product-badges"><span class="tag lifestyle">まとめ買い向き</span> <span class="tag ok">送料込み</span> </div><div class="trend-row"><span class="trend-badge low">記録内最安</span></div><details class="product-extra" data-product-extra>
-<summary>価格のうごきを見る <span>＋</span></summary>
-<div class="product-extra-body"><div class="history-card" data-history-card>
-<div class="history-head"><strong>価格履歴</strong><span>34回取得</span></div>
-<div class="history-toolbar"><div class="history-tabs">
-<button type="button" class="selected" data-history-range="7日">7日</button>
-<button type="button" data-history-range="30日">30日</button>
-</div><span class="history-trend stable">最近安定</span></div>
-<div class="history-range-panel" data-history-panel="7日">
-<div class="history-stats history-stats-4">
-<div><span>現在</span><b>¥373</b></div>
-<div><span>最安</span><b>¥373</b><small>10/28</small></div>
-<div><span>最高</span><b>¥373</b><small>10/28</small></div>
-<div><span>値幅</span><b>¥0.0</b></div>
-</div>
-<svg class="sparkline neutral" viewBox="0 0 180 64" role="img" aria-label="7日価格推移">
-<line x1="6" y1="58" x2="174" y2="58" class="spark-grid"/>
-<polyline points="6.0,32.0 30.0,32.0 54.0,32.0 78.0,32.0 102.0,32.0 126.0,32.0 150.0,32.0 174.0,32.0" fill="none" vector-effect="non-scaling-stroke"/>
-<circle cx="174.0" cy="32.0" r="3.2"/>
-</svg></div><div class="history-range-panel" data-history-panel="30日" hidden>
-<div class="history-stats history-stats-4">
-<div><span>現在</span><b>¥373</b></div>
-<div><span>最安</span><b>¥373</b><small>10/05</small></div>
-<div><span>最高</span><b>¥373</b><small>10/05</small></div>
-<div><span>値幅</span><b>¥0.0</b></div>
-</div>
-<svg class="sparkline neutral" viewBox="0 0 180 64" role="img" aria-label="30日価格推移">
-<line x1="6" y1="58" x2="174" y2="58" class="spark-grid"/>
-<polyline points="6.0,32.0 11.6,32.0 17.2,32.0 22.8,32.0 28.4,32.0 34.0,32.0 39.6,32.0 45.2,32.0 50.8,32.0 56.4,32.0 62.0,32.0 67.6,32.0 73.2,32.0 78.8,32.0 84.4,32.0 90.0,32.0 95.6,32.0 101.2,32.0 106.8,32.0 112.4,32.0 118.0,32.0 123.6,32.0 129.2,32.0 134.8,32.0 140.4,32.0 146.0,32.0 151.6,32.0 157.2,32.0 162.8,32.0 168.4,32.0 174.0,32.0" fill="none" vector-effect="non-scaling-stroke"/>
-<circle cx="174.0" cy="32.0" r="3.2"/>
-</svg></div>
-</div><div class="buy-signal neutral">
-<span>相場圏</span><small>直近履歴では大きな割高・値下がりは確認できません。</small>
-</div></div>
-</details></td>
-<td data-cell="quantity">合計5.4kg / 30食</td>
-<td data-cell="price">¥11,180</td>
-<td data-cell="unit"><div class="unit">¥373</div><div class="unit-label">1食あたり</div><div class="secondary-unit">100gあたり ¥207</div></td>
-<td data-cell="cta"><div class="product-actions">
-<button type="button" class="utility-btn" data-save-product data-product-id="tokyo-shusui:10006820" data-product-name="ハウス食品 カレー レトルト 選ばれし人気店 濃厚 ビーフカレー 180g 30袋 ハウス 食べログ 百名店 パウチ レンジ 常温" data-product-category="retort-curry" data-product-category-name="レトルトカレー" data-product-price="11180" data-product-unit="372.666667" data-product-unit-label="1食あたり" data-product-metric="per_serving" data-product-shipping="included" data-product-signal="相場圏" data-product-signal-tone="neutral" data-product-quantity="合計5.4kg / 30食" data-product-url="https://hb.afl.rakuten.co.jp/hgc/g00tij4o.7cx6m9a7.g00tij4o.7cx6n0d8/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Ftokyo-shusui%2F8285664030%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Ftokyo-shusui%2Fi%2F10006820%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" data-product-image="https://thumbnail.image.rakuten.co.jp/@0_mall/tokyo-shusui/cabinet/07978345/20231211house291.jpg?_ex=128x128">＋ 買い物メモ</button>
-<button type="button" class="utility-btn" data-compare-product data-product-id="tokyo-shusui:10006820" data-product-name="ハウス食品 カレー レトルト 選ばれし人気店 濃厚 ビーフカレー 180g 30袋 ハウス 食べログ 百名店 パウチ レンジ 常温" data-product-category="retort-curry" data-product-category-name="レトルトカレー" data-product-price="11180" data-product-unit="372.666667" data-product-unit-label="1食あたり" data-product-metric="per_serving" data-product-shipping="included" data-product-signal="相場圏" data-product-signal-tone="neutral" data-product-quantity="合計5.4kg / 30食" data-product-url="https://hb.afl.rakuten.co.jp/hgc/g00tij4o.7cx6m9a7.g00tij4o.7cx6n0d8/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Ftokyo-shusui%2F8285664030%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Ftokyo-shusui%2Fi%2F10006820%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" data-product-image="https://thumbnail.image.rakuten.co.jp/@0_mall/tokyo-shusui/cabinet/07978345/20231211house291.jpg?_ex=128x128">＋ 比較する</button>
-</div><a class="cta" href="https://hb.afl.rakuten.co.jp/hgc/g00tij4o.7cx6m9a7.g00tij4o.7cx6n0d8/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Ftokyo-shusui%2F8285664030%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Ftokyo-shusui%2Fi%2F10006820%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" target="_blank" rel="nofollow sponsored noopener"
- data-affiliate="rakuten" data-position="comparison_table" data-category="retort-curry" data-product-id="tokyo-shusui:10006820"
- data-product-name="ハウス食品 カレー レトルト 選ばれし人気店 濃厚 ビーフカレー 180g 30袋 ハウス 食べログ 百名店 パウチ レンジ 常温" data-rank="7" data-metric="per_serving"
- data-unit-price="372.666667" data-shipping="included" data-cta-variant="standard">楽天で価格を確認 →</a></td>
 </tr><tr data-bucket="large" data-shopping-bucket="large" data-search-text="ハウス食品 カレー レトルト 選ばれし人気店 スリランカカリー チキン 180g 30袋 ハウス 食べログ 百名店 パウチ レンジ 常温 東京酒粋" data-price="11200" data-per_serving="373.333333" data-per_100g="207.407407">
 <td data-cell="rank" data-rank><span class="rank">8</span></td>
 <td data-cell="image"><img class="product-img" src="https://thumbnail.image.rakuten.co.jp/@0_mall/tokyo-shusui/cabinet/07978345/20231211house171.jpg?_ex=128x128" alt="" width="72" height="72" loading="lazy"></td>
@@ -919,57 +932,8 @@ gtag('config','G-GFVSZ8YDQ5',{site_id:'food_cost_jp',operator_test:window.foodCo
  data-affiliate="rakuten" data-position="comparison_table" data-category="retort-curry" data-product-id="aarti:10003759"
  data-product-name="神戸アールティー バターチキンカレー 180g×10箱 ≪パッケージ版≫ Butter Chicken Curry レトルトカレー 鶏肉 マイルド 長期保存 常温保存 ギフト まとめ買い セット商品" data-rank="12" data-metric="per_serving"
  data-unit-price="670.000000" data-shipping="included" data-cta-variant="standard">楽天で価格を確認 →</a></td>
-</tr><tr data-bucket="small" data-shopping-bucket="small" data-search-text="神戸アールティー ダールチキンカレー 180g×5箱 ≪パッケージ版≫ dal chicken curry レトルトカレー 豆 鶏肉 長期保存 常温保存 ギフト まとめ買い セット商品 インドカレーの店 アールティ" data-price="3410" data-per_serving="682.000000" data-per_100g="378.888889">
-<td data-cell="rank" data-rank><span class="rank">13</span></td>
-<td data-cell="image"><img class="product-img" src="https://thumbnail.image.rakuten.co.jp/@0_mall/aarti/cabinet/03518412/imgrc0105768001.jpg?_ex=128x128" alt="" width="72" height="72" loading="lazy"></td>
-<td data-cell="product"><div class="identity-line"><span class="spec-chip">合計900g / 5食</span></div>
-<strong class="product-name" title="神戸アールティー ダールチキンカレー 180g×5箱 ≪パッケージ版≫ Dal Chicken Curry レトルトカレー 豆 鶏肉 長期保存 常温保存 ギフト まとめ買い セット商品">神戸アールティー ダールチキンカレー 180g×5箱 ≪パッケージ版≫ Dal Chicken Curry レトルトカレー 豆…</strong><div class="shop">インドカレーの店 アールティ</div><div class="product-badges"><span class="tag lifestyle">少量向き</span> <span class="tag ok">送料込み</span> </div><div class="trend-row"></div><details class="product-extra" data-product-extra>
-<summary>価格のうごきを見る <span>＋</span></summary>
-<div class="product-extra-body"><div class="history-card" data-history-card>
-<div class="history-head"><strong>価格履歴</strong><span>11回取得</span></div>
-<div class="history-toolbar"><div class="history-tabs">
-<button type="button" class="selected" data-history-range="7日">7日</button>
-<button type="button" data-history-range="30日">30日</button>
-</div><span class="history-trend stable">最近安定</span></div>
-<div class="history-range-panel" data-history-panel="7日">
-<div class="history-stats history-stats-4">
-<div><span>現在</span><b>¥682</b></div>
-<div><span>最安</span><b>¥682</b><small>11/04</small></div>
-<div><span>最高</span><b>¥682</b><small>11/04</small></div>
-<div><span>値幅</span><b>¥0.0</b></div>
-</div>
-<svg class="sparkline wait" viewBox="0 0 180 64" role="img" aria-label="7日価格推移">
-<line x1="6" y1="58" x2="174" y2="58" class="spark-grid"/>
-<polyline points="6.0,32.0" fill="none" vector-effect="non-scaling-stroke"/>
-<circle cx="6.0" cy="32.0" r="3.2"/>
-</svg></div><div class="history-range-panel" data-history-panel="30日" hidden>
-<div class="history-stats history-stats-4">
-<div><span>現在</span><b>¥682</b></div>
-<div><span>最安</span><b>¥614</b><small>10/05</small></div>
-<div><span>最高</span><b>¥682</b><small>10/10</small></div>
-<div><span>値幅</span><b>¥68.0</b></div>
-</div>
-<svg class="sparkline wait" viewBox="0 0 180 64" role="img" aria-label="30日価格推移">
-<line x1="6" y1="58" x2="174" y2="58" class="spark-grid"/>
-<polyline points="6.0,58.0 30.0,58.0 54.0,58.0 78.0,58.0 102.0,58.0 126.0,6.0 150.0,6.0 174.0,6.0" fill="none" vector-effect="non-scaling-stroke"/>
-<circle cx="174.0" cy="6.0" r="3.2"/>
-</svg></div>
-</div><div class="buy-signal wait">
-<span>様子見寄り</span><small>30日内の最安水準より5%以上高い状態です。</small>
-</div></div>
-</details></td>
-<td data-cell="quantity">合計900g / 5食</td>
-<td data-cell="price">¥3,410</td>
-<td data-cell="unit"><div class="unit">¥682</div><div class="unit-label">1食あたり</div><div class="secondary-unit">100gあたり ¥379</div></td>
-<td data-cell="cta"><div class="product-actions">
-<button type="button" class="utility-btn" data-save-product data-product-id="aarti:10005121" data-product-name="神戸アールティー ダールチキンカレー 180g×5箱 ≪パッケージ版≫ Dal Chicken Curry レトルトカレー 豆 鶏肉 長期保存 常温保存 ギフト まとめ買い セット商品" data-product-category="retort-curry" data-product-category-name="レトルトカレー" data-product-price="3410" data-product-unit="682.000000" data-product-unit-label="1食あたり" data-product-metric="per_serving" data-product-shipping="included" data-product-signal="様子見寄り" data-product-signal-tone="wait" data-product-quantity="合計900g / 5食" data-product-url="https://hb.afl.rakuten.co.jp/hgc/g00q6hbo.7cx6mf67.g00q6hbo.7cx6nc04/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Faarti%2F10005121%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Faarti%2Fi%2F10005121%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" data-product-image="https://thumbnail.image.rakuten.co.jp/@0_mall/aarti/cabinet/03518412/imgrc0105768001.jpg?_ex=128x128">＋ 買い物メモ</button>
-<button type="button" class="utility-btn" data-compare-product data-product-id="aarti:10005121" data-product-name="神戸アールティー ダールチキンカレー 180g×5箱 ≪パッケージ版≫ Dal Chicken Curry レトルトカレー 豆 鶏肉 長期保存 常温保存 ギフト まとめ買い セット商品" data-product-category="retort-curry" data-product-category-name="レトルトカレー" data-product-price="3410" data-product-unit="682.000000" data-product-unit-label="1食あたり" data-product-metric="per_serving" data-product-shipping="included" data-product-signal="様子見寄り" data-product-signal-tone="wait" data-product-quantity="合計900g / 5食" data-product-url="https://hb.afl.rakuten.co.jp/hgc/g00q6hbo.7cx6mf67.g00q6hbo.7cx6nc04/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Faarti%2F10005121%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Faarti%2Fi%2F10005121%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" data-product-image="https://thumbnail.image.rakuten.co.jp/@0_mall/aarti/cabinet/03518412/imgrc0105768001.jpg?_ex=128x128">＋ 比較する</button>
-</div><a class="cta" href="https://hb.afl.rakuten.co.jp/hgc/g00q6hbo.7cx6mf67.g00q6hbo.7cx6nc04/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Faarti%2F10005121%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Faarti%2Fi%2F10005121%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" target="_blank" rel="nofollow sponsored noopener"
- data-affiliate="rakuten" data-position="comparison_table" data-category="retort-curry" data-product-id="aarti:10005121"
- data-product-name="神戸アールティー ダールチキンカレー 180g×5箱 ≪パッケージ版≫ Dal Chicken Curry レトルトカレー 豆 鶏肉 長期保存 常温保存 ギフト まとめ買い セット商品" data-rank="13" data-metric="per_serving"
- data-unit-price="682.000000" data-shipping="included" data-cta-variant="standard">楽天で価格を確認 →</a></td>
 </tr><tr data-bucket="small" data-shopping-bucket="small" data-search-text="てまごこちカレー 甘口(180g×10袋) 宮崎県産 九州産 国産 レトルトカレー レストラン フレンチカレー 野菜カレー ベジカレー チキンカレー 鶏もも肉 子供カレー 高級 美味しい おいしい 取り寄せ シェフ監修 ご当地 ストック こだわり ギフト 贈り物 プレゼント てまごこちダイレクト 楽天市場店" data-price="7360" data-per_serving="736.000000" data-per_100g="408.888889">
-<td data-cell="rank" data-rank><span class="rank">14</span></td>
+<td data-cell="rank" data-rank><span class="rank">13</span></td>
 <td data-cell="image"><img class="product-img" src="https://thumbnail.image.rakuten.co.jp/@0_mall/tema551/cabinet/biiino/item/main-image/imgrc0094700863.jpg?_ex=128x128" alt="" width="72" height="72" loading="lazy"></td>
 <td data-cell="product"><div class="identity-line"><span class="spec-chip">合計1.8kg / 10食</span></div>
 <strong class="product-name" title="てまごこちカレー 甘口(180g×10袋) 宮崎県産 九州産 国産 レトルトカレー レストラン フレンチカレー 野菜カレー ベジカレー チキンカレー 鶏もも肉 子供カレー 高級 美味しい おいしい 取り寄せ シェフ監修 ご当地 ストック こだわり ギフト 贈り物 プレゼント">てまごこちカレー 甘口(180g×10袋) 宮崎県産 九州産 国産 レトルトカレー レストラン フレンチカレー 野菜カレー…</strong><div class="shop">てまごこちダイレクト 楽天市場店</div><div class="product-badges"><span class="tag lifestyle">少量向き</span> <span class="tag ok">送料込み</span> </div><div class="trend-row"><span class="trend-badge low">記録内最安</span></div><details class="product-extra" data-product-extra>
@@ -1015,10 +979,10 @@ gtag('config','G-GFVSZ8YDQ5',{site_id:'food_cost_jp',operator_test:window.foodCo
 <button type="button" class="utility-btn" data-compare-product data-product-id="tema551:10000034" data-product-name="てまごこちカレー 甘口(180g×10袋) 宮崎県産 九州産 国産 レトルトカレー レストラン フレンチカレー 野菜カレー ベジカレー チキンカレー 鶏もも肉 子供カレー 高級 美味しい おいしい 取り寄せ シェフ監修 ご当地 ストック こだわり ギフト 贈り物 プレゼント" data-product-category="retort-curry" data-product-category-name="レトルトカレー" data-product-price="7360" data-product-unit="736.000000" data-product-unit-label="1食あたり" data-product-metric="per_serving" data-product-shipping="included" data-product-signal="相場圏" data-product-signal-tone="neutral" data-product-quantity="合計1.8kg / 10食" data-product-url="https://hb.afl.rakuten.co.jp/hgc/g00tr9xo.7cx6mf95.g00tr9xo.7cx6nb41/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Ftema551%2Fre00010%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Ftema551%2Fi%2F10000034%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" data-product-image="https://thumbnail.image.rakuten.co.jp/@0_mall/tema551/cabinet/biiino/item/main-image/imgrc0094700863.jpg?_ex=128x128">＋ 比較する</button>
 </div><a class="cta" href="https://hb.afl.rakuten.co.jp/hgc/g00tr9xo.7cx6mf95.g00tr9xo.7cx6nb41/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Ftema551%2Fre00010%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Ftema551%2Fi%2F10000034%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" target="_blank" rel="nofollow sponsored noopener"
  data-affiliate="rakuten" data-position="comparison_table" data-category="retort-curry" data-product-id="tema551:10000034"
- data-product-name="てまごこちカレー 甘口(180g×10袋) 宮崎県産 九州産 国産 レトルトカレー レストラン フレンチカレー 野菜カレー ベジカレー チキンカレー 鶏もも肉 子供カレー 高級 美味しい おいしい 取り寄せ シェフ監修 ご当地 ストック こだわり ギフト 贈り物 プレゼント" data-rank="14" data-metric="per_serving"
+ data-product-name="てまごこちカレー 甘口(180g×10袋) 宮崎県産 九州産 国産 レトルトカレー レストラン フレンチカレー 野菜カレー ベジカレー チキンカレー 鶏もも肉 子供カレー 高級 美味しい おいしい 取り寄せ シェフ監修 ご当地 ストック こだわり ギフト 贈り物 プレゼント" data-rank="13" data-metric="per_serving"
  data-unit-price="736.000000" data-shipping="included" data-cta-variant="standard">楽天で価格を確認 →</a></td>
 </tr><tr data-bucket="small" data-shopping-bucket="small" data-search-text="神戸アールティー パラックチキンカレー(ほうれん草チキン) 180g×5箱 ≪パッケージ版≫ palak chicken curry レトルトカレー ほうれん草 鶏肉 長期保存 常温保存 ギフト まとめ買い セット商品 インドカレーの店 アールティ" data-price="3780" data-per_serving="756.000000" data-per_100g="420.000000">
-<td data-cell="rank" data-rank><span class="rank">15</span></td>
+<td data-cell="rank" data-rank><span class="rank">14</span></td>
 <td data-cell="image"><img class="product-img" src="https://thumbnail.image.rakuten.co.jp/@0_mall/aarti/cabinet/03518412/imgrc0105767352.jpg?_ex=128x128" alt="" width="72" height="72" loading="lazy"></td>
 <td data-cell="product"><div class="identity-line"><span class="spec-chip">合計900g / 5食</span></div>
 <strong class="product-name" title="神戸アールティー パラックチキンカレー(ほうれん草チキン) 180g×5箱 ≪パッケージ版≫ Palak Chicken Curry レトルトカレー ほうれん草 鶏肉 長期保存 常温保存 ギフト まとめ買い セット商品">神戸アールティー パラックチキンカレー(ほうれん草チキン) 180g×5箱 ≪パッケージ版≫ Palak Chicken…</strong><div class="shop">インドカレーの店 アールティ</div><div class="product-badges"><span class="tag lifestyle">少量向き</span> <span class="tag ok">送料込み</span> </div><div class="trend-row"><span class="trend-badge low">記録内最安</span></div><details class="product-extra" data-product-extra>
@@ -1064,10 +1028,10 @@ gtag('config','G-GFVSZ8YDQ5',{site_id:'food_cost_jp',operator_test:window.foodCo
 <button type="button" class="utility-btn" data-compare-product data-product-id="aarti:10005133" data-product-name="神戸アールティー パラックチキンカレー(ほうれん草チキン) 180g×5箱 ≪パッケージ版≫ Palak Chicken Curry レトルトカレー ほうれん草 鶏肉 長期保存 常温保存 ギフト まとめ買い セット商品" data-product-category="retort-curry" data-product-category-name="レトルトカレー" data-product-price="3780" data-product-unit="756.000000" data-product-unit-label="1食あたり" data-product-metric="per_serving" data-product-shipping="included" data-product-signal="相場圏" data-product-signal-tone="neutral" data-product-quantity="合計900g / 5食" data-product-url="https://hb.afl.rakuten.co.jp/hgc/g00q6hbo.7cx6mf67.g00q6hbo.7cx6nc04/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Faarti%2F10005133%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Faarti%2Fi%2F10005133%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" data-product-image="https://thumbnail.image.rakuten.co.jp/@0_mall/aarti/cabinet/03518412/imgrc0105767352.jpg?_ex=128x128">＋ 比較する</button>
 </div><a class="cta" href="https://hb.afl.rakuten.co.jp/hgc/g00q6hbo.7cx6mf67.g00q6hbo.7cx6nc04/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Faarti%2F10005133%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Faarti%2Fi%2F10005133%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" target="_blank" rel="nofollow sponsored noopener"
  data-affiliate="rakuten" data-position="comparison_table" data-category="retort-curry" data-product-id="aarti:10005133"
- data-product-name="神戸アールティー パラックチキンカレー(ほうれん草チキン) 180g×5箱 ≪パッケージ版≫ Palak Chicken Curry レトルトカレー ほうれん草 鶏肉 長期保存 常温保存 ギフト まとめ買い セット商品" data-rank="15" data-metric="per_serving"
+ data-product-name="神戸アールティー パラックチキンカレー(ほうれん草チキン) 180g×5箱 ≪パッケージ版≫ Palak Chicken Curry レトルトカレー ほうれん草 鶏肉 長期保存 常温保存 ギフト まとめ買い セット商品" data-rank="14" data-metric="per_serving"
  data-unit-price="756.000000" data-shipping="included" data-cta-variant="standard">楽天で価格を確認 →</a></td>
 </tr><tr data-bucket="small" data-shopping-bucket="small" data-search-text="ビーフカレー 北海道 富良野市場トマトビーフカレー レトルト 200g 10個入り 沖縄・離島への配送は別途送料が発生 富良野スイートベジタブル2号店" data-price="12960" data-per_serving="1296.000000" data-per_100g="648.000000">
-<td data-cell="rank" data-rank><span class="rank">16</span></td>
+<td data-cell="rank" data-rank><span class="rank">15</span></td>
 <td data-cell="image"><img class="product-img" src="https://thumbnail.image.rakuten.co.jp/@0_mall/sweet-vege2/cabinet/08081899/60tomab010.jpg?_ex=128x128" alt="" width="72" height="72" loading="lazy"></td>
 <td data-cell="product"><div class="identity-line"><span class="spec-chip">合計2kg / 10食</span></div>
 <strong class="product-name" title="ビーフカレー 北海道 富良野市場トマトビーフカレー レトルト 200g 10個入り 沖縄・離島への配送は別途送料が発生">ビーフカレー 北海道 富良野市場トマトビーフカレー レトルト 200g 10個入り 沖縄・離島への配送は別途送料が発生</strong><div class="shop">富良野スイートベジタブル2号店</div><div class="product-badges"><span class="tag lifestyle">少量向き</span> <span class="tag ok">送料込み</span> </div><div class="trend-row"><span class="trend-badge low">記録内最安</span></div><details class="product-extra" data-product-extra>
@@ -1113,7 +1077,7 @@ gtag('config','G-GFVSZ8YDQ5',{site_id:'food_cost_jp',operator_test:window.foodCo
 <button type="button" class="utility-btn" data-compare-product data-product-id="sweet-vege2:10000223" data-product-name="ビーフカレー 北海道 富良野市場トマトビーフカレー レトルト 200g 10個入り 沖縄・離島への配送は別途送料が発生" data-product-category="retort-curry" data-product-category-name="レトルトカレー" data-product-price="12960" data-product-unit="1296.000000" data-product-unit-label="1食あたり" data-product-metric="per_serving" data-product-shipping="included" data-product-signal="相場圏" data-product-signal-tone="neutral" data-product-quantity="合計2kg / 10食" data-product-url="https://hb.afl.rakuten.co.jp/hgc/g00tz7fo.7cx6m04c.g00tz7fo.7cx6nf1b/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fsweet-vege2%2Ftomatobeafcare10%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Fsweet-vege2%2Fi%2F10000223%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" data-product-image="https://thumbnail.image.rakuten.co.jp/@0_mall/sweet-vege2/cabinet/08081899/60tomab010.jpg?_ex=128x128">＋ 比較する</button>
 </div><a class="cta" href="https://hb.afl.rakuten.co.jp/hgc/g00tz7fo.7cx6m04c.g00tz7fo.7cx6nf1b/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fsweet-vege2%2Ftomatobeafcare10%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Fsweet-vege2%2Fi%2F10000223%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" target="_blank" rel="nofollow sponsored noopener"
  data-affiliate="rakuten" data-position="comparison_table" data-category="retort-curry" data-product-id="sweet-vege2:10000223"
- data-product-name="ビーフカレー 北海道 富良野市場トマトビーフカレー レトルト 200g 10個入り 沖縄・離島への配送は別途送料が発生" data-rank="16" data-metric="per_serving"
+ data-product-name="ビーフカレー 北海道 富良野市場トマトビーフカレー レトルト 200g 10個入り 沖縄・離島への配送は別途送料が発生" data-rank="15" data-metric="per_serving"
  data-unit-price="1296.000000" data-shipping="included" data-cta-variant="standard">楽天で価格を確認 →</a></td>
 </tr></tbody>
 </table></div>
@@ -1233,55 +1197,55 @@ gtag('config','G-GFVSZ8YDQ5',{site_id:'food_cost_jp',operator_test:window.foodCo
  data-affiliate="rakuten" data-position="comparison_table" data-category="retort-curry" data-product-id="misonoya:10119945"
  data-product-name="ハチ食品 スパイシーカレー お徳用 中辛 (180g×10袋)×4個入｜ Hachi レトルトカレー 10P 中辛" data-rank="2" data-metric="per_serving"
  data-unit-price="119.650000" data-shipping="extra_or_unknown" data-cta-variant="standard">楽天で価格を確認 →</a></td>
-</tr><tr data-bucket="large" data-shopping-bucket="large" data-search-text="ニチレイフーズ restaurant use only(レストラン ユース オンリー) 中辛カレー ポーク 180g×30袋入｜ 一般食品 レトルト食品 カレー misonoya楽天市場店" data-price="4633" data-per_serving="154.433333" data-per_100g="85.796296">
+</tr><tr data-bucket="small" data-shopping-bucket="small" data-search-text="jfda ビーフカレー 200g×10食セット(レトルトカレー) ジェフダ 食品のネットスーパー・さんきん" data-price="1411" data-per_serving="141.100000" data-per_100g="70.550000">
 <td data-cell="rank" data-rank><span class="rank top">3</span></td>
-<td data-cell="image"><img class="product-img" src="https://thumbnail.image.rakuten.co.jp/@0_mall/misonoya/cabinet/202603_13/b34-55-1.jpg?_ex=128x128" alt="" width="72" height="72" loading="lazy"></td>
-<td data-cell="product"><div class="identity-line"><span class="spec-chip">合計5.4kg / 30食</span></div>
-<strong class="product-name" title="ニチレイフーズ Restaurant Use Only(レストラン ユース オンリー) 中辛カレー ポーク 180g×30袋入｜ 一般食品 レトルト食品 カレー">ニチレイフーズ Restaurant Use Only(レストラン ユース オンリー) 中辛カレー ポーク 180g×30袋入…</strong><div class="shop">MISONOYA楽天市場店</div><div class="product-badges"><span class="tag lifestyle">まとめ買い向き</span> <span class="tag warn">送料別・要確認</span> </div><div class="trend-row"><span class="trend-badge low">記録内最安</span></div><details class="product-extra" data-product-extra>
+<td data-cell="image"><img class="product-img" src="https://thumbnail.image.rakuten.co.jp/@0_gold/sankin-asaichi/images/jfd90186.jpg?_ex=128x128" alt="" width="72" height="72" loading="lazy"></td>
+<td data-cell="product"><div class="identity-line"><span class="spec-chip">合計2kg / 10食</span></div>
+<strong class="product-name" title="JFDA ビーフカレー 200g×10食セット(レトルトカレー) ジェフダ">JFDA ビーフカレー 200g×10食セット(レトルトカレー) ジェフダ</strong><div class="shop">食品のネットスーパー・さんきん</div><div class="product-badges"><span class="tag lifestyle">少量向き</span> <span class="tag warn">送料別・要確認</span> </div><div class="trend-row"><span class="trend-badge low">記録内最安</span></div><details class="product-extra" data-product-extra>
 <summary>価格のうごきを見る <span>＋</span></summary>
 <div class="product-extra-body"><div class="history-card" data-history-card>
-<div class="history-head"><strong>価格履歴</strong><span>22回取得</span></div>
+<div class="history-head"><strong>価格履歴</strong><span>14回取得</span></div>
 <div class="history-toolbar"><div class="history-tabs">
 <button type="button" class="selected" data-history-range="7日">7日</button>
 <button type="button" data-history-range="30日">30日</button>
 </div><span class="history-trend stable">最近安定</span></div>
 <div class="history-range-panel" data-history-panel="7日">
 <div class="history-stats history-stats-4">
-<div><span>現在</span><b>¥154</b></div>
-<div><span>最安</span><b>¥154</b><small>10/30</small></div>
-<div><span>最高</span><b>¥154</b><small>10/30</small></div>
+<div><span>現在</span><b>¥141</b></div>
+<div><span>最安</span><b>¥141</b><small>10/28</small></div>
+<div><span>最高</span><b>¥141</b><small>10/28</small></div>
 <div><span>値幅</span><b>¥0.0</b></div>
 </div>
 <svg class="sparkline neutral" viewBox="0 0 180 64" role="img" aria-label="7日価格推移">
 <line x1="6" y1="58" x2="174" y2="58" class="spark-grid"/>
-<polyline points="6.0,32.0 48.0,32.0 90.0,32.0 132.0,32.0 174.0,32.0" fill="none" vector-effect="non-scaling-stroke"/>
+<polyline points="6.0,32.0 174.0,32.0" fill="none" vector-effect="non-scaling-stroke"/>
 <circle cx="174.0" cy="32.0" r="3.2"/>
 </svg></div><div class="history-range-panel" data-history-panel="30日" hidden>
 <div class="history-stats history-stats-4">
-<div><span>現在</span><b>¥154</b></div>
-<div><span>最安</span><b>¥154</b><small>10/05</small></div>
-<div><span>最高</span><b>¥154</b><small>10/05</small></div>
+<div><span>現在</span><b>¥141</b></div>
+<div><span>最安</span><b>¥141</b><small>10/06</small></div>
+<div><span>最高</span><b>¥141</b><small>10/06</small></div>
 <div><span>値幅</span><b>¥0.0</b></div>
 </div>
 <svg class="sparkline neutral" viewBox="0 0 180 64" role="img" aria-label="30日価格推移">
 <line x1="6" y1="58" x2="174" y2="58" class="spark-grid"/>
-<polyline points="6.0,32.0 15.3,32.0 24.7,32.0 34.0,32.0 43.3,32.0 52.7,32.0 62.0,32.0 71.3,32.0 80.7,32.0 90.0,32.0 99.3,32.0 108.7,32.0 118.0,32.0 127.3,32.0 136.7,32.0 146.0,32.0 155.3,32.0 164.7,32.0 174.0,32.0" fill="none" vector-effect="non-scaling-stroke"/>
+<polyline points="6.0,32.0 21.3,32.0 36.5,32.0 51.8,32.0 67.1,32.0 82.4,32.0 97.6,32.0 112.9,32.0 128.2,32.0 143.5,32.0 158.7,32.0 174.0,32.0" fill="none" vector-effect="non-scaling-stroke"/>
 <circle cx="174.0" cy="32.0" r="3.2"/>
 </svg></div>
 </div><div class="buy-signal neutral">
 <span>相場圏</span><small>直近履歴では大きな割高・値下がりは確認できません。</small>
 </div></div>
 </details></td>
-<td data-cell="quantity">合計5.4kg / 30食</td>
-<td data-cell="price">¥4,633</td>
-<td data-cell="unit"><div class="unit">¥154</div><div class="unit-label">1食あたり</div><div class="secondary-unit">100gあたり ¥85.8</div></td>
+<td data-cell="quantity">合計2kg / 10食</td>
+<td data-cell="price">¥1,411</td>
+<td data-cell="unit"><div class="unit">¥141</div><div class="unit-label">1食あたり</div><div class="secondary-unit">100gあたり ¥70.5</div></td>
 <td data-cell="cta"><div class="product-actions">
-<button type="button" class="utility-btn" data-save-product data-product-id="misonoya:10097026" data-product-name="ニチレイフーズ Restaurant Use Only(レストラン ユース オンリー) 中辛カレー ポーク 180g×30袋入｜ 一般食品 レトルト食品 カレー" data-product-category="retort-curry" data-product-category-name="レトルトカレー" data-product-price="4633" data-product-unit="154.433333" data-product-unit-label="1食あたり" data-product-metric="per_serving" data-product-shipping="extra_or_unknown" data-product-signal="相場圏" data-product-signal-tone="neutral" data-product-quantity="合計5.4kg / 30食" data-product-url="https://hb.afl.rakuten.co.jp/hgc/g00qrf9o.7cx6mf08.g00qrf9o.7cx6n813/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fmisonoya%2Fb34-55%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Fmisonoya%2Fi%2F10097026%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" data-product-image="https://thumbnail.image.rakuten.co.jp/@0_mall/misonoya/cabinet/202603_13/b34-55-1.jpg?_ex=128x128">＋ 買い物メモ</button>
-<button type="button" class="utility-btn" data-compare-product data-product-id="misonoya:10097026" data-product-name="ニチレイフーズ Restaurant Use Only(レストラン ユース オンリー) 中辛カレー ポーク 180g×30袋入｜ 一般食品 レトルト食品 カレー" data-product-category="retort-curry" data-product-category-name="レトルトカレー" data-product-price="4633" data-product-unit="154.433333" data-product-unit-label="1食あたり" data-product-metric="per_serving" data-product-shipping="extra_or_unknown" data-product-signal="相場圏" data-product-signal-tone="neutral" data-product-quantity="合計5.4kg / 30食" data-product-url="https://hb.afl.rakuten.co.jp/hgc/g00qrf9o.7cx6mf08.g00qrf9o.7cx6n813/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fmisonoya%2Fb34-55%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Fmisonoya%2Fi%2F10097026%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" data-product-image="https://thumbnail.image.rakuten.co.jp/@0_mall/misonoya/cabinet/202603_13/b34-55-1.jpg?_ex=128x128">＋ 比較する</button>
-</div><a class="cta" href="https://hb.afl.rakuten.co.jp/hgc/g00qrf9o.7cx6mf08.g00qrf9o.7cx6n813/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fmisonoya%2Fb34-55%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Fmisonoya%2Fi%2F10097026%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" target="_blank" rel="nofollow sponsored noopener"
- data-affiliate="rakuten" data-position="comparison_table" data-category="retort-curry" data-product-id="misonoya:10097026"
- data-product-name="ニチレイフーズ Restaurant Use Only(レストラン ユース オンリー) 中辛カレー ポーク 180g×30袋入｜ 一般食品 レトルト食品 カレー" data-rank="3" data-metric="per_serving"
- data-unit-price="154.433333" data-shipping="extra_or_unknown" data-cta-variant="standard">楽天で価格を確認 →</a></td>
+<button type="button" class="utility-btn" data-save-product data-product-id="sankin-asaichi:10051808" data-product-name="JFDA ビーフカレー 200g×10食セット(レトルトカレー) ジェフダ" data-product-category="retort-curry" data-product-category-name="レトルトカレー" data-product-price="1411" data-product-unit="141.100000" data-product-unit-label="1食あたり" data-product-metric="per_serving" data-product-shipping="extra_or_unknown" data-product-signal="相場圏" data-product-signal-tone="neutral" data-product-quantity="合計2kg / 10食" data-product-url="https://hb.afl.rakuten.co.jp/hgc/g00puiwo.7cx6me8c.g00puiwo.7cx6n81d/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fsankin-asaichi%2Fjfd90186%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Fsankin-asaichi%2Fi%2F10051808%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" data-product-image="https://thumbnail.image.rakuten.co.jp/@0_gold/sankin-asaichi/images/jfd90186.jpg?_ex=128x128">＋ 買い物メモ</button>
+<button type="button" class="utility-btn" data-compare-product data-product-id="sankin-asaichi:10051808" data-product-name="JFDA ビーフカレー 200g×10食セット(レトルトカレー) ジェフダ" data-product-category="retort-curry" data-product-category-name="レトルトカレー" data-product-price="1411" data-product-unit="141.100000" data-product-unit-label="1食あたり" data-product-metric="per_serving" data-product-shipping="extra_or_unknown" data-product-signal="相場圏" data-product-signal-tone="neutral" data-product-quantity="合計2kg / 10食" data-product-url="https://hb.afl.rakuten.co.jp/hgc/g00puiwo.7cx6me8c.g00puiwo.7cx6n81d/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fsankin-asaichi%2Fjfd90186%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Fsankin-asaichi%2Fi%2F10051808%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" data-product-image="https://thumbnail.image.rakuten.co.jp/@0_gold/sankin-asaichi/images/jfd90186.jpg?_ex=128x128">＋ 比較する</button>
+</div><a class="cta" href="https://hb.afl.rakuten.co.jp/hgc/g00puiwo.7cx6me8c.g00puiwo.7cx6n81d/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fsankin-asaichi%2Fjfd90186%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Fsankin-asaichi%2Fi%2F10051808%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" target="_blank" rel="nofollow sponsored noopener"
+ data-affiliate="rakuten" data-position="comparison_table" data-category="retort-curry" data-product-id="sankin-asaichi:10051808"
+ data-product-name="JFDA ビーフカレー 200g×10食セット(レトルトカレー) ジェフダ" data-rank="3" data-metric="per_serving"
+ data-unit-price="141.100000" data-shipping="extra_or_unknown" data-cta-variant="standard">楽天で価格を確認 →</a></td>
 </tr><tr data-bucket="large" data-shopping-bucket="large" data-search-text="ニチレイフーズ restaurant use only(レストラン ユース オンリー) 中辛カレー ポーク 180g×30袋入｜ 一般食品 レトルト食品 カレー のぞみマーケット楽天市場店" data-price="4654" data-per_serving="155.133333" data-per_100g="86.185185">
 <td data-cell="rank" data-rank><span class="rank">4</span></td>
 <td data-cell="image"><img class="product-img" src="https://thumbnail.image.rakuten.co.jp/@0_mall/nozomi-market/cabinet/202603_13/b34-55-1.jpg?_ex=128x128" alt="" width="72" height="72" loading="lazy"></td>
@@ -1478,57 +1442,8 @@ gtag('config','G-GFVSZ8YDQ5',{site_id:'food_cost_jp',operator_test:window.foodCo
  data-affiliate="rakuten" data-position="comparison_table" data-category="retort-curry" data-product-id="nozomi-market:10101898"
  data-product-name="ハウス食品 カリー厨房 オニオンリッチカレー 中辛 180g×30袋入｜ カレー レトルト オニオンカレー 中辛" data-rank="7" data-metric="per_serving"
  data-unit-price="158.400000" data-shipping="extra_or_unknown" data-cta-variant="standard">楽天で価格を確認 →</a></td>
-</tr><tr data-bucket="large" data-shopping-bucket="large" data-search-text="ハウス食品 ビーフカレー シェフブレンド 中辛 180g×30袋入｜ カレー ビーフ レトルト ビーフカレー 中辛 飲料 食品専門店 味園サポート" data-price="5119" data-per_serving="170.633333" data-per_100g="94.796296">
-<td data-cell="rank" data-rank><span class="rank">8</span></td>
-<td data-cell="image"><img class="product-img" src="https://thumbnail.image.rakuten.co.jp/@0_mall/misono-support/cabinet/202505_30/a310-53-1.jpg?_ex=128x128" alt="" width="72" height="72" loading="lazy"></td>
-<td data-cell="product"><div class="identity-line"><span class="spec-chip">合計5.4kg / 30食</span></div>
-<strong class="product-name" title="ハウス食品 ビーフカレー シェフブレンド 中辛 180g×30袋入｜ カレー ビーフ レトルト ビーフカレー 中辛">ハウス食品 ビーフカレー シェフブレンド 中辛 180g×30袋入 カレー ビーフ レトルト ビーフカレー 中辛</strong><div class="shop">飲料 食品専門店 味園サポート</div><div class="product-badges"><span class="tag lifestyle">まとめ買い向き</span> <span class="tag warn">送料別・要確認</span> </div><div class="trend-row"><span class="trend-badge low">記録内最安</span></div><details class="product-extra" data-product-extra>
-<summary>価格のうごきを見る <span>＋</span></summary>
-<div class="product-extra-body"><div class="history-card" data-history-card>
-<div class="history-head"><strong>価格履歴</strong><span>22回取得</span></div>
-<div class="history-toolbar"><div class="history-tabs">
-<button type="button" class="selected" data-history-range="7日">7日</button>
-<button type="button" data-history-range="30日">30日</button>
-</div><span class="history-trend stable">最近安定</span></div>
-<div class="history-range-panel" data-history-panel="7日">
-<div class="history-stats history-stats-4">
-<div><span>現在</span><b>¥171</b></div>
-<div><span>最安</span><b>¥171</b><small>10/29</small></div>
-<div><span>最高</span><b>¥171</b><small>10/29</small></div>
-<div><span>値幅</span><b>¥0.0</b></div>
-</div>
-<svg class="sparkline neutral" viewBox="0 0 180 64" role="img" aria-label="7日価格推移">
-<line x1="6" y1="58" x2="174" y2="58" class="spark-grid"/>
-<polyline points="6.0,32.0 39.6,32.0 73.2,32.0 106.8,32.0 140.4,32.0 174.0,32.0" fill="none" vector-effect="non-scaling-stroke"/>
-<circle cx="174.0" cy="32.0" r="3.2"/>
-</svg></div><div class="history-range-panel" data-history-panel="30日" hidden>
-<div class="history-stats history-stats-4">
-<div><span>現在</span><b>¥171</b></div>
-<div><span>最安</span><b>¥171</b><small>10/05</small></div>
-<div><span>最高</span><b>¥171</b><small>10/05</small></div>
-<div><span>値幅</span><b>¥0.0</b></div>
-</div>
-<svg class="sparkline neutral" viewBox="0 0 180 64" role="img" aria-label="30日価格推移">
-<line x1="6" y1="58" x2="174" y2="58" class="spark-grid"/>
-<polyline points="6.0,32.0 14.8,32.0 23.7,32.0 32.5,32.0 41.4,32.0 50.2,32.0 59.1,32.0 67.9,32.0 76.7,32.0 85.6,32.0 94.4,32.0 103.3,32.0 112.1,32.0 120.9,32.0 129.8,32.0 138.6,32.0 147.5,32.0 156.3,32.0 165.2,32.0 174.0,32.0" fill="none" vector-effect="non-scaling-stroke"/>
-<circle cx="174.0" cy="32.0" r="3.2"/>
-</svg></div>
-</div><div class="buy-signal neutral">
-<span>相場圏</span><small>直近履歴では大きな割高・値下がりは確認できません。</small>
-</div></div>
-</details></td>
-<td data-cell="quantity">合計5.4kg / 30食</td>
-<td data-cell="price">¥5,119</td>
-<td data-cell="unit"><div class="unit">¥171</div><div class="unit-label">1食あたり</div><div class="secondary-unit">100gあたり ¥94.8</div></td>
-<td data-cell="cta"><div class="product-actions">
-<button type="button" class="utility-btn" data-save-product data-product-id="misono-support:10011036" data-product-name="ハウス食品 ビーフカレー シェフブレンド 中辛 180g×30袋入｜ カレー ビーフ レトルト ビーフカレー 中辛" data-product-category="retort-curry" data-product-category-name="レトルトカレー" data-product-price="5119" data-product-unit="170.633333" data-product-unit-label="1食あたり" data-product-metric="per_serving" data-product-shipping="extra_or_unknown" data-product-signal="相場圏" data-product-signal-tone="neutral" data-product-quantity="合計5.4kg / 30食" data-product-url="https://hb.afl.rakuten.co.jp/hgc/g00q23do.7cx6mdeb.g00q23do.7cx6n015/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fmisono-support%2Fa310-53%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Fmisono-support%2Fi%2F10011036%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" data-product-image="https://thumbnail.image.rakuten.co.jp/@0_mall/misono-support/cabinet/202505_30/a310-53-1.jpg?_ex=128x128">＋ 買い物メモ</button>
-<button type="button" class="utility-btn" data-compare-product data-product-id="misono-support:10011036" data-product-name="ハウス食品 ビーフカレー シェフブレンド 中辛 180g×30袋入｜ カレー ビーフ レトルト ビーフカレー 中辛" data-product-category="retort-curry" data-product-category-name="レトルトカレー" data-product-price="5119" data-product-unit="170.633333" data-product-unit-label="1食あたり" data-product-metric="per_serving" data-product-shipping="extra_or_unknown" data-product-signal="相場圏" data-product-signal-tone="neutral" data-product-quantity="合計5.4kg / 30食" data-product-url="https://hb.afl.rakuten.co.jp/hgc/g00q23do.7cx6mdeb.g00q23do.7cx6n015/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fmisono-support%2Fa310-53%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Fmisono-support%2Fi%2F10011036%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" data-product-image="https://thumbnail.image.rakuten.co.jp/@0_mall/misono-support/cabinet/202505_30/a310-53-1.jpg?_ex=128x128">＋ 比較する</button>
-</div><a class="cta" href="https://hb.afl.rakuten.co.jp/hgc/g00q23do.7cx6mdeb.g00q23do.7cx6n015/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fmisono-support%2Fa310-53%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Fmisono-support%2Fi%2F10011036%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" target="_blank" rel="nofollow sponsored noopener"
- data-affiliate="rakuten" data-position="comparison_table" data-category="retort-curry" data-product-id="misono-support:10011036"
- data-product-name="ハウス食品 ビーフカレー シェフブレンド 中辛 180g×30袋入｜ カレー ビーフ レトルト ビーフカレー 中辛" data-rank="8" data-metric="per_serving"
- data-unit-price="170.633333" data-shipping="extra_or_unknown" data-cta-variant="standard">楽天で価格を確認 →</a></td>
 </tr><tr data-bucket="large" data-shopping-bucket="large" data-search-text="ハウス食品 ビーフカレー シェフブレンド 中辛 180g×30袋入｜ カレー ビーフ レトルト ビーフカレー 中辛 misonoya楽天市場店" data-price="5119" data-per_serving="170.633333" data-per_100g="94.796296">
-<td data-cell="rank" data-rank><span class="rank">9</span></td>
+<td data-cell="rank" data-rank><span class="rank">8</span></td>
 <td data-cell="image"><img class="product-img" src="https://thumbnail.image.rakuten.co.jp/@0_mall/misonoya/cabinet/202505_30/a310-53-1.jpg?_ex=128x128" alt="" width="72" height="72" loading="lazy"></td>
 <td data-cell="product"><div class="identity-line"><span class="spec-chip">合計5.4kg / 30食</span></div>
 <strong class="product-name" title="ハウス食品 ビーフカレー シェフブレンド 中辛 180g×30袋入｜ カレー ビーフ レトルト ビーフカレー 中辛">ハウス食品 ビーフカレー シェフブレンド 中辛 180g×30袋入 カレー ビーフ レトルト ビーフカレー 中辛</strong><div class="shop">MISONOYA楽天市場店</div><div class="product-badges"><span class="tag lifestyle">まとめ買い向き</span> <span class="tag warn">送料別・要確認</span> </div><div class="trend-row"><span class="trend-badge low">記録内最安</span></div><details class="product-extra" data-product-extra>
@@ -1574,41 +1489,41 @@ gtag('config','G-GFVSZ8YDQ5',{site_id:'food_cost_jp',operator_test:window.foodCo
 <button type="button" class="utility-btn" data-compare-product data-product-id="misonoya:10013211" data-product-name="ハウス食品 ビーフカレー シェフブレンド 中辛 180g×30袋入｜ カレー ビーフ レトルト ビーフカレー 中辛" data-product-category="retort-curry" data-product-category-name="レトルトカレー" data-product-price="5119" data-product-unit="170.633333" data-product-unit-label="1食あたり" data-product-metric="per_serving" data-product-shipping="extra_or_unknown" data-product-signal="相場圏" data-product-signal-tone="neutral" data-product-quantity="合計5.4kg / 30食" data-product-url="https://hb.afl.rakuten.co.jp/hgc/g00qrf9o.7cx6mf08.g00qrf9o.7cx6n813/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fmisonoya%2Fa310-53%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Fmisonoya%2Fi%2F10013211%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" data-product-image="https://thumbnail.image.rakuten.co.jp/@0_mall/misonoya/cabinet/202505_30/a310-53-1.jpg?_ex=128x128">＋ 比較する</button>
 </div><a class="cta" href="https://hb.afl.rakuten.co.jp/hgc/g00qrf9o.7cx6mf08.g00qrf9o.7cx6n813/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fmisonoya%2Fa310-53%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Fmisonoya%2Fi%2F10013211%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" target="_blank" rel="nofollow sponsored noopener"
  data-affiliate="rakuten" data-position="comparison_table" data-category="retort-curry" data-product-id="misonoya:10013211"
- data-product-name="ハウス食品 ビーフカレー シェフブレンド 中辛 180g×30袋入｜ カレー ビーフ レトルト ビーフカレー 中辛" data-rank="9" data-metric="per_serving"
+ data-product-name="ハウス食品 ビーフカレー シェフブレンド 中辛 180g×30袋入｜ カレー ビーフ レトルト ビーフカレー 中辛" data-rank="8" data-metric="per_serving"
  data-unit-price="170.633333" data-shipping="extra_or_unknown" data-cta-variant="standard">楽天で価格を確認 →</a></td>
-</tr><tr data-bucket="large" data-shopping-bucket="large" data-search-text="ハウス食品 ポークカレー 180g×30袋入｜ 一般食品 レトルト カレー ポーク ドリンクマーケット" data-price="6598" data-per_serving="219.933333" data-per_100g="122.185185">
-<td data-cell="rank" data-rank><span class="rank">10</span></td>
-<td data-cell="image"><img class="product-img" src="https://thumbnail.image.rakuten.co.jp/@0_mall/drink-market/cabinet/202505_28/a310-295-1.jpg?_ex=128x128" alt="" width="72" height="72" loading="lazy"></td>
+</tr><tr data-bucket="large" data-shopping-bucket="large" data-search-text="ハウス食品 ビーフカレー シェフブレンド 中辛 180g×30袋入｜ カレー ビーフ レトルト ビーフカレー 中辛 のぞみマーケット楽天市場店" data-price="5140" data-per_serving="171.333333" data-per_100g="95.185185">
+<td data-cell="rank" data-rank><span class="rank">9</span></td>
+<td data-cell="image"><img class="product-img" src="https://thumbnail.image.rakuten.co.jp/@0_mall/nozomi-market/cabinet/202505_30/a310-53-1.jpg?_ex=128x128" alt="" width="72" height="72" loading="lazy"></td>
 <td data-cell="product"><div class="identity-line"><span class="spec-chip">合計5.4kg / 30食</span></div>
-<strong class="product-name" title="ハウス食品 ポークカレー 180g×30袋入｜ 一般食品 レトルト カレー ポーク">ハウス食品 ポークカレー 180g×30袋入 一般食品 レトルト カレー ポーク</strong><div class="shop">ドリンクマーケット</div><div class="product-badges"><span class="tag lifestyle">まとめ買い向き</span> <span class="tag warn">送料別・要確認</span> </div><div class="trend-row"><span class="trend-badge low">記録内最安</span></div><details class="product-extra" data-product-extra>
+<strong class="product-name" title="ハウス食品 ビーフカレー シェフブレンド 中辛 180g×30袋入｜ カレー ビーフ レトルト ビーフカレー 中辛">ハウス食品 ビーフカレー シェフブレンド 中辛 180g×30袋入 カレー ビーフ レトルト ビーフカレー 中辛</strong><div class="shop">のぞみマーケット楽天市場店</div><div class="product-badges"><span class="tag lifestyle">まとめ買い向き</span> <span class="tag warn">送料別・要確認</span> </div><div class="trend-row"><span class="trend-badge low">記録内最安</span></div><details class="product-extra" data-product-extra>
 <summary>価格のうごきを見る <span>＋</span></summary>
 <div class="product-extra-body"><div class="history-card" data-history-card>
-<div class="history-head"><strong>価格履歴</strong><span>32回取得</span></div>
+<div class="history-head"><strong>価格履歴</strong><span>17回取得</span></div>
 <div class="history-toolbar"><div class="history-tabs">
 <button type="button" class="selected" data-history-range="7日">7日</button>
 <button type="button" data-history-range="30日">30日</button>
 </div><span class="history-trend stable">最近安定</span></div>
 <div class="history-range-panel" data-history-panel="7日">
 <div class="history-stats history-stats-4">
-<div><span>現在</span><b>¥220</b></div>
-<div><span>最安</span><b>¥220</b><small>10/28</small></div>
-<div><span>最高</span><b>¥220</b><small>10/28</small></div>
+<div><span>現在</span><b>¥171</b></div>
+<div><span>最安</span><b>¥171</b><small>11/01</small></div>
+<div><span>最高</span><b>¥171</b><small>11/01</small></div>
 <div><span>値幅</span><b>¥0.0</b></div>
 </div>
 <svg class="sparkline neutral" viewBox="0 0 180 64" role="img" aria-label="7日価格推移">
 <line x1="6" y1="58" x2="174" y2="58" class="spark-grid"/>
-<polyline points="6.0,32.0 30.0,32.0 54.0,32.0 78.0,32.0 102.0,32.0 126.0,32.0 150.0,32.0 174.0,32.0" fill="none" vector-effect="non-scaling-stroke"/>
+<polyline points="6.0,32.0 90.0,32.0 174.0,32.0" fill="none" vector-effect="non-scaling-stroke"/>
 <circle cx="174.0" cy="32.0" r="3.2"/>
 </svg></div><div class="history-range-panel" data-history-panel="30日" hidden>
 <div class="history-stats history-stats-4">
-<div><span>現在</span><b>¥220</b></div>
-<div><span>最安</span><b>¥220</b><small>10/05</small></div>
-<div><span>最高</span><b>¥220</b><small>10/05</small></div>
+<div><span>現在</span><b>¥171</b></div>
+<div><span>最安</span><b>¥171</b><small>10/05</small></div>
+<div><span>最高</span><b>¥171</b><small>10/05</small></div>
 <div><span>値幅</span><b>¥0.0</b></div>
 </div>
 <svg class="sparkline neutral" viewBox="0 0 180 64" role="img" aria-label="30日価格推移">
 <line x1="6" y1="58" x2="174" y2="58" class="spark-grid"/>
-<polyline points="6.0,32.0 12.0,32.0 18.0,32.0 24.0,32.0 30.0,32.0 36.0,32.0 42.0,32.0 48.0,32.0 54.0,32.0 60.0,32.0 66.0,32.0 72.0,32.0 78.0,32.0 84.0,32.0 90.0,32.0 96.0,32.0 102.0,32.0 108.0,32.0 114.0,32.0 120.0,32.0 126.0,32.0 132.0,32.0 138.0,32.0 144.0,32.0 150.0,32.0 156.0,32.0 162.0,32.0 168.0,32.0 174.0,32.0" fill="none" vector-effect="non-scaling-stroke"/>
+<polyline points="6.0,32.0 18.9,32.0 31.8,32.0 44.8,32.0 57.7,32.0 70.6,32.0 83.5,32.0 96.5,32.0 109.4,32.0 122.3,32.0 135.2,32.0 148.2,32.0 161.1,32.0 174.0,32.0" fill="none" vector-effect="non-scaling-stroke"/>
 <circle cx="174.0" cy="32.0" r="3.2"/>
 </svg></div>
 </div><div class="buy-signal neutral">
@@ -1616,17 +1531,17 @@ gtag('config','G-GFVSZ8YDQ5',{site_id:'food_cost_jp',operator_test:window.foodCo
 </div></div>
 </details></td>
 <td data-cell="quantity">合計5.4kg / 30食</td>
-<td data-cell="price">¥6,598</td>
-<td data-cell="unit"><div class="unit">¥220</div><div class="unit-label">1食あたり</div><div class="secondary-unit">100gあたり ¥122</div></td>
+<td data-cell="price">¥5,140</td>
+<td data-cell="unit"><div class="unit">¥171</div><div class="unit-label">1食あたり</div><div class="secondary-unit">100gあたり ¥95.2</div></td>
 <td data-cell="cta"><div class="product-actions">
-<button type="button" class="utility-btn" data-save-product data-product-id="drink-market:10112443" data-product-name="ハウス食品 ポークカレー 180g×30袋入｜ 一般食品 レトルト カレー ポーク" data-product-category="retort-curry" data-product-category-name="レトルトカレー" data-product-price="6598" data-product-unit="219.933333" data-product-unit-label="1食あたり" data-product-metric="per_serving" data-product-shipping="extra_or_unknown" data-product-signal="相場圏" data-product-signal-tone="neutral" data-product-quantity="合計5.4kg / 30食" data-product-url="https://hb.afl.rakuten.co.jp/hgc/g00s7wdo.7cx6mf7a.g00s7wdo.7cx6n171/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fdrink-market%2Fa310-295%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Fdrink-market%2Fi%2F10112443%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" data-product-image="https://thumbnail.image.rakuten.co.jp/@0_mall/drink-market/cabinet/202505_28/a310-295-1.jpg?_ex=128x128">＋ 買い物メモ</button>
-<button type="button" class="utility-btn" data-compare-product data-product-id="drink-market:10112443" data-product-name="ハウス食品 ポークカレー 180g×30袋入｜ 一般食品 レトルト カレー ポーク" data-product-category="retort-curry" data-product-category-name="レトルトカレー" data-product-price="6598" data-product-unit="219.933333" data-product-unit-label="1食あたり" data-product-metric="per_serving" data-product-shipping="extra_or_unknown" data-product-signal="相場圏" data-product-signal-tone="neutral" data-product-quantity="合計5.4kg / 30食" data-product-url="https://hb.afl.rakuten.co.jp/hgc/g00s7wdo.7cx6mf7a.g00s7wdo.7cx6n171/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fdrink-market%2Fa310-295%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Fdrink-market%2Fi%2F10112443%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" data-product-image="https://thumbnail.image.rakuten.co.jp/@0_mall/drink-market/cabinet/202505_28/a310-295-1.jpg?_ex=128x128">＋ 比較する</button>
-</div><a class="cta" href="https://hb.afl.rakuten.co.jp/hgc/g00s7wdo.7cx6mf7a.g00s7wdo.7cx6n171/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fdrink-market%2Fa310-295%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Fdrink-market%2Fi%2F10112443%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" target="_blank" rel="nofollow sponsored noopener"
- data-affiliate="rakuten" data-position="comparison_table" data-category="retort-curry" data-product-id="drink-market:10112443"
- data-product-name="ハウス食品 ポークカレー 180g×30袋入｜ 一般食品 レトルト カレー ポーク" data-rank="10" data-metric="per_serving"
- data-unit-price="219.933333" data-shipping="extra_or_unknown" data-cta-variant="standard">楽天で価格を確認 →</a></td>
+<button type="button" class="utility-btn" data-save-product data-product-id="nozomi-market:10010467" data-product-name="ハウス食品 ビーフカレー シェフブレンド 中辛 180g×30袋入｜ カレー ビーフ レトルト ビーフカレー 中辛" data-product-category="retort-curry" data-product-category-name="レトルトカレー" data-product-price="5140" data-product-unit="171.333333" data-product-unit-label="1食あたり" data-product-metric="per_serving" data-product-shipping="extra_or_unknown" data-product-signal="相場圏" data-product-signal-tone="neutral" data-product-quantity="合計5.4kg / 30食" data-product-url="https://hb.afl.rakuten.co.jp/hgc/g00r1iqo.7cx6m46c.g00r1iqo.7cx6n261/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fnozomi-market%2Fa310-53%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Fnozomi-market%2Fi%2F10010467%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" data-product-image="https://thumbnail.image.rakuten.co.jp/@0_mall/nozomi-market/cabinet/202505_30/a310-53-1.jpg?_ex=128x128">＋ 買い物メモ</button>
+<button type="button" class="utility-btn" data-compare-product data-product-id="nozomi-market:10010467" data-product-name="ハウス食品 ビーフカレー シェフブレンド 中辛 180g×30袋入｜ カレー ビーフ レトルト ビーフカレー 中辛" data-product-category="retort-curry" data-product-category-name="レトルトカレー" data-product-price="5140" data-product-unit="171.333333" data-product-unit-label="1食あたり" data-product-metric="per_serving" data-product-shipping="extra_or_unknown" data-product-signal="相場圏" data-product-signal-tone="neutral" data-product-quantity="合計5.4kg / 30食" data-product-url="https://hb.afl.rakuten.co.jp/hgc/g00r1iqo.7cx6m46c.g00r1iqo.7cx6n261/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fnozomi-market%2Fa310-53%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Fnozomi-market%2Fi%2F10010467%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" data-product-image="https://thumbnail.image.rakuten.co.jp/@0_mall/nozomi-market/cabinet/202505_30/a310-53-1.jpg?_ex=128x128">＋ 比較する</button>
+</div><a class="cta" href="https://hb.afl.rakuten.co.jp/hgc/g00r1iqo.7cx6m46c.g00r1iqo.7cx6n261/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fnozomi-market%2Fa310-53%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Fnozomi-market%2Fi%2F10010467%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" target="_blank" rel="nofollow sponsored noopener"
+ data-affiliate="rakuten" data-position="comparison_table" data-category="retort-curry" data-product-id="nozomi-market:10010467"
+ data-product-name="ハウス食品 ビーフカレー シェフブレンド 中辛 180g×30袋入｜ カレー ビーフ レトルト ビーフカレー 中辛" data-rank="9" data-metric="per_serving"
+ data-unit-price="171.333333" data-shipping="extra_or_unknown" data-cta-variant="standard">楽天で価格を確認 →</a></td>
 </tr><tr data-bucket="large" data-shopping-bucket="large" data-search-text="ハウス食品 ポークカレー 180g×30袋入｜ 一般食品 レトルト カレー ポーク のぞみマーケット楽天市場店" data-price="6598" data-per_serving="219.933333" data-per_100g="122.185185">
-<td data-cell="rank" data-rank><span class="rank">11</span></td>
+<td data-cell="rank" data-rank><span class="rank">10</span></td>
 <td data-cell="image"><img class="product-img" src="https://thumbnail.image.rakuten.co.jp/@0_mall/nozomi-market/cabinet/202505_28/a310-295-1.jpg?_ex=128x128" alt="" width="72" height="72" loading="lazy"></td>
 <td data-cell="product"><div class="identity-line"><span class="spec-chip">合計5.4kg / 30食</span></div>
 <strong class="product-name" title="ハウス食品 ポークカレー 180g×30袋入｜ 一般食品 レトルト カレー ポーク">ハウス食品 ポークカレー 180g×30袋入 一般食品 レトルト カレー ポーク</strong><div class="shop">のぞみマーケット楽天市場店</div><div class="product-badges"><span class="tag lifestyle">まとめ買い向き</span> <span class="tag warn">送料別・要確認</span> </div><div class="trend-row"><span class="trend-badge low">記録内最安</span></div><details class="product-extra" data-product-extra>
@@ -1672,8 +1587,57 @@ gtag('config','G-GFVSZ8YDQ5',{site_id:'food_cost_jp',operator_test:window.foodCo
 <button type="button" class="utility-btn" data-compare-product data-product-id="nozomi-market:10101904" data-product-name="ハウス食品 ポークカレー 180g×30袋入｜ 一般食品 レトルト カレー ポーク" data-product-category="retort-curry" data-product-category-name="レトルトカレー" data-product-price="6598" data-product-unit="219.933333" data-product-unit-label="1食あたり" data-product-metric="per_serving" data-product-shipping="extra_or_unknown" data-product-signal="相場圏" data-product-signal-tone="neutral" data-product-quantity="合計5.4kg / 30食" data-product-url="https://hb.afl.rakuten.co.jp/hgc/g00r1iqo.7cx6m46c.g00r1iqo.7cx6n261/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fnozomi-market%2Fa310-295%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Fnozomi-market%2Fi%2F10101904%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" data-product-image="https://thumbnail.image.rakuten.co.jp/@0_mall/nozomi-market/cabinet/202505_28/a310-295-1.jpg?_ex=128x128">＋ 比較する</button>
 </div><a class="cta" href="https://hb.afl.rakuten.co.jp/hgc/g00r1iqo.7cx6m46c.g00r1iqo.7cx6n261/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fnozomi-market%2Fa310-295%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Fnozomi-market%2Fi%2F10101904%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" target="_blank" rel="nofollow sponsored noopener"
  data-affiliate="rakuten" data-position="comparison_table" data-category="retort-curry" data-product-id="nozomi-market:10101904"
- data-product-name="ハウス食品 ポークカレー 180g×30袋入｜ 一般食品 レトルト カレー ポーク" data-rank="11" data-metric="per_serving"
+ data-product-name="ハウス食品 ポークカレー 180g×30袋入｜ 一般食品 レトルト カレー ポーク" data-rank="10" data-metric="per_serving"
  data-unit-price="219.933333" data-shipping="extra_or_unknown" data-cta-variant="standard">楽天で価格を確認 →</a></td>
+</tr><tr data-bucket="large" data-shopping-bucket="large" data-search-text="ニチレイフーズ インド風 バターチキンカレー 180g×30袋入｜ 一般食品 レトルト食品 カレー バター チキンカレー misonoya楽天市場店" data-price="7095" data-per_serving="236.500000" data-per_100g="131.388889">
+<td data-cell="rank" data-rank><span class="rank">11</span></td>
+<td data-cell="image"><img class="product-img" src="https://thumbnail.image.rakuten.co.jp/@0_mall/misonoya/cabinet/202603_09/b34-57-1.jpg?_ex=128x128" alt="" width="72" height="72" loading="lazy"></td>
+<td data-cell="product"><div class="identity-line"><span class="spec-chip">合計5.4kg / 30食</span></div>
+<strong class="product-name" title="ニチレイフーズ インド風 バターチキンカレー 180g×30袋入｜ 一般食品 レトルト食品 カレー バター チキンカレー">ニチレイフーズ インド風 バターチキンカレー 180g×30袋入 一般食品 レトルト食品 カレー バター チキンカレー</strong><div class="shop">MISONOYA楽天市場店</div><div class="product-badges"><span class="tag lifestyle">まとめ買い向き</span> <span class="tag warn">送料別・要確認</span> </div><div class="trend-row"><span class="trend-badge low">記録内最安</span></div><details class="product-extra" data-product-extra>
+<summary>価格のうごきを見る <span>＋</span></summary>
+<div class="product-extra-body"><div class="history-card" data-history-card>
+<div class="history-head"><strong>価格履歴</strong><span>16回取得</span></div>
+<div class="history-toolbar"><div class="history-tabs">
+<button type="button" class="selected" data-history-range="7日">7日</button>
+<button type="button" data-history-range="30日">30日</button>
+</div><span class="history-trend stable">最近安定</span></div>
+<div class="history-range-panel" data-history-panel="7日">
+<div class="history-stats history-stats-4">
+<div><span>現在</span><b>¥236</b></div>
+<div><span>最安</span><b>¥236</b><small>10/28</small></div>
+<div><span>最高</span><b>¥236</b><small>10/28</small></div>
+<div><span>値幅</span><b>¥0.0</b></div>
+</div>
+<svg class="sparkline neutral" viewBox="0 0 180 64" role="img" aria-label="7日価格推移">
+<line x1="6" y1="58" x2="174" y2="58" class="spark-grid"/>
+<polyline points="6.0,32.0 62.0,32.0 118.0,32.0 174.0,32.0" fill="none" vector-effect="non-scaling-stroke"/>
+<circle cx="174.0" cy="32.0" r="3.2"/>
+</svg></div><div class="history-range-panel" data-history-panel="30日" hidden>
+<div class="history-stats history-stats-4">
+<div><span>現在</span><b>¥236</b></div>
+<div><span>最安</span><b>¥236</b><small>10/05</small></div>
+<div><span>最高</span><b>¥236</b><small>10/05</small></div>
+<div><span>値幅</span><b>¥0.0</b></div>
+</div>
+<svg class="sparkline neutral" viewBox="0 0 180 64" role="img" aria-label="30日価格推移">
+<line x1="6" y1="58" x2="174" y2="58" class="spark-grid"/>
+<polyline points="6.0,32.0 18.9,32.0 31.8,32.0 44.8,32.0 57.7,32.0 70.6,32.0 83.5,32.0 96.5,32.0 109.4,32.0 122.3,32.0 135.2,32.0 148.2,32.0 161.1,32.0 174.0,32.0" fill="none" vector-effect="non-scaling-stroke"/>
+<circle cx="174.0" cy="32.0" r="3.2"/>
+</svg></div>
+</div><div class="buy-signal neutral">
+<span>相場圏</span><small>直近履歴では大きな割高・値下がりは確認できません。</small>
+</div></div>
+</details></td>
+<td data-cell="quantity">合計5.4kg / 30食</td>
+<td data-cell="price">¥7,095</td>
+<td data-cell="unit"><div class="unit">¥236</div><div class="unit-label">1食あたり</div><div class="secondary-unit">100gあたり ¥131</div></td>
+<td data-cell="cta"><div class="product-actions">
+<button type="button" class="utility-btn" data-save-product data-product-id="misonoya:10097030" data-product-name="ニチレイフーズ インド風 バターチキンカレー 180g×30袋入｜ 一般食品 レトルト食品 カレー バター チキンカレー" data-product-category="retort-curry" data-product-category-name="レトルトカレー" data-product-price="7095" data-product-unit="236.500000" data-product-unit-label="1食あたり" data-product-metric="per_serving" data-product-shipping="extra_or_unknown" data-product-signal="相場圏" data-product-signal-tone="neutral" data-product-quantity="合計5.4kg / 30食" data-product-url="https://hb.afl.rakuten.co.jp/hgc/g00qrf9o.7cx6mf08.g00qrf9o.7cx6n813/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fmisonoya%2Fb34-57%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Fmisonoya%2Fi%2F10097030%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" data-product-image="https://thumbnail.image.rakuten.co.jp/@0_mall/misonoya/cabinet/202603_09/b34-57-1.jpg?_ex=128x128">＋ 買い物メモ</button>
+<button type="button" class="utility-btn" data-compare-product data-product-id="misonoya:10097030" data-product-name="ニチレイフーズ インド風 バターチキンカレー 180g×30袋入｜ 一般食品 レトルト食品 カレー バター チキンカレー" data-product-category="retort-curry" data-product-category-name="レトルトカレー" data-product-price="7095" data-product-unit="236.500000" data-product-unit-label="1食あたり" data-product-metric="per_serving" data-product-shipping="extra_or_unknown" data-product-signal="相場圏" data-product-signal-tone="neutral" data-product-quantity="合計5.4kg / 30食" data-product-url="https://hb.afl.rakuten.co.jp/hgc/g00qrf9o.7cx6mf08.g00qrf9o.7cx6n813/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fmisonoya%2Fb34-57%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Fmisonoya%2Fi%2F10097030%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" data-product-image="https://thumbnail.image.rakuten.co.jp/@0_mall/misonoya/cabinet/202603_09/b34-57-1.jpg?_ex=128x128">＋ 比較する</button>
+</div><a class="cta" href="https://hb.afl.rakuten.co.jp/hgc/g00qrf9o.7cx6mf08.g00qrf9o.7cx6n813/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fmisonoya%2Fb34-57%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Fmisonoya%2Fi%2F10097030%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" target="_blank" rel="nofollow sponsored noopener"
+ data-affiliate="rakuten" data-position="comparison_table" data-category="retort-curry" data-product-id="misonoya:10097030"
+ data-product-name="ニチレイフーズ インド風 バターチキンカレー 180g×30袋入｜ 一般食品 レトルト食品 カレー バター チキンカレー" data-rank="11" data-metric="per_serving"
+ data-unit-price="236.500000" data-shipping="extra_or_unknown" data-cta-variant="standard">楽天で価格を確認 →</a></td>
 </tr><tr data-bucket="large" data-shopping-bucket="large" data-search-text="ハウス食品 ククレカレー 甘口 180g×30個入｜ 一般食品 レトルト食品 カレー のぞみマーケット楽天市場店" data-price="7182" data-per_serving="239.400000" data-per_100g="133.000000">
 <td data-cell="rank" data-rank><span class="rank">12</span></td>
 <td data-cell="image"><img class="product-img" src="https://thumbnail.image.rakuten.co.jp/@0_mall/nozomi-market/cabinet/202506_13/a310-6-1.jpg?_ex=128x128" alt="" width="72" height="72" loading="lazy"></td>
@@ -2208,6 +2172,45 @@ document.addEventListener('click',e=>{const a=e.target.closest('a[data-affiliate
 const finder=document.querySelector('[data-finder]');
 if(finder){
   let category='all',purpose='',intent='',route='';
+  // Only explicit, validated category + purpose choices are stored on this device.
+  // Clicks, product links and raw searches are never treated as purchases.
+  const MEMORY_KEY='food_cost_finder_choice_v1';
+  const purposeLabels={cheap:'単価を比べる',small:'少量を選ぶ',large:'まとめ買い',budget:'支払総額を抑える',storage:'備蓄を考える'};
+  const recallBox=document.querySelector('[data-finder-last-choice]');
+  const recallLabel=document.querySelector('[data-finder-last-choice-label]');
+  const recallLink=document.querySelector('[data-finder-resume]');
+  const forgetButton=document.querySelector('[data-finder-forget]');
+  const rememberButton=finder.querySelector('[data-finder-remember]');
+  const memoryStatus=finder.querySelector('[data-finder-memory-status]');
+  const knownCategories=new Set(['all',...Array.from(finder.querySelectorAll('[data-finder-category]')).map(e=>e.dataset.finderCategory)]);
+  const validChoice=choice=>Boolean(choice&&typeof choice==='object'&&
+    Object.hasOwn(purposeLabels,choice.purpose)&&
+    typeof choice.category==='string'&&knownCategories.has(choice.category)&&
+    finder.querySelector('[data-finder-picks="'+choice.category+':'+choice.purpose+'"]'));
+  const readChoice=()=>{
+    try{const parsed=JSON.parse(localStorage.getItem(MEMORY_KEY)||'null');return validChoice(parsed)?parsed:null}
+    catch(_){return null}
+  };
+  let remembered=readChoice();
+  const choiceLabel=choice=>{
+    const found=finder.querySelector('[data-finder-category="'+choice.category+'"]');
+    return (found?.dataset.finderName||'すべての売り場')+'・'+purposeLabels[choice.purpose];
+  };
+  const reflectMemory=()=>{
+    if(recallBox){
+      recallBox.hidden=!remembered;
+      if(remembered&&recallLabel)recallLabel.textContent='前回保存：'+choiceLabel(remembered);
+    }
+    const same=Boolean(remembered&&remembered.category===category&&remembered.purpose===purpose);
+    if(rememberButton){
+      rememberButton.setAttribute('aria-pressed',String(same));
+      rememberButton.textContent=same?'この買い方の記憶を解除':'この買い方を次回も使う';
+    }
+  };
+  const forgetChoice=()=>{
+    try{localStorage.removeItem(MEMORY_KEY)}catch(_){}
+    remembered=null;reflectMemory();
+  };
   const routeStage=finder.querySelector('[data-finder-route-stage]');
   const categoryStage=finder.querySelector('[data-finder-category-stage]'),purposeStage=finder.querySelector('[data-finder-purpose-stage]'),resultStage=finder.querySelector('[data-finder-result-stage]'),status=finder.querySelector('[data-finder-status]');
   const show=el=>{el.hidden=false;const first=el.querySelector('summary,button');first?.focus({preventScroll:true});const top=el.getBoundingClientRect().top;if(top<0||top>window.innerHeight*.65)el.scrollIntoView?.({block:'start',behavior:window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches?'instant':'smooth'})};
@@ -2221,6 +2224,7 @@ if(finder){
     status.textContent=count?(tailored?'条件に合わせて、役割の違う'+count+'候補に絞りました。単価だけでなく総額も比べて選べます。':'それなら、この棚から。 '+count+'件の候補があります。'):'この条件の候補は現在ありません。別の買い方も見てみましょう。';
     send('finder_complete',{category_id:category,shopping_intent:intent,product_count:count});
     send('quick_finder_complete',{category_id:category,finder_purpose:purpose});
+    reflectMemory();
     if(!('IntersectionObserver' in window))shelfView(current?.querySelector('[data-market-shelf]'));
   };
   const reset=()=>{purpose='';category='all';route='';show(routeStage);hide(purposeStage);hide(categoryStage);hide(resultStage);status.textContent='';finder.querySelectorAll('[data-finder-picks]').forEach(x=>x.hidden=true);finder.querySelectorAll('[aria-pressed]').forEach(x=>x.setAttribute('aria-pressed','false'));finder.querySelectorAll('.selected').forEach(x=>x.classList.remove('selected'));finder.querySelectorAll('.finder-aisle').forEach(x=>x.open=false)};
@@ -2244,6 +2248,38 @@ if(finder){
   finder.querySelector('[data-finder-narrow]')?.addEventListener('click',()=>{hide(resultStage);show(categoryStage);status.textContent='この買い方のまま、売り場を選べます。'});
   finder.querySelectorAll('[data-finder-back]').forEach(btn=>btn.addEventListener('click',reset));
   finder.querySelector('[data-finder-reset]')?.addEventListener('click',reset);
+  rememberButton?.addEventListener('click',()=>{
+    if(!purpose||!validChoice({category,purpose}))return;
+    if(remembered&&remembered.category===category&&remembered.purpose===purpose){
+      forgetChoice();
+      memoryStatus.textContent='記憶を解除しました。比較した商品は引き続き見られます。';
+      send('finder_choice_memory',{action:'forget',category_id:category,finder_purpose:purpose});
+      return;
+    }
+    const candidate={category,purpose};
+    try{
+      localStorage.setItem(MEMORY_KEY,JSON.stringify(candidate));
+      if(localStorage.getItem(MEMORY_KEY)!==JSON.stringify(candidate))throw Error('not saved');
+      remembered=candidate;reflectMemory();
+      memoryStatus.textContent='保存しました。次回は前回の条件に1タップで戻れます。';
+      send('finder_choice_memory',{action:'save',category_id:category,finder_purpose:purpose});
+    }catch(_){memoryStatus.textContent='この端末では条件を保存できません。比較はそのまま利用できます。'}
+  });
+  recallLink?.addEventListener('click',()=>{
+    if(!validChoice(remembered)){forgetChoice();return}
+    category=remembered.category;purpose=remembered.purpose;intent=purpose;route='recalled';
+    finder.querySelectorAll('[data-finder-purpose]').forEach(e=>e.setAttribute('aria-pressed',String(e.dataset.finderPurpose===purpose)));
+    finder.querySelectorAll('[data-finder-category]').forEach(e=>e.setAttribute('aria-pressed',String(e.dataset.finderCategory===category)));
+    results();
+    send('finder_choice_resume',{category_id:category,finder_purpose:purpose});
+  });
+  forgetButton?.addEventListener('click',()=>{
+    if(!remembered)return;
+    const old=remembered;
+    forgetChoice();
+    send('finder_choice_memory',{action:'forget',category_id:old.category,finder_purpose:old.purpose});
+  });
+  reflectMemory();
 }
 const pick=new URLSearchParams(location.search).get('pick');
 if(pick&&document.querySelector('[data-comparison]')){

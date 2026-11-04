@@ -236,6 +236,19 @@ footer{padding:30px 0 100px;border-top:1px solid var(--line);font-size:10px;colo
  .saved-item-actions{gap:8px}
  .saved-compare{min-height:44px}
 }
+
+/* FOOD CHOICE MEMORY 20261104: optional recall, never a purchase prerequisite. */
+.hero-last-choice[hidden]{display:none!important}
+.hero-last-choice{display:flex;align-items:center;gap:8px 12px;flex-wrap:wrap;margin-top:12px;font-size:12px}
+.hero-last-choice [data-finder-last-choice-label]{color:var(--muted);font-size:11px}
+.hero-last-choice a{display:inline-flex;align-items:center;min-height:44px;padding:9px 13px;border-radius:999px;border:1px solid var(--brand);background:#fffbf3;color:var(--brand);font-size:12px;font-weight:700;text-decoration:none}
+.hero-last-choice button{border:0;border-bottom:1px solid currentColor;background:transparent;color:var(--muted);min-height:44px;padding:9px 2px;font:inherit;cursor:pointer}
+.finder-remember-tools{display:flex;align-items:center;gap:8px 14px;flex-wrap:wrap;margin:10px 0 20px;padding:12px 14px;background:#faf7ef;border:1px solid #d6c9b0;border-radius:10px}
+.finder-remember-tools button{min-height:44px;padding:8px 14px;border:1px solid var(--brand);border-radius:8px;background:#fff;color:var(--brand);font:inherit;font-size:12px;font-weight:750;cursor:pointer}
+.finder-remember-tools button[aria-pressed="true"]{background:#e9f0e4}
+.finder-remember-tools span{font-size:11px;line-height:1.6;color:var(--muted)}
+.hero-last-choice a:focus-visible,.hero-last-choice button:focus-visible,.finder-remember-tools button:focus-visible{outline:3px solid #126477;outline-offset:3px}
+@media(max-width:620px){.hero-last-choice{align-items:flex-start}.hero-last-choice [data-finder-last-choice-label]{flex-basis:100%}.finder-remember-tools{align-items:flex-start}}
 </style>
 <script>(()=>{const k='food_cost_operator_test_v1',p=new URLSearchParams(location.search);let op=false;try{op=localStorage.getItem(k)==='1'}catch(e){}if(['1','0'].includes(p.get('test'))){op=p.get('test')==='1';try{op?localStorage.setItem(k,'1'):localStorage.removeItem(k)}catch(e){}const u=new URL(location.href);u.searchParams.delete('test');history.replaceState(history.state,'',u.href)}window.foodCostOperatorTest=op;})();</script><script async src="https://www.googletagmanager.com/gtag/js?id=G-GFVSZ8YDQ5"></script>
 <script>
@@ -244,7 +257,7 @@ window.gtag=window.gtag||function(){dataLayer.push(arguments)};
 gtag('js',new Date());
 gtag('config','G-GFVSZ8YDQ5',{site_id:'food_cost_jp',operator_test:window.foodCostOperatorTest?'1':'0'});
 </script>
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "カップ麺12個セットのコスパ比較では何を比べていますか？", "acceptedAnswer": {"@type": "Answer", "text": "楽天から取得した商品情報をもとに、数量を確定できる商品だけを1食あたりへ換算して比較しています。"}}, {"@type": "Question", "name": "送料はランキングにどう反映していますか？", "acceptedAnswer": {"@type": "Answer", "text": "主ランキングは楽天APIで送料込みと確認できる商品を対象にしています。地域別追加送料などは販売ページで最終確認してください。"}}, {"@type": "Question", "name": "一番上の商品が必ず自分に最適ですか？", "acceptedAnswer": {"@type": "Answer", "text": "単価だけでなく、保管場所、支払総額、内容量、ブランドなども確認して選ぶのがおすすめです。"}}]}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "食品コスパ比較", "item": "https://stusaurus.github.io/food-cost-jp/"}, {"@type": "ListItem", "position": 2, "name": "カップ麺", "item": "https://stusaurus.github.io/food-cost-jp/categories/cup-noodles/"}, {"@type": "ListItem", "position": 3, "name": "カップ麺12個セットのコスパ比較", "item": "https://stusaurus.github.io/food-cost-jp/guides/cup-noodles-12-cost/"}]}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "ItemList", "name": "カップ麺のコスパ比較", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "セイコーマート Secoma 辛味噌ラーメン セコマ せいこーまーと せこま カップ麺 12個入 辛味噌 味噌ラーメン 札幌 濃厚 ケース", "url": "https://hb.afl.rakuten.co.jp/hgc/g00tjbco.7cx6m5ed.g00tjbco.7cx6n60b/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fseicomart%2F724500000001%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fseicomart%2Fi%2F10000756%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "カップ麺12個セットのコスパ比較では何を比べていますか？", "acceptedAnswer": {"@type": "Answer", "text": "楽天から取得した商品情報をもとに、数量を確定できる商品だけを1食あたりへ換算して比較しています。"}}, {"@type": "Question", "name": "送料はランキングにどう反映していますか？", "acceptedAnswer": {"@type": "Answer", "text": "主ランキングは楽天APIで送料込みと確認できる商品を対象にしています。地域別追加送料などは販売ページで最終確認してください。"}}, {"@type": "Question", "name": "一番上の商品が必ず自分に最適ですか？", "acceptedAnswer": {"@type": "Answer", "text": "単価だけでなく、保管場所、支払総額、内容量、ブランドなども確認して選ぶのがおすすめです。"}}]}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "食品コスパ比較", "item": "https://stusaurus.github.io/food-cost-jp/"}, {"@type": "ListItem", "position": 2, "name": "カップ麺", "item": "https://stusaurus.github.io/food-cost-jp/categories/cup-noodles/"}, {"@type": "ListItem", "position": 3, "name": "カップ麺12個セットのコスパ比較", "item": "https://stusaurus.github.io/food-cost-jp/guides/cup-noodles-12-cost/"}]}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "ItemList", "name": "カップ麺のコスパ比較", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "セイコーマート Secoma 辛味噌ラーメン セコマ せいこーまーと せこま カップ麺 12個入 辛味噌 味噌ラーメン 札幌 濃厚 ケース", "url": "https://hb.afl.rakuten.co.jp/hgc/g00tjbco.7cx6m5ed.g00tjbco.7cx6n60b/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fseicomart%2F724500000001%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fseicomart%2Fi%2F10000756%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5"}, {"@type": "ListItem", "position": 2, "name": "日清食品 カップヌードル 欧風チーズカレー [ビーフの味わい欧風仕立て] 日清食品 カップ麺 85g ×12個", "url": "https://hb.afl.rakuten.co.jp/hgc/g00uat1o.7cx6m2a0.g00uat1o.7cx6n10f/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fnagurashoji%2F3854%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fnagurashoji%2Fi%2F10001639%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5"}]}</script>
 </head><body>
 <div class="market-masthead"><div class="wrap"><a class="market-logo" href="https://stusaurus.github.io/food-cost-jp/"><b>Food Cost<em>EVERYDAY MARCHÉ</em></b><span>食品コスパ比較</span></a><small>GOOD FOOD. SMART CHOICES.</small></div></div><header><div class="wrap hero-layout">
 <div><a class="brand" href="../../">食品コスパ比較</a>
@@ -252,7 +265,7 @@ gtag('config','G-GFVSZ8YDQ5',{site_id:'food_cost_jp',operator_test:window.foodCo
 <h1>カップ麺12個セットを1食あたりで比較</h1>
 <p class="lead">12個セットのカップ麺を、1食あたりの単価と総額で比較します。</p>
 <div class="hero-tags"><span class="hero-tag">送料込みを優先</span><span class="hero-tag">実データ連動</span><span class="hero-tag">数量曖昧は除外</span></div>
-<p class="note">最終価格確認: 2026-11-04 08:32 JST</p></div>
+<p class="note">最終価格確認: 2026-11-04 20:26 JST</p></div>
 <div class="category-hero-art cup-noodles"><span class="category-symbol" aria-hidden="true"><b>🍜</b><small>カップ麺</small></span></div>
 </div></header>
 <nav class="service-shortcuts" aria-label="主要メニュー">
@@ -265,7 +278,7 @@ gtag('config','G-GFVSZ8YDQ5',{site_id:'food_cost_jp',operator_test:window.foodCo
 
 <section class="section podium-section">
 <div class="section-kicker">まずはここから</div>
-<h2>この売り場のおすすめ棚 <small>送料込み TOP1</small></h2>
+<h2>この売り場のおすすめ棚 <small>送料込み TOP2</small></h2>
 <p class="sub">現在取得できた商品の中で、1食あたりが安い順です。</p>
 <div class="podium-grid"><article class="podium-card rank-1">
 <div class="podium-head"><span class="podium-medal">01</span><span>いまの最安</span></div>
@@ -322,6 +335,61 @@ gtag('config','G-GFVSZ8YDQ5',{site_id:'food_cost_jp',operator_test:window.foodCo
  data-affiliate="rakuten" data-position="top3_card" data-category="cup-noodles" data-product-id="seicomart:10000756"
  data-product-name="セイコーマート Secoma 辛味噌ラーメン セコマ せいこーまーと せこま カップ麺 12個入 辛味噌 味噌ラーメン 札幌 濃厚 ケース" data-rank="1" data-metric="per_serving"
  data-unit-price="250.916667" data-shipping="included" data-cta-variant="rank1">最安候補を楽天で確認 →</a>
+</article><article class="podium-card rank-2">
+<div class="podium-head"><span class="podium-medal">02</span><span>2位</span></div>
+<div class="podium-badges"><span class="tag top-badge">TOP3</span> <span class="tag lifestyle">少量向き</span></div>
+<div class="podium-media"><img class="podium-img" src="https://thumbnail.image.rakuten.co.jp/@0_mall/nagurashoji/cabinet/goq001/1428_1.jpg?_ex=640x640" data-image-fallback="https://thumbnail.image.rakuten.co.jp/@0_mall/nagurashoji/cabinet/goq001/1428_1.jpg?_ex=128x128" alt="" width="320" height="320" loading="lazy"></div>
+<div class="identity-line"><span class="spec-chip">合計12食</span></div>
+<strong class="podium-name" title="日清食品 カップヌードル 欧風チーズカレー [ビーフの味わい欧風仕立て] 日清食品 カップ麺 85g ×12個">日清食品 カップヌードル 欧風チーズカレー ビーフの味わい欧風仕立て 日清食品 カップ麺 85g ×12個</strong>
+<div class="podium-unit">¥290</div>
+<div class="podium-label">1食あたり</div>
+
+<div class="trend-row"><span class="trend-badge low">記録内最安</span></div>
+<div class="podium-diff">最安との差 +¥39.1</div>
+<div class="podium-detail">合計12食 ・ ¥3,480</div>
+<details class="product-extra" data-product-extra>
+<summary>価格のうごきを見る <span>＋</span></summary>
+<div class="product-extra-body"><div class="history-card" data-history-card>
+<div class="history-head"><strong>価格履歴</strong><span>34回取得</span></div>
+<div class="history-toolbar"><div class="history-tabs">
+<button type="button" class="selected" data-history-range="7日">7日</button>
+<button type="button" data-history-range="30日">30日</button>
+</div><span class="history-trend stable">最近安定</span></div>
+<div class="history-range-panel" data-history-panel="7日">
+<div class="history-stats history-stats-4">
+<div><span>現在</span><b>¥290</b></div>
+<div><span>最安</span><b>¥290</b><small>10/28</small></div>
+<div><span>最高</span><b>¥290</b><small>10/28</small></div>
+<div><span>値幅</span><b>¥0.0</b></div>
+</div>
+<svg class="sparkline neutral" viewBox="0 0 180 64" role="img" aria-label="7日価格推移">
+<line x1="6" y1="58" x2="174" y2="58" class="spark-grid"/>
+<polyline points="6.0,32.0 30.0,32.0 54.0,32.0 78.0,32.0 102.0,32.0 126.0,32.0 150.0,32.0 174.0,32.0" fill="none" vector-effect="non-scaling-stroke"/>
+<circle cx="174.0" cy="32.0" r="3.2"/>
+</svg></div><div class="history-range-panel" data-history-panel="30日" hidden>
+<div class="history-stats history-stats-4">
+<div><span>現在</span><b>¥290</b></div>
+<div><span>最安</span><b>¥290</b><small>10/05</small></div>
+<div><span>最高</span><b>¥290</b><small>10/05</small></div>
+<div><span>値幅</span><b>¥0.0</b></div>
+</div>
+<svg class="sparkline neutral" viewBox="0 0 180 64" role="img" aria-label="30日価格推移">
+<line x1="6" y1="58" x2="174" y2="58" class="spark-grid"/>
+<polyline points="6.0,32.0 11.6,32.0 17.2,32.0 22.8,32.0 28.4,32.0 34.0,32.0 39.6,32.0 45.2,32.0 50.8,32.0 56.4,32.0 62.0,32.0 67.6,32.0 73.2,32.0 78.8,32.0 84.4,32.0 90.0,32.0 95.6,32.0 101.2,32.0 106.8,32.0 112.4,32.0 118.0,32.0 123.6,32.0 129.2,32.0 134.8,32.0 140.4,32.0 146.0,32.0 151.6,32.0 157.2,32.0 162.8,32.0 168.4,32.0 174.0,32.0" fill="none" vector-effect="non-scaling-stroke"/>
+<circle cx="174.0" cy="32.0" r="3.2"/>
+</svg></div>
+</div><div class="buy-signal neutral">
+<span>相場圏</span><small>直近履歴では大きな割高・値下がりは確認できません。</small>
+</div></div>
+</details>
+<div class="product-actions">
+<button type="button" class="utility-btn" data-save-product data-product-id="nagurashoji:10001639" data-product-name="日清食品 カップヌードル 欧風チーズカレー [ビーフの味わい欧風仕立て] 日清食品 カップ麺 85g ×12個" data-product-category="cup-noodles" data-product-category-name="カップ麺" data-product-price="3480" data-product-unit="290.000000" data-product-unit-label="1食あたり" data-product-metric="per_serving" data-product-shipping="included" data-product-signal="相場圏" data-product-signal-tone="neutral" data-product-quantity="合計12食" data-product-url="https://hb.afl.rakuten.co.jp/hgc/g00uat1o.7cx6m2a0.g00uat1o.7cx6n10f/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fnagurashoji%2F3854%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Fnagurashoji%2Fi%2F10001639%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" data-product-image="https://thumbnail.image.rakuten.co.jp/@0_mall/nagurashoji/cabinet/goq001/1428_1.jpg?_ex=128x128">＋ 買い物メモ</button>
+<button type="button" class="utility-btn" data-compare-product data-product-id="nagurashoji:10001639" data-product-name="日清食品 カップヌードル 欧風チーズカレー [ビーフの味わい欧風仕立て] 日清食品 カップ麺 85g ×12個" data-product-category="cup-noodles" data-product-category-name="カップ麺" data-product-price="3480" data-product-unit="290.000000" data-product-unit-label="1食あたり" data-product-metric="per_serving" data-product-shipping="included" data-product-signal="相場圏" data-product-signal-tone="neutral" data-product-quantity="合計12食" data-product-url="https://hb.afl.rakuten.co.jp/hgc/g00uat1o.7cx6m2a0.g00uat1o.7cx6n10f/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fnagurashoji%2F3854%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Fnagurashoji%2Fi%2F10001639%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" data-product-image="https://thumbnail.image.rakuten.co.jp/@0_mall/nagurashoji/cabinet/goq001/1428_1.jpg?_ex=128x128">＋ 比較する</button>
+</div>
+<a class="cta podium-cta" href="https://hb.afl.rakuten.co.jp/hgc/g00uat1o.7cx6m2a0.g00uat1o.7cx6n10f/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fnagurashoji%2F3854%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Fnagurashoji%2Fi%2F10001639%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" target="_blank" rel="nofollow sponsored noopener"
+ data-affiliate="rakuten" data-position="top3_card" data-category="cup-noodles" data-product-id="nagurashoji:10001639"
+ data-product-name="日清食品 カップヌードル 欧風チーズカレー [ビーフの味わい欧風仕立て] 日清食品 カップ麺 85g ×12個" data-rank="2" data-metric="per_serving"
+ data-unit-price="290.000000" data-shipping="included" data-cta-variant="standard">楽天で価格を確認 →</a>
 </article></div>
 </section>
 
@@ -406,6 +474,45 @@ document.addEventListener('click',e=>{const a=e.target.closest('a[data-affiliate
 const finder=document.querySelector('[data-finder]');
 if(finder){
   let category='all',purpose='',intent='',route='';
+  // Only explicit, validated category + purpose choices are stored on this device.
+  // Clicks, product links and raw searches are never treated as purchases.
+  const MEMORY_KEY='food_cost_finder_choice_v1';
+  const purposeLabels={cheap:'単価を比べる',small:'少量を選ぶ',large:'まとめ買い',budget:'支払総額を抑える',storage:'備蓄を考える'};
+  const recallBox=document.querySelector('[data-finder-last-choice]');
+  const recallLabel=document.querySelector('[data-finder-last-choice-label]');
+  const recallLink=document.querySelector('[data-finder-resume]');
+  const forgetButton=document.querySelector('[data-finder-forget]');
+  const rememberButton=finder.querySelector('[data-finder-remember]');
+  const memoryStatus=finder.querySelector('[data-finder-memory-status]');
+  const knownCategories=new Set(['all',...Array.from(finder.querySelectorAll('[data-finder-category]')).map(e=>e.dataset.finderCategory)]);
+  const validChoice=choice=>Boolean(choice&&typeof choice==='object'&&
+    Object.hasOwn(purposeLabels,choice.purpose)&&
+    typeof choice.category==='string'&&knownCategories.has(choice.category)&&
+    finder.querySelector('[data-finder-picks="'+choice.category+':'+choice.purpose+'"]'));
+  const readChoice=()=>{
+    try{const parsed=JSON.parse(localStorage.getItem(MEMORY_KEY)||'null');return validChoice(parsed)?parsed:null}
+    catch(_){return null}
+  };
+  let remembered=readChoice();
+  const choiceLabel=choice=>{
+    const found=finder.querySelector('[data-finder-category="'+choice.category+'"]');
+    return (found?.dataset.finderName||'すべての売り場')+'・'+purposeLabels[choice.purpose];
+  };
+  const reflectMemory=()=>{
+    if(recallBox){
+      recallBox.hidden=!remembered;
+      if(remembered&&recallLabel)recallLabel.textContent='前回保存：'+choiceLabel(remembered);
+    }
+    const same=Boolean(remembered&&remembered.category===category&&remembered.purpose===purpose);
+    if(rememberButton){
+      rememberButton.setAttribute('aria-pressed',String(same));
+      rememberButton.textContent=same?'この買い方の記憶を解除':'この買い方を次回も使う';
+    }
+  };
+  const forgetChoice=()=>{
+    try{localStorage.removeItem(MEMORY_KEY)}catch(_){}
+    remembered=null;reflectMemory();
+  };
   const routeStage=finder.querySelector('[data-finder-route-stage]');
   const categoryStage=finder.querySelector('[data-finder-category-stage]'),purposeStage=finder.querySelector('[data-finder-purpose-stage]'),resultStage=finder.querySelector('[data-finder-result-stage]'),status=finder.querySelector('[data-finder-status]');
   const show=el=>{el.hidden=false;const first=el.querySelector('summary,button');first?.focus({preventScroll:true});const top=el.getBoundingClientRect().top;if(top<0||top>window.innerHeight*.65)el.scrollIntoView?.({block:'start',behavior:window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches?'instant':'smooth'})};
@@ -419,6 +526,7 @@ if(finder){
     status.textContent=count?(tailored?'条件に合わせて、役割の違う'+count+'候補に絞りました。単価だけでなく総額も比べて選べます。':'それなら、この棚から。 '+count+'件の候補があります。'):'この条件の候補は現在ありません。別の買い方も見てみましょう。';
     send('finder_complete',{category_id:category,shopping_intent:intent,product_count:count});
     send('quick_finder_complete',{category_id:category,finder_purpose:purpose});
+    reflectMemory();
     if(!('IntersectionObserver' in window))shelfView(current?.querySelector('[data-market-shelf]'));
   };
   const reset=()=>{purpose='';category='all';route='';show(routeStage);hide(purposeStage);hide(categoryStage);hide(resultStage);status.textContent='';finder.querySelectorAll('[data-finder-picks]').forEach(x=>x.hidden=true);finder.querySelectorAll('[aria-pressed]').forEach(x=>x.setAttribute('aria-pressed','false'));finder.querySelectorAll('.selected').forEach(x=>x.classList.remove('selected'));finder.querySelectorAll('.finder-aisle').forEach(x=>x.open=false)};
@@ -442,6 +550,38 @@ if(finder){
   finder.querySelector('[data-finder-narrow]')?.addEventListener('click',()=>{hide(resultStage);show(categoryStage);status.textContent='この買い方のまま、売り場を選べます。'});
   finder.querySelectorAll('[data-finder-back]').forEach(btn=>btn.addEventListener('click',reset));
   finder.querySelector('[data-finder-reset]')?.addEventListener('click',reset);
+  rememberButton?.addEventListener('click',()=>{
+    if(!purpose||!validChoice({category,purpose}))return;
+    if(remembered&&remembered.category===category&&remembered.purpose===purpose){
+      forgetChoice();
+      memoryStatus.textContent='記憶を解除しました。比較した商品は引き続き見られます。';
+      send('finder_choice_memory',{action:'forget',category_id:category,finder_purpose:purpose});
+      return;
+    }
+    const candidate={category,purpose};
+    try{
+      localStorage.setItem(MEMORY_KEY,JSON.stringify(candidate));
+      if(localStorage.getItem(MEMORY_KEY)!==JSON.stringify(candidate))throw Error('not saved');
+      remembered=candidate;reflectMemory();
+      memoryStatus.textContent='保存しました。次回は前回の条件に1タップで戻れます。';
+      send('finder_choice_memory',{action:'save',category_id:category,finder_purpose:purpose});
+    }catch(_){memoryStatus.textContent='この端末では条件を保存できません。比較はそのまま利用できます。'}
+  });
+  recallLink?.addEventListener('click',()=>{
+    if(!validChoice(remembered)){forgetChoice();return}
+    category=remembered.category;purpose=remembered.purpose;intent=purpose;route='recalled';
+    finder.querySelectorAll('[data-finder-purpose]').forEach(e=>e.setAttribute('aria-pressed',String(e.dataset.finderPurpose===purpose)));
+    finder.querySelectorAll('[data-finder-category]').forEach(e=>e.setAttribute('aria-pressed',String(e.dataset.finderCategory===category)));
+    results();
+    send('finder_choice_resume',{category_id:category,finder_purpose:purpose});
+  });
+  forgetButton?.addEventListener('click',()=>{
+    if(!remembered)return;
+    const old=remembered;
+    forgetChoice();
+    send('finder_choice_memory',{action:'forget',category_id:old.category,finder_purpose:old.purpose});
+  });
+  reflectMemory();
 }
 const pick=new URLSearchParams(location.search).get('pick');
 if(pick&&document.querySelector('[data-comparison]')){
