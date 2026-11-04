@@ -155,3 +155,55 @@ test('old comparison entries refresh quantity, unit, shipping and price from cur
  await new Promise(resolve=>setImmediate(resolve));const stored=JSON.parse(dom.window.localStorage.getItem('food_cost_compare_v1'))[0];
  assert.equal(stored.price,x.price+100);assert.equal(stored.quantity,'更新後の容量');assert.equal(stored.shipping,'extra_or_unknown');assert.equal(stored.verified,true);dom.window.close();
 });
+
+
+test('remembered food choice is opt-in, reversible and leaves product cards immediately available',()=>{
+ const b=boot();
+ assert.equal(b.d.querySelector('[data-finder-last-choice]').hidden,true);
+ assert.ok(b.d.querySelector('#today-market .finder-products'),'first visit still starts with products');
+ b.click('[data-entry-route="known"]');
+ b.click('[data-finder-category="rice"]');
+ assert.equal(b.dom.window.localStorage.getItem('food_cost_finder_choice_v1'),null,'selection is not consent');
+ assert.ok(b.visible('[data-finder-picks="rice:cheap"]'));
+ b.click('[data-finder-remember]');
+ assert.deepEqual(JSON.parse(b.dom.window.localStorage.getItem('food_cost_finder_choice_v1')),{category:'rice',purpose:'cheap'});
+ assert.equal(b.d.querySelector('[data-finder-last-choice]').hidden,false);
+ assert.equal(b.d.querySelector('[data-finder-remember]').getAttribute('aria-pressed'),'true');
+ assert.match(b.d.querySelector('[data-finder-last-choice-label]').textContent,/米/);
+ assert.equal(b.events.filter(e=>e[1]==='finder_choice_memory').at(-1)[2].operator_test,'1');
+ b.click('[data-finder-remember]');
+ assert.equal(b.dom.window.localStorage.getItem('food_cost_finder_choice_v1'),null);
+ assert.equal(b.d.querySelector('[data-finder-last-choice]').hidden,true);
+ assert.ok(b.visible('[data-finder-picks="rice:cheap"]'),'forgetting memory does not erase product results');
+ b.dom.window.close();
+});
+
+test('an explicitly stored food intent resumes in one tap and can be deleted independently',()=>{
+ const selected=JSON.stringify({category:'rice',purpose:'storage'});
+ const injected=source.replace('<head>','<head><script>localStorage.setItem("food_cost_finder_choice_v1",'+JSON.stringify(selected)+');</script>');
+ const b=boot(injected);
+ assert.equal(b.d.querySelector('[data-finder-last-choice]').hidden,false);
+ assert.ok(b.visible('#today-market .finder-products'),'initial buying surface stays visible');
+ assert.equal(b.d.querySelector('[data-finder-route-stage]').hidden,false,'does not force funnel open');
+ b.click('[data-finder-resume]');
+ assert.ok(b.visible('[data-finder-picks="rice:storage"]'),'remembered shelf opens directly');
+ assert.equal(b.d.querySelector('[data-finder-remember]').getAttribute('aria-pressed'),'true');
+ assert.equal(b.events.filter(e=>e[1]==='finder_choice_resume').at(-1)[2].finder_purpose,'storage');
+ b.click('[data-finder-forget]');
+ assert.equal(b.d.querySelector('[data-finder-last-choice]').hidden,true);
+ assert.equal(b.dom.window.localStorage.getItem('food_cost_finder_choice_v1'),null);
+ assert.ok(b.visible('[data-finder-picks="rice:storage"]'));
+ b.dom.window.close();
+});
+
+test('invalid or obsolete remembered category cannot hijack food recommendation flow',()=>{
+ const selected=JSON.stringify({category:'<img src=x onerror=alert(1)>',purpose:'cheap'});
+ const injected=source.replace('<head>','<head><script>localStorage.setItem("food_cost_finder_choice_v1",'+JSON.stringify(selected)+');</script>');
+ const b=boot(injected);
+ assert.equal(b.d.querySelector('[data-finder-last-choice]').hidden,true);
+ assert.equal(b.d.querySelectorAll('img[onerror]').length,0);
+ b.click('[data-entry-route="deal"]');
+ assert.ok(b.visible('[data-finder-picks="all:cheap"]'),'normal recommendation still works');
+ assert.equal(b.events.filter(e=>e[1]==='finder_choice_resume').length,0);
+ b.dom.window.close();
+});
