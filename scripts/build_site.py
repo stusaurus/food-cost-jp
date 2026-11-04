@@ -9,6 +9,7 @@ import re
 import sys
 import time
 import unicodedata
+import urllib.error
 import urllib.parse
 import urllib.request
 from collections import Counter
@@ -412,9 +413,19 @@ def fetch(query: str) -> list[dict]:
             "User-Agent": "food-cost-jp/0.1",
         },
     )
-    with urllib.request.urlopen(request, timeout=30) as response:
-        payload = json.loads(response.read().decode("utf-8"))
-    return payload.get("items") or payload.get("Items") or []
+    # The same idempotent search may be retried after transient upstream 5xx.
+    # Never retry 400/401/403 or rate-limit 429: those need a distinct remedy.
+    for attempt in range(3):
+        try:
+            with urllib.request.urlopen(request, timeout=30) as response:
+                payload = json.loads(response.read().decode("utf-8"))
+            return payload.get("items") or payload.get("Items") or []
+        except urllib.error.HTTPError as exc:
+            if exc.code not in (502, 503, 504) or attempt == 2:
+                raise
+            print(f"Rakuten temporary HTTP {exc.code}; safe search retry {attempt + 1}/2", file=sys.stderr)
+            time.sleep(1.5 * (attempt + 1))
+    raise RuntimeError("unreachable Rakuten retry exit")
 
 
 def normalize_item_with_reason(raw: dict, category: dict):
