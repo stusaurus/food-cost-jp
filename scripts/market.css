@@ -204,3 +204,16 @@
  .saved-item-actions{gap:8px}
  .saved-compare{min-height:44px}
 }
+
+/* FOOD CHOICE MEMORY 20261104: optional recall, never a purchase prerequisite. */
+.hero-last-choice[hidden]{display:none!important}
+.hero-last-choice{display:flex;align-items:center;gap:8px 12px;flex-wrap:wrap;margin-top:12px;font-size:12px}
+.hero-last-choice [data-finder-last-choice-label]{color:var(--muted);font-size:11px}
+.hero-last-choice a{display:inline-flex;align-items:center;min-height:44px;padding:9px 13px;border-radius:999px;border:1px solid var(--brand);background:#fffbf3;color:var(--brand);font-size:12px;font-weight:700;text-decoration:none}
+.hero-last-choice button{border:0;border-bottom:1px solid currentColor;background:transparent;color:var(--muted);min-height:44px;padding:9px 2px;font:inherit;cursor:pointer}
+.finder-remember-tools{display:flex;align-items:center;gap:8px 14px;flex-wrap:wrap;margin:10px 0 20px;padding:12px 14px;background:#faf7ef;border:1px solid #d6c9b0;border-radius:10px}
+.finder-remember-tools button{min-height:44px;padding:8px 14px;border:1px solid var(--brand);border-radius:8px;background:#fff;color:var(--brand);font:inherit;font-size:12px;font-weight:750;cursor:pointer}
+.finder-remember-tools button[aria-pressed="true"]{background:#e9f0e4}
+.finder-remember-tools span{font-size:11px;line-height:1.6;color:var(--muted)}
+.hero-last-choice a:focus-visible,.hero-last-choice button:focus-visible,.finder-remember-tools button:focus-visible{outline:3px solid #126477;outline-offset:3px}
+@media(max-width:620px){.hero-last-choice{align-items:flex-start}.hero-last-choice [data-finder-last-choice-label]{flex-basis:100%}.finder-remember-tools{align-items:flex-start}}
