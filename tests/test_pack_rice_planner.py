@@ -68,7 +68,7 @@ class PlannerTests(unittest.TestCase):
         self.assertNotIn("not-rakuten", page)
         self.assertNotIn("not-https", page)
         self.assertIn('rel="nofollow sponsored noopener"', page)
-        self.assertIn("30日分の必要箱数", page)
+        self.assertIn("必要な購入箱数", page)
         self.assertIn("1か月は30日", page)
         self.assertIn("1食あたりの価格", page)
         self.assertIn('data-rice-stock-input', page)
