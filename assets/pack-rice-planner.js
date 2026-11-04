@@ -83,7 +83,7 @@
     error.hidden = valid;
     input.setAttribute('aria-invalid', Number.isInteger(used) && used >= 1 && used <= 24 ? 'false' : 'true');
     stockInput.setAttribute('aria-invalid', Number.isSafeInteger(stockMeals) && stockMeals >= 0 && stockMeals <= 100000 ? 'false' : 'true');
-    if (!valid) return;
+    if (!valid) { shop.hidden = true; return; }
 
     lookup('days').textContent = formattedDays(data.daysPerBox);
     lookup('shortage').textContent = data.shortage.toLocaleString('ja-JP') + '食';
