@@ -38,6 +38,15 @@ class MarketTests(unittest.TestCase):
         self.assertIn('価格履歴を蓄積中',page)
         self.assertIn('type="application/ld+json"', page)
         self.assertIn('"@type": "WebSite"', page)
+    def test_optional_memory_does_not_block_home_product_discovery(self):
+        page=build.home_page(self.results,NOW)
+        self.assertLess(page.index('id="today-market"'),page.index('id="quick-finder"'))
+        self.assertIn('data-finder-last-choice hidden',page)
+        self.assertIn('data-finder-resume',page)
+        self.assertIn('data-finder-forget',page)
+        self.assertIn('data-finder-remember aria-pressed="false"',page)
+        self.assertIn('data-finder-memory-status',page)
+
     def test_price_order_versus_unit_order(self):
         c=build.CATEGORIES[0];items=self.results[c['id']][0]
         items[0]['price']=9000

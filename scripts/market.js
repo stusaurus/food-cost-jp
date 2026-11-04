@@ -52,6 +52,45 @@ document.addEventListener('click',e=>{const a=e.target.closest('a[data-affiliate
 const finder=document.querySelector('[data-finder]');
 if(finder){
   let category='all',purpose='',intent='',route='';
+  // Only explicit, validated category + purpose choices are stored on this device.
+  // Clicks, product links and raw searches are never treated as purchases.
+  const MEMORY_KEY='food_cost_finder_choice_v1';
+  const purposeLabels={cheap:'単価を比べる',small:'少量を選ぶ',large:'まとめ買い',budget:'支払総額を抑える',storage:'備蓄を考える'};
+  const recallBox=document.querySelector('[data-finder-last-choice]');
+  const recallLabel=document.querySelector('[data-finder-last-choice-label]');
+  const recallLink=document.querySelector('[data-finder-resume]');
+  const forgetButton=document.querySelector('[data-finder-forget]');
+  const rememberButton=finder.querySelector('[data-finder-remember]');
+  const memoryStatus=finder.querySelector('[data-finder-memory-status]');
+  const knownCategories=new Set(['all',...Array.from(finder.querySelectorAll('[data-finder-category]')).map(e=>e.dataset.finderCategory)]);
+  const validChoice=choice=>Boolean(choice&&typeof choice==='object'&&
+    Object.hasOwn(purposeLabels,choice.purpose)&&
+    typeof choice.category==='string'&&knownCategories.has(choice.category)&&
+    finder.querySelector('[data-finder-picks="'+choice.category+':'+choice.purpose+'"]'));
+  const readChoice=()=>{
+    try{const parsed=JSON.parse(localStorage.getItem(MEMORY_KEY)||'null');return validChoice(parsed)?parsed:null}
+    catch(_){return null}
+  };
+  let remembered=readChoice();
+  const choiceLabel=choice=>{
+    const found=finder.querySelector('[data-finder-category="'+choice.category+'"]');
+    return (found?.dataset.finderName||'すべての売り場')+'・'+purposeLabels[choice.purpose];
+  };
+  const reflectMemory=()=>{
+    if(recallBox){
+      recallBox.hidden=!remembered;
+      if(remembered&&recallLabel)recallLabel.textContent='前回保存：'+choiceLabel(remembered);
+    }
+    const same=Boolean(remembered&&remembered.category===category&&remembered.purpose===purpose);
+    if(rememberButton){
+      rememberButton.setAttribute('aria-pressed',String(same));
+      rememberButton.textContent=same?'この買い方の記憶を解除':'この買い方を次回も使う';
+    }
+  };
+  const forgetChoice=()=>{
+    try{localStorage.removeItem(MEMORY_KEY)}catch(_){}
+    remembered=null;reflectMemory();
+  };
   const routeStage=finder.querySelector('[data-finder-route-stage]');
   const categoryStage=finder.querySelector('[data-finder-category-stage]'),purposeStage=finder.querySelector('[data-finder-purpose-stage]'),resultStage=finder.querySelector('[data-finder-result-stage]'),status=finder.querySelector('[data-finder-status]');
   const show=el=>{el.hidden=false;const first=el.querySelector('summary,button');first?.focus({preventScroll:true});const top=el.getBoundingClientRect().top;if(top<0||top>window.innerHeight*.65)el.scrollIntoView?.({block:'start',behavior:window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches?'instant':'smooth'})};
@@ -65,6 +104,7 @@ if(finder){
     status.textContent=count?(tailored?'条件に合わせて、役割の違う'+count+'候補に絞りました。単価だけでなく総額も比べて選べます。':'それなら、この棚から。 '+count+'件の候補があります。'):'この条件の候補は現在ありません。別の買い方も見てみましょう。';
     send('finder_complete',{category_id:category,shopping_intent:intent,product_count:count});
     send('quick_finder_complete',{category_id:category,finder_purpose:purpose});
+    reflectMemory();
     if(!('IntersectionObserver' in window))shelfView(current?.querySelector('[data-market-shelf]'));
   };
   const reset=()=>{purpose='';category='all';route='';show(routeStage);hide(purposeStage);hide(categoryStage);hide(resultStage);status.textContent='';finder.querySelectorAll('[data-finder-picks]').forEach(x=>x.hidden=true);finder.querySelectorAll('[aria-pressed]').forEach(x=>x.setAttribute('aria-pressed','false'));finder.querySelectorAll('.selected').forEach(x=>x.classList.remove('selected'));finder.querySelectorAll('.finder-aisle').forEach(x=>x.open=false)};
@@ -88,6 +128,38 @@ if(finder){
   finder.querySelector('[data-finder-narrow]')?.addEventListener('click',()=>{hide(resultStage);show(categoryStage);status.textContent='この買い方のまま、売り場を選べます。'});
   finder.querySelectorAll('[data-finder-back]').forEach(btn=>btn.addEventListener('click',reset));
   finder.querySelector('[data-finder-reset]')?.addEventListener('click',reset);
+  rememberButton?.addEventListener('click',()=>{
+    if(!purpose||!validChoice({category,purpose}))return;
+    if(remembered&&remembered.category===category&&remembered.purpose===purpose){
+      forgetChoice();
+      memoryStatus.textContent='記憶を解除しました。比較した商品は引き続き見られます。';
+      send('finder_choice_memory',{action:'forget',category_id:category,finder_purpose:purpose});
+      return;
+    }
+    const candidate={category,purpose};
+    try{
+      localStorage.setItem(MEMORY_KEY,JSON.stringify(candidate));
+      if(localStorage.getItem(MEMORY_KEY)!==JSON.stringify(candidate))throw Error('not saved');
+      remembered=candidate;reflectMemory();
+      memoryStatus.textContent='保存しました。次回は前回の条件に1タップで戻れます。';
+      send('finder_choice_memory',{action:'save',category_id:category,finder_purpose:purpose});
+    }catch(_){memoryStatus.textContent='この端末では条件を保存できません。比較はそのまま利用できます。'}
+  });
+  recallLink?.addEventListener('click',()=>{
+    if(!validChoice(remembered)){forgetChoice();return}
+    category=remembered.category;purpose=remembered.purpose;intent=purpose;route='recalled';
+    finder.querySelectorAll('[data-finder-purpose]').forEach(e=>e.setAttribute('aria-pressed',String(e.dataset.finderPurpose===purpose)));
+    finder.querySelectorAll('[data-finder-category]').forEach(e=>e.setAttribute('aria-pressed',String(e.dataset.finderCategory===category)));
+    results();
+    send('finder_choice_resume',{category_id:category,finder_purpose:purpose});
+  });
+  forgetButton?.addEventListener('click',()=>{
+    if(!remembered)return;
+    const old=remembered;
+    forgetChoice();
+    send('finder_choice_memory',{action:'forget',category_id:old.category,finder_purpose:old.purpose});
+  });
+  reflectMemory();
 }
 const pick=new URLSearchParams(location.search).get('pick');
 if(pick&&document.querySelector('[data-comparison]')){

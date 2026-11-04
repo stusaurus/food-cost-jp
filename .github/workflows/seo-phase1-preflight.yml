@@ -38,6 +38,7 @@ jobs:
           /tmp/food-qa/node_modules/.bin/playwright install --with-deps chromium
           node scripts/check_24_servings.cjs
           node scripts/check_family_meal_budget.cjs
+          node scripts/check_finder_memory.cjs
       - uses: actions/upload-artifact@v4
         if: always()
         with:
@@ -45,4 +46,5 @@ jobs:
           path: |
             pack-size-evidence
             meal-budget-evidence
+            finder-memory-evidence
           if-no-files-found: error

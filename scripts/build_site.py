@@ -1328,7 +1328,7 @@ def choice_finder_html(results: dict) -> str:
 <div class="finder-stage" data-finder-purpose-stage hidden><button class="finder-back" type="button" data-finder-back>← 探し方に戻る</button><div class="finder-question"><span>YOUR SHOPPING</span><strong>どんな量・出費で買いたい？</strong></div><div class="finder-options finder-purpose-options">{intents}</div></div>
 <p class="finder-status" data-finder-status role="status" aria-live="polite"></p>
 <div class="finder-stage" data-finder-category-stage hidden><button class="finder-back" type="button" data-finder-back>← 探し方に戻る</button><div class="finder-question"><span>STEP 2</span><strong>何を探してる？</strong></div><div class="finder-aisles">{choices}</div></div>
-<div class="finder-stage finder-result-stage" data-finder-result-stage hidden><div class="finder-result-actions"><button class="finder-back" type="button" data-finder-reset>← 探し方を変える</button><button class="finder-back" type="button" data-finder-narrow>売り場を絞る →</button></div>{''.join(panels)}</div></section>'''
+<div class="finder-stage finder-result-stage" data-finder-result-stage hidden><div class="finder-result-actions"><button class="finder-back" type="button" data-finder-reset>← 探し方を変える</button><button class="finder-back" type="button" data-finder-narrow>売り場を絞る →</button></div><div class="finder-remember-tools"><button type="button" data-finder-remember aria-pressed="false">この買い方を次回も使う</button><span data-finder-memory-status aria-live="polite">記憶は任意。検索語や購入履歴は保存しません。</span></div>{''.join(panels)}</div></section>'''
 
 
 def item_badges(item: dict, category: dict, rank: int) -> str:
@@ -2126,7 +2126,7 @@ def home_page(results: dict, updated: datetime, guide_specs: list[dict] | None =
 <span class="brand">Welcome to your everyday marché.</span>
 <h1>いつもの食品を、<br>買う量まで比べて選ぶ。</h1>
 <p class="lead">1食・1本あたりの単価と、実際に払う金額。<br>条件をそろえた商品から、必要な分を選べます。</p>
-<div class="hero-actions"><a class="cta" href="#today-market" data-start-route="today">いま比べられる商品を見る →</a></div><div class="hero-subroutes"><a href="#quick-finder" data-hero-primary data-start-route="finder">条件でさらに絞り込む</a><a href="#categories">売り場から選ぶ</a>{featured_24}</div>
+<div class="hero-actions"><a class="cta" href="#today-market" data-start-route="today">いま比べられる商品を見る →</a></div><div class="hero-last-choice" data-finder-last-choice hidden><span data-finder-last-choice-label></span><a href="#quick-finder" data-finder-resume>前回の条件で見る →</a><button type="button" data-finder-forget>記憶を消す</button></div><div class="hero-subroutes"><a href="#quick-finder" data-hero-primary data-start-route="finder">条件でさらに絞り込む</a><a href="#categories">売り場から選ぶ</a>{featured_24}</div>
 <div class="hero-proof"><span><strong>{active_count}</strong><small>売り場</small></span><span><strong>{included_count}</strong><small>送料込み確認商品</small></span><span><strong>毎日</strong><small>価格を更新</small></span></div>
 <p class="note">最終価格確認: {updated:%Y-%m-%d %H:%M} JST</p>
 </div>
