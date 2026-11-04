@@ -38,6 +38,19 @@ class MarketTests(unittest.TestCase):
         self.assertIn('価格履歴を蓄積中',page)
         self.assertIn('type="application/ld+json"', page)
         self.assertIn('"@type": "WebSite"', page)
+    def test_household_cost_guides_are_found_without_hiding_product_comparison(self):
+        page=build.home_page(self.results,NOW)
+        self.assertEqual(page.count('href="guides/water-server-vs-bottled-water/"'),1)
+        self.assertEqual(page.count('href="guides/family-meal-delivery-budget/"'),1)
+        self.assertIn("ウォーターサーバーとペットボトル",page)
+        self.assertIn("冷蔵つくりおき宅配",page)
+        self.assertIn("初回価格・通常価格・送料",page)
+        self.assertIn("入力前から安い商品を断定しません",page)
+        self.assertLess(page.index('id="today-market"'),page.index('id="family-cost-tools"'))
+        self.assertLess(page.index('id="categories"'),page.index('id="family-cost-tools"'))
+        self.assertIn('data-finder-remember aria-pressed="false"',page)
+        self.assertIn('data-affiliate="rakuten"',page)
+
     def test_optional_memory_does_not_block_home_product_discovery(self):
         page=build.home_page(self.results,NOW)
         self.assertLess(page.index('id="today-market"'),page.index('id="quick-finder"'))
