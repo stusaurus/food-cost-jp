@@ -144,7 +144,7 @@ test('stock field changes visible recommendation and hides buy CTA only when no 
   stock.value = '-1';
   stock.dispatchEvent(new dom.window.Event('input', { bubbles: true }));
   assert.equal(doc.querySelector('[data-rice-planner-results]').hidden, true);
-  assert.equal(shop.hidden, false); // Parent panel is hidden; stale CTA cannot be used.
+  assert.equal(shop.hidden, true); // Never expose a stale purchase CTA after invalid input.
   assert.equal(events.length, 0); // Input values are never sent to analytics.
   dom.window.close();
 });
