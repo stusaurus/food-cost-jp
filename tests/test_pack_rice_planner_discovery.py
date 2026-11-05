@@ -15,6 +15,8 @@ class PlannerDiscoveryTests(unittest.TestCase):
     def test_published_guide_mentions_calculator(self):
         result = category_guide_navigation(self.category, [self.guide])
         self.assertIn("必要な食数から購入箱数", result)
+        self.assertIn("価格は掲載商品の確認時点の情報", result)
+        self.assertNotIn("未公開の場合があります", result)
         self.assertIn("../../guides/pack-rice-24-servings-cost/", result)
 
     def test_unpublished_guide_has_no_link_or_claim(self):
