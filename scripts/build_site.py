@@ -1953,6 +1953,16 @@ def category_guide_navigation(category: dict, published_guides: list[dict] | Non
     ][:6]
     if not guides:
         return ''
+    # The 24-serving guide already contains the quantity/payment planner.
+    # Advertise it only when the inventory-backed guide is actually published.
+    planner_available = (category['id'] == 'pack-rice' and any(
+        spec['slug'] == 'pack-rice-24-servings-cost' for spec in guides
+    ))
+    planner_hint = (
+        '<p class="fine">24食セットの比較ページでは、必要な食数から購入箱数・'
+        '支払総額・余る食数を確認できます。価格は掲載商品の確認時点の情報です。</p>'
+        if planner_available else ''
+    )
     links = ''.join(
         f'<a class="intent-card" href="../../guides/{html.escape(spec["slug"])}/">'
         f'<span>{html.escape(spec["title"])}</span>'
@@ -1964,7 +1974,7 @@ def category_guide_navigation(category: dict, published_guides: list[dict] | Non
 <div class="section-kicker">SEARCH BY SIZE</div>
 <h2>{html.escape(category['name'])}を容量・セット数から探す</h2>
 <p class="fine">条件を確認できた商品が3件以上ある比較だけを案内します。別サイズの商品で穴埋めしません。</p>
-<div class="intent-grid">{links}</div>
+{planner_hint}<div class="intent-grid">{links}</div>
 </section>'''
 
 
