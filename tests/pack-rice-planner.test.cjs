@@ -5,7 +5,7 @@ const path = require('node:path');
 const { JSDOM } = require('jsdom');
 const file = path.join(__dirname, '..', 'assets', 'pack-rice-planner.js');
 const js = fs.readFileSync(file, 'utf8');
-const { calculate } = require(file);
+const { calculate, calculateWithStock } = require(file);
 
 test('24 meals x one/day and two/day have exact days, cash and leftovers', () => {
   assert.deepEqual(calculate(24, 3600, 1), {
@@ -27,6 +27,7 @@ function page() {
     '<!doctype html><html><body><section data-rice-planner>',
     '<form data-rice-planner-form>',
     '<input id="rice-meals-day" type="number" value="1">',
+    '<input data-rice-stock-input type="number" value="0">',
     '<select data-rice-planner-product>',
     '<option value="0" data-count="24" data-price="3600" data-grams="180"',
     ' data-product-id="shop:item1" data-product-name="1番" data-product-url="https://item.rakuten.co.jp/a/1/"',
@@ -38,6 +39,7 @@ function page() {
     '<div data-rice-planner-results>',
     '<span data-rice-days></span><span data-rice-boxes></span>',
     '<span data-rice-purchase></span><span data-rice-leftover></span>',
+    '<span data-rice-shortage></span><p data-rice-recommendation></p>',
     '<span data-rice-unit></span><p data-rice-detail></p>',
     '<a data-rice-planner-buy href="https://item.rakuten.co.jp/a/1/" data-affiliate="rakuten"></a>',
     '</div></section></body></html>'
@@ -97,4 +99,52 @@ test('invalid user input never produces an unverified affiliate link', () => {
   select.dispatchEvent(new dom.window.Event('change', { bubbles: true }));
   assert.equal(doc.querySelector('[data-rice-planner-results]').hidden, true);
   assert.equal(doc.querySelector('[data-rice-planner-error]').hidden, false);
+});
+
+test('stock subtracts before box rounding without altering legacy math', () => {
+  const noBuy = calculateWithStock(24, 3600, 1, 30);
+  assert.equal(noBuy.shortage, 0);
+  assert.equal(noBuy.boxes, 0);
+  assert.equal(noBuy.purchaseTotal, 0);
+  assert.equal(noBuy.remainingMeals, 0);
+  assert.equal(noBuy.noBuy, true);
+  const shortage = calculateWithStock(24, 3600, 1, 10);
+  assert.equal(shortage.shortage, 20);
+  assert.equal(shortage.boxes, 1);
+  assert.equal(shortage.purchaseTotal, 3600);
+  assert.equal(shortage.remainingMeals, 4);
+  assert.equal(shortage.consumptionCost, 3000);
+  for (const stock of [-1, 1.5, NaN, 100001, Infinity]) {
+    assert.equal(calculateWithStock(24, 3600, 1, stock), null);
+  }
+  assert.equal(calculateWithStock(24, -1, 1, 30), null);
+});
+
+test('stock field changes visible recommendation and hides buy CTA only when no purchase is needed', () => {
+  const { dom, events } = page();
+  const doc = dom.window.document;
+  const get = name => doc.querySelector('[data-rice-' + name + ']').textContent;
+  const shop = doc.querySelector('[data-rice-planner-buy]');
+  assert.equal(shop.hidden, false);
+  assert.equal(get('shortage'), '30食');
+  const stock = doc.querySelector('[data-rice-stock-input]');
+  stock.value = '30';
+  stock.dispatchEvent(new dom.window.Event('input', { bubbles: true }));
+  assert.equal(get('boxes'), '0箱');
+  assert.equal(get('purchase'), '¥0');
+  assert.equal(get('shortage'), '0食');
+  assert.match(get('recommendation'), /今は買い足し不要/);
+  assert.equal(shop.hidden, true);
+  stock.value = '10';
+  stock.dispatchEvent(new dom.window.Event('input', { bubbles: true }));
+  assert.equal(get('boxes'), '1箱');
+  assert.equal(get('purchase'), '¥3,600');
+  assert.equal(get('leftover'), '4食');
+  assert.equal(shop.hidden, false);
+  stock.value = '-1';
+  stock.dispatchEvent(new dom.window.Event('input', { bubbles: true }));
+  assert.equal(doc.querySelector('[data-rice-planner-results]').hidden, true);
+  assert.equal(shop.hidden, true); // Never expose a stale purchase CTA after invalid input.
+  assert.equal(events.length, 0); // Input values are never sent to analytics.
+  dom.window.close();
 });

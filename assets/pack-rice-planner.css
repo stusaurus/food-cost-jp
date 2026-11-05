@@ -26,6 +26,8 @@
 .rice-planner-grid strong{display:block;margin-top:5px;font-size:clamp(19px,2.4vw,27px);line-height:1.25;overflow-wrap:anywhere;color:#263b31}
 .rice-planner-detail{margin:0;line-height:1.7;font-size:12px;color:#4f5e52}
 .rice-planner-buy{min-height:48px;display:flex;align-items:center;justify-content:center;text-align:center;text-decoration:none;font-weight:800;font-size:14px;background:#9d5532;color:#fffdf8;border-radius:12px;padding:11px 16px}
+.rice-planner-buy[hidden]{display:none!important}
+.rice-planner-decision{margin:0;font-size:14px;font-weight:750;line-height:1.7;border-bottom:1px solid #e2e3d6;padding:3px 0 12px;color:#263b31}
 .rice-planner-buy:hover{background:#814127}
 .rice-planner-buy:focus-visible{outline:3px solid #315c4b;outline-offset:3px}
 .rice-planner-disclaimer,.rice-planner-examples{margin:0;padding:0 30px 15px;font-size:12px;line-height:1.75;color:#5a675c}

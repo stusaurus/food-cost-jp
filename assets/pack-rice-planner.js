@@ -20,14 +20,35 @@
     };
   }
 
+  // Keep the established stock-free formula intact for existing integrations.
+  // Stock is an explicit, non-persisted user input in meal units, not boxes.
+  function calculateWithStock(count, price, mealsPerDay, stockMeals = 0, periodDays = 30) {
+    const baseline = calculate(count, price, mealsPerDay, periodDays);
+    if (!baseline || !Number.isSafeInteger(stockMeals) ||
+        stockMeals < 0 || stockMeals > 100000) return null;
+    const shortage = Math.max(0, baseline.mealsNeeded - stockMeals);
+    const boxes = Math.ceil(shortage / count);
+    return {
+      ...baseline,
+      stockMeals,
+      shortage,
+      boxes,
+      purchaseTotal: boxes * price,
+      remainingMeals: stockMeals + boxes * count - baseline.mealsNeeded,
+      consumptionCost: shortage * price / count,
+      noBuy: boxes === 0
+    };
+  }
+
   if (typeof module !== 'undefined' && module.exports) {
-    module.exports = { calculate };
+    module.exports = { calculate, calculateWithStock };
   }
   if (typeof document === 'undefined') return;
 
   const root = document.querySelector('[data-rice-planner]');
   if (!root) return;
   const input = root.querySelector('#rice-meals-day');
+  const stockInput = root.querySelector('[data-rice-stock-input]');
   const select = root.querySelector('[data-rice-planner-product]');
   const form = root.querySelector('[data-rice-planner-form]');
   const results = root.querySelector('[data-rice-planner-results]');
@@ -51,27 +72,35 @@
     const option = select.selectedOptions[0];
     const raw = input.value.trim();
     const used = /^\d+$/.test(raw) ? Number(raw) : NaN;
+    const stockRaw = stockInput.value.trim();
+    const stockMeals = /^\d+$/.test(stockRaw) ? Number(stockRaw) : NaN;
     const count = Number(option?.dataset.count);
     const price = Number(option?.dataset.price);
-    const data = calculate(count, price, used);
+    const data = calculateWithStock(count, price, used, stockMeals);
     const dest = option?.dataset.productUrl;
     const valid = Boolean(data && dest && validRakuten(dest));
     results.hidden = !valid;
     error.hidden = valid;
-    input.setAttribute('aria-invalid', valid ? 'false' : 'true');
-    if (!valid) return;
+    input.setAttribute('aria-invalid', Number.isInteger(used) && used >= 1 && used <= 24 ? 'false' : 'true');
+    stockInput.setAttribute('aria-invalid', Number.isSafeInteger(stockMeals) && stockMeals >= 0 && stockMeals <= 100000 ? 'false' : 'true');
+    if (!valid) { shop.hidden = true; return; }
 
     lookup('days').textContent = formattedDays(data.daysPerBox);
+    lookup('shortage').textContent = data.shortage.toLocaleString('ja-JP') + '食';
+    lookup('recommendation').textContent = data.noBuy
+      ? '今は買い足し不要です。手持ちの' + stockMeals.toLocaleString('ja-JP') + '食で予定分をまかなえます。'
+      : '手持ちを差し引くと' + data.shortage.toLocaleString('ja-JP') + '食不足します。購入時は' + data.boxes.toLocaleString('ja-JP') + '箱分の金額が必要です。';
     lookup('boxes').textContent = data.boxes.toLocaleString('ja-JP') + '箱';
     lookup('purchase').textContent = yen(data.purchaseTotal);
     lookup('leftover').textContent = data.remainingMeals.toLocaleString('ja-JP') + '食';
     lookup('unit').textContent = yen(data.oneMealPrice);
     const grams = Number(option.dataset.grams);
     lookup('detail').textContent =
-      '1食 ' + grams.toLocaleString('ja-JP') + 'g。30日間に使う' +
-      data.mealsNeeded.toLocaleString('ja-JP') + '食分の価格換算は' +
+      '1食 ' + grams.toLocaleString('ja-JP') + 'g。買い足し対象の' +
+      data.shortage.toLocaleString('ja-JP') + '食分の価格換算は' +
       yen(data.consumptionCost) + '。箱単位の購入総額とは異なります。';
 
+    shop.hidden = data.noBuy;
     shop.href = dest;
     shop.dataset.productId = option.dataset.productId;
     shop.dataset.productName = option.dataset.productName;
@@ -109,6 +138,8 @@
 
   form.addEventListener('submit', e => { e.preventDefault(); update(true); });
   input.addEventListener('input', () => update(false));
+  stockInput.addEventListener('input', () => update(false));
+  stockInput.addEventListener('change', () => update(true));
   input.addEventListener('change', () => update(true));
   select.addEventListener('change', () => update(true));
   update(false);

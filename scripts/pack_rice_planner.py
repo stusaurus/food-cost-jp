@@ -84,22 +84,29 @@ def render_planner(items: list[dict], updated: datetime) -> str:
       min="1" max="24" step="1" value="1" inputmode="numeric" required
       aria-describedby="rice-planner-help rice-planner-error"><span>食／日</span></div>
     <p id="rice-planner-help" class="rice-planner-help">1〜24食の整数で入力してください。1か月は30日として計算します。</p>
+    <label for="rice-stock-meals">いま使える手持ちのご飯（食数）</label>
+    <div class="rice-planner-number"><input id="rice-stock-meals" data-rice-stock-input type="number"
+      name="stock_meals" min="0" max="100000" step="1" value="0" inputmode="numeric" required
+      aria-describedby="rice-stock-help rice-planner-error"><span>食</span></div>
+    <p id="rice-stock-help" class="rice-planner-help">消費期限内に食べられる同じ用途の在庫だけ入力。保存・送信はしません。</p>
     <label for="rice-planner-product">比較する24食セット</label>
     <select id="rice-planner-product" data-rice-planner-product>
       {''.join(options)}
     </select>
     <p class="rice-planner-help">表示は実際に掲載中の送料込み商品から選択。並び順は元の1食単価ランキングと同じです。</p>
-    <p id="rice-planner-error" class="rice-planner-error" data-rice-planner-error role="alert" hidden>1〜24食の整数を入力してください。</p>
+    <p id="rice-planner-error" class="rice-planner-error" data-rice-planner-error role="alert" hidden>使用量は1〜24食、手持ちは0〜100000食の整数で入力してください。掲載条件も確認してください。</p>
   </form>
   <div class="rice-planner-results" data-rice-planner-results aria-live="polite" aria-atomic="true">
     <div class="rice-planner-highlight"><span>この1箱が持つ期間</span><strong data-rice-days>{calc["days_per_box"]:g}日</strong></div>
+    <p class="rice-planner-decision" data-rice-recommendation>手持ちを差し引くと30食不足します。購入時は2箱分の金額が必要です。</p>
     <div class="rice-planner-grid">
-      <div><span>30日分の必要箱数</span><strong data-rice-boxes>{calc["boxes"]}箱</strong></div>
+      <div><span>買い足しが必要な食数</span><strong data-rice-shortage>30食</strong></div>
+      <div><span>必要な購入箱数</span><strong data-rice-boxes>{calc["boxes"]}箱</strong></div>
       <div><span>購入時の支払総額</span><strong data-rice-purchase>¥{calc["purchase_total"]:,}</strong></div>
-      <div><span>30日後に残る食数</span><strong data-rice-leftover>{calc["remaining_meals"]}食</strong></div>
+      <div><span>購入後・30日後に残る食数</span><strong data-rice-leftover>{calc["remaining_meals"]}食</strong></div>
       <div><span>1食あたりの価格</span><strong data-rice-unit>¥{calc["one_meal_price"]:,.1f}</strong></div>
     </div>
-    <p data-rice-detail class="rice-planner-detail">1食 {first["quantity"]["unit_weight_g"]:g}g。30日間に使う30食分の価格換算は
+    <p data-rice-detail class="rice-planner-detail">1食 {first["quantity"]["unit_weight_g"]:g}g。買い足し対象の30食分の価格換算は
     ¥{calc["consumption_cost"]:,.1f}。箱単位の購入総額とは異なります。</p>
     <a class="rice-planner-buy" data-rice-planner-buy
        href="{html.escape(first["url"], quote=True)}" target="_blank" rel="nofollow sponsored noopener"
@@ -112,8 +119,8 @@ def render_planner(items: list[dict], updated: datetime) -> str:
     </a>
   </div>
 </div>
-<p class="rice-planner-disclaimer">計算式：30日分の必要食数 ÷ 1箱24食を切り上げ、必要箱数 × 取得時の商品価格。
-残りは買った箱数から30日分の食数を引いた値です。消費期限・保管場所・食べる日数を保証するものではありません。
+<p class="rice-planner-disclaimer">計算式：30日分の必要食数から入力した在庫食数を差し引き、不足食数 ÷ 1箱24食を切り上げ、必要箱数 × 取得時の商品価格。
+残りは手持ち在庫と買った箱数から30日分の食数を引いた値です。消費期限・保管場所・食べる日数を保証するものではありません。
 実際の価格・地域別追加送料・在庫は購入前に販売店で確認してください。
 価格確認：{updated:%Y-%m-%d %H:%M} JST。</p>
 <p class="rice-planner-examples"><strong>計算例：</strong>24食セットなら、1日1食で24日分・30日間では2箱必要。
