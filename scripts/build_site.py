@@ -1960,7 +1960,7 @@ def category_guide_navigation(category: dict, published_guides: list[dict] | Non
     ))
     planner_hint = (
         '<p class="fine">24食セットの比較ページでは、必要な食数から購入箱数・'
-        '支払総額・余る食数を計算できます。手持ち在庫を考慮する機能は未公開の場合があります。</p>'
+        '支払総額・余る食数を確認できます。価格は掲載商品の確認時点の情報です。</p>'
         if planner_available else ''
     )
     links = ''.join(
