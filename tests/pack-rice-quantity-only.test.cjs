@@ -42,7 +42,6 @@ test('quantity-only browser UI updates on chips, arbitrary manual input, stock a
  const dom=page(),d=dom.window.document;
  const get=s=>d.querySelector('[data-rice-quantity-'+s+']');
  assert.equal(get('boxes').textContent,'2箱');
- get('choice="2"'); // no-op query is never a number or a purchase request
  d.querySelector('[data-rice-quantity-choice="2"]').click();
  assert.equal(get('daily').value,'2');
  assert.equal(get('boxes').textContent,'3箱');
