@@ -26,7 +26,7 @@ from product_quality import (
     quantity_signature,
 )
 from price_history import apply_price_history, load_price_history, save_price_history
-from pack_rice_planner import render_planner
+from pack_rice_planner import render_planner, render_quantity_only_planner
 
 SITE_ID = "food_cost_jp"
 SITE_URL = "https://stusaurus.github.io/food-cost-jp/"
@@ -1722,7 +1722,9 @@ def guide_page(spec: dict, category: dict, items: list[dict], updated: datetime,
     if len(picked) < MIN_CATEGORY_ITEMS:
         head = head.replace('content="index,follow"', 'content="noindex,follow"')
     size_comparison = category['id'] == 'pack-rice' and spec.get('mode') == 'pack_count_24'
-    planner = render_planner(picked, updated) if size_comparison and picked else ""
+    offer_planner = render_planner(picked, updated) if size_comparison and picked else ""
+    quantity_fallback = render_quantity_only_planner() if size_comparison and not offer_planner else ""
+    planner = offer_planner or quantity_fallback
     if planner:
         head = head.replace("</head>", '<link rel="stylesheet" href="../../assets/pack-rice-planner.css"></head>', 1)
     cards = top3_html(picked, category, show_pack_size=size_comparison) if picked else f"""<section class="section explain">
@@ -1757,7 +1759,8 @@ def guide_page(spec: dict, category: dict, items: list[dict], updated: datetime,
 <section class="section explain"><h2>もっと広く比較する</h2><p><a class="finder-go" href="../../categories/{category['id']}/">{html.escape(category['name'])}の全ランキングを見る →</a></p></section>
 {utility_panels_html()}
 </main><script>{JS}</script>
-{'<script defer src="../../assets/pack-rice-planner.js"></script>' if planner else ''}
+{'<script defer src="../../assets/pack-rice-planner.js"></script>' if offer_planner else ''}
+{'<script defer src="../../assets/pack-rice-quantity-only.js"></script>' if quantity_fallback else ''}
 <footer><div class="wrap">当サイトは楽天アフィリエイトを利用しています。価格は取得時点の参考情報です。</div></footer>
 </body></html>"""
 
