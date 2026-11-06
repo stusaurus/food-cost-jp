@@ -76,6 +76,17 @@ class PlannerTests(unittest.TestCase):
         self.assertIn('data-rice-recommendation', page)
         self.assertIn("24食のパックご飯、うちでは何日持つ？", page)
 
+    def test_one_tap_meal_choices_only_inside_verified_planner(self):
+        page = render_planner([offer(1)], NOW)
+        for n in (1, 2, 3, 4):
+            self.assertIn(f'data-rice-meal-choice="{n}"', page)
+            self.assertIn(f'{n}食/日', page)
+        self.assertEqual(page.count('data-rice-meal-choice="'), 4)
+        self.assertIn('aria-pressed="true"', page)
+        self.assertIn('id="rice-meals-day"', page)
+        self.assertIn('data-rice-stock-input', page)
+        self.assertEqual(render_planner([], NOW), "")
+
     def test_empty_inventory_renders_no_planner(self):
         self.assertEqual(render_planner([], NOW), "")
         self.assertEqual(render_planner([offer(1, count=40)], NOW), "")
