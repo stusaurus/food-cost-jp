@@ -80,6 +80,9 @@ def render_planner(items: list[dict], updated: datetime) -> str:
 <div class="rice-planner-body">
   <form class="rice-planner-form" data-rice-planner-form novalidate>
     <label for="rice-meals-day">1日に食べる量（家族・世帯合計）</label>
+    <div class="rice-meal-choices" role="group" aria-label="1日に使う食数を選ぶ">
+      {''.join(f'<button type="button" class="rice-meal-choice" data-rice-meal-choice="{n}" aria-pressed="{str(n==1).lower()}">{n}食/日</button>' for n in (1, 2, 3, 4))}
+    </div>
     <div class="rice-planner-number"><input id="rice-meals-day" type="number" name="meals_per_day"
       min="1" max="24" step="1" value="1" inputmode="numeric" required
       aria-describedby="rice-planner-help rice-planner-error"><span>食／日</span></div>

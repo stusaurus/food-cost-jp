@@ -48,6 +48,7 @@
   const root = document.querySelector('[data-rice-planner]');
   if (!root) return;
   const input = root.querySelector('#rice-meals-day');
+  const mealChoices = [...root.querySelectorAll('[data-rice-meal-choice]')];
   const stockInput = root.querySelector('[data-rice-stock-input]');
   const select = root.querySelector('[data-rice-planner-product]');
   const form = root.querySelector('[data-rice-planner-form]');
@@ -69,6 +70,10 @@
   };
 
   function update(track) {
+    const rawMeal = input.value.trim();
+    mealChoices.forEach(button => button.setAttribute(
+      'aria-pressed', String(rawMeal === button.dataset.riceMealChoice)
+    ));
     const option = select.selectedOptions[0];
     const raw = input.value.trim();
     const used = /^\d+$/.test(raw) ? Number(raw) : NaN;
@@ -136,6 +141,12 @@
     observer.observe(root);
   }
 
+  mealChoices.forEach(button => button.addEventListener('click', () => {
+    const meal = Number(button.dataset.riceMealChoice);
+    if (![1, 2, 3, 4].includes(meal)) return;
+    input.value = String(meal);
+    update(true);
+  }));
   form.addEventListener('submit', e => { e.preventDefault(); update(true); });
   input.addEventListener('input', () => update(false));
   stockInput.addEventListener('input', () => update(false));
