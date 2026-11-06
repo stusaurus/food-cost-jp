@@ -26,6 +26,12 @@ function page() {
   const markup = [
     '<!doctype html><html><body><section data-rice-planner>',
     '<form data-rice-planner-form>',
+    '<div class="rice-meal-choices">',
+    '<button type="button" data-rice-meal-choice="1" aria-pressed="true">1食</button>',
+    '<button type="button" data-rice-meal-choice="2" aria-pressed="false">2食</button>',
+    '<button type="button" data-rice-meal-choice="3" aria-pressed="false">3食</button>',
+    '<button type="button" data-rice-meal-choice="4" aria-pressed="false">4食</button>',
+    '</div>',
     '<input id="rice-meals-day" type="number" value="1">',
     '<input data-rice-stock-input type="number" value="0">',
     '<select data-rice-planner-product>',
@@ -146,5 +152,39 @@ test('stock field changes visible recommendation and hides buy CTA only when no 
   assert.equal(doc.querySelector('[data-rice-planner-results]').hidden, true);
   assert.equal(shop.hidden, true); // Never expose a stale purchase CTA after invalid input.
   assert.equal(events.length, 0); // Input values are never sent to analytics.
+  dom.window.close();
+});
+
+test('one-tap daily meal choices recalculate boxes, sync pressed state and respect no-buy stock', () => {
+  const { dom, events } = page();
+  const doc = dom.window.document;
+  const chip = n => doc.querySelector('[data-rice-meal-choice="'+n+'"]');
+  const field = doc.querySelector('#rice-meals-day');
+  const stock = doc.querySelector('[data-rice-stock-input]');
+  const get = name => doc.querySelector('[data-rice-' + name + ']').textContent;
+  assert.equal(chip(1).getAttribute('aria-pressed'), 'true');
+  chip(2).click();
+  assert.equal(field.value,'2');
+  assert.equal(chip(2).getAttribute('aria-pressed'),'true');
+  assert.equal(chip(1).getAttribute('aria-pressed'),'false');
+  assert.equal(get('boxes'), '3箱');
+  assert.equal(get('purchase'), '¥10,800');
+  stock.value='60';
+  stock.dispatchEvent(new dom.window.Event('input', {bubbles:true}));
+  assert.equal(get('boxes'),'0箱');
+  assert.equal(get('purchase'),'¥0');
+  assert.match(get('recommendation'),/今は買い足し不要/);
+  assert.equal(doc.querySelector('[data-rice-planner-buy]').hidden,true);
+  chip(4).click();
+  assert.equal(field.value,'4');
+  assert.equal(get('boxes'),'3箱');
+  assert.equal(chip(4).getAttribute('aria-pressed'),'true');
+  field.value='5';
+  field.dispatchEvent(new dom.window.Event('input', {bubbles:true}));
+  assert.ok([...doc.querySelectorAll('[data-rice-meal-choice]')].every(
+    button=>button.getAttribute('aria-pressed')==='false'));
+  // Analytics never transmit food usage or household inventory counts.
+  assert.ok(events.every(e=>e.info.meals_per_day===undefined &&
+    e.info.stock_meals===undefined));
   dom.window.close();
 });
