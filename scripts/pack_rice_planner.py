@@ -30,6 +30,48 @@ def calculation(count: int, price: int, meals_per_day: int, period_days: int = 3
     }
 
 
+
+def render_quantity_only_planner() -> str:
+    """Supply-gap fallback: pure counts and stock, never guessed prices or offers."""
+    choices = ''.join(
+        f'<button type="button" class="rice-meal-choice" data-rice-quantity-choice="{n}" '
+        f'aria-pressed="{str(n == 1).lower()}">{n}食/日</button>'
+        for n in (1, 2, 3, 4)
+    )
+    return f'''<section class="section rice-planner rice-quantity-only" data-rice-quantity-only
+aria-labelledby="rice-quantity-title">
+<div class="rice-planner-intro"><span class="rice-planner-kicker">QUANTITY ONLY</span>
+<h2 id="rice-quantity-title">24食入りなら、何箱必要？</h2>
+<p>現在、販売条件を確認できる24食セットがないため、商品価格・販売先・送料・購入リンクは表示できません。
+箱数だけ計算できます。</p></div>
+<div class="rice-planner-body">
+<form class="rice-planner-form" data-rice-quantity-form novalidate>
+<label for="rice-quantity-daily">1日に使う食数（世帯合計）</label>
+<div class="rice-meal-choices" role="group" aria-label="1日に使う食数">{choices}</div>
+<div class="rice-planner-number"><input id="rice-quantity-daily" data-rice-quantity-daily type="number"
+min="1" max="24" step="1" value="1" inputmode="numeric" aria-describedby="rice-quantity-error"><span>食/日</span></div>
+<label for="rice-quantity-days">何日分を用意する？</label>
+<div class="rice-planner-number"><input id="rice-quantity-days" data-rice-quantity-days type="number"
+min="1" max="90" step="1" value="30" inputmode="numeric" aria-describedby="rice-quantity-error"><span>日</span></div>
+<label for="rice-quantity-stock">期限内に使える手持ちの食数</label>
+<div class="rice-planner-number"><input id="rice-quantity-stock" data-rice-quantity-stock type="number"
+min="0" max="100000" step="1" value="0" inputmode="numeric" aria-describedby="rice-quantity-error"><span>食</span></div>
+<p class="rice-planner-help">利用量は自分で入力。食生活の推奨ではありません。入力内容は保存・送信しません。</p>
+<p class="rice-planner-error" id="rice-quantity-error" data-rice-quantity-error role="alert" hidden>
+1日の食数は1〜24、日数は1〜90、手持ちは0〜100000食の整数で入力してください。</p>
+</form>
+<div class="rice-planner-results" data-rice-quantity-result aria-live="polite" aria-atomic="true">
+<p class="rice-planner-decision" data-rice-quantity-summary>30食必要。手持ち0食を差し引くと30食不足します。</p>
+<div class="rice-planner-grid"><div><span>必要な食数</span><strong data-rice-quantity-needed>30食</strong></div>
+<div><span>不足する食数</span><strong data-rice-quantity-shortage>30食</strong></div>
+<div><span>24食入りの場合に必要な箱数</span><strong data-rice-quantity-boxes>2箱</strong></div>
+<div><span>用意後に余る食数</span><strong data-rice-quantity-leftover>18食</strong></div></div>
+<p class="rice-planner-detail">これは24食入りの箱を選ぶ場合の数量計算です。
+商品候補・1食の重さ・販売価格・送料・賞味期限は未確認のため、支払総額は計算できません。</p>
+</div></div></section>'''
+
+
+
 def render_planner(items: list[dict], updated: datetime) -> str:
     """Show a useful above-the-fold tool for verified 24-meal offers only."""
     eligible = []
