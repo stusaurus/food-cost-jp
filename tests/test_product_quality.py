@@ -34,6 +34,66 @@ class ProductDisplayTests(unittest.TestCase):
             with self.subTest(prefix=prefix):
                 self.assertEqual(clean_display_name(prefix + product), product)
 
+    def test_24_meal_live_time_limited_prefixes_are_display_only(self):
+        # Real 11/11 public guide examples, where the shop inserted a
+        # time-limited offer before the actual pack-rice product identity.
+        cases = {
+            "＼ポイント10倍☆彡〜11日迄 パックご飯 180g×24食":
+                "パックご飯 180g×24食",
+            "＼10%OFFクーポン☆彡〜11日迄 公式 パックご飯 200g×24食":
+                "公式 パックご飯 200g×24食",
+            "＼ポイント5倍☆彡〜11日迄 パックご飯 180g×80食":
+                "パックご飯 180g×80食",
+            "＼ポイント10倍☆彡〜11日迄 パックご飯 200g×24食【200g入り】":
+                "パックご飯 200g×24食【200g入り】",
+        }
+        for raw, expected in cases.items():
+            with self.subTest(raw=raw):
+                self.assertEqual(clean_display_name(raw), expected)
+                self.assertEqual(clean_display_name(expected), expected)
+
+    def test_promotion_cleanup_never_drops_identity_or_unbounded_titles(self):
+        for raw in (
+            "＼ポイント10倍☆彡〜11日迄",
+            "【24食セット】パックご飯 200g×24食",
+            "＼ポイント10倍 パックご飯 200g×24食",
+            "令和8年産 新米 パックご飯 180g×24食",
+            "パックご飯 200g×24食 11日迄",
+            "＼10%OFFクーポン☆彡〜11日迄200g×24食",
+        ):
+            with self.subTest(raw=raw):
+                # Ambiguous no-product prefix and product identity should
+                # not produce an empty or misrepresented listing.
+                output=clean_display_name(raw)
+                self.assertTrue(output)
+                if raw in (
+                    "＼ポイント10倍☆彡〜11日迄",
+                    "【24食セット】パックご飯 200g×24食",
+                    "＼ポイント10倍 パックご飯 200g×24食",
+                    "令和8年産 新米 パックご飯 180g×24食",
+                    "パックご飯 200g×24食 11日迄",
+                ):
+                    self.assertEqual(output, raw)
+
+    def test_offer_prefix_cleanup_keeps_raw_quantity_price_and_link(self):
+        category = next(c for c in CATEGORIES if c["id"] == "pack-rice")
+        raw = {
+            "itemName": "＼10%OFFクーポン☆彡〜11日迄 パックご飯 200g×24食",
+            "itemPrice": 4184,
+            "postageFlag": 0,
+            "affiliateUrl": "https://hb.afl.rakuten.co.jp/test",
+            "itemCode": "shop:24-pack",
+            "shopName": "shop",
+        }
+        item=normalize_item(raw,category)
+        self.assertIsNotNone(item)
+        self.assertEqual(item["raw_name"], raw["itemName"])
+        self.assertEqual(item["name"], "パックご飯 200g×24食")
+        self.assertEqual(item["quantity"]["count"], 24)
+        self.assertEqual(item["quantity"]["unit_weight_g"], 200)
+        self.assertEqual(item["price"], 4184)
+        self.assertEqual(item["url"], raw["affiliateUrl"])
+
     def test_trailing_promotion_label_is_removed(self):
         self.assertEqual(
             clean_display_name("国産米 5kg【最大1000円引クーポン】"),
