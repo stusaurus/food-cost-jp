@@ -60,9 +60,26 @@ def _promotion_group(match: re.Match) -> str:
     return next(group for group in match.groups() if group is not None)
 
 
+# A current Rakuten title can begin with a short-lived offer such as
+# "＼ポイント10倍☆彡〜11日迄" or "＼10%OFFクーポン☆彡〜11日迄" without a
+# closing slash. Unlike a closed 【...】 label it escaped the display cleaner.
+# Only remove this strictly bounded *leading* callout; all identity, size,
+# quantity, ranking inputs, merchant links and original titles remain intact.
+TIME_BOUND_PROMO_PREFIX = re.compile(
+    r"^\s*[＼\\]\s*(?:ポイント\s*\d+\s*倍|P\s*\d+\s*倍|"
+    r"(?:最大\s*)?\d+\s*%\s*(?:OFF|オフ)\s*クーポン)"
+    r"\s*[★☆彡!！\s]*(?:[〜～~\-]\s*)?\d{1,2}\s*日\s*(?:迄|まで|限定)\s*"
+    r"(?:[／/｜|]\s*)?",
+    re.I,
+)
+
+
 def clean_display_name(name: str) -> str:
     original = str(name or "").strip()
     text = original
+    without_offer = TIME_BOUND_PROMO_PREFIX.sub("", text, count=1)
+    if without_offer.strip():
+        text = without_offer
     # Some merchants put a complete promotional unit-price claim in //...//.
     # Remove that wrapper only, leaving actual package quantities untouched.
     text = re.sub(r"^\s*//[^/]*(?:マラソン|オフ|OFF)[^/]*//\s*", '', text, flags=re.I)
