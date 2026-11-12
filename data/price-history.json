@@ -10561,6 +10561,32 @@
       "product_id": "lifedrinkcompany:10000022",
       "quantity_key": "{\"count\":48,\"total_volume_ml\":24000.0,\"unit_volume_ml\":500.0}"
     },
+    "carbonated-water|lifedrinkcompany:10000030": {
+      "category_id": "carbonated-water",
+      "name": "【※12月末賞味期限※1,099円】炭酸水 ZAO SODAプラス 500ml 24本 脂肪 糖 整腸 機能性表示食品 強炭酸 炭酸 無糖 訳アリ プレーン 箱買い ライフドリンクカンパニー LIFEDRINK",
+      "points": [
+        {
+          "date": "2026-11-12",
+          "price": 1099,
+          "unit": 91.58333333333333
+        }
+      ],
+      "product_id": "lifedrinkcompany:10000030",
+      "quantity_key": "{\"count\":24,\"total_volume_ml\":12000.0,\"unit_volume_ml\":500.0}"
+    },
+    "carbonated-water|lifedrinkcompany:10000042": {
+      "category_id": "carbonated-water",
+      "name": "【※12月末賞味期限※1,099円】炭酸水 500ml 24本 強炭酸 炭酸 無糖 OZA SODA プレーン 割り材 箱買い まとめ買い ライフドリンクカンパニー LIFEDRINK ZAO SODA",
+      "points": [
+        {
+          "date": "2026-11-12",
+          "price": 1099,
+          "unit": 91.58333333333333
+        }
+      ],
+      "product_id": "lifedrinkcompany:10000042",
+      "quantity_key": "{\"count\":24,\"total_volume_ml\":12000.0,\"unit_volume_ml\":500.0}"
+    },
     "carbonated-water|likaman:10022679": {
       "category_id": "carbonated-water",
       "name": "【ケース販売 1本あたり81円税別】 ウィルキンソン 炭酸水 500ml×24本 PET ペット タンサンウイルキンソン ウヰルキンソン GLY 予約 2026/11/9以降発送予定",
@@ -45334,6 +45360,11 @@
           "date": "2026-11-10",
           "price": 8299,
           "unit": 345.7916666666667
+        },
+        {
+          "date": "2026-11-12",
+          "price": 8299,
+          "unit": 345.7916666666667
         }
       ],
       "product_id": "san-etigoya:10001914",
@@ -49307,6 +49338,11 @@
         },
         {
           "date": "2026-11-11",
+          "price": 3200,
+          "unit": 53.333333333333336
+        },
+        {
+          "date": "2026-11-12",
           "price": 3200,
           "unit": 53.333333333333336
         }
@@ -57740,6 +57776,11 @@
           "date": "2026-11-11",
           "price": 3000,
           "unit": 300.0
+        },
+        {
+          "date": "2026-11-12",
+          "price": 3000,
+          "unit": 300.0
         }
       ],
       "product_id": "imaifarm:10000754",
@@ -58817,6 +58858,11 @@
         },
         {
           "date": "2026-11-11",
+          "price": 9007,
+          "unit": 300.23333333333335
+        },
+        {
+          "date": "2026-11-12",
           "price": 9007,
           "unit": 300.23333333333335
         }
@@ -61262,6 +61308,11 @@
           "date": "2026-11-11",
           "price": 4654,
           "unit": 155.13333333333333
+        },
+        {
+          "date": "2026-11-12",
+          "price": 4654,
+          "unit": 155.13333333333333
         }
       ],
       "product_id": "nozomi-market:10085105",
@@ -61348,6 +61399,11 @@
         },
         {
           "date": "2026-11-11",
+          "price": 9028,
+          "unit": 300.93333333333334
+        },
+        {
+          "date": "2026-11-12",
           "price": 9028,
           "unit": 300.93333333333334
         }
@@ -64009,6 +64065,11 @@
           "date": "2026-11-11",
           "price": 3480,
           "unit": 348.0
+        },
+        {
+          "date": "2026-11-12",
+          "price": 3680,
+          "unit": 368.0
         }
       ],
       "product_id": "anzai-rice:10000437",
@@ -68847,6 +68908,11 @@
         },
         {
           "date": "2026-11-07",
+          "price": 2280,
+          "unit": 456.0
+        },
+        {
+          "date": "2026-11-12",
           "price": 2280,
           "unit": 456.0
         }
