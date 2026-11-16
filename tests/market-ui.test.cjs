@@ -210,7 +210,7 @@ test('invalid or obsolete remembered category cannot hijack food recommendation 
 
 
 test('filtering still works without sending typed search text to GA4',()=>{
- const html=fs.readFileSync('site/categories/pack-rice/index.html','utf8').replace(/<script\\b[^>]*src=[^>]*>[\\s\\S]*?<\\/script>/gi,'');
+ const html=fs.readFileSync('site/categories/pack-rice/index.html','utf8').replace(/<script\b[^>]*src=[^>]*>[\s\S]*?<\/script>/gi,'');
  const b=boot(html,'https://stusaurus.github.io/food-cost-jp/categories/pack-rice/');
  const root=b.d.querySelector('[data-comparison]'),input=root?.querySelector('[data-search]');
  assert.ok(input,'published category should expose searchable comparison');
