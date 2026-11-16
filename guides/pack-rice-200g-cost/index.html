@@ -265,7 +265,7 @@ gtag('config','G-GFVSZ8YDQ5',{site_id:'food_cost_jp',operator_test:window.foodCo
 <h1>パックご飯200g前後を1食あたりで比較</h1>
 <p class="lead">180〜210g前後のパックご飯から、送料込みで比較できる商品を1食あたりの単価で見ます。</p>
 <div class="hero-tags"><span class="hero-tag">送料込みを優先</span><span class="hero-tag">実データ連動</span><span class="hero-tag">数量曖昧は除外</span></div>
-<p class="note">最終価格確認: 2026-11-16 20:34 JST</p></div>
+<p class="note">最終価格確認: 2026-11-16 21:23 JST</p></div>
 <div class="category-hero-art pack-rice"><img class="food-art" src="https://stusaurus.github.io/food-cost-jp/assets/marche-pack-rice.webp" width="768" height="512" alt="" loading="lazy"></div>
 </div></header>
 <nav class="service-shortcuts" aria-label="主要メニュー">
@@ -1274,7 +1274,8 @@ document.querySelectorAll('[data-filter]').forEach(s=>s.addEventListener('change
 }));
 document.querySelectorAll('[data-search]').forEach(input=>input.addEventListener('change',()=>{
   const root=input.closest('[data-comparison]');applyFilters(root);
-  send('comparison_search_use',{category_id:input.dataset.category,search_term:input.value.trim()})
+  // Raw visitor-entered text could contain PII; only report non-identifying usage.
+  send('comparison_search_use',{category_id:input.dataset.category,has_search_input:input.value.trim()?'1':'0',result_count:root.querySelectorAll('tbody tr:not([hidden])').length})
 }));
 const shelfSeen=new WeakSet();
 const shelfView=el=>{if(!el||shelfSeen.has(el)||el.closest('[hidden]'))return;shelfSeen.add(el);send('market_shelf_view',{shelf_id:el.dataset.marketShelf,product_count:el.querySelectorAll('[data-affiliate]').length,category_id:[...new Set([...el.querySelectorAll('[data-affiliate]')].map(a=>a.dataset.category))].length===1?el.querySelector('[data-affiliate]')?.dataset.category:'all',category_ids:[...new Set([...el.querySelectorAll('[data-affiliate]')].map(a=>a.dataset.category))].join(',')})};
