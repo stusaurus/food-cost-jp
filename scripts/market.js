@@ -42,7 +42,8 @@ document.querySelectorAll('[data-filter]').forEach(s=>s.addEventListener('change
 }));
 document.querySelectorAll('[data-search]').forEach(input=>input.addEventListener('change',()=>{
   const root=input.closest('[data-comparison]');applyFilters(root);
-  send('comparison_search_use',{category_id:input.dataset.category,search_term:input.value.trim()})
+  // Raw visitor-entered text could contain PII; only report non-identifying usage.
+  send('comparison_search_use',{category_id:input.dataset.category,has_search_input:input.value.trim()?'1':'0',result_count:root.querySelectorAll('tbody tr:not([hidden])').length})
 }));
 const shelfSeen=new WeakSet();
 const shelfView=el=>{if(!el||shelfSeen.has(el)||el.closest('[hidden]'))return;shelfSeen.add(el);send('market_shelf_view',{shelf_id:el.dataset.marketShelf,product_count:el.querySelectorAll('[data-affiliate]').length,category_id:[...new Set([...el.querySelectorAll('[data-affiliate]')].map(a=>a.dataset.category))].length===1?el.querySelector('[data-affiliate]')?.dataset.category:'all',category_ids:[...new Set([...el.querySelectorAll('[data-affiliate]')].map(a=>a.dataset.category))].join(',')})};

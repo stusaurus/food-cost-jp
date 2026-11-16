@@ -207,3 +207,23 @@ test('invalid or obsolete remembered category cannot hijack food recommendation 
  assert.equal(b.events.filter(e=>e[1]==='finder_choice_resume').length,0);
  b.dom.window.close();
 });
+
+
+test('filtering still works without sending typed search text to GA4',()=>{
+ const html=fs.readFileSync('site/categories/pack-rice/index.html','utf8').replace(/<script\b[^>]*src=[^>]*>[\s\S]*?<\/script>/gi,'');
+ const b=boot(html,'https://stusaurus.github.io/food-cost-jp/categories/pack-rice/');
+ const root=b.d.querySelector('[data-comparison]'),input=root?.querySelector('[data-search]');
+ assert.ok(input,'published category should expose searchable comparison');
+ const raw='private.person@example.com';
+ input.value=raw;
+ input.dispatchEvent(new b.dom.window.Event('change',{bubbles:true}));
+ const events=b.events.filter(e=>e[1]==='comparison_search_use');
+ assert.ok(events.length>0,'comparison search use should remain measurable');
+ const last=events[events.length-1][2];
+ assert.equal(last.has_search_input,'1');
+ assert.equal(typeof last.result_count,'number');
+ assert.equal(last.search_term,undefined);
+ assert.equal(JSON.stringify(last).includes(raw),false);
+ assert.ok([...root.querySelectorAll('tbody tr')].every(row=>row.hidden));
+ b.dom.window.close();
+});
