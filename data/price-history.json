@@ -10840,6 +10840,19 @@
       "product_id": "kurashikenkou:10220307",
       "quantity_key": "{\"count\":24,\"total_volume_ml\":12000.0,\"unit_volume_ml\":500.0}"
     },
+    "carbonated-water|kyarahouse:10139928": {
+      "category_id": "carbonated-water",
+      "name": "炭酸水 24本 強炭酸水 水 ミネラルウォーター 炭酸 みず 富士山の強炭酸水500ml×24本 ラベルレス レモン富士山の強炭酸水500ml 500ml 強炭酸水500ml 24本 ケースラベルレス アイリスオーヤマ【代引き不可】",
+      "points": [
+        {
+          "date": "2026-11-16",
+          "price": 1420,
+          "unit": 118.33333333333333
+        }
+      ],
+      "product_id": "kyarahouse:10139928",
+      "quantity_key": "{\"count\":24,\"total_volume_ml\":12000.0,\"unit_volume_ml\":500.0}"
+    },
     "carbonated-water|kyarahouse:10140628": {
       "category_id": "carbonated-water",
       "name": "【ラベルレスも選べる】炭酸水 富士山の強炭酸水1L プレーン レモン ラベルあり ラベルなし (ケース） 1L×15本 ペットボトル 強炭酸水 強炭酸 1000ml 富士山 ケース 水 ミネラルウォーター 炭酸 自然の恵み アイリスの天然水 アイリスオーヤマ",
@@ -16644,6 +16657,11 @@
         },
         {
           "date": "2026-11-15",
+          "price": 2695,
+          "unit": 224.58333333333334
+        },
+        {
+          "date": "2026-11-16",
           "price": 2695,
           "unit": 224.58333333333334
         }
@@ -30605,6 +30623,11 @@
           "date": "2026-11-11",
           "price": 1360,
           "unit": 113.33333333333333
+        },
+        {
+          "date": "2026-11-16",
+          "price": 1391,
+          "unit": 115.91666666666667
         }
       ],
       "product_id": "kurashikenkou:10184230",
@@ -43023,6 +43046,19 @@
       "product_id": "tomizawa:10000264",
       "quantity_key": "{\"count\":1,\"total_weight_g\":1000.0,\"unit_weight_g\":1000.0}"
     },
+    "oatmeal|tsutsu-uraura:10001558": {
+      "category_id": "oatmeal",
+      "name": "アリサン 有機オートミール 1000g （1kg） ［有機JAS認定］",
+      "points": [
+        {
+          "date": "2026-11-16",
+          "price": 1447,
+          "unit": 144.7
+        }
+      ],
+      "product_id": "tsutsu-uraura:10001558",
+      "quantity_key": "{\"count\":1,\"total_weight_g\":1000.0,\"unit_weight_g\":1000.0}"
+    },
     "oatmeal|tucano:10001115": {
       "category_id": "oatmeal",
       "name": "【1個(1kg)・送料無料※遠方除く】アリサン オートミール 1kg 有機JAS",
@@ -48425,6 +48461,11 @@
           "date": "2026-11-15",
           "price": 1880,
           "unit": 188.0
+        },
+        {
+          "date": "2026-11-16",
+          "price": 1880,
+          "unit": 188.0
         }
       ],
       "product_id": "s-kodawari:10005195",
@@ -52801,6 +52842,11 @@
         },
         {
           "date": "2026-11-15",
+          "price": 3200,
+          "unit": 53.333333333333336
+        },
+        {
+          "date": "2026-11-16",
           "price": 3200,
           "unit": 53.333333333333336
         }
@@ -60670,6 +60716,11 @@
           "date": "2026-11-15",
           "price": 6000,
           "unit": 600.0
+        },
+        {
+          "date": "2026-11-16",
+          "price": 6000,
+          "unit": 600.0
         }
       ],
       "product_id": "aarti:10005323",
@@ -62343,6 +62394,19 @@
         }
       ],
       "product_id": "k-kitchen:10128618",
+      "quantity_key": "{\"count\":10,\"total_weight_g\":1800.0,\"unit_weight_g\":180.0}"
+    },
+    "retort-curry|kurashikenkou:10214315": {
+      "category_id": "retort-curry",
+      "name": "【10袋セット】 カレー レトルト カゴメ KAGOME 大豆ミートのキーマカレー 中辛 180g 10袋セット まとめ買い レトルトカレー キーマカレー 植物由来 プラントベース レトルト食品 常温保存 *【D】",
+      "points": [
+        {
+          "date": "2026-11-16",
+          "price": 3480,
+          "unit": 348.0
+        }
+      ],
+      "product_id": "kurashikenkou:10214315",
       "quantity_key": "{\"count\":10,\"total_weight_g\":1800.0,\"unit_weight_g\":180.0}"
     },
     "retort-curry|maedayahonpo:10141066": {
@@ -66524,6 +66588,11 @@
           "date": "2026-11-15",
           "price": 1411,
           "unit": 141.1
+        },
+        {
+          "date": "2026-11-16",
+          "price": 1411,
+          "unit": 141.1
         }
       ],
       "product_id": "sankin-asaichi:10051808",
@@ -68543,13 +68612,8 @@
     },
     "rice|anzai-rice:10000437": {
       "category_id": "rice",
-      "name": "【11/20～順次発送】セール 10kg お米 白米 安い 訳あり ブレンド米 『国内産たんぼだより白米10kg』",
+      "name": "【11/20～順次発送】10kg お米 白米 安い 訳あり ブレンド米 『国内産たんぼだより白米10kg』",
       "points": [
-        {
-          "date": "2026-10-01",
-          "price": 3699,
-          "unit": 369.9
-        },
         {
           "date": "2026-10-02",
           "price": 3799,
@@ -68744,6 +68808,11 @@
           "date": "2026-11-15",
           "price": 3580,
           "unit": 358.0
+        },
+        {
+          "date": "2026-11-16",
+          "price": 3680,
+          "unit": 368.0
         }
       ],
       "product_id": "anzai-rice:10000437",
@@ -70953,6 +71022,11 @@
           "date": "2026-11-13",
           "price": 6600,
           "unit": 660.0
+        },
+        {
+          "date": "2026-11-16",
+          "price": 6600,
+          "unit": 660.0
         }
       ],
       "product_id": "imagi:10000175",
@@ -71088,6 +71162,11 @@
         },
         {
           "date": "2026-11-15",
+          "price": 6580,
+          "unit": 658.0
+        },
+        {
+          "date": "2026-11-16",
           "price": 6580,
           "unit": 658.0
         }
@@ -73039,6 +73118,11 @@
           "date": "2026-11-14",
           "price": 4280,
           "unit": 428.0
+        },
+        {
+          "date": "2026-11-16",
+          "price": 4280,
+          "unit": 428.0
         }
       ],
       "product_id": "okadabeikoku:10000031",
@@ -73389,6 +73473,11 @@
         },
         {
           "date": "2026-11-15",
+          "price": 2280,
+          "unit": 456.0
+        },
+        {
+          "date": "2026-11-16",
           "price": 2280,
           "unit": 456.0
         }
@@ -75241,11 +75330,6 @@
       "name": "【新米】 令和8年産 山形県産 はえぬき 白米10kg【四国・九州への配送は+400円/沖縄・離島への配送は+2,500円加算】",
       "points": [
         {
-          "date": "2026-10-01",
-          "price": 4580,
-          "unit": 458.0
-        },
-        {
           "date": "2026-10-02",
           "price": 4580,
           "unit": 458.0
@@ -75462,6 +75546,11 @@
         },
         {
           "date": "2026-11-15",
+          "price": 4980,
+          "unit": 498.0
+        },
+        {
+          "date": "2026-11-16",
           "price": 4980,
           "unit": 498.0
         }
