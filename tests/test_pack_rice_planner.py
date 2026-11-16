@@ -117,5 +117,31 @@ class PlannerTests(unittest.TestCase):
         self.assertNotIn('id="pack-rice-planner"', other)
 
 
+    def test_24_meal_meta_describes_existing_planner_only(self):
+        spec = next(x for x in AUTO_GUIDE_RULES if x["slug"] == "pack-rice-24-servings-cost")
+        category = next(x for x in CATEGORIES if x["id"] == "pack-rice")
+        page = guide_page(spec, category, [offer(1), offer(2), offer(3)], NOW)
+        self.assertIn(f'<meta name="description" content="{spec["description"]}">', page)
+        self.assertIn(f'<p class="lead">{spec["intro"]}</p>', page)
+        self.assertIn('id="pack-rice-planner"', page)
+        self.assertIn('data-rice-stock-input', page)
+        self.assertIn('rel="canonical"', page)
+        self.assertEqual(page.count('<meta name="description"'), 1)
+        self.assertEqual(page.count('<h1'), 1)
+
+        # Guide metadata must remain accurate even when offers are temporarily absent.
+        without_offers = guide_page(spec, category, [], NOW)
+        self.assertIn(f'<meta name="description" content="{spec["description"]}">', without_offers)
+        self.assertNotIn('id="pack-rice-planner"', without_offers)
+        self.assertIn('data-rice-quantity-only', without_offers)
+
+        # Other guides still derive their description from their published intro.
+        rice = next(x for x in CATEGORIES if x["id"] == "rice")
+        other_spec = next(x for x in AUTO_GUIDE_RULES if x["category_id"] == "rice")
+        other_page = guide_page(other_spec, rice, [], NOW)
+        self.assertIn(f'<meta name="description" content="{other_spec["intro"]}">', other_page)
+        self.assertNotIn("パックご飯24食は何箱必要", other_page)
+
+
 if __name__ == "__main__":
     unittest.main()
