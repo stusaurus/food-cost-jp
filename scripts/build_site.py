@@ -102,6 +102,11 @@ AUTO_GUIDE_RULES = [
     {"slug":"cup-noodles-12-cost","category_id":"cup-noodles","title":"カップ麺12個セットのコスパ比較","h1":"カップ麺12個セットを1食あたりで比較","intro":"12個セットのカップ麺を、1食あたりの単価と総額で比較します。","mode":"count_12","auto":True},
 ]
 
+REGIONAL_POSTAGE = re.compile(
+    r"(?:北海道|沖縄|離島|一部地域|四国|九州)[^。】]{0,30}?"
+    r"(?:別途(?:送料|[0-9]+円)|(?:配送|送料)は?\s*\+\s*[0-9]+円|離島別途)"
+    r"|送料無料\s*[※(]?\s*(?:沖縄|北海道|離島)[・沖縄北海道離島]*別途"
+)
 LIMITED_RE = re.compile(r"(?:定期購入(?:のみ)?|定期便(?:のみ)?|初回限定|会員限定|新規限定)")
 PROMO_RE = re.compile(r"(?:クーポン|セール|SALE|タイムセール|ポイント\s*\d+倍|お買い物マラソン)", re.I)
 SELECTABLE_RE = re.compile(r"(?:(?:容量|サイズ|個数|数量|本数|袋数|食数|セット数|重量|内容量)を?選択|\d+\s*(?:kg|g|ml|L)\s*[~/〜～-]\s*\d+)", re.I)
@@ -461,7 +466,7 @@ def normalize_item_with_reason(raw: dict, category: dict):
     if any(not math.isfinite(v) or not minimums[k] <= v <= maximums[k] for k,v in prices.items()):
         return None, 'abnormal_unit_price'
 
-    postage_included = str(item.get("postageFlag")) == "0"
+    postage_included = str(item.get("postageFlag")) == "0" and not REGIONAL_POSTAGE.search(norm(raw_name))
     url = str(item.get("affiliateUrl") or item.get("itemUrl") or "")
     if not url:
         return None, "missing_url"
