@@ -15,15 +15,17 @@ def main():
     history = load_price_history(Path('data/price-history.json'))
     for c in build.CATEGORIES:
         payload = snapshot['categories'][c['id']]
-        for key in ('included','shipping_unknown'):
-            accepted = []
+        groups = {'included': [], 'shipping_unknown': []}
+        for key in groups:
             for x in payload[key]:
                 raw = dict(itemName=x['raw_name'],itemPrice=x['price'],itemCode=x['id'],shopName=x['shop'],affiliateUrl=x['url'],postageFlag=0 if key=='included' else 1,mediumImageUrls=[x['image']])
                 item, reason = build.normalize_item_with_reason(raw,c)
                 if reason:
                     excluded.append((c['id'],x['id'],reason)); continue
                 if item['quantity'] != x['quantity']: corrected.append((c['id'],x['id']))
-                accepted.append(item)
+                group = "included" if item["postage_included"] else "shipping_unknown"
+                groups[group].append(item)
+        for key, accepted in groups.items():
             accepted.sort(key=lambda x:(x['unit_prices'][c['primary']],x['price']))
             payload[key] = accepted
         results[c['id']] = (payload['included'],payload['shipping_unknown'])

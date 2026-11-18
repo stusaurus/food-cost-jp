@@ -3,13 +3,28 @@ from pathlib import Path
 import unittest
 
 sys.path.insert(0, str(Path(__file__).parents[1] / "scripts"))
-from build_site import parse_quantity, unit_prices
+from build_site import CATEGORIES, normalize_item, parse_quantity, unit_prices
 
 class UnitTests(unittest.TestCase):
     def test_pack_rice(self):
         q = parse_quantity("パックご飯 200g×24食 送料無料", "pack-rice")
         self.assertEqual(q["count"], 24)
         self.assertAlmostEqual(unit_prices(3980, q, "pack-rice")["per_serving"], 3980 / 24)
+
+    def test_regional_shipping_conditions_override_included_flag(self):
+        category = next(c for c in CATEGORIES if c["id"] == "pack-rice")
+        for suffix, included in [
+            ("送料無料※沖縄・離島別途", False),
+            ("北海道は別途700円", False),
+            ("四国・九州への配送は+400円", False),
+            ("北海道産 送料無料", True),
+        ]:
+            with self.subTest(suffix=suffix):
+                raw = dict(itemName="パックご飯 180g×24食 " + suffix, itemPrice=4000,
+                           itemCode="shop:1", itemUrl="https://item.rakuten.co.jp/shop/1/",
+                           postageFlag=0)
+                item = normalize_item(raw, category)
+                self.assertEqual(item["postage_included"], included)
 
     def test_rice(self):
         q = parse_quantity("国産米 5kg×2袋 送料無料", "rice")
