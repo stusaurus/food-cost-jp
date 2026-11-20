@@ -94,7 +94,7 @@ class WaterServerCompareTests(unittest.TestCase):
         self.assertIn("送料込2L水 &lt;特価&gt;", page)
         for removed in ("送料不明", "本数不一致", "数量不確定", "非楽天リンク", "同容量で高い"):
             self.assertNotIn(removed, page)
-        self.assertEqual(page.count('data-water-rakuten-offer'), 2)
+        self.assertEqual(page.count('data-water-rakuten-offer data-product-id='), 2)
         self.assertIn('rel="nofollow sponsored noopener"', page)
         self.assertEqual(page.count(w.A8_EVERY_FRECIOUS_AD), 1)
         self.assertIn('window.gtag("event", "water_offer_prefill"', page)
