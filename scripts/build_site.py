@@ -83,7 +83,7 @@ GUIDE_SPECS = [
 ]
 
 AUTO_GUIDE_RULES = [
-    {"slug":"pack-rice-24-servings-cost","category_id":"pack-rice","title":"パックご飯24食のコスパ比較","h1":"パックご飯24食を1食あたりで比較","intro":"24食セットのパックご飯を、1食あたりの単価と内容量で比較します。","description":"パックご飯24食は何箱必要？1日の食数・手持ち在庫から30日分の購入箱数を計算。掲載商品が確認できた場合は、送料込み購入総額・余り・1食単価も比較できます。","mode":"pack_count_24","auto":True},
+    {"slug":"pack-rice-24-servings-cost","category_id":"pack-rice","title":"パックご飯24食のコスパ比較｜必要箱数と1食・100g単価","h1":"パックご飯24食の1食・100g単価と必要箱数を比較","intro":"24食入りを1食・100gあたりで比べ、1日食数と手持ち在庫から30日分の必要箱数を計算。確認済み商品がある場合は購入総額も確認できます。","description":"パックご飯24食は何箱必要？1日の食数・手持ち在庫から30日分の購入箱数を計算。掲載商品が確認できた場合は、送料込み購入総額・余り・1食単価も比較できます。","mode":"pack_count_24","auto":True},
     {"slug":"pack-rice-40plus-cost","category_id":"pack-rice","title":"パックご飯40食以上のコスパ比較","h1":"パックご飯40食以上の大箱を比較","intro":"40食以上のパックご飯を、単価・総額・保管する量から比べます。","mode":"pack_count_40plus","auto":True},
     {"slug":"carbonated-water-500ml-24-cost","category_id":"carbonated-water","title":"炭酸水500ml前後24本のコスパ比較","h1":"炭酸水500ml前後×24本を比較","intro":"450〜600ml・24本セットを、1L・1本あたりで比較します。","mode":"water_500_24","auto":True},
     {"slug":"carbonated-water-500ml-48-cost","category_id":"carbonated-water","title":"炭酸水500ml前後48本のコスパ比較","h1":"炭酸水500ml前後×48本を比較","intro":"450〜600ml・48本セットの単価と支払総額を比べます。","mode":"water_500_48","auto":True},
