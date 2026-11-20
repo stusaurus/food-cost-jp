@@ -2063,7 +2063,7 @@ def category_page(category: dict, included: list[dict], other: list[dict], updat
         f"""<section class="section explain">
 <h2>このランキングのルール</h2>
 <p>数量を安全に読み取れる商品だけを掲載し、定期購入・初回限定などは通常価格ランキングから除外します。クーポン・ポイントは通常単価へ差し引きません。</p>
-<p class="fine">送料込みは楽天APIの送料フラグを基準にし、地域別の追加送料などは販売ページで最終確認してください。</p>
+<p class="fine">送料込み比較では、楽天APIの送料フラグに加え、商品名に明記された地域別追加送料も確認します。地域別加算が明記された商品は、送料フラグが「込み」でも「送料別・要確認」に分け、追加送料を推測して単価に含めません。配送先ごとの最終支払額と在庫は販売店で確認してください。</p>
 </section>
 {utility_panels_html()}
 </main>"""

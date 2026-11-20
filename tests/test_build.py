@@ -3,7 +3,8 @@ from pathlib import Path
 import unittest
 
 sys.path.insert(0, str(Path(__file__).parents[1] / "scripts"))
-from build_site import CATEGORIES, normalize_item, parse_quantity, unit_prices
+from datetime import datetime
+from build_site import CATEGORIES, category_page, normalize_item, parse_quantity, unit_prices
 
 class UnitTests(unittest.TestCase):
     def test_pack_rice(self):
@@ -25,6 +26,14 @@ class UnitTests(unittest.TestCase):
                            postageFlag=0)
                 item = normalize_item(raw, category)
                 self.assertEqual(item["postage_included"], included)
+
+    def test_category_page_explains_regional_shipping_rule(self):
+        category = next(c for c in CATEGORIES if c["id"] == "pack-rice")
+        page = category_page(category, [], [], datetime(2026, 11, 20))
+        self.assertIn("商品名に明記された地域別追加送料", page)
+        self.assertIn("送料フラグが「込み」でも「送料別・要確認」", page)
+        self.assertIn("最終支払額と在庫は販売店で確認", page)
+        self.assertNotIn("送料込みは楽天APIの送料フラグを基準にし", page)
 
     def test_rice(self):
         q = parse_quantity("国産米 5kg×2袋 送料無料", "rice")
