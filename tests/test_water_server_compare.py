@@ -38,6 +38,22 @@ class WaterServerCompareTests(unittest.TestCase):
         self.assertIn("金額・ケース本数は整数で入力してください", page)
         self.assertEqual(page.count(w.A8_EVERY_FRECIOUS_AD), 1)
 
+    def test_example_rates_and_monthly_metrics_do_not_claim_live_vendor_prices(self):
+        page = w.page()
+        self.assertIn('id="example" type="button"', page)
+        self.assertIn('id="example-warning" class="notice" hidden', page)
+        self.assertIn('現在の販売価格・各社の契約料金ではありません', page)
+        self.assertIn('id="bottle-monthly"', page)
+        self.assertIn('id="server-monthly"', page)
+        self.assertIn('id="bottle-effective"', page)
+        self.assertIn('id="server-effective"', page)
+        self.assertIn('"case-price": 900', page)
+        self.assertIn('money(bottledYear / 12)', page)
+        self.assertIn('amount / used', page)
+        self.assertIn('月ごとの支払額は均等ではありません', page)
+        # Keep the independent source-owned A8 creative, not guessed plan rates.
+        self.assertEqual(page.count(w.A8_EVERY_FRECIOUS_AD), 1)
+
     def test_reuses_the_existing_ga4_head_in_generated_page(self):
         ga = '<script>window.gtag=function(){return true};window.foodCostOperatorTest=true;</script>'
         page = w.page(ga)
