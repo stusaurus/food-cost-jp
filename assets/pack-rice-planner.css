@@ -4,6 +4,15 @@
 .rice-planner-kicker{font-size:11px;font-weight:800;letter-spacing:.14em;color:#315c4b}
 .rice-planner-intro h2{font-size:clamp(23px,3.2vw,34px);letter-spacing:-.035em;line-height:1.4;margin:8px 0 11px;color:#263b31}
 .rice-planner-intro p{font-size:14px;line-height:1.8;margin:0;max-width:66ch;color:#46594d}
+/* Verified 24-pack buying criteria: comparable price per meal vs per 100g. */
+.rice-planner-criteria{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:16px 0 9px;max-width:780px}
+.rice-planner-criterion{min-width:0;background:#fffdf9;border:1px solid #cad5c7;border-radius:13px;padding:13px 15px}
+.rice-planner-criterion span{display:block;color:#315c4b;font-size:12px;line-height:1.5;font-weight:800}
+.rice-planner-criterion strong{display:block;color:#263b31;font-size:clamp(19px,2.6vw,26px);line-height:1.35;overflow-wrap:anywhere;margin:4px 0}
+.rice-planner-criterion small{display:block;color:#536a59;font-size:12px;line-height:1.7}
+.rice-planner-intro .rice-planner-criteria-note{max-width:780px;font-size:12px;line-height:1.75;color:#526254}
+@media(max-width:520px){.rice-planner-criteria{grid-template-columns:minmax(0,1fr)}.rice-planner-criterion{padding:12px 13px}}
+
 .rice-planner-body{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:24px;padding:25px 30px}
 .rice-planner-form{display:flex;flex-direction:column;gap:10px;min-width:0}
 .rice-planner-form label{font-weight:800;font-size:14px;line-height:1.5}
