@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-20T23:26:30.765804+09:00",
+  "generated_at": "2026-11-20T23:57:59.604812+09:00",
   "site_id": "food_cost_jp",
   "inventory": {
     "pack-rice": {
@@ -52,8 +52,8 @@
             "【ふるさと納税】累計販売2億食突破！ パック ご飯 200g 選べる個数24～48食 アイリスオーヤマ ふるさと納税 米 お米 ふるさと パックごはん 国産米100% 低温製法米 パックご飯 備蓄 常温保存 便利 一人暮らし 大容量 アウトドア アイリス"
           ],
           "set_count_conflict": [
-            "【最強翌日配送】サトウのごはん 北海道産ななつぼし 200g 5食パック 8袋入 レトルトご飯 そのまま おいしいごはん KOB",
             "パックご飯 200g 3食 5食 10食 24食 30食 40食 60食 80食 アイリスオーヤマ 送料無料 レトルトご飯 パックごはん 酸味料不使用 レトルト御飯 御飯 非常食 備蓄用 防災 常温保存可 一人暮らし 仕送り 低温製法米のおいしいごはん",
+            "【最強翌日配送】サトウのごはん 北海道産ななつぼし 200g 5食パック 8袋入 レトルトご飯 そのまま おいしいごはん KOB",
             "＼35%ポイントバック☆彡～25日9:59迄／パックご飯 180g 48食 アイリスオーヤマ お米 パックごはん パック レンジ レトルトごはん ご飯 一人暮らし ご飯パック まとめ買い 低温製法米のおいしいごはん 180g×48PA式ケース販売専用 簡単調理 アイリスフーズ[2609]"
           ],
           "missing_category_evidence": [
@@ -74,19 +74,19 @@
         "fetch_errors": 0,
         "queries": 2,
         "fetched": 60,
-        "normalized": 30,
+        "normalized": 31,
         "exact_duplicates": 6,
         "practical_duplicates": 0,
-        "accepted_unique": 24,
+        "accepted_unique": 25,
         "included_available": 16,
-        "shipping_unknown_available": 8,
+        "shipping_unknown_available": 9,
         "displayed_included": 16,
-        "displayed_shipping_unknown": 8,
+        "displayed_shipping_unknown": 9,
         "reasons": {
-          "ambiguous_quantity": 24,
-          "wrong_product_type": 3,
+          "ambiguous_quantity": 23,
+          "wrong_product_type": 4,
           "set_count_conflict": 1,
-          "limited_purchase": 2
+          "limited_purchase": 1
         },
         "cleaned_examples": [
           {
@@ -118,6 +118,10 @@
             "after": "お米 コメ 雪若丸 10kg 新米 無洗米 精米 山形県産 令和8年産 5kg×2袋"
           },
           {
+            "before": "新米 5kg 「愛媛県産 ひめの凜 5kg」 令和8年産 白米 5キロ 送料無料 ※北海道.東北.沖縄配送不可",
+            "after": "新米 5kg 「愛媛県産 ひめの凜 5kg」 令和8年産 白米 5キロ ※北海道.東北.沖縄配送不可"
+          },
+          {
             "before": "新米 令和8年 山形県産 雪若丸 10kg(5kg×2) 米 白米 送料無料",
             "after": "新米 令和8年 山形県産 雪若丸 10kg(5kg×2) 米 白米"
           },
@@ -132,10 +136,6 @@
           {
             "before": "新米入りブレンド米 10kg(5kg×2袋) 国産 白米 最短11/24(火)発送 送料無料 安い ブレンド米 たべよまい 訳あり うまい米ショップ",
             "after": "新米入りブレンド米 10kg(5kg×2袋) 国産 白米 最短11/24(火)発送 安い ブレンド米 たべよまい 訳あり うまい米ショップ"
-          },
-          {
-            "before": "【BLACK FRIDAY期間中ポイント5倍!!】【令和8年産 新米】無洗米 福岡県産ヒノヒカリ 10kg（5kg×2袋） 送料無料【沖縄・北海道は別途送料プラス500円】",
-            "after": "【BLACK FRIDAY期間中ポイント5倍!!】【令和8年産 新米】無洗米 福岡県産ヒノヒカリ 10kg（5kg×2袋） 【沖縄・北海道は別途送料プラス500円】"
           }
         ],
         "rejection_samples": {
@@ -153,13 +153,12 @@
             "【1kgあたり291円から！】新米8年産入り 生活応援米 送料無料"
           ],
           "limited_purchase": [
-            "【ふるさと納税】【最短当日出荷】熊本 ふるさと無洗米/ひのひかりブレンド/ひのひかり/応援/総合1位 無洗米 高レビュー 熊本 選べる 5kg 10kg 20kg 訳あり 定期便 あり《出荷時期をお選びください》熊本県産 米 お米 おこめ むせんまい 送料無料 熊本県御船町 最強配送",
-            "【ふるさと納税】【R8熊本地震復興支援】高レビュー 米 無洗米 ランキング 1位 訳あり 定期便 米 コメ こめ ふるさと納税 むせんまい 阿蘇びより あそ お買い物マラソン 5kg 10kg 20kg 定期便《出荷時期をお選びください》"
+            "【ふるさと納税】【最短当日出荷】熊本 ふるさと無洗米/ひのひかりブレンド/ひのひかり/応援/総合1位 無洗米 高レビュー 熊本 選べる 5kg 10kg 20kg 訳あり 定期便 あり《出荷時期をお選びください》熊本県産 米 お米 おこめ むせんまい 送料無料 熊本県御船町 最強配送"
           ]
         }
       },
       "included_count": 16,
-      "shipping_unknown_count": 8,
+      "shipping_unknown_count": 9,
       "history_ready_count": 16,
       "history_ready_rate": 1.0
     },
@@ -171,17 +170,17 @@
         "fetch_errors": 0,
         "queries": 3,
         "fetched": 90,
-        "normalized": 41,
-        "exact_duplicates": 9,
+        "normalized": 42,
+        "exact_duplicates": 8,
         "practical_duplicates": 0,
-        "accepted_unique": 32,
-        "included_available": 16,
-        "shipping_unknown_available": 16,
-        "displayed_included": 16,
-        "displayed_shipping_unknown": 16,
+        "accepted_unique": 34,
+        "included_available": 17,
+        "shipping_unknown_available": 17,
+        "displayed_included": 17,
+        "displayed_shipping_unknown": 17,
         "reasons": {
           "set_count_conflict": 13,
-          "missing_category_evidence": 18,
+          "missing_category_evidence": 17,
           "ambiguous_quantity": 13,
           "wrong_product_type": 4,
           "limited_purchase": 1
@@ -240,7 +239,7 @@
           "set_count_conflict": [
             "【2個購入&クーポン利用で979円～！】炭酸水 500ml 24本 送料無料※一部地域除く 強炭酸 炭酸 無糖 OZA SODA プレーン レモン ピンクグレープフルーツ ライム ラベルレス 割り材 箱買い まとめ買い ライフドリンクカンパニー LIFEDRINK　ZAO SODA",
             "【ポイント2倍】 炭酸水 500ml 24本/48本 ペットボトル プレーン 24本入 1箱/2箱 LDC 国産 山形産 やさしい水の炭酸水 ケース まとめ買い ソーダ ハイボール 割材",
-            "【2ケース買いが圧倒的にお得 1本あたり75円税別】アサヒ ウィルキンソン 炭酸水 500ml×24本 2ケース 計48本 水 タンサン GLY"
+            "炭酸水 サンガリア 伊賀の天然水 強炭酸水 500ml 48本 送料無料 2ケース PET ペットボトル スパークリング タンサン 炭酸 GLY"
           ],
           "missing_category_evidence": [
             "【11/20限定！店内全品10％OFFクーポン】国産ミネラルウォーター 彩水-あやみず- やさしい軟水 500ml×24本 送料無料※一部地域除く ライフドリンクカンパニー LIFEDRINK 水 ラベルレス 天然水 飲料水 軟水 備蓄水 非常用（※採水地指定不可）",
@@ -262,10 +261,10 @@
           ]
         }
       },
-      "included_count": 16,
-      "shipping_unknown_count": 16,
+      "included_count": 17,
+      "shipping_unknown_count": 17,
       "history_ready_count": 16,
-      "history_ready_rate": 1.0
+      "history_ready_rate": 0.9412
     },
     "oatmeal": {
       "name": "オートミール",
@@ -369,10 +368,10 @@
         "exact_duplicates": 3,
         "practical_duplicates": 0,
         "accepted_unique": 11,
-        "included_available": 6,
-        "shipping_unknown_available": 5,
-        "displayed_included": 6,
-        "displayed_shipping_unknown": 5,
+        "included_available": 5,
+        "shipping_unknown_available": 6,
+        "displayed_included": 5,
+        "displayed_shipping_unknown": 6,
         "reasons": {
           "ambiguous_quantity": 46,
           "wrong_product_type": 18,
@@ -416,9 +415,9 @@
           ]
         }
       },
-      "included_count": 6,
-      "shipping_unknown_count": 5,
-      "history_ready_count": 6,
+      "included_count": 5,
+      "shipping_unknown_count": 6,
+      "history_ready_count": 5,
       "history_ready_rate": 1.0
     },
     "pasta": {
@@ -466,12 +465,12 @@
             "after": "【送料一律540円】オーサワの有機スパゲッティ 500g×6袋"
           },
           {
-            "before": "昭和産業 (SHOWA) スパゲッティ1.6mm 1kg×15袋入｜ 送料無料 パスタ スパゲティ スパゲッティ 乾麺 麺",
-            "after": "昭和産業 (SHOWA) スパゲッティ1.6mm 1kg×15袋入｜ パスタ スパゲティ スパゲッティ 乾麺 麺"
-          },
-          {
             "before": "[ポイント5倍！11/25(水)1時59分まで全品対象エントリー&購入]昭和産業 (SHOWA) スパゲッティ1.6mm 1kg×15袋入｜ 送料無料 パスタ スパゲティ スパゲッティ 乾麺 麺",
             "after": "[ポイント5倍！11/25(水)1時59分まで全品対象エントリー&購入]昭和産業 (SHOWA) スパゲッティ1.6mm 1kg×15袋入｜ パスタ スパゲティ スパゲッティ 乾麺 麺"
+          },
+          {
+            "before": "昭和産業 (SHOWA) スパゲッティ1.6mm 1kg×15袋入｜ 送料無料 パスタ スパゲティ スパゲッティ 乾麺 麺",
+            "after": "昭和産業 (SHOWA) スパゲッティ1.6mm 1kg×15袋入｜ パスタ スパゲティ スパゲッティ 乾麺 麺"
           },
           {
             "before": "昭和産業 (SHOWA) スパゲッティ1.6mm 1kg×15袋入｜ 送料無料 パスタ スパゲティ スパゲッティ 乾麺 麺",
@@ -497,8 +496,8 @@
         "rejection_samples": {
           "wrong_product_type": [
             "カロリ ブロンズ パスタ 3kg スパゲッティ 1.9mm 500g x 6袋セット イタリア産 パスタ 手打ち風 生パスタ風 ブロンズ仕上げ 低温乾燥 乾麺 pasta caroli spaghetti 太め 太麺 買い置き 手土産 送料無料 ssbpd24",
-            "【並行輸入品】【6袋セット】 パスタ ディチェコ スパゲッティーニ No.11 500g スパゲッティ 約1.6mm イタリア産 イタリア 豊かな歯ごたえ たしかなのどごし パスタソースが絡みやすい 麺 乾麺 ロングパスタ パスタ麺 まとめ買い *",
-            "≪ポイント3倍★26日09:59迄≫【並行輸入品】【6袋セット】 パスタ ディチェコ スパゲッティーニ No.11 500g スパゲッティ 約1.6mm イタリア産 イタリア 豊かな歯ごたえ たしかなのどごし パスタソースが絡みやすい 麺 乾麺 ロングパスタ パスタ麺 まとめ買い *【wkn】"
+            "≪ポイント3倍★26日09:59迄≫【並行輸入品】【6袋セット】 パスタ ディチェコ スパゲッティーニ No.11 500g スパゲッティ 約1.6mm イタリア産 イタリア 豊かな歯ごたえ たしかなのどごし パスタソースが絡みやすい 麺 乾麺 ロングパスタ パスタ麺 まとめ買い *【wkn】",
+            "【並行輸入品】《ポイント3倍☆25日迄》【6袋セット】 パスタ ディチェコ スパゲッティーニ No.11 500g スパゲッティ 約1.6mm イタリア産 イタリア 豊かな歯ごたえ たしかなのどごし パスタソースが絡みやすい 麺 乾麺 ロングパスタ まとめ買い パスタ麺 *"
           ],
           "ambiguous_quantity": [
             "【送料無料】【6袋】ダル・クオーレ スパゲティ　1.4mm 6袋×500g　イタリア産 ロングパスタ 南イタリア スパゲティ 1.4mm パスタ　イタリアン　有名レストラン　ダルクオーレ　DAL CUORE",
@@ -554,12 +553,12 @@
             "after": "カークランドシグネチャー オーガニック プロバイオティック グラノーラ 1kg Kirkland Signature Organic Probiotic Granola 1kg"
           },
           {
-            "before": "ケロッグ グラノーラ フルーツ グラノラ 脂質70％オフ 1kg 訳あり 賞味期限2026年12月31日 アウトレット コストコ 通販 送料無料",
-            "after": "ケロッグ グラノーラ フルーツ グラノラ 脂質70％オフ 1kg 訳あり 賞味期限2026年12月31日 アウトレット コストコ 通販"
-          },
-          {
             "before": "フルーツグラノラ グラノーラ 脂質70％オフ ケロッグ 1kg×2袋 訳あり 賞味期限2026年12月31日 アウトレットコストコ 通販 送料無料 関連商品 フルグラ フルーツグラノーラ",
             "after": "フルーツグラノラ グラノーラ 脂質70％オフ ケロッグ 1kg×2袋 訳あり 賞味期限2026年12月31日 アウトレットコストコ 通販 関連商品 フルグラ フルーツグラノーラ"
+          },
+          {
+            "before": "ケロッグ グラノーラ フルーツ グラノラ 脂質70％オフ 1kg 訳あり 賞味期限2026年12月31日 アウトレット コストコ 通販 送料無料",
+            "after": "ケロッグ グラノーラ フルーツ グラノラ 脂質70％オフ 1kg 訳あり 賞味期限2026年12月31日 アウトレット コストコ 通販"
           },
           {
             "before": "【COSTCO】コストコ【Natures Path Foods】 ラブクランチ　オーガニックグラノーラ（ダークチョコレート&レッドベリー ） 750g【送料無料】",
@@ -607,7 +606,7 @@
           "ambiguous_quantity": [
             "送料無料 あい裸麦のグラノーラ 5袋（150g×5袋）750g 鹿児島 姶良 産地直送 食品 贈答 プレゼント",
             "フルグラ 750g よりも大容量 1200g × 3袋 カルビー コストコ 通販 送料無料",
-            "【6個セット】マイグラ グラノーラ カルビー 朝食 穀物"
+            "フルグラ 糖質オフ ベリー＆カカオ 血糖値ケア 1袋 カルビー グラノーラ"
           ],
           "restricted_or_selectable_product": [
             "【ふるさと納税】無添加 グラノーラ 【選べる容量】250g×2袋 / 250g×3袋 / 250g×6袋 自家製 フルーツグラノーラ / オーガニック 果物 ドライフルーツ オートミール ヨーグルト 牛乳 シリアル 朝食 国産 ドライフルーツ ミックス クランベリー レーズン ナッツ グラノラ",
@@ -637,17 +636,17 @@
         "fetch_errors": 0,
         "queries": 5,
         "fetched": 150,
-        "normalized": 54,
-        "exact_duplicates": 3,
+        "normalized": 55,
+        "exact_duplicates": 2,
         "practical_duplicates": 0,
-        "accepted_unique": 51,
+        "accepted_unique": 53,
         "included_available": 16,
-        "shipping_unknown_available": 35,
+        "shipping_unknown_available": 37,
         "displayed_included": 16,
         "displayed_shipping_unknown": 20,
         "reasons": {
-          "restricted_or_selectable_product": 46,
-          "ambiguous_quantity": 28,
+          "restricted_or_selectable_product": 48,
+          "ambiguous_quantity": 25,
           "wrong_product_type": 11,
           "limited_purchase": 3,
           "missing_category_evidence": 8
@@ -674,24 +673,24 @@
             "after": "神戸アールティー トマトベースのベジタブルカレー 180g×10箱 ≪パッケージ版≫ Tomato Vegetable Curry レトルトカレー 野菜 長期保存 常温保存 ギフト まとめ買い セット商品"
           },
           {
-            "before": "カゴメ 大豆ミートのキーマカレー 180g×30個入｜ 送料無料 カレー レトルト 野菜 レトルトカレー ヴィーガン",
-            "after": "カゴメ 大豆ミートのキーマカレー 180g×30個入｜ カレー レトルト 野菜 レトルトカレー ヴィーガン"
-          },
-          {
-            "before": "神戸アールティー バターチキンカレー 180g×10箱 ≪パッケージ版≫ 送料無料 Butter Chicken Curry レトルトカレー 鶏肉 マイルド 長期保存 常温保存 ギフト まとめ買い セット商品",
-            "after": "神戸アールティー バターチキンカレー 180g×10箱 ≪パッケージ版≫ Butter Chicken Curry レトルトカレー 鶏肉 マイルド 長期保存 常温保存 ギフト まとめ買い セット商品"
-          },
-          {
             "before": "神戸アールティー パラックチキンカレー(ほうれん草チキン) 180g×5箱 ≪パッケージ版≫ 送料無料 Palak Chicken Curry レトルトカレー ほうれん草 鶏肉 長期保存 常温保存 ギフト まとめ買い セット商品",
             "after": "神戸アールティー パラックチキンカレー(ほうれん草チキン) 180g×5箱 ≪パッケージ版≫ Palak Chicken Curry レトルトカレー ほうれん草 鶏肉 長期保存 常温保存 ギフト まとめ買い セット商品"
+          },
+          {
+            "before": "ハウス食品 カレーマルシェ 辛口 180g×30個入｜ 送料無料 カレー レトルト カレーマルシェ レトルトカレー",
+            "after": "ハウス食品 カレーマルシェ 辛口 180g×30個入｜ カレー レトルト カレーマルシェ レトルトカレー"
           },
           {
             "before": "神戸アールティー ダールチキンカレー 180g×5箱 ≪パッケージ版≫ 送料無料 Dal Chicken Curry レトルトカレー 豆 鶏肉 長期保存 常温保存 ギフト まとめ買い セット商品",
             "after": "神戸アールティー ダールチキンカレー 180g×5箱 ≪パッケージ版≫ Dal Chicken Curry レトルトカレー 豆 鶏肉 長期保存 常温保存 ギフト まとめ買い セット商品"
           },
           {
-            "before": "ハウス食品 カレーマルシェ 辛口 180g×30個入｜ 送料無料 カレー レトルト カレーマルシェ レトルトカレー",
-            "after": "ハウス食品 カレーマルシェ 辛口 180g×30個入｜ カレー レトルト カレーマルシェ レトルトカレー"
+            "before": "カゴメ 大豆ミートのキーマカレー 180g×30個入｜ 送料無料 カレー レトルト 野菜 レトルトカレー ヴィーガン",
+            "after": "カゴメ 大豆ミートのキーマカレー 180g×30個入｜ カレー レトルト 野菜 レトルトカレー ヴィーガン"
+          },
+          {
+            "before": "神戸アールティー バターチキンカレー 180g×10箱 ≪パッケージ版≫ 送料無料 Butter Chicken Curry レトルトカレー 鶏肉 マイルド 長期保存 常温保存 ギフト まとめ買い セット商品",
+            "after": "神戸アールティー バターチキンカレー 180g×10箱 ≪パッケージ版≫ Butter Chicken Curry レトルトカレー 鶏肉 マイルド 長期保存 常温保存 ギフト まとめ買い セット商品"
           },
           {
             "before": "送料無料（沖縄離島除く）レトルトカレー 食研カレー/7612 晩餐館 焼肉のたれでお馴染み日本食研 業務用 200gx20食セット/卸 代金引換便不可品",
@@ -710,7 +709,7 @@
           ],
           "ambiguous_quantity": [
             "てまごこちカレー 甘口(180g×1・2・5・10袋)【一部送料無料】宮崎県産 九州 国産 レトルトカレー レストラン フレンチカレー 野菜 ベジカレー チキンカレー 鶏肉 こども 子供カレー オムカレー 美味しい シェフ監修 取り寄せ プレゼント ギフト 入学 卒業祝い ホワイトデー",
-            "[ポイント5倍！11/25(水)1時59分まで全品対象エントリー&購入]江崎グリコ ビーフカレーLEE 辛さ×30倍 180g×10箱入｜ 送料無料 リー レトルトカレー スパイス",
+            "カゴメ 大豆ミートのキーマカレー 180g×30個入×(2ケース)｜ 送料無料 カレー レトルト 野菜 レトルトカレー ヴィーガン",
             "【2個以上・合計1,000円以上で500円OFFクーポン】淡路島たまねぎと淡路牛のカレー200g×3個（中辛）＃淡路カレ－3食＃ たまねぎ カレー レトルトカレー 淡路島 玉ねぎ 送料無料 淡路牛 玉葱 今井ファーム セット 通販 ギフト プレゼント 自宅用 家庭用 お取り寄せ"
           ],
           "wrong_product_type": [
@@ -753,9 +752,9 @@
         "displayed_shipping_unknown": 16,
         "reasons": {
           "wrong_product_type": 26,
+          "restricted_or_selectable_product": 26,
           "set_count_conflict": 21,
           "ambiguous_quantity": 16,
-          "restricted_or_selectable_product": 26,
           "missing_category_evidence": 6
         },
         "cleaned_examples": [
@@ -772,12 +771,12 @@
             "after": "サッポロ一番 塩らーめん 5食×6袋入 30食"
           },
           {
-            "before": "【期間限定特売】サンヨー食品 サッポロ一番 みそラーメン 5食入り×6袋（合計30食） 送料無料(北海道は別途700円かかります。沖縄配送不可) / 袋めん",
-            "after": "サンヨー食品 サッポロ一番 みそラーメン 5食入り×6袋（合計30食） 送料無料(北海道は別途700円かかります。沖縄配送不可) / 袋めん"
-          },
-          {
             "before": "サッポロ一番　しょうゆ味　5食×6袋入　30食入",
             "after": "サッポロ一番 しょうゆ味 5食×6袋入 30食入"
+          },
+          {
+            "before": "【期間限定特売】サンヨー食品 サッポロ一番 みそラーメン 5食入り×6袋（合計30食） 送料無料(北海道は別途700円かかります。沖縄配送不可) / 袋めん",
+            "after": "サンヨー食品 サッポロ一番 みそラーメン 5食入り×6袋（合計30食） 送料無料(北海道は別途700円かかります。沖縄配送不可) / 袋めん"
           },
           {
             "before": "東洋水産　マルちゃん正麺　塩味5食×6袋入　30食",
@@ -810,6 +809,11 @@
             "サッポロ一番 アラビヤン焼そば 5食パック x 6袋 （計30食） 袋めん アラビヤン焼きそば アラビアン",
             "サッポロ一番 アラビヤン焼そば 5食パック x 6袋 （計30食） 袋めん アラビヤン焼きそば アラビアン"
           ],
+          "restricted_or_selectable_product": [
+            "【選べるセット】【サンヨー食品】サッポロ一番 袋麺5食パック＜4種から選べる 6袋セット(30食分)＞ (しょうゆ/しお/みそ/塩とんこつ)",
+            "日清 サッポロ一番 マルちゃん 袋めん 5食パック 組み合わせ選べる6袋 (計30食) インスタントラーメン",
+            "【選べるセット】【サンヨー食品】サッポロ一番 袋麺5食パック＜4種から選べる 6袋セット(30食分)＞ (しょうゆ/しお/みそ/塩とんこつ)"
+          ],
           "set_count_conflict": [
             "サッポロ一番 塩ラーメン 袋麺 5食パック×6袋(30食)",
             "サッポロ一番 塩ラーメン 袋麺 5食パック×6袋(30食)",
@@ -819,11 +823,6 @@
             "サンヨー食品 サッポロ一番 みそラーメン 1箱5食入×6袋",
             "サンヨー食品 サッポロ一番 しょうゆ味 1箱5食入×6袋",
             "サンヨー食品 サッポロ一番 塩らーめん 1箱5食入×6袋"
-          ],
-          "restricted_or_selectable_product": [
-            "【選べるセット】【サンヨー食品】サッポロ一番 袋麺5食パック＜4種から選べる 6袋セット(30食分)＞ (しょうゆ/しお/みそ/塩とんこつ)",
-            "日清 サッポロ一番 マルちゃん 袋めん 5食パック 組み合わせ選べる6袋 (計30食) インスタントラーメン",
-            "日清 サッポロ一番 マルちゃん 袋めん 5食パック 組み合わせ選べる6袋 (計30食) インスタントラーメン"
           ],
           "missing_category_evidence": [
             "【日清食品】 ミニーズ ＜西＞ 30食 (5食×6袋)",
@@ -845,19 +844,19 @@
         "fetch_errors": 0,
         "queries": 3,
         "fetched": 90,
-        "normalized": 25,
+        "normalized": 27,
         "exact_duplicates": 0,
         "practical_duplicates": 0,
-        "accepted_unique": 25,
+        "accepted_unique": 27,
         "included_available": 6,
-        "shipping_unknown_available": 19,
+        "shipping_unknown_available": 21,
         "displayed_included": 6,
-        "displayed_shipping_unknown": 19,
+        "displayed_shipping_unknown": 20,
         "reasons": {
           "missing_category_evidence": 8,
           "wrong_product_type": 27,
-          "ambiguous_quantity": 18,
-          "restricted_or_selectable_product": 12
+          "ambiguous_quantity": 17,
+          "restricted_or_selectable_product": 11
         },
         "cleaned_examples": [
           {
@@ -889,12 +888,12 @@
             "after": "農心ジャパン 辛カップラーメン 68g×12個入｜ インスタントラーメン 辛 即席"
           },
           {
-            "before": "[ポイント5倍！11/25(水)1時59分まで全品対象エントリー&購入]農心ジャパン 辛カップラーメン 68g×12個入｜ 送料無料 インスタントラーメン 辛 即席",
-            "after": "[ポイント5倍！11/25(水)1時59分まで全品対象エントリー&購入]農心ジャパン 辛カップラーメン 68g×12個入｜ インスタントラーメン 辛 即席"
-          },
-          {
             "before": "農心　韓国　辛カップラーメン　68g×12個　【送料無料】本場韓国の辛さで人気の高い“うまからっ！”でおなじみ「辛ラーメン」。",
             "after": "農心 韓国 辛カップラーメン 68g×12個 本場韓国の辛さで人気の高い“うまからっ！”でおなじみ「辛ラーメン」。"
+          },
+          {
+            "before": "[ポイント5倍！11/25(水)1時59分まで全品対象エントリー&購入]農心ジャパン 辛カップラーメン 68g×12個入｜ 送料無料 インスタントラーメン 辛 即席",
+            "after": "[ポイント5倍！11/25(水)1時59分まで全品対象エントリー&購入]農心ジャパン 辛カップラーメン 68g×12個入｜ インスタントラーメン 辛 即席"
           }
         ],
         "rejection_samples": {
@@ -909,7 +908,7 @@
             "『賞味期限：27.01.28』カップ麺 あっさりおだしがおいしいどん兵衛 肉だしうどん 74g 12個 日清食品"
           ],
           "ambiguous_quantity": [
-            "P3倍+＼ブラックフライデー★P5倍／ 12個 づくり しょうゆ カップ麺 ラーメン 送料無料 東洋水産 マルちゃん 麺づくり 鶏ガラ醤油 97g×1ケース/12個《012》『GCC』",
+            "＼ブラックフライデー★P5倍／ 12個 づくり しょうゆ カップ麺 ラーメン 送料無料 東洋水産 マルちゃん 麺づくり 鶏ガラ醤油 97g×1ケース/12個《012》『GCC』",
             "【11/20限定！全品ポイント2倍以上！】送料無料 日清 カップヌードル 78g ×1箱【20個】",
             "【11/20限定！全品ポイント2倍以上！】送料無料 日清 カップヌードル カレー 87g ×1箱【20個】"
           ],
@@ -921,16 +920,16 @@
         }
       },
       "included_count": 6,
-      "shipping_unknown_count": 19,
+      "shipping_unknown_count": 20,
       "history_ready_count": 6,
       "history_ready_rate": 1.0
     }
   },
   "price_history": {
-    "ready_count": 152,
+    "ready_count": 151,
     "included_count": 152,
-    "ready_rate": 1.0,
-    "deal_count": 6
+    "ready_rate": 0.9934,
+    "deal_count": 7
   },
   "auto_seo": {
     "minimum_products": 3,
@@ -951,7 +950,7 @@
       {
         "slug": "carbonated-water-500ml-24-cost",
         "category_id": "carbonated-water",
-        "matched_count": 8,
+        "matched_count": 9,
         "title": "炭酸水500ml前後24本のコスパ比較"
       },
       {
@@ -963,7 +962,7 @@
       {
         "slug": "rice-musenmai-cost",
         "category_id": "rice",
-        "matched_count": 4,
+        "matched_count": 3,
         "title": "無洗米のコスパ比較"
       },
       {
@@ -975,7 +974,7 @@
       {
         "slug": "mineral-water-2l-cost",
         "category_id": "mineral-water",
-        "matched_count": 4,
+        "matched_count": 3,
         "title": "ミネラルウォーター2Lのコスパ比較"
       },
       {
