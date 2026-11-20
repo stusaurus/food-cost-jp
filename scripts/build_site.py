@@ -2071,6 +2071,14 @@ def category_page(category: dict, included: list[dict], other: list[dict], updat
             + "</div>"
         )
     parts.append(guide_html(category))
+    if category["id"] == "retort-curry":
+        # Contextual reading path, not a comparison of equivalent food products.
+        parts.append("""<section class="section explain" aria-labelledby="family-dinner-budget-title">
+<h2 id="family-dinner-budget-title">家族の夕食にかける費用も考えるなら</h2>
+<p>レトルトカレーは食品1食あたりの価格を比較しています。一方、冷蔵のおかず宅配は配送回数・送料・初回料金があり、同じ1食単価として直接比較できません。</p>
+<p><a class="finder-go" href="../../guides/family-meal-delivery-budget/">冷蔵つくりおき宅配の4週間の支払総額を計算する →</a></p>
+<p class="fine">宅配サービスの料金はご自身で最新条件を入力します。別ページにはA8.net広告が含まれ、掲載は特定サービスの推奨ではありません。</p>
+</section>""")
     parts.append(faq_html(faqs))
     parts.append(other_categories_html(category["id"]))
     parts.append(
