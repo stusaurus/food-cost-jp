@@ -35,6 +35,23 @@ class UnitTests(unittest.TestCase):
         self.assertIn("最終支払額と在庫は販売店で確認", page)
         self.assertNotIn("送料込みは楽天APIの送料フラグを基準にし", page)
 
+    def test_retort_context_links_to_existing_family_budget_without_false_equivalence(self):
+        category = next(c for c in CATEGORIES if c["id"] == "retort-curry")
+        page = category_page(category, [], [], datetime(2026, 11, 21))
+        target = '../../guides/family-meal-delivery-budget/'
+        self.assertEqual(page.count(f'href="{target}"'), 1)
+        self.assertIn("家族の夕食にかける費用も考えるなら", page)
+        self.assertIn("同じ1食単価として直接比較できません", page)
+        self.assertIn("A8.net広告が含まれ", page)
+        self.assertIn("最新条件を入力", page)
+        self.assertIn('content="noindex,follow"', page)
+
+        pack_rice = next(c for c in CATEGORIES if c["id"] == "pack-rice")
+        other = category_page(pack_rice, [], [], datetime(2026, 11, 21))
+        self.assertNotIn(target, other)
+        self.assertNotIn("家族の夕食にかける費用も考えるなら", other)
+        self.assertEqual(other.count('rel="canonical"'), 1)
+
     def test_guide_shipping_faq_matches_product_classification(self):
         category = next(c for c in CATEGORIES if c["id"] == "pack-rice")
         faqs = guide_faq({"title": "パックご飯24食"}, category)
