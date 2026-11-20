@@ -233,8 +233,12 @@ fields.forEach(id => {
     results.classList.remove("visible");
     error.textContent = "条件が変わりました。新しい金額を見るには、もう一度「年間支払額を比較する」を押してください。";
   };
-  $(id).addEventListener("input", invalidate);
-  $(id).addEventListener("change", invalidate);
+  const clearSource = () => {
+    if (["bottle-liters", "case-count", "case-price", "case-shipping"].includes(id))
+      $("bottle-source-note").hidden = true;
+  };
+  $(id).addEventListener("input", () => { invalidate(); clearSource(); });
+  $(id).addEventListener("change", () => { invalidate(); clearSource(); });
 });
 // Example inputs are deliberately hypothetical. Never present them as vendor prices.
 $("example").addEventListener("click", () => {
@@ -245,7 +249,35 @@ $("example").addEventListener("click", () => {
   };
   Object.entries(sample).forEach(([id, value]) => { $(id).value = String(value); });
   $("example-warning").hidden = false;
+  $("bottle-source-note").hidden = true;
   $("calculate").click();
+});
+// Source prices are from this site's validated catalog; do not trust query-string prices.
+document.querySelectorAll("[data-water-offer]").forEach(button => {
+  button.addEventListener("click", () => {
+    [["bottle-liters", "bottleLiters"], ["case-count", "caseCount"],
+     ["case-price", "casePrice"]].forEach(([id, attr]) => {
+      $(id).value = button.dataset[attr];
+    });
+    $("case-shipping").value = "0";
+    results.classList.remove("visible");
+    $("bottle-source-note").hidden = false;
+    error.textContent = "掲載商品の購入セット条件を入力しました。使用量・サーバー契約料金を入力して試算してください。";
+    if (typeof window.gtag === "function") window.gtag("event", "water_offer_prefill", {
+      site_id: "food_cost_jp", category_id: "mineral-water",
+      operator_test: window.foodCostOperatorTest ? "1" : "0"
+    });
+  });
+});
+document.querySelectorAll("a[data-water-rakuten-offer]").forEach(link => {
+  link.addEventListener("click", () => {
+    if (typeof window.gtag === "function") window.gtag("event", "affiliate_click", {
+      site_id: "food_cost_jp", affiliate: "rakuten", category_id: "mineral-water",
+      conversion_source: "water_server_cost_comparison",
+      click_position: "water_cost_verified_offer",
+      operator_test: window.foodCostOperatorTest ? "1" : "0"
+    });
+  });
 });
 $("calculate").addEventListener("click", () => {
   results.classList.remove("visible");
