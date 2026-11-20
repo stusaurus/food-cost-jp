@@ -6,7 +6,7 @@ from zoneinfo import ZoneInfo
 
 sys.path.insert(0, str(Path(__file__).parents[1] / "scripts"))
 from pack_rice_planner import calculation, render_planner
-from build_site import AUTO_GUIDE_RULES, CATEGORIES, guide_page
+from build_site import AUTO_GUIDE_RULES, CATEGORIES, category_guide_navigation, guide_page
 
 
 NOW = datetime(2026, 11, 2, 7, 0, tzinfo=ZoneInfo("Asia/Tokyo"))
@@ -86,6 +86,53 @@ class PlannerTests(unittest.TestCase):
         self.assertIn('id="rice-meals-day"', page)
         self.assertIn('data-rice-stock-input', page)
         self.assertEqual(render_planner([], NOW), "")
+
+    def test_24_pack_criteria_explain_why_best_by_meal_and_by_weight_differ(self):
+        items = [
+            offer(1, price=3880, grams=180),
+            offer(2, price=4180, grams=200),
+            offer(3, price=5436, grams=180),
+        ]
+        page = render_planner(items, NOW)
+        self.assertIn('aria-label="24食セットの価格比較基準"', page)
+        self.assertIn("1食あたりの支払額が最も低い", page)
+        self.assertIn("100gに換算した単価が最も低い", page)
+        self.assertIn("¥161.7／食", page)
+        self.assertIn("¥87.1／100g", page)
+        self.assertIn("1食180g・24食箱 ¥3,880", page)
+        self.assertIn("1食200g・24食箱 ¥4,180", page)
+        self.assertIn("1食単価と100g単価で最安の24食セットが異なります", page)
+        self.assertEqual(page.count('<div class="rice-planner-criterion">'), 2)
+        # The original ranking and affiliate link remain unchanged.
+        self.assertLess(page.index('data-product-id="shop:item1"'), page.index('data-product-id="shop:item2"'))
+        self.assertIn('data-position="usage_planner"', page)
+        self.assertLess(page.index('class="rice-planner-criteria"'), page.index('data-rice-planner-product'))
+
+    def test_24_pack_criteria_reject_unverified_cheaper_offer(self):
+        eligible = offer(1, price=3880, grams=180)
+        reference_only = {**offer(2, price=240, grams=200), "postage_included": False}
+        wrong_product = offer(3, price=100, grams=200, count=40)
+        page = render_planner([eligible, reference_only, wrong_product], NOW)
+        self.assertIn("掲載商品の中では同じ24食セットが両基準で最安です", page)
+        self.assertIn("¥161.7／食", page)
+        self.assertNotIn("¥1.0／100g", page)
+        self.assertNotIn("¥240", page)
+        self.assertNotIn("¥100", page)
+        self.assertEqual(page.count("<option"), 1)
+
+    def test_24_pack_guide_link_first_only_if_published(self):
+        category = next(c for c in CATEGORIES if c["id"] == "pack-rice")
+        guides = [s for s in AUTO_GUIDE_RULES if s["category_id"] == "pack-rice"]
+        guide = next(s for s in guides if s["slug"] == "pack-rice-24-servings-cost")
+        if len(guides) > 6:
+            guides = guides[:6]
+        self.assertIn(guide, guides)
+        markup = category_guide_navigation(category, guides)
+        first_link = markup.index('class="intent-card"')
+        self.assertIn('href="../../guides/pack-rice-24-servings-cost/"', markup[first_link:first_link+130])
+        without = category_guide_navigation(category, [s for s in guides if s != guide])
+        self.assertNotIn('href="../../guides/pack-rice-24-servings-cost/"', without)
+        self.assertNotIn("24食セットの比較ページでは", without)
 
     def test_empty_inventory_renders_no_planner(self):
         self.assertEqual(render_planner([], NOW), "")
