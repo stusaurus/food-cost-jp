@@ -32,8 +32,8 @@ class WaterServerCompareTests(unittest.TestCase):
         page = w.page()
         self.assertIn('fields.forEach(id => {', page)
         self.assertIn('results.classList.remove("visible");', page)
-        self.assertIn('$(id).addEventListener("input", invalidate);', page)
-        self.assertIn('$(id).addEventListener("change", invalidate);', page)
+        self.assertIn('$(id).addEventListener("input", () => { invalidate(); clearSource(); });', page)
+        self.assertIn('$(id).addEventListener("change", () => { invalidate(); clearSource(); });', page)
         self.assertIn('fields.some(id => !$(id).checkValidity())', page)
         self.assertIn("金額・ケース本数は整数で入力してください", page)
         self.assertEqual(page.count(w.A8_EVERY_FRECIOUS_AD), 1)
@@ -52,6 +52,65 @@ class WaterServerCompareTests(unittest.TestCase):
         self.assertIn('amount / used', page)
         self.assertIn('月ごとの支払額は均等ではありません', page)
         # Keep the independent source-owned A8 creative, not guessed plan rates.
+        self.assertEqual(page.count(w.A8_EVERY_FRECIOUS_AD), 1)
+
+    def test_verified_water_offer_selector_uses_only_safe_exact_prices_and_sizes(self):
+        from datetime import datetime
+        base = {
+            "name": "送料込2L水 <特価>",
+            "id": "shop:2l",
+            "price": 1836,
+            "url": "https://hb.afl.rakuten.co.jp/hgc/valid/?pc=safe",
+            "postage_included": True, "shipping_status": "included",
+            "quantity": {"count": 12, "unit_volume_ml": 2000,
+                         "total_volume_ml": 24000, "confidence": 0.99},
+        }
+        other_size = {**base, "name": "500ml×48本",
+                      "id": "shop:500ml", "price": 2610,
+                      "quantity": {"count": 48, "unit_volume_ml": 500,
+                                   "total_volume_ml": 24000, "confidence": 0.99}}
+        expensive_same_size = {**base, "name": "同容量で高い",
+                               "price": 1888}
+        not_included = {**base, "name": "送料不明", "price": 100,
+                        "postage_included": False, "shipping_status": "unknown"}
+        wrong_total = {**base, "name": "本数不一致", "price": 100,
+                       "quantity": {"count": 24, "unit_volume_ml": 2000,
+                                    "total_volume_ml": 24000, "confidence": 0.99}}
+        low_confidence = {**base, "name": "数量不確定", "price": 100,
+                          "quantity": {"count": 12, "unit_volume_ml": 2000,
+                                       "total_volume_ml": 24000, "confidence": 0.2}}
+        invalid_link = {**base, "name": "非楽天リンク", "price": 100,
+                        "url": "https://example.com/wrong"}
+        page = w.page(water_offers=[
+            not_included, wrong_total, low_confidence, invalid_link,
+            expensive_same_size, other_size, base
+        ], checked_at=datetime(2026, 11, 21, 8, 39))
+        self.assertEqual(page.count("data-water-offer data-bottle-liters="), 2)
+        self.assertIn("2026-11-21 08:39 JST", page)
+        self.assertIn('data-bottle-liters="2" data-case-count="12" data-case-price="1836"', page)
+        self.assertIn('data-bottle-liters="0.5" data-case-count="48" data-case-price="2610"', page)
+        self.assertIn("¥1,836／購入セット", page)
+        self.assertIn("¥76.5／L", page)
+        self.assertIn("送料込2L水 &lt;特価&gt;", page)
+        for removed in ("送料不明", "本数不一致", "数量不確定", "非楽天リンク", "同容量で高い"):
+            self.assertNotIn(removed, page)
+        self.assertEqual(page.count('data-water-rakuten-offer'), 2)
+        self.assertIn('rel="nofollow sponsored noopener"', page)
+        self.assertEqual(page.count(w.A8_EVERY_FRECIOUS_AD), 1)
+        self.assertIn('window.gtag("event", "water_offer_prefill"', page)
+        self.assertIn('click_position: "water_cost_verified_offer"', page)
+
+    def test_no_valid_water_offers_keep_manual_planner_without_fabricated_prices(self):
+        page = w.page(water_offers=[{
+            "name": "送料別の格安水", "price": 100,
+            "postage_included": False, "shipping_status": "unknown",
+            "quantity": {"count": 12, "unit_volume_ml": 2000, "total_volume_ml": 24000},
+            "url": "https://hb.afl.rakuten.co.jp/hgc/valid/"
+        }])
+        self.assertNotIn('data-water-offer data-bottle-liters=', page)
+        self.assertNotIn("送料別の格安水", page)
+        self.assertIn('id="calculate"', page)
+        self.assertIn('id="example"', page)
         self.assertEqual(page.count(w.A8_EVERY_FRECIOUS_AD), 1)
 
     def test_reuses_the_existing_ga4_head_in_generated_page(self):
