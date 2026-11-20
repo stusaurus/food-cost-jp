@@ -92,6 +92,43 @@ def render_planner(items: list[dict], updated: datetime) -> str:
     if not eligible:
         return ""
 
+    # Make the different buying outcomes explicit without changing the ranking or
+    # showing unverified offers. Both comparisons use the same verified 24-pack set.
+    best_per_meal = min(eligible, key=lambda x: x["price"] / 24)
+    best_per_weight = min(
+        eligible,
+        key=lambda x: x["price"] / (24 * float(x["quantity"]["unit_weight_g"]) / 100),
+    )
+
+    def criterion_card(label: str, item: dict, metric: str) -> str:
+        grams = float(item["quantity"]["unit_weight_g"])
+        price = item["price"]
+        per_meal = price / 24
+        per_100g = price / (24 * grams / 100)
+        main = f"¥{per_meal:,.1f}／食" if metric == "meal" else f"¥{per_100g:,.1f}／100g"
+        return (
+            '<div class="rice-planner-criterion">'
+            f'<span>{html.escape(label)}</span><strong>{main}</strong>'
+            f'<small>1食{grams:g}g・24食箱 ¥{price:,}・'
+            f'{"100g ¥" + format(per_100g, ",.1f") if metric == "meal" else "1食 ¥" + format(per_meal, ",.1f")}</small>'
+            '</div>'
+        )
+
+    same_offer = best_per_meal["id"] == best_per_weight["id"]
+    criteria_note = (
+        "掲載商品の中では同じ24食セットが両基準で最安です。"
+        if same_offer else "掲載商品の中では、1食単価と100g単価で最安の24食セットが異なります。"
+    )
+    criteria_html = (
+        '<div class="rice-planner-criteria" aria-label="24食セットの価格比較基準">'
+        + criterion_card("1食あたりの支払額が最も低い", best_per_meal, "meal")
+        + criterion_card("100gに換算した単価が最も低い", best_per_weight, "weight")
+        + '</div>'
+        + f'<p class="rice-planner-criteria-note">{criteria_note}'
+        '1食の重さが異なるため、食べる量と購入箱数も確認してください。'
+        '送料込み対象の取得時点の価格で比較しており、配送先別の最終支払額は販売店で確認してください。</p>'
+    )
+
     options = []
     for rank, item in enumerate(eligible, 1):
         count, price = item["quantity"]["count"], item["price"]
@@ -118,6 +155,7 @@ def render_planner(items: list[dict], updated: datetime) -> str:
   <h2 id="rice-planner-title">24食のパックご飯、うちでは何日持つ？</h2>
   <p>1日に使う食数を入力すると、30日分の必要箱数・購入総額・残る食数を計算します。
   商品ごとに1食の重さが違うため、容量も合わせて確認できます。</p>
+  {criteria_html}
 </div>
 <div class="rice-planner-body">
   <form class="rice-planner-form" data-rice-planner-form novalidate>
