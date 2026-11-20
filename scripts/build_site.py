@@ -1097,13 +1097,14 @@ def category_insights_html(category: dict, items: list[dict]) -> str:
     best = ordered[0]["unit_prices"][metric]
     third = ordered[min(2, len(ordered)-1)]["unit_prices"][metric]
     cheapest_total = min(items, key=lambda x: x["price"])
-    large_items = [x for x in items if bucket(x, category["id"]) == "large"]
+    large_items = [x for x in items if shopping_bucket(x, category["id"]) == "large"]
     large_best = min(large_items, key=lambda x: x["unit_prices"][metric]) if large_items else None
     diff = max(0, third - best)
+    large_label = "合計12L超" if category["id"] in {"carbonated-water", "mineral-water"} else "大容量側"
     large_html = (
-        f"""<div class="insight-card"><span>大容量側の注目</span><strong>{yen(large_best["unit_prices"][metric])}</strong><small>{html.escape(category["primary_label"])}</small></div>"""
+        f"""<div class="insight-card"><span>{large_label}の注目</span><strong>{yen(large_best["unit_prices"][metric])}</strong><small>{html.escape(category["primary_label"])}</small></div>"""
         if large_best else
-        """<div class="insight-card"><span>大容量側</span><strong>—</strong><small>現在候補なし</small></div>"""
+        f"""<div class="insight-card"><span>{large_label}</span><strong>—</strong><small>現在候補なし</small></div>"""
     )
     return f"""<section class="section insight-section">
 <div class="section-kicker">PRICE SNAPSHOT</div>
@@ -1342,8 +1343,15 @@ def item_badges(item: dict, category: dict, rank: int) -> str:
         badges.append('<span class="tag best">最安候補</span>')
     elif rank <= 3 and item["postage_included"]:
         badges.append('<span class="tag top-badge">TOP3</span>')
-    size = bucket(item, category["id"])
-    if size == "small":
+    # A small bottle can still be a large 48-bottle purchase. Badges describe
+    # total shopping/storage volume, while the size filter keeps bottle-size units.
+    size = shopping_bucket(item, category["id"])
+    if category["id"] in {"carbonated-water", "mineral-water"}:
+        if size == "small":
+            badges.append('<span class="tag lifestyle">合計12L以下</span>')
+        elif size == "large":
+            badges.append('<span class="tag lifestyle">合計12L超</span>')
+    elif size == "small":
         badges.append('<span class="tag lifestyle">少量向き</span>')
     elif size == "large":
         badges.append('<span class="tag lifestyle">まとめ買い向き</span>')
