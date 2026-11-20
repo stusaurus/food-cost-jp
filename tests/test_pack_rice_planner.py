@@ -145,7 +145,7 @@ class PlannerTests(unittest.TestCase):
         page = guide_page(spec, category, items, NOW)
         self.assertEqual(page.count('id="pack-rice-planner"'), 1)
         self.assertLess(page.index('id="pack-rice-planner"'), page.index('<section class="section podium-section">'))
-        self.assertIn('<title>パックご飯24食のコスパ比較｜食品コスパ比較</title>', page)
+        self.assertIn('<title>パックご飯24食のコスパ比較｜必要箱数と1食・100g単価｜食品コスパ比較</title>', page)
         self.assertIn('<meta name="robots" content="index,follow">', page)
         self.assertIn('href="../../assets/pack-rice-planner.css"', page)
         self.assertIn('src="../../assets/pack-rice-planner.js"', page)
@@ -170,6 +170,9 @@ class PlannerTests(unittest.TestCase):
         page = guide_page(spec, category, [offer(1), offer(2), offer(3)], NOW)
         self.assertIn(f'<meta name="description" content="{spec["description"]}">', page)
         self.assertIn(f'<p class="lead">{spec["intro"]}</p>', page)
+        self.assertIn('<h1>パックご飯24食の1食・100g単価と必要箱数を比較</h1>', page)
+        self.assertIn('30日分の必要箱数を計算', page)
+        self.assertIn('確認済み商品がある場合は購入総額も確認できます。', page)
         self.assertIn('id="pack-rice-planner"', page)
         self.assertIn('data-rice-stock-input', page)
         self.assertIn('rel="canonical"', page)
@@ -181,6 +184,8 @@ class PlannerTests(unittest.TestCase):
         self.assertIn(f'<meta name="description" content="{spec["description"]}">', without_offers)
         self.assertNotIn('id="pack-rice-planner"', without_offers)
         self.assertIn('data-rice-quantity-only', without_offers)
+        self.assertIn('<h1>パックご飯24食の1食・100g単価と必要箱数を比較</h1>', without_offers)
+        self.assertIn('確認済み商品がある場合は購入総額も確認できます。', without_offers)
 
         # Other guides still derive their description from their published intro.
         rice = next(x for x in CATEGORIES if x["id"] == "rice")
