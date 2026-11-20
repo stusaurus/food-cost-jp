@@ -60,7 +60,10 @@ def verified_water_offer_markup(offers=None, checked_at=None):
             f'<button type="button" data-water-offer data-bottle-liters="{volume_l:g}"'
             f' data-case-count="{count}" data-case-price="{price}">この掲載商品を入力する</button>'
             f'<a href="{url}" target="_blank" rel="nofollow sponsored noopener"'
-            f' data-water-rakuten-offer data-product-id="{product_id}">楽天で条件を確認</a>'
+            f' data-water-rakuten-offer data-product-id="{product_id}"'
+            f' data-affiliate="rakuten" data-position="water_cost_verified_offer"'
+            f' data-category="mineral-water" data-metric="per_liter"'
+            f' data-unit-price="{per_liter:.6f}" data-shipping="included">楽天で条件を確認</a>'
             '</article>'
         )
     return (
