@@ -1971,6 +1971,10 @@ def category_guide_navigation(category: dict, published_guides: list[dict] | Non
     ][:6]
     if not guides:
         return ''
+    # GSC has recorded search visibility for the 24-serving guide. Surface its
+    # existing stock/payment planner first, only when this guide is published.
+    if category['id'] == 'pack-rice':
+        guides.sort(key=lambda spec: 0 if spec['slug'] == 'pack-rice-24-servings-cost' else 1)
     # The 24-serving guide already contains the quantity/payment planner.
     # Advertise it only when the inventory-backed guide is actually published.
     planner_available = (category['id'] == 'pack-rice' and any(
