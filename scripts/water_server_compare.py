@@ -311,7 +311,7 @@ $("calculate").addEventListener("click", () => {
   }) + "円／L";
   $("bottle-effective").textContent = "使用予定1Lあたり " + usedLiterPrice(bottledYear);
   $("server-effective").textContent = "使用予定1Lあたり " + usedLiterPrice(serverYear);
-  $("bottle-count").textContent = bottles + "本（" + cases + "購入セット）";
+  $("bottle-count").textContent = bottles + "本（" + cases + "セット購入）";
   $("purchased-liters").textContent = litersText(purchased);
   $("used-liters").textContent = litersText(used);
   $("leftover-liters").textContent = litersText(Math.max(0,purchased-used));
