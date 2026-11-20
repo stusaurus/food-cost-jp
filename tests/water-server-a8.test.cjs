@@ -39,6 +39,10 @@ test('real water calculator works with precise annual purchase count and honest 
   const text = id => b.document.getElementById(id).textContent;
   assert.equal(text('bottle-year'), '43,200円');
   assert.equal(text('server-year'), '42,000円');
+  assert.equal(text('bottle-monthly'), '月平均 3,600円');
+  assert.equal(text('server-monthly'), '月平均 3,500円');
+  assert.equal(text('bottle-effective'), '使用予定1Lあたり 75.0円／L');
+  assert.equal(text('server-effective'), '使用予定1Lあたり 72.9円／L');
   assert.equal(text('bottle-count'), '288本（48ケース）');
   assert.equal(text('purchased-liters'), '576L');
   assert.equal(text('used-liters'), '576L');
@@ -50,6 +54,58 @@ test('real water calculator works with precise annual purchase count and honest 
   assert.equal(text('bottle-year'), '43,200円');
   assert.match(text('verdict'), /ペットボトルが年間/);
   b.dom.window.close();
+});
+
+test('hypothetical trial is one tap, fully disclosed, and cannot imply a current seller quote', () => {
+  const b = boot('');
+  try {
+    const warning = b.document.getElementById('example-warning');
+    assert.equal(warning.hidden, true);
+    assert.ok(!b.document.getElementById('results').classList.contains('visible'));
+    b.click('example');
+    const text = id => b.document.getElementById(id).textContent;
+    assert.equal(b.document.getElementById('liters').value, '48');
+    assert.equal(b.document.getElementById('bottle-liters').value, '2');
+    assert.equal(b.document.getElementById('case-count').value, '6');
+    assert.equal(b.document.getElementById('case-price').value, '900');
+    assert.equal(b.document.getElementById('monthly-fee').value, '3000');
+    assert.equal(warning.hidden, false);
+    assert.match(warning.textContent, /仮の数値/);
+    assert.match(warning.textContent, /現在の販売価格・各社の契約料金ではありません/);
+    assert.equal(text('bottle-year'), '43,200円');
+    assert.equal(text('server-year'), '42,000円');
+    assert.equal(text('bottle-effective'), '使用予定1Lあたり 75.0円／L');
+    assert.ok(b.document.getElementById('results').classList.contains('visible'));
+    const fee = b.document.getElementById('monthly-fee');
+    fee.value = '8000';
+    fee.dispatchEvent(new b.dom.window.Event('input', { bubbles: true }));
+    assert.ok(!b.document.getElementById('results').classList.contains('visible'));
+    assert.equal(warning.hidden, false, 'Always keep the trial-rate disclaimer visible after edits');
+    b.click('calculate');
+    assert.equal(text('server-year'), '102,000円');
+    assert.equal(text('server-monthly'), '月平均 8,500円');
+    assert.equal(b.events.filter(ev => ev[1] === 'affiliate_click').length, 0);
+  } finally { b.dom.window.close(); }
+});
+
+test('fractional-case annual rounding is not disguised as uniform monthly payment', () => {
+  const b = boot();
+  try {
+    fillTypical(b);
+    b.set('liters', '35');
+    b.click('calculate');
+    const text = id => b.document.getElementById(id).textContent;
+    // 35L/month -> 420L/year -> 35 x 12L cases x 900 yen.
+    assert.equal(text('bottle-year'), '31,500円');
+    assert.equal(text('bottle-monthly'), '月平均 2,625円');
+    assert.equal(text('bottle-effective'), '使用予定1Lあたり 75.0円／L');
+    assert.match(b.document.querySelector('#results .muted').textContent, /月ごとの支払額は均等ではありません/);
+    b.set('liters', '35.1');
+    b.click('calculate');
+    assert.equal(text('bottle-count'), '216本（36ケース）');
+    assert.equal(text('bottle-year'), '32,400円');
+    assert.equal(text('bottle-monthly'), '月平均 2,700円');
+  } finally { b.dom.window.close(); }
 });
 
 test('changing annual cost inputs hides stale results until explicitly recalculated', () => {

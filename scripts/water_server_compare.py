@@ -44,6 +44,10 @@ input:focus-visible,a:focus-visible{outline:3px solid #88a992;outline-offset:3px
 small,.muted{color:var(--muted);font-size:12px}
 .notice{padding:12px;border-radius:9px;background:#f2eee1;font-size:13px}
 button{border:0;border-radius:12px;background:var(--green);color:white;font-size:16px;font-weight:800;padding:13px 25px;min-height:48px;cursor:pointer}
+.calculate-actions{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+#example{background:white;color:var(--green);border:1px solid var(--green)}
+.metric .cost-detail{display:block;line-height:1.7;margin-top:4px}
+#example-warning{margin-top:12px}
 .results{display:none}.results.visible{display:block}
 .metrics{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 .metric{padding:15px;border:1px solid var(--line);border-radius:12px;background:white}
@@ -89,13 +93,17 @@ ul{padding-left:24px}li{margin:9px 0}
 <p class="muted">解約違約金・最低注文量・配送料・メンテナンス料などは、該当する場合に入力費用へ含めてください。水道直結型や浄水型は水源・水道料金・フィルター条件が異なるため、契約条件を確認してください。</p>
 </section>
 <section class="box">
+<div class="calculate-actions">
 <button id="calculate" type="button">年間支払額を比較する</button>
+<button id="example" type="button">仮の入力例で試す</button>
+</div>
+<p id="example-warning" class="notice" hidden>※これは計算方法を確かめるための仮の数値です。現在の販売価格・各社の契約料金ではありません。ご自身の購入先・契約先の最新条件に入力し直して判断してください。</p>
 <p id="error" class="notice" role="status" aria-live="polite">数値を入力すると比較できます。入力内容は外部に送信しません。</p>
 <div id="results" class="results" aria-live="polite">
 <h2>12か月の比較結果</h2>
 <div class="metrics">
-<div class="metric"><small>ペットボトルの年間購入額</small><strong id="bottle-year"></strong></div>
-<div class="metric"><small>サーバーの年間支払額</small><strong id="server-year"></strong></div>
+<div class="metric"><small>ペットボトルの年間購入額</small><strong id="bottle-year"></strong><small id="bottle-monthly" class="cost-detail"></small><small id="bottle-effective" class="cost-detail"></small></div>
+<div class="metric"><small>サーバーの年間支払額</small><strong id="server-year"></strong><small id="server-monthly" class="cost-detail"></small><small id="server-effective" class="cost-detail"></small></div>
 </div>
 <p id="verdict" class="notice"></p>
 <div class="table-wrap"><table><tbody>
@@ -105,7 +113,7 @@ ul{padding-left:24px}li{margin:9px 0}
 <tr><th scope="row">ペットボトルの余剰</th><td id="leftover-liters"></td></tr>
 <tr><th scope="row">サーバー年間固定・追加費用</th><td id="server-fixed"></td></tr>
 </tbody></table></div>
-<p class="muted">飲み水だけを比べています。温水の利便性、電源・設置面積、水の種類や味は比較に含めていません。</p>
+<p class="muted">月平均は年間支払額を12で割った参考値です。ケースは必要数を年間で切り上げるため、実際の月ごとの支払額は均等ではありません。1Lあたりの額は年間購入量ではなく年間使用予定量を基準に算出します。温水の利便性、電源・設置面積、水の種類や味は比較に含めていません。</p>
 </div>
 </section>
 <section class="box sponsor-box" id="a8-every-frecious-ad" aria-label="広告・ウォーターサーバー">
@@ -159,6 +167,17 @@ fields.forEach(id => {
   $(id).addEventListener("input", invalidate);
   $(id).addEventListener("change", invalidate);
 });
+// Example inputs are deliberately hypothetical. Never present them as vendor prices.
+$("example").addEventListener("click", () => {
+  const sample = {
+    "liters": 48, "bottle-liters": 2, "case-count": 6,
+    "case-price": 900, "case-shipping": 0, "monthly-fee": 3000,
+    "server-per-liter": 0, "electric": 500, "upfront": 0
+  };
+  Object.entries(sample).forEach(([id, value]) => { $(id).value = String(value); });
+  $("example-warning").hidden = false;
+  $("calculate").click();
+});
 $("calculate").addEventListener("click", () => {
   results.classList.remove("visible");
   const inputs = Object.fromEntries(fields.map(id => [id, Number($(id).value)]));
@@ -184,6 +203,13 @@ $("calculate").addEventListener("click", () => {
   }
   $("bottle-year").textContent = money(bottledYear);
   $("server-year").textContent = money(serverYear);
+  $("bottle-monthly").textContent = "月平均 " + money(bottledYear / 12);
+  $("server-monthly").textContent = "月平均 " + money(serverYear / 12);
+  const usedLiterPrice = amount => (amount / used).toLocaleString("ja-JP", {
+    minimumFractionDigits: 1, maximumFractionDigits: 1
+  }) + "円／L";
+  $("bottle-effective").textContent = "使用予定1Lあたり " + usedLiterPrice(bottledYear);
+  $("server-effective").textContent = "使用予定1Lあたり " + usedLiterPrice(serverYear);
   $("bottle-count").textContent = bottles + "本（" + cases + "ケース）";
   $("purchased-liters").textContent = litersText(purchased);
   $("used-liters").textContent = litersText(used);
