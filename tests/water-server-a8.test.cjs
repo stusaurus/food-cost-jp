@@ -43,7 +43,7 @@ test('real water calculator works with precise annual purchase count and honest 
   assert.equal(text('server-monthly'), '月平均 3,500円');
   assert.equal(text('bottle-effective'), '使用予定1Lあたり 75.0円／L');
   assert.equal(text('server-effective'), '使用予定1Lあたり 72.9円／L');
-  assert.equal(text('bottle-count'), '288本（48ケース）');
+  assert.equal(text('bottle-count'), '288本（48セット購入）');
   assert.equal(text('purchased-liters'), '576L');
   assert.equal(text('used-liters'), '576L');
   assert.match(text('verdict'), /サーバーが年間1,200円安い/);
@@ -102,7 +102,7 @@ test('fractional-case annual rounding is not disguised as uniform monthly paymen
     assert.match(b.document.querySelector('#results .muted').textContent, /月ごとの支払額は均等ではありません/);
     b.set('liters', '35.1');
     b.click('calculate');
-    assert.equal(text('bottle-count'), '216本（36ケース）');
+    assert.equal(text('bottle-count'), '216本（36セット購入）');
     assert.equal(text('bottle-year'), '32,400円');
     assert.equal(text('bottle-monthly'), '月平均 2,700円');
   } finally { b.dom.window.close(); }
@@ -147,6 +147,65 @@ test('fractional yen input is rejected instead of silently rounding checkout cos
     b.click('calculate');
     assert.ok(results.classList.contains('visible'));
     assert.equal(b.document.getElementById('bottle-year').textContent, '43,200円');
+  } finally { b.dom.window.close(); }
+});
+
+test('verified water seller offers prefill exact unit price without fabricated delivery charges', () => {
+  const b = boot('?test=1');
+  try {
+    const cards = [...b.document.querySelectorAll('[data-water-offer]')];
+    assert.ok(cards.length >= 2, 'Saved snapshot must publish both verified 2L and 500ml water options');
+    const twoLiter = cards.find(el => el.dataset.bottleLiters === '2');
+    const halfLiter = cards.find(el => el.dataset.bottleLiters === '0.5');
+    assert.ok(twoLiter);
+    assert.ok(halfLiter);
+    assert.ok(Number.isInteger(Number(twoLiter.dataset.caseCount)));
+    assert.ok(Number.isInteger(Number(twoLiter.dataset.casePrice)));
+    const source = b.document.getElementById('bottle-source-note');
+    assert.equal(source.hidden, true);
+    fillTypical(b);
+    b.click('calculate');
+    assert.equal(b.document.getElementById('bottle-year').textContent, '43,200円');
+    twoLiter.click();
+    assert.equal(source.hidden, false);
+    assert.ok(!b.document.getElementById('results').classList.contains('visible'));
+    assert.equal(b.document.getElementById('bottle-liters').value, twoLiter.dataset.bottleLiters);
+    assert.equal(b.document.getElementById('case-count').value, twoLiter.dataset.caseCount);
+    assert.equal(b.document.getElementById('case-price').value, twoLiter.dataset.casePrice);
+    assert.equal(b.document.getElementById('case-shipping').value, '0');
+    b.click('calculate');
+    const count = Number(twoLiter.dataset.caseCount);
+    const value = Number(twoLiter.dataset.casePrice);
+    const expectedSets = Math.ceil(48 * 12 / (2 * count));
+    assert.equal(b.document.getElementById('bottle-year').textContent,
+      (expectedSets * value).toLocaleString('ja-JP') + '円');
+    assert.equal(b.document.getElementById('bottle-count').textContent,
+      expectedSets * count + '本（' + expectedSets + 'セット購入）');
+    assert.equal(b.events.filter(ev => ev[1] === 'water_offer_prefill').length, 1);
+    assert.equal(b.events.find(ev => ev[1] === 'water_offer_prefill')[2].operator_test, '1');
+    assert.equal(b.events.filter(ev => ev[1] === 'affiliate_click').length, 0);
+
+    const manualPrice = b.document.getElementById('case-price');
+    manualPrice.value = String(Number(manualPrice.value) + 10);
+    manualPrice.dispatchEvent(new b.dom.window.Event('input', { bubbles: true }));
+    assert.equal(source.hidden, true, 'Do not attribute manually modified price to a merchant');
+    assert.ok(!b.document.getElementById('results').classList.contains('visible'));
+    const example = b.document.getElementById('example');
+    example.click();
+    assert.equal(source.hidden, true);
+    assert.equal(b.document.getElementById('example-warning').hidden, false);
+
+    const seller = b.document.querySelector('a[data-water-rakuten-offer]');
+    assert.ok(seller.getAttribute('href').startsWith('https://hb.afl.rakuten.co.jp/'));
+    assert.equal(seller.getAttribute('rel'), 'nofollow sponsored noopener');
+    seller.addEventListener('click', ev => ev.preventDefault());
+    seller.dispatchEvent(new b.dom.window.MouseEvent('click', { bubbles: true, cancelable: true }));
+    const outgoing = b.events.filter(ev => ev[1] === 'affiliate_click' && ev[2].affiliate === 'rakuten');
+    assert.equal(outgoing.length, 1);
+    assert.equal(outgoing[0][2].click_position, 'water_cost_verified_offer');
+    assert.equal(outgoing[0][2].operator_test, '1');
+    assert.equal(outgoing[0][2].conversion_source, 'water_server_cost_comparison');
+    assert.equal(outgoing[0][2].liters, undefined, 'Never send user water usage or price inputs to analytics');
   } finally { b.dom.window.close(); }
 });
 
