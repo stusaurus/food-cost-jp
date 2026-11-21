@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-21T10:32:12.956163+09:00",
+  "generated_at": "2026-11-21T10:38:06.954460+09:00",
   "categories": {
     "pack-rice": {
       "included": [
@@ -50862,120 +50862,6 @@
           }
         },
         {
-          "id": "misonoya:10097030",
-          "raw_name": "[ポイント5倍！11/25(水)1時59分まで全品対象エントリー&購入]ニチレイフーズ インド風 バターチキンカレー 180g×30袋入｜ 送料無料 一般食品 レトルト食品 カレー バター チキンカレー",
-          "name": "[ポイント5倍！11/25(水)1時59分まで全品対象エントリー&購入]ニチレイフーズ インド風 バターチキンカレー 180g×30袋入｜ 一般食品 レトルト食品 カレー バター チキンカレー",
-          "price": 7095,
-          "shop": "MISONOYA楽天市場店",
-          "url": "https://hb.afl.rakuten.co.jp/hgc/g00qrf9o.7cx6mf08.g00qrf9o.7cx6n813/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fmisonoya%2Fb34-57%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fmisonoya%2Fi%2F10097030%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
-          "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/misonoya/cabinet/13824372/b34-57_marathon.jpg?_ex=128x128",
-          "postage_included": false,
-          "shipping_status": "extra_or_unknown",
-          "quantity": {
-            "count": 30,
-            "component_counts": [
-              30
-            ],
-            "unit_weight_g": 180.0,
-            "total_weight_g": 5400.0,
-            "confidence": 0.99,
-            "evidence": "180gx30袋入"
-          },
-          "unit_prices": {
-            "per_serving": 236.5,
-            "per_100g": 131.38888888888889
-          },
-          "comparison_metric": "per_serving",
-          "unit_label": "1食あたり",
-          "quantity_label": "合計5.4kg / 30食",
-          "promotion_mentioned": true,
-          "price_history": {
-            "observed_days": 17,
-            "previous_date": "2026-11-20",
-            "previous_price": 7095,
-            "previous_unit": 236.5,
-            "previous_label": "昨日比",
-            "price_delta": 0,
-            "unit_delta": 0.0,
-            "percent_delta": 0.0,
-            "lowest_30d_unit": 236.5,
-            "highest_30d_unit": 236.5,
-            "lowest_7d_unit": 236.5,
-            "highest_7d_unit": 236.5,
-            "trend_7d": "stable",
-            "is_30d_low": true,
-            "series_7d": [
-              {
-                "date": "2026-11-20",
-                "price": 7095,
-                "unit": 236.5
-              },
-              {
-                "date": "2026-11-21",
-                "price": 7095,
-                "unit": 236.5
-              }
-            ],
-            "series_30d": [
-              {
-                "date": "2026-10-22",
-                "price": 7095,
-                "unit": 236.5
-              },
-              {
-                "date": "2026-10-23",
-                "price": 7095,
-                "unit": 236.5
-              },
-              {
-                "date": "2026-10-24",
-                "price": 7095,
-                "unit": 236.5
-              },
-              {
-                "date": "2026-10-28",
-                "price": 7095,
-                "unit": 236.5
-              },
-              {
-                "date": "2026-10-30",
-                "price": 7095,
-                "unit": 236.5
-              },
-              {
-                "date": "2026-11-02",
-                "price": 7095,
-                "unit": 236.5
-              },
-              {
-                "date": "2026-11-04",
-                "price": 7095,
-                "unit": 236.5
-              },
-              {
-                "date": "2026-11-05",
-                "price": 7095,
-                "unit": 236.5
-              },
-              {
-                "date": "2026-11-06",
-                "price": 7095,
-                "unit": 236.5
-              },
-              {
-                "date": "2026-11-20",
-                "price": 7095,
-                "unit": 236.5
-              },
-              {
-                "date": "2026-11-21",
-                "price": 7095,
-                "unit": 236.5
-              }
-            ]
-          }
-        },
-        {
           "id": "nozomi-market:10002556",
           "raw_name": "ハウス食品 ククレカレー 甘口 180g×30個入｜ 送料無料 一般食品 レトルト食品 カレー",
           "name": "ハウス食品 ククレカレー 甘口 180g×30個入｜ 一般食品 レトルト食品 カレー",
@@ -52517,24 +52403,268 @@
               }
             ]
           }
+        },
+        {
+          "id": "awajishima-imaifarm:10000024",
+          "raw_name": "【BF限定5％OFFクーポン対象】淡路島たまねぎと淡路牛のカレー200g×10個（中辛）＃淡路カレ−10食＃ カレー 今井ファーム レトルトカレー 10個 10食 セット 通販 ギフト プレゼント 自宅用 家庭用 グルメ レトルト 淡路島",
+          "name": "【BF限定5％OFFクーポン対象】淡路島たまねぎと淡路牛のカレー200g×10個（中辛）＃淡路カレ−10食＃ カレー 今井ファーム レトルトカレー 10個 10食 セット 通販 ギフト プレゼント 自宅用 家庭用 グルメ レトルト 淡路島",
+          "price": 3000,
+          "shop": "淡路島たまねぎ今井ファーム2号店",
+          "url": "https://hb.afl.rakuten.co.jp/hgc/g00ujcio.7cx6me59.g00ujcio.7cx6n245/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fawajishima-imaifarm%2Fkarei-10%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fawajishima-imaifarm%2Fi%2F10000024%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
+          "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/awajishima-imaifarm/cabinet/curry/curry_10.jpg?_ex=128x128",
+          "postage_included": false,
+          "shipping_status": "extra_or_unknown",
+          "quantity": {
+            "count": 10,
+            "component_counts": [
+              10
+            ],
+            "unit_weight_g": 200.0,
+            "total_weight_g": 2000.0,
+            "confidence": 0.99,
+            "evidence": "200gx10個"
+          },
+          "unit_prices": {
+            "per_serving": 300.0,
+            "per_100g": 150.0
+          },
+          "comparison_metric": "per_serving",
+          "unit_label": "1食あたり",
+          "quantity_label": "合計2kg / 10食",
+          "promotion_mentioned": true,
+          "price_history": {
+            "observed_days": 45,
+            "previous_date": "2026-11-20",
+            "previous_price": 3000,
+            "previous_unit": 300.0,
+            "previous_label": "昨日比",
+            "price_delta": 0,
+            "unit_delta": 0.0,
+            "percent_delta": 0.0,
+            "lowest_30d_unit": 300.0,
+            "highest_30d_unit": 300.0,
+            "lowest_7d_unit": 300.0,
+            "highest_7d_unit": 300.0,
+            "trend_7d": "stable",
+            "is_30d_low": true,
+            "series_7d": [
+              {
+                "date": "2026-11-14",
+                "price": 3000,
+                "unit": 300.0
+              },
+              {
+                "date": "2026-11-15",
+                "price": 3000,
+                "unit": 300.0
+              },
+              {
+                "date": "2026-11-16",
+                "price": 3000,
+                "unit": 300.0
+              },
+              {
+                "date": "2026-11-17",
+                "price": 3000,
+                "unit": 300.0
+              },
+              {
+                "date": "2026-11-18",
+                "price": 3000,
+                "unit": 300.0
+              },
+              {
+                "date": "2026-11-19",
+                "price": 3000,
+                "unit": 300.0
+              },
+              {
+                "date": "2026-11-20",
+                "price": 3000,
+                "unit": 300.0
+              },
+              {
+                "date": "2026-11-21",
+                "price": 3000,
+                "unit": 300.0
+              }
+            ],
+            "series_30d": [
+              {
+                "date": "2026-10-22",
+                "price": 3000,
+                "unit": 300.0
+              },
+              {
+                "date": "2026-10-23",
+                "price": 3000,
+                "unit": 300.0
+              },
+              {
+                "date": "2026-10-24",
+                "price": 3000,
+                "unit": 300.0
+              },
+              {
+                "date": "2026-10-25",
+                "price": 3000,
+                "unit": 300.0
+              },
+              {
+                "date": "2026-10-26",
+                "price": 3000,
+                "unit": 300.0
+              },
+              {
+                "date": "2026-10-27",
+                "price": 3000,
+                "unit": 300.0
+              },
+              {
+                "date": "2026-10-28",
+                "price": 3000,
+                "unit": 300.0
+              },
+              {
+                "date": "2026-10-29",
+                "price": 3000,
+                "unit": 300.0
+              },
+              {
+                "date": "2026-10-30",
+                "price": 3000,
+                "unit": 300.0
+              },
+              {
+                "date": "2026-10-31",
+                "price": 3000,
+                "unit": 300.0
+              },
+              {
+                "date": "2026-11-01",
+                "price": 3000,
+                "unit": 300.0
+              },
+              {
+                "date": "2026-11-02",
+                "price": 3000,
+                "unit": 300.0
+              },
+              {
+                "date": "2026-11-03",
+                "price": 3000,
+                "unit": 300.0
+              },
+              {
+                "date": "2026-11-04",
+                "price": 3000,
+                "unit": 300.0
+              },
+              {
+                "date": "2026-11-05",
+                "price": 3000,
+                "unit": 300.0
+              },
+              {
+                "date": "2026-11-06",
+                "price": 3000,
+                "unit": 300.0
+              },
+              {
+                "date": "2026-11-07",
+                "price": 3000,
+                "unit": 300.0
+              },
+              {
+                "date": "2026-11-08",
+                "price": 3000,
+                "unit": 300.0
+              },
+              {
+                "date": "2026-11-09",
+                "price": 3000,
+                "unit": 300.0
+              },
+              {
+                "date": "2026-11-10",
+                "price": 3000,
+                "unit": 300.0
+              },
+              {
+                "date": "2026-11-11",
+                "price": 3000,
+                "unit": 300.0
+              },
+              {
+                "date": "2026-11-12",
+                "price": 3000,
+                "unit": 300.0
+              },
+              {
+                "date": "2026-11-13",
+                "price": 3000,
+                "unit": 300.0
+              },
+              {
+                "date": "2026-11-14",
+                "price": 3000,
+                "unit": 300.0
+              },
+              {
+                "date": "2026-11-15",
+                "price": 3000,
+                "unit": 300.0
+              },
+              {
+                "date": "2026-11-16",
+                "price": 3000,
+                "unit": 300.0
+              },
+              {
+                "date": "2026-11-17",
+                "price": 3000,
+                "unit": 300.0
+              },
+              {
+                "date": "2026-11-18",
+                "price": 3000,
+                "unit": 300.0
+              },
+              {
+                "date": "2026-11-19",
+                "price": 3000,
+                "unit": 300.0
+              },
+              {
+                "date": "2026-11-20",
+                "price": 3000,
+                "unit": 300.0
+              },
+              {
+                "date": "2026-11-21",
+                "price": 3000,
+                "unit": 300.0
+              }
+            ]
+          }
         }
       ],
       "quality_audit": {
         "fetch_errors": 0,
         "queries": 5,
         "fetched": 150,
-        "normalized": 54,
+        "normalized": 55,
         "exact_duplicates": 3,
         "practical_duplicates": 0,
-        "accepted_unique": 51,
+        "accepted_unique": 52,
         "included_available": 15,
-        "shipping_unknown_available": 36,
+        "shipping_unknown_available": 37,
         "displayed_included": 15,
         "displayed_shipping_unknown": 20,
         "reasons": {
           "restricted_or_selectable_product": 46,
           "ambiguous_quantity": 26,
-          "wrong_product_type": 12,
+          "wrong_product_type": 11,
           "limited_purchase": 2,
           "missing_category_evidence": 10
         }
@@ -61279,242 +61409,6 @@
           }
         },
         {
-          "id": "ever-shop:10034201",
-          "raw_name": "農心　韓国　辛カップラーメン　68g×12個　【送料無料】本場韓国の辛さで人気の高い“うまからっ！”でおなじみ「辛ラーメン」。",
-          "name": "農心 韓国 辛カップラーメン 68g×12個 本場韓国の辛さで人気の高い“うまからっ！”でおなじみ「辛ラーメン」。",
-          "price": 2361,
-          "shop": "ディスカウントストア てんこもり",
-          "url": "https://hb.afl.rakuten.co.jp/hgc/g00t35ko.7cx6m8af.g00t35ko.7cx6n86b/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fever-shop%2F8801043030694%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fever-shop%2Fi%2F10034201%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
-          "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/ever-shop/cabinet/shokuhin2/8801043030694.jpg?_ex=128x128",
-          "postage_included": false,
-          "shipping_status": "extra_or_unknown",
-          "quantity": {
-            "count": 12,
-            "component_counts": [
-              12
-            ],
-            "confidence": 0.99,
-            "evidence": "12個"
-          },
-          "unit_prices": {
-            "per_serving": 196.75
-          },
-          "comparison_metric": "per_serving",
-          "unit_label": "1食あたり",
-          "quantity_label": "合計12食",
-          "promotion_mentioned": false,
-          "price_history": {
-            "observed_days": 42,
-            "previous_date": "2026-11-20",
-            "previous_price": 2361,
-            "previous_unit": 196.75,
-            "previous_label": "昨日比",
-            "price_delta": 0,
-            "unit_delta": 0.0,
-            "percent_delta": 0.0,
-            "lowest_30d_unit": 196.75,
-            "highest_30d_unit": 196.75,
-            "lowest_7d_unit": 196.75,
-            "highest_7d_unit": 196.75,
-            "trend_7d": "stable",
-            "is_30d_low": true,
-            "series_7d": [
-              {
-                "date": "2026-11-14",
-                "price": 2361,
-                "unit": 196.75
-              },
-              {
-                "date": "2026-11-15",
-                "price": 2361,
-                "unit": 196.75
-              },
-              {
-                "date": "2026-11-16",
-                "price": 2361,
-                "unit": 196.75
-              },
-              {
-                "date": "2026-11-17",
-                "price": 2361,
-                "unit": 196.75
-              },
-              {
-                "date": "2026-11-18",
-                "price": 2361,
-                "unit": 196.75
-              },
-              {
-                "date": "2026-11-19",
-                "price": 2361,
-                "unit": 196.75
-              },
-              {
-                "date": "2026-11-20",
-                "price": 2361,
-                "unit": 196.75
-              },
-              {
-                "date": "2026-11-21",
-                "price": 2361,
-                "unit": 196.75
-              }
-            ],
-            "series_30d": [
-              {
-                "date": "2026-10-22",
-                "price": 2361,
-                "unit": 196.75
-              },
-              {
-                "date": "2026-10-23",
-                "price": 2361,
-                "unit": 196.75
-              },
-              {
-                "date": "2026-10-24",
-                "price": 2361,
-                "unit": 196.75
-              },
-              {
-                "date": "2026-10-25",
-                "price": 2361,
-                "unit": 196.75
-              },
-              {
-                "date": "2026-10-26",
-                "price": 2361,
-                "unit": 196.75
-              },
-              {
-                "date": "2026-10-27",
-                "price": 2361,
-                "unit": 196.75
-              },
-              {
-                "date": "2026-10-28",
-                "price": 2361,
-                "unit": 196.75
-              },
-              {
-                "date": "2026-10-30",
-                "price": 2361,
-                "unit": 196.75
-              },
-              {
-                "date": "2026-10-31",
-                "price": 2361,
-                "unit": 196.75
-              },
-              {
-                "date": "2026-11-01",
-                "price": 2361,
-                "unit": 196.75
-              },
-              {
-                "date": "2026-11-02",
-                "price": 2361,
-                "unit": 196.75
-              },
-              {
-                "date": "2026-11-03",
-                "price": 2361,
-                "unit": 196.75
-              },
-              {
-                "date": "2026-11-04",
-                "price": 2361,
-                "unit": 196.75
-              },
-              {
-                "date": "2026-11-05",
-                "price": 2361,
-                "unit": 196.75
-              },
-              {
-                "date": "2026-11-06",
-                "price": 2361,
-                "unit": 196.75
-              },
-              {
-                "date": "2026-11-07",
-                "price": 2361,
-                "unit": 196.75
-              },
-              {
-                "date": "2026-11-08",
-                "price": 2361,
-                "unit": 196.75
-              },
-              {
-                "date": "2026-11-09",
-                "price": 2361,
-                "unit": 196.75
-              },
-              {
-                "date": "2026-11-10",
-                "price": 2361,
-                "unit": 196.75
-              },
-              {
-                "date": "2026-11-11",
-                "price": 2361,
-                "unit": 196.75
-              },
-              {
-                "date": "2026-11-12",
-                "price": 2361,
-                "unit": 196.75
-              },
-              {
-                "date": "2026-11-13",
-                "price": 2361,
-                "unit": 196.75
-              },
-              {
-                "date": "2026-11-14",
-                "price": 2361,
-                "unit": 196.75
-              },
-              {
-                "date": "2026-11-15",
-                "price": 2361,
-                "unit": 196.75
-              },
-              {
-                "date": "2026-11-16",
-                "price": 2361,
-                "unit": 196.75
-              },
-              {
-                "date": "2026-11-17",
-                "price": 2361,
-                "unit": 196.75
-              },
-              {
-                "date": "2026-11-18",
-                "price": 2361,
-                "unit": 196.75
-              },
-              {
-                "date": "2026-11-19",
-                "price": 2361,
-                "unit": 196.75
-              },
-              {
-                "date": "2026-11-20",
-                "price": 2361,
-                "unit": 196.75
-              },
-              {
-                "date": "2026-11-21",
-                "price": 2361,
-                "unit": 196.75
-              }
-            ]
-          }
-        },
-        {
           "id": "misono-support:10121994",
           "raw_name": "[ポイント5倍！11/25(水)1時59分まで全品対象エントリー&購入]日清食品 あっさりおいしいカップヌードル カレー 70g×20個入｜ 送料無料 ラーメン カップめん インスタント麺 即席 食品",
           "name": "[ポイント5倍！11/25(水)1時59分まで全品対象エントリー&購入]日清食品 あっさりおいしいカップヌードル カレー 70g×20個入｜ ラーメン カップめん インスタント麺 即席 食品",
@@ -61756,13 +61650,13 @@
           }
         },
         {
-          "id": "jetprice:10644730",
-          "raw_name": "サンヨー食品 サッポロ一番 カップスター 醤油 71g×12個 カップラーメン カップ麺 ラーメン インスタント レトルト 食品",
-          "name": "サンヨー食品 サッポロ一番 カップスター 醤油 71g×12個 カップラーメン カップ麺 ラーメン インスタント レトルト 食品",
+          "id": "misonoya:10092152",
+          "raw_name": "[ポイント5倍！11/25(水)1時59分まで全品対象エントリー&購入]農心ジャパン 辛カップラーメン 68g×12個入｜ 送料無料 インスタントラーメン 辛 即席",
+          "name": "[ポイント5倍！11/25(水)1時59分まで全品対象エントリー&購入]農心ジャパン 辛カップラーメン 68g×12個入｜ インスタントラーメン 辛 即席",
           "price": 2695,
-          "shop": "JET PRICE",
-          "url": "https://hb.afl.rakuten.co.jp/hgc/g00scpco.7cx6m330.g00scpco.7cx6n146/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fjetprice%2Fx749ms%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fjetprice%2Fi%2F10644730%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
-          "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/jetprice/cabinet/ak1/j961sc.jpg?_ex=128x128",
+          "shop": "MISONOYA楽天市場店",
+          "url": "https://hb.afl.rakuten.co.jp/hgc/g00qrf9o.7cx6mf08.g00qrf9o.7cx6n813/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fmisonoya%2Fa338-1%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fmisonoya%2Fi%2F10092152%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
+          "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/misonoya/cabinet/13818721/a338-1_marathon.jpg?_ex=128x128",
           "postage_included": false,
           "shipping_status": "extra_or_unknown",
           "quantity": {
@@ -61771,7 +61665,7 @@
               12
             ],
             "confidence": 0.99,
-            "evidence": "12個"
+            "evidence": "12個入"
           },
           "unit_prices": {
             "per_serving": 224.58333333333334
@@ -61779,9 +61673,9 @@
           "comparison_metric": "per_serving",
           "unit_label": "1食あたり",
           "quantity_label": "合計12食",
-          "promotion_mentioned": false,
+          "promotion_mentioned": true,
           "price_history": {
-            "observed_days": 37,
+            "observed_days": 32,
             "previous_date": "2026-11-20",
             "previous_price": 2695,
             "previous_unit": 224.58333333333334,
@@ -61798,11 +61692,6 @@
             "series_7d": [
               {
                 "date": "2026-11-14",
-                "price": 2695,
-                "unit": 224.58333333333334
-              },
-              {
-                "date": "2026-11-15",
                 "price": 2695,
                 "unit": 224.58333333333334
               },
@@ -61854,17 +61743,7 @@
                 "unit": 224.58333333333334
               },
               {
-                "date": "2026-10-25",
-                "price": 2695,
-                "unit": 224.58333333333334
-              },
-              {
                 "date": "2026-10-26",
-                "price": 2695,
-                "unit": 224.58333333333334
-              },
-              {
-                "date": "2026-10-27",
                 "price": 2695,
                 "unit": 224.58333333333334
               },
@@ -61874,12 +61753,17 @@
                 "unit": 224.58333333333334
               },
               {
+                "date": "2026-10-29",
+                "price": 2695,
+                "unit": 224.58333333333334
+              },
+              {
                 "date": "2026-10-30",
                 "price": 2695,
                 "unit": 224.58333333333334
               },
               {
-                "date": "2026-10-31",
+                "date": "2026-11-01",
                 "price": 2695,
                 "unit": 224.58333333333334
               },
@@ -61899,22 +61783,7 @@
                 "unit": 224.58333333333334
               },
               {
-                "date": "2026-11-05",
-                "price": 2695,
-                "unit": 224.58333333333334
-              },
-              {
                 "date": "2026-11-06",
-                "price": 2695,
-                "unit": 224.58333333333334
-              },
-              {
-                "date": "2026-11-07",
-                "price": 2695,
-                "unit": 224.58333333333334
-              },
-              {
-                "date": "2026-11-08",
                 "price": 2695,
                 "unit": 224.58333333333334
               },
@@ -61924,12 +61793,7 @@
                 "unit": 224.58333333333334
               },
               {
-                "date": "2026-11-10",
-                "price": 2695,
-                "unit": 224.58333333333334
-              },
-              {
-                "date": "2026-11-11",
+                "date": "2026-11-12",
                 "price": 2695,
                 "unit": 224.58333333333334
               },
@@ -61940,11 +61804,6 @@
               },
               {
                 "date": "2026-11-14",
-                "price": 2695,
-                "unit": 224.58333333333334
-              },
-              {
-                "date": "2026-11-15",
                 "price": 2695,
                 "unit": 224.58333333333334
               },
@@ -64708,19 +64567,19 @@
         "fetch_errors": 0,
         "queries": 3,
         "fetched": 90,
-        "normalized": 27,
+        "normalized": 26,
         "exact_duplicates": 0,
         "practical_duplicates": 0,
-        "accepted_unique": 27,
+        "accepted_unique": 26,
         "included_available": 7,
-        "shipping_unknown_available": 20,
+        "shipping_unknown_available": 19,
         "displayed_included": 7,
-        "displayed_shipping_unknown": 20,
+        "displayed_shipping_unknown": 19,
         "reasons": {
           "missing_category_evidence": 8,
-          "wrong_product_type": 27,
-          "ambiguous_quantity": 17,
-          "restricted_or_selectable_product": 11
+          "wrong_product_type": 26,
+          "ambiguous_quantity": 20,
+          "restricted_or_selectable_product": 10
         }
       }
     }
