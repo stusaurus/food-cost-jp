@@ -129,3 +129,36 @@ test('seller links are original, properly attributed, and do not leak input deta
     assert.equal(outgoing[0][2].daily_go,undefined);
   } finally { b.dom.window.close(); }
 });
+
+
+test('a missing verified seller pair keeps calculating kg and set counts, never inventing prices', () => {
+  const html = fs.readFileSync(page, 'utf8')
+    .replace(/<article class="offer" data-rice-offer[\s\S]*?<\/article>/g, '');
+  const events = [];
+  const dom = new JSDOM(html, {
+    url: 'https://stusaurus.github.io/food-cost-jp/guides/rice-5kg-10kg-household-plan/?test=1',
+    runScripts: 'dangerously',
+    beforeParse(window) { window.gtag = (...args) => events.push(args); }
+  });
+  try {
+    const doc = dom.window.document;
+    assert.equal(doc.getElementById('required-kg').textContent, '9kg');
+    assert.equal(doc.getElementById('five-sets').textContent, '5kgセット × 2');
+    assert.equal(doc.getElementById('ten-sets').textContent, '10kgセット × 1');
+    assert.equal(doc.getElementById('five-total').textContent, '価格比較は一時停止中');
+    assert.equal(doc.getElementById('ten-total').textContent, '価格比較は一時停止中');
+    assert.equal(doc.getElementById('best-total').textContent, '価格比較は一時停止中');
+    assert.equal(doc.querySelectorAll('[data-affiliate="rakuten"]').length, 0);
+    const input = doc.getElementById('go-day');
+    input.value = '3';
+    input.dispatchEvent(new dom.window.Event('input', { bubbles:true }));
+    doc.getElementById('calculate').click();
+    assert.equal(doc.getElementById('required-kg').textContent, '13.5kg');
+    assert.equal(doc.getElementById('five-sets').textContent, '5kgセット × 3');
+    assert.equal(doc.getElementById('results').hidden, false);
+    const event = events.find(x=>x[1]==='rice_household_plan');
+    assert.ok(event);
+    assert.equal(event[2].daily_go, undefined);
+    assert.equal(event[2].stock, undefined);
+  } finally { dom.window.close(); }
+});
