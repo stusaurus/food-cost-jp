@@ -187,10 +187,10 @@ def audit_site(site, previous=None):
     from water_server_compare import URL as WATER_COST_URL
     from meal_delivery_budget import URL as FAMILY_MEAL_BUDGET_URL
     expected={SITE_URL,SITE_URL+'deals/',WATER_COST_URL,FAMILY_MEAL_BUDGET_URL}|{SITE_URL+f'categories/{c}/' for c in eligible_categories(data)}|{SITE_URL+f'guides/{s["slug"]}/' for s in published}
-    from rice_household_planner import URL as RICE_HOUSEHOLD_URL, eligible_offers as eligible_household_offers
-    # Inventory, not observed HTML, determines whether this guide MUST be published.
-    if eligible_household_offers(data["categories"]["rice"].get("included", [])):
-        expected.add(RICE_HOUSEHOLD_URL)
+    from rice_household_planner import URL as RICE_HOUSEHOLD_URL
+    # Keep quantity guidance indexable during temporary verified-offer gaps.
+    # No unverified seller prices or purchase links may appear in fallback mode.
+    expected.add(RICE_HOUSEHOLD_URL)
     if {expected_url_for(p,site) for p in pages} != expected: errors.append('publication inventory and indexable pages disagree')
     for slug,target in aliases.items():
         a=PageAudit();a.feed((site/f'guides/{slug}/index.html').read_text())

@@ -97,14 +97,27 @@ class HouseholdRicePlannerTests(unittest.TestCase):
                 self.assertIn('/food-cost-jp/guides/' + r.SLUG + '/', text)
             self.assertTrue((root / "guides" / r.SLUG / "index.html").exists())
 
-    def test_no_unverified_both_sizes_fails_closed_without_indexable_guide(self):
+    def test_missing_one_or_both_verified_sizes_keeps_quantity_guide_without_prices(self):
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)
-            (root / "index.html").write_text("<html><main></main></html>", encoding="utf-8")
+            for relative in ("index.html", "categories/rice/index.html"):
+                path = root / relative
+                path.parent.mkdir(parents=True, exist_ok=True)
+                path.write_text("<html><main><h1>米</h1></main></html>", encoding="utf-8")
             (root / "sitemap.xml").write_text("<urlset></urlset>", encoding="utf-8")
-            self.assertFalse(r.publish(root, rice_offers=[offer(5000, 2720)]))
-            self.assertFalse((root / "guides" / r.SLUG / "index.html").exists())
-            self.assertNotIn(r.URL, (root / "sitemap.xml").read_text())
+            self.assertTrue(r.publish(root, rice_offers=[offer(5000, 2720)]))
+            self.assertTrue(r.publish(root, rice_offers=[], checked_at=datetime(2026, 11, 21)))
+            guide = (root / "guides" / r.SLUG / "index.html").read_text(encoding="utf-8")
+            self.assertIn('meta name="robots" content="index,follow"', guide)
+            self.assertIn('掲載商品の価格比較は現在確認中です', guide)
+            self.assertIn('未確認価格・未確認購入リンクは表示しません', guide)
+            self.assertIn('id="required-kg"', guide)
+            self.assertIn('id="five-sets"', guide)
+            self.assertNotIn('<article class="offer" data-rice-offer', guide)
+            self.assertNotIn('<a class="buy"', guide)
+            self.assertEqual((root / "sitemap.xml").read_text().count(r.URL), 1)
+            self.assertEqual((root / "index.html").read_text().count(r.MARKER), 1)
+            (root / "categories/rice/index.html").unlink()
             with self.assertRaises(ValueError):
                 r.publish(root, rice_offers=[offer(5000, 2720), offer(10000, 3480)])
 

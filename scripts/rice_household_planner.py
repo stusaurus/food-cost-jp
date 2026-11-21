@@ -1,4 +1,4 @@
-"""A single high-intent, live-offer-backed household rice purchasing calculator.
+"""A persistent household rice purchasing calculator, even when seller offers are missing.
 
 Rice weights are UNCOOKED. 1 go ~= 150g is sourced from MAFF; no cooked
 rice conversion, invented energy price, coupon, or merchant minimum is assumed.
@@ -78,11 +78,10 @@ def offer_card(item, grams):
 
 def page(items, checked_at: datetime | None = None, analytics_markup=""):
     offers = eligible_offers(items)
-    if not offers:
-        return None
+    has_offers = bool(offers)
     checked = checked_at.strftime("%Y-%m-%d %H:%M JST") if checked_at else "掲載データ取得時点"
     checked = html.escape(checked)
-    cards = offer_card(offers[5000], 5000) + offer_card(offers[10000], 10000)
+    cards = (offer_card(offers[5000], 5000) + offer_card(offers[10000], 10000)) if has_offers else ""
     document = r'''<!doctype html>
 <html lang="ja"><head>
 <meta charset="utf-8">
@@ -123,9 +122,9 @@ button{border:0;border-radius:11px;background:var(--green);color:white;font-size
 <p class="small">換算根拠：<a href="https://www.maff.go.jp/j/heya/kodomo_sodan/0103/01.html" target="_blank" rel="noopener">農林水産省「お米の重さとご飯の重さの違い」</a>。日数は毎日同じ合数を使う場合の計算値です。</p>
 </section>
 <section class="box" aria-labelledby="seller-title">
-<h2 id="seller-title">実際の掲載価格で比べる</h2>
-<p class="note">掲載価格の最終確認：__CHECKED__。各重量で、当サイトの送料込み判定済み商品の中から商品セット価格が低い候補を使用。楽天市場全体の最安値・品質順位ではありません。送料込み判定でも配送地域・在庫・発送日・最終決済額は購入先で再確認してください。クーポンやポイント還元は差し引きません。</p>
-<div class="grid">__CARDS__</div>
+<h2 id="seller-title">__SELLER_TITLE__</h2>
+<p class="note">__SELLER_NOTE__</p>
+__SELLER_CARDS__
 </section>
 <section class="box" aria-labelledby="form-title">
 <h2 id="form-title">家族で必要なお米を計算</h2>
@@ -146,8 +145,8 @@ button{border:0;border-radius:11px;background:var(--green);color:white;font-size
 <article class="result-card"><h3>5kgセットだけで買う</h3><strong id="five-total"></strong><span id="five-sets"></span><small id="five-leftover"></small></article>
 <article class="result-card"><h3>10kgセットだけで買う</h3><strong id="ten-total"></strong><span id="ten-sets"></span><small id="ten-leftover"></small></article>
 </div>
-<article class="result-card best" style="margin-top:14px"><h3>この2商品で支払総額が低い組み合わせ</h3><strong id="best-total"></strong><div id="best-sets"></div><small id="best-leftover"></small></article>
-<p class="note">ここでの「最安」は<strong>表示した5kg商品・10kg商品の掲載価格</strong>だけを比較した結果です。必要量以上をセット単位で購入するため、余りが出ます。炊飯費用、送料の地域差、食べ残し、保管中の品質変化は含めません。保管場所や消費期限も考えて購入してください。</p>
+<article class="result-card best" style="margin-top:14px"><h3>__BEST_TITLE__</h3><strong id="best-total"></strong><div id="best-sets"></div><small id="best-leftover"></small></article>
+<p class="note">__RESULT_NOTE__</p>
 </div>
 </section>
 <section class="box"><h2>5kgと10kg、何を基準に選ぶ？</h2>
@@ -163,8 +162,9 @@ button{border:0;border-radius:11px;background:var(--green);color:white;font-size
   const el = id => document.getElementById(id);
   const a5 = document.querySelector('[data-rice-offer][data-kg="5"]');
   const a10 = document.querySelector('[data-rice-offer][data-kg="10"]');
-  if (!a5 || !a10) return;
-  const price5 = Number(a5.dataset.price), price10 = Number(a10.dataset.price);
+  const hasPrices = !!(a5 && a10);
+  const price5 = hasPrices ? Number(a5.dataset.price) : null;
+  const price10 = hasPrices ? Number(a10.dataset.price) : null;
   const yen = v => Math.round(v).toLocaleString("ja-JP") + "円";
   const kg = v => (Math.round(v * 100) / 100).toLocaleString("ja-JP", {maximumFractionDigits:2}) + "kg";
   const countFor = (neededGrams, packGrams) => Math.max(0, Math.ceil(neededGrams / packGrams - 1e-10));
@@ -193,32 +193,37 @@ button{border:0;border-radius:11px;background:var(--green);color:white;font-size
     const buyG = Math.max(0, requiredG - stock * 1000);
     const five = countFor(buyG, 5000);
     const ten = countFor(buyG, 10000);
-    const spentFive = five * price5;
-    const spentTen = ten * price10;
+    const spentFive = hasPrices ? five * price5 : null;
+    const spentTen = hasPrices ? ten * price10 : null;
     const surplus = (purchasedG) => kg(Math.max(0, stock * 1000 + purchasedG - requiredG) / 1000);
     let best = null;
-    for (let t = 0; t <= ten; t++) {
-      const f = countFor(Math.max(0, buyG - 10000 * t), 5000);
-      const cost = f * price5 + t * price10;
-      const boughtG = f * 5000 + t * 10000;
-      if (!best || cost < best.cost ||
-          (cost === best.cost && (boughtG < best.boughtG ||
-          (boughtG === best.boughtG && f + t < best.f + best.t)))) {
-        best = {f:f,t:t,cost:cost,boughtG:boughtG};
+    if (hasPrices) {
+      for (let t = 0; t <= ten; t++) {
+        const f = countFor(Math.max(0, buyG - 10000 * t), 5000);
+        const cost = f * price5 + t * price10;
+        const boughtG = f * 5000 + t * 10000;
+        if (!best || cost < best.cost ||
+            (cost === best.cost && (boughtG < best.boughtG ||
+            (boughtG === best.boughtG && f + t < best.f + best.t)))) {
+          best = {f:f,t:t,cost:cost,boughtG:boughtG};
+        }
       }
     }
     el("required-kg").textContent = kg(requiredG / 1000);
     el("to-buy-kg").textContent = kg(buyG / 1000);
-    el("five-total").textContent = yen(spentFive);
+    el("five-total").textContent = hasPrices ? yen(spentFive) : "価格比較は一時停止中";
     el("five-sets").textContent = "5kgセット × " + five;
     el("five-leftover").textContent = "見込み残量 " + surplus(five * 5000);
-    el("ten-total").textContent = yen(spentTen);
+    el("ten-total").textContent = hasPrices ? yen(spentTen) : "価格比較は一時停止中";
     el("ten-sets").textContent = "10kgセット × " + ten;
     el("ten-leftover").textContent = "見込み残量 " + surplus(ten * 10000);
-    el("best-total").textContent = yen(best.cost);
-    el("best-sets").textContent = "5kgセット × " + best.f + "、10kgセット × " + best.t;
-    el("best-leftover").textContent = "見込み残量 " + surplus(best.boughtG);
-    el("status").textContent = "表示した商品の掲載価格と入力条件で算出しました。";
+    el("best-total").textContent = hasPrices ? yen(best.cost) : "価格比較は一時停止中";
+    el("best-sets").textContent = hasPrices ?
+      "5kgセット × " + best.f + "、10kgセット × " + best.t :
+      "検証済みの5kg・10kg商品が両方そろっていないため、最安組み合わせは計算できません。";
+    el("best-leftover").textContent = hasPrices ? "見込み残量 " + surplus(best.boughtG) : "";
+    el("status").textContent = hasPrices ? "表示した商品の掲載価格と入力条件で算出しました。" :
+      "必要量と各サイズのセット数を計算しました。掲載価格の比較は確認中です。";
     el("results").hidden = false;
     if (userAction && typeof window.gtag === "function") window.gtag("event", "rice_household_plan", {
       site_id:"food_cost_jp", operator_test:window.foodCostOperatorTest ? "1" : "0"
@@ -237,8 +242,46 @@ button{border:0;border-radius:11px;background:var(--green);color:white;font-size
   calculate(false);
 })();
 </script></body></html>'''
-    return (document.replace("__CARDS__", cards, 1)
-            .replace("__CHECKED__", checked, 1)
+    if has_offers:
+        seller_title = "実際の掲載価格で比べる"
+        seller_note = (f"掲載価格の最終確認：{checked}。各重量で、当サイトの送料込み判定済み商品の中から"
+                       "商品セット価格が低い候補を使用。楽天市場全体の最安値・品質順位ではありません。"
+                       "送料込み判定でも配送地域・在庫・発送日・最終決済額は購入先で再確認してください。"
+                       "クーポンやポイント還元は差し引きません。")
+        seller_cards = '<div class="grid">' + cards + '</div>'
+        best_title = "この2商品で支払総額が低い組み合わせ"
+        result_note = ("ここでの「最安」は表示した5kg商品・10kg商品の掲載価格だけを比較した結果です。"
+                       "セット単位で購入するため余りが出ます。炊飯費用、送料の地域差、食べ残し、"
+                       "保管中の品質変化は含めません。保管場所や消費期限も考えて購入してください。")
+    else:
+        seller_title = "掲載商品の価格比較は現在確認中です"
+        seller_note = ("現時点で、送料込み判定・正確な販売セット重量・楽天の購入リンクを確認できた"
+                       "5kgと10kgの両方の商品がそろっていません。未確認価格・未確認購入リンクは表示しません。"
+                       "価格比較は停止していますが、家庭の必要量・5kgまたは10kgの必要セット数と余りは計算できます。")
+        seller_cards = ""
+        best_title = "5kgと10kgの組み合わせ価格は確認中"
+        result_note = ("5kgと10kgの購入セット数は精米の必要量から計算しています。"
+                       "両サイズの検証済み掲載価格がそろうまで支払総額や最安組み合わせは表示しません。"
+                       "保管場所と消費予定も踏まえて購入を判断してください。")
+        # Do not advertise an unavailable seller-price calculation in search snippets.
+        document = (document
+            .replace("家族の必要量と購入総額を計算｜食品コスパ比較",
+                     "家族の必要量と購入セット数を計算｜食品コスパ比較")
+            .replace("送料込み掲載価格で実際の購入総額と余りを比較します。",
+                     "購入セット数と余りを計算します。掲載価格が両サイズで確認できたときだけ支払総額も比較します。")
+            .replace("米5kg・10kgは何日もつ？必要量と購入総額を計算</h1>",
+                     "米5kg・10kgは何日もつ？必要量と購入セット数を計算</h1>")
+            .replace("購入セット数、支払総額、購入後の余りを比較できます。",
+                     "購入セット数と余りを計算できます。価格比較は検証済みの商品がそろう場合のみ表示します。")
+            .replace("検証済み精米5kg・10kg商品の送料込み掲載価格と家庭の消費量・在庫を使った購入計画計算機",
+                     "家庭の精米消費量と在庫から必要量と購入セット数を計算するツール")
+            .replace("家庭の必要量・購入総額計算",
+                     "家庭の必要量・購入セット数計算"))
+    return (document.replace("__SELLER_TITLE__", seller_title, 1)
+            .replace("__SELLER_NOTE__", seller_note, 1)
+            .replace("__SELLER_CARDS__", seller_cards, 1)
+            .replace("__BEST_TITLE__", best_title, 1)
+            .replace("__RESULT_NOTE__", result_note, 1)
             .replace("</head>", analytics_markup + "\n</head>", 1))
 
 
@@ -265,8 +308,6 @@ def inject_link(path):
 def publish(root=Path("site"), rice_offers=None, checked_at=None, analytics_markup=""):
     target = root / "guides" / SLUG / "index.html"
     document = page(rice_offers, checked_at, analytics_markup)
-    if not document:
-        return False
     if not (root / "index.html").exists() or not (root / "categories/rice/index.html").exists() or not (root / "sitemap.xml").exists():
         raise ValueError("rice guide requires generated home, rice category and sitemap")
     target.parent.mkdir(parents=True, exist_ok=True)
