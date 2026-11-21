@@ -40,6 +40,13 @@ button{border:0;border-radius:12px;background:var(--green);color:white;font-size
 .sponsor-box .sponsor-link a:focus-visible{outline:3px solid #88a992;outline-offset:3px}
 .sponsor-box .sponsor-link{margin:15px 0 10px}
 ul{padding-left:24px}li{margin:9px 0}
+.water-offer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px}
+.water-offer-card{min-width:0;border:1px solid var(--line);border-radius:12px;padding:14px;background:#fff}
+.water-offer-name{font-size:13px;font-weight:700;line-height:1.6;overflow-wrap:anywhere}
+.water-offer-card strong{display:block;font-size:15px}.water-offer-card small{display:block}
+.water-offer-card button{font-size:14px;padding:10px;width:100%;margin-top:7px}
+.water-offer-card a{display:block;margin-top:9px;font-size:13px;text-align:center}
+#bottle-source-note{margin-top:12px}
 @media(max-width:640px){.cols,.metrics{grid-template-columns:1fr}.brand .tag{display:none}.wrap{padding:15px 14px 50px}}
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"ウォーターサーバーとペットボトルの年間費用比較","url":"https://stusaurus.github.io/food-cost-jp/guides/water-server-vs-bottled-water/","description":"入力値だけで両方式の費用を計算する無料比較ツール"}</script>
@@ -58,16 +65,18 @@ gtag('config','G-GFVSZ8YDQ5',{site_id:'food_cost_jp',operator_test:window.foodCo
 <p class="tag">家庭の水代を比べるツール</p>
 <h1>ウォーターサーバーとペットボトル、どっちが安い？</h1>
 <p class="lead">世帯人数だけで「お得」は決まりません。毎月飲む量、買う水の容量・送料、ウォーターサーバーの固定費や水代まで入れて、<strong>1年間に実際に払う費用</strong>を比べます。金額は各社の最新条件を確認して入力してください。</p>
+<section class="box" aria-labelledby="verified-water-title"><h2 id="verified-water-title">掲載商品の価格から試算する</h2><p class="muted">最終価格確認：2026-11-21 09:01 JST。送料込み判定済みの掲載商品の中から、容量別に単価が低いものを表示しています。楽天全体の最安値ではありません。</p><div class="water-offer-grid"><article class="water-offer-card"><p class="water-offer-name">ハルナウォーター 安曇野の自然が育んだ天然水2L×12本</p><p><strong>2L×12本 · ¥1,836／購入セット</strong><small>掲載内 ¥76.5／L · 送料込み判定</small></p><button type="button" data-water-offer data-bottle-liters="2" data-case-count="12" data-case-price="1836">この掲載商品を入力する</button><a href="https://hb.afl.rakuten.co.jp/hgc/g00qq8to.7cx6mdf4.g00qq8to.7cx6nfbb/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fcocodecow%2Fr820gf%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Fcocodecow%2Fi%2F10778153%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" target="_blank" rel="nofollow sponsored noopener" data-water-rakuten-offer data-product-id="cocodecow:10778153" data-affiliate="rakuten" data-position="water_cost_verified_offer" data-category="mineral-water" data-metric="per_liter" data-unit-price="76.500000" data-shipping="included">楽天で条件を確認</a></article><article class="water-offer-card"><p class="water-offer-name">【楽天オリジナル】水 500ml×48本 天然水 ラベルレス ミネラルウォーター 飲料水 安い 業務用 家庭用 大容量 オフィス コスパ最強 500ml 48本</p><p><strong>0.5L×48本 · ¥2,610／購入セット</strong><small>掲載内 ¥108.8／L · 送料込み判定</small></p><button type="button" data-water-offer data-bottle-liters="0.5" data-case-count="48" data-case-price="2610">この掲載商品を入力する</button><a href="https://hb.afl.rakuten.co.jp/hgc/g00uqzro.7cx6m99a.g00uqzro.7cx6n201/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Frakutenoriginal-daily%2Fro-b-003%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Frakutenoriginal-daily%2Fi%2F10000016%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" target="_blank" rel="nofollow sponsored noopener" data-water-rakuten-offer data-product-id="rakutenoriginal-daily:10000016" data-affiliate="rakuten" data-position="water_cost_verified_offer" data-category="mineral-water" data-metric="per_liter" data-unit-price="108.750000" data-shipping="included">楽天で条件を確認</a></article></div><p class="muted">選ぶと購入セットの容量・本数・商品価格・送料0円を入力します。配送地域別の追加送料・現在の在庫・最終支払額は販売店で確認してください。月の使用量・サーバー料金はご自身の条件で入力してください。</p></section>
 <section class="box" aria-labelledby="bottle-title">
 <h2 id="bottle-title">1. ペットボトルの買い方</h2>
 <div class="cols">
 <label>1か月に使う水の量（L）<input id="liters" type="number" inputmode="decimal" min="0.1" max="10000" step="0.1" placeholder="例：48" required></label>
 <label>1本の容量（L）<input id="bottle-liters" type="number" inputmode="decimal" min="0.1" max="100" step="0.1" placeholder="例：2" required></label>
-<label>1ケースの本数<input id="case-count" type="number" inputmode="numeric" min="1" max="1000" step="1" placeholder="例：6" required></label>
-<label>1ケースの商品価格（税込・円）<input id="case-price" type="number" inputmode="numeric" min="0" max="10000000" step="1" placeholder="例：900" required></label>
-<label>1ケースの送料（円）<input id="case-shipping" type="number" inputmode="numeric" min="0" max="10000000" step="1" placeholder="例：0（送料無料）" required></label>
+<label>1購入セットの本数<input id="case-count" type="number" inputmode="numeric" min="1" max="1000" step="1" placeholder="例：6" required></label>
+<label>1購入セットの商品価格（税込・円）<input id="case-price" type="number" inputmode="numeric" min="0" max="10000000" step="1" placeholder="例：900" required></label>
+<label>1購入セットの送料（円）<input id="case-shipping" type="number" inputmode="numeric" min="0" max="10000000" step="1" placeholder="例：0（送料無料）" required></label>
 </div>
-<p class="muted">ケース単位で必要本数を切り上げます。年間の購入分は余剰を翌月に使う想定です。水の品質や冷却・保管・運搬の手間は金額に含みません。</p>
+<p id="bottle-source-note" class="notice" hidden>掲載商品から条件を入力しました。価格・配送地域別の送料は販売店で再確認してください。</p>
+<p class="muted">購入セット単位で必要本数を切り上げます。年間の購入分は余剰を翌月に使う想定です。水の品質や冷却・保管・運搬の手間は金額に含みません。</p>
 </section>
 <section class="box" aria-labelledby="server-title">
 <h2 id="server-title">2. ウォーターサーバーの契約条件</h2>
@@ -100,7 +109,7 @@ gtag('config','G-GFVSZ8YDQ5',{site_id:'food_cost_jp',operator_test:window.foodCo
 <tr><th scope="row">ペットボトルの余剰</th><td id="leftover-liters"></td></tr>
 <tr><th scope="row">サーバー年間固定・追加費用</th><td id="server-fixed"></td></tr>
 </tbody></table></div>
-<p class="muted">月平均は年間支払額を12で割った参考値です。ケースは必要数を年間で切り上げるため、実際の月ごとの支払額は均等ではありません。1Lあたりの額は年間購入量ではなく年間使用予定量を基準に算出します。温水の利便性、電源・設置面積、水の種類や味は比較に含めていません。</p>
+<p class="muted">月平均は年間支払額を12で割った参考値です。購入セットは必要数を年間で切り上げるため、実際の月ごとの支払額は均等ではありません。1Lあたりの額は年間購入量ではなく年間使用予定量を基準に算出します。温水の利便性、電源・設置面積、水の種類や味は比較に含めていません。</p>
 </div>
 </section>
 <section class="box sponsor-box" id="a8-every-frecious-ad" aria-label="広告・ウォーターサーバー">
@@ -152,8 +161,12 @@ fields.forEach(id => {
     results.classList.remove("visible");
     error.textContent = "条件が変わりました。新しい金額を見るには、もう一度「年間支払額を比較する」を押してください。";
   };
-  $(id).addEventListener("input", invalidate);
-  $(id).addEventListener("change", invalidate);
+  const clearSource = () => {
+    if (["bottle-liters", "case-count", "case-price", "case-shipping"].includes(id))
+      $("bottle-source-note").hidden = true;
+  };
+  $(id).addEventListener("input", () => { invalidate(); clearSource(); });
+  $(id).addEventListener("change", () => { invalidate(); clearSource(); });
 });
 // Example inputs are deliberately hypothetical. Never present them as vendor prices.
 $("example").addEventListener("click", () => {
@@ -164,7 +177,35 @@ $("example").addEventListener("click", () => {
   };
   Object.entries(sample).forEach(([id, value]) => { $(id).value = String(value); });
   $("example-warning").hidden = false;
+  $("bottle-source-note").hidden = true;
   $("calculate").click();
+});
+// Source prices are from this site's validated catalog; do not trust query-string prices.
+document.querySelectorAll("[data-water-offer]").forEach(button => {
+  button.addEventListener("click", () => {
+    [["bottle-liters", "bottleLiters"], ["case-count", "caseCount"],
+     ["case-price", "casePrice"]].forEach(([id, attr]) => {
+      $(id).value = button.dataset[attr];
+    });
+    $("case-shipping").value = "0";
+    results.classList.remove("visible");
+    $("bottle-source-note").hidden = false;
+    error.textContent = "掲載商品の購入セット条件を入力しました。使用量・サーバー契約料金を入力して試算してください。";
+    if (typeof window.gtag === "function") window.gtag("event", "water_offer_prefill", {
+      site_id: "food_cost_jp", category_id: "mineral-water",
+      operator_test: window.foodCostOperatorTest ? "1" : "0"
+    });
+  });
+});
+document.querySelectorAll("a[data-water-rakuten-offer]").forEach(link => {
+  link.addEventListener("click", () => {
+    if (typeof window.gtag === "function") window.gtag("event", "affiliate_click", {
+      site_id: "food_cost_jp", affiliate: "rakuten", category_id: "mineral-water",
+      conversion_source: "water_server_cost_comparison",
+      click_position: "water_cost_verified_offer",
+      operator_test: window.foodCostOperatorTest ? "1" : "0"
+    });
+  });
 });
 $("calculate").addEventListener("click", () => {
   results.classList.remove("visible");
@@ -198,7 +239,7 @@ $("calculate").addEventListener("click", () => {
   }) + "円／L";
   $("bottle-effective").textContent = "使用予定1Lあたり " + usedLiterPrice(bottledYear);
   $("server-effective").textContent = "使用予定1Lあたり " + usedLiterPrice(serverYear);
-  $("bottle-count").textContent = bottles + "本（" + cases + "ケース）";
+  $("bottle-count").textContent = bottles + "本（" + cases + "セット購入）";
   $("purchased-liters").textContent = litersText(purchased);
   $("used-liters").textContent = litersText(used);
   $("leftover-liters").textContent = litersText(Math.max(0,purchased-used));
