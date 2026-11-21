@@ -2279,7 +2279,9 @@ def render_pages(results: dict, updated: datetime) -> list[dict]:
     (OUT / "sitemap.xml").write_text(sitemap, encoding="utf-8")
     # Adjacent high-intent cost decision guide: no new product feed or ASP links.
     from water_server_compare import publish as publish_water_cost
-    publish_water_cost(OUT, analytics_markup=ga_head())
+    publish_water_cost(OUT, analytics_markup=ga_head(),
+                       water_offers=results.get("mineral-water", ([], []))[0],
+                       checked_at=updated)
     # Source-owned A8 family-meal planner. Keep separate from verified Rakuten ranking.
     from meal_delivery_budget import publish as publish_family_meal_budget
     publish_family_meal_budget(OUT, analytics_markup=ga_head())

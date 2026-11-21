@@ -17,7 +17,70 @@ A8_EVERY_FRECIOUS_AD = '''<a href="https://px.a8.net/svt/ejp?a8mat=4BGCF1+53DLEY
 
 
 
-def page(analytics_markup=""):
+def verified_water_offer_markup(offers=None, checked_at=None):
+    """Use only validated, postage-included current water offers from the catalog."""
+    sizes = {}
+    for offer in offers or []:
+        q = offer.get("quantity") or {}
+        count, volume, total = q.get("count"), q.get("unit_volume_ml"), q.get("total_volume_ml")
+        price, confidence, url = offer.get("price"), q.get("confidence", 0), offer.get("url") or ""
+        if offer.get("postage_included") is not True or offer.get("shipping_status") != "included":
+            continue
+        if not isinstance(url, str) or not url.startswith("https://hb.afl.rakuten.co.jp/"):
+            continue
+        if any(isinstance(v, bool) or not isinstance(v, (int, float))
+               for v in (count, volume, total, price, confidence)):
+            continue
+        if not float(count).is_integer() or not float(price).is_integer():
+            continue
+        if not (1 <= count <= 1000 and 100 <= volume <= 100000
+                and 1 <= price <= 10000000 and confidence >= 0.9
+                and abs(count * volume - total) < 0.001):
+            continue
+        if volume not in sizes or price / total < sizes[volume]["price"] / sizes[volume]["total"]:
+            sizes[volume] = dict(offer=offer, count=int(count), volume=volume,
+                                 total=total, price=int(price))
+    choices = sorted(sizes.values(), key=lambda x: (x["price"] / x["total"], x["price"]))[:3]
+    if not choices:
+        return ""
+    checked = f"{checked_at:%Y-%m-%d %H:%M} JST" if checked_at is not None else "掲載データ取得時点"
+    cards = []
+    for choice in choices:
+        offer = choice["offer"]
+        name = html.escape(str(offer.get("name") or "ミネラルウォーター")[:100])
+        count, price, volume_l = choice["count"], choice["price"], choice["volume"] / 1000
+        per_liter = price * 1000 / choice["total"]
+        url = html.escape(offer["url"], quote=True)
+        product_id = html.escape(str(offer.get("id") or ""), quote=True)
+        cards.append(
+            '<article class="water-offer-card">'
+            f'<p class="water-offer-name">{name}</p>'
+            f'<p><strong>{volume_l:g}L×{count}本 · ¥{price:,}／購入セット</strong>'
+            f'<small>掲載内 ¥{per_liter:,.1f}／L · 送料込み判定</small></p>'
+            f'<button type="button" data-water-offer data-bottle-liters="{volume_l:g}"'
+            f' data-case-count="{count}" data-case-price="{price}">この掲載商品を入力する</button>'
+            f'<a href="{url}" target="_blank" rel="nofollow sponsored noopener"'
+            f' data-water-rakuten-offer data-product-id="{product_id}"'
+            f' data-affiliate="rakuten" data-position="water_cost_verified_offer"'
+            f' data-category="mineral-water" data-metric="per_liter"'
+            f' data-unit-price="{per_liter:.6f}" data-shipping="included">楽天で条件を確認</a>'
+            '</article>'
+        )
+    return (
+        '<section class="box" aria-labelledby="verified-water-title">'
+        '<h2 id="verified-water-title">掲載商品の価格から試算する</h2>'
+        f'<p class="muted">最終価格確認：{html.escape(checked)}。'
+        '送料込み判定済みの掲載商品の中から、容量別に単価が低いものを表示しています。'
+        '楽天全体の最安値ではありません。</p>'
+        '<div class="water-offer-grid">' + "".join(cards) + '</div>'
+        '<p class="muted">選ぶと購入セットの容量・本数・商品価格・送料0円を入力します。'
+        '配送地域別の追加送料・現在の在庫・最終支払額は販売店で確認してください。'
+        '月の使用量・サーバー料金はご自身の条件で入力してください。</p>'
+        '</section>'
+    )
+
+
+def page(analytics_markup="", water_offers=None, checked_at=None):
     return r'''<!doctype html>
 <html lang="ja">
 <head>
@@ -60,6 +123,13 @@ button{border:0;border-radius:12px;background:var(--green);color:white;font-size
 .sponsor-box .sponsor-link a:focus-visible{outline:3px solid #88a992;outline-offset:3px}
 .sponsor-box .sponsor-link{margin:15px 0 10px}
 ul{padding-left:24px}li{margin:9px 0}
+.water-offer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px}
+.water-offer-card{min-width:0;border:1px solid var(--line);border-radius:12px;padding:14px;background:#fff}
+.water-offer-name{font-size:13px;font-weight:700;line-height:1.6;overflow-wrap:anywhere}
+.water-offer-card strong{display:block;font-size:15px}.water-offer-card small{display:block}
+.water-offer-card button{font-size:14px;padding:10px;width:100%;margin-top:7px}
+.water-offer-card a{display:block;margin-top:9px;font-size:13px;text-align:center}
+#bottle-source-note{margin-top:12px}
 @media(max-width:640px){.cols,.metrics{grid-template-columns:1fr}.brand .tag{display:none}.wrap{padding:15px 14px 50px}}
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"ウォーターサーバーとペットボトルの年間費用比較","url":"https://stusaurus.github.io/food-cost-jp/guides/water-server-vs-bottled-water/","description":"入力値だけで両方式の費用を計算する無料比較ツール"}</script>
@@ -71,16 +141,18 @@ ul{padding-left:24px}li{margin:9px 0}
 <p class="tag">家庭の水代を比べるツール</p>
 <h1>ウォーターサーバーとペットボトル、どっちが安い？</h1>
 <p class="lead">世帯人数だけで「お得」は決まりません。毎月飲む量、買う水の容量・送料、ウォーターサーバーの固定費や水代まで入れて、<strong>1年間に実際に払う費用</strong>を比べます。金額は各社の最新条件を確認して入力してください。</p>
+__VERIFIED_WATER_OFFERS__
 <section class="box" aria-labelledby="bottle-title">
 <h2 id="bottle-title">1. ペットボトルの買い方</h2>
 <div class="cols">
 <label>1か月に使う水の量（L）<input id="liters" type="number" inputmode="decimal" min="0.1" max="10000" step="0.1" placeholder="例：48" required></label>
 <label>1本の容量（L）<input id="bottle-liters" type="number" inputmode="decimal" min="0.1" max="100" step="0.1" placeholder="例：2" required></label>
-<label>1ケースの本数<input id="case-count" type="number" inputmode="numeric" min="1" max="1000" step="1" placeholder="例：6" required></label>
-<label>1ケースの商品価格（税込・円）<input id="case-price" type="number" inputmode="numeric" min="0" max="10000000" step="1" placeholder="例：900" required></label>
-<label>1ケースの送料（円）<input id="case-shipping" type="number" inputmode="numeric" min="0" max="10000000" step="1" placeholder="例：0（送料無料）" required></label>
+<label>1購入セットの本数<input id="case-count" type="number" inputmode="numeric" min="1" max="1000" step="1" placeholder="例：6" required></label>
+<label>1購入セットの商品価格（税込・円）<input id="case-price" type="number" inputmode="numeric" min="0" max="10000000" step="1" placeholder="例：900" required></label>
+<label>1購入セットの送料（円）<input id="case-shipping" type="number" inputmode="numeric" min="0" max="10000000" step="1" placeholder="例：0（送料無料）" required></label>
 </div>
-<p class="muted">ケース単位で必要本数を切り上げます。年間の購入分は余剰を翌月に使う想定です。水の品質や冷却・保管・運搬の手間は金額に含みません。</p>
+<p id="bottle-source-note" class="notice" hidden>掲載商品から条件を入力しました。価格・配送地域別の送料は販売店で再確認してください。</p>
+<p class="muted">購入セット単位で必要本数を切り上げます。年間の購入分は余剰を翌月に使う想定です。水の品質や冷却・保管・運搬の手間は金額に含みません。</p>
 </section>
 <section class="box" aria-labelledby="server-title">
 <h2 id="server-title">2. ウォーターサーバーの契約条件</h2>
@@ -113,7 +185,7 @@ ul{padding-left:24px}li{margin:9px 0}
 <tr><th scope="row">ペットボトルの余剰</th><td id="leftover-liters"></td></tr>
 <tr><th scope="row">サーバー年間固定・追加費用</th><td id="server-fixed"></td></tr>
 </tbody></table></div>
-<p class="muted">月平均は年間支払額を12で割った参考値です。ケースは必要数を年間で切り上げるため、実際の月ごとの支払額は均等ではありません。1Lあたりの額は年間購入量ではなく年間使用予定量を基準に算出します。温水の利便性、電源・設置面積、水の種類や味は比較に含めていません。</p>
+<p class="muted">月平均は年間支払額を12で割った参考値です。購入セットは必要数を年間で切り上げるため、実際の月ごとの支払額は均等ではありません。1Lあたりの額は年間購入量ではなく年間使用予定量を基準に算出します。温水の利便性、電源・設置面積、水の種類や味は比較に含めていません。</p>
 </div>
 </section>
 <section class="box sponsor-box" id="a8-every-frecious-ad" aria-label="広告・ウォーターサーバー">
@@ -164,8 +236,12 @@ fields.forEach(id => {
     results.classList.remove("visible");
     error.textContent = "条件が変わりました。新しい金額を見るには、もう一度「年間支払額を比較する」を押してください。";
   };
-  $(id).addEventListener("input", invalidate);
-  $(id).addEventListener("change", invalidate);
+  const clearSource = () => {
+    if (["bottle-liters", "case-count", "case-price", "case-shipping"].includes(id))
+      $("bottle-source-note").hidden = true;
+  };
+  $(id).addEventListener("input", () => { invalidate(); clearSource(); });
+  $(id).addEventListener("change", () => { invalidate(); clearSource(); });
 });
 // Example inputs are deliberately hypothetical. Never present them as vendor prices.
 $("example").addEventListener("click", () => {
@@ -176,7 +252,35 @@ $("example").addEventListener("click", () => {
   };
   Object.entries(sample).forEach(([id, value]) => { $(id).value = String(value); });
   $("example-warning").hidden = false;
+  $("bottle-source-note").hidden = true;
   $("calculate").click();
+});
+// Source prices are from this site's validated catalog; do not trust query-string prices.
+document.querySelectorAll("[data-water-offer]").forEach(button => {
+  button.addEventListener("click", () => {
+    [["bottle-liters", "bottleLiters"], ["case-count", "caseCount"],
+     ["case-price", "casePrice"]].forEach(([id, attr]) => {
+      $(id).value = button.dataset[attr];
+    });
+    $("case-shipping").value = "0";
+    results.classList.remove("visible");
+    $("bottle-source-note").hidden = false;
+    error.textContent = "掲載商品の購入セット条件を入力しました。使用量・サーバー契約料金を入力して試算してください。";
+    if (typeof window.gtag === "function") window.gtag("event", "water_offer_prefill", {
+      site_id: "food_cost_jp", category_id: "mineral-water",
+      operator_test: window.foodCostOperatorTest ? "1" : "0"
+    });
+  });
+});
+document.querySelectorAll("a[data-water-rakuten-offer]").forEach(link => {
+  link.addEventListener("click", () => {
+    if (typeof window.gtag === "function") window.gtag("event", "affiliate_click", {
+      site_id: "food_cost_jp", affiliate: "rakuten", category_id: "mineral-water",
+      conversion_source: "water_server_cost_comparison",
+      click_position: "water_cost_verified_offer",
+      operator_test: window.foodCostOperatorTest ? "1" : "0"
+    });
+  });
 });
 $("calculate").addEventListener("click", () => {
   results.classList.remove("visible");
@@ -210,7 +314,7 @@ $("calculate").addEventListener("click", () => {
   }) + "円／L";
   $("bottle-effective").textContent = "使用予定1Lあたり " + usedLiterPrice(bottledYear);
   $("server-effective").textContent = "使用予定1Lあたり " + usedLiterPrice(serverYear);
-  $("bottle-count").textContent = bottles + "本（" + cases + "ケース）";
+  $("bottle-count").textContent = bottles + "本（" + cases + "セット購入）";
   $("purchased-liters").textContent = litersText(purchased);
   $("used-liters").textContent = litersText(used);
   $("leftover-liters").textContent = litersText(Math.max(0,purchased-used));
@@ -225,7 +329,7 @@ $("calculate").addEventListener("click", () => {
 })();
 </script>
 </body>
-</html>'''.replace("__A8_EVERY_FRECIOUS_CREATIVE__", A8_EVERY_FRECIOUS_AD, 1).replace("</head>", analytics_markup + "\n</head>", 1)
+</html>'''.replace("__A8_EVERY_FRECIOUS_CREATIVE__", A8_EVERY_FRECIOUS_AD, 1).replace("__VERIFIED_WATER_OFFERS__", verified_water_offer_markup(water_offers, checked_at), 1).replace("</head>", analytics_markup + "\n</head>", 1)
 
 
 def inject_link(page):
@@ -248,12 +352,12 @@ def inject_link(page):
     page.write_text(content.replace("</main>", snippet + "</main>", 1), encoding="utf-8")
 
 
-def publish(site=Path("site"), analytics_markup=""):
+def publish(site=Path("site"), analytics_markup="", water_offers=None, checked_at=None):
     if not (site / "index.html").exists() or not (site / "sitemap.xml").exists():
         raise ValueError("generated site must exist")
     target = site / "guides" / SLUG / "index.html"
     target.parent.mkdir(parents=True, exist_ok=True)
-    target.write_text(page(analytics_markup), encoding="utf-8")
+    target.write_text(page(analytics_markup, water_offers, checked_at), encoding="utf-8")
     inject_link(site / "index.html")
     inject_link(site / "categories" / "mineral-water" / "index.html")
     sitemap = site / "sitemap.xml"
