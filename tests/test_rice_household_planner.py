@@ -63,7 +63,7 @@ class HouseholdRicePlannerTests(unittest.TestCase):
         self.assertIn('10kgは約33.3日分', page)
         self.assertIn('data-kg="5" data-price="2720"', page)
         self.assertIn('data-kg="10" data-price="3480"', page)
-        self.assertEqual(page.count('data-affiliate="rakuten"'), 2)
+        self.assertEqual(page.count('data-affiliate="rakuten" data-position="rice_household_planner"'), 2)
         self.assertEqual(page.count('data-position="rice_household_planner"'), 2)
         self.assertEqual(page.count('rel="nofollow sponsored noopener"'), 2)
         self.assertEqual(page.count('data-metric="per_kg"'), 2)
