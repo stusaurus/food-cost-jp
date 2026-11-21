@@ -263,6 +263,20 @@ __SELLER_CARDS__
         result_note = ("5kgと10kgの購入セット数は精米の必要量から計算しています。"
                        "両サイズの検証済み掲載価格がそろうまで支払総額や最安組み合わせは表示しません。"
                        "保管場所と消費予定も踏まえて購入を判断してください。")
+        # Do not advertise an unavailable seller-price calculation in search snippets.
+        document = (document
+            .replace("家族の必要量と購入総額を計算｜食品コスパ比較",
+                     "家族の必要量と購入セット数を計算｜食品コスパ比較")
+            .replace("送料込み掲載価格で実際の購入総額と余りを比較します。",
+                     "購入セット数と余りを計算します。掲載価格が両サイズで確認できたときだけ支払総額も比較します。")
+            .replace("米5kg・10kgは何日もつ？必要量と購入総額を計算</h1>",
+                     "米5kg・10kgは何日もつ？必要量と購入セット数を計算</h1>")
+            .replace("購入セット数、支払総額、購入後の余りを比較できます。",
+                     "購入セット数と余りを計算できます。価格比較は検証済みの商品がそろう場合のみ表示します。")
+            .replace("検証済み精米5kg・10kg商品の送料込み掲載価格と家庭の消費量・在庫を使った購入計画計算機",
+                     "家庭の精米消費量と在庫から必要量と購入セット数を計算するツール")
+            .replace("家庭の必要量・購入総額計算",
+                     "家庭の必要量・購入セット数計算"))
     return (document.replace("__SELLER_TITLE__", seller_title, 1)
             .replace("__SELLER_NOTE__", seller_note, 1)
             .replace("__SELLER_CARDS__", seller_cards, 1)
