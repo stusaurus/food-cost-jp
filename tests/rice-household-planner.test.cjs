@@ -10,11 +10,10 @@ function boot() {
   const html = fs.readFileSync(page, 'utf8');
   const events = [];
   const dom = new JSDOM(html, {
-    url: 'https://stusaurus.github.io/food-cost-jp/guides/rice-5kg-10kg-household-plan/',
+    url: 'https://stusaurus.github.io/food-cost-jp/guides/rice-5kg-10kg-household-plan/?test=1',
     runScripts: 'dangerously',
     beforeParse(window) {
       window.gtag = (...args) => events.push(args);
-      window.foodCostOperatorTest = true;
     }
   });
   const doc = dom.window.document;
