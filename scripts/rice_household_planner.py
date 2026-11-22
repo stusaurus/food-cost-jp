@@ -6,16 +6,33 @@ Only the existing vetted, shipping-included offer feed can supply prices.
 """
 from pathlib import Path
 from urllib.parse import urlparse, parse_qs
-from datetime import datetime
+from datetime import datetime, timedelta, timezone
 import html
 import json
 import math
+from zoneinfo import ZoneInfo
 
 SLUG = "rice-5kg-10kg-household-plan"
 BASE = "https://stusaurus.github.io/food-cost-jp/"
 URL = BASE + "guides/" + SLUG + "/"
 MARKER = "<!-- household-rice-amount-planner-v1 -->"
 MAFF = "https://www.maff.go.jp/j/heya/kodomo_sodan/0103/01.html"
+JST = ZoneInfo("Asia/Tokyo")
+MAX_OFFER_AGE = timedelta(hours=48)
+
+
+def price_is_fresh(checked_at: datetime | None, now: datetime | None = None) -> bool:
+    """Never show prices from a snapshot older than 48 hours or without its source time.
+
+    Legacy snapshot timestamps without a zone are recorded in Japan local time.
+    """
+    if checked_at is None:
+        return False
+    checked = checked_at if checked_at.tzinfo else checked_at.replace(tzinfo=JST)
+    current = now or datetime.now(JST)
+    current = current if current.tzinfo else current.replace(tzinfo=JST)
+    age = current.astimezone(timezone.utc) - checked.astimezone(timezone.utc)
+    return timedelta(0) <= age <= MAX_OFFER_AGE
 
 
 def eligible_offers(items):
@@ -76,9 +93,9 @@ def offer_card(item, grams):
     )
 
 
-def page(items, checked_at: datetime | None = None, analytics_markup=""):
+def page(items, checked_at: datetime | None = None, analytics_markup="", now: datetime | None = None):
     offers = eligible_offers(items)
-    has_offers = bool(offers)
+    has_offers = bool(offers) and price_is_fresh(checked_at, now)
     checked = checked_at.strftime("%Y-%m-%d %H:%M JST") if checked_at else "掲載データ取得時点"
     checked = html.escape(checked)
     cards = (offer_card(offers[5000], 5000) + offer_card(offers[10000], 10000)) if has_offers else ""
@@ -112,7 +129,7 @@ button{border:0;border-radius:11px;background:var(--green);color:white;font-size
 @media(max-width:700px){.inputs,.grid{grid-template-columns:1fr}.top .tag{display:none}main{padding:16px 14px 56px}}
 </style>
 </head><body><main>
-<div class="top"><a href="../../">食品コスパ比較</a><span class="tag">購入する量と支払総額をそろえる</span></div>
+<div class="top"><a href="../../">食品コスパ比較</a><span class="tag">購入する量と価格の根拠を確かめる</span></div>
 <p class="tag">家族の米の買い方・計算ツール</p>
 <h1>米5kg・10kgは何日もつ？必要量と購入総額を計算</h1>
 <p class="lead">1日何合のお米を炊くか、何日分を買うか、今あるお米は何kgかを入れると、<strong>5kgだけ・10kgだけ・組み合わせ</strong>の購入セット数、支払総額、購入後の余りを比較できます。</p>
@@ -134,7 +151,7 @@ __SELLER_CARDS__
 <label for="stock">手元にある精米（kg）<input id="stock" type="number" inputmode="decimal" min="0" max="200" step="0.1" value="0" required></label>
 </div>
 <p class="small">目安として「1日2合 × 30日」なら9kg。世帯人数ではなく、実際に炊く合数で計算します。在庫は炊く前の精米重量で入力してください。</p>
-<button id="calculate" type="button">必要な購入量と支払総額を計算</button>
+<button id="calculate" type="button">必要な購入量を計算</button>
 <p id="status" class="note" role="status" aria-live="polite">初期値でも計算できます。値を変えたときは計算ボタンを押してください。</p>
 <div id="results" hidden aria-live="polite">
 <div class="summary">
@@ -263,6 +280,9 @@ __SELLER_CARDS__
         result_note = ("5kgと10kgの購入セット数は精米の必要量から計算しています。"
                        "両サイズの検証済み掲載価格がそろうまで支払総額や最安組み合わせは表示しません。"
                        "保管場所と消費予定も踏まえて購入を判断してください。")
+        if offers and not price_is_fresh(checked_at, now):
+            seller_note = (f"掲載商品データの最終取得：{checked}。48時間以内に確認できた価格ではないため、"
+                           "購入価格・購入リンクは表示していません。必要量とセット数は計算できます。")
         # Do not advertise an unavailable seller-price calculation in search snippets.
         document = (document
             .replace("家族の必要量と購入総額を計算｜食品コスパ比較",
@@ -271,6 +291,7 @@ __SELLER_CARDS__
                      "購入セット数と余りを計算します。掲載価格が両サイズで確認できたときだけ支払総額も比較します。")
             .replace("米5kg・10kgは何日もつ？必要量と購入総額を計算</h1>",
                      "米5kg・10kgは何日もつ？必要量と購入セット数を計算</h1>")
+            .replace("5kgだけ・10kgだけ・組み合わせ", "5kgだけ・10kgだけ")
             .replace("購入セット数、支払総額、購入後の余りを比較できます。",
                      "購入セット数と余りを計算できます。価格比較は検証済みの商品がそろう場合のみ表示します。")
             .replace("検証済み精米5kg・10kg商品の送料込み掲載価格と家庭の消費量・在庫を使った購入計画計算機",
@@ -297,9 +318,9 @@ def inject_link(path):
         MARKER + '<aside class="rice-household-entry" style="padding:22px;'
         'margin:25px 0;border:1px solid #d7dfd4;border-radius:14px;'
         'background:#fffefa"><h2>米5kg・10kg、うちでは何日もつ？</h2>'
-        '<p>1日の合数・手持ち在庫から必要セット数と購入総額を計算。'
-        '送料込み掲載価格で5kgと10kgの買い方を比べられます。</p>'
-        '<a href="/food-cost-jp/guides/rice-5kg-10kg-household-plan/">必要量と支払額を計算する →</a>'
+        '<p>1日の合数・手持ち在庫から必要セット数と余りを計算。'
+        '検証済みの商品価格がそろう場合のみ支払総額も比較できます。</p>'
+        '<a href="/food-cost-jp/guides/rice-5kg-10kg-household-plan/">必要量と購入セット数を計算する →</a>'
         '</aside>'
     )
     path.write_text(content.replace("</main>", snippet + "</main>", 1), encoding="utf-8")
