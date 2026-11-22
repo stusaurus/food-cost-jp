@@ -98,6 +98,8 @@ def page(items, checked_at: datetime | None = None, analytics_markup="", now: da
     has_offers = bool(offers) and price_is_fresh(checked_at, now)
     checked = checked_at.strftime("%Y-%m-%d %H:%M JST") if checked_at else "掲載データ取得時点"
     checked = html.escape(checked)
+    checked_iso = (checked_at.replace(tzinfo=JST) if checked_at and checked_at.tzinfo is None else checked_at)
+    checked_iso = html.escape(checked_iso.isoformat(), quote=True) if checked_iso else ""
     cards = (offer_card(offers[5000], 5000) + offer_card(offers[10000], 10000)) if has_offers else ""
     document = r'''<!doctype html>
 <html lang="ja"><head>
@@ -138,7 +140,7 @@ button{border:0;border-radius:11px;background:var(--green);color:white;font-size
 <p>計算には<strong>精米1合＝約150g（炊く前のお米）</strong>を使います。例えば1日2合なら、5kgは約16.7日分、10kgは約33.3日分。炊飯後のご飯の重量とは異なります。炊飯器の水加減・蒸発・食べ残しなどは別の要因です。</p>
 <p class="small">換算根拠：<a href="https://www.maff.go.jp/j/heya/kodomo_sodan/0103/01.html" target="_blank" rel="noopener">農林水産省「お米の重さとご飯の重さの違い」</a>。日数は毎日同じ合数を使う場合の計算値です。</p>
 </section>
-<section class="box" aria-labelledby="seller-title">
+<section class="box" aria-labelledby="seller-title" id="seller-section" data-checked-at="__CHECKED_ISO__">
 <h2 id="seller-title">__SELLER_TITLE__</h2>
 <p class="note">__SELLER_NOTE__</p>
 __SELLER_CARDS__
@@ -179,7 +181,29 @@ __SELLER_CARDS__
   const el = id => document.getElementById(id);
   const a5 = document.querySelector('[data-rice-offer][data-kg="5"]');
   const a10 = document.querySelector('[data-rice-offer][data-kg="10"]');
-  const hasPrices = !!(a5 && a10);
+  const seller = el("seller-section");
+  const sellerNote = seller.querySelector(".note");
+  const offerGrid = seller.querySelector(".grid");
+  const priceMaxAgeMs = 48 * 60 * 60 * 1000;
+  const checkedAtMs = Date.parse(seller.dataset.checkedAt || "");
+  let hasPrices = !!(a5 && a10);
+  function enforcePriceExpiry() {
+    if (!hasPrices) return;
+    const age = Date.now() - checkedAtMs;
+    if (Number.isFinite(checkedAtMs) && age >= 0 && age <= priceMaxAgeMs) return;
+    hasPrices = false;
+    if (offerGrid) offerGrid.hidden = true;
+    el("seller-title").textContent = "掲載商品の価格比較は現在確認中です";
+    sellerNote.textContent = "掲載商品データが48時間を超えた、または取得日時を確認できないため、価格・購入リンクを非表示にしています。必要量と購入セット数は引き続き計算できます。";
+    document.querySelectorAll('a[data-affiliate="rakuten"]').forEach(link => {
+      link.removeAttribute("href");
+      link.hidden = true;
+    });
+    el("best-total").textContent = "価格比較は一時停止中";
+    el("five-total").textContent = "価格比較は一時停止中";
+    el("ten-total").textContent = "価格比較は一時停止中";
+    calculate(false);
+  }
   const price5 = hasPrices ? Number(a5.dataset.price) : null;
   const price10 = hasPrices ? Number(a10.dataset.price) : null;
   const yen = v => Math.round(v).toLocaleString("ja-JP") + "円";
@@ -246,9 +270,21 @@ __SELLER_CARDS__
       site_id:"food_cost_jp", operator_test:window.foodCostOperatorTest ? "1" : "0"
     });
   }
-  el("calculate").addEventListener("click", () => calculate(true));
+  el("calculate").addEventListener("click", () => {
+    enforcePriceExpiry();
+    calculate(true);
+  });
+  document.addEventListener("visibilitychange", () => {
+    if (!document.hidden) enforcePriceExpiry();
+  });
+  window.addEventListener("focus", enforcePriceExpiry);
   document.querySelectorAll('a[data-affiliate="rakuten"]').forEach(link => {
-    link.addEventListener("click", () => {
+    link.addEventListener("click", event => {
+      enforcePriceExpiry();
+      if (!hasPrices) {
+        event.preventDefault();
+        return;
+      }
       if (typeof window.gtag === "function") window.gtag("event", "affiliate_click", {
         site_id:"food_cost_jp",affiliate:"rakuten",category_id:"rice",
         conversion_source:"rice_household_planner",click_position:"rice_household_planner",
@@ -256,6 +292,7 @@ __SELLER_CARDS__
       });
     });
   });
+  enforcePriceExpiry();
   calculate(false);
 })();
 </script></body></html>'''
@@ -298,7 +335,8 @@ __SELLER_CARDS__
                      "家庭の精米消費量と在庫から必要量と購入セット数を計算するツール")
             .replace("家庭の必要量・購入総額計算",
                      "家庭の必要量・購入セット数計算"))
-    return (document.replace("__SELLER_TITLE__", seller_title, 1)
+    return (document.replace("__CHECKED_ISO__", checked_iso, 1)
+            .replace("__SELLER_TITLE__", seller_title, 1)
             .replace("__SELLER_NOTE__", seller_note, 1)
             .replace("__SELLER_CARDS__", seller_cards, 1)
             .replace("__BEST_TITLE__", best_title, 1)
