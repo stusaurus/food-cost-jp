@@ -168,3 +168,60 @@ test('a missing verified seller pair keeps calculating kg and set counts, never 
     assert.equal(event[2].stock, undefined);
   } finally { dom.window.close(); }
 });
+
+test('client-side expiry removes stale offers, totals and outgoing links without breaking quantity calculation', {skip: !sellerBacked}, () => {
+  const html = generated.replace(/data-checked-at="[^"]*"/, 'data-checked-at="2026-11-19T08:00:00+09:00"');
+  const dom = new JSDOM(html, {
+    url:'https://stusaurus.github.io/food-cost-jp/guides/rice-5kg-10kg-household-plan/?test=1',
+    runScripts:'dangerously',
+    beforeParse(window) { window.Date.now = () => Date.parse('2026-11-22T12:00:00+09:00'); }
+  });
+  try {
+    const doc = dom.window.document;
+    assert.equal(doc.querySelector('.offer').parentElement.hidden, true);
+    assert.match(doc.getElementById('seller-title').textContent, /確認中/);
+    assert.equal(doc.getElementById('five-total').textContent,'価格比較は一時停止中');
+    assert.equal(doc.getElementById('best-total').textContent,'価格比較は一時停止中');
+    assert.equal(doc.getElementById('required-kg').textContent,'9kg');
+    assert.equal(doc.getElementById('five-sets').textContent,'5kgセット × 2');
+    for(const a of doc.querySelectorAll('a[data-affiliate="rakuten"]')) {
+      assert.equal(a.hidden,true);
+      assert.equal(a.hasAttribute('href'),false);
+    }
+  } finally { dom.window.close(); }
+});
+
+test('client-side price validity expires at 48h boundary and rejects future timestamps', {skip: !sellerBacked}, () => {
+  for(const [stamp,now,expected] of [
+    ['2026-11-20T12:00:00+09:00','2026-11-22T12:00:00+09:00',true],
+    ['2026-11-20T11:59:59+09:00','2026-11-22T12:00:00+09:00',false],
+    ['2026-11-22T12:00:01+09:00','2026-11-22T12:00:00+09:00',false],
+    ['','2026-11-22T12:00:00+09:00',false]
+  ]) {
+    const html = generated.replace(/data-checked-at="[^"]*"/, 'data-checked-at="'+stamp+'"');
+    const dom = new JSDOM(html,{runScripts:'dangerously',
+      beforeParse(window){window.Date.now=()=>Date.parse(now);}
+    });
+    try {
+      assert.equal(dom.window.document.querySelector('.offer').parentElement.hidden,!expected);
+      assert.equal(dom.window.document.getElementById('five-total').textContent==='価格比較は一時停止中',!expected);
+    } finally {dom.window.close();}
+  }
+});
+
+test('a tab returning after the 48-hour boundary hides prices and disables merchant links', {skip: !sellerBacked}, () => {
+  let clock = Date.parse('2026-11-22T12:00:00+09:00');
+  const html=generated.replace(/data-checked-at="[^"]*"/,'data-checked-at="2026-11-22T11:00:00+09:00"');
+  const dom=new JSDOM(html,{runScripts:'dangerously',
+    beforeParse(window){window.Date.now=()=>clock;}
+  });
+  try{
+    const doc=dom.window.document;
+    assert.equal(doc.querySelector('.offer').parentElement.hidden,false);
+    clock=Date.parse('2026-11-24T12:00:00+09:00');
+    dom.window.dispatchEvent(new dom.window.Event('focus'));
+    assert.equal(doc.querySelector('.offer').parentElement.hidden,true);
+    assert.equal(doc.getElementById('five-total').textContent,'価格比較は一時停止中');
+    assert.equal(doc.querySelector('a[data-affiliate="rakuten"]').hasAttribute('href'),false);
+  } finally {dom.window.close();}
+});
