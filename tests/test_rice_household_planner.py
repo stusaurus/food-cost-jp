@@ -90,7 +90,7 @@ class HouseholdRicePlannerTests(unittest.TestCase):
                 self.assertNotIn('支払総額を計算できる', page)
         recent = r.page([five, ten], checked_at=datetime(2026, 11, 20, 12, 0), now=current)
         self.assertIn('data-price="2870"', recent)
-        self.assertEqual(recent.count('data-affiliate="rakuten"'), 2)
+        self.assertEqual(recent.count('<a class="buy"'), 2)
 
     def test_publisher_adds_one_internal_link_each_and_one_canonical_sitemap_url(self):
         with tempfile.TemporaryDirectory() as directory:
