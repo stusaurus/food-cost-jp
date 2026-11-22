@@ -83,7 +83,7 @@ class HouseholdRicePlannerTests(unittest.TestCase):
                 self.assertIn('id="required-kg"', page)
                 self.assertIn('掲載商品の価格比較は現在確認中です', page)
                 self.assertNotIn('<article class="offer" data-rice-offer', page)
-                self.assertNotIn('data-affiliate="rakuten"', page)
+                self.assertNotIn('<a class="buy"', page)
                 self.assertNotIn('data-price="2870"', page)
                 self.assertNotIn('¥2,870', page)
                 self.assertIn('必要な購入量を計算', page)
