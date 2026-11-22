@@ -225,3 +225,30 @@ test('a tab returning after the 48-hour boundary hides prices and disables merch
     assert.equal(doc.querySelector('a[data-affiliate="rakuten"]').hasAttribute('href'),false);
   } finally {dom.window.close();}
 });
+
+test('rice daily-consumption guide gives accurate 5kg and 10kg durations', () => {
+  assert.match(generated, /1合<\/th><td>約33\.3日<\/td><td>約66\.7日/);
+  assert.match(generated, /2合<\/th><td>約16\.7日<\/td><td>約33\.3日/);
+  assert.match(generated, /3合<\/th><td>約11\.1日<\/td><td>約22\.2日/);
+  assert.match(generated, /4合<\/th><td>約8\.3日<\/td><td>約16\.7日/);
+});
+
+test('5kg x2 versus 10kg price difference is grounded in the two listed offers', {skip: !sellerBacked}, () => {
+  const b=boot();
+  try {
+    const p5=Number(b.doc.querySelector('[data-kg="5"]').dataset.price);
+    const p10=Number(b.doc.querySelector('[data-kg="10"]').dataset.price);
+    const explanation=b.get('break-even');
+    assert.match(explanation,new RegExp((p5*2).toLocaleString('ja-JP')));
+    assert.match(explanation,new RegExp(p10.toLocaleString('ja-JP')));
+    assert.match(explanation,/同一銘柄|支払総額/);
+  } finally {b.dom.window.close();}
+});
+
+test('missing seller prices must never produce a break-even price', () => {
+  const html=generated.replace(/<article class="offer" data-rice-offer[\s\S]*?<\/article>/g,'');
+  const dom=new JSDOM(html,{runScripts:'dangerously'});
+  try {
+    assert.match(dom.window.document.getElementById('break-even').textContent,/表示していません/);
+  } finally {dom.window.close();}
+});
