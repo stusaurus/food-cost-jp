@@ -168,6 +168,19 @@ __SELLER_CARDS__
 <p class="note">__RESULT_NOTE__</p>
 </div>
 </section>
+<section class="box" aria-labelledby="buy-guide-title">
+<h2 id="buy-guide-title">米5kg・10kgは何日もつ？1日の炊飯量別の目安</h2>
+<p>精米1合を150gとして計算した理論値です。家族人数だけでは消費量は決まらないため、実際の1日の炊飯量を基準にしてください。</p>
+<div style="overflow-x:auto"><table style="border-collapse:collapse;width:100%;min-width:300px;text-align:left">
+<thead><tr><th scope="col">1日の炊飯量</th><th scope="col">5kgがもつ日数</th><th scope="col">10kgがもつ日数</th></tr></thead>
+<tbody><tr><th scope="row">1合</th><td>約33.3日</td><td>約66.7日</td></tr>
+<tr><th scope="row">2合</th><td>約16.7日</td><td>約33.3日</td></tr>
+<tr><th scope="row">3合</th><td>約11.1日</td><td>約22.2日</td></tr>
+<tr><th scope="row">4合</th><td>約8.3日</td><td>約16.7日</td></tr></tbody></table></div>
+<p class="small">小数第2位を四捨五入。精米を買い置きする際は、置き場所・温度・湿度と、使い切れる期間も考慮してください。長く保存できることを保証する表ではありません。</p>
+<h2>5kgを2セット買う場合と10kgを1セット買う場合の価格差</h2>
+<p id="break-even" class="note" aria-live="polite">価格を確認できた場合のみ、比較した2商品の損益分岐点を表示します。</p>
+</section>
 <section class="box"><h2>5kgと10kg、何を基準に選ぶ？</h2>
 <p>1kg単価が安くても、必要量が少なければ買い過ぎになる場合があります。逆に10kgセットは5kg袋2つで届く場合があるため、<strong>袋の数ではなく商品の販売セット総量</strong>で比較しています。</p>
 <p>30日分を買うなら、まず「1日の炊飯合数 × 30日」を計算し、手元の在庫を引いてください。2合/日なら必要な精米は9kg。5kgを2セット買う場合と10kgを1セット買う場合では、余りが同じでも支払額が異なることがあります。</p>
@@ -199,6 +212,7 @@ __SELLER_CARDS__
       link.removeAttribute("href");
       link.hidden = true;
     });
+    el("break-even").textContent = "掲載価格を確認できないため、5kg×2と10kg×1の価格差は表示していません。";
     el("best-total").textContent = "価格比較は一時停止中";
     el("five-total").textContent = "価格比較は一時停止中";
     el("ten-total").textContent = "価格比較は一時停止中";
@@ -207,6 +221,17 @@ __SELLER_CARDS__
   const price5 = hasPrices ? Number(a5.dataset.price) : null;
   const price10 = hasPrices ? Number(a10.dataset.price) : null;
   const yen = v => Math.round(v).toLocaleString("ja-JP") + "円";
+  const breakEven = el("break-even");
+  if (hasPrices) {
+    const difference = 2 * price5 - price10;
+    breakEven.textContent = difference > 0 ?
+      "掲載した5kg商品を2セット買う場合は" + yen(2*price5) + "、10kg商品を1セット買う場合は" + yen(price10) + "。10kgセットが" + yen(difference) + "安くなります。比較対象は同一銘柄・同一品質とは限りません。" :
+      difference < 0 ?
+      "掲載した5kg商品を2セット買う場合は" + yen(2*price5) + "、10kg商品を1セット買う場合は" + yen(price10) + "。5kg×2セットが" + yen(-difference) + "安くなります。比較対象は同一銘柄・同一品質とは限りません。" :
+      "掲載した5kg×2セットと10kg×1セットの支払総額は、どちらも" + yen(price10) + "です。";
+  } else {
+    breakEven.textContent = "掲載価格を確認できないため、5kg×2と10kg×1の価格差は表示していません。";
+  }
   const kg = v => (Math.round(v * 100) / 100).toLocaleString("ja-JP", {maximumFractionDigits:2}) + "kg";
   const countFor = (neededGrams, packGrams) => Math.max(0, Math.ceil(neededGrams / packGrams - 1e-10));
   const inputs = ["go-day", "days", "stock"];
