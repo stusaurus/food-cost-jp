@@ -44,9 +44,9 @@ gtag('config','G-GFVSZ8YDQ5',{site_id:'food_cost_jp',operator_test:window.foodCo
 <p>計算には<strong>精米1合＝約150g（炊く前のお米）</strong>を使います。例えば1日2合なら、5kgは約16.7日分、10kgは約33.3日分。炊飯後のご飯の重量とは異なります。炊飯器の水加減・蒸発・食べ残しなどは別の要因です。</p>
 <p class="small">換算根拠：<a href="https://www.maff.go.jp/j/heya/kodomo_sodan/0103/01.html" target="_blank" rel="noopener">農林水産省「お米の重さとご飯の重さの違い」</a>。日数は毎日同じ合数を使う場合の計算値です。</p>
 </section>
-<section class="box" aria-labelledby="seller-title">
+<section class="box" aria-labelledby="seller-title" id="seller-section" data-checked-at="2026-11-22T12:11:51.728951+09:00">
 <h2 id="seller-title">実際の掲載価格で比べる</h2>
-<p class="note">掲載価格の最終確認：2026-11-22 09:51 JST。各重量で、当サイトの送料込み判定済み商品の中から商品セット価格が低い候補を使用。楽天市場全体の最安値・品質順位ではありません。送料込み判定でも配送地域・在庫・発送日・最終決済額は購入先で再確認してください。クーポンやポイント還元は差し引きません。</p>
+<p class="note">掲載価格の最終確認：2026-11-22 12:11 JST。各重量で、当サイトの送料込み判定済み商品の中から商品セット価格が低い候補を使用。楽天市場全体の最安値・品質順位ではありません。送料込み判定でも配送地域・在庫・発送日・最終決済額は購入先で再確認してください。クーポンやポイント還元は差し引きません。</p>
 <div class="grid"><article class="offer" data-rice-offer data-kg="5" data-price="2870"><span class="eyebrow">5kgセットの掲載候補</span><h3>コシヒカリ 5kg 茨城県産 令和7年産 白米 単一原料米 お米 5キロ こしひかり 毎日のごはんに 精米 竹屋 家庭用</h3><div class="price">¥2,870<small>送料込み判定／5kgセット</small></div><p class="small">掲載内で ¥574.0／kg。10kgセットが5kg×2袋で届く場合もあります。</p><a class="buy" href="https://hb.afl.rakuten.co.jp/hgc/g00rixzo.7cx6mb5d.g00rixzo.7cx6n071/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fsakekasu%2Fkoshihikari_5%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Fsakekasu%2Fi%2F10000385%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" target="_blank" rel="nofollow sponsored noopener" data-affiliate="rakuten" data-position="rice_household_planner" data-category="rice" data-product-id="sakekasu:10000385" data-metric="per_kg" data-unit-price="574.000000" data-shipping="included">楽天で購入条件を確認する</a></article><article class="offer" data-rice-offer data-kg="10" data-price="3480"><span class="eyebrow">10kgセットの掲載候補</span><h3>【11/30～順次発送】セール 10kg お米 白米 安い 訳あり ブレンド米 『国内産たんぼだより白米10kg』</h3><div class="price">¥3,480<small>送料込み判定／10kgセット</small></div><p class="small">掲載内で ¥348.0／kg。10kgセットが5kg×2袋で届く場合もあります。</p><a class="buy" href="https://hb.afl.rakuten.co.jp/hgc/g00qemeo.7cx6me7c.g00qemeo.7cx6n1cb/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fanzai-rice%2Ftanbo10%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Fanzai-rice%2Fi%2F10000437%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" target="_blank" rel="nofollow sponsored noopener" data-affiliate="rakuten" data-position="rice_household_planner" data-category="rice" data-product-id="anzai-rice:10000437" data-metric="per_kg" data-unit-price="348.000000" data-shipping="included">楽天で購入条件を確認する</a></article></div>
 </section>
 <section class="box" aria-labelledby="form-title">
@@ -85,7 +85,29 @@ gtag('config','G-GFVSZ8YDQ5',{site_id:'food_cost_jp',operator_test:window.foodCo
   const el = id => document.getElementById(id);
   const a5 = document.querySelector('[data-rice-offer][data-kg="5"]');
   const a10 = document.querySelector('[data-rice-offer][data-kg="10"]');
-  const hasPrices = !!(a5 && a10);
+  const seller = el("seller-section");
+  const sellerNote = seller.querySelector(".note");
+  const offerGrid = seller.querySelector(".grid");
+  const priceMaxAgeMs = 48 * 60 * 60 * 1000;
+  const checkedAtMs = Date.parse(seller.dataset.checkedAt || "");
+  let hasPrices = !!(a5 && a10);
+  function enforcePriceExpiry() {
+    if (!hasPrices) return;
+    const age = Date.now() - checkedAtMs;
+    if (Number.isFinite(checkedAtMs) && age >= 0 && age <= priceMaxAgeMs) return;
+    hasPrices = false;
+    if (offerGrid) offerGrid.hidden = true;
+    el("seller-title").textContent = "掲載商品の価格比較は現在確認中です";
+    sellerNote.textContent = "掲載商品データが48時間を超えた、または取得日時を確認できないため、価格・購入リンクを非表示にしています。必要量と購入セット数は引き続き計算できます。";
+    document.querySelectorAll('a[data-affiliate="rakuten"]').forEach(link => {
+      link.removeAttribute("href");
+      link.hidden = true;
+    });
+    el("best-total").textContent = "価格比較は一時停止中";
+    el("five-total").textContent = "価格比較は一時停止中";
+    el("ten-total").textContent = "価格比較は一時停止中";
+    calculate(false);
+  }
   const price5 = hasPrices ? Number(a5.dataset.price) : null;
   const price10 = hasPrices ? Number(a10.dataset.price) : null;
   const yen = v => Math.round(v).toLocaleString("ja-JP") + "円";
@@ -152,9 +174,21 @@ gtag('config','G-GFVSZ8YDQ5',{site_id:'food_cost_jp',operator_test:window.foodCo
       site_id:"food_cost_jp", operator_test:window.foodCostOperatorTest ? "1" : "0"
     });
   }
-  el("calculate").addEventListener("click", () => calculate(true));
+  el("calculate").addEventListener("click", () => {
+    enforcePriceExpiry();
+    calculate(true);
+  });
+  document.addEventListener("visibilitychange", () => {
+    if (!document.hidden) enforcePriceExpiry();
+  });
+  window.addEventListener("focus", enforcePriceExpiry);
   document.querySelectorAll('a[data-affiliate="rakuten"]').forEach(link => {
-    link.addEventListener("click", () => {
+    link.addEventListener("click", event => {
+      enforcePriceExpiry();
+      if (!hasPrices) {
+        event.preventDefault();
+        return;
+      }
       if (typeof window.gtag === "function") window.gtag("event", "affiliate_click", {
         site_id:"food_cost_jp",affiliate:"rakuten",category_id:"rice",
         conversion_source:"rice_household_planner",click_position:"rice_household_planner",
@@ -162,6 +196,7 @@ gtag('config','G-GFVSZ8YDQ5',{site_id:'food_cost_jp',operator_test:window.foodCo
       });
     });
   });
+  enforcePriceExpiry();
   calculate(false);
 })();
 </script></body></html>
