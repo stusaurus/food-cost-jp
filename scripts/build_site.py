@@ -2285,7 +2285,7 @@ def render_pages(results: dict, updated: datetime) -> list[dict]:
     # Source-owned A8 family-meal planner. Keep separate from verified Rakuten ranking.
     from meal_delivery_budget import publish as publish_family_meal_budget
     publish_family_meal_budget(OUT, analytics_markup=ga_head())
-    # New indexable buying-decision guide is published only with both verified size offers.
+    # Keep quantity guide indexable during temporary verified-offer gaps.
     from rice_household_planner import publish as publish_rice_household
     publish_rice_household(OUT, rice_offers=results.get("rice", ([], []))[0],
                            checked_at=updated, analytics_markup=ga_head())

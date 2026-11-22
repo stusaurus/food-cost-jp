@@ -5,6 +5,8 @@ const path = require('node:path');
 const { JSDOM } = require('jsdom');
 
 const page = path.join(__dirname, '..', 'site', 'guides', 'rice-5kg-10kg-household-plan', 'index.html');
+const generated = fs.readFileSync(page, 'utf8');
+const sellerBacked = generated.includes('data-rice-offer data-kg="5"') && generated.includes('data-rice-offer data-kg="10"');
 
 function boot() {
   const html = fs.readFileSync(page, 'utf8');
@@ -29,7 +31,7 @@ function boot() {
   };
 }
 
-test('2 go per day for 30 days requires 9kg dry rice and exact seller-sized orders', () => {
+test('2 go per day for 30 days requires 9kg dry rice and exact seller-sized orders', { skip: !sellerBacked }, () => {
   const b = boot();
   try {
     const five = b.doc.querySelector('[data-rice-offer][data-kg="5"]');
@@ -51,7 +53,7 @@ test('2 go per day for 30 days requires 9kg dry rice and exact seller-sized orde
   } finally { b.dom.window.close(); }
 });
 
-test('30-day consumption can favor a 10kg+5kg combination; no inflated pack count', () => {
+test('30-day consumption can favor a 10kg+5kg combination; no inflated pack count', { skip: !sellerBacked }, () => {
   const b = boot();
   try {
     const p5 = Number(b.doc.querySelector('[data-kg="5"]').dataset.price);
@@ -76,7 +78,7 @@ test('30-day consumption can favor a 10kg+5kg combination; no inflated pack coun
   } finally { b.dom.window.close(); }
 });
 
-test('stock can eliminate new purchasing; invalid decimal steps must not yield misleading results', () => {
+test('stock can eliminate new purchasing; invalid decimal steps must not yield misleading results', { skip: !sellerBacked }, () => {
   const b = boot();
   try {
     b.change('go-day',1);
@@ -103,7 +105,7 @@ test('stock can eliminate new purchasing; invalid decimal steps must not yield m
   } finally { b.dom.window.close(); }
 });
 
-test('seller links are original, properly attributed, and do not leak input details', () => {
+test('seller links are original, properly attributed, and do not leak input details', { skip: !sellerBacked }, () => {
   const b=boot();
   try {
     const anchors=[...b.doc.querySelectorAll('a[data-affiliate="rakuten"]')];
@@ -128,4 +130,41 @@ test('seller links are original, properly attributed, and do not leak input deta
     assert.equal(outgoing[0][2].days,undefined);
     assert.equal(outgoing[0][2].daily_go,undefined);
   } finally { b.dom.window.close(); }
+});
+
+
+test('a missing verified seller pair keeps calculating kg and set counts, never inventing prices', () => {
+  const html = generated.replace(/<article class="offer" data-rice-offer[\s\S]*?<\/article>/g, '');
+  if (!sellerBacked) {
+    assert.match(html, /掲載商品の価格比較は現在確認中です/);
+    assert.match(html, /必要量と購入セット数を計算/);
+    assert.doesNotMatch(html, /<a class="buy"/);
+  }
+  const events = [];
+  const dom = new JSDOM(html, {
+    url: 'https://stusaurus.github.io/food-cost-jp/guides/rice-5kg-10kg-household-plan/?test=1',
+    runScripts: 'dangerously',
+    beforeParse(window) { window.gtag = (...args) => events.push(args); }
+  });
+  try {
+    const doc = dom.window.document;
+    assert.equal(doc.getElementById('required-kg').textContent, '9kg');
+    assert.equal(doc.getElementById('five-sets').textContent, '5kgセット × 2');
+    assert.equal(doc.getElementById('ten-sets').textContent, '10kgセット × 1');
+    assert.equal(doc.getElementById('five-total').textContent, '価格比較は一時停止中');
+    assert.equal(doc.getElementById('ten-total').textContent, '価格比較は一時停止中');
+    assert.equal(doc.getElementById('best-total').textContent, '価格比較は一時停止中');
+    assert.equal(doc.querySelectorAll('[data-affiliate="rakuten"]').length, 0);
+    const input = doc.getElementById('go-day');
+    input.value = '3';
+    input.dispatchEvent(new dom.window.Event('input', { bubbles:true }));
+    doc.getElementById('calculate').click();
+    assert.equal(doc.getElementById('required-kg').textContent, '13.5kg');
+    assert.equal(doc.getElementById('five-sets').textContent, '5kgセット × 3');
+    assert.equal(doc.getElementById('results').hidden, false);
+    const event = events.find(x=>x[1]==='rice_household_plan');
+    assert.ok(event);
+    assert.equal(event[2].daily_go, undefined);
+    assert.equal(event[2].stock, undefined);
+  } finally { dom.window.close(); }
 });

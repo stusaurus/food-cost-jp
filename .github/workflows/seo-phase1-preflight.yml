@@ -39,6 +39,7 @@ jobs:
           node scripts/check_24_servings.cjs
           node scripts/check_family_meal_budget.cjs
           node scripts/check_finder_memory.cjs
+          node scripts/check_rice_household_planner.cjs
       - uses: actions/upload-artifact@v4
         if: always()
         with:
@@ -47,4 +48,5 @@ jobs:
             pack-size-evidence
             meal-budget-evidence
             finder-memory-evidence
+            rice-household-evidence
           if-no-files-found: error
