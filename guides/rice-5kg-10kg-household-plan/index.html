@@ -35,7 +35,7 @@ gtag('js',new Date());
 gtag('config','G-GFVSZ8YDQ5',{site_id:'food_cost_jp',operator_test:window.foodCostOperatorTest?'1':'0'});
 </script>
 </head><body><main>
-<div class="top"><a href="../../">食品コスパ比較</a><span class="tag">購入する量と支払総額をそろえる</span></div>
+<div class="top"><a href="../../">食品コスパ比較</a><span class="tag">購入する量と価格の根拠を確かめる</span></div>
 <p class="tag">家族の米の買い方・計算ツール</p>
 <h1>米5kg・10kgは何日もつ？必要量と購入総額を計算</h1>
 <p class="lead">1日何合のお米を炊くか、何日分を買うか、今あるお米は何kgかを入れると、<strong>5kgだけ・10kgだけ・組み合わせ</strong>の購入セット数、支払総額、購入後の余りを比較できます。</p>
@@ -46,7 +46,7 @@ gtag('config','G-GFVSZ8YDQ5',{site_id:'food_cost_jp',operator_test:window.foodCo
 </section>
 <section class="box" aria-labelledby="seller-title">
 <h2 id="seller-title">実際の掲載価格で比べる</h2>
-<p class="note">掲載価格の最終確認：2026-11-22 09:33 JST。各重量で、当サイトの送料込み判定済み商品の中から商品セット価格が低い候補を使用。楽天市場全体の最安値・品質順位ではありません。送料込み判定でも配送地域・在庫・発送日・最終決済額は購入先で再確認してください。クーポンやポイント還元は差し引きません。</p>
+<p class="note">掲載価格の最終確認：2026-11-22 09:51 JST。各重量で、当サイトの送料込み判定済み商品の中から商品セット価格が低い候補を使用。楽天市場全体の最安値・品質順位ではありません。送料込み判定でも配送地域・在庫・発送日・最終決済額は購入先で再確認してください。クーポンやポイント還元は差し引きません。</p>
 <div class="grid"><article class="offer" data-rice-offer data-kg="5" data-price="2870"><span class="eyebrow">5kgセットの掲載候補</span><h3>コシヒカリ 5kg 茨城県産 令和7年産 白米 単一原料米 お米 5キロ こしひかり 毎日のごはんに 精米 竹屋 家庭用</h3><div class="price">¥2,870<small>送料込み判定／5kgセット</small></div><p class="small">掲載内で ¥574.0／kg。10kgセットが5kg×2袋で届く場合もあります。</p><a class="buy" href="https://hb.afl.rakuten.co.jp/hgc/g00rixzo.7cx6mb5d.g00rixzo.7cx6n071/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fsakekasu%2Fkoshihikari_5%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Fsakekasu%2Fi%2F10000385%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" target="_blank" rel="nofollow sponsored noopener" data-affiliate="rakuten" data-position="rice_household_planner" data-category="rice" data-product-id="sakekasu:10000385" data-metric="per_kg" data-unit-price="574.000000" data-shipping="included">楽天で購入条件を確認する</a></article><article class="offer" data-rice-offer data-kg="10" data-price="3480"><span class="eyebrow">10kgセットの掲載候補</span><h3>【11/30～順次発送】セール 10kg お米 白米 安い 訳あり ブレンド米 『国内産たんぼだより白米10kg』</h3><div class="price">¥3,480<small>送料込み判定／10kgセット</small></div><p class="small">掲載内で ¥348.0／kg。10kgセットが5kg×2袋で届く場合もあります。</p><a class="buy" href="https://hb.afl.rakuten.co.jp/hgc/g00qemeo.7cx6me7c.g00qemeo.7cx6n1cb/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fanzai-rice%2Ftanbo10%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Fanzai-rice%2Fi%2F10000437%2F&amp;rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5" target="_blank" rel="nofollow sponsored noopener" data-affiliate="rakuten" data-position="rice_household_planner" data-category="rice" data-product-id="anzai-rice:10000437" data-metric="per_kg" data-unit-price="348.000000" data-shipping="included">楽天で購入条件を確認する</a></article></div>
 </section>
 <section class="box" aria-labelledby="form-title">
@@ -57,7 +57,7 @@ gtag('config','G-GFVSZ8YDQ5',{site_id:'food_cost_jp',operator_test:window.foodCo
 <label for="stock">手元にある精米（kg）<input id="stock" type="number" inputmode="decimal" min="0" max="200" step="0.1" value="0" required></label>
 </div>
 <p class="small">目安として「1日2合 × 30日」なら9kg。世帯人数ではなく、実際に炊く合数で計算します。在庫は炊く前の精米重量で入力してください。</p>
-<button id="calculate" type="button">必要な購入量と支払総額を計算</button>
+<button id="calculate" type="button">必要な購入量を計算</button>
 <p id="status" class="note" role="status" aria-live="polite">初期値でも計算できます。値を変えたときは計算ボタンを押してください。</p>
 <div id="results" hidden aria-live="polite">
 <div class="summary">
@@ -69,7 +69,7 @@ gtag('config','G-GFVSZ8YDQ5',{site_id:'food_cost_jp',operator_test:window.foodCo
 <article class="result-card"><h3>10kgセットだけで買う</h3><strong id="ten-total"></strong><span id="ten-sets"></span><small id="ten-leftover"></small></article>
 </div>
 <article class="result-card best" style="margin-top:14px"><h3>この2商品で支払総額が低い組み合わせ</h3><strong id="best-total"></strong><div id="best-sets"></div><small id="best-leftover"></small></article>
-<p class="note">ここでの「最安」は<strong>表示した5kg商品・10kg商品の掲載価格</strong>だけを比較した結果です。必要量以上をセット単位で購入するため、余りが出ます。炊飯費用、送料の地域差、食べ残し、保管中の品質変化は含めません。保管場所や消費期限も考えて購入してください。</p>
+<p class="note">ここでの「最安」は表示した5kg商品・10kg商品の掲載価格だけを比較した結果です。セット単位で購入するため余りが出ます。炊飯費用、送料の地域差、食べ残し、保管中の品質変化は含めません。保管場所や消費期限も考えて購入してください。</p>
 </div>
 </section>
 <section class="box"><h2>5kgと10kg、何を基準に選ぶ？</h2>
@@ -85,8 +85,9 @@ gtag('config','G-GFVSZ8YDQ5',{site_id:'food_cost_jp',operator_test:window.foodCo
   const el = id => document.getElementById(id);
   const a5 = document.querySelector('[data-rice-offer][data-kg="5"]');
   const a10 = document.querySelector('[data-rice-offer][data-kg="10"]');
-  if (!a5 || !a10) return;
-  const price5 = Number(a5.dataset.price), price10 = Number(a10.dataset.price);
+  const hasPrices = !!(a5 && a10);
+  const price5 = hasPrices ? Number(a5.dataset.price) : null;
+  const price10 = hasPrices ? Number(a10.dataset.price) : null;
   const yen = v => Math.round(v).toLocaleString("ja-JP") + "円";
   const kg = v => (Math.round(v * 100) / 100).toLocaleString("ja-JP", {maximumFractionDigits:2}) + "kg";
   const countFor = (neededGrams, packGrams) => Math.max(0, Math.ceil(neededGrams / packGrams - 1e-10));
@@ -115,32 +116,37 @@ gtag('config','G-GFVSZ8YDQ5',{site_id:'food_cost_jp',operator_test:window.foodCo
     const buyG = Math.max(0, requiredG - stock * 1000);
     const five = countFor(buyG, 5000);
     const ten = countFor(buyG, 10000);
-    const spentFive = five * price5;
-    const spentTen = ten * price10;
+    const spentFive = hasPrices ? five * price5 : null;
+    const spentTen = hasPrices ? ten * price10 : null;
     const surplus = (purchasedG) => kg(Math.max(0, stock * 1000 + purchasedG - requiredG) / 1000);
     let best = null;
-    for (let t = 0; t <= ten; t++) {
-      const f = countFor(Math.max(0, buyG - 10000 * t), 5000);
-      const cost = f * price5 + t * price10;
-      const boughtG = f * 5000 + t * 10000;
-      if (!best || cost < best.cost ||
-          (cost === best.cost && (boughtG < best.boughtG ||
-          (boughtG === best.boughtG && f + t < best.f + best.t)))) {
-        best = {f:f,t:t,cost:cost,boughtG:boughtG};
+    if (hasPrices) {
+      for (let t = 0; t <= ten; t++) {
+        const f = countFor(Math.max(0, buyG - 10000 * t), 5000);
+        const cost = f * price5 + t * price10;
+        const boughtG = f * 5000 + t * 10000;
+        if (!best || cost < best.cost ||
+            (cost === best.cost && (boughtG < best.boughtG ||
+            (boughtG === best.boughtG && f + t < best.f + best.t)))) {
+          best = {f:f,t:t,cost:cost,boughtG:boughtG};
+        }
       }
     }
     el("required-kg").textContent = kg(requiredG / 1000);
     el("to-buy-kg").textContent = kg(buyG / 1000);
-    el("five-total").textContent = yen(spentFive);
+    el("five-total").textContent = hasPrices ? yen(spentFive) : "価格比較は一時停止中";
     el("five-sets").textContent = "5kgセット × " + five;
     el("five-leftover").textContent = "見込み残量 " + surplus(five * 5000);
-    el("ten-total").textContent = yen(spentTen);
+    el("ten-total").textContent = hasPrices ? yen(spentTen) : "価格比較は一時停止中";
     el("ten-sets").textContent = "10kgセット × " + ten;
     el("ten-leftover").textContent = "見込み残量 " + surplus(ten * 10000);
-    el("best-total").textContent = yen(best.cost);
-    el("best-sets").textContent = "5kgセット × " + best.f + "、10kgセット × " + best.t;
-    el("best-leftover").textContent = "見込み残量 " + surplus(best.boughtG);
-    el("status").textContent = "表示した商品の掲載価格と入力条件で算出しました。";
+    el("best-total").textContent = hasPrices ? yen(best.cost) : "価格比較は一時停止中";
+    el("best-sets").textContent = hasPrices ?
+      "5kgセット × " + best.f + "、10kgセット × " + best.t :
+      "検証済みの5kg・10kg商品が両方そろっていないため、最安組み合わせは計算できません。";
+    el("best-leftover").textContent = hasPrices ? "見込み残量 " + surplus(best.boughtG) : "";
+    el("status").textContent = hasPrices ? "表示した商品の掲載価格と入力条件で算出しました。" :
+      "必要量と各サイズのセット数を計算しました。掲載価格の比較は確認中です。";
     el("results").hidden = false;
     if (userAction && typeof window.gtag === "function") window.gtag("event", "rice_household_plan", {
       site_id:"food_cost_jp", operator_test:window.foodCostOperatorTest ? "1" : "0"
