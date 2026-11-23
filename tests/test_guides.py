@@ -64,6 +64,19 @@ class GuideTests(unittest.TestCase):
         other = next(x for x in GUIDE_SPECS if x['category_id'] == 'rice')
         self.assertNotIn('podium-size-comparison', guide_page(other, next(x for x in CATEGORIES if x['id']=='rice'), [], NOW))
 
+    def test_pasta_guides_explain_servings_without_inventing_prices(self):
+        category = next(x for x in CATEGORIES if x['id'] == 'pasta')
+        spec = next(x for x in AUTO_GUIDE_RULES if x['slug'] == 'pasta-500g-cost')
+        page = guide_page(spec, category, [], NOW)
+        self.assertIn('パスタ500g・1kgは何食分', page)
+        self.assertIn('500g</th><td>6食＋20g</td><td>5食</td>', page)
+        self.assertIn('1kg</th><td>12食＋40g</td><td>10食</td>', page)
+        self.assertIn('4週間で24食・乾麺2.4kg', page)
+        self.assertIn('価格・送料・在庫を推定していません', page)
+        rice = next(x for x in CATEGORIES if x['id'] == 'rice')
+        rice_spec = next(x for x in GUIDE_SPECS if x['category_id'] == 'rice')
+        self.assertNotIn('pasta-serving-title', guide_page(rice_spec, rice, [], NOW))
+
     def test_eight_search_intent_guides_exist(self):
         self.assertEqual(len(GUIDE_SPECS), 8)
         slugs = {x["slug"] for x in GUIDE_SPECS}
