@@ -1740,6 +1740,19 @@ def guide_page(spec: dict, category: dict, items: list[dict], updated: datetime,
     offer_planner = render_planner(picked, updated) if size_comparison and picked else ""
     quantity_fallback = render_quantity_only_planner() if size_comparison and not offer_planner else ""
     planner = offer_planner or quantity_fallback
+    pasta_servings = ""
+    if category['id'] == 'pasta':
+        pasta_servings = """<section class="section explain" aria-labelledby="pasta-serving-title">
+<h2 id="pasta-serving-title">パスタ500g・1kgは何食分？必要な購入量の目安</h2>
+<p>乾麺を1人1食100g使う場合、500gは5食、1kgは10食分です。食べる量には個人差があるため、80g・100g・120gの3通りで確認してください。</p>
+<div style="overflow-x:auto"><table style="width:100%;border-collapse:collapse;min-width:300px;text-align:left">
+<thead><tr><th scope="col">乾麺の量</th><th scope="col">80g／食</th><th scope="col">100g／食</th><th scope="col">120g／食</th></tr></thead>
+<tbody><tr><th scope="row">500g</th><td>6食＋20g</td><td>5食</td><td>4食＋20g</td></tr>
+<tr><th scope="row">1kg</th><td>12食＋40g</td><td>10食</td><td>8食＋40g</td></tr>
+<tr><th scope="row">5kg</th><td>62食＋40g</td><td>50食</td><td>41食＋80g</td></tr></tbody></table></div>
+<p>例えば2人で週3回、各100gを食べる場合、4週間で24食・乾麺2.4kgが必要です。500g袋なら5袋（2.5kg）、1kg袋なら3袋（3kg）が目安です。販売セットの袋数・総重量・支払総額は商品ごとに確認してください。</p>
+<p class="note">食数は乾麺の重量を基準にした整数の目安です。茹でた後の重量ではありません。価格・送料・在庫を推定していません。</p>
+</section>"""
     if planner:
         head = head.replace("</head>", '<link rel="stylesheet" href="../../assets/pack-rice-planner.css"></head>', 1)
     cards = top3_html(picked, category, show_pack_size=size_comparison) if picked else f"""<section class="section explain">
@@ -1767,6 +1780,7 @@ def guide_page(spec: dict, category: dict, items: list[dict], updated: datetime,
 <main class="wrap">
 <nav aria-label="パンくず"><a href="../../">マルシェ</a> / <a href="../../categories/{category['id']}/">{html.escape(category['name'])}</a> / {html.escape(spec['title'])}</nav>
 {planner}
+{pasta_servings}
 {cards}
 {'<p class="note">24食でも1食の量は商品ごとに異なります。1食価格と100g単価を見比べ、必要な量を選んでください。順位は1食価格順のままです。</p>' if size_comparison and picked else ''}
 {more}
