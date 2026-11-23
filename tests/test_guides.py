@@ -77,6 +77,16 @@ class GuideTests(unittest.TestCase):
         rice_spec = next(x for x in GUIDE_SPECS if x['category_id'] == 'rice')
         self.assertNotIn('pasta-serving-title', guide_page(rice_spec, rice, [], NOW))
 
+    def test_pasta_category_metadata_matches_published_calculator(self):
+        from build_site import category_search_metadata
+        category = next(x for x in CATEGORIES if x['id'] == 'pasta')
+        title, description = category_search_metadata(category)
+        self.assertIn('500g・1kg', title)
+        self.assertIn('必要食数', title)
+        self.assertIn('購入セット数', description)
+        self.assertIn('支払総額', description)
+        self.assertNotIn('最安値保証', title + description)
+
     def test_pasta_category_only_promotes_published_calculator(self):
         from build_site import category_guide_navigation
         category = next(x for x in CATEGORIES if x['id'] == 'pasta')
