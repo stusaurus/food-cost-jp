@@ -1740,6 +1740,39 @@ def guide_page(spec: dict, category: dict, items: list[dict], updated: datetime,
     offer_planner = render_planner(picked, updated) if size_comparison and picked else ""
     quantity_fallback = render_quantity_only_planner() if size_comparison and not offer_planner else ""
     planner = offer_planner or quantity_fallback
+    pasta_purchase = ""
+    if category['id'] == 'pasta' and picked:
+        offers = [
+            {"name": x["name"], "grams": float(x["quantity"].get("total_weight_g") or 0),
+             "price": x["price"], "url": x["url"]}
+            for x in picked if x.get("shipping_status") == "included"
+            and float(x["quantity"].get("total_weight_g") or 0) > 0
+            and isinstance(x.get("price"), (int, float)) and x["price"] > 0
+        ][:30]
+        if offers:
+            payload = json.dumps(offers, ensure_ascii=False).replace("<", "\\u003c")
+            pasta_purchase = """<section class="section explain" id="pasta-total-planner">
+<h2>必要な食数から購入総額を比較</h2>
+<p>送料込み確認済み商品のセット単位で、必要な購入数・支払総額・余る乾麺を計算します。</p>
+<label>必要な食数 <input id="pasta-meals" type="number" min="1" max="500" value="24"></label>
+<label>1食の乾麺量 <select id="pasta-grams"><option value="80">80g</option><option value="100" selected>100g</option><option value="120">120g</option></select></label>
+<p id="pasta-plan-summary" aria-live="polite"></p><div id="pasta-plan-results" style="overflow-x:auto"></div>
+<p class="note">同一商品の必要セット数を計算します。注文上限・クーポン・配送先別追加送料・在庫は反映しません。購入先で最終支払額を確認してください。</p></section>
+<script>
+(()=>{
+const offers=__OFFERS__,checked=__CHECKED__,meals=document.getElementById('pasta-meals'),grams=document.getElementById('pasta-grams'),summary=document.getElementById('pasta-plan-summary'),output=document.getElementById('pasta-plan-results');
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const yen=n=>'¥'+n.toLocaleString('ja-JP');
+function render(){
+const n=Number(meals.value),g=Number(grams.value);
+if(!Number.isInteger(n)||n<1||n>500){summary.textContent='食数は1〜500の整数で入力してください。';output.replaceChildren();return;}
+const required=n*g;summary.textContent=n+'食 × '+g+'g = 乾麺'+required.toLocaleString('ja-JP')+'g';
+if(!Number.isFinite(Date.parse(checked))||Date.now()-Date.parse(checked)>48*3600000||Date.now()<Date.parse(checked)-3600000){output.textContent='価格確認から48時間以上経過したため購入総額は表示できません。販売店で最新価格をご確認ください。';return;}
+const rows=offers.map(o=>{const count=Math.ceil(required/o.grams);return {...o,count,total:count*o.price,left:Math.round(count*o.grams-required)};}).filter(o=>Number.isFinite(o.total)&&o.count>0&&o.count<=500).sort((a,b)=>a.total-b.total).slice(0,10);
+output.innerHTML='<table style="width:100%;min-width:540px;text-align:left"><thead><tr><th>商品</th><th>購入数</th><th>支払総額</th><th>余る量</th><th>購入先</th></tr></thead><tbody>'+rows.map(o=>'<tr><td>'+esc(o.name)+'</td><td>'+o.count+'セット</td><td>'+yen(o.total)+'</td><td>'+o.left.toLocaleString('ja-JP')+'g</td><td><a href="'+esc(o.url)+'" target="_blank" rel="nofollow sponsored noopener" data-affiliate="rakuten" data-position="pasta_planner" data-category="pasta">販売店で確認</a></td></tr>').join('')+'</tbody></table>';
+}meals.addEventListener('input',render);grams.addEventListener('change',render);render();
+})();
+</script>""".replace("__OFFERS__", payload).replace("__CHECKED__", json.dumps(updated.isoformat()))
     pasta_servings = ""
     if category['id'] == 'pasta':
         pasta_servings = """<section class="section explain" aria-labelledby="pasta-serving-title">
@@ -1781,6 +1814,7 @@ def guide_page(spec: dict, category: dict, items: list[dict], updated: datetime,
 <nav aria-label="パンくず"><a href="../../">マルシェ</a> / <a href="../../categories/{category['id']}/">{html.escape(category['name'])}</a> / {html.escape(spec['title'])}</nav>
 {planner}
 {pasta_servings}
+{pasta_purchase}
 {cards}
 {'<p class="note">24食でも1食の量は商品ごとに異なります。1食価格と100g単価を見比べ、必要な量を選んでください。順位は1食価格順のままです。</p>' if size_comparison and picked else ''}
 {more}
