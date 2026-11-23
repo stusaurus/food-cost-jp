@@ -77,6 +77,19 @@ class GuideTests(unittest.TestCase):
         rice_spec = next(x for x in GUIDE_SPECS if x['category_id'] == 'rice')
         self.assertNotIn('pasta-serving-title', guide_page(rice_spec, rice, [], NOW))
 
+    def test_pasta_purchase_calculator_uses_real_pack_data(self):
+        category = next(x for x in CATEGORIES if x['id'] == 'pasta')
+        spec = next(x for x in AUTO_GUIDE_RULES if x['slug'] == 'pasta-500g-cost')
+        product = item('pasta', grams=500, price=450)
+        page = guide_page(spec, category, [product], NOW)
+        self.assertIn('id="pasta-total-planner"', page)
+        self.assertIn('"grams": 500.0', page)
+        self.assertIn('"price": 450', page)
+        self.assertIn('Date.now()-Date.parse(checked)>48*3600000', page)
+        self.assertIn('Math.ceil(required/o.grams)', page)
+        product['shipping_status'] = 'unknown'
+        self.assertNotIn('id="pasta-total-planner"', guide_page(spec, category, [product], NOW))
+
     def test_eight_search_intent_guides_exist(self):
         self.assertEqual(len(GUIDE_SPECS), 8)
         slugs = {x["slug"] for x in GUIDE_SPECS}
