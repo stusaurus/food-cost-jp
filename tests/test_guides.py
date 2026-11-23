@@ -77,6 +77,15 @@ class GuideTests(unittest.TestCase):
         rice_spec = next(x for x in GUIDE_SPECS if x['category_id'] == 'rice')
         self.assertNotIn('pasta-serving-title', guide_page(rice_spec, rice, [], NOW))
 
+    def test_pasta_category_only_promotes_published_calculator(self):
+        from build_site import category_guide_navigation
+        category = next(x for x in CATEGORIES if x['id'] == 'pasta')
+        spec = next(x for x in AUTO_GUIDE_RULES if x['slug'] == 'pasta-500g-cost')
+        self.assertNotIn('購入セット数・支払総額', category_guide_navigation(category, []))
+        nav = category_guide_navigation(category, [spec])
+        self.assertIn('購入セット数・支払総額', nav)
+        self.assertIn('../../guides/pasta-500g-cost/', nav)
+
     def test_pasta_purchase_calculator_uses_real_pack_data(self):
         category = next(x for x in CATEGORIES if x['id'] == 'pasta')
         spec = next(x for x in AUTO_GUIDE_RULES if x['slug'] == 'pasta-500g-cost')
