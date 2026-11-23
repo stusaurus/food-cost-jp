@@ -1773,6 +1773,42 @@ output.innerHTML='<table style="width:100%;min-width:540px;text-align:left"><the
 }meals.addEventListener('input',render);grams.addEventListener('change',render);render();
 })();
 </script>""".replace("__OFFERS__", payload).replace("__CHECKED__", json.dumps(updated.isoformat()))
+    water_purchase = ""
+    if category['id'] == 'carbonated-water' and picked:
+        offers = [
+            {"name": x["name"], "count": int(x["quantity"].get("count") or 0),
+             "ml": float(x["quantity"].get("unit_volume_ml") or 0),
+             "price": x["price"], "url": x["url"]}
+            for x in picked if x.get("shipping_status") == "included"
+            and int(x["quantity"].get("count") or 0) > 0
+            and float(x["quantity"].get("unit_volume_ml") or 0) > 0
+            and isinstance(x.get("price"), (int, float)) and x["price"] > 0
+        ][:30]
+        if offers:
+            payload = json.dumps(offers, ensure_ascii=False).replace("<", "\\u003c")
+            water_purchase = """<section class="section explain" id="water-case-planner">
+<h2>必要な本数からケース購入総額を比較</h2>
+<p>1日あたりの本数と日数を入力し、同一商品の購入セット数・支払総額・余る本数を計算します。異なる容量の本数は混ぜて比較しません。</p>
+<label>1日に飲む本数 <input id="water-daily" type="number" min="1" max="24" value="2"></label>
+<label>日数 <input id="water-days" type="number" min="1" max="365" value="30"></label>
+<p id="water-plan-summary" aria-live="polite"></p><div id="water-plan-results" style="overflow-x:auto"></div>
+<p class="note">送料込み確認済み商品の掲載価格を使用。配送先別追加送料・注文上限・在庫・クーポンは反映しません。容量の異なる商品は必要本数が同じでも飲料総量が異なるため、1本の容量を併記します。</p></section>
+<script>
+(()=>{
+const offers=__OFFERS__,checked=__CHECKED__,daily=document.getElementById('water-daily'),days=document.getElementById('water-days'),summary=document.getElementById('water-plan-summary'),output=document.getElementById('water-plan-results');
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+function render(){
+const n=Number(daily.value),d=Number(days.value);
+if(!Number.isInteger(n)||n<1||n>24||!Number.isInteger(d)||d<1||d>365){summary.textContent='本数は1〜24、日数は1〜365の整数で入力してください。';output.replaceChildren();return;}
+const required=n*d;summary.textContent='必要な本数：'+required.toLocaleString('ja-JP')+'本';
+const stamp=Date.parse(checked);
+if(!Number.isFinite(stamp)||Date.now()-stamp>48*3600000||Date.now()<stamp-3600000){output.textContent='価格確認から48時間以上経過したため購入総額は表示できません。販売店で最新価格をご確認ください。';return;}
+const rows=offers.map(o=>{const sets=Math.ceil(required/o.count);return {...o,sets,total:sets*o.price,left:sets*o.count-required};}).filter(o=>o.sets>0&&o.sets<=500&&Number.isFinite(o.total)).sort((a,b)=>a.total-b.total).slice(0,10);
+if(!rows.length){output.textContent='条件に合う購入候補がありません。';return;}
+output.innerHTML='<table style="width:100%;min-width:600px;text-align:left"><thead><tr><th>商品</th><th>1本容量</th><th>購入セット数</th><th>支払総額</th><th>余る本数</th><th>購入先</th></tr></thead><tbody>'+rows.map(o=>'<tr><td>'+esc(o.name)+'</td><td>'+o.ml+'ml</td><td>'+o.sets+'セット</td><td>¥'+o.total.toLocaleString('ja-JP')+'</td><td>'+o.left+'本</td><td><a href="'+esc(o.url)+'" target="_blank" rel="nofollow sponsored noopener" data-affiliate="rakuten" data-position="water_case_planner" data-category="carbonated-water">販売店で確認</a></td></tr>').join('')+'</tbody></table>';
+}daily.addEventListener('input',render);days.addEventListener('input',render);render();
+})();
+</script>""".replace("__OFFERS__", payload).replace("__CHECKED__", json.dumps(updated.isoformat()))
     pasta_servings = ""
     if category['id'] == 'pasta':
         pasta_servings = """<section class="section explain" aria-labelledby="pasta-serving-title">
@@ -1815,6 +1851,7 @@ output.innerHTML='<table style="width:100%;min-width:540px;text-align:left"><the
 {planner}
 {pasta_servings}
 {pasta_purchase}
+{water_purchase}
 {cards}
 {'<p class="note">24食でも1食の量は商品ごとに異なります。1食価格と100g単価を見比べ、必要な量を選んでください。順位は1食価格順のままです。</p>' if size_comparison and picked else ''}
 {more}

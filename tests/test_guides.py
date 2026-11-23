@@ -77,6 +77,17 @@ class GuideTests(unittest.TestCase):
         rice_spec = next(x for x in GUIDE_SPECS if x['category_id'] == 'rice')
         self.assertNotIn('pasta-serving-title', guide_page(rice_spec, rice, [], NOW))
 
+    def test_carbonated_water_case_planner_uses_verified_offers(self):
+        category = next(x for x in CATEGORIES if x['id'] == 'carbonated-water')
+        spec = next(x for x in AUTO_GUIDE_RULES if x['slug'] == 'carbonated-water-500ml-24-cost')
+        valid = item('carbonated-water', ml=500, count=24, price=2400)
+        page = guide_page(spec, category, [valid], NOW)
+        self.assertIn('id="water-case-planner"', page)
+        self.assertIn('water_case_planner', page)
+        self.assertIn('48*3600000', page)
+        excluded = dict(valid, shipping_status='unknown')
+        self.assertNotIn('id="water-case-planner"', guide_page(spec, category, [excluded], NOW))
+
     def test_pasta_category_metadata_matches_published_calculator(self):
         from build_site import category_search_metadata
         category = next(x for x in CATEGORIES if x['id'] == 'pasta')
