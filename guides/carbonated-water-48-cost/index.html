@@ -265,7 +265,7 @@ gtag('config','G-GFVSZ8YDQ5',{site_id:'food_cost_jp',operator_test:window.foodCo
 <h1>炭酸水48本を1L・1本あたりで比較</h1>
 <p class="lead">48本前後の大容量セットを中心に、まとめ買い時の単価を比べます。</p>
 <div class="hero-tags"><span class="hero-tag">送料込みを優先</span><span class="hero-tag">実データ連動</span><span class="hero-tag">数量曖昧は除外</span></div>
-<p class="note">最終価格確認: 2026-11-24 06:55 JST</p></div>
+<p class="note">最終価格確認: 2026-11-24 07:21 JST</p></div>
 <div class="category-hero-art carbonated-water"><img class="food-art" src="https://stusaurus.github.io/food-cost-jp/assets/marche-carbonated-water.webp" width="768" height="512" alt="" loading="lazy"></div>
 </div></header>
 <nav class="service-shortcuts" aria-label="主要メニュー">
@@ -278,6 +278,29 @@ gtag('config','G-GFVSZ8YDQ5',{site_id:'food_cost_jp',operator_test:window.foodCo
 
 
 
+<section class="section explain" id="water-case-planner">
+<h2>必要な本数からケース購入総額を比較</h2>
+<p>1日あたりの本数と日数を入力し、同一商品の購入セット数・支払総額・余る本数を計算します。異なる容量の本数は混ぜて比較しません。</p>
+<label>1日に飲む本数 <input id="water-daily" type="number" min="1" max="24" value="2"></label>
+<label>日数 <input id="water-days" type="number" min="1" max="365" value="30"></label>
+<p id="water-plan-summary" aria-live="polite"></p><div id="water-plan-results" style="overflow-x:auto"></div>
+<p class="note">送料込み確認済み商品の掲載価格を使用。配送先別追加送料・注文上限・在庫・クーポンは反映しません。容量の異なる商品は必要本数が同じでも飲料総量が異なるため、1本の容量を併記します。</p></section>
+<script>
+(()=>{
+const offers=[{"name": "＼新フレーバー登場！／【ジンジャーエール・和梨登場！】 炭酸水 500ml 48本 (24本入×2箱) アイリスオーヤマ クリスタルスパーク 強炭酸水 和梨 ジンジャーエール ラムネ グレープソーダ レモン フレーバー プレーン 天然水 無糖 ペットボトル アイリスフーズ 炭酸", "count": 48, "ml": 500.0, "price": 2780, "url": "https://hb.afl.rakuten.co.jp/hgc/g00t3zto.7cx6m5be.g00t3zto.7cx6n748/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Firisplaza-r%2F312012%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Firisplaza-r%2Fi%2F10158173%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5"}, {"name": "炭酸水 500ml 48本 (24本入×2ケース) 選べるラベルレス 強炭酸水 アイリスオーヤマ 無糖 プレーン レモン フレーバー 天然水 ソーダ カロリーゼロ 割り材 まとめ買い クリスタルスパーク CRYSTALSPARK 富士山の強炭酸水 *", "count": 48, "ml": 500.0, "price": 2840, "url": "https://hb.afl.rakuten.co.jp/hgc/g00qhoao.7cx6m91b.g00qhoao.7cx6n00f/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fkurashikenkou%2F310997%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fkurashikenkou%2Fi%2F10201845%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5"}],checked="2026-11-24T07:21:39.182267+09:00",daily=document.getElementById('water-daily'),days=document.getElementById('water-days'),summary=document.getElementById('water-plan-summary'),output=document.getElementById('water-plan-results');
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+function render(){
+const n=Number(daily.value),d=Number(days.value);
+if(!Number.isInteger(n)||n<1||n>24||!Number.isInteger(d)||d<1||d>365){summary.textContent='本数は1〜24、日数は1〜365の整数で入力してください。';output.replaceChildren();return;}
+const required=n*d;summary.textContent='必要な本数：'+required.toLocaleString('ja-JP')+'本';
+const stamp=Date.parse(checked);
+if(!Number.isFinite(stamp)||Date.now()-stamp>48*3600000||Date.now()<stamp-3600000){output.textContent='価格確認から48時間以上経過したため購入総額は表示できません。販売店で最新価格をご確認ください。';return;}
+const rows=offers.map(o=>{const sets=Math.ceil(required/o.count);return {...o,sets,total:sets*o.price,left:sets*o.count-required};}).filter(o=>o.sets>0&&o.sets<=500&&Number.isFinite(o.total)).sort((a,b)=>a.total-b.total).slice(0,10);
+if(!rows.length){output.textContent='条件に合う購入候補がありません。';return;}
+output.innerHTML='<table style="width:100%;min-width:600px;text-align:left"><thead><tr><th>商品</th><th>1本容量</th><th>購入セット数</th><th>支払総額</th><th>余る本数</th><th>購入先</th></tr></thead><tbody>'+rows.map(o=>'<tr><td>'+esc(o.name)+'</td><td>'+o.ml+'ml</td><td>'+o.sets+'セット</td><td>¥'+o.total.toLocaleString('ja-JP')+'</td><td>'+o.left+'本</td><td><a href="'+esc(o.url)+'" target="_blank" rel="nofollow sponsored noopener" data-affiliate="rakuten" data-position="water_case_planner" data-category="carbonated-water">販売店で確認</a></td></tr>').join('')+'</tbody></table>';
+}daily.addEventListener('input',render);days.addEventListener('input',render);render();
+})();
+</script>
 <section class="section podium-section">
 <div class="section-kicker">まずはここから</div>
 <h2>この売り場のおすすめ棚 <small>送料込み TOP2</small></h2>
