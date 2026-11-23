@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-23T10:00:10.398112+09:00",
+  "generated_at": "2026-11-23T22:06:50.151074+09:00",
   "categories": {
     "pack-rice": {
       "included": [
@@ -715,6 +715,102 @@
               },
               {
                 "date": "2026-11-22",
+                "price": 10480,
+                "unit": 131.0
+              },
+              {
+                "date": "2026-11-23",
+                "price": 10480,
+                "unit": 131.0
+              }
+            ]
+          }
+        },
+        {
+          "id": "unidy:11096473",
+          "raw_name": "パックご飯 180g×80食パック アイリスオーヤマ 送料無料 国産米 レトルトご飯 パックごはんレトルトごはん 備蓄用 防災 常温保存可 保存食 非常食 一人暮らし 仕送り 低温製法米のおいしいごはん アイリスフーズ",
+          "name": "パックご飯 180g×80食パック アイリスオーヤマ 国産米 レトルトご飯 パックごはんレトルトごはん 備蓄用 防災 常温保存可 保存食 非常食 一人暮らし 仕送り 低温製法米のおいしいごはん アイリスフーズ",
+          "price": 10480,
+          "shop": "ゆにでのこづち",
+          "url": "https://hb.afl.rakuten.co.jp/hgc/g00pjh9o.7cx6mb80.g00pjh9o.7cx6n412/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Funidy%2F310489%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Funidy%2Fi%2F11096473%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
+          "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/unidy/cabinet/11071608/12128500/12466848/310489_enet2.jpg?_ex=128x128",
+          "postage_included": true,
+          "shipping_status": "included",
+          "quantity": {
+            "total_weight_g": 14400.0,
+            "unit_weight_g": 180.0,
+            "count": 80,
+            "confidence": 0.96,
+            "evidence": "180gx80食"
+          },
+          "unit_prices": {
+            "per_serving": 131.0,
+            "per_100g": 72.77777777777777
+          },
+          "comparison_metric": "per_serving",
+          "unit_label": "1食あたり",
+          "quantity_label": "合計14.4kg / 80食",
+          "promotion_mentioned": false,
+          "price_history": {
+            "observed_days": 14,
+            "previous_date": "2026-11-07",
+            "previous_price": 10480,
+            "previous_unit": 131.0,
+            "previous_label": "前回比",
+            "price_delta": 0,
+            "unit_delta": 0.0,
+            "percent_delta": 0.0,
+            "lowest_30d_unit": 131.0,
+            "highest_30d_unit": 131.0,
+            "lowest_7d_unit": 131.0,
+            "highest_7d_unit": 131.0,
+            "trend_7d": "stable",
+            "is_30d_low": true,
+            "series_7d": [
+              {
+                "date": "2026-11-23",
+                "price": 10480,
+                "unit": 131.0
+              }
+            ],
+            "series_30d": [
+              {
+                "date": "2026-10-31",
+                "price": 10480,
+                "unit": 131.0
+              },
+              {
+                "date": "2026-11-01",
+                "price": 10480,
+                "unit": 131.0
+              },
+              {
+                "date": "2026-11-02",
+                "price": 10480,
+                "unit": 131.0
+              },
+              {
+                "date": "2026-11-03",
+                "price": 10480,
+                "unit": 131.0
+              },
+              {
+                "date": "2026-11-04",
+                "price": 10480,
+                "unit": 131.0
+              },
+              {
+                "date": "2026-11-05",
+                "price": 10480,
+                "unit": 131.0
+              },
+              {
+                "date": "2026-11-06",
+                "price": 10480,
+                "unit": 131.0
+              },
+              {
+                "date": "2026-11-07",
                 "price": 10480,
                 "unit": 131.0
               },
@@ -2174,233 +2270,6 @@
           }
         },
         {
-          "id": "kurashikenkou:10225715",
-          "raw_name": "≪ポイント20倍★26日09:59迄≫米 パックご飯 180g ×48食 大容量 ご飯パック パックごはん レトルトご飯 パック米 パックライス 備蓄 米 お米 白米 非常食 防災 保存食 常温保存可 キャンプ 低温製法米のおいしいごはん アイリスオーヤマ アイリスフーズ",
-          "name": "≪ポイント20倍★26日09:59迄≫米 パックご飯 180g ×48食 大容量 ご飯パック パックごはん レトルトご飯 パック米 パックライス 備蓄 米 お米 白米 非常食 防災 保存食 常温保存可 キャンプ 低温製法米のおいしいごはん アイリスオーヤマ アイリスフーズ",
-          "price": 9180,
-          "shop": "暮らし健康ネット館",
-          "url": "https://hb.afl.rakuten.co.jp/hgc/g00qhoao.7cx6m91b.g00qhoao.7cx6n00f/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fkurashikenkou%2F314624%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fkurashikenkou%2Fi%2F10225715%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
-          "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/kurashikenkou/cabinet/eigyouyou/314624.jpg?_ex=128x128",
-          "postage_included": true,
-          "shipping_status": "included",
-          "quantity": {
-            "total_weight_g": 8640.0,
-            "unit_weight_g": 180.0,
-            "count": 48,
-            "confidence": 0.96,
-            "evidence": "180g x48食"
-          },
-          "unit_prices": {
-            "per_serving": 191.25,
-            "per_100g": 106.25
-          },
-          "comparison_metric": "per_serving",
-          "unit_label": "1食あたり",
-          "quantity_label": "合計8.64kg / 48食",
-          "promotion_mentioned": true,
-          "price_history": {
-            "observed_days": 16,
-            "previous_date": "2026-11-22",
-            "previous_price": 9180,
-            "previous_unit": 191.25,
-            "previous_label": "昨日比",
-            "price_delta": 0,
-            "unit_delta": 0.0,
-            "percent_delta": 0.0,
-            "lowest_30d_unit": 191.25,
-            "highest_30d_unit": 191.25,
-            "lowest_7d_unit": 191.25,
-            "highest_7d_unit": 191.25,
-            "trend_7d": "stable",
-            "is_30d_low": true,
-            "series_7d": [
-              {
-                "date": "2026-11-18",
-                "price": 9180,
-                "unit": 191.25
-              },
-              {
-                "date": "2026-11-22",
-                "price": 9180,
-                "unit": 191.25
-              },
-              {
-                "date": "2026-11-23",
-                "price": 9180,
-                "unit": 191.25
-              }
-            ],
-            "series_30d": [
-              {
-                "date": "2026-11-11",
-                "price": 9180,
-                "unit": 191.25
-              },
-              {
-                "date": "2026-11-12",
-                "price": 9180,
-                "unit": 191.25
-              },
-              {
-                "date": "2026-11-18",
-                "price": 9180,
-                "unit": 191.25
-              },
-              {
-                "date": "2026-11-22",
-                "price": 9180,
-                "unit": 191.25
-              },
-              {
-                "date": "2026-11-23",
-                "price": 9180,
-                "unit": 191.25
-              }
-            ]
-          }
-        },
-        {
-          "id": "irisplaza-r:10152530",
-          "raw_name": "【公式】 パックご飯 200g ×10食 レトルトご飯 パックごはん 備蓄用 米 お米 ひとり暮らし 非常食 防災 仕送り ご飯 低温製法米 低温製法米のおいしいごはん",
-          "name": "【公式】 パックご飯 200g ×10食 レトルトご飯 パックごはん 備蓄用 米 お米 ひとり暮らし 非常食 防災 仕送り ご飯 低温製法米 低温製法米のおいしいごはん",
-          "price": 1980,
-          "shop": "アイリスオーヤマ公式 楽天市場店",
-          "url": "https://hb.afl.rakuten.co.jp/hgc/g00t3zto.7cx6m5be.g00t3zto.7cx6n748/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Firisplaza-r%2F310716%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Firisplaza-r%2Fi%2F10152530%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
-          "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/irisplaza-r/cabinet/11073544/12380730/imgrc0112473870.jpg?_ex=128x128",
-          "postage_included": true,
-          "shipping_status": "included",
-          "quantity": {
-            "total_weight_g": 2000.0,
-            "unit_weight_g": 200.0,
-            "count": 10,
-            "confidence": 0.96,
-            "evidence": "200g x10食"
-          },
-          "unit_prices": {
-            "per_serving": 198.0,
-            "per_100g": 99.0
-          },
-          "comparison_metric": "per_serving",
-          "unit_label": "1食あたり",
-          "quantity_label": "合計2kg / 10食",
-          "promotion_mentioned": false,
-          "price_history": {
-            "observed_days": 28,
-            "previous_date": "2026-11-22",
-            "previous_price": 1980,
-            "previous_unit": 198.0,
-            "previous_label": "昨日比",
-            "price_delta": 0,
-            "unit_delta": 0.0,
-            "percent_delta": 0.0,
-            "lowest_30d_unit": 198.0,
-            "highest_30d_unit": 198.0,
-            "lowest_7d_unit": 198.0,
-            "highest_7d_unit": 198.0,
-            "trend_7d": "stable",
-            "is_30d_low": true,
-            "series_7d": [
-              {
-                "date": "2026-11-20",
-                "price": 1980,
-                "unit": 198.0
-              },
-              {
-                "date": "2026-11-21",
-                "price": 1980,
-                "unit": 198.0
-              },
-              {
-                "date": "2026-11-22",
-                "price": 1980,
-                "unit": 198.0
-              },
-              {
-                "date": "2026-11-23",
-                "price": 1980,
-                "unit": 198.0
-              }
-            ],
-            "series_30d": [
-              {
-                "date": "2026-10-24",
-                "price": 1980,
-                "unit": 198.0
-              },
-              {
-                "date": "2026-10-25",
-                "price": 1980,
-                "unit": 198.0
-              },
-              {
-                "date": "2026-10-26",
-                "price": 1980,
-                "unit": 198.0
-              },
-              {
-                "date": "2026-10-27",
-                "price": 1980,
-                "unit": 198.0
-              },
-              {
-                "date": "2026-10-28",
-                "price": 1980,
-                "unit": 198.0
-              },
-              {
-                "date": "2026-10-29",
-                "price": 1980,
-                "unit": 198.0
-              },
-              {
-                "date": "2026-10-30",
-                "price": 1980,
-                "unit": 198.0
-              },
-              {
-                "date": "2026-10-31",
-                "price": 1980,
-                "unit": 198.0
-              },
-              {
-                "date": "2026-11-05",
-                "price": 1980,
-                "unit": 198.0
-              },
-              {
-                "date": "2026-11-06",
-                "price": 1980,
-                "unit": 198.0
-              },
-              {
-                "date": "2026-11-10",
-                "price": 1980,
-                "unit": 198.0
-              },
-              {
-                "date": "2026-11-20",
-                "price": 1980,
-                "unit": 198.0
-              },
-              {
-                "date": "2026-11-21",
-                "price": 1980,
-                "unit": 198.0
-              },
-              {
-                "date": "2026-11-22",
-                "price": 1980,
-                "unit": 198.0
-              },
-              {
-                "date": "2026-11-23",
-                "price": 1980,
-                "unit": 198.0
-              }
-            ]
-          }
-        },
-        {
           "id": "likaman:10040020",
           "raw_name": "【最強翌日配送】【80食】サトウのごはん 銀シャリ 5食パック (200g×5食)×16袋入 サトウ食品 レトルトご飯 そのまま おいしいごはん KOB",
           "name": "【最強翌日配送】【80食】サトウのごはん 銀シャリ 5食パック (200g×5食)×16袋入 サトウ食品 レトルトご飯 そのまま おいしいごはん KOB",
@@ -2631,196 +2500,6 @@
                 "date": "2026-11-23",
                 "price": 16300,
                 "unit": 203.75
-              }
-            ]
-          }
-        },
-        {
-          "id": "likaman:10034744",
-          "raw_name": "【最強翌日配送】サトウのごはん 銀シャリ 5食パック (200g×5食)×8袋入 サトウ食品 レトルトご飯 そのまま おいしいごはん KOB",
-          "name": "【最強翌日配送】サトウのごはん 銀シャリ 5食パック (200g×5食)×8袋入 サトウ食品 レトルトご飯 そのまま おいしいごはん KOB",
-          "price": 8499,
-          "shop": "お酒の専門店 リカマン楽天市場店",
-          "url": "https://hb.afl.rakuten.co.jp/hgc/g00qo2ro.7cx6me4a.g00qo2ro.7cx6n6c0/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Flikaman%2F950871-8%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Flikaman%2Fi%2F10034744%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
-          "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/likaman/cabinet/rakuten71/950871-8.jpg?_ex=128x128",
-          "postage_included": true,
-          "shipping_status": "included",
-          "quantity": {
-            "total_weight_g": 8000.0,
-            "unit_weight_g": 200.0,
-            "count": 40,
-            "component_counts": [
-              5,
-              8
-            ],
-            "confidence": 0.997,
-            "evidence": "200gx5食)x8袋"
-          },
-          "unit_prices": {
-            "per_serving": 212.475,
-            "per_100g": 106.2375
-          },
-          "comparison_metric": "per_serving",
-          "unit_label": "1食あたり",
-          "quantity_label": "合計8kg / 40食",
-          "promotion_mentioned": false,
-          "price_history": {
-            "observed_days": 38,
-            "previous_date": "2026-11-22",
-            "previous_price": 8499,
-            "previous_unit": 212.475,
-            "previous_label": "昨日比",
-            "price_delta": 0,
-            "unit_delta": 0.0,
-            "percent_delta": 0.0,
-            "lowest_30d_unit": 212.475,
-            "highest_30d_unit": 212.475,
-            "lowest_7d_unit": 212.475,
-            "highest_7d_unit": 212.475,
-            "trend_7d": "stable",
-            "is_30d_low": true,
-            "series_7d": [
-              {
-                "date": "2026-11-20",
-                "price": 8499,
-                "unit": 212.475
-              },
-              {
-                "date": "2026-11-21",
-                "price": 8499,
-                "unit": 212.475
-              },
-              {
-                "date": "2026-11-22",
-                "price": 8499,
-                "unit": 212.475
-              },
-              {
-                "date": "2026-11-23",
-                "price": 8499,
-                "unit": 212.475
-              }
-            ],
-            "series_30d": [
-              {
-                "date": "2026-10-25",
-                "price": 8499,
-                "unit": 212.475
-              },
-              {
-                "date": "2026-10-26",
-                "price": 8499,
-                "unit": 212.475
-              },
-              {
-                "date": "2026-10-27",
-                "price": 8499,
-                "unit": 212.475
-              },
-              {
-                "date": "2026-10-28",
-                "price": 8499,
-                "unit": 212.475
-              },
-              {
-                "date": "2026-10-29",
-                "price": 8499,
-                "unit": 212.475
-              },
-              {
-                "date": "2026-10-30",
-                "price": 8499,
-                "unit": 212.475
-              },
-              {
-                "date": "2026-10-31",
-                "price": 8499,
-                "unit": 212.475
-              },
-              {
-                "date": "2026-11-01",
-                "price": 8499,
-                "unit": 212.475
-              },
-              {
-                "date": "2026-11-02",
-                "price": 8499,
-                "unit": 212.475
-              },
-              {
-                "date": "2026-11-03",
-                "price": 8499,
-                "unit": 212.475
-              },
-              {
-                "date": "2026-11-04",
-                "price": 8499,
-                "unit": 212.475
-              },
-              {
-                "date": "2026-11-06",
-                "price": 8499,
-                "unit": 212.475
-              },
-              {
-                "date": "2026-11-07",
-                "price": 8499,
-                "unit": 212.475
-              },
-              {
-                "date": "2026-11-08",
-                "price": 8499,
-                "unit": 212.475
-              },
-              {
-                "date": "2026-11-09",
-                "price": 8499,
-                "unit": 212.475
-              },
-              {
-                "date": "2026-11-10",
-                "price": 8499,
-                "unit": 212.475
-              },
-              {
-                "date": "2026-11-11",
-                "price": 8499,
-                "unit": 212.475
-              },
-              {
-                "date": "2026-11-12",
-                "price": 8499,
-                "unit": 212.475
-              },
-              {
-                "date": "2026-11-14",
-                "price": 8499,
-                "unit": 212.475
-              },
-              {
-                "date": "2026-11-15",
-                "price": 8499,
-                "unit": 212.475
-              },
-              {
-                "date": "2026-11-20",
-                "price": 8499,
-                "unit": 212.475
-              },
-              {
-                "date": "2026-11-21",
-                "price": 8499,
-                "unit": 212.475
-              },
-              {
-                "date": "2026-11-22",
-                "price": 8499,
-                "unit": 212.475
-              },
-              {
-                "date": "2026-11-23",
-                "price": 8499,
-                "unit": 212.475
               }
             ]
           }
@@ -3812,25 +3491,80 @@
         "fetch_errors": 0,
         "queries": 2,
         "fetched": 60,
-        "normalized": 21,
+        "normalized": 19,
         "exact_duplicates": 2,
         "practical_duplicates": 0,
-        "accepted_unique": 19,
-        "included_available": 15,
+        "accepted_unique": 17,
+        "included_available": 13,
         "shipping_unknown_available": 4,
-        "displayed_included": 15,
+        "displayed_included": 13,
         "displayed_shipping_unknown": 4,
         "reasons": {
           "limited_purchase": 7,
           "ambiguous_quantity": 14,
-          "wrong_product_type": 7,
-          "set_count_conflict": 10,
+          "wrong_product_type": 10,
+          "set_count_conflict": 9,
           "missing_category_evidence": 1
         }
       }
     },
     "rice": {
       "included": [
+        {
+          "id": "kuwabe:10000216",
+          "raw_name": "ポイント5倍！ 新米 米 5kg 10kg (5kg×2) 令和8年産 福島県産 ひとめぼれ 精米 白米 お米 送料無料 国内産 米屋 甘い 高品質 毎日のご飯に 【お届け不可地域：北海道・沖縄・離島】",
+          "name": "ポイント5倍！ 新米 米 5kg 10kg (5kg×2) 令和8年産 福島県産 ひとめぼれ 精米 白米 お米 国内産 米屋 甘い 高品質 毎日のご飯に 【お届け不可地域：北海道・沖縄・離島】",
+          "price": 2621,
+          "shop": "お米のクワベー",
+          "url": "https://hb.afl.rakuten.co.jp/hgc/g00u7vjo.7cx6m620.g00u7vjo.7cx6n2b4/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fkuwabe%2F10000194%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fkuwabe%2Fi%2F10000216%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
+          "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/kuwabe/cabinet/imgrc0108005694.jpg?_ex=128x128",
+          "postage_included": true,
+          "shipping_status": "included",
+          "quantity": {
+            "total_weight_g": 10000.0,
+            "unit_weight_g": 5000.0,
+            "count": 2,
+            "confidence": 0.99,
+            "evidence": "5kgx2"
+          },
+          "unit_prices": {
+            "per_kg": 262.1
+          },
+          "comparison_metric": "per_kg",
+          "unit_label": "1kgあたり",
+          "quantity_label": "合計10kg / 2袋・個",
+          "promotion_mentioned": true,
+          "price_history": {
+            "observed_days": 1,
+            "previous_date": null,
+            "previous_price": null,
+            "previous_unit": null,
+            "previous_label": null,
+            "price_delta": null,
+            "unit_delta": null,
+            "percent_delta": null,
+            "lowest_30d_unit": 262.1,
+            "highest_30d_unit": 262.1,
+            "lowest_7d_unit": 262.1,
+            "highest_7d_unit": 262.1,
+            "trend_7d": "stable",
+            "is_30d_low": false,
+            "series_7d": [
+              {
+                "date": "2026-11-23",
+                "price": 2621,
+                "unit": 262.1
+              }
+            ],
+            "series_30d": [
+              {
+                "date": "2026-11-23",
+                "price": 2621,
+                "unit": 262.1
+              }
+            ]
+          }
+        },
         {
           "id": "anzai-rice:10000437",
           "raw_name": "【11/30～順次発送】セール 10kg お米 白米 安い 訳あり ブレンド米 送料無料 『国内産たんぼだより白米10kg』",
@@ -4862,6 +4596,61 @@
           }
         },
         {
+          "id": "uonumakawaji1906:10000027",
+          "raw_name": "家庭応援米 5kg ブラックフライデーセール！ 訳あり 米 送料無料 国内産100％ ブレンド米 白米 精米 複数原料米 小粒米 シラタ米入り お米 5キロ 家庭用 お手頃価格で毎日の食卓におすすめの国産米です。",
+          "name": "家庭応援米 5kg ブラックフライデーセール！ 訳あり 米 国内産100％ ブレンド米 白米 精米 複数原料米 小粒米 シラタ米入り お米 5キロ 家庭用 お手頃価格で毎日の食卓におすすめの国産米です。",
+          "price": 2180,
+          "shop": "魚沼の米屋 かわじ",
+          "url": "https://hb.afl.rakuten.co.jp/hgc/g00ug37o.7cx6m601.g00ug37o.7cx6n274/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fuonumakawaji1906%2Fw-02%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fuonumakawaji1906%2Fi%2F10000027%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
+          "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/uonumakawaji1906/cabinet/imgrc0116472700.jpg?_ex=128x128",
+          "postage_included": true,
+          "shipping_status": "included",
+          "quantity": {
+            "total_weight_g": 5000.0,
+            "unit_weight_g": 5000.0,
+            "count": 1,
+            "confidence": 0.9,
+            "evidence": "5kg"
+          },
+          "unit_prices": {
+            "per_kg": 436.0
+          },
+          "comparison_metric": "per_kg",
+          "unit_label": "1kgあたり",
+          "quantity_label": "合計5kg",
+          "promotion_mentioned": true,
+          "price_history": {
+            "observed_days": 1,
+            "previous_date": null,
+            "previous_price": null,
+            "previous_unit": null,
+            "previous_label": null,
+            "price_delta": null,
+            "unit_delta": null,
+            "percent_delta": null,
+            "lowest_30d_unit": 436.0,
+            "highest_30d_unit": 436.0,
+            "lowest_7d_unit": 436.0,
+            "highest_7d_unit": 436.0,
+            "trend_7d": "stable",
+            "is_30d_low": false,
+            "series_7d": [
+              {
+                "date": "2026-11-23",
+                "price": 2180,
+                "unit": 436.0
+              }
+            ],
+            "series_30d": [
+              {
+                "date": "2026-11-23",
+                "price": 2180,
+                "unit": 436.0
+              }
+            ]
+          }
+        },
+        {
           "id": "ebisu-murayama:10000003",
           "raw_name": "新米 令和8年産 はえぬき 10kg 5kg×2袋 お米 白米 こめ コメ 山形県産 送料無料",
           "name": "新米 令和8年産 はえぬき 10kg 5kg×2袋 お米 白米 こめ コメ 山形県産",
@@ -5237,6 +5026,146 @@
           }
         },
         {
+          "id": "rs-takeo:10000165",
+          "raw_name": "新米 送料無料 令和8年 秋田県産 あきたこまち 10kg 白米 米",
+          "name": "新米 令和8年 秋田県産 あきたこまち 10kg 白米 米",
+          "price": 4980,
+          "shop": "有限会社 佐藤米穀商店楽天市場店",
+          "url": "https://hb.afl.rakuten.co.jp/hgc/g00ryp3o.7cx6m08e.g00ryp3o.7cx6n152/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Frs-takeo%2F100000305%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Frs-takeo%2Fi%2F10000165%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
+          "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/rs-takeo/cabinet/06994037/imgrc0111401087.jpg?_ex=128x128",
+          "postage_included": true,
+          "shipping_status": "included",
+          "quantity": {
+            "total_weight_g": 10000.0,
+            "unit_weight_g": 10000.0,
+            "count": 1,
+            "confidence": 0.9,
+            "evidence": "10kg"
+          },
+          "unit_prices": {
+            "per_kg": 498.0
+          },
+          "comparison_metric": "per_kg",
+          "unit_label": "1kgあたり",
+          "quantity_label": "合計10kg",
+          "promotion_mentioned": false,
+          "price_history": {
+            "observed_days": 18,
+            "previous_date": "2026-11-22",
+            "previous_price": 4980,
+            "previous_unit": 498.0,
+            "previous_label": "昨日比",
+            "price_delta": 0,
+            "unit_delta": 0.0,
+            "percent_delta": 0.0,
+            "lowest_30d_unit": 498.0,
+            "highest_30d_unit": 548.0,
+            "lowest_7d_unit": 498.0,
+            "highest_7d_unit": 498.0,
+            "trend_7d": "stable",
+            "is_30d_low": true,
+            "series_7d": [
+              {
+                "date": "2026-11-16",
+                "price": 4980,
+                "unit": 498.0
+              },
+              {
+                "date": "2026-11-17",
+                "price": 4980,
+                "unit": 498.0
+              },
+              {
+                "date": "2026-11-18",
+                "price": 4980,
+                "unit": 498.0
+              },
+              {
+                "date": "2026-11-19",
+                "price": 4980,
+                "unit": 498.0
+              },
+              {
+                "date": "2026-11-20",
+                "price": 4980,
+                "unit": 498.0
+              },
+              {
+                "date": "2026-11-21",
+                "price": 4980,
+                "unit": 498.0
+              },
+              {
+                "date": "2026-11-22",
+                "price": 4980,
+                "unit": 498.0
+              },
+              {
+                "date": "2026-11-23",
+                "price": 4980,
+                "unit": 498.0
+              }
+            ],
+            "series_30d": [
+              {
+                "date": "2026-10-29",
+                "price": 5480,
+                "unit": 548.0
+              },
+              {
+                "date": "2026-11-02",
+                "price": 5480,
+                "unit": 548.0
+              },
+              {
+                "date": "2026-11-04",
+                "price": 5480,
+                "unit": 548.0
+              },
+              {
+                "date": "2026-11-16",
+                "price": 4980,
+                "unit": 498.0
+              },
+              {
+                "date": "2026-11-17",
+                "price": 4980,
+                "unit": 498.0
+              },
+              {
+                "date": "2026-11-18",
+                "price": 4980,
+                "unit": 498.0
+              },
+              {
+                "date": "2026-11-19",
+                "price": 4980,
+                "unit": 498.0
+              },
+              {
+                "date": "2026-11-20",
+                "price": 4980,
+                "unit": 498.0
+              },
+              {
+                "date": "2026-11-21",
+                "price": 4980,
+                "unit": 498.0
+              },
+              {
+                "date": "2026-11-22",
+                "price": 4980,
+                "unit": 498.0
+              },
+              {
+                "date": "2026-11-23",
+                "price": 4980,
+                "unit": 498.0
+              }
+            ]
+          }
+        },
+        {
           "id": "fuchigami:10000003",
           "raw_name": "【新米SALE！Wクーポン利用で4,680円～！】 新米 米 10kg 令和8年 熊本県産 ヒノヒカリ ひのひかり 米 10kg 送料無料 白米 10kg 送料無料 お米 10kg 無洗米 送料無料 10キロ こめたつ 備蓄用 非常用 あす楽",
           "name": "【新米SALE！Wクーポン利用で4,680円～！】 新米 米 10kg 令和8年 熊本県産 ヒノヒカリ ひのひかり 米 10kg 白米 10kg お米 10kg 無洗米 10キロ こめたつ 備蓄用 非常用 あす楽",
@@ -5477,13 +5406,13 @@
           }
         },
         {
-          "id": "adachi-umai:10000130",
-          "raw_name": "【300円OFF】sale セール 値引 割引 限定 特別 お得 新米 米 白米 10kg 送料無料 コシヒカリ 5kg×2袋 愛知県産 令和8年産 コシヒカリ お米 10キロ あす楽 安い 送料無料【沖縄、配送不可】",
-          "name": "値引 割引 限定 特別 お得 新米 米 白米 10kg コシヒカリ 5kg×2袋 愛知県産 令和8年産 コシヒカリ お米 10キロ あす楽 安い 【沖縄、配送不可】",
-          "price": 5598,
-          "shop": "あだちねっと 美米屋",
-          "url": "https://hb.afl.rakuten.co.jp/hgc/g00qbbko.7cx6m4cb.g00qbbko.7cx6n1bd/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fadachi-umai%2Fhiraiwakosi10-7823%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fadachi-umai%2Fi%2F10000130%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
-          "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/adachi-umai/cabinet/rice2023-new/hk-10.jpg?_ex=128x128",
+          "id": "fujisports-r:10054218",
+          "raw_name": "お米 コメ 雪若丸 10kg 新米 無洗米 精米 送料無料 山形県産 令和8年産 5kg×2袋",
+          "name": "お米 コメ 雪若丸 10kg 新米 無洗米 精米 山形県産 令和8年産 5kg×2袋",
+          "price": 5280,
+          "shop": "富士スポーツ楽天市場店",
+          "url": "https://hb.afl.rakuten.co.jp/hgc/g00r55vo.7cx6mb80.g00r55vo.7cx6na6c/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Ffujisports-r%2Ffob-ywxxa10%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Ffujisports-r%2Fi%2F10054218%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
+          "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/fujisports-r/cabinet/fob/new/yw10.jpg?_ex=128x128",
           "postage_included": true,
           "shipping_status": "included",
           "quantity": {
@@ -5494,104 +5423,164 @@
             "evidence": "5kgx2袋"
           },
           "unit_prices": {
-            "per_kg": 559.8
+            "per_kg": 528.0
           },
           "comparison_metric": "per_kg",
           "unit_label": "1kgあたり",
           "quantity_label": "合計10kg / 2袋・個",
-          "promotion_mentioned": true,
+          "promotion_mentioned": false,
           "price_history": {
-            "observed_days": 14,
-            "previous_date": "2026-11-20",
-            "previous_price": 5598,
-            "previous_unit": 559.8,
-            "previous_label": "前回比",
+            "observed_days": 31,
+            "previous_date": "2026-11-22",
+            "previous_price": 5280,
+            "previous_unit": 528.0,
+            "previous_label": "昨日比",
             "price_delta": 0,
             "unit_delta": 0.0,
             "percent_delta": 0.0,
-            "lowest_30d_unit": 559.8,
-            "highest_30d_unit": 589.8,
-            "lowest_7d_unit": 559.8,
-            "highest_7d_unit": 589.8,
-            "trend_7d": "down",
+            "lowest_30d_unit": 528.0,
+            "highest_30d_unit": 528.0,
+            "lowest_7d_unit": 528.0,
+            "highest_7d_unit": 528.0,
+            "trend_7d": "stable",
             "is_30d_low": true,
             "series_7d": [
               {
                 "date": "2026-11-16",
-                "price": 5898,
-                "unit": 589.8
+                "price": 5280,
+                "unit": 528.0
+              },
+              {
+                "date": "2026-11-17",
+                "price": 5280,
+                "unit": 528.0
               },
               {
                 "date": "2026-11-19",
-                "price": 5898,
-                "unit": 589.8
+                "price": 5280,
+                "unit": 528.0
               },
               {
                 "date": "2026-11-20",
-                "price": 5598,
-                "unit": 559.8
+                "price": 5280,
+                "unit": 528.0
+              },
+              {
+                "date": "2026-11-21",
+                "price": 5280,
+                "unit": 528.0
+              },
+              {
+                "date": "2026-11-22",
+                "price": 5280,
+                "unit": 528.0
               },
               {
                 "date": "2026-11-23",
-                "price": 5598,
-                "unit": 559.8
+                "price": 5280,
+                "unit": 528.0
               }
             ],
             "series_30d": [
               {
+                "date": "2026-10-24",
+                "price": 5280,
+                "unit": 528.0
+              },
+              {
                 "date": "2026-10-26",
-                "price": 5599,
-                "unit": 559.9
+                "price": 5280,
+                "unit": 528.0
+              },
+              {
+                "date": "2026-10-30",
+                "price": 5280,
+                "unit": 528.0
               },
               {
                 "date": "2026-10-31",
-                "price": 5898,
-                "unit": 589.8
+                "price": 5280,
+                "unit": 528.0
+              },
+              {
+                "date": "2026-11-01",
+                "price": 5280,
+                "unit": 528.0
+              },
+              {
+                "date": "2026-11-02",
+                "price": 5280,
+                "unit": 528.0
+              },
+              {
+                "date": "2026-11-03",
+                "price": 5280,
+                "unit": 528.0
+              },
+              {
+                "date": "2026-11-04",
+                "price": 5280,
+                "unit": 528.0
               },
               {
                 "date": "2026-11-05",
-                "price": 5898,
-                "unit": 589.8
+                "price": 5280,
+                "unit": 528.0
               },
               {
                 "date": "2026-11-06",
-                "price": 5898,
-                "unit": 589.8
+                "price": 5280,
+                "unit": 528.0
               },
               {
                 "date": "2026-11-07",
-                "price": 5898,
-                "unit": 589.8
+                "price": 5280,
+                "unit": 528.0
+              },
+              {
+                "date": "2026-11-10",
+                "price": 5280,
+                "unit": 528.0
               },
               {
                 "date": "2026-11-11",
-                "price": 5898,
-                "unit": 589.8
-              },
-              {
-                "date": "2026-11-12",
-                "price": 5898,
-                "unit": 589.8
+                "price": 5280,
+                "unit": 528.0
               },
               {
                 "date": "2026-11-16",
-                "price": 5898,
-                "unit": 589.8
+                "price": 5280,
+                "unit": 528.0
+              },
+              {
+                "date": "2026-11-17",
+                "price": 5280,
+                "unit": 528.0
               },
               {
                 "date": "2026-11-19",
-                "price": 5898,
-                "unit": 589.8
+                "price": 5280,
+                "unit": 528.0
               },
               {
                 "date": "2026-11-20",
-                "price": 5598,
-                "unit": 559.8
+                "price": 5280,
+                "unit": 528.0
+              },
+              {
+                "date": "2026-11-21",
+                "price": 5280,
+                "unit": 528.0
+              },
+              {
+                "date": "2026-11-22",
+                "price": 5280,
+                "unit": 528.0
               },
               {
                 "date": "2026-11-23",
-                "price": 5598,
-                "unit": 559.8
+                "price": 5280,
+                "unit": 528.0
               }
             ]
           }
@@ -6040,101 +6029,6 @@
               },
               {
                 "date": "2026-11-21",
-                "price": 6380,
-                "unit": 638.0
-              },
-              {
-                "date": "2026-11-22",
-                "price": 6380,
-                "unit": 638.0
-              },
-              {
-                "date": "2026-11-23",
-                "price": 6380,
-                "unit": 638.0
-              }
-            ]
-          }
-        },
-        {
-          "id": "marukichi-kayano:10000017",
-          "raw_name": "【期間限定価格】新米 令和8年産 北海道産 ゆめぴりか 10kg (5kg×2袋) 白米 米 お米 送料無料 鮮度保持パック変更可",
-          "name": "【期間限定価格】新米 令和8年産 北海道産 ゆめぴりか 10kg (5kg×2袋) 白米 米 お米 鮮度保持パック変更可",
-          "price": 6380,
-          "shop": "丸吉 茅野商店 北海道",
-          "url": "https://hb.afl.rakuten.co.jp/hgc/g00radio.7cx6m989.g00radio.7cx6nd5d/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fmarukichi-kayano%2F10000017%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fmarukichi-kayano%2Fi%2F10000017%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
-          "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/marukichi-kayano/cabinet/yumepirika/img_pirika10kns.jpg?_ex=128x128",
-          "postage_included": true,
-          "shipping_status": "included",
-          "quantity": {
-            "total_weight_g": 10000.0,
-            "unit_weight_g": 5000.0,
-            "count": 2,
-            "confidence": 0.99,
-            "evidence": "5kgx2袋"
-          },
-          "unit_prices": {
-            "per_kg": 638.0
-          },
-          "comparison_metric": "per_kg",
-          "unit_label": "1kgあたり",
-          "quantity_label": "合計10kg / 2袋・個",
-          "promotion_mentioned": false,
-          "price_history": {
-            "observed_days": 10,
-            "previous_date": "2026-11-22",
-            "previous_price": 6380,
-            "previous_unit": 638.0,
-            "previous_label": "昨日比",
-            "price_delta": 0,
-            "unit_delta": 0.0,
-            "percent_delta": 0.0,
-            "lowest_30d_unit": 638.0,
-            "highest_30d_unit": 638.0,
-            "lowest_7d_unit": 638.0,
-            "highest_7d_unit": 638.0,
-            "trend_7d": "stable",
-            "is_30d_low": true,
-            "series_7d": [
-              {
-                "date": "2026-11-20",
-                "price": 6380,
-                "unit": 638.0
-              },
-              {
-                "date": "2026-11-22",
-                "price": 6380,
-                "unit": 638.0
-              },
-              {
-                "date": "2026-11-23",
-                "price": 6380,
-                "unit": 638.0
-              }
-            ],
-            "series_30d": [
-              {
-                "date": "2026-10-26",
-                "price": 6380,
-                "unit": 638.0
-              },
-              {
-                "date": "2026-10-27",
-                "price": 6380,
-                "unit": 638.0
-              },
-              {
-                "date": "2026-11-09",
-                "price": 6380,
-                "unit": 638.0
-              },
-              {
-                "date": "2026-11-15",
-                "price": 6380,
-                "unit": 638.0
-              },
-              {
-                "date": "2026-11-20",
                 "price": 6380,
                 "unit": 638.0
               },
@@ -6724,6 +6618,211 @@
       ],
       "shipping_unknown": [
         {
+          "id": "yutakarice-miyagi:10000014",
+          "raw_name": "国産ブレンド米 豊 10 kg × 3 袋 お米 30 kg【月間優良ショップ受賞】 【送料無料】 生活応援米 精米 白米",
+          "name": "国産ブレンド米 豊 10 kg × 3 袋 お米 30 kg【月間優良ショップ受賞】 生活応援米 精米 白米",
+          "price": 9980,
+          "shop": "豊ライスみやぎ",
+          "url": "https://hb.afl.rakuten.co.jp/hgc/g00ub4yo.7cx6m903.g00ub4yo.7cx6ne44/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fyutakarice-miyagi%2F100000033%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fyutakarice-miyagi%2Fi%2F10000014%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
+          "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/yutakarice-miyagi/cabinet/09551513/imgrc0124420707.jpg?_ex=128x128",
+          "postage_included": false,
+          "shipping_status": "extra_or_unknown",
+          "quantity": {
+            "total_weight_g": 30000.0,
+            "unit_weight_g": 10000.0,
+            "count": 3,
+            "confidence": 0.99,
+            "evidence": "10 kg x 3 袋"
+          },
+          "unit_prices": {
+            "per_kg": 332.6666666666667
+          },
+          "comparison_metric": "per_kg",
+          "unit_label": "1kgあたり",
+          "quantity_label": "合計30kg / 3袋・個",
+          "promotion_mentioned": false,
+          "price_history": {
+            "observed_days": 37,
+            "previous_date": "2026-11-22",
+            "previous_price": 9980,
+            "previous_unit": 332.6666666666667,
+            "previous_label": "昨日比",
+            "price_delta": 0,
+            "unit_delta": 0.0,
+            "percent_delta": 0.0,
+            "lowest_30d_unit": 332.6666666666667,
+            "highest_30d_unit": 332.6666666666667,
+            "lowest_7d_unit": 332.6666666666667,
+            "highest_7d_unit": 332.6666666666667,
+            "trend_7d": "stable",
+            "is_30d_low": true,
+            "series_7d": [
+              {
+                "date": "2026-11-16",
+                "price": 9980,
+                "unit": 332.6666666666667
+              },
+              {
+                "date": "2026-11-17",
+                "price": 9980,
+                "unit": 332.6666666666667
+              },
+              {
+                "date": "2026-11-18",
+                "price": 9980,
+                "unit": 332.6666666666667
+              },
+              {
+                "date": "2026-11-19",
+                "price": 9980,
+                "unit": 332.6666666666667
+              },
+              {
+                "date": "2026-11-20",
+                "price": 9980,
+                "unit": 332.6666666666667
+              },
+              {
+                "date": "2026-11-21",
+                "price": 9980,
+                "unit": 332.6666666666667
+              },
+              {
+                "date": "2026-11-22",
+                "price": 9980,
+                "unit": 332.6666666666667
+              },
+              {
+                "date": "2026-11-23",
+                "price": 9980,
+                "unit": 332.6666666666667
+              }
+            ],
+            "series_30d": [
+              {
+                "date": "2026-10-24",
+                "price": 9980,
+                "unit": 332.6666666666667
+              },
+              {
+                "date": "2026-10-25",
+                "price": 9980,
+                "unit": 332.6666666666667
+              },
+              {
+                "date": "2026-10-27",
+                "price": 9980,
+                "unit": 332.6666666666667
+              },
+              {
+                "date": "2026-10-28",
+                "price": 9980,
+                "unit": 332.6666666666667
+              },
+              {
+                "date": "2026-10-29",
+                "price": 9980,
+                "unit": 332.6666666666667
+              },
+              {
+                "date": "2026-10-30",
+                "price": 9980,
+                "unit": 332.6666666666667
+              },
+              {
+                "date": "2026-10-31",
+                "price": 9980,
+                "unit": 332.6666666666667
+              },
+              {
+                "date": "2026-11-01",
+                "price": 9980,
+                "unit": 332.6666666666667
+              },
+              {
+                "date": "2026-11-02",
+                "price": 9980,
+                "unit": 332.6666666666667
+              },
+              {
+                "date": "2026-11-03",
+                "price": 9980,
+                "unit": 332.6666666666667
+              },
+              {
+                "date": "2026-11-04",
+                "price": 9980,
+                "unit": 332.6666666666667
+              },
+              {
+                "date": "2026-11-05",
+                "price": 9980,
+                "unit": 332.6666666666667
+              },
+              {
+                "date": "2026-11-09",
+                "price": 9980,
+                "unit": 332.6666666666667
+              },
+              {
+                "date": "2026-11-12",
+                "price": 9980,
+                "unit": 332.6666666666667
+              },
+              {
+                "date": "2026-11-13",
+                "price": 9980,
+                "unit": 332.6666666666667
+              },
+              {
+                "date": "2026-11-15",
+                "price": 9980,
+                "unit": 332.6666666666667
+              },
+              {
+                "date": "2026-11-16",
+                "price": 9980,
+                "unit": 332.6666666666667
+              },
+              {
+                "date": "2026-11-17",
+                "price": 9980,
+                "unit": 332.6666666666667
+              },
+              {
+                "date": "2026-11-18",
+                "price": 9980,
+                "unit": 332.6666666666667
+              },
+              {
+                "date": "2026-11-19",
+                "price": 9980,
+                "unit": 332.6666666666667
+              },
+              {
+                "date": "2026-11-20",
+                "price": 9980,
+                "unit": 332.6666666666667
+              },
+              {
+                "date": "2026-11-21",
+                "price": 9980,
+                "unit": 332.6666666666667
+              },
+              {
+                "date": "2026-11-22",
+                "price": 9980,
+                "unit": 332.6666666666667
+              },
+              {
+                "date": "2026-11-23",
+                "price": 9980,
+                "unit": 332.6666666666667
+              }
+            ]
+          }
+        },
+        {
           "id": "auc-ohnoshokuryou-shop:10000001",
           "raw_name": "新米入りブレンド米 10kg(5kg×2袋) 国産 白米 最短11/24(火)発送 送料無料 安い ブレンド米 たべよまい 訳あり うまい米ショップ",
           "name": "新米入りブレンド米 10kg(5kg×2袋) 国産 白米 最短11/24(火)発送 安い ブレンド米 たべよまい 訳あり うまい米ショップ",
@@ -7109,31 +7208,31 @@
           }
         },
         {
-          "id": "kyusyukome:10000128",
-          "raw_name": "【BLACK FRIDAY期間中ポイント5倍!!】【令和8年産 新米】九州うまか米 10kg（5kg×2袋） 送料無料【沖縄・北海道は別途送料プラス500円】",
-          "name": "【BLACK FRIDAY期間中ポイント5倍!!】【令和8年産 新米】九州うまか米 10kg（5kg×2袋） 【沖縄・北海道は別途送料プラス500円】",
+          "id": "yahagishouten:10000202",
+          "raw_name": "【新米】【送料無料】令和8年産 山形県産 はえぬき 白米10kg【四国・九州への配送は+400円/沖縄・離島への配送は+2,500円加算】",
+          "name": "【新米】 令和8年産 山形県産 はえぬき 白米10kg【四国・九州への配送は+400円/沖縄・離島への配送は+2,500円加算】",
           "price": 4980,
-          "shop": "九州米大将",
-          "url": "https://hb.afl.rakuten.co.jp/hgc/g00r6xco.7cx6m828.g00r6xco.7cx6n67b/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fkyusyukome%2Fk02010%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fkyusyukome%2Fi%2F10000128%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
-          "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/kyusyukome/cabinet/r7/k02010r7.jpg?_ex=128x128",
+          "shop": "山形のお米とさくらんぼの矢萩商店",
+          "url": "https://hb.afl.rakuten.co.jp/hgc/g00qcg0o.7cx6mf70.g00qcg0o.7cx6n5ca/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fyahagishouten%2Fbrand00301%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fyahagishouten%2Fi%2F10000202%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
+          "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/yahagishouten/cabinet/page/flk/haenuki10_n.jpg?_ex=128x128",
           "postage_included": false,
           "shipping_status": "extra_or_unknown",
           "quantity": {
             "total_weight_g": 10000.0,
-            "unit_weight_g": 5000.0,
-            "count": 2,
-            "confidence": 0.99,
-            "evidence": "5kgx2袋"
+            "unit_weight_g": 10000.0,
+            "count": 1,
+            "confidence": 0.9,
+            "evidence": "10kg"
           },
           "unit_prices": {
             "per_kg": 498.0
           },
           "comparison_metric": "per_kg",
           "unit_label": "1kgあたり",
-          "quantity_label": "合計10kg / 2袋・個",
-          "promotion_mentioned": true,
+          "quantity_label": "合計10kg",
+          "promotion_mentioned": false,
           "price_history": {
-            "observed_days": 30,
+            "observed_days": 44,
             "previous_date": "2026-11-22",
             "previous_price": 4980,
             "previous_unit": 498.0,
@@ -7141,12 +7240,12 @@
             "price_delta": 0,
             "unit_delta": 0.0,
             "percent_delta": 0.0,
-            "lowest_30d_unit": 498.0,
+            "lowest_30d_unit": 438.0,
             "highest_30d_unit": 498.0,
             "lowest_7d_unit": 498.0,
             "highest_7d_unit": 498.0,
             "trend_7d": "stable",
-            "is_30d_low": true,
+            "is_30d_low": false,
             "series_7d": [
               {
                 "date": "2026-11-16",
@@ -7169,6 +7268,11 @@
                 "unit": 498.0
               },
               {
+                "date": "2026-11-21",
+                "price": 4980,
+                "unit": 498.0
+              },
+              {
                 "date": "2026-11-22",
                 "price": 4980,
                 "unit": 498.0
@@ -7181,74 +7285,99 @@
             ],
             "series_30d": [
               {
+                "date": "2026-10-24",
+                "price": 4380,
+                "unit": 438.0
+              },
+              {
+                "date": "2026-10-25",
+                "price": 4380,
+                "unit": 438.0
+              },
+              {
                 "date": "2026-10-26",
-                "price": 4980,
-                "unit": 498.0
+                "price": 4380,
+                "unit": 438.0
               },
               {
                 "date": "2026-10-27",
-                "price": 4980,
-                "unit": 498.0
+                "price": 4380,
+                "unit": 438.0
               },
               {
                 "date": "2026-10-28",
-                "price": 4980,
-                "unit": 498.0
+                "price": 4380,
+                "unit": 438.0
               },
               {
                 "date": "2026-10-29",
-                "price": 4980,
-                "unit": 498.0
+                "price": 4380,
+                "unit": 438.0
               },
               {
                 "date": "2026-10-30",
-                "price": 4980,
-                "unit": 498.0
+                "price": 4380,
+                "unit": 438.0
+              },
+              {
+                "date": "2026-10-31",
+                "price": 4380,
+                "unit": 438.0
+              },
+              {
+                "date": "2026-11-01",
+                "price": 4380,
+                "unit": 438.0
               },
               {
                 "date": "2026-11-02",
-                "price": 4980,
-                "unit": 498.0
+                "price": 4380,
+                "unit": 438.0
               },
               {
                 "date": "2026-11-03",
-                "price": 4980,
-                "unit": 498.0
+                "price": 4380,
+                "unit": 438.0
               },
               {
                 "date": "2026-11-04",
-                "price": 4980,
-                "unit": 498.0
+                "price": 4380,
+                "unit": 438.0
+              },
+              {
+                "date": "2026-11-05",
+                "price": 4380,
+                "unit": 438.0
               },
               {
                 "date": "2026-11-06",
-                "price": 4980,
-                "unit": 498.0
+                "price": 4380,
+                "unit": 438.0
               },
               {
                 "date": "2026-11-07",
-                "price": 4980,
-                "unit": 498.0
+                "price": 4380,
+                "unit": 438.0
               },
               {
                 "date": "2026-11-08",
-                "price": 4980,
-                "unit": 498.0
+                "price": 4380,
+                "unit": 438.0
               },
               {
                 "date": "2026-11-09",
-                "price": 4980,
-                "unit": 498.0
+                "price": 4380,
+                "unit": 438.0
               },
               {
                 "date": "2026-11-10",
-                "price": 4980,
-                "unit": 498.0
+                "price": 4380,
+                "unit": 438.0
               },
               {
                 "date": "2026-11-11",
-                "price": 4980,
-                "unit": 498.0
+                "price": 4380,
+                "unit": 438.0
               },
               {
                 "date": "2026-11-12",
@@ -7291,6 +7420,11 @@
                 "unit": 498.0
               },
               {
+                "date": "2026-11-21",
+                "price": 4980,
+                "unit": 498.0
+              },
+              {
                 "date": "2026-11-22",
                 "price": 4980,
                 "unit": 498.0
@@ -7299,191 +7433,6 @@
                 "date": "2026-11-23",
                 "price": 4980,
                 "unit": 498.0
-              }
-            ]
-          }
-        },
-        {
-          "id": "kyusyukome:10000002",
-          "raw_name": "【BLACK FRIDAY期間中ポイント5倍!!】【令和8年産 新米】福岡県産ヒノヒカリ 10kg（5kg×2袋） 送料無料【沖縄・北海道は別途送料プラス500円】",
-          "name": "【BLACK FRIDAY期間中ポイント5倍!!】【令和8年産 新米】福岡県産ヒノヒカリ 10kg（5kg×2袋） 【沖縄・北海道は別途送料プラス500円】",
-          "price": 5280,
-          "shop": "九州米大将",
-          "url": "https://hb.afl.rakuten.co.jp/hgc/g00r6xco.7cx6m828.g00r6xco.7cx6n67b/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fkyusyukome%2Fk00110%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fkyusyukome%2Fi%2F10000002%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
-          "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/kyusyukome/cabinet/r7/k00110r7.jpg?_ex=128x128",
-          "postage_included": false,
-          "shipping_status": "extra_or_unknown",
-          "quantity": {
-            "total_weight_g": 10000.0,
-            "unit_weight_g": 5000.0,
-            "count": 2,
-            "confidence": 0.99,
-            "evidence": "5kgx2袋"
-          },
-          "unit_prices": {
-            "per_kg": 528.0
-          },
-          "comparison_metric": "per_kg",
-          "unit_label": "1kgあたり",
-          "quantity_label": "合計10kg / 2袋・個",
-          "promotion_mentioned": true,
-          "price_history": {
-            "observed_days": 30,
-            "previous_date": "2026-11-22",
-            "previous_price": 5280,
-            "previous_unit": 528.0,
-            "previous_label": "昨日比",
-            "price_delta": 0,
-            "unit_delta": 0.0,
-            "percent_delta": 0.0,
-            "lowest_30d_unit": 528.0,
-            "highest_30d_unit": 528.0,
-            "lowest_7d_unit": 528.0,
-            "highest_7d_unit": 528.0,
-            "trend_7d": "stable",
-            "is_30d_low": true,
-            "series_7d": [
-              {
-                "date": "2026-11-16",
-                "price": 5280,
-                "unit": 528.0
-              },
-              {
-                "date": "2026-11-17",
-                "price": 5280,
-                "unit": 528.0
-              },
-              {
-                "date": "2026-11-18",
-                "price": 5280,
-                "unit": 528.0
-              },
-              {
-                "date": "2026-11-21",
-                "price": 5280,
-                "unit": 528.0
-              },
-              {
-                "date": "2026-11-22",
-                "price": 5280,
-                "unit": 528.0
-              },
-              {
-                "date": "2026-11-23",
-                "price": 5280,
-                "unit": 528.0
-              }
-            ],
-            "series_30d": [
-              {
-                "date": "2026-10-27",
-                "price": 5280,
-                "unit": 528.0
-              },
-              {
-                "date": "2026-10-28",
-                "price": 5280,
-                "unit": 528.0
-              },
-              {
-                "date": "2026-10-29",
-                "price": 5280,
-                "unit": 528.0
-              },
-              {
-                "date": "2026-11-02",
-                "price": 5280,
-                "unit": 528.0
-              },
-              {
-                "date": "2026-11-03",
-                "price": 5280,
-                "unit": 528.0
-              },
-              {
-                "date": "2026-11-04",
-                "price": 5280,
-                "unit": 528.0
-              },
-              {
-                "date": "2026-11-06",
-                "price": 5280,
-                "unit": 528.0
-              },
-              {
-                "date": "2026-11-07",
-                "price": 5280,
-                "unit": 528.0
-              },
-              {
-                "date": "2026-11-08",
-                "price": 5280,
-                "unit": 528.0
-              },
-              {
-                "date": "2026-11-09",
-                "price": 5280,
-                "unit": 528.0
-              },
-              {
-                "date": "2026-11-10",
-                "price": 5280,
-                "unit": 528.0
-              },
-              {
-                "date": "2026-11-11",
-                "price": 5280,
-                "unit": 528.0
-              },
-              {
-                "date": "2026-11-12",
-                "price": 5280,
-                "unit": 528.0
-              },
-              {
-                "date": "2026-11-13",
-                "price": 5280,
-                "unit": 528.0
-              },
-              {
-                "date": "2026-11-14",
-                "price": 5280,
-                "unit": 528.0
-              },
-              {
-                "date": "2026-11-15",
-                "price": 5280,
-                "unit": 528.0
-              },
-              {
-                "date": "2026-11-16",
-                "price": 5280,
-                "unit": 528.0
-              },
-              {
-                "date": "2026-11-17",
-                "price": 5280,
-                "unit": 528.0
-              },
-              {
-                "date": "2026-11-18",
-                "price": 5280,
-                "unit": 528.0
-              },
-              {
-                "date": "2026-11-21",
-                "price": 5280,
-                "unit": 528.0
-              },
-              {
-                "date": "2026-11-22",
-                "price": 5280,
-                "unit": 528.0
-              },
-              {
-                "date": "2026-11-23",
-                "price": 5280,
-                "unit": 528.0
               }
             ]
           }
@@ -7729,81 +7678,6 @@
           }
         },
         {
-          "id": "rice-smile:10000137",
-          "raw_name": "令和8年産 新米 米 5kg 広島県産 あきさかり 米 5kg 送料無料 白米 5kg 送料無料 お米 5kg 送料無料 白米5キロ 産地直送 低温精米 備蓄用 非常用 コシヒカリ好きはお試しください(北海道・沖縄・離島は別途送料追加)",
-          "name": "令和8年産 新米 米 5kg 広島県産 あきさかり 米 5kg 白米 5kg お米 5kg 白米5キロ 産地直送 低温精米 備蓄用 非常用 コシヒカリ好きはお試しください(北海道・沖縄・離島は別途送料追加)",
-          "price": 2680,
-          "shop": "ライスマイルねっとショップ",
-          "url": "https://hb.afl.rakuten.co.jp/hgc/g00srvuo.7cx6m543.g00srvuo.7cx6ne6a/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Frice-smile%2Fas-s05%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Frice-smile%2Fi%2F10000137%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
-          "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/rice-smile/cabinet/kome_okome_1/2026_as001.jpg?_ex=128x128",
-          "postage_included": false,
-          "shipping_status": "extra_or_unknown",
-          "quantity": {
-            "total_weight_g": 5000.0,
-            "unit_weight_g": 5000.0,
-            "count": 1,
-            "confidence": 0.9,
-            "evidence": "5kg"
-          },
-          "unit_prices": {
-            "per_kg": 536.0
-          },
-          "comparison_metric": "per_kg",
-          "unit_label": "1kgあたり",
-          "quantity_label": "合計5kg",
-          "promotion_mentioned": false,
-          "price_history": {
-            "observed_days": 5,
-            "previous_date": "2026-11-22",
-            "previous_price": 2680,
-            "previous_unit": 536.0,
-            "previous_label": "昨日比",
-            "price_delta": 0,
-            "unit_delta": 0.0,
-            "percent_delta": 0.0,
-            "lowest_30d_unit": 536.0,
-            "highest_30d_unit": 536.0,
-            "lowest_7d_unit": 536.0,
-            "highest_7d_unit": 536.0,
-            "trend_7d": "stable",
-            "is_30d_low": true,
-            "series_7d": [
-              {
-                "date": "2026-11-22",
-                "price": 2680,
-                "unit": 536.0
-              },
-              {
-                "date": "2026-11-23",
-                "price": 2680,
-                "unit": 536.0
-              }
-            ],
-            "series_30d": [
-              {
-                "date": "2026-11-07",
-                "price": 2680,
-                "unit": 536.0
-              },
-              {
-                "date": "2026-11-08",
-                "price": 2680,
-                "unit": 536.0
-              },
-              {
-                "date": "2026-11-22",
-                "price": 2680,
-                "unit": 536.0
-              },
-              {
-                "date": "2026-11-23",
-                "price": 2680,
-                "unit": 536.0
-              }
-            ]
-          }
-        },
-        {
           "id": "hseason:10000260",
           "raw_name": "【ポイント3倍】新米 令和8年産 無洗米 山形県産 あきたこまち10kg 5kg×2袋 送料無料 【SOA受賞】[年間ランキング グルメ大賞]Shop Of The Year 米大賞 ハーベストシーズン[沖縄離島等一部地域は別途送料760円]",
           "name": "新米 令和8年産 無洗米 山形県産 あきたこまち10kg 5kg×2袋 【SOA受賞】[年間ランキング グルメ大賞]Shop Of The Year 米大賞 ハーベストシーズン[沖縄離島等一部地域は別途送料760円]",
@@ -8042,24 +7916,154 @@
               }
             ]
           }
+        },
+        {
+          "id": "imagi:10000175",
+          "raw_name": "新米 令和8年産 新潟産 ミルキークイーン 10kg（5kg×2袋） 米 白米・玄米選択可",
+          "name": "新米 令和8年産 新潟産 ミルキークイーン 10kg（5kg×2袋） 米 白米・玄米選択可",
+          "price": 6600,
+          "shop": "お米プラザ新潟[楽天市場店]",
+          "url": "https://hb.afl.rakuten.co.jp/hgc/g00pjpfo.7cx6m9e7.g00pjpfo.7cx6n091/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fimagi%2F18-milky-02%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fimagi%2Fi%2F10000175%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
+          "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/imagi/cabinet/item01/04/001/r8milky_10kg_s.jpg?_ex=128x128",
+          "postage_included": false,
+          "shipping_status": "extra_or_unknown",
+          "quantity": {
+            "total_weight_g": 10000.0,
+            "unit_weight_g": 5000.0,
+            "count": 2,
+            "confidence": 0.99,
+            "evidence": "5kgx2袋"
+          },
+          "unit_prices": {
+            "per_kg": 660.0
+          },
+          "comparison_metric": "per_kg",
+          "unit_label": "1kgあたり",
+          "quantity_label": "合計10kg / 2袋・個",
+          "promotion_mentioned": false,
+          "price_history": {
+            "observed_days": 15,
+            "previous_date": "2026-11-18",
+            "previous_price": 6600,
+            "previous_unit": 660.0,
+            "previous_label": "前回比",
+            "price_delta": 0,
+            "unit_delta": 0.0,
+            "percent_delta": 0.0,
+            "lowest_30d_unit": 640.0,
+            "highest_30d_unit": 660.0,
+            "lowest_7d_unit": 660.0,
+            "highest_7d_unit": 660.0,
+            "trend_7d": "stable",
+            "is_30d_low": false,
+            "series_7d": [
+              {
+                "date": "2026-11-16",
+                "price": 6600,
+                "unit": 660.0
+              },
+              {
+                "date": "2026-11-17",
+                "price": 6600,
+                "unit": 660.0
+              },
+              {
+                "date": "2026-11-18",
+                "price": 6600,
+                "unit": 660.0
+              },
+              {
+                "date": "2026-11-23",
+                "price": 6600,
+                "unit": 660.0
+              }
+            ],
+            "series_30d": [
+              {
+                "date": "2026-10-28",
+                "price": 6400,
+                "unit": 640.0
+              },
+              {
+                "date": "2026-10-31",
+                "price": 6400,
+                "unit": 640.0
+              },
+              {
+                "date": "2026-11-02",
+                "price": 6600,
+                "unit": 660.0
+              },
+              {
+                "date": "2026-11-03",
+                "price": 6600,
+                "unit": 660.0
+              },
+              {
+                "date": "2026-11-04",
+                "price": 6600,
+                "unit": 660.0
+              },
+              {
+                "date": "2026-11-08",
+                "price": 6600,
+                "unit": 660.0
+              },
+              {
+                "date": "2026-11-10",
+                "price": 6600,
+                "unit": 660.0
+              },
+              {
+                "date": "2026-11-12",
+                "price": 6600,
+                "unit": 660.0
+              },
+              {
+                "date": "2026-11-13",
+                "price": 6600,
+                "unit": 660.0
+              },
+              {
+                "date": "2026-11-16",
+                "price": 6600,
+                "unit": 660.0
+              },
+              {
+                "date": "2026-11-17",
+                "price": 6600,
+                "unit": 660.0
+              },
+              {
+                "date": "2026-11-18",
+                "price": 6600,
+                "unit": 660.0
+              },
+              {
+                "date": "2026-11-23",
+                "price": 6600,
+                "unit": 660.0
+              }
+            ]
+          }
         }
       ],
       "quality_audit": {
         "fetch_errors": 0,
         "queries": 2,
         "fetched": 60,
-        "normalized": 28,
-        "exact_duplicates": 6,
+        "normalized": 29,
+        "exact_duplicates": 5,
         "practical_duplicates": 0,
-        "accepted_unique": 22,
-        "included_available": 15,
+        "accepted_unique": 24,
+        "included_available": 17,
         "shipping_unknown_available": 7,
-        "displayed_included": 15,
+        "displayed_included": 17,
         "displayed_shipping_unknown": 7,
         "reasons": {
-          "ambiguous_quantity": 28,
           "wrong_product_type": 2,
-          "set_count_conflict": 1,
+          "ambiguous_quantity": 26,
+          "set_count_conflict": 2,
           "limited_purchase": 1
         }
       }
@@ -8976,172 +8980,6 @@
                 "date": "2026-11-23",
                 "price": 1280,
                 "unit": 106.66666666666667
-              }
-            ]
-          }
-        },
-        {
-          "id": "kadenrand:10159822",
-          "raw_name": "【選べるラベルレス！】炭酸水 富士山の強炭酸水 1L プレーン レモン ラベルあり (ケース） ラベルレス 1L×15本 強炭酸水 強炭酸 1000ml 1L 富士山 ケース 水 ミネラルウォーター 炭酸 みず 富士山 アイリスオーヤマの富士山天然水 15本 アイリスオーヤマ",
-          "name": "【選べるラベルレス！】炭酸水 富士山の強炭酸水 1L プレーン レモン ラベルあり (ケース） ラベルレス 1L×15本 強炭酸水 強炭酸 1000ml 1L 富士山 ケース 水 ミネラルウォーター 炭酸 みず 富士山 アイリスオーヤマの富士山天然水 15本 アイリスオーヤマ",
-          "price": 1680,
-          "shop": "DENDEN",
-          "url": "https://hb.afl.rakuten.co.jp/hgc/g00qvevo.7cx6mc00.g00qvevo.7cx6n8b9/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fkadenrand%2F311521%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fkadenrand%2Fi%2F10159822%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
-          "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/kadenrand/cabinet/11075038/12023129/311521_b.jpg?_ex=128x128",
-          "postage_included": true,
-          "shipping_status": "included",
-          "quantity": {
-            "total_volume_ml": 15000.0,
-            "unit_volume_ml": 1000.0,
-            "count": 15,
-            "confidence": 0.96,
-            "evidence": "1Lx15本"
-          },
-          "unit_prices": {
-            "per_liter": 112.0,
-            "per_bottle": 112.0
-          },
-          "comparison_metric": "per_liter",
-          "unit_label": "1Lあたり",
-          "quantity_label": "1000ml×15本 / 合計15L",
-          "promotion_mentioned": false,
-          "price_history": {
-            "observed_days": 33,
-            "previous_date": "2026-11-22",
-            "previous_price": 1680,
-            "previous_unit": 112.0,
-            "previous_label": "昨日比",
-            "price_delta": 0,
-            "unit_delta": 0.0,
-            "percent_delta": 0.0,
-            "lowest_30d_unit": 112.0,
-            "highest_30d_unit": 112.0,
-            "lowest_7d_unit": 112.0,
-            "highest_7d_unit": 112.0,
-            "trend_7d": "stable",
-            "is_30d_low": true,
-            "series_7d": [
-              {
-                "date": "2026-11-20",
-                "price": 1680,
-                "unit": 112.0
-              },
-              {
-                "date": "2026-11-21",
-                "price": 1680,
-                "unit": 112.0
-              },
-              {
-                "date": "2026-11-22",
-                "price": 1680,
-                "unit": 112.0
-              },
-              {
-                "date": "2026-11-23",
-                "price": 1680,
-                "unit": 112.0
-              }
-            ],
-            "series_30d": [
-              {
-                "date": "2026-10-25",
-                "price": 1680,
-                "unit": 112.0
-              },
-              {
-                "date": "2026-10-26",
-                "price": 1680,
-                "unit": 112.0
-              },
-              {
-                "date": "2026-10-27",
-                "price": 1680,
-                "unit": 112.0
-              },
-              {
-                "date": "2026-10-28",
-                "price": 1680,
-                "unit": 112.0
-              },
-              {
-                "date": "2026-10-29",
-                "price": 1680,
-                "unit": 112.0
-              },
-              {
-                "date": "2026-10-30",
-                "price": 1680,
-                "unit": 112.0
-              },
-              {
-                "date": "2026-10-31",
-                "price": 1680,
-                "unit": 112.0
-              },
-              {
-                "date": "2026-11-01",
-                "price": 1680,
-                "unit": 112.0
-              },
-              {
-                "date": "2026-11-02",
-                "price": 1680,
-                "unit": 112.0
-              },
-              {
-                "date": "2026-11-03",
-                "price": 1680,
-                "unit": 112.0
-              },
-              {
-                "date": "2026-11-04",
-                "price": 1680,
-                "unit": 112.0
-              },
-              {
-                "date": "2026-11-05",
-                "price": 1680,
-                "unit": 112.0
-              },
-              {
-                "date": "2026-11-06",
-                "price": 1680,
-                "unit": 112.0
-              },
-              {
-                "date": "2026-11-08",
-                "price": 1680,
-                "unit": 112.0
-              },
-              {
-                "date": "2026-11-09",
-                "price": 1680,
-                "unit": 112.0
-              },
-              {
-                "date": "2026-11-10",
-                "price": 1680,
-                "unit": 112.0
-              },
-              {
-                "date": "2026-11-20",
-                "price": 1680,
-                "unit": 112.0
-              },
-              {
-                "date": "2026-11-21",
-                "price": 1680,
-                "unit": 112.0
-              },
-              {
-                "date": "2026-11-22",
-                "price": 1680,
-                "unit": 112.0
-              },
-              {
-                "date": "2026-11-23",
-                "price": 1680,
-                "unit": 112.0
               }
             ]
           }
@@ -15338,156 +15176,6 @@
               }
             ]
           }
-        },
-        {
-          "id": "izmic-ec:10137747",
-          "raw_name": "アサヒ ウィルキンソン タンサン 500ml×24 本×2ケース（48本） 飲料【送料無料※一部地域は除く】炭酸水 水 ウィルキンソン",
-          "name": "アサヒ ウィルキンソン タンサン 500ml×24 本×2ケース（48本） 飲料【送料無料※一部地域は除く】炭酸水 水 ウィルキンソン",
-          "price": 4970,
-          "shop": "イズミックワールド",
-          "url": "https://hb.afl.rakuten.co.jp/hgc/g00pjp9o.7cx6mc74.g00pjp9o.7cx6na23/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fizmic-ec%2F629866-02%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fizmic-ec%2Fi%2F10137747%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
-          "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/izmic-ec/cabinet/drink2019051002/607330-02.jpg?_ex=128x128",
-          "postage_included": false,
-          "shipping_status": "extra_or_unknown",
-          "quantity": {
-            "total_volume_ml": 24000.0,
-            "unit_volume_ml": 500.0,
-            "count": 48,
-            "component_counts": [
-              24,
-              2
-            ],
-            "confidence": 0.997,
-            "evidence": "500mlx24 本x2ケース"
-          },
-          "unit_prices": {
-            "per_liter": 207.08333333333334,
-            "per_bottle": 103.54166666666667
-          },
-          "comparison_metric": "per_liter",
-          "unit_label": "1Lあたり",
-          "quantity_label": "500ml×48本 / 合計24L",
-          "promotion_mentioned": false,
-          "price_history": {
-            "observed_days": 31,
-            "previous_date": "2026-11-17",
-            "previous_price": 4970,
-            "previous_unit": 207.08333333333334,
-            "previous_label": "前回比",
-            "price_delta": 0,
-            "unit_delta": 0.0,
-            "percent_delta": 0.0,
-            "lowest_30d_unit": 207.08333333333334,
-            "highest_30d_unit": 207.08333333333334,
-            "lowest_7d_unit": 207.08333333333334,
-            "highest_7d_unit": 207.08333333333334,
-            "trend_7d": "stable",
-            "is_30d_low": true,
-            "series_7d": [
-              {
-                "date": "2026-11-17",
-                "price": 4970,
-                "unit": 207.08333333333334
-              },
-              {
-                "date": "2026-11-23",
-                "price": 4970,
-                "unit": 207.08333333333334
-              }
-            ],
-            "series_30d": [
-              {
-                "date": "2026-10-24",
-                "price": 4970,
-                "unit": 207.08333333333334
-              },
-              {
-                "date": "2026-10-25",
-                "price": 4970,
-                "unit": 207.08333333333334
-              },
-              {
-                "date": "2026-10-27",
-                "price": 4970,
-                "unit": 207.08333333333334
-              },
-              {
-                "date": "2026-10-28",
-                "price": 4970,
-                "unit": 207.08333333333334
-              },
-              {
-                "date": "2026-10-29",
-                "price": 4970,
-                "unit": 207.08333333333334
-              },
-              {
-                "date": "2026-10-30",
-                "price": 4970,
-                "unit": 207.08333333333334
-              },
-              {
-                "date": "2026-10-31",
-                "price": 4970,
-                "unit": 207.08333333333334
-              },
-              {
-                "date": "2026-11-01",
-                "price": 4970,
-                "unit": 207.08333333333334
-              },
-              {
-                "date": "2026-11-02",
-                "price": 4970,
-                "unit": 207.08333333333334
-              },
-              {
-                "date": "2026-11-03",
-                "price": 4970,
-                "unit": 207.08333333333334
-              },
-              {
-                "date": "2026-11-04",
-                "price": 4970,
-                "unit": 207.08333333333334
-              },
-              {
-                "date": "2026-11-06",
-                "price": 4970,
-                "unit": 207.08333333333334
-              },
-              {
-                "date": "2026-11-08",
-                "price": 4970,
-                "unit": 207.08333333333334
-              },
-              {
-                "date": "2026-11-09",
-                "price": 4970,
-                "unit": 207.08333333333334
-              },
-              {
-                "date": "2026-11-14",
-                "price": 4970,
-                "unit": 207.08333333333334
-              },
-              {
-                "date": "2026-11-15",
-                "price": 4970,
-                "unit": 207.08333333333334
-              },
-              {
-                "date": "2026-11-17",
-                "price": 4970,
-                "unit": 207.08333333333334
-              },
-              {
-                "date": "2026-11-23",
-                "price": 4970,
-                "unit": 207.08333333333334
-              }
-            ]
-          }
         }
       ],
       "quality_audit": {
@@ -15495,16 +15183,16 @@
         "queries": 3,
         "fetched": 90,
         "normalized": 40,
-        "exact_duplicates": 5,
+        "exact_duplicates": 7,
         "practical_duplicates": 0,
-        "accepted_unique": 35,
-        "included_available": 15,
-        "shipping_unknown_available": 20,
-        "displayed_included": 15,
-        "displayed_shipping_unknown": 20,
+        "accepted_unique": 33,
+        "included_available": 14,
+        "shipping_unknown_available": 19,
+        "displayed_included": 14,
+        "displayed_shipping_unknown": 19,
         "reasons": {
-          "set_count_conflict": 13,
-          "missing_category_evidence": 21,
+          "set_count_conflict": 14,
+          "missing_category_evidence": 20,
           "ambiguous_quantity": 11,
           "limited_purchase": 1,
           "wrong_product_type": 4
@@ -27124,6 +26812,155 @@
           }
         },
         {
+          "id": "kurashikenkou:10184230",
+          "raw_name": "＼超激アツ価格！！／水 500ml 24本 天然水 ペットボトル 送料無料 ミネラルウォーター LDC 熊野古道水 軟水 熊野 鉱水 天然水 古道 ナチュラル ライフドリンクカンパニー【D】【代引き不可】",
+          "name": "＼超激アツ価格！！／水 500ml 24本 天然水 ペットボトル ミネラルウォーター LDC 熊野古道水 軟水 熊野 鉱水 天然水 古道 ナチュラル ライフドリンクカンパニー【D】【代引き不可】",
+          "price": 1340,
+          "shop": "暮らし健康ネット館",
+          "url": "https://hb.afl.rakuten.co.jp/hgc/g00qhoao.7cx6m91b.g00qhoao.7cx6n00f/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fkurashikenkou%2F7159366%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fkurashikenkou%2Fi%2F10184230%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
+          "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/kurashikenkou/cabinet/tasya60/7159366_00.jpg?_ex=128x128",
+          "postage_included": true,
+          "shipping_status": "included",
+          "quantity": {
+            "count": 24,
+            "component_counts": [
+              24
+            ],
+            "unit_volume_ml": 500.0,
+            "total_volume_ml": 12000.0,
+            "confidence": 0.99,
+            "evidence": "500ml 24本"
+          },
+          "unit_prices": {
+            "per_liter": 111.66666666666667,
+            "per_bottle": 55.833333333333336
+          },
+          "comparison_metric": "per_liter",
+          "unit_label": "1Lあたり",
+          "quantity_label": "500ml×24本 / 合計12L",
+          "promotion_mentioned": false,
+          "price_history": {
+            "observed_days": 28,
+            "previous_date": "2026-11-22",
+            "previous_price": 1340,
+            "previous_unit": 111.66666666666667,
+            "previous_label": "昨日比",
+            "price_delta": 0,
+            "unit_delta": 0.0,
+            "percent_delta": 0.0,
+            "lowest_30d_unit": 106.66666666666667,
+            "highest_30d_unit": 115.91666666666667,
+            "lowest_7d_unit": 111.66666666666667,
+            "highest_7d_unit": 115.91666666666667,
+            "trend_7d": "down",
+            "is_30d_low": false,
+            "series_7d": [
+              {
+                "date": "2026-11-16",
+                "price": 1391,
+                "unit": 115.91666666666667
+              },
+              {
+                "date": "2026-11-17",
+                "price": 1391,
+                "unit": 115.91666666666667
+              },
+              {
+                "date": "2026-11-22",
+                "price": 1340,
+                "unit": 111.66666666666667
+              },
+              {
+                "date": "2026-11-23",
+                "price": 1340,
+                "unit": 111.66666666666667
+              }
+            ],
+            "series_30d": [
+              {
+                "date": "2026-10-24",
+                "price": 1280,
+                "unit": 106.66666666666667
+              },
+              {
+                "date": "2026-10-25",
+                "price": 1280,
+                "unit": 106.66666666666667
+              },
+              {
+                "date": "2026-10-26",
+                "price": 1280,
+                "unit": 106.66666666666667
+              },
+              {
+                "date": "2026-10-27",
+                "price": 1280,
+                "unit": 106.66666666666667
+              },
+              {
+                "date": "2026-10-28",
+                "price": 1340,
+                "unit": 111.66666666666667
+              },
+              {
+                "date": "2026-10-30",
+                "price": 1340,
+                "unit": 111.66666666666667
+              },
+              {
+                "date": "2026-10-31",
+                "price": 1391,
+                "unit": 115.91666666666667
+              },
+              {
+                "date": "2026-11-06",
+                "price": 1360,
+                "unit": 113.33333333333333
+              },
+              {
+                "date": "2026-11-07",
+                "price": 1360,
+                "unit": 113.33333333333333
+              },
+              {
+                "date": "2026-11-08",
+                "price": 1360,
+                "unit": 113.33333333333333
+              },
+              {
+                "date": "2026-11-09",
+                "price": 1360,
+                "unit": 113.33333333333333
+              },
+              {
+                "date": "2026-11-11",
+                "price": 1360,
+                "unit": 113.33333333333333
+              },
+              {
+                "date": "2026-11-16",
+                "price": 1391,
+                "unit": 115.91666666666667
+              },
+              {
+                "date": "2026-11-17",
+                "price": 1391,
+                "unit": 115.91666666666667
+              },
+              {
+                "date": "2026-11-22",
+                "price": 1340,
+                "unit": 111.66666666666667
+              },
+              {
+                "date": "2026-11-23",
+                "price": 1340,
+                "unit": 111.66666666666667
+              }
+            ]
+          }
+        },
+        {
           "id": "kurashikenkou:10184231",
           "raw_name": "水 500ml 48本 天然水 ペットボトル 送料無料 ミネラルウォーター LDC 熊野古道水 軟水 熊野 防災 備蓄 鉱水 古道 ナチュラル ペットボトル ライフドリンクカンパニー【D】【代引き不可】",
           "name": "水 500ml 48本 天然水 ペットボトル ミネラルウォーター LDC 熊野古道水 軟水 熊野 防災 備蓄 鉱水 古道 ナチュラル ペットボトル ライフドリンクカンパニー【D】【代引き不可】",
@@ -27328,65 +27165,100 @@
           }
         },
         {
-          "id": "kurashikenkou:10181001",
-          "raw_name": "シリカ 水 500ml 48本 天然水 ペットボトル 送料無料 シリカ水 ミネラルウォーター 富士清水 JAPANWATER 飲料水 軟水 ウォーター【D】【代引き不可】",
-          "name": "シリカ 水 500ml 48本 天然水 ペットボトル シリカ水 ミネラルウォーター 富士清水 JAPANWATER 飲料水 軟水 ウォーター【D】【代引き不可】",
-          "price": 3130,
+          "id": "kurashikenkou:10181000",
+          "raw_name": "シリカ 水 500ml 24本 天然水 ペットボトル 送料無料 シリカ水 ミネラルウォーター 富士清水 JAPANWATER 飲料水 軟水 ウォーター【D】【代引き不可】",
+          "name": "シリカ 水 500ml 24本 天然水 ペットボトル シリカ水 ミネラルウォーター 富士清水 JAPANWATER 飲料水 軟水 ウォーター【D】【代引き不可】",
+          "price": 1570,
           "shop": "暮らし健康ネット館",
-          "url": "https://hb.afl.rakuten.co.jp/hgc/g00qhoao.7cx6m91b.g00qhoao.7cx6n00f/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fkurashikenkou%2F7150389%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fkurashikenkou%2Fi%2F10181001%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
-          "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/kurashikenkou/cabinet/tenposupport23/7269067.jpg?_ex=128x128",
+          "url": "https://hb.afl.rakuten.co.jp/hgc/g00qhoao.7cx6m91b.g00qhoao.7cx6n00f/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fkurashikenkou%2F7150388%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fkurashikenkou%2Fi%2F10181000%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
+          "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/kurashikenkou/cabinet/tenposupport23/7245223.jpg?_ex=128x128",
           "postage_included": true,
           "shipping_status": "included",
           "quantity": {
-            "count": 48,
+            "count": 24,
             "component_counts": [
-              48
+              24
             ],
             "unit_volume_ml": 500.0,
-            "total_volume_ml": 24000.0,
+            "total_volume_ml": 12000.0,
             "confidence": 0.99,
-            "evidence": "500ml 48本"
+            "evidence": "500ml 24本"
           },
           "unit_prices": {
-            "per_liter": 130.41666666666666,
-            "per_bottle": 65.20833333333333
+            "per_liter": 130.83333333333334,
+            "per_bottle": 65.41666666666667
           },
           "comparison_metric": "per_liter",
           "unit_label": "1Lあたり",
-          "quantity_label": "500ml×48本 / 合計24L",
+          "quantity_label": "500ml×24本 / 合計12L",
           "promotion_mentioned": false,
           "price_history": {
-            "observed_days": 2,
-            "previous_date": "2026-10-25",
-            "previous_price": 3180,
-            "previous_unit": 132.5,
+            "observed_days": 8,
+            "previous_date": "2026-11-21",
+            "previous_price": 1570,
+            "previous_unit": 130.83333333333334,
             "previous_label": "前回比",
-            "price_delta": -50,
-            "unit_delta": -2.083333333333343,
-            "percent_delta": -1.5723270440251573,
-            "lowest_30d_unit": 130.41666666666666,
+            "price_delta": 0,
+            "unit_delta": 0.0,
+            "percent_delta": 0.0,
+            "lowest_30d_unit": 130.83333333333334,
             "highest_30d_unit": 132.5,
-            "lowest_7d_unit": 130.41666666666666,
-            "highest_7d_unit": 130.41666666666666,
+            "lowest_7d_unit": 130.83333333333334,
+            "highest_7d_unit": 130.83333333333334,
             "trend_7d": "stable",
             "is_30d_low": true,
             "series_7d": [
               {
+                "date": "2026-11-20",
+                "price": 1570,
+                "unit": 130.83333333333334
+              },
+              {
+                "date": "2026-11-21",
+                "price": 1570,
+                "unit": 130.83333333333334
+              },
+              {
                 "date": "2026-11-23",
-                "price": 3130,
-                "unit": 130.41666666666666
+                "price": 1570,
+                "unit": 130.83333333333334
               }
             ],
             "series_30d": [
               {
-                "date": "2026-10-25",
-                "price": 3180,
+                "date": "2026-11-01",
+                "price": 1590,
                 "unit": 132.5
               },
               {
+                "date": "2026-11-04",
+                "price": 1570,
+                "unit": 130.83333333333334
+              },
+              {
+                "date": "2026-11-08",
+                "price": 1570,
+                "unit": 130.83333333333334
+              },
+              {
+                "date": "2026-11-11",
+                "price": 1570,
+                "unit": 130.83333333333334
+              },
+              {
+                "date": "2026-11-20",
+                "price": 1570,
+                "unit": 130.83333333333334
+              },
+              {
+                "date": "2026-11-21",
+                "price": 1570,
+                "unit": 130.83333333333334
+              },
+              {
                 "date": "2026-11-23",
-                "price": 3130,
-                "unit": 130.41666666666666
+                "price": 1570,
+                "unit": 130.83333333333334
               }
             ]
           }
@@ -28404,17 +28276,17 @@
         "queries": 3,
         "fetched": 90,
         "normalized": 16,
-        "exact_duplicates": 4,
+        "exact_duplicates": 3,
         "practical_duplicates": 0,
-        "accepted_unique": 12,
-        "included_available": 7,
+        "accepted_unique": 13,
+        "included_available": 8,
         "shipping_unknown_available": 5,
-        "displayed_included": 7,
+        "displayed_included": 8,
         "displayed_shipping_unknown": 5,
         "reasons": {
-          "ambiguous_quantity": 45,
+          "ambiguous_quantity": 44,
           "wrong_product_type": 19,
-          "restricted_or_selectable_product": 6,
+          "restricted_or_selectable_product": 7,
           "limited_purchase": 3,
           "missing_category_evidence": 1
         }
@@ -37665,17 +37537,17 @@
         "fetch_errors": 0,
         "queries": 3,
         "fetched": 90,
-        "normalized": 59,
+        "normalized": 58,
         "exact_duplicates": 1,
         "practical_duplicates": 0,
-        "accepted_unique": 58,
+        "accepted_unique": 57,
         "included_available": 19,
-        "shipping_unknown_available": 39,
+        "shipping_unknown_available": 38,
         "displayed_included": 19,
         "displayed_shipping_unknown": 20,
         "reasons": {
           "wrong_product_type": 13,
-          "ambiguous_quantity": 12,
+          "ambiguous_quantity": 13,
           "restricted_or_selectable_product": 3,
           "missing_category_evidence": 3
         }
@@ -41907,7 +41779,7 @@
           "price": 2845,
           "shop": "サンティチュール2号店",
           "url": "https://hb.afl.rakuten.co.jp/hgc/g00uy64o.7cx6m1c5.g00uy64o.7cx6n925/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fscintitur02%2Fb0783hrfb1%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fscintitur02%2Fi%2F10036223%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
-          "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/scintitur02/cabinet/rakus169_0091/b0783hrfb100.jpg?_ex=128x128",
+          "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/scintitur02/cabinet/rakus379_0007/b0783hrfb100.jpg?_ex=128x128",
           "postage_included": true,
           "shipping_status": "included",
           "quantity": {
@@ -44944,8 +44816,8 @@
           "wrong_product_type": 14,
           "ambiguous_quantity": 29,
           "restricted_or_selectable_product": 10,
-          "missing_category_evidence": 2,
-          "limited_purchase": 2
+          "limited_purchase": 2,
+          "missing_category_evidence": 2
         }
       }
     },
@@ -47665,175 +47537,6 @@
           }
         },
         {
-          "id": "aarti:10003759",
-          "raw_name": "神戸アールティー バターチキンカレー 180g×10箱 ≪パッケージ版≫ 送料無料 Butter Chicken Curry レトルトカレー 鶏肉 マイルド 長期保存 常温保存 ギフト まとめ買い セット商品",
-          "name": "神戸アールティー バターチキンカレー 180g×10箱 ≪パッケージ版≫ Butter Chicken Curry レトルトカレー 鶏肉 マイルド 長期保存 常温保存 ギフト まとめ買い セット商品",
-          "price": 6700,
-          "shop": "インドカレーの店 アールティ",
-          "url": "https://hb.afl.rakuten.co.jp/hgc/g00q6hbo.7cx6mf67.g00q6hbo.7cx6nc04/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Faarti%2F10003759%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Faarti%2Fi%2F10003759%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
-          "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/aarti/cabinet/03518412/imgrc0105766335.jpg?_ex=128x128",
-          "postage_included": true,
-          "shipping_status": "included",
-          "quantity": {
-            "count": 10,
-            "component_counts": [
-              10
-            ],
-            "unit_weight_g": 180.0,
-            "total_weight_g": 1800.0,
-            "confidence": 0.99,
-            "evidence": "180gx10箱"
-          },
-          "unit_prices": {
-            "per_serving": 670.0,
-            "per_100g": 372.22222222222223
-          },
-          "comparison_metric": "per_serving",
-          "unit_label": "1食あたり",
-          "quantity_label": "合計1.8kg / 10食",
-          "promotion_mentioned": false,
-          "price_history": {
-            "observed_days": 28,
-            "previous_date": "2026-11-22",
-            "previous_price": 6700,
-            "previous_unit": 670.0,
-            "previous_label": "昨日比",
-            "price_delta": 0,
-            "unit_delta": 0.0,
-            "percent_delta": 0.0,
-            "lowest_30d_unit": 670.0,
-            "highest_30d_unit": 670.0,
-            "lowest_7d_unit": 670.0,
-            "highest_7d_unit": 670.0,
-            "trend_7d": "stable",
-            "is_30d_low": true,
-            "series_7d": [
-              {
-                "date": "2026-11-18",
-                "price": 6700,
-                "unit": 670.0
-              },
-              {
-                "date": "2026-11-20",
-                "price": 6700,
-                "unit": 670.0
-              },
-              {
-                "date": "2026-11-21",
-                "price": 6700,
-                "unit": 670.0
-              },
-              {
-                "date": "2026-11-22",
-                "price": 6700,
-                "unit": 670.0
-              },
-              {
-                "date": "2026-11-23",
-                "price": 6700,
-                "unit": 670.0
-              }
-            ],
-            "series_30d": [
-              {
-                "date": "2026-10-26",
-                "price": 6700,
-                "unit": 670.0
-              },
-              {
-                "date": "2026-10-27",
-                "price": 6700,
-                "unit": 670.0
-              },
-              {
-                "date": "2026-10-28",
-                "price": 6700,
-                "unit": 670.0
-              },
-              {
-                "date": "2026-10-29",
-                "price": 6700,
-                "unit": 670.0
-              },
-              {
-                "date": "2026-10-30",
-                "price": 6700,
-                "unit": 670.0
-              },
-              {
-                "date": "2026-11-03",
-                "price": 6700,
-                "unit": 670.0
-              },
-              {
-                "date": "2026-11-04",
-                "price": 6700,
-                "unit": 670.0
-              },
-              {
-                "date": "2026-11-05",
-                "price": 6700,
-                "unit": 670.0
-              },
-              {
-                "date": "2026-11-06",
-                "price": 6700,
-                "unit": 670.0
-              },
-              {
-                "date": "2026-11-07",
-                "price": 6700,
-                "unit": 670.0
-              },
-              {
-                "date": "2026-11-08",
-                "price": 6700,
-                "unit": 670.0
-              },
-              {
-                "date": "2026-11-09",
-                "price": 6700,
-                "unit": 670.0
-              },
-              {
-                "date": "2026-11-10",
-                "price": 6700,
-                "unit": 670.0
-              },
-              {
-                "date": "2026-11-12",
-                "price": 6700,
-                "unit": 670.0
-              },
-              {
-                "date": "2026-11-18",
-                "price": 6700,
-                "unit": 670.0
-              },
-              {
-                "date": "2026-11-20",
-                "price": 6700,
-                "unit": 670.0
-              },
-              {
-                "date": "2026-11-21",
-                "price": 6700,
-                "unit": 670.0
-              },
-              {
-                "date": "2026-11-22",
-                "price": 6700,
-                "unit": 670.0
-              },
-              {
-                "date": "2026-11-23",
-                "price": 6700,
-                "unit": 670.0
-              }
-            ]
-          }
-        },
-        {
           "id": "tema551:10000034",
           "raw_name": "てまごこちカレー 甘口(180g×10袋)【送料無料】宮崎県産 九州産 国産 レトルトカレー レストラン フレンチカレー 野菜カレー ベジカレー チキンカレー 鶏もも肉 子供カレー 高級 美味しい おいしい 取り寄せ シェフ監修 ご当地 ストック こだわり ギフト 贈り物 プレゼント",
           "name": "てまごこちカレー 甘口(180g×10袋) 宮崎県産 九州産 国産 レトルトカレー レストラン フレンチカレー 野菜カレー ベジカレー チキンカレー 鶏もも肉 子供カレー 高級 美味しい おいしい 取り寄せ シェフ監修 ご当地 ストック こだわり ギフト 贈り物 プレゼント",
@@ -50153,180 +49856,6 @@
           }
         },
         {
-          "id": "misono-support:10192810",
-          "raw_name": "[ポイント5倍！11/25(水)1時59分まで全品対象エントリー&購入]ハウス食品 ポークカレー 180g×30袋入｜ 送料無料 一般食品 レトルト カレー ポーク",
-          "name": "[ポイント5倍！11/25(水)1時59分まで全品対象エントリー&購入]ハウス食品 ポークカレー 180g×30袋入｜ 一般食品 レトルト カレー ポーク",
-          "price": 6577,
-          "shop": "飲料 食品専門店 味園サポート",
-          "url": "https://hb.afl.rakuten.co.jp/hgc/g00q23do.7cx6mdeb.g00q23do.7cx6n015/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fmisono-support%2Fa310-295%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fmisono-support%2Fi%2F10192810%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
-          "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/misono-support/cabinet/13818287/a310-295_marathon.jpg?_ex=128x128",
-          "postage_included": false,
-          "shipping_status": "extra_or_unknown",
-          "quantity": {
-            "count": 30,
-            "component_counts": [
-              30
-            ],
-            "unit_weight_g": 180.0,
-            "total_weight_g": 5400.0,
-            "confidence": 0.99,
-            "evidence": "180gx30袋入"
-          },
-          "unit_prices": {
-            "per_serving": 219.23333333333332,
-            "per_100g": 121.79629629629629
-          },
-          "comparison_metric": "per_serving",
-          "unit_label": "1食あたり",
-          "quantity_label": "合計5.4kg / 30食",
-          "promotion_mentioned": true,
-          "price_history": {
-            "observed_days": 23,
-            "previous_date": "2026-11-22",
-            "previous_price": 6577,
-            "previous_unit": 219.23333333333332,
-            "previous_label": "昨日比",
-            "price_delta": 0,
-            "unit_delta": 0.0,
-            "percent_delta": 0.0,
-            "lowest_30d_unit": 219.23333333333332,
-            "highest_30d_unit": 219.23333333333332,
-            "lowest_7d_unit": 219.23333333333332,
-            "highest_7d_unit": 219.23333333333332,
-            "trend_7d": "stable",
-            "is_30d_low": true,
-            "series_7d": [
-              {
-                "date": "2026-11-16",
-                "price": 6577,
-                "unit": 219.23333333333332
-              },
-              {
-                "date": "2026-11-17",
-                "price": 6577,
-                "unit": 219.23333333333332
-              },
-              {
-                "date": "2026-11-18",
-                "price": 6577,
-                "unit": 219.23333333333332
-              },
-              {
-                "date": "2026-11-19",
-                "price": 6577,
-                "unit": 219.23333333333332
-              },
-              {
-                "date": "2026-11-20",
-                "price": 6577,
-                "unit": 219.23333333333332
-              },
-              {
-                "date": "2026-11-21",
-                "price": 6577,
-                "unit": 219.23333333333332
-              },
-              {
-                "date": "2026-11-22",
-                "price": 6577,
-                "unit": 219.23333333333332
-              },
-              {
-                "date": "2026-11-23",
-                "price": 6577,
-                "unit": 219.23333333333332
-              }
-            ],
-            "series_30d": [
-              {
-                "date": "2026-10-27",
-                "price": 6577,
-                "unit": 219.23333333333332
-              },
-              {
-                "date": "2026-10-30",
-                "price": 6577,
-                "unit": 219.23333333333332
-              },
-              {
-                "date": "2026-11-03",
-                "price": 6577,
-                "unit": 219.23333333333332
-              },
-              {
-                "date": "2026-11-04",
-                "price": 6577,
-                "unit": 219.23333333333332
-              },
-              {
-                "date": "2026-11-05",
-                "price": 6577,
-                "unit": 219.23333333333332
-              },
-              {
-                "date": "2026-11-09",
-                "price": 6577,
-                "unit": 219.23333333333332
-              },
-              {
-                "date": "2026-11-12",
-                "price": 6577,
-                "unit": 219.23333333333332
-              },
-              {
-                "date": "2026-11-14",
-                "price": 6577,
-                "unit": 219.23333333333332
-              },
-              {
-                "date": "2026-11-15",
-                "price": 6577,
-                "unit": 219.23333333333332
-              },
-              {
-                "date": "2026-11-16",
-                "price": 6577,
-                "unit": 219.23333333333332
-              },
-              {
-                "date": "2026-11-17",
-                "price": 6577,
-                "unit": 219.23333333333332
-              },
-              {
-                "date": "2026-11-18",
-                "price": 6577,
-                "unit": 219.23333333333332
-              },
-              {
-                "date": "2026-11-19",
-                "price": 6577,
-                "unit": 219.23333333333332
-              },
-              {
-                "date": "2026-11-20",
-                "price": 6577,
-                "unit": 219.23333333333332
-              },
-              {
-                "date": "2026-11-21",
-                "price": 6577,
-                "unit": 219.23333333333332
-              },
-              {
-                "date": "2026-11-22",
-                "price": 6577,
-                "unit": 219.23333333333332
-              },
-              {
-                "date": "2026-11-23",
-                "price": 6577,
-                "unit": 219.23333333333332
-              }
-            ]
-          }
-        },
-        {
           "id": "drink-market:10112443",
           "raw_name": "ハウス食品 ポークカレー 180g×30袋入｜ 送料無料 一般食品 レトルト カレー ポーク",
           "name": "ハウス食品 ポークカレー 180g×30袋入｜ 一般食品 レトルト カレー ポーク",
@@ -50561,6 +50090,130 @@
                 "date": "2026-11-23",
                 "price": 6598,
                 "unit": 219.93333333333334
+              }
+            ]
+          }
+        },
+        {
+          "id": "misonoya:10097030",
+          "raw_name": "[ポイント5倍！11/25(水)1時59分まで全品対象エントリー&購入]ニチレイフーズ インド風 バターチキンカレー 180g×30袋入｜ 送料無料 一般食品 レトルト食品 カレー バター チキンカレー",
+          "name": "[ポイント5倍！11/25(水)1時59分まで全品対象エントリー&購入]ニチレイフーズ インド風 バターチキンカレー 180g×30袋入｜ 一般食品 レトルト食品 カレー バター チキンカレー",
+          "price": 7095,
+          "shop": "MISONOYA楽天市場店",
+          "url": "https://hb.afl.rakuten.co.jp/hgc/g00qrf9o.7cx6mf08.g00qrf9o.7cx6n813/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fmisonoya%2Fb34-57%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fmisonoya%2Fi%2F10097030%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
+          "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/misonoya/cabinet/13824372/b34-57_marathon.jpg?_ex=128x128",
+          "postage_included": false,
+          "shipping_status": "extra_or_unknown",
+          "quantity": {
+            "count": 30,
+            "component_counts": [
+              30
+            ],
+            "unit_weight_g": 180.0,
+            "total_weight_g": 5400.0,
+            "confidence": 0.99,
+            "evidence": "180gx30袋入"
+          },
+          "unit_prices": {
+            "per_serving": 236.5,
+            "per_100g": 131.38888888888889
+          },
+          "comparison_metric": "per_serving",
+          "unit_label": "1食あたり",
+          "quantity_label": "合計5.4kg / 30食",
+          "promotion_mentioned": true,
+          "price_history": {
+            "observed_days": 17,
+            "previous_date": "2026-11-22",
+            "previous_price": 7095,
+            "previous_unit": 236.5,
+            "previous_label": "昨日比",
+            "price_delta": 0,
+            "unit_delta": 0.0,
+            "percent_delta": 0.0,
+            "lowest_30d_unit": 236.5,
+            "highest_30d_unit": 236.5,
+            "lowest_7d_unit": 236.5,
+            "highest_7d_unit": 236.5,
+            "trend_7d": "stable",
+            "is_30d_low": true,
+            "series_7d": [
+              {
+                "date": "2026-11-20",
+                "price": 7095,
+                "unit": 236.5
+              },
+              {
+                "date": "2026-11-21",
+                "price": 7095,
+                "unit": 236.5
+              },
+              {
+                "date": "2026-11-22",
+                "price": 7095,
+                "unit": 236.5
+              },
+              {
+                "date": "2026-11-23",
+                "price": 7095,
+                "unit": 236.5
+              }
+            ],
+            "series_30d": [
+              {
+                "date": "2026-10-24",
+                "price": 7095,
+                "unit": 236.5
+              },
+              {
+                "date": "2026-10-28",
+                "price": 7095,
+                "unit": 236.5
+              },
+              {
+                "date": "2026-10-30",
+                "price": 7095,
+                "unit": 236.5
+              },
+              {
+                "date": "2026-11-02",
+                "price": 7095,
+                "unit": 236.5
+              },
+              {
+                "date": "2026-11-04",
+                "price": 7095,
+                "unit": 236.5
+              },
+              {
+                "date": "2026-11-05",
+                "price": 7095,
+                "unit": 236.5
+              },
+              {
+                "date": "2026-11-06",
+                "price": 7095,
+                "unit": 236.5
+              },
+              {
+                "date": "2026-11-20",
+                "price": 7095,
+                "unit": 236.5
+              },
+              {
+                "date": "2026-11-21",
+                "price": 7095,
+                "unit": 236.5
+              },
+              {
+                "date": "2026-11-22",
+                "price": 7095,
+                "unit": 236.5
+              },
+              {
+                "date": "2026-11-23",
+                "price": 7095,
+                "unit": 236.5
               }
             ]
           }
@@ -52571,18 +52224,18 @@
         "fetch_errors": 0,
         "queries": 5,
         "fetched": 150,
-        "normalized": 53,
-        "exact_duplicates": 3,
+        "normalized": 52,
+        "exact_duplicates": 2,
         "practical_duplicates": 0,
         "accepted_unique": 50,
-        "included_available": 15,
-        "shipping_unknown_available": 35,
-        "displayed_included": 15,
+        "included_available": 14,
+        "shipping_unknown_available": 36,
+        "displayed_included": 14,
         "displayed_shipping_unknown": 20,
         "reasons": {
-          "restricted_or_selectable_product": 49,
-          "ambiguous_quantity": 26,
-          "wrong_product_type": 12,
+          "restricted_or_selectable_product": 48,
+          "ambiguous_quantity": 27,
+          "wrong_product_type": 13,
           "limited_purchase": 2,
           "missing_category_evidence": 8
         }
@@ -58610,10 +58263,10 @@
         "displayed_included": 9,
         "displayed_shipping_unknown": 16,
         "reasons": {
-          "wrong_product_type": 26,
+          "wrong_product_type": 25,
           "set_count_conflict": 21,
           "ambiguous_quantity": 16,
-          "restricted_or_selectable_product": 26,
+          "restricted_or_selectable_product": 27,
           "missing_category_evidence": 6
         }
       }
@@ -60052,107 +59705,6 @@
               }
             ]
           }
-        },
-        {
-          "id": "cocodecow:10699897",
-          "raw_name": "寿がきや 鳥取ゴールド牛骨ラーメン 109g×12個 カップラーメン カップ麺 ラーメン インスタント レトルト 食品",
-          "name": "寿がきや 鳥取ゴールド牛骨ラーメン 109g×12個 カップラーメン カップ麺 ラーメン インスタント レトルト 食品",
-          "price": 4085,
-          "shop": "ココデカウ",
-          "url": "https://hb.afl.rakuten.co.jp/hgc/g00qq8to.7cx6mdf4.g00qq8to.7cx6nfbb/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fcocodecow%2Fr5414e%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fcocodecow%2Fi%2F10699897%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
-          "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/cocodecow/cabinet/y47/172295.jpg?_ex=128x128",
-          "postage_included": true,
-          "shipping_status": "included",
-          "quantity": {
-            "count": 12,
-            "component_counts": [
-              12
-            ],
-            "confidence": 0.99,
-            "evidence": "12個"
-          },
-          "unit_prices": {
-            "per_serving": 340.4166666666667
-          },
-          "comparison_metric": "per_serving",
-          "unit_label": "1食あたり",
-          "quantity_label": "合計12食",
-          "promotion_mentioned": false,
-          "price_history": {
-            "observed_days": 6,
-            "previous_date": "2026-11-22",
-            "previous_price": 4085,
-            "previous_unit": 340.4166666666667,
-            "previous_label": "昨日比",
-            "price_delta": 0,
-            "unit_delta": 0.0,
-            "percent_delta": 0.0,
-            "lowest_30d_unit": 340.4166666666667,
-            "highest_30d_unit": 340.4166666666667,
-            "lowest_7d_unit": 340.4166666666667,
-            "highest_7d_unit": 340.4166666666667,
-            "trend_7d": "stable",
-            "is_30d_low": true,
-            "series_7d": [
-              {
-                "date": "2026-11-19",
-                "price": 4085,
-                "unit": 340.4166666666667
-              },
-              {
-                "date": "2026-11-20",
-                "price": 4085,
-                "unit": 340.4166666666667
-              },
-              {
-                "date": "2026-11-21",
-                "price": 4085,
-                "unit": 340.4166666666667
-              },
-              {
-                "date": "2026-11-22",
-                "price": 4085,
-                "unit": 340.4166666666667
-              },
-              {
-                "date": "2026-11-23",
-                "price": 4085,
-                "unit": 340.4166666666667
-              }
-            ],
-            "series_30d": [
-              {
-                "date": "2026-11-11",
-                "price": 4085,
-                "unit": 340.4166666666667
-              },
-              {
-                "date": "2026-11-19",
-                "price": 4085,
-                "unit": 340.4166666666667
-              },
-              {
-                "date": "2026-11-20",
-                "price": 4085,
-                "unit": 340.4166666666667
-              },
-              {
-                "date": "2026-11-21",
-                "price": 4085,
-                "unit": 340.4166666666667
-              },
-              {
-                "date": "2026-11-22",
-                "price": 4085,
-                "unit": 340.4166666666667
-              },
-              {
-                "date": "2026-11-23",
-                "price": 4085,
-                "unit": 340.4166666666667
-              }
-            ]
-          }
         }
       ],
       "shipping_unknown": [
@@ -61121,6 +60673,62 @@
           }
         },
         {
+          "id": "segp-shop:10066124",
+          "raw_name": "農心　韓国　辛カップラーメン　68g×12個　【送料無料】本場韓国の辛さで人気の高い“うまからっ！”でおなじみ「辛ラーメン」。",
+          "name": "農心 韓国 辛カップラーメン 68g×12個 本場韓国の辛さで人気の高い“うまからっ！”でおなじみ「辛ラーメン」。",
+          "price": 2361,
+          "shop": "紀州和歌山てんこもり",
+          "url": "https://hb.afl.rakuten.co.jp/hgc/g00rjk6o.7cx6m501.g00rjk6o.7cx6ne08/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fsegp-shop%2F8801043030694%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fsegp-shop%2Fi%2F10066124%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
+          "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/segp-shop/cabinet/shokuhin2/8801043030694.jpg?_ex=128x128",
+          "postage_included": false,
+          "shipping_status": "extra_or_unknown",
+          "quantity": {
+            "count": 12,
+            "component_counts": [
+              12
+            ],
+            "confidence": 0.99,
+            "evidence": "12個"
+          },
+          "unit_prices": {
+            "per_serving": 196.75
+          },
+          "comparison_metric": "per_serving",
+          "unit_label": "1食あたり",
+          "quantity_label": "合計12食",
+          "promotion_mentioned": false,
+          "price_history": {
+            "observed_days": 1,
+            "previous_date": null,
+            "previous_price": null,
+            "previous_unit": null,
+            "previous_label": null,
+            "price_delta": null,
+            "unit_delta": null,
+            "percent_delta": null,
+            "lowest_30d_unit": 196.75,
+            "highest_30d_unit": 196.75,
+            "lowest_7d_unit": 196.75,
+            "highest_7d_unit": 196.75,
+            "trend_7d": "stable",
+            "is_30d_low": false,
+            "series_7d": [
+              {
+                "date": "2026-11-23",
+                "price": 2361,
+                "unit": 196.75
+              }
+            ],
+            "series_30d": [
+              {
+                "date": "2026-11-23",
+                "price": 2361,
+                "unit": 196.75
+              }
+            ]
+          }
+        },
+        {
           "id": "misono-support:10121994",
           "raw_name": "[ポイント5倍！11/25(水)1時59分まで全品対象エントリー&購入]日清食品 あっさりおいしいカップヌードル カレー 70g×20個入｜ 送料無料 ラーメン カップめん インスタント麺 即席 食品",
           "name": "[ポイント5倍！11/25(水)1時59分まで全品対象エントリー&購入]日清食品 あっさりおいしいカップヌードル カレー 70g×20個入｜ ラーメン カップめん インスタント麺 即席 食品",
@@ -61794,6 +61402,62 @@
                 "date": "2026-11-23",
                 "price": 2717,
                 "unit": 226.41666666666666
+              }
+            ]
+          }
+        },
+        {
+          "id": "wich:10025228",
+          "raw_name": "【送料無料】ユッケジャン カップラーメン 12個入 カップ麺 即席カップめん インスタント サバル ユッケジャンラーメン 韓国 NONGSHIM",
+          "name": "ユッケジャン カップラーメン 12個入 カップ麺 即席カップめん インスタント サバル ユッケジャンラーメン 韓国 NONGSHIM",
+          "price": 2780,
+          "shop": "ウイッチ",
+          "url": "https://hb.afl.rakuten.co.jp/hgc/g00prvmo.7cx6m012.g00prvmo.7cx6nd83/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fwich%2Fyukkejannoodle12%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fwich%2Fi%2F10025228%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
+          "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/wich/cabinet/gazou67/yukkejannoodle12-1.jpg?_ex=128x128",
+          "postage_included": false,
+          "shipping_status": "extra_or_unknown",
+          "quantity": {
+            "count": 12,
+            "component_counts": [
+              12
+            ],
+            "confidence": 0.99,
+            "evidence": "12個入"
+          },
+          "unit_prices": {
+            "per_serving": 231.66666666666666
+          },
+          "comparison_metric": "per_serving",
+          "unit_label": "1食あたり",
+          "quantity_label": "合計12食",
+          "promotion_mentioned": false,
+          "price_history": {
+            "observed_days": 1,
+            "previous_date": null,
+            "previous_price": null,
+            "previous_unit": null,
+            "previous_label": null,
+            "price_delta": null,
+            "unit_delta": null,
+            "percent_delta": null,
+            "lowest_30d_unit": 231.66666666666666,
+            "highest_30d_unit": 231.66666666666666,
+            "lowest_7d_unit": 231.66666666666666,
+            "highest_7d_unit": 231.66666666666666,
+            "trend_7d": "stable",
+            "is_30d_low": false,
+            "series_7d": [
+              {
+                "date": "2026-11-23",
+                "price": 2780,
+                "unit": 231.66666666666666
+              }
+            ],
+            "series_30d": [
+              {
+                "date": "2026-11-23",
+                "price": 2780,
+                "unit": 231.66666666666666
               }
             ]
           }
@@ -64042,112 +63706,6 @@
               }
             ]
           }
-        },
-        {
-          "id": "suzukidenkioutlets:10013751",
-          "raw_name": "カップヌードルPRO 高たんぱく＆低糖質さらに塩分控えめ チリトマトヌードル [おいしさそのまま] 日清食品 カップ麺 80g ×12個",
-          "name": "カップヌードルPRO 高たんぱく＆低糖質さらに塩分控えめ チリトマトヌードル [おいしさそのまま] 日清食品 カップ麺 80g ×12個",
-          "price": 3980,
-          "shop": "メガホーム",
-          "url": "https://hb.afl.rakuten.co.jp/hgc/g00u4zwo.7cx6m8ed.g00u4zwo.7cx6nb02/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fsuzukidenkioutlets%2Fol76zs4ckj4quvbp%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fsuzukidenkioutlets%2Fi%2F10013751%2F&rafcid=wsc_i_is_006e7687-8b08-432e-85b9-5fee1b6bb6f5",
-          "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/suzukidenkioutlets/cabinet/13950387/imgrc0120507104.jpg?_ex=128x128",
-          "postage_included": false,
-          "shipping_status": "extra_or_unknown",
-          "quantity": {
-            "count": 12,
-            "component_counts": [
-              12
-            ],
-            "confidence": 0.99,
-            "evidence": "12個"
-          },
-          "unit_prices": {
-            "per_serving": 331.6666666666667
-          },
-          "comparison_metric": "per_serving",
-          "unit_label": "1食あたり",
-          "quantity_label": "合計12食",
-          "promotion_mentioned": false,
-          "price_history": {
-            "observed_days": 8,
-            "previous_date": "2026-11-21",
-            "previous_price": 3980,
-            "previous_unit": 331.6666666666667,
-            "previous_label": "前回比",
-            "price_delta": 0,
-            "unit_delta": 0.0,
-            "percent_delta": 0.0,
-            "lowest_30d_unit": 331.6666666666667,
-            "highest_30d_unit": 331.6666666666667,
-            "lowest_7d_unit": 331.6666666666667,
-            "highest_7d_unit": 331.6666666666667,
-            "trend_7d": "stable",
-            "is_30d_low": true,
-            "series_7d": [
-              {
-                "date": "2026-11-17",
-                "price": 3980,
-                "unit": 331.6666666666667
-              },
-              {
-                "date": "2026-11-18",
-                "price": 3980,
-                "unit": 331.6666666666667
-              },
-              {
-                "date": "2026-11-21",
-                "price": 3980,
-                "unit": 331.6666666666667
-              },
-              {
-                "date": "2026-11-23",
-                "price": 3980,
-                "unit": 331.6666666666667
-              }
-            ],
-            "series_30d": [
-              {
-                "date": "2026-11-03",
-                "price": 3980,
-                "unit": 331.6666666666667
-              },
-              {
-                "date": "2026-11-04",
-                "price": 3980,
-                "unit": 331.6666666666667
-              },
-              {
-                "date": "2026-11-08",
-                "price": 3980,
-                "unit": 331.6666666666667
-              },
-              {
-                "date": "2026-11-14",
-                "price": 3980,
-                "unit": 331.6666666666667
-              },
-              {
-                "date": "2026-11-17",
-                "price": 3980,
-                "unit": 331.6666666666667
-              },
-              {
-                "date": "2026-11-18",
-                "price": 3980,
-                "unit": 331.6666666666667
-              },
-              {
-                "date": "2026-11-21",
-                "price": 3980,
-                "unit": 331.6666666666667
-              },
-              {
-                "date": "2026-11-23",
-                "price": 3980,
-                "unit": 331.6666666666667
-              }
-            ]
-          }
         }
       ],
       "quality_audit": {
@@ -64158,15 +63716,15 @@
         "exact_duplicates": 0,
         "practical_duplicates": 0,
         "accepted_unique": 25,
-        "included_available": 7,
-        "shipping_unknown_available": 18,
-        "displayed_included": 7,
-        "displayed_shipping_unknown": 18,
+        "included_available": 6,
+        "shipping_unknown_available": 19,
+        "displayed_included": 6,
+        "displayed_shipping_unknown": 19,
         "reasons": {
           "missing_category_evidence": 8,
-          "wrong_product_type": 27,
+          "wrong_product_type": 29,
           "ambiguous_quantity": 18,
-          "restricted_or_selectable_product": 12
+          "restricted_or_selectable_product": 10
         }
       }
     }
