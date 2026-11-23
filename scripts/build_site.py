@@ -2023,6 +2023,12 @@ def category_guide_navigation(category: dict, published_guides: list[dict] | Non
     # existing stock/payment planner first, only when this guide is published.
     if category['id'] == 'pack-rice':
         guides.sort(key=lambda spec: 0 if spec['slug'] == 'pack-rice-24-servings-cost' else 1)
+    # Make the published pasta purchase-total calculator discoverable from its category.
+    if category['id'] == 'pasta':
+        guides.sort(key=lambda spec: 0 if spec['slug'] == 'pasta-500g-cost' else 1)
+    pasta_planner_available = category['id'] == 'pasta' and any(
+        spec['slug'] in ('pasta-500g-cost', 'pasta-bulk-cost') for spec in guides
+    )
     # The 24-serving guide already contains the quantity/payment planner.
     # Advertise it only when the inventory-backed guide is actually published.
     planner_available = (category['id'] == 'pack-rice' and any(
@@ -2033,6 +2039,10 @@ def category_guide_navigation(category: dict, published_guides: list[dict] | Non
         '支払総額・余る食数を確認できます。価格は掲載商品の確認時点の情報です。</p>'
         if planner_available else ''
     )
+    if pasta_planner_available:
+        planner_hint += ('<p class="fine">パスタの比較ページでは、必要食数と1食の乾麺量から'
+                         '購入セット数・支払総額・余る量を計算できます。価格確認から48時間を超えた'
+                         '場合は総額を表示しません。</p>')
     links = ''.join(
         f'<a class="intent-card" href="../../guides/{html.escape(spec["slug"])}/">'
         f'<span>{html.escape(spec["title"])}</span>'
