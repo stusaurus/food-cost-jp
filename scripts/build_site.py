@@ -78,7 +78,7 @@ GUIDE_SPECS = [
     {"slug":"rice-10kg-cost","category_id":"rice","title":"米10kgのコスパ比較","h1":"米10kg前後を1kgあたりで比較","intro":"10kg前後の米を1kgあたりへ換算し、まとめ買い時の価格差を見やすくします。","mode":"rice_10kg"},
     {"slug":"carbonated-water-24-cost","category_id":"carbonated-water","title":"炭酸水24本のコスパ比較","h1":"炭酸水24本を1L・1本あたりで比較","intro":"24本セットの炭酸水を中心に、1Lあたりと1本あたりの両方で比べます。","mode":"count_24"},
     {"slug":"carbonated-water-48-cost","category_id":"carbonated-water","title":"炭酸水48本のコスパ比較","h1":"炭酸水48本を1L・1本あたりで比較","intro":"48本前後の大容量セットを中心に、まとめ買い時の単価を比べます。","mode":"count_48"},
-    {"slug":"oatmeal-1kg-cost","category_id":"oatmeal","title":"オートミール1kgのコスパ比較","h1":"オートミール1kg前後を100gあたりで比較","intro":"1kg前後のオートミールを100gあたりへ換算し、袋価格だけでは分からない差を比べます。","mode":"oats_1kg"},
+    {"slug":"oatmeal-1kg-cost","category_id":"oatmeal","title":"オートミール1kgは何食分？1食単価・購入総額の比較","h1":"オートミール1kgは何食分？1食の費用と購入総額を比較","intro":"1kgは1食30gなら33食と10g余り、40gなら25食、50gなら20食分。オートミール1kg前後の掲載商品を100g単価・必要食数・購入総額で比較します。","mode":"oats_1kg"},
     {"slug":"oatmeal-bulk-cost","category_id":"oatmeal","title":"オートミール大容量のコスパ比較","h1":"オートミール大容量・まとめ買いを比較","intro":"1kg超の大容量商品を中心に、100gあたり・1kgあたりの単価を比べます。","mode":"large"},
 ]
 
@@ -1817,6 +1817,23 @@ output.innerHTML='<table style="width:100%;min-width:540px;text-align:left"><the
 })();
 </script>""".replace("__OFFERS__", payload).replace("__CHECKED__", json.dumps(updated.isoformat()))
     water_purchase = render_water_case_planner(picked, updated) if category['id'] == 'carbonated-water' else ''
+    breakfast_purchase = ''
+    oatmeal_servings = ''
+    if category['id'] == 'oatmeal' and spec['slug'] == 'oatmeal-1kg-cost':
+        breakfast_purchase = render_breakfast_planner(category, picked, updated)
+        oatmeal_servings = """<section class="section explain" id="oatmeal-1kg-servings">
+<h2>オートミール1kgは何日もつ？</h2>
+<p>乾燥状態のオートミールを1日1食使う場合の目安です。水や牛乳を加える前の重量で計算します。</p>
+<div style="overflow-x:auto"><table style="width:100%;text-align:left"><thead><tr><th scope="col">1食の量</th><th scope="col">1kgで作れる食数</th><th scope="col">30食に必要な量</th></tr></thead><tbody>
+<tr><th scope="row">30g</th><td>33食＋10g</td><td>900g</td></tr>
+<tr><th scope="row">40g</th><td>25食</td><td>1,200g</td></tr>
+<tr><th scope="row">50g</th><td>20食</td><td>1,500g</td></tr>
+<tr><th scope="row">60g</th><td>16食＋40g</td><td>1,800g</td></tr>
+</tbody></table></div>
+<p>1kg入りなら30gを30回食べても100g余りますが、50gを30回食べるには1.5kgが必要です。実際の商品は1kg前後で重量が異なるため、購入総額は下の計算機で確認してください。</p>
+<p class="fine">食べる量の推奨ではなく、購入量を判断するための計算例です。</p>
+</section>"""
+
     pasta_servings = ""
     if category['id'] == 'pasta':
         pasta_servings = """<section class="section explain" aria-labelledby="pasta-serving-title">
@@ -1860,6 +1877,8 @@ output.innerHTML='<table style="width:100%;min-width:540px;text-align:left"><the
 {pasta_servings}
 {pasta_purchase}
 {water_purchase}
+{oatmeal_servings}
+{breakfast_purchase}
 {cards}
 {'<p class="note">24食でも1食の量は商品ごとに異なります。1食価格と100g単価を見比べ、必要な量を選んでください。順位は1食価格順のままです。</p>' if size_comparison and picked else ''}
 {more}
