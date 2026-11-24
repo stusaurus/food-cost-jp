@@ -1,5 +1,18 @@
 {
   "products": {
+    "bag-noodles|cocodecow:10924799": {
+      "category_id": "bag-noodles",
+      "name": "訳あり)三養ジャパン クアトロチーズ ブルダック炒め麺 袋麺 5食パック",
+      "points": [
+        {
+          "date": "2026-11-24",
+          "price": 855,
+          "unit": 171.0
+        }
+      ],
+      "product_id": "cocodecow:10924799",
+      "quantity_key": "{\"count\":5}"
+    },
     "bag-noodles|fujiyaku:10002882": {
       "category_id": "bag-noodles",
       "name": "日清 チキンラーメン5食入り×6袋(KT)",
@@ -475,6 +488,45 @@
       ],
       "product_id": "housechoice:10000613",
       "quantity_key": "{\"count\":30}"
+    },
+    "bag-noodles|jetprice:10674305": {
+      "category_id": "bag-noodles",
+      "name": "三養ジャパン 三養ラーメン 牛だしピリ辛醤油味 袋麺 5食パック",
+      "points": [
+        {
+          "date": "2026-11-24",
+          "price": 750,
+          "unit": 150.0
+        }
+      ],
+      "product_id": "jetprice:10674305",
+      "quantity_key": "{\"count\":5}"
+    },
+    "bag-noodles|kambutsuya:10005377": {
+      "category_id": "bag-noodles",
+      "name": "サッポロ一番 みそラーメン 袋麺 5食パック",
+      "points": [
+        {
+          "date": "2026-11-24",
+          "price": 548,
+          "unit": 109.6
+        }
+      ],
+      "product_id": "kambutsuya:10005377",
+      "quantity_key": "{\"count\":5}"
+    },
+    "bag-noodles|kambutsuya:10005446": {
+      "category_id": "bag-noodles",
+      "name": "サッポロ一番 しょうゆラーメン 袋麺 5食パック",
+      "points": [
+        {
+          "date": "2026-11-24",
+          "price": 548,
+          "unit": 109.6
+        }
+      ],
+      "product_id": "kambutsuya:10005446",
+      "quantity_key": "{\"count\":5}"
     },
     "bag-noodles|kawayamasyouten:10079582": {
       "category_id": "bag-noodles",
@@ -9696,11 +9748,6 @@
       "name": "【選べるラベルレス！】炭酸水 富士山の強炭酸水 1L プレーン レモン ラベルあり (ケース） ラベルレス 1L×15本 強炭酸水 強炭酸 1000ml 1L 富士山 ケース 水 ミネラルウォーター 炭酸 みず 富士山 アイリスオーヤマの富士山天然水 15本 アイリスオーヤマ",
       "points": [
         {
-          "date": "2026-10-09",
-          "price": 1680,
-          "unit": 112.0
-        },
-        {
           "date": "2026-10-10",
           "price": 1680,
           "unit": 112.0
@@ -9857,6 +9904,11 @@
         },
         {
           "date": "2026-11-23",
+          "price": 1680,
+          "unit": 112.0
+        },
+        {
+          "date": "2026-11-24",
           "price": 1680,
           "unit": 112.0
         }

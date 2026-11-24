@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-24T21:16:46.830254+09:00",
+  "generated_at": "2026-11-24T21:40:59.387645+09:00",
   "site_id": "food_cost_jp",
   "inventory": {
     "pack-rice": {
@@ -83,13 +83,13 @@
         "queries": 2,
         "fetched": 60,
         "normalized": 29,
-        "exact_duplicates": 4,
+        "exact_duplicates": 5,
         "practical_duplicates": 0,
-        "accepted_unique": 25,
-        "included_available": 18,
-        "shipping_unknown_available": 7,
-        "displayed_included": 18,
-        "displayed_shipping_unknown": 7,
+        "accepted_unique": 24,
+        "included_available": 19,
+        "shipping_unknown_available": 5,
+        "displayed_included": 19,
+        "displayed_shipping_unknown": 5,
         "reasons": {
           "ambiguous_quantity": 26,
           "wrong_product_type": 3,
@@ -165,9 +165,9 @@
           ]
         }
       },
-      "included_count": 18,
-      "shipping_unknown_count": 7,
-      "history_ready_count": 18,
+      "included_count": 19,
+      "shipping_unknown_count": 5,
+      "history_ready_count": 19,
       "history_ready_rate": 1.0
     },
     "carbonated-water": {
@@ -179,17 +179,17 @@
         "queries": 3,
         "fetched": 90,
         "normalized": 39,
-        "exact_duplicates": 6,
+        "exact_duplicates": 5,
         "practical_duplicates": 0,
-        "accepted_unique": 33,
-        "included_available": 14,
+        "accepted_unique": 34,
+        "included_available": 15,
         "shipping_unknown_available": 19,
-        "displayed_included": 14,
+        "displayed_included": 15,
         "displayed_shipping_unknown": 19,
         "reasons": {
           "limited_purchase": 3,
-          "missing_category_evidence": 22,
-          "set_count_conflict": 11,
+          "missing_category_evidence": 21,
+          "set_count_conflict": 12,
           "ambiguous_quantity": 11,
           "wrong_product_type": 4
         },
@@ -257,7 +257,7 @@
           "set_count_conflict": [
             "【ポイント2倍】 炭酸水 500ml 24本/48本 ペットボトル プレーン 24本入 1箱/2箱 LDC 国産 山形産 やさしい水の炭酸水 ケース まとめ買い ソーダ ハイボール 割材",
             "炭酸水 500ml 24本 48本 強炭酸水 プレーン レモン グレープフルーツ ミネラルウォーター 500ml24本 500ml×48本 ラベルレス ペットボトル 炭酸 無糖 24 48 割り材 富士山の強炭酸水 CRYSTALSPARK クリスタルスパーク ケース アイリスフーズ アイリスオーヤマ",
-            "11/21 3:00〜11/25までP2倍 【最強配送】【送料無料】アサヒ ウィルキンソン タンサン 500ml×2ケース/48本 炭酸水 ssyn"
+            "【2ケース買いが圧倒的にお得 1本あたり73円税別】アサヒ ウィルキンソン 炭酸水 500ml×24本 2ケース 計48本 水 タンサン GLY"
           ],
           "ambiguous_quantity": [
             "【最安値挑戦中】炭酸水 500ml 送料無料 (一部地域を除く) 24本 SURF VOLT 公式 強炭酸水 炭酸飲料 無糖 プレーン レモン 強炭酸 スパークリングウォーター 箱買い ケース買い 割材 ハイボール レモンサワー 長期保存 サーフボルト さーふ ぼると ボルト",
@@ -271,9 +271,9 @@
           ]
         }
       },
-      "included_count": 14,
+      "included_count": 15,
       "shipping_unknown_count": 19,
-      "history_ready_count": 14,
+      "history_ready_count": 15,
       "history_ready_rate": 1.0
     },
     "oatmeal": {
@@ -356,8 +356,8 @@
           ],
           "set_count_conflict": [
             "【クーポンで2個500円OFF】【計量スプーン・レシピ付き】オートミール ロールドオーツ 3.2kg(800×4袋) 無添加 イギリス 食物繊維 鉄分 カルシウム オーツ麦 燕麦 ダイエット 置き換え 砂糖不使用 シリアル グラノーラ コーンフレーク 訳あり 食品 雑穀 メール便 送料無料",
-            "クエーカー　オールドファッション　オートミール　1200g(1.2kg)　×2個　送料無料",
-            "クエーカー　オールドファッション　オートミール　1200g(1.2kg)　×3個　送料無料"
+            "クエーカー　オールドファッション　オートミール　1200g(1.2kg)　×3個　送料無料",
+            "クエーカー　オールドファッション　オートミール　1200g(1.2kg)　×2個　送料無料"
           ]
         }
       },
@@ -374,16 +374,16 @@
         "fetch_errors": 0,
         "queries": 3,
         "fetched": 90,
-        "normalized": 16,
+        "normalized": 15,
         "exact_duplicates": 3,
         "practical_duplicates": 0,
-        "accepted_unique": 13,
-        "included_available": 8,
+        "accepted_unique": 12,
+        "included_available": 7,
         "shipping_unknown_available": 5,
-        "displayed_included": 8,
+        "displayed_included": 7,
         "displayed_shipping_unknown": 5,
         "reasons": {
-          "ambiguous_quantity": 45,
+          "ambiguous_quantity": 46,
           "wrong_product_type": 17,
           "restricted_or_selectable_product": 8,
           "limited_purchase": 3,
@@ -393,10 +393,6 @@
           {
             "before": "【楽天オリジナル】水 500ml×24本 天然水 ラベルレス ミネラルウォーター 飲料水 まとめ買い 安い 業務用 家庭用 大容量 オフィス コスパ最強 熱中症対策　500ml 24本",
             "after": "【楽天オリジナル】水 500ml×24本 天然水 ラベルレス ミネラルウォーター 飲料水 まとめ買い 安い 業務用 家庭用 大容量 オフィス コスパ最強 熱中症対策 500ml 24本"
-          },
-          {
-            "before": "＼超激アツ価格！！／水 500ml 24本 天然水 ペットボトル 送料無料 ミネラルウォーター LDC 熊野古道水 軟水 熊野 鉱水 天然水 古道 ナチュラル ライフドリンクカンパニー【D】【代引き不可】",
-            "after": "＼超激アツ価格！！／水 500ml 24本 天然水 ペットボトル ミネラルウォーター LDC 熊野古道水 軟水 熊野 鉱水 天然水 古道 ナチュラル ライフドリンクカンパニー【D】【代引き不可】"
           },
           {
             "before": "ボルヴィック 500ml 48本 送料無料 軟水 天然水 ミネラルウォーター ボルビック volvic『送料無料（一部地域除く）』",
@@ -437,9 +433,9 @@
           ]
         }
       },
-      "included_count": 8,
+      "included_count": 7,
       "shipping_unknown_count": 5,
-      "history_ready_count": 8,
+      "history_ready_count": 7,
       "history_ready_rate": 1.0
     },
     "pasta": {
@@ -450,16 +446,16 @@
         "fetch_errors": 0,
         "queries": 3,
         "fetched": 90,
-        "normalized": 56,
+        "normalized": 57,
         "exact_duplicates": 1,
         "practical_duplicates": 0,
-        "accepted_unique": 55,
+        "accepted_unique": 56,
         "included_available": 19,
-        "shipping_unknown_available": 36,
+        "shipping_unknown_available": 37,
         "displayed_included": 19,
         "displayed_shipping_unknown": 20,
         "reasons": {
-          "wrong_product_type": 13,
+          "wrong_product_type": 12,
           "ambiguous_quantity": 8,
           "restricted_or_selectable_product": 9,
           "missing_category_evidence": 2,
@@ -495,12 +491,12 @@
             "after": "昭和産業 (SHOWA) スパゲッティ1.6mm 1kg×15袋入｜ パスタ スパゲティ スパゲッティ 乾麺 麺"
           },
           {
-            "before": "[ポイント5倍！11/25(水)1時59分まで全品対象エントリー&購入]昭和産業 (SHOWA) スパゲッティ1.6mm 1kg×15袋入｜ 送料無料 パスタ スパゲティ スパゲッティ 乾麺 麺",
-            "after": "[ポイント5倍！11/25(水)1時59分まで全品対象エントリー&購入]昭和産業 (SHOWA) スパゲッティ1.6mm 1kg×15袋入｜ パスタ スパゲティ スパゲッティ 乾麺 麺"
-          },
-          {
             "before": "昭和産業 (SHOWA) スパゲッティ1.6mm 1kg×15袋入｜ 送料無料 パスタ スパゲティ スパゲッティ 乾麺 麺",
             "after": "昭和産業 (SHOWA) スパゲッティ1.6mm 1kg×15袋入｜ パスタ スパゲティ スパゲッティ 乾麺 麺"
+          },
+          {
+            "before": "[ポイント5倍！11/25(水)1時59分まで全品対象エントリー&購入]昭和産業 (SHOWA) スパゲッティ1.6mm 1kg×15袋入｜ 送料無料 パスタ スパゲティ スパゲッティ 乾麺 麺",
+            "after": "[ポイント5倍！11/25(水)1時59分まで全品対象エントリー&購入]昭和産業 (SHOWA) スパゲッティ1.6mm 1kg×15袋入｜ パスタ スパゲティ スパゲッティ 乾麺 麺"
           },
           {
             "before": "GRANFIRO　グランフィーロ/スパゲッティ　No.5　(1.45mm)/大容量/業務用/3kg×5袋",
@@ -519,7 +515,7 @@
           "wrong_product_type": [
             "カロリ ブロンズ パスタ 3kg スパゲッティ 1.9mm 500g x 6袋セット イタリア産 パスタ 手打ち風 生パスタ風 ブロンズ仕上げ 低温乾燥 乾麺 pasta caroli spaghetti 太め 太麺 買い置き 手土産 送料無料 ssbpd24",
             "【並行輸入品】【6袋セット】 パスタ ディチェコ スパゲッティーニ No.11 500g スパゲッティ 約1.6mm イタリア産 イタリア 豊かな歯ごたえ たしかなのどごし パスタソースが絡みやすい 麺 乾麺 ロングパスタ パスタ麺 まとめ買い *",
-            "【並行輸入品】≪ポイント3倍★26日09:59迄≫【6袋セット】 パスタ ディチェコ スパゲッティーニ No.11 500g スパゲッティ 約1.6mm イタリア産 イタリア 豊かな歯ごたえ たしかなのどごし パスタソースが絡みやすい 麺 乾麺 ロングパスタ パスタ麺 まとめ買い *【wkn】"
+            "【並行輸入品】《ポイント3倍☆25日迄》【6袋セット】 パスタ ディチェコ スパゲッティーニ No.11 500g スパゲッティ 約1.6mm イタリア産 イタリア 豊かな歯ごたえ たしかなのどごし パスタソースが絡みやすい 麺 乾麺 ロングパスタ まとめ買い パスタ麺 *"
           ],
           "ambiguous_quantity": [
             "【送料無料】【6袋】ダル・クオーレ スパゲティ　1.4mm 6袋×500g　イタリア産 ロングパスタ 南イタリア スパゲティ 1.4mm パスタ　イタリアン　有名レストラン　ダルクオーレ　DAL CUORE",
@@ -532,8 +528,8 @@
             "【ふるさと納税】キャンドル薄力小麦粉 1kg×12袋 薄力粉 小麦粉 手作り お菓子 うどん 12kg 業務用 まとめ買い"
           ],
           "missing_category_evidence": [
-            "【 ブラックフライデー 2026 限定クーポン】雪和食品 デュラム小麦粉セモリナ 1kg",
-            "【楽天1位】 ドライクランベリーソフト＆モイスト 1kg"
+            "【楽天1位】 ドライクランベリーソフト＆モイスト 1kg",
+            "【 ブラックフライデー 2026 限定クーポン】雪和食品 デュラム小麦粉セモリナ 1kg"
           ],
           "limited_purchase": [
             "【ふるさと納税】【全2回定期便】「麦の匠」デュラムセモリナ100％スパゲッティ300g×40袋/ パスタ 国産 貝塚産 麺 もちもち 大阪府貝塚市 | パスタ 国産パスタ 貝塚産パスタ パスタ麺 もちもちパスタ スパゲティ 国産スパゲッティ 貝塚産スパゲティ スパゲッティ",
@@ -658,17 +654,17 @@
         "fetch_errors": 0,
         "queries": 5,
         "fetched": 150,
-        "normalized": 51,
+        "normalized": 52,
         "exact_duplicates": 2,
         "practical_duplicates": 0,
-        "accepted_unique": 49,
+        "accepted_unique": 50,
         "included_available": 15,
-        "shipping_unknown_available": 34,
+        "shipping_unknown_available": 35,
         "displayed_included": 15,
         "displayed_shipping_unknown": 20,
         "reasons": {
-          "restricted_or_selectable_product": 47,
-          "ambiguous_quantity": 30,
+          "restricted_or_selectable_product": 48,
+          "ambiguous_quantity": 28,
           "wrong_product_type": 13,
           "limited_purchase": 3,
           "missing_category_evidence": 6
@@ -699,12 +695,12 @@
             "after": "神戸アールティー バターチキンカレー 180g×10箱 ≪パッケージ版≫ Butter Chicken Curry レトルトカレー 鶏肉 マイルド 長期保存 常温保存 ギフト まとめ買い セット商品"
           },
           {
-            "before": "神戸アールティー トマトベースのベジタブルカレー 180g×10箱 ≪パッケージ版≫ 送料無料 Tomato Vegetable Curry レトルトカレー 野菜 長期保存 常温保存 ギフト まとめ買い セット商品",
-            "after": "神戸アールティー トマトベースのベジタブルカレー 180g×10箱 ≪パッケージ版≫ Tomato Vegetable Curry レトルトカレー 野菜 長期保存 常温保存 ギフト まとめ買い セット商品"
-          },
-          {
             "before": "ハウス食品 カレーマルシェ 中辛 180g×30個入｜ 送料無料 カレー レトルト カレーマルシェ レトルトカレー",
             "after": "ハウス食品 カレーマルシェ 中辛 180g×30個入｜ カレー レトルト カレーマルシェ レトルトカレー"
+          },
+          {
+            "before": "神戸アールティー トマトベースのベジタブルカレー 180g×10箱 ≪パッケージ版≫ 送料無料 Tomato Vegetable Curry レトルトカレー 野菜 長期保存 常温保存 ギフト まとめ買い セット商品",
+            "after": "神戸アールティー トマトベースのベジタブルカレー 180g×10箱 ≪パッケージ版≫ Tomato Vegetable Curry レトルトカレー 野菜 長期保存 常温保存 ギフト まとめ買い セット商品"
           },
           {
             "before": "神戸アールティー ダールチキンカレー 180g×5箱 ≪パッケージ版≫ 送料無料 Dal Chicken Curry レトルトカレー 豆 鶏肉 長期保存 常温保存 ギフト まとめ買い セット商品",
@@ -732,7 +728,7 @@
           "ambiguous_quantity": [
             "てまごこちカレー 甘口(180g×1・2・5・10袋)【一部送料無料】宮崎県産 九州 国産 レトルトカレー レストラン フレンチカレー 野菜 ベジカレー チキンカレー 鶏肉 こども 子供カレー オムカレー 美味しい シェフ監修 取り寄せ プレゼント ギフト 入学 卒業祝い ホワイトデー",
             "カゴメ 大豆ミートのキーマカレー 180g×30個入×(2ケース)｜ 送料無料 カレー レトルト 野菜 レトルトカレー ヴィーガン",
-            "[ポイント5倍！11/25(水)1時59分まで全品対象エントリー&購入]江崎グリコ ビーフカレーLEE 辛さ×30倍 180g×10箱入｜ 送料無料 リー レトルトカレー スパイス"
+            "【2個以上・合計1,000円以上で500円OFFクーポン】淡路島たまねぎと淡路牛のカレー200g×3個（中辛）＃淡路カレ－3食＃ たまねぎ カレー レトルトカレー 淡路島 玉ねぎ 送料無料 淡路牛 玉葱 今井ファーム セット 通販 ギフト プレゼント 自宅用 家庭用 お取り寄せ"
           ],
           "wrong_product_type": [
             "大塚食品 ボンカレーゴールド 辛口 180g×30個入｜ 送料無料 カレー ルー レトルトカレー カレールウ 辛口",
@@ -762,22 +758,22 @@
       "publication_status": "active",
       "quality_audit": {
         "fetch_errors": 0,
-        "queries": 4,
-        "fetched": 120,
-        "normalized": 26,
+        "queries": 6,
+        "fetched": 155,
+        "normalized": 40,
         "exact_duplicates": 0,
         "practical_duplicates": 0,
-        "accepted_unique": 26,
+        "accepted_unique": 40,
         "included_available": 10,
-        "shipping_unknown_available": 16,
+        "shipping_unknown_available": 30,
         "displayed_included": 10,
-        "displayed_shipping_unknown": 16,
+        "displayed_shipping_unknown": 20,
         "reasons": {
           "wrong_product_type": 25,
-          "set_count_conflict": 19,
-          "ambiguous_quantity": 18,
-          "restricted_or_selectable_product": 26,
-          "missing_category_evidence": 6
+          "set_count_conflict": 24,
+          "ambiguous_quantity": 19,
+          "restricted_or_selectable_product": 39,
+          "missing_category_evidence": 8
         },
         "cleaned_examples": [
           {
@@ -793,12 +789,12 @@
             "after": "サッポロ一番 塩らーめん 5食×6袋入 30食"
           },
           {
-            "before": "【期間限定特売】サンヨー食品 サッポロ一番 みそラーメン 5食入り×6袋（合計30食） 送料無料(北海道は別途700円かかります。沖縄配送不可) / 袋めん",
-            "after": "サンヨー食品 サッポロ一番 みそラーメン 5食入り×6袋（合計30食） 送料無料(北海道は別途700円かかります。沖縄配送不可) / 袋めん"
-          },
-          {
             "before": "サッポロ一番　しょうゆ味　5食×6袋入　30食入",
             "after": "サッポロ一番 しょうゆ味 5食×6袋入 30食入"
+          },
+          {
+            "before": "【期間限定特売】サンヨー食品 サッポロ一番 みそラーメン 5食入り×6袋（合計30食） 送料無料(北海道は別途700円かかります。沖縄配送不可) / 袋めん",
+            "after": "サンヨー食品 サッポロ一番 みそラーメン 5食入り×6袋（合計30食） 送料無料(北海道は別途700円かかります。沖縄配送不可) / 袋めん"
           },
           {
             "before": "東洋水産　マルちゃん正麺　塩味5食×6袋入　30食",
@@ -838,8 +834,8 @@
           ],
           "ambiguous_quantity": [
             "サンヨー食品 サッポロ一番 みそラーメン 1箱5食入×6袋",
-            "サンヨー食品 サッポロ一番 塩らーめん 1箱5食入×6袋",
-            "サンヨー食品 サッポロ一番 しょうゆ味 1箱5食入×6袋"
+            "サンヨー食品 サッポロ一番 しょうゆ味 1箱5食入×6袋",
+            "サンヨー食品 サッポロ一番 塩らーめん 1箱5食入×6袋"
           ],
           "restricted_or_selectable_product": [
             "【選べるセット】【サンヨー食品】サッポロ一番 袋麺5食パック＜4種から選べる 6袋セット(30食分)＞ (しょうゆ/しお/みそ/塩とんこつ)",
@@ -854,7 +850,7 @@
         }
       },
       "included_count": 10,
-      "shipping_unknown_count": 16,
+      "shipping_unknown_count": 20,
       "history_ready_count": 10,
       "history_ready_rate": 1.0
     },
@@ -866,18 +862,18 @@
         "fetch_errors": 0,
         "queries": 3,
         "fetched": 90,
-        "normalized": 28,
+        "normalized": 27,
         "exact_duplicates": 0,
         "practical_duplicates": 0,
-        "accepted_unique": 28,
-        "included_available": 7,
+        "accepted_unique": 27,
+        "included_available": 6,
         "shipping_unknown_available": 21,
-        "displayed_included": 7,
+        "displayed_included": 6,
         "displayed_shipping_unknown": 20,
         "reasons": {
           "missing_category_evidence": 8,
           "wrong_product_type": 26,
-          "ambiguous_quantity": 21,
+          "ambiguous_quantity": 22,
           "restricted_or_selectable_product": 7
         },
         "cleaned_examples": [
@@ -914,12 +910,12 @@
             "after": "農心ジャパン 辛カップラーメン 68g×12個入｜ インスタントラーメン 辛 即席"
           },
           {
-            "before": "農心　韓国　辛カップラーメン　68g×12個　【送料無料】本場韓国の辛さで人気の高い“うまからっ！”でおなじみ「辛ラーメン」。",
-            "after": "農心 韓国 辛カップラーメン 68g×12個 本場韓国の辛さで人気の高い“うまからっ！”でおなじみ「辛ラーメン」。"
-          },
-          {
             "before": "[ポイント5倍！11/25(水)1時59分まで全品対象エントリー&購入]農心ジャパン 辛カップラーメン 68g×12個入｜ 送料無料 インスタントラーメン 辛 即席",
             "after": "[ポイント5倍！11/25(水)1時59分まで全品対象エントリー&購入]農心ジャパン 辛カップラーメン 68g×12個入｜ インスタントラーメン 辛 即席"
+          },
+          {
+            "before": "農心　韓国　辛カップラーメン　68g×12個　【送料無料】本場韓国の辛さで人気の高い“うまからっ！”でおなじみ「辛ラーメン」。",
+            "after": "農心 韓国 辛カップラーメン 68g×12個 本場韓国の辛さで人気の高い“うまからっ！”でおなじみ「辛ラーメン」。"
           }
         ],
         "rejection_samples": {
@@ -945,9 +941,9 @@
           ]
         }
       },
-      "included_count": 7,
+      "included_count": 6,
       "shipping_unknown_count": 20,
-      "history_ready_count": 7,
+      "history_ready_count": 6,
       "history_ready_rate": 1.0
     }
   },
@@ -982,7 +978,7 @@
       {
         "slug": "carbonated-water-1l-cost",
         "category_id": "carbonated-water",
-        "matched_count": 5,
+        "matched_count": 6,
         "title": "炭酸水1L前後のコスパ比較"
       },
       {
@@ -1060,7 +1056,6 @@
       "priority": 1,
       "categories": [
         "pack-rice",
-        "carbonated-water",
         "mineral-water",
         "bag-noodles",
         "cup-noodles"
