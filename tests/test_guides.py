@@ -49,6 +49,25 @@ def item(category_id, *, grams=0, ml=0, count=1, price=2000):
 
 
 class GuideTests(unittest.TestCase):
+    def test_breakfast_planner_uses_only_verified_offers_and_correct_units(self):
+        from build_site import render_breakfast_planner
+        for cid in ('oatmeal', 'granola'):
+            category = next(x for x in CATEGORIES if x['id'] == cid)
+            offers = [item(cid, grams=500, count=2, price=1000),
+                      dict(item(cid, grams=500, price=987654), shipping_status='unknown')]
+            page = render_breakfast_planner(category, offers, NOW)
+            self.assertIn('id="breakfast-cost-planner"', page)
+            self.assertIn('"grams": 1000.0', page)
+            self.assertNotIn('987654', page)
+            self.assertIn('Math.ceil(required/o.grams)', page)
+            self.assertIn('Math.floor(o.grams/g)', page)
+            self.assertIn('o.price*g/o.grams', page)
+            self.assertIn('48*3600000', page)
+            self.assertIn('breakfast_planner', page)
+            self.assertEqual(render_breakfast_planner(category, offers[1:], NOW), '')
+        rice = next(x for x in CATEGORIES if x['id'] == 'rice')
+        self.assertEqual(render_breakfast_planner(rice, [], NOW), '')
+
     def test_24_servings_cards_expose_weight_and_existing_100g_unit_without_reordering(self):
         category = next(x for x in CATEGORIES if x['id'] == 'pack-rice')
         spec = next(x for x in AUTO_GUIDE_RULES if x.get('mode') == 'pack_count_24')
