@@ -5,6 +5,17 @@ sys.path.insert(0,str(Path(__file__).parents[1]/'scripts'))
 from new_food import parse,rejection,categories
 
 class NewQuantityTests(unittest.TestCase):
+    def test_small_bag_noodle_queries_keep_explicit_quantity_rules(self):
+        category = next(c for c in categories() if c['id'] == 'bag-noodles')
+        self.assertIn('袋麺 5食パック', category['queries'])
+        self.assertIn('袋麺 5食×2袋', category['queries'])
+        self.assertIn('サッポロ一番 5食 6袋', category['queries'])
+        for title, count in [('袋麺 5食パック', 5), ('袋麺 5食×2袋', 10)]:
+            self.assertIsNone(rejection('bag-noodles', title))
+            self.assertEqual(parse(title, 'bag-noodles')['count'], count)
+        self.assertIsNone(parse('袋麺 5食×2袋 合計30食', 'bag-noodles'))
+        self.assertIsNotNone(rejection('bag-noodles', '袋麺 選べる 5食パック'))
+
     def test_explicit_pack_chains(self):
         cases=[('mineral-water','天然水 500ml×24本',24,12000),('mineral-water','天然水 500ml×24本×2箱',48,24000),('mineral-water','天然水 2L×6本',6,12000),('pasta','スパゲッティ 500g×6袋',6,3000),('pasta','スパゲッティ 1kg×5袋',5,5000),('pasta','スパゲッティ 500g×6袋×2箱',12,6000),('granola','グラノーラ 750g×6袋',6,4500),('retort-curry','レトルトカレー 180g×10食',10,1800),('retort-curry','レトルトカレー 200g×10袋×2箱',20,4000),('bag-noodles','袋麺 5食×6袋',30,None),('bag-noodles','袋麺 5食×6袋×2箱',60,None),('bag-noodles','サッポロ一番 5食パック×6袋(30食)',30,None),('bag-noodles','チキンラーメン 5食パック(85g×5食)×6袋',30,None),('bag-noodles','サッポロ一番 5食×6袋 (合計30食)',30,None),('cup-noodles','カップ麺 12個入り',12,None),('cup-noodles','カップ麺 78g×12個',12,None)]
         for cid,title,count,total in cases:
