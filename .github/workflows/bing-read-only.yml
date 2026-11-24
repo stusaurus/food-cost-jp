@@ -1,0 +1,45 @@
+name: Bing Webmaster official read-only report
+on:
+  pull_request:
+    paths:
+      - 'analytics/bing_read_only.py'
+      - 'analytics/test_bing_read_only.py'
+      - '.github/workflows/bing-read-only.yml'
+  workflow_dispatch:
+  schedule:
+    # 09:27 JST daily, off the top of the hour.
+    - cron: '27 0 * * *'
+permissions:
+  contents: read
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m unittest discover -s analytics -p 'test_bing_read_only.py' -v
+  official:
+    needs: tests
+    if: github.ref == 'refs/heads/main' && (github.event_name == 'workflow_dispatch' || github.event_name == 'schedule')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Read Bing site performance
+        env:
+          BING_WEBMASTER_API_KEY: ${{ secrets.BING_WEBMASTER_API_KEY }}
+        run: python analytics/bing_read_only.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: bing-official-report
+          path: audit-results/bing/report.json
+          retention-days: 14
