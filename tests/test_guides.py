@@ -49,6 +49,20 @@ def item(category_id, *, grams=0, ml=0, count=1, price=2000):
 
 
 class GuideTests(unittest.TestCase):
+    def test_oatmeal_1kg_guide_answers_servings_and_limits_calculator_to_guide_items(self):
+        category = next(x for x in CATEGORIES if x['id'] == 'oatmeal')
+        spec = next(x for x in GUIDE_SPECS if x['slug'] == 'oatmeal-1kg-cost')
+        products = [item('oatmeal', grams=1000, price=1060),
+                    item('oatmeal', grams=2200, price=987654)]
+        page = guide_page(spec, category, products, NOW)
+        self.assertIn('オートミール1kgは何食分', page)
+        self.assertIn('33食＋10g', page)
+        self.assertIn('25食</td><td>1,200g', page)
+        self.assertIn('20食</td><td>1,500g', page)
+        self.assertIn('id="breakfast-cost-planner"', page)
+        self.assertNotIn('987654', page)
+        self.assertNotIn('id="breakfast-cost-planner"', guide_page(spec, category, [], NOW))
+
     def test_breakfast_planner_uses_only_verified_offers_and_correct_units(self):
         from build_site import render_breakfast_planner
         for cid in ('oatmeal', 'granola'):
