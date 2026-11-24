@@ -77,6 +77,19 @@ class GuideTests(unittest.TestCase):
         rice_spec = next(x for x in GUIDE_SPECS if x['category_id'] == 'rice')
         self.assertNotIn('pasta-serving-title', guide_page(rice_spec, rice, [], NOW))
 
+    def test_water_cross_case_planner_filters_identical_volume(self):
+        from build_site import render_water_case_planner
+        offers = [item('carbonated-water', ml=500, count=24, price=1280),
+                  item('carbonated-water', ml=500, count=48, price=2780),
+                  item('carbonated-water', ml=1000, count=12, price=1500)]
+        page = render_water_case_planner(offers, NOW)
+        self.assertIn('id="water-volume"', page)
+        self.assertIn('offers.filter(o=>o.ml===Number(volume.value))', page)
+        self.assertIn('Math.ceil(required/o.count)', page)
+        self.assertIn('"count": 24', page)
+        self.assertIn('"count": 48', page)
+        self.assertIn('セット本数', page)
+
     def test_carbonated_water_case_planner_uses_verified_offers(self):
         category = next(x for x in CATEGORIES if x['id'] == 'carbonated-water')
         spec = next(x for x in AUTO_GUIDE_RULES if x['slug'] == 'carbonated-water-500ml-24-cost')
