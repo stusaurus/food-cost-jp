@@ -2164,6 +2164,21 @@ output.innerHTML='<table style="width:100%;min-width:680px;text-align:left"><the
 </script>""".replace("__OFFERS__", payload).replace("__CHECKED__", json.dumps(updated.isoformat())).replace("__CATEGORY__", json.dumps(category['id']))
 
 
+def bag_noodle_small_pack_notice(included: list[dict], other: list[dict]) -> str:
+    """Expose small-pack availability without treating unknown postage as zero."""
+    small_included = [x for x in included if 1 <= x['quantity'].get('count', 0) <= 10]
+    small_other = [x for x in other if 1 <= x['quantity'].get('count', 0) <= 10]
+    if not small_other or small_included:
+        return ''
+    return f"""<section class="section explain" id="bag-noodle-small-pack-notice">
+<h2>袋麺を5食・10食など少量で買いたい方へ</h2>
+<p>現在の掲載商品では、10食以下の送料込み確認済み候補はありません。送料別・要確認の少量商品は{len(small_other)}件あります。</p>
+<p>少量購入では送料によって1食あたりの費用が変わります。商品価格だけで箱買いより安いとは判断できないため、送料込みランキングとは分けています。</p>
+<p><a class="finder-go" href="#other">送料別・要確認の商品を見る →</a></p>
+<p class="fine">移動先の「送料別の参考商品を見る」を開き、数量条件を選択してください。掲載候補がないことは、市場に商品がないことを意味しません。</p>
+</section>"""
+
+
 def category_page(category: dict, included: list[dict], other: list[dict], updated: datetime, published_guides: list[dict] | None = None) -> str:
     faqs = category_faq(category)
     seo_title, seo_description = category_search_metadata(category)
@@ -2204,6 +2219,8 @@ def category_page(category: dict, included: list[dict], other: list[dict], updat
     if len(included) < MIN_CATEGORY_ITEMS:
         parts[0] = parts[0].replace('content="index,follow"', 'content="noindex,follow"')
     parts.append(category_summary(category, included, other))
+    if category['id'] == 'bag-noodles':
+        parts.append(bag_noodle_small_pack_notice(included, other))
     if category['id'] in {'oatmeal', 'granola'}:
         parts.append(render_breakfast_planner(category, included, updated))
     if category['id'] == 'carbonated-water':
