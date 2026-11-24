@@ -49,6 +49,17 @@ def item(category_id, *, grams=0, ml=0, count=1, price=2000):
 
 
 class GuideTests(unittest.TestCase):
+    def test_bag_noodle_small_pack_notice_does_not_mix_shipping_classes(self):
+        from build_site import bag_noodle_small_pack_notice
+        bulk = {'quantity': {'count': 30}}
+        small = {'quantity': {'count': 5}}
+        page = bag_noodle_small_pack_notice([bulk], [small, small, bulk])
+        self.assertIn('少量商品は2件', page)
+        self.assertIn('10食以下の送料込み確認済み候補はありません', page)
+        self.assertIn('href="#other"', page)
+        self.assertEqual(bag_noodle_small_pack_notice([bulk, small], [small]), '')
+        self.assertEqual(bag_noodle_small_pack_notice([bulk], [bulk]), '')
+
     def test_oatmeal_1kg_guide_answers_servings_and_limits_calculator_to_guide_items(self):
         category = next(x for x in CATEGORIES if x['id'] == 'oatmeal')
         spec = next(x for x in GUIDE_SPECS if x['slug'] == 'oatmeal-1kg-cost')
