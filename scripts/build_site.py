@@ -2104,6 +2104,47 @@ def category_guide_navigation(category: dict, published_guides: list[dict] | Non
 </section>'''
 
 
+def render_breakfast_planner(category: dict, items: list[dict], updated: datetime) -> str:
+    if category['id'] not in {'oatmeal', 'granola'}:
+        return ''
+    offers = [
+        {"name": x["name"], "grams": float(x["quantity"].get("total_weight_g") or 0),
+         "price": x["price"], "url": x["url"]}
+        for x in items if x.get("shipping_status") == "included"
+        and float(x["quantity"].get("total_weight_g") or 0) > 0
+        and isinstance(x.get("price"), (int, float)) and x["price"] > 0
+    ]
+    if not offers:
+        return ''
+    payload = json.dumps(offers, ensure_ascii=False).replace("<", "\\u003c")
+    return """<section class="section explain" id="breakfast-cost-planner">
+<h2>朝食1食の費用と30日分の購入総額を比較</h2>
+<p>1食の量を決めて、何食分になるか、食べる分の費用と実際に購入するセットの総額を比較します。1日1食として計算し、牛乳・ヨーグルトなどの費用は含めません。</p>
+<label>1食の量 <select id="breakfast-grams"><option value="30">30g</option><option value="40">40g</option><option value="50">50g</option><option value="60">60g</option></select></label>
+<label>食数 <input id="breakfast-days" type="number" min="1" max="365" value="30"></label>
+<p id="breakfast-summary" aria-live="polite"></p><div id="breakfast-results" style="overflow-x:auto" aria-live="polite"></div>
+<p class="note">食べる分の費用は商品価格を総重量で割った参考単価です。購入総額は同一商品の整数セット数で計算します。保管期限・配送先別追加送料・在庫・注文上限・クーポンは販売店で確認してください。</p>
+</section>
+<script>
+(()=>{
+const offers=__OFFERS__,checked=__CHECKED__,category=__CATEGORY__,grams=document.getElementById('breakfast-grams'),days=document.getElementById('breakfast-days'),summary=document.getElementById('breakfast-summary'),output=document.getElementById('breakfast-results');
+grams.value=category==='oatmeal'?'30':'50';
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const yen=n=>'¥'+n.toLocaleString('ja-JP',{maximumFractionDigits:1});
+function render(){
+const g=Number(grams.value),d=Number(days.value);
+if(![30,40,50,60].includes(g)||!Number.isInteger(d)||d<1||d>365){summary.textContent='食数は1〜365の整数で入力してください。';output.replaceChildren();return;}
+const required=g*d;summary.textContent=d+'食 × '+g+'g = '+required.toLocaleString('ja-JP')+'g';
+const stamp=Date.parse(checked);
+if(!Number.isFinite(stamp)||Date.now()-stamp>48*3600000||Date.now()<stamp-3600000){output.textContent='価格確認から48時間以上経過したため金額は表示できません。販売店で最新価格をご確認ください。';return;}
+const rows=offers.map(o=>{const sets=Math.ceil(required/o.grams);return {...o,sets,total:sets*o.price,servings:Math.floor(o.grams/g),perServing:o.price*g/o.grams,left:Math.round(sets*o.grams-required)};}).filter(o=>o.sets>0&&o.sets<=500&&Number.isFinite(o.total)).sort((a,b)=>a.total-b.total||a.perServing-b.perServing);
+if(!rows.length){output.textContent='条件に合う購入候補がありません。';return;}
+output.innerHTML='<table style="width:100%;min-width:680px;text-align:left"><thead><tr><th>商品</th><th>1セットの食数</th><th>1食の費用</th><th>購入数</th><th>支払総額</th><th>余る量</th><th>購入先</th></tr></thead><tbody>'+rows.map(o=>'<tr><td>'+esc(o.name)+'</td><td>'+o.servings+'食</td><td>'+yen(o.perServing)+'</td><td>'+o.sets+'セット</td><td>'+yen(o.total)+'</td><td>'+o.left+'g</td><td><a href="'+esc(o.url)+'" target="_blank" rel="nofollow sponsored noopener" data-affiliate="rakuten" data-position="breakfast_planner" data-category="'+esc(category)+'">販売店で確認</a></td></tr>').join('')+'</tbody></table>';
+}grams.addEventListener('change',render);days.addEventListener('input',render);render();
+})();
+</script>""".replace("__OFFERS__", payload).replace("__CHECKED__", json.dumps(updated.isoformat())).replace("__CATEGORY__", json.dumps(category['id']))
+
+
 def category_page(category: dict, included: list[dict], other: list[dict], updated: datetime, published_guides: list[dict] | None = None) -> str:
     faqs = category_faq(category)
     seo_title, seo_description = category_search_metadata(category)
@@ -2144,6 +2185,8 @@ def category_page(category: dict, included: list[dict], other: list[dict], updat
     if len(included) < MIN_CATEGORY_ITEMS:
         parts[0] = parts[0].replace('content="index,follow"', 'content="noindex,follow"')
     parts.append(category_summary(category, included, other))
+    if category['id'] in {'oatmeal', 'granola'}:
+        parts.append(render_breakfast_planner(category, included, updated))
     if category['id'] == 'carbonated-water':
         parts.append(render_water_case_planner(included, updated))
     parts.append(shopping_journey_html())
