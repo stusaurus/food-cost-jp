@@ -93,6 +93,26 @@ class GuideTests(unittest.TestCase):
         rice = next(x for x in CATEGORIES if x['id'] == 'rice')
         self.assertEqual(render_breakfast_planner(rice, [], NOW), '')
 
+    def test_pack_size_comparison_matches_weight_and_uses_whole_boxes(self):
+        from pack_rice_planner import render_pack_size_comparison
+        products = [
+            item('pack-rice', grams=180, count=24, price=3880),
+            item('pack-rice', grams=180, count=40, price=4440),
+            item('pack-rice', grams=200, count=40, price=1000),
+            dict(item('pack-rice', grams=180, count=30, price=999), shipping_status='unknown'),
+        ]
+        page = render_pack_size_comparison(products, NOW)
+        self.assertIn('180g・24食</th><td><strong>¥3,880</strong><br>24食 × 1箱', page)
+        self.assertIn('180g・30食</th><td><strong>¥7,760</strong><br>24食 × 2箱', page)
+        self.assertIn('¥4,440</strong><br>40食 × 1箱<br>1食 ¥111.0・余り10食', page)
+        self.assertNotIn('200g・', page)
+        self.assertNotIn('¥999', page)
+        self.assertIn('2026-09-30 07:00 JST', page)
+        self.assertEqual(render_pack_size_comparison(products[:1], NOW), '')
+        category = next(x for x in CATEGORIES if x['id'] == 'pack-rice')
+        spec = next(x for x in AUTO_GUIDE_RULES if x.get('mode') == 'pack_count_24')
+        self.assertIn('id="pack-rice-size-comparison"', guide_page(spec, category, products, NOW))
+
     def test_24_servings_cards_expose_weight_and_existing_100g_unit_without_reordering(self):
         category = next(x for x in CATEGORIES if x['id'] == 'pack-rice')
         spec = next(x for x in AUTO_GUIDE_RULES if x.get('mode') == 'pack_count_24')
