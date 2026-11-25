@@ -5,6 +5,7 @@ All calculations stay in the browser. Existing Rakuten product links are unchang
 """
 from pathlib import Path
 import html
+import math
 
 SLUG = "water-server-vs-bottled-water"
 BASE = "https://stusaurus.github.io/food-cost-jp/"
@@ -15,6 +16,34 @@ MARKER = '<!-- water-cost-decision-pilot-v1 -->'
 A8_EVERY_FRECIOUS_AD = '''<a href="https://px.a8.net/svt/ejp?a8mat=4BGCF1+53DLEY+2B8Y+15OK2A" rel="nofollow">【every frecious（エブリィフレシャス）】</a>
 <img border="0" width="1" height="1" src="https://www17.a8.net/0.gif?a8mat=4BGCF1+53DLEY+2B8Y+15OK2A" alt="">'''
 
+
+
+def water_budget_markup(choices, checked):
+    """Static, dated comparison thresholds; no server plan prices assumed."""
+    rows = []
+    for choice in choices:
+        capacity = choice["volume"] / 1000
+        count, price = choice["count"], choice["price"]
+        cells = []
+        for monthly_liters in (24, 48, 72):
+            cases = math.ceil(monthly_liters * 12000 / choice["total"])
+            annual = cases * price
+            cells.append(f'<td><strong>¥{annual // 12:,}</strong><small style="display:block">年¥{annual:,}・{cases}セット</small></td>')
+        rows.append(f'<tr><th scope="row">{capacity:g}L×{count}本<br><small>1セット ¥{price:,}</small></th>{"".join(cells)}</tr>')
+    return (
+        '<section class="box" id="water-budget-threshold" aria-labelledby="water-budget-title">'
+        '<h2 id="water-budget-title">ウォーターサーバーは月額いくら以下ならお得？</h2>'
+        '<p>下の金額は、掲載ペットボトル水と比べてサーバーの初年度支払額が同額以下になる月平均の上限です。'
+        'サーバーのレンタル料・水代・電気代・送料・初期費用などをすべて含めた金額で判断します。</p>'
+        '<div class="table-wrap"><table><thead><tr><th scope="col">購入セット</th>'
+        '<th scope="col">月24L</th><th scope="col">月48L</th><th scope="col">月72L</th>'
+        '</tr></thead><tbody>' + "".join(rows) + '</tbody></table></div>'
+        f'<p class="muted">価格確認：{html.escape(checked)}。年間使用量を満たすセット数を切り上げ、取得時の送料込み判定価格で計算。'
+        '月平均は年間購入額÷12の円未満切り捨てです。上限を下回れば、その掲載商品よりサーバーが安い計算です。'
+        '実際の月ごとの支払額とは異なります。配送地域別の追加送料・現在の価格・注文上限は未反映です。'
+        'サーバーの実際の契約料金ではありません。使用量は比較例で、飲水量の推奨ではありません。</p>'
+        '</section>'
+    )
 
 
 def verified_water_offer_markup(offers=None, checked_at=None):
@@ -67,6 +96,7 @@ def verified_water_offer_markup(offers=None, checked_at=None):
             '</article>'
         )
     return (
+        water_budget_markup(choices, checked) +
         '<section class="box" aria-labelledby="verified-water-title">'
         '<h2 id="verified-water-title">掲載商品の価格から試算する</h2>'
         f'<p class="muted">最終価格確認：{html.escape(checked)}。'
