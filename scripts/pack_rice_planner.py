@@ -209,3 +209,50 @@ def render_planner(items: list[dict], updated: datetime) -> str:
 <p class="rice-planner-examples"><strong>計算例：</strong>24食セットなら、1日1食で24日分・30日間では2箱必要。
 1日2食なら12日分・30日間では3箱必要です。</p>
 </section>'''
+
+
+def render_pack_size_comparison(items: list[dict], updated: datetime) -> str:
+    """Compare 24-packs with other sizes at equal portion weights and needs."""
+    grouped = {}
+    for row in items:
+        q = row.get("quantity") or {}
+        count, grams, price = q.get("count"), q.get("unit_weight_g"), row.get("price")
+        if (row.get("shipping_status") != "included" or row.get("postage_included") is not True
+                or type(count) is not int or not 1 <= count <= 10000
+                or type(price) is not int or price <= 0
+                or type(grams) not in (int, float) or not math.isfinite(grams) or grams <= 0):
+            continue
+        grouped.setdefault(grams, []).append((count, price))
+    rows = []
+    for grams, offers in sorted(grouped.items()):
+        exact = [x for x in offers if x[0] == 24]
+        others = [x for x in offers if x[0] != 24]
+        if not exact or not others:
+            continue
+        for need in (24, 30, 60):
+            def best(options):
+                plans = []
+                for count, price in options:
+                    boxes = (need + count - 1) // count
+                    plans.append((boxes * price, boxes * count - need, count, boxes, price))
+                return min(plans)
+            a, b = best(exact), best(others)
+            def cell(plan):
+                total, left, count, boxes, price = plan
+                return (f'<strong>¥{total:,}</strong><br>{count}食 × {boxes}箱'
+                        f'<br>1食 ¥{price / count:,.1f}・余り{left}食')
+            rows.append(f'<tr><th scope="row">{grams:g}g・{need}食</th>'
+                        f'<td>{cell(a)}</td><td>{cell(b)}</td></tr>')
+    if not rows:
+        return ""
+    return f'''<section class="section explain" id="pack-rice-size-comparison" aria-labelledby="pack-size-title">
+<h2 id="pack-size-title">パックご飯のコスパ比較：24食入りと他の箱サイズ、どちらが安い？</h2>
+<p>1食の重さをそろえ、必要食数を満たすために実際に支払う総額を比較します。
+1食単価が低くても、大きな箱を買うと支払額や余りが増えることがあります。</p>
+<div style="overflow-x:auto"><table style="width:100%;min-width:320px;text-align:left">
+<thead><tr><th scope="col">1食の重さ・必要食数</th><th scope="col">24食入り</th><th scope="col">他の箱サイズ</th></tr></thead>
+<tbody>{''.join(rows)}</tbody></table></div>
+<p class="note">各列は掲載中の送料込み確認済み商品のうち、同じ重さ・同一商品を必要箱数だけ買う場合の最小支払額です。
+価格確認：{updated:%Y-%m-%d %H:%M} JST。商品名・現在の価格・配送先別の最終送料・在庫は全ランキングおよび販売店で確認してください。手持ち在庫・クーポン・注文上限は含みません。</p>
+<p><a class="finder-go" href="../../categories/pack-rice/">パックご飯の全サイズ・商品を見る →</a></p>
+</section>'''
