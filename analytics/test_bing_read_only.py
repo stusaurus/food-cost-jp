@@ -21,3 +21,24 @@ class BingReportTests(unittest.TestCase):
         r=run("private-test-key",fail)
         self.assertNotIn("private-test-key",str(r))
         self.assertEqual(r["GetPageStats"]["status"],"UNAVAILABLE")
+
+    def test_crawl_stats_preserve_actual_zero_and_missing(self):
+        row = {"Date":"/Date(1795474800000+0000)/","InIndex":7,"CrawledPages":11,
+               "CrawlErrors":0,"BlockedByRobotsTxt":0,"Code4xx":1,"Code5xx":0}
+        result = parse({"d":[row]}, "GetCrawlStats")
+        self.assertEqual(result["rows"][0]["in_index"], 7)
+        self.assertEqual(result["rows"][0]["crawl_errors"], 0)
+        self.assertIsNone(parse({"d":[]}, "GetCrawlStats")["rows"])
+        del row["InIndex"]
+        with self.assertRaises(KeyError):
+            parse({"d":[row]}, "GetCrawlStats")
+
+    def test_only_exact_food_sitemap_is_reported(self):
+        row = {"Url": SITE+"sitemap.xml","Status":"Success","UrlCount":35,
+               "LastCrawled":"/Date(1795474800000+0000)/"}
+        other = dict(row, Url="https://stusaurus.github.io/kyo-bodo-jp/sitemap.xml")
+        result = parse({"d":[other,row]}, "GetFeeds")
+        self.assertEqual(len(result["rows"]), 1)
+        self.assertEqual(result["rows"][0]["url_count"],35)
+        self.assertIsNone(parse({"d":[other]},"GetFeeds")["rows"])
+        self.assertEqual(run()["GetCrawlStats"]["status"],"NOT_CONFIGURED")
