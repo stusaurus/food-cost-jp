@@ -26,7 +26,7 @@ from product_quality import (
     quantity_signature,
 )
 from price_history import apply_price_history, load_price_history, save_price_history
-from pack_rice_planner import render_planner, render_quantity_only_planner
+from pack_rice_planner import render_planner, render_quantity_only_planner, render_pack_size_comparison
 
 SITE_ID = "food_cost_jp"
 SITE_URL = "https://stusaurus.github.io/food-cost-jp/"
@@ -1783,6 +1783,7 @@ def guide_page(spec: dict, category: dict, items: list[dict], updated: datetime,
     offer_planner = render_planner(picked, updated) if size_comparison and picked else ""
     quantity_fallback = render_quantity_only_planner() if size_comparison and not offer_planner else ""
     planner = offer_planner or quantity_fallback
+    pack_size_comparison = render_pack_size_comparison(items, updated) if size_comparison else ''
     pasta_purchase = ""
     if category['id'] == 'pasta' and picked:
         offers = [
@@ -1873,6 +1874,7 @@ output.innerHTML='<table style="width:100%;min-width:540px;text-align:left"><the
 {service_shortcuts_html()}
 <main class="wrap">
 <nav aria-label="パンくず"><a href="../../">マルシェ</a> / <a href="../../categories/{category['id']}/">{html.escape(category['name'])}</a> / {html.escape(spec['title'])}</nav>
+{pack_size_comparison}
 {planner}
 {pasta_servings}
 {pasta_purchase}
