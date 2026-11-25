@@ -91,6 +91,11 @@ class WaterServerCompareTests(unittest.TestCase):
         self.assertIn('data-bottle-liters="0.5" data-case-count="48" data-case-price="2610"', page)
         self.assertIn("¥1,836／購入セット", page)
         self.assertIn("¥76.5／L", page)
+        self.assertIn('id="water-budget-threshold"', page)
+        self.assertIn("¥1,836</strong><small style=\"display:block\">年¥22,032・12セット", page)
+        self.assertIn("¥3,672</strong><small style=\"display:block\">年¥44,064・24セット", page)
+        self.assertIn("¥5,508</strong><small style=\"display:block\">年¥66,096・36セット", page)
+        self.assertIn("サーバーの実際の契約料金ではありません", page)
         self.assertIn("送料込2L水 &lt;特価&gt;", page)
         for removed in ("送料不明", "本数不一致", "数量不確定", "非楽天リンク", "同容量で高い"):
             self.assertNotIn(removed, page)
@@ -100,6 +105,14 @@ class WaterServerCompareTests(unittest.TestCase):
         self.assertIn('window.gtag("event", "water_offer_prefill"', page)
         self.assertIn('click_position: "water_cost_verified_offer"', page)
 
+    def test_budget_rounds_up_whole_cases_and_down_monthly_cap(self):
+        choice = {"volume": 2000, "count": 7, "price": 1001, "total": 14000}
+        # 288 L/year requires 21 cases, not 20.57.
+        page = w.water_budget_markup([choice], "確認時点")
+        self.assertIn("¥1,751</strong>", page)
+        self.assertIn("年¥21,021・21セット", page)
+        self.assertIn("円未満切り捨て", page)
+
     def test_no_valid_water_offers_keep_manual_planner_without_fabricated_prices(self):
         page = w.page(water_offers=[{
             "name": "送料別の格安水", "price": 100,
@@ -108,6 +121,7 @@ class WaterServerCompareTests(unittest.TestCase):
             "url": "https://hb.afl.rakuten.co.jp/hgc/valid/"
         }])
         self.assertNotIn('data-water-offer data-bottle-liters=', page)
+        self.assertNotIn('id="water-budget-threshold"', page)
         self.assertNotIn("送料別の格安水", page)
         self.assertIn('id="calculate"', page)
         self.assertIn('id="example"', page)
