@@ -5,6 +5,12 @@ on:
       - 'analytics/yahoo_pack_rice_probe.py'
       - 'analytics/test_yahoo_pack_rice_probe.py'
       - '.github/workflows/yahoo-pack-rice-probe.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'analytics/yahoo_pack_rice_probe.py'
+      - 'analytics/test_yahoo_pack_rice_probe.py'
+      - '.github/workflows/yahoo-pack-rice-probe.yml'
   workflow_dispatch:
 permissions:
   contents: read
@@ -21,7 +27,7 @@ jobs:
       - run: python -m unittest discover -s analytics -p 'test_yahoo_pack_rice_probe.py' -v
   probe:
     needs: tests
-    if: github.ref == 'refs/heads/main' && github.event_name == 'workflow_dispatch'
+    if: github.ref == 'refs/heads/main' && (github.event_name == 'workflow_dispatch' || github.event_name == 'push')
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -30,7 +36,7 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - name: Read candidate counts only
+      - name: Read candidate counts and merchant SKU checks
         env:
           YAHOO_APP_ID: ${{ secrets.YAHOO_APP_ID }}
         run: python analytics/yahoo_pack_rice_probe.py
