@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-26T11:53:03.060517+09:00",
+  "generated_at": "2026-11-26T11:57:58.212962+09:00",
   "site_id": "food_cost_jp",
   "inventory": {
     "pack-rice": {
@@ -647,17 +647,17 @@
         "fetch_errors": 0,
         "queries": 5,
         "fetched": 150,
-        "normalized": 54,
+        "normalized": 56,
         "exact_duplicates": 4,
         "practical_duplicates": 0,
-        "accepted_unique": 50,
+        "accepted_unique": 52,
         "included_available": 16,
-        "shipping_unknown_available": 34,
+        "shipping_unknown_available": 36,
         "displayed_included": 16,
         "displayed_shipping_unknown": 20,
         "reasons": {
-          "restricted_or_selectable_product": 47,
-          "ambiguous_quantity": 28,
+          "restricted_or_selectable_product": 46,
+          "ambiguous_quantity": 27,
           "wrong_product_type": 13,
           "missing_category_evidence": 6,
           "limited_purchase": 2
@@ -716,7 +716,7 @@
           "restricted_or_selectable_product": [
             "【ふるさと納税】 カレー アサリカレー 10袋 180g×10 冷凍 無水カレー スパイス 11種類 豊富 和だし 香辛料 レトルトカレー 簡単 旨味 鰹 昆布 椎茸 出汁 薬膳 スパイスカレー 化学調味料不使用 175DENOカレー 北海道 札幌市",
             "【ふるさと納税】 カレー 肉 グルテンフリー バターチキンカレー 180g×10袋 肉 牛 グルテンフリーカレー カレー ご当地カレー ビーフカレー 簡易包装 レトルトカレー 便利 奈良おおの農園 奈良県 奈良市 なら",
-            "【ふるさと納税】松屋 オリジナルカレーの具 180g 10袋 カレー レトルトカレー 辛口 スパイス カレギュウ レトルト 冷凍 時短 簡単 便利 手抜き レンチン おかず 保存食 備蓄 夜食 まとめ買い お取り寄せ グルメ 埼玉県 嵐山町"
+            "【ふるさと納税】 カレー チキンカレー 10袋 180g×10 冷凍 無水カレー 鶏肉 ジューシー スパイス 17種類 豊富 香辛料 レトルトカレー 簡単 ヘルシー 健康 美容 花椒 薬膳 スパイスカレー 逸品 小麦粉不使用 175DENOカレー 北海道 札幌市"
           ],
           "ambiguous_quantity": [
             "てまごこちカレー 甘口(180g×1・2・5・10袋)【一部送料無料】宮崎県産 九州 国産 レトルトカレー レストラン フレンチカレー 野菜 ベジカレー チキンカレー 鶏肉 こども 子供カレー オムカレー 美味しい シェフ監修 取り寄せ プレゼント ギフト 入学 卒業祝い ホワイトデー",
