@@ -4,6 +4,7 @@ import os
 import re
 import time
 import unicodedata
+from datetime import datetime, timezone, timedelta
 from pathlib import Path
 from urllib.error import HTTPError
 from urllib.parse import urlencode, urlsplit, parse_qs
@@ -85,6 +86,47 @@ def exact_sato_yahoo(hits, product):
             continue
     return False
 
+SHIPPING_CONDITIONS = re.compile(
+    r"条件付き送料無料|送料無料ライン|送料別(?:途)?|送料有料|配送不可|"
+    r"(?:北海道|沖縄|離島|一部地域).{0,24}(?:送料|別途|対象外|除く|追加料金|追加費用|加算|配送できません)|"
+    r"(?:送料|配送|発送).{0,24}(?:北海道|沖縄|離島|一部地域)|"
+    r"[\d,.]+円(?:\(税込\))?(?:以上|から).{0,20}(?:送料無料|送料0円)|"
+    r"(?:送料無料|送料0円).{0,20}[\d,.]+円(?:\(税込\))?(?:以上|から)"
+)
+
+def price_pair_preview(rows, hits, product, checked_at, now=None):
+    """Internal diagnostic only. Never equate shipping flags with final checkout."""
+    now = now or datetime.now(timezone.utc)
+    result = {"status": "NOT_COMPARABLE", "reason": "IDENTITY_OR_PRICE_UNVERIFIED"}
+    try:
+        stamp = datetime.fromisoformat(checked_at)
+        if stamp.tzinfo is None or not timedelta(hours=-1) <= now - stamp <= timedelta(hours=48):
+            return dict(result, reason="STALE_OR_INVALID_RAKUTEN_TIMESTAMP")
+    except (TypeError, ValueError):
+        return dict(result, reason="STALE_OR_INVALID_RAKUTEN_TIMESTAMP")
+    r = [row for row in rows if exact_sato_rakuten([row], product)]
+    y = [hit for hit in hits if exact_sato_yahoo([hit], product)]
+    if len(r) != 1 or len(y) != 1:
+        return result
+    r, y = r[0], y[0]
+    label = y.get("priceLabel")
+    if y.get("condition") != "new" or not isinstance(label, dict) or label.get("taxable") is not True:
+        return dict(result, reason="NEW_OR_TAX_INCLUSIVE_UNVERIFIED")
+    terms = " ".join(normalize(y.get(k)) for k in ("name", "headLine", "description", "shipping"))
+    # Include explicit shipping-label name; don't rely on the numeric code alone.
+    terms += " " + normalize(y["shipping"].get("name"))
+    terms += " " + normalize(r.get("raw_name")) + " " + normalize(r.get("name"))
+    if SHIPPING_CONDITIONS.search(terms):
+        return dict(result, reason="SHIPPING_CONDITIONS_REQUIRE_REVIEW")
+    return {"status": "API_PRICE_PREVIEW_ONLY", "rakuten_listed_price_yen": r["price"],
+            "yahoo_listed_price_yen": y["price"],
+            "listed_price_difference_yen": abs(r["price"] - y["price"]),
+            "rakuten_checked_at": checked_at, "yahoo_checked_at": now.isoformat(),
+            "pack_count": product[3], "unit_weight_g": product[2],
+            "rakuten_per_serving_yen": round(r["price"] / product[3], 2),
+            "yahoo_per_serving_yen": round(y["price"] / product[3], 2),
+            "checkout_total_verified": False, "publish_allowed": False}
+
 def summarize(hits, product):
     if not isinstance(hits, list) or any(not isinstance(hit, dict) for hit in hits):
         raise ValueError("response schema")
@@ -126,6 +168,7 @@ def report(catalog, key, request=fetch):
                 counts["verified_rakuten_merchant_sku"] = exact_sato_rakuten(rows, product)
                 counts["verified_yahoo_merchant_sku"] = exact_sato_yahoo(hits, product)
                 counts["both_merchant_skus_verified"] = counts["verified_rakuten_merchant_sku"] and counts["verified_yahoo_merchant_sku"]
+                counts["price_preview"] = price_pair_preview(rows, hits, product, catalog.get("generated_at"))
             result["products"][product[0]] = counts
         except HTTPError as exc:
             result["products"][product[0]] = {"status": "UNAVAILABLE", "reason": "HTTP_" + str(exc.code)}
