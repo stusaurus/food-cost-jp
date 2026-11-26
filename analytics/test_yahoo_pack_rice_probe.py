@@ -2,7 +2,7 @@ import unittest
 from urllib.parse import urlencode
 from datetime import datetime, timezone, timedelta
 from yahoo_pack_rice_probe import (PRODUCTS, summarize, rakuten_candidates, report,
-                                  title_candidate, exact_sato_rakuten, exact_sato_yahoo, price_pair_preview)
+                                  title_candidate, exact_sato_rakuten, exact_sato_yahoo, price_pair_preview, affiliate_probe)
 
 class YahooProbeTests(unittest.TestCase):
     def test_rakuten_quantity_and_product_scope(self):
@@ -75,3 +75,31 @@ class YahooProbeTests(unittest.TestCase):
         self.assertEqual(price_pair_preview([row],[dict(hit,description="北海道・沖縄は別途送料")],p,stamp,now)["reason"],"SHIPPING_CONDITIONS_REQUIRE_REVIEW")
         self.assertEqual(price_pair_preview([dict(row,raw_name=name+" 北海道は別途送料")],[hit],p,stamp,now)["reason"],"SHIPPING_CONDITIONS_REQUIRE_REVIEW")
         self.assertEqual(price_pair_preview([row],[hit,hit],p,stamp,now)["status"],"NOT_COMPARABLE")
+
+    def test_affiliate_validation_requires_correct_ids_and_target(self):
+        p = PRODUCTS[1]
+        base = "https://ck.jp.ap.valuecommerce.com/servlet/referral"
+        config = base + "?sid=123&pid=456&vc_url="
+        target = "https://store.shopping.yahoo.co.jp/likaman/950871-16.html"
+        def ad(sid="123", pid="456", dest=target):
+            return base + "?" + urlencode({"sid":sid,"pid":pid,"vc_url":dest})
+        hit = {"code":"likaman_950871-16","janCode":p[1],
+               "name":"サトウ 銀シャリ 200g×5食×16袋","price":16100,
+               "inStock":True,"shipping":{"code":2},"url":ad()}
+        def request(jan, key, affiliate_prefix=None):
+            self.assertEqual(jan,p[1])
+            self.assertEqual(affiliate_prefix,config)
+            return [hit]
+        self.assertEqual(affiliate_probe("test-client",config,request),
+                         {"status":"VERIFIED","verified_food_ad_links":1,"publish_allowed":False})
+        for url in (ad(sid="999"),ad(pid="999"),ad(dest=target.replace("-16","-8")),
+                    ad(dest="https://example.org/"),target,
+                    ad(dest=target+"?secret=test-client"),ad()+"&sid=123"):
+            result = affiliate_probe("test-client",config,
+                                     lambda *args, **kwargs: [dict(hit,url=url)])
+            self.assertEqual(result["status"],"NOT_VERIFIED")
+            self.assertFalse(result["publish_allowed"])
+        self.assertEqual(affiliate_probe("test-client","",request)["status"],"NOT_CONFIGURED")
+        self.assertEqual(affiliate_probe("test-client","https://example.org/",request)["status"],"NOT_VERIFIED")
+        self.assertEqual(affiliate_probe("test-client",config,
+                         lambda *args, **kwargs: [hit,hit])["status"],"NOT_VERIFIED")
