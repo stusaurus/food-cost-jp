@@ -1,0 +1,36 @@
+name: Yahoo pack rice read-only candidate probe
+on:
+  pull_request:
+    paths:
+      - 'analytics/yahoo_pack_rice_probe.py'
+      - 'analytics/test_yahoo_pack_rice_probe.py'
+      - '.github/workflows/yahoo-pack-rice-probe.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m unittest discover -s analytics -p 'test_yahoo_pack_rice_probe.py' -v
+  probe:
+    needs: tests
+    if: github.ref == 'refs/heads/main' && github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Read candidate counts only
+        env:
+          YAHOO_APP_ID: ${{ secrets.YAHOO_APP_ID }}
+        run: python analytics/yahoo_pack_rice_probe.py
