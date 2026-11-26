@@ -7,8 +7,13 @@ import unicodedata
 from datetime import datetime, timezone, timedelta
 from pathlib import Path
 from urllib.error import HTTPError
-from urllib.parse import urlencode, urlsplit, parse_qs
+from urllib.parse import urlencode, urlsplit, parse_qs, unquote, urlunsplit
 from urllib.request import HTTPRedirectHandler, build_opener
+
+VC_HOST = "ck.jp.ap.valuecommerce.com"
+
+class YahooUnavailable(Exception):
+    pass
 
 API = "https://shopping.yahooapis.jp/ShoppingWebService/V3/itemSearch"
 # JAN is a search seed, not a claim that each Rakuten listing carries that JAN.
@@ -143,9 +148,94 @@ def summarize(hits, product):
     return {"api_hits": len(unique), "jan_hits": len(jan),
             "title_quantity_candidates": len(title), "free_shipping_flag_candidates": len(free)}
 
-def fetch(jan, key):
-    query = urlencode({"appid": key, "jan_code": jan, "in_stock": "true",
-                       "condition": "new", "results": 50})
+def safe_url(value):
+    if not isinstance(value, str) or re.search(r'[\x00-\x20\x7f<>"\\]', value):
+        return None
+    try:
+        url = urlsplit(value)
+        if url.netloc != url.hostname or url.fragment:
+            return None
+    except ValueError:
+        return None
+    return url
+
+
+def affiliate_config(value):
+    """Accept the extracted referral URL or the URL-encoded form in the docs."""
+    raw = unquote(value.strip())
+    url = safe_url(raw)
+    params = parse_qs(url.query, keep_blank_values=True) if url else {}
+    if (not url or url.scheme not in ("http", "https") or url.hostname != VC_HOST
+            or url.path != "/servlet/referral" or set(params) - {"sid", "pid", "vc_url"}
+            or not all(len(params.get(k, [])) == 1 and re.fullmatch(r"[0-9]+", params[k][0])
+                       for k in ("sid", "pid"))
+            or params.get("vc_url", [""]) != [""]):
+        raise YahooUnavailable("affiliate_config_format")
+    query = urlencode({"sid": params["sid"][0], "pid": params["pid"][0], "vc_url": ""})
+    return urlunsplit(url._replace(query=query)), params["sid"][0], params["pid"][0]
+
+
+def product_target(value, code):
+    url = safe_url(value)
+    if not url or url.scheme != "https" or not isinstance(code, str):
+        return False
+    if url.hostname == "store.shopping.yahoo.co.jp":
+        match = re.fullmatch(r"/([\w-]+)/([\w.-]+)\.html", url.path, re.ASCII)
+        return bool(match and f"{match[1]}_{match[2]}" == code)
+    if url.hostname == "lohaco.yahoo.co.jp":
+        match = re.fullmatch(r"/store/h-lohaco/item/([\w-]+)/?", url.path, re.ASCII | re.I)
+        return bool(match and code.lower() in {f"{store}_{match[1].lower()}"
+                                              for store in ("h-lohaco", "rd-lohaco")})
+    return False
+
+
+def affiliate_target(hit, app_id, sid, pid):
+    """Validate the returned ad URL without opening or logging it."""
+    value = hit.get("url")
+    url = safe_url(value)
+    if (not url or url.scheme not in ("https", "http") or url.hostname != VC_HOST
+            or url.path != "/servlet/referral"):
+        return None
+    params = parse_qs(url.query, keep_blank_values=True)
+    targets = params.get("vc_url", [])
+    if (params.get("sid") != [sid] or params.get("pid") != [pid]
+            or len(targets) != 1 or not product_target(targets[0], hit.get("code"))
+            or app_id in unquote(value)):
+        return None
+    return targets[0]
+
+def affiliate_probe(app_id, affiliate_id, request=None):
+    """Read-only food-specific ad URL validation. Never output URL or ID."""
+    if not affiliate_id:
+        return {"status": "NOT_CONFIGURED", "publish_allowed": False}
+    if not app_id:
+        return {"status": "NOT_CONFIGURED", "publish_allowed": False}
+    try:
+        prefix, sid, pid = affiliate_config(affiliate_id)
+        product = PRODUCTS[1]
+        hits = (request or fetch)(product[1], app_id, affiliate_prefix=prefix)
+        if not isinstance(hits, list) or any(not isinstance(h, dict) for h in hits):
+            raise YahooUnavailable("response_schema")
+        verified = 0
+        for hit in hits:
+            if hit.get("code") != SATO_YAHOO_CODE:
+                continue
+            target = affiliate_target(hit, app_id, sid, pid)
+            if target and exact_sato_yahoo([dict(hit, url=target)], product):
+                verified += 1
+        return {"status": "VERIFIED" if verified == 1 else "NOT_VERIFIED",
+                "verified_food_ad_links": verified, "publish_allowed": False}
+    except YahooUnavailable:
+        return {"status": "NOT_VERIFIED", "reason": "CONFIG_OR_SCHEMA_INVALID", "publish_allowed": False}
+    except Exception:
+        return {"status": "UNAVAILABLE", "reason": "REQUEST_FAILED", "publish_allowed": False}
+
+def fetch(jan, key, affiliate_prefix=None):
+    params = {"appid": key, "jan_code": jan, "in_stock": "true",
+              "condition": "new", "results": 50}
+    if affiliate_prefix:
+        params.update(affiliate_type="vc", affiliate_id=affiliate_prefix)
+    query = urlencode(params)
     with build_opener(NoRedirect()).open(API + "?" + query, timeout=20) as response:
         return json.loads(response.read(3_000_000))["hits"]
 
@@ -180,6 +270,12 @@ def report(catalog, key, request=fetch):
 
 if __name__ == "__main__":
     catalog = json.loads(Path("data/products.json").read_text(encoding="utf-8"))
-    result = report(catalog, os.getenv("YAHOO_APP_ID", "").strip())
+    app_id = os.getenv("YAHOO_APP_ID", "").strip()
+    affiliate_id = os.getenv("YAHOO_AFFILIATE_ID", "").strip()
+    result = report(catalog, app_id)
+    if affiliate_id and result["status"] == "OK":
+        time.sleep(2.5)
+    result["affiliate_validation"] = (affiliate_probe(app_id, affiliate_id)
+                                      if result["status"] == "OK" else {"status": "SKIPPED", "publish_allowed": False})
     print(json.dumps(result, ensure_ascii=False, indent=2))
     raise SystemExit(0 if result["status"] == "OK" else 1)
