@@ -1,7 +1,8 @@
 import unittest
 from urllib.parse import urlencode
+from datetime import datetime, timezone, timedelta
 from yahoo_pack_rice_probe import (PRODUCTS, summarize, rakuten_candidates, report,
-                                  title_candidate, exact_sato_rakuten, exact_sato_yahoo)
+                                  title_candidate, exact_sato_rakuten, exact_sato_yahoo, price_pair_preview)
 
 class YahooProbeTests(unittest.TestCase):
     def test_rakuten_quantity_and_product_scope(self):
@@ -50,3 +51,27 @@ class YahooProbeTests(unittest.TestCase):
                         {"shipping":{"code":3}}, {"janCode":"wrong"}, {"inStock":False}, {"price":True},
                         {"name":"サトウ 銀シャリ 200g×5食×8袋"}):
             self.assertFalse(exact_sato_yahoo([dict(hit,**changes)],p))
+
+    def test_price_preview_requires_fresh_exact_tax_inclusive_shipping_conditions(self):
+        p = PRODUCTS[1]
+        name = "サトウのごはん 銀シャリ (200g×5食)×16袋"
+        row = {"id":"likaman:10040020","name":name,"price":16300,
+               "shipping_status":"included","postage_included":True,
+               "quantity":{"unit_weight_g":200,"count":80,"total_weight_g":16000,"component_counts":[5,16]},
+               "url":"https://hb.afl.rakuten.co.jp/hgc/test/?" + urlencode({"pc":"https://item.rakuten.co.jp/likaman/950871-16/"})}
+        hit = {"code":"likaman_950871-16","janCode":p[1],"name":name,
+               "condition":"new","inStock":True,"shipping":{"code":2,"name":"送料無料"},
+               "price":16000,"priceLabel":{"taxable":True},"url":"https://store.shopping.yahoo.co.jp/likaman/950871-16.html"}
+        now = datetime(2026,11,26,12,tzinfo=timezone.utc)
+        stamp = (now-timedelta(hours=2)).isoformat()
+        result = price_pair_preview([row],[hit],p,stamp,now)
+        self.assertEqual(result["status"],"API_PRICE_PREVIEW_ONLY")
+        self.assertEqual(result["listed_price_difference_yen"],300)
+        self.assertEqual(result["yahoo_per_serving_yen"],200)
+        self.assertFalse(result["publish_allowed"])
+        self.assertFalse(result["checkout_total_verified"])
+        self.assertEqual(price_pair_preview([row],[hit],p,(now-timedelta(hours=49)).isoformat(),now)["reason"],"STALE_OR_INVALID_RAKUTEN_TIMESTAMP")
+        self.assertEqual(price_pair_preview([row],[dict(hit,priceLabel={"taxable":False})],p,stamp,now)["reason"],"NEW_OR_TAX_INCLUSIVE_UNVERIFIED")
+        self.assertEqual(price_pair_preview([row],[dict(hit,description="北海道・沖縄は別途送料")],p,stamp,now)["reason"],"SHIPPING_CONDITIONS_REQUIRE_REVIEW")
+        self.assertEqual(price_pair_preview([dict(row,raw_name=name+" 北海道は別途送料")],[hit],p,stamp,now)["reason"],"SHIPPING_CONDITIONS_REQUIRE_REVIEW")
+        self.assertEqual(price_pair_preview([row],[hit,hit],p,stamp,now)["status"],"NOT_COMPARABLE")
