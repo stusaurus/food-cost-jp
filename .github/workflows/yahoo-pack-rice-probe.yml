@@ -39,4 +39,5 @@ jobs:
       - name: Read candidate counts and merchant SKU checks
         env:
           YAHOO_APP_ID: ${{ secrets.YAHOO_APP_ID }}
+          YAHOO_AFFILIATE_ID: ${{ secrets.YAHOO_AFFILIATE_ID }}
         run: python analytics/yahoo_pack_rice_probe.py
