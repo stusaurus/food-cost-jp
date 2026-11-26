@@ -6,7 +6,7 @@ import time
 import unicodedata
 from pathlib import Path
 from urllib.error import HTTPError
-from urllib.parse import urlencode
+from urllib.parse import urlencode, urlsplit, parse_qs
 from urllib.request import HTTPRedirectHandler, build_opener
 
 API = "https://shopping.yahooapis.jp/ShoppingWebService/V3/itemSearch"
@@ -15,11 +15,11 @@ API = "https://shopping.yahooapis.jp/ShoppingWebService/V3/itemSearch"
 # Matsukiyo: https://www.matsukiyococokara-online.com/store/catalog/product/view/id/4973360566850
 PRODUCTS = (
     ("iris-180g-24", "4562403572691", 180, 24,
-     r"アイリス", r"低温製法米", r"180\s*g\s*[×x*]\s*24\s*(?:食|パック|個|p)"),
+     r"アイリス", r"低温製法米", r"180\s*g\s*(?:[×x*]\s*|\(?\s*1\s*ケース\s*)24\s*(?:食|パック|個|p)(?!\d)"),
     ("sato-ginshari-200g-80", "4973360566850", 200, 80,
      r"サトウ", r"銀シャリ", r"200\s*g\s*[×x*]\s*5\s*(?:食|個)?\s*\)?\s*[×x*]\s*16\s*(?:袋|パック|個)"),
 )
-EXCLUDE = r"訳あり|賞味期限間近|お試し|詰め合わせ|選べる|玄米|もち麦|雑穀|定期購入|ふるさと納税"
+EXCLUDE = r"訳あり|賞味期限間近|お試し|詰め合わせ|選べる|玄米|もち麦|雑穀|定期購入|ふるさと納税|大盛り|小盛り|糖質オフ"
 
 class NoRedirect(HTTPRedirectHandler):
     def redirect_request(self, req, fp, code, msg, headers, newurl):
@@ -38,6 +38,52 @@ def rakuten_candidates(rows, product):
                and row.get("quantity", {}).get("unit_weight_g") == product[2]
                and row.get("quantity", {}).get("count") == product[3]
                for row in rows)
+
+# Independently checked merchant listing paths, not generic title similarity.
+# https://www.satosyokuhin.co.jp/products/products_rice_163.html
+# https://store.shopping.yahoo.co.jp/likaman/950871-16.html
+SATO_RAKUTEN_ID = "likaman:10040020"
+SATO_RAKUTEN_PATH = "/likaman/950871-16/"
+SATO_YAHOO_CODE = "likaman_950871-16"
+
+def exact_sato_rakuten(rows, product):
+    for row in rows:
+        if row.get("id") != SATO_RAKUTEN_ID or not rakuten_candidates([row], product):
+            continue
+        try:
+            url = urlsplit(row["url"])
+            targets = parse_qs(url.query).get("pc", [])
+            if url.scheme != "https" or url.hostname != "hb.afl.rakuten.co.jp" or len(targets) != 1:
+                continue
+            target = urlsplit(targets[0])
+            q = row["quantity"]
+            if (target.scheme == "https" and target.netloc == "item.rakuten.co.jp"
+                    and target.path == SATO_RAKUTEN_PATH
+                    and q.get("component_counts") == [5, 16]
+                    and q.get("total_weight_g") == 16000
+                    and row.get("postage_included") is True
+                    and type(row.get("price")) is int and row["price"] > 0):
+                return True
+        except (KeyError, TypeError, ValueError):
+            continue
+    return False
+
+def exact_sato_yahoo(hits, product):
+    # Match the verified merchant SKU and product URL without visiting it.
+    for hit in hits:
+        if (hit.get("code") != SATO_YAHOO_CODE or hit.get("janCode") != product[1]
+                or hit.get("inStock") is not True or not title_candidate(hit.get("name"), product)
+                or not isinstance(hit.get("shipping"), dict) or hit["shipping"].get("code") != 2
+                or type(hit.get("price")) is not int or hit["price"] <= 0):
+            continue
+        try:
+            target = urlsplit(hit["url"])
+            if (target.scheme == "https" and target.netloc == "store.shopping.yahoo.co.jp"
+                    and target.path == "/likaman/950871-16.html"):
+                return True
+        except (KeyError, TypeError, ValueError):
+            continue
+    return False
 
 def summarize(hits, product):
     if not isinstance(hits, list) or any(not isinstance(hit, dict) for hit in hits):
@@ -63,7 +109,7 @@ def fetch(jan, key):
 
 def report(catalog, key, request=fetch):
     result = {"scope": "food-cost-jp/pack-rice", "status": "OK",
-              "note": "Candidate counts only; no confirmed product matches, checkout totals or affiliate links.",
+              "note": "Read-only identity diagnostics; no checkout totals or affiliate links published. Merchant SKU evidence is not final shipping or ad approval.",
               "products": {}}
     if not key:
         result["status"] = "NOT_CONFIGURED"
@@ -73,8 +119,13 @@ def report(catalog, key, request=fetch):
         if index:
             time.sleep(2.5)
         try:
-            counts = summarize(request(product[1], key), product)
+            hits = request(product[1], key)
+            counts = summarize(hits, product)
             counts["rakuten_title_quantity_candidates"] = rakuten_candidates(rows, product)
+            if product[0] == "sato-ginshari-200g-80":
+                counts["verified_rakuten_merchant_sku"] = exact_sato_rakuten(rows, product)
+                counts["verified_yahoo_merchant_sku"] = exact_sato_yahoo(hits, product)
+                counts["both_merchant_skus_verified"] = counts["verified_rakuten_merchant_sku"] and counts["verified_yahoo_merchant_sku"]
             result["products"][product[0]] = counts
         except HTTPError as exc:
             result["products"][product[0]] = {"status": "UNAVAILABLE", "reason": "HTTP_" + str(exc.code)}
