@@ -230,9 +230,9 @@ def affiliate_probe(app_id, affiliate_id, request=None):
     except Exception:
         return {"status": "UNAVAILABLE", "reason": "REQUEST_FAILED", "publish_allowed": False}
 
-def fetch(jan, key, affiliate_prefix=None):
-    params = {"appid": key, "jan_code": jan, "in_stock": "true",
-              "condition": "new", "results": 50}
+def fetch(jan, key, affiliate_prefix=None, query=None):
+    params = {"appid": key, "in_stock": "true", "condition": "new", "results": 50}
+    params.update({"jan_code": jan} if jan else {"query": query})
     if affiliate_prefix:
         params.update(affiliate_type="vc", affiliate_id=affiliate_prefix)
     query = urlencode(params)
@@ -268,6 +268,67 @@ def report(catalog, key, request=fetch):
             result["status"] = "PARTIAL_OR_UNAVAILABLE"
     return result
 
+# Merchant listing evidence: same named product and package, not yet a JAN match.
+# Yahoo: https://store.shopping.yahoo.co.jp/likaman/927807-24.html
+# Yahoo: https://store.shopping.yahoo.co.jp/cocodecow/y388eb.html
+EXPANSION = (
+    ("pasta", "likaman:10033183", "/likaman/927807-24/", "likaman_927807-24",
+     "ディチェコ No.12 500g 24袋", r"ディ[・ ]?チェコ", r"no\.?\s*12(?!\d)",
+     r"500\s*g\s*[×x*]?\s*24\s*(?:袋|個)", "unit_weight_g", 500, "total_weight_g", 12000, 24),
+    ("mineral-water", "cocodecow:10778153", "/cocodecow/r820gf/", "cocodecow_y388eb",
+     "ハルナウォーター 安曇野の自然が育んだ天然水 2L 12本", r"ハルナウォーター", r"安曇野の自然が育んだ天然水",
+     r"2\s*l\s*[×x*]?\s*12\s*本", "unit_volume_ml", 2000, "total_volume_ml", 24000, 12),
+)
+
+def expansion_title(name, spec):
+    n = normalize(name)
+    return bool(n and not re.search(EXCLUDE + r"|選択|セット内容変更|予約|配送不可", n)
+                and all(re.search(p, n) for p in spec[5:8]))
+
+def expansion_report(catalog, app_id, affiliate_id, request=fetch):
+    """Report candidate counts only; no publication and no logging of links."""
+    if not app_id or not affiliate_id:
+        return {"status": "NOT_CONFIGURED"}
+    try:
+        prefix, sid, pid = affiliate_config(affiliate_id)
+        if sid != "3790012":
+            return {"status": "WRONG_SITE"}
+    except Exception:
+        return {"status": "INVALID_CONFIG"}
+    out = {}
+    for index, spec in enumerate(EXPANSION):
+        if index:
+            time.sleep(2.5)
+        category, rid, path, ycode, query = spec[:5]
+        try:
+            rows = catalog["categories"][category]["included"]
+            candidates = []
+            for row in rows:
+                q = row.get("quantity", {})
+                targets = parse_qs(urlsplit(row.get("url", "")).query).get("pc", [])
+                if len(targets) != 1:
+                    continue
+                target = urlsplit(targets[0])
+                if (row.get("id") == rid and target.scheme == "https" and target.netloc == "item.rakuten.co.jp"
+                        and target.path == path and row.get("shipping_status") == "included"
+                        and row.get("postage_included") is True and expansion_title(row.get("name"), spec)
+                        and q.get(spec[8]) == spec[9] and q.get(spec[10]) == spec[11] and q.get("count") == spec[12]):
+                    candidates.append(row)
+            hits = request(None, app_id, affiliate_prefix=prefix, query=query)
+            if not isinstance(hits, list) or any(not isinstance(h, dict) for h in hits):
+                raise ValueError("schema")
+            matches = [h for h in hits if h.get("code") == ycode and expansion_title(h.get("name"), spec)
+                       and affiliate_target(h, app_id, sid, pid) and h.get("inStock") is True
+                       and h.get("condition") == "new" and type(h.get("price")) is int and h["price"] > 0
+                       and isinstance(h.get("priceLabel"), dict) and h["priceLabel"].get("taxable") is True]
+            free = [h for h in matches if isinstance(h.get("shipping"), dict) and h["shipping"].get("code") == 2
+                    and not SHIPPING_CONDITIONS.search(" ".join(normalize(h.get(k)) for k in ("name","headLine","description")))]
+            out[category] = {"rakuten_listing_matches":len(candidates), "yahoo_ad_listing_matches":len(matches),
+                             "yahoo_shipping_flag_candidates":len(free), "publish_allowed":False}
+        except Exception:
+            out[category] = {"status":"UNAVAILABLE", "publish_allowed":False}
+    return out
+
 if __name__ == "__main__":
     catalog = json.loads(Path("data/products.json").read_text(encoding="utf-8"))
     app_id = os.getenv("YAHOO_APP_ID", "").strip()
@@ -277,5 +338,8 @@ if __name__ == "__main__":
         time.sleep(2.5)
     result["affiliate_validation"] = (affiliate_probe(app_id, affiliate_id)
                                       if result["status"] == "OK" else {"status": "SKIPPED", "publish_allowed": False})
+    if affiliate_id and result["status"] == "OK":
+        time.sleep(2.5)
+        result["expansion"] = expansion_report(catalog, app_id, affiliate_id)
     print(json.dumps(result, ensure_ascii=False, indent=2))
     raise SystemExit(0 if result["status"] == "OK" else 1)

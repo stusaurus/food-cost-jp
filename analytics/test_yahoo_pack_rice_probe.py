@@ -103,3 +103,42 @@ class YahooProbeTests(unittest.TestCase):
         self.assertEqual(affiliate_probe("test-client","https://example.org/",request)["status"],"NOT_VERIFIED")
         self.assertEqual(affiliate_probe("test-client",config,
                          lambda *args, **kwargs: [hit,hit])["status"],"NOT_VERIFIED")
+
+
+    def test_expansion_rejects_wrong_variant_quantity_and_ad(self):
+        from unittest.mock import patch
+        from yahoo_pack_rice_probe import EXPANSION, expansion_report, expansion_title
+        p, w = EXPANSION
+        pn = "ディチェコ No.12 スパゲッティ 500g 24袋"
+        wn = "ハルナウォーター 安曇野の自然が育んだ天然水2L×12本"
+        self.assertTrue(expansion_title(pn, p))
+        self.assertTrue(expansion_title(wn, w))
+        self.assertFalse(expansion_title(pn.replace("No.12","No.11"),p))
+        self.assertFalse(expansion_title(pn.replace("24袋","48袋"),p))
+        self.assertFalse(expansion_title(wn.replace("12本","6本"),w))
+        base = "https://ck.jp.ap.valuecommerce.com/servlet/referral"
+        config = base + "?sid=3790012&pid=456&vc_url="
+        def row(spec,name):
+            return {"id":spec[1],"name":name,"postage_included":True,"shipping_status":"included",
+                    "quantity":{spec[8]:spec[9],spec[10]:spec[11],"count":spec[12]},
+                    "url":"https://hb.afl.rakuten.co.jp/hgc/test/?"+urlencode({"pc":"https://item.rakuten.co.jp"+spec[2]})}
+        catalog={"categories":{p[0]:{"included":[row(p,pn)]},w[0]:{"included":[row(w,wn)]}}}
+        def hit(spec,name):
+            store,sku=spec[3].split("_",1)
+            target="https://store.shopping.yahoo.co.jp/"+store+"/"+sku+".html"
+            return {"code":spec[3],"name":name,"condition":"new","inStock":True,"price":5000,
+                    "priceLabel":{"taxable":True},"shipping":{"code":2},
+                    "url":base+"?"+urlencode({"sid":"3790012","pid":"456","vc_url":target})}
+        ph,wh=hit(p,pn),hit(w,wn)
+        def request(jan,key,affiliate_prefix=None,query=None):
+            return [ph,dict(wh,description="沖縄は別途送料")]
+        with patch("yahoo_pack_rice_probe.time.sleep"):
+            result=expansion_report(catalog,"test-client",config,request)
+            self.assertEqual(result["pasta"],{"rakuten_listing_matches":1,"yahoo_ad_listing_matches":1,
+                                              "yahoo_shipping_flag_candidates":1,"publish_allowed":False})
+            self.assertEqual(result["mineral-water"]["yahoo_ad_listing_matches"],1)
+            self.assertEqual(result["mineral-water"]["yahoo_shipping_flag_candidates"],0)
+            bad=expansion_report(catalog,"test-client",config,
+                                  lambda *a,**k:[dict(ph,url=ph["url"].replace("pid=456","pid=789"))])
+            self.assertEqual(bad["pasta"]["yahoo_ad_listing_matches"],0)
+        self.assertEqual(expansion_report(catalog,"test-client",config.replace("3790012","3790024"),request)["status"],"WRONG_SITE")
