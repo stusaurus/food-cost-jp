@@ -26,7 +26,7 @@ jobs:
       - name: Audit public desktop and mobile pages
         env:
           SEO_BASE: https://stusaurus.github.io/food-cost-jp/
-          SEO_PATHS: "categories/rice/,categories/pack-rice/,categories/carbonated-water/,guides/pack-rice-24-servings-cost/"
+          SEO_PATHS: "categories/rice/,categories/pack-rice/,categories/pasta/,categories/mineral-water/,categories/carbonated-water/,guides/pack-rice-24-servings-cost/"
         run: |
           node <<'AUDIT_NODE'
             const {chromium}=require('/tmp/seo-audit/node_modules/playwright');
@@ -53,21 +53,22 @@ jobs:
                     if(response.status()!==200)issues.push('HTTP '+response.status());
                     if(!data.title||!data.description||data.canonical!==url||data.h1!==1||!data.viewport.includes('width=device-width')||data.invalidSchemas||/noindex/i.test(data.robots))issues.push('SEO metadata or canonical inconsistent');
                     if(data.documentWidth>data.viewportWidth+2)warnings.push('horizontal overflow '+data.documentWidth+' > '+data.viewportWidth);
-                    if(p==='categories/pack-rice/'){
+                    const crossPaths={'categories/pack-rice/':'/likaman/950871-16.html','categories/pasta/':'/likaman/927807-24.html','categories/mineral-water/':'/cocodecow/y388eb.html'};
+                    if(crossPaths[p]){
                       const pair=page.locator('#marketplace-comparison');
                       if(await pair.count()===1 && await pair.isVisible()){
-                        const checked=await pair.evaluate(el=>{
+                        const checked=await pair.evaluate((el,expectedPath)=>{
                           const links=[...el.querySelectorAll('a[data-affiliate]')];
                           const y=links.find(a=>a.dataset.affiliate==='yahoo');
                           const r=links.find(a=>a.dataset.affiliate==='rakuten');
                           if(!y||!r||links.length!==2)return false;
                           const u=new URL(y.href),target=new URL(u.searchParams.get('vc_url'));
-                          return u.protocol==='https:'&&u.hostname==='ck.jp.ap.valuecommerce.com'&&u.pathname==='/servlet/referral'&&u.searchParams.get('sid')==='3790012'&&/^\d+$/.test(u.searchParams.get('pid')||'')&&target.origin==='https://store.shopping.yahoo.co.jp'&&target.pathname==='/likaman/950871-16.html'&&new URL(r.href).hostname==='hb.afl.rakuten.co.jp'&&links.every(a=>a.rel.includes('sponsored')&&a.dataset.position==='marketplace_comparison'&&Number(a.dataset.unitPrice)>0)&&Date.parse(el.dataset.priceExpiry)>Date.now()&&el.scrollWidth<=el.clientWidth+2;
-                        }).catch(()=>false);
+                          return u.protocol==='https:'&&u.hostname==='ck.jp.ap.valuecommerce.com'&&u.pathname==='/servlet/referral'&&u.searchParams.get('sid')==='3790012'&&/^\d+$/.test(u.searchParams.get('pid')||'')&&target.origin==='https://store.shopping.yahoo.co.jp'&&target.pathname===expectedPath&&new URL(r.href).hostname==='hb.afl.rakuten.co.jp'&&links.every(a=>a.rel.includes('sponsored')&&a.dataset.position==='marketplace_comparison'&&Number(a.dataset.unitPrice)>0)&&Date.parse(el.dataset.priceExpiry)>Date.now()&&el.scrollWidth<=el.clientWidth+2;
+                        },crossPaths[p]).catch(()=>false);
                         if(!checked)issues.push('cross-market comparison link, freshness or layout invalid');
-                        console.log('FOOD_CROSS_MARKET '+JSON.stringify({width,visible:true,verified:checked}));
+                        console.log('FOOD_CROSS_MARKET '+JSON.stringify({path:p,width,visible:true,verified:checked}));
                       }else{
-                        console.log('FOOD_CROSS_MARKET '+JSON.stringify({width,visible:false,reason:'no verified pair or expired'}));
+                        console.log('FOOD_CROSS_MARKET '+JSON.stringify({path:p,width,visible:false,reason:'no verified pair or expired'}));
                       }
                     }
                     if(p==='guides/pack-rice-24-servings-cost/'){
