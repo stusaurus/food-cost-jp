@@ -134,11 +134,39 @@ class YahooProbeTests(unittest.TestCase):
             return [ph,dict(wh,description="沖縄は別途送料")]
         with patch("yahoo_pack_rice_probe.time.sleep"):
             result=expansion_report(catalog,"test-client",config,request)
-            self.assertEqual(result["pasta"],{"rakuten_listing_matches":1,"yahoo_ad_listing_matches":1,
-                                              "yahoo_shipping_flag_candidates":1,"publish_allowed":False})
+            self.assertEqual({k:v for k,v in result["pasta"].items() if k != "price_preview"},
+                             {"rakuten_listing_matches":1,"yahoo_ad_listing_matches":1,
+                              "yahoo_shipping_flag_candidates":1,"publish_allowed":False})
             self.assertEqual(result["mineral-water"]["yahoo_ad_listing_matches"],1)
             self.assertEqual(result["mineral-water"]["yahoo_shipping_flag_candidates"],0)
             bad=expansion_report(catalog,"test-client",config,
                                   lambda *a,**k:[dict(ph,url=ph["url"].replace("pid=456","pid=789"))])
             self.assertEqual(bad["pasta"]["yahoo_ad_listing_matches"],0)
         self.assertEqual(expansion_report(catalog,"test-client",config.replace("3790012","3790024"),request)["status"],"WRONG_SITE")
+
+
+    def test_expansion_price_preview_freshness_identity_shipping_and_unit(self):
+        from yahoo_pack_rice_probe import EXPANSION, expansion_price_preview
+        now = datetime(2026, 11, 27, 12, tzinfo=timezone.utc)
+        stamp = now.isoformat()
+        for spec, unit, price, expected in ((EXPANSION[0], "100g", 12000, 100),
+                                             (EXPANSION[1], "1L", 2400, 100)):
+            row = {"price":price, "url":"https://hb.afl.rakuten.co.jp/hgc/test/"}
+            hit = {"price":price, "shipping":{"code":2, "name":"送料無料"},
+                   "janCode":"4510892001338"}
+            def preview(rows=None, hits=None, checked=stamp):
+                return expansion_price_preview([row] if rows is None else rows,
+                    [hit] if hits is None else hits, spec, checked, now)
+            result = preview()
+            self.assertEqual(result["status"], "API_PRICE_PREVIEW_ONLY")
+            self.assertEqual(result["unit"], unit)
+            self.assertEqual(result["rakuten_unit_price_yen"], expected)
+            self.assertFalse(result["publish_allowed"])
+            self.assertFalse(result["checkout_total_verified"])
+            self.assertEqual(preview(hits=[hit,hit])["status"], "NOT_COMPARABLE")
+            self.assertEqual(preview(checked=(now-timedelta(hours=49)).isoformat())["status"], "NOT_COMPARABLE")
+            self.assertEqual(preview(rows=[dict(row,price=True)])["status"], "NOT_COMPARABLE")
+            self.assertEqual(preview(rows=[dict(row,raw_name="沖縄は別途送料")])["status"], "NOT_COMPARABLE")
+            self.assertEqual(preview(hits=[dict(hit,shipping={"code":2,"name":"条件付き送料無料"})])["status"], "NOT_COMPARABLE")
+            if spec[0] == "mineral-water":
+                self.assertEqual(preview(hits=[dict(hit,janCode="wrong")])["reason"], "YAHOO_JAN_UNVERIFIED")
