@@ -266,7 +266,7 @@ gtag('config','G-GFVSZ8YDQ5',{site_id:'food_cost_jp',operator_test:window.foodCo
 <h1>袋麺を<br>1食あたりで比較。</h1>
 <p class="lead">スープ付きの即席袋ラーメンを対象に、容量・食数を確定して1食あたりで比べます。</p>
 <div class="hero-tags"><span class="hero-tag">送料込みを優先</span><span class="hero-tag">数量曖昧は除外</span><span class="hero-tag">クーポン未反映</span></div>
-<p class="note">最終価格確認: 2026-11-27 12:00 JST。最新価格は販売ページで確認してください。</p>
+<p class="note">最終価格確認: 2026-11-27 19:16 JST。最新価格は販売ページで確認してください。</p>
 </div>
 <div class="category-hero-art bag-noodles"><div class="category-vignette" data-category-visual="bag-noodles">
 <div class="category-vignette-media"><img class="food-art" src="https://thumbnail.image.rakuten.co.jp/@0_mall/okusuya/cabinet/07965452/4902105051108.gif?_ex=640x640" data-image-fallback="https://thumbnail.image.rakuten.co.jp/@0_mall/okusuya/cabinet/07965452/4902105051108.gif?_ex=128x128" alt="" width="320" height="320" loading="lazy"></div>
@@ -1812,7 +1812,7 @@ window.foodCostTrack=send;
 document.addEventListener('click',e=>{
   const a=e.target.closest('a[data-affiliate]');if(!a)return;
   const pos=a.dataset.position||'comparison_table';
-  const x={affiliate:'rakuten',conversion_source:pos,category_id:a.dataset.category,product_id:a.dataset.productId,product_name:a.dataset.productName,rank:a.dataset.rank,comparison_metric:a.dataset.metric,unit_price:Number(a.dataset.unitPrice||0),shipping_status:a.dataset.shipping,click_position:pos,cta_variant:a.dataset.ctaVariant||'standard',cta_text:(a.textContent||'').trim(),page_path:location.pathname,link_url:a.href};
+  const x={affiliate:a.dataset.affiliate==='yahoo'?'yahoo':'rakuten',conversion_source:pos,category_id:a.dataset.category,product_id:a.dataset.productId,product_name:a.dataset.productName,rank:a.dataset.rank,comparison_metric:a.dataset.metric,unit_price:Number(a.dataset.unitPrice||0),shipping_status:a.dataset.shipping,click_position:pos,cta_variant:a.dataset.ctaVariant||'standard',cta_text:(a.textContent||'').trim(),page_path:location.pathname,link_url:a.href};
   send('product_result_click',x);send('affiliate_click',x)
 });
 document.querySelectorAll('[data-start-route]').forEach(a=>a.addEventListener('click',()=>send('home_start_route',{route:a.dataset.startRoute||''})));
@@ -2168,6 +2168,9 @@ if((saved.length||compared.length)&&typeof fetch==='function')fetch('https://stu
  saved=saved.map(refresh);compared=compared.map(refresh);persistUtilities();
 }).catch(()=>{});
 })();
+
+// Hide expired cross-market quotes and purchase links without changing the existing ranking.
+(()=>{const section=document.getElementById('marketplace-comparison');if(!section)return;const expiry=Date.parse(section.dataset.priceExpiry);const refresh=()=>{if(!Number.isFinite(expiry)||Date.now()>=expiry){section.replaceChildren();section.hidden=true;}};refresh();if(!section.hidden) setTimeout(refresh,Math.max(0,Math.min(expiry-Date.now(),172800000)));})();
 </script>
 <footer><div class="wrap">当サイトは楽天アフィリエイトを利用しています。価格は取得時点の参考情報です。</div></footer>
 </body></html>
