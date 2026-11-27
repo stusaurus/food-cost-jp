@@ -27,6 +27,7 @@ from product_quality import (
 )
 from price_history import apply_price_history, load_price_history, save_price_history
 from pack_rice_planner import render_planner, render_quantity_only_planner, render_pack_size_comparison
+from marketplace_comparison import collect_pair, render_pair
 
 SITE_ID = "food_cost_jp"
 SITE_URL = "https://stusaurus.github.io/food-cost-jp/"
@@ -2181,7 +2182,7 @@ def bag_noodle_small_pack_notice(included: list[dict], other: list[dict]) -> str
 </section>"""
 
 
-def category_page(category: dict, included: list[dict], other: list[dict], updated: datetime, published_guides: list[dict] | None = None) -> str:
+def category_page(category: dict, included: list[dict], other: list[dict], updated: datetime, published_guides: list[dict] | None = None, marketplace_pair=None) -> str:
     faqs = category_faq(category)
     seo_title, seo_description = category_search_metadata(category)
     parts = [
@@ -2221,6 +2222,8 @@ def category_page(category: dict, included: list[dict], other: list[dict], updat
     if len(included) < MIN_CATEGORY_ITEMS:
         parts[0] = parts[0].replace('content="index,follow"', 'content="noindex,follow"')
     parts.append(category_summary(category, included, other))
+    if category["id"] == "pack-rice":
+        parts.append(render_pair(marketplace_pair))
     if category['id'] == 'bag-noodles':
         parts.append(bag_noodle_small_pack_notice(included, other))
     if category['id'] in {'oatmeal', 'granola'}:
@@ -2409,7 +2412,7 @@ def render_sitemap(urls: list[str]) -> str:
         + "</urlset>"
     )
 
-def render_pages(results: dict, updated: datetime) -> list[dict]:
+def render_pages(results: dict, updated: datetime, marketplace_pair=None) -> list[dict]:
     global ACTIVE_CATEGORY_IDS
     import shutil
     for folder in ("categories", "guides"):
@@ -2421,7 +2424,7 @@ def render_pages(results: dict, updated: datetime) -> list[dict]:
     for category in CATEGORIES:
         (OUT / "categories" / category["id"]).mkdir(parents=True, exist_ok=True)
         included, other = results[category['id']]
-        (OUT / 'categories' / category['id'] / 'index.html').write_text(category_page(category, included, other, updated, all_guides), encoding='utf-8')
+        (OUT / 'categories' / category['id'] / 'index.html').write_text(category_page(category, included, other, updated, all_guides, marketplace_pair), encoding='utf-8')
     category_by_id = {category["id"]: category for category in CATEGORIES}
     auto_guides = eligible_auto_guides(results)
     for spec in GUIDE_SPECS + AUTO_GUIDE_RULES:
@@ -2535,7 +2538,11 @@ def main():
                     json.dumps(sample, ensure_ascii=False),
                 )
 
-    auto_guides = render_pages(results, updated)
+    # Activation requires a separate reviewed release after food-site ad approval.
+    marketplace_pair = collect_pair(results["pack-rice"][0], updated.isoformat(),
+                                    os.getenv("YAHOO_APP_ID", "").strip(),
+                                    os.getenv("YAHOO_AFFILIATE_ID", "").strip(), approved=False)
+    auto_guides = render_pages(results, updated, marketplace_pair)
     (OUT / "data").mkdir(exist_ok=True)
     (OUT / "data" / "products.json").write_text(
         json.dumps(export, ensure_ascii=False, indent=2),

@@ -32,10 +32,21 @@ class PageAudit(HTMLParser):
         if tag == 'script' and a.get('type') == 'application/ld+json': self._json, self._buffer = True, ''
         if tag == 'a' and a.get('href'):
             self.links.append(a['href'])
-            if urlparse(a['href']).hostname == 'hb.afl.rakuten.co.jp':
+            if urlparse(a['href']).hostname in {'hb.afl.rakuten.co.jp', 'ck.jp.ap.valuecommerce.com'}:
                 required = ('data-affiliate', 'data-position', 'data-category', 'data-product-id', 'data-metric', 'data-unit-price', 'data-shipping')
                 if not all(a.get(k) for k in required) or a.get('target') != '_blank' or not {'sponsored','nofollow','noopener'} <= set(a.get('rel','').split()):
                     self.affiliate_errors.append(a['href'])
+                url = urlparse(a['href'])
+                if url.hostname == 'ck.jp.ap.valuecommerce.com':
+                    from yahoo_pack_rice_probe import product_target
+                    params = parse_qs(url.query, keep_blank_values=True)
+                    targets = params.get('vc_url', [])
+                    if (url.scheme != 'https' or url.netloc != url.hostname or url.path != '/servlet/referral'
+                            or a.get('data-affiliate') != 'yahoo' or a.get('data-position') != 'marketplace_comparison'
+                            or a.get('data-category') != 'pack-rice' or a.get('data-product-id') != 'likaman_950871-16'
+                            or not all(len(params.get(k, [])) == 1 and params[k][0].isascii() and params[k][0].isdigit() for k in ('sid', 'pid'))
+                            or len(targets) != 1 or not product_target(targets[0], 'likaman_950871-16')):
+                        self.affiliate_errors.append('unsafe Yahoo affiliate destination')
         if tag == 'img':
             if 'alt' not in a or not a.get('width') or not a.get('height'): self.image_errors.append(a.get('src',''))
             self.assets.append(a.get('src', ''))

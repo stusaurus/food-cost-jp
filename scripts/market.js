@@ -6,7 +6,7 @@ window.foodCostTrack=send;
 document.addEventListener('click',e=>{
   const a=e.target.closest('a[data-affiliate]');if(!a)return;
   const pos=a.dataset.position||'comparison_table';
-  const x={affiliate:'rakuten',conversion_source:pos,category_id:a.dataset.category,product_id:a.dataset.productId,product_name:a.dataset.productName,rank:a.dataset.rank,comparison_metric:a.dataset.metric,unit_price:Number(a.dataset.unitPrice||0),shipping_status:a.dataset.shipping,click_position:pos,cta_variant:a.dataset.ctaVariant||'standard',cta_text:(a.textContent||'').trim(),page_path:location.pathname,link_url:a.href};
+  const x={affiliate:a.dataset.affiliate==='yahoo'?'yahoo':'rakuten',conversion_source:pos,category_id:a.dataset.category,product_id:a.dataset.productId,product_name:a.dataset.productName,rank:a.dataset.rank,comparison_metric:a.dataset.metric,unit_price:Number(a.dataset.unitPrice||0),shipping_status:a.dataset.shipping,click_position:pos,cta_variant:a.dataset.ctaVariant||'standard',cta_text:(a.textContent||'').trim(),page_path:location.pathname,link_url:a.href};
   send('product_result_click',x);send('affiliate_click',x)
 });
 document.querySelectorAll('[data-start-route]').forEach(a=>a.addEventListener('click',()=>send('home_start_route',{route:a.dataset.startRoute||''})));
@@ -362,3 +362,6 @@ if((saved.length||compared.length)&&typeof fetch==='function')fetch('https://stu
  saved=saved.map(refresh);compared=compared.map(refresh);persistUtilities();
 }).catch(()=>{});
 })();
+
+// Hide expired cross-market quotes and purchase links without changing the existing ranking.
+(()=>{const section=document.getElementById('marketplace-comparison');if(!section)return;const expiry=Date.parse(section.dataset.priceExpiry);const refresh=()=>{if(!Number.isFinite(expiry)||Date.now()>=expiry){section.replaceChildren();section.hidden=true;}};refresh();if(!section.hidden) setTimeout(refresh,Math.max(0,Math.min(expiry-Date.now(),172800000)));})();
