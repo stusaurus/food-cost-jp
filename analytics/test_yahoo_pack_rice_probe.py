@@ -200,6 +200,12 @@ class YahooProbeTests(unittest.TestCase):
         self.assertEqual(queries,["sku-0","sku-1","sku-2"])
         self.assertEqual(result["categories"]["rice"],{"eligible":5,"queried":3,"sku_matches":2,
                          "quantity_matches":1,"strict_candidates":1,"errors":0})
+        self.assertEqual([x["result"] for x in result["details"]["rice"]], ["strict_candidate","sku_ambiguous","quantity_unverified"])
+        self.assertEqual(result["details"]["rice"][0]["sku"], "shop_sku-0")
+        queries.clear()
+        rotated = discovery_report(catalog,"test-client",config,request,offsets={"rice":3},pause=lambda n:None)
+        self.assertEqual(queries,["sku-3","sku-4"])
+        self.assertEqual(rotated["categories"]["rice"]["strict_candidates"],2)
         self.assertFalse(result["publish_allowed"])
         self.assertEqual(discovery_report(catalog,"test-client",config.replace("3790012","3790024"),
                          request,pause=lambda n:None)["status"],"WRONG_SITE")

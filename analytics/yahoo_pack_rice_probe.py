@@ -415,8 +415,8 @@ def discovery_title(name):
     # Remove only generic shipping words and whitespace; preserve all variant terms.
     return re.sub(r"[\s【】\[\]（）()]|送料無料|送料込み", "", normalize(name))
 
-def discovery_report(catalog, app_id, affiliate_id, request=fetch, *, limit=DISCOVERY_LIMIT, pause=time.sleep):
-    """Bounded SKU-based discovery; aggregates only, no ads/URLs/secrets or public changes."""
+def discovery_report(catalog, app_id, affiliate_id, request=fetch, *, limit=DISCOVERY_LIMIT, pause=time.sleep, offsets=None):
+    """Bounded discovery; report public SKU identifiers and rejection reasons, never ad URLs."""
     if not app_id or not affiliate_id:
         return {"status": "NOT_CONFIGURED"}
     try:
@@ -431,12 +431,15 @@ def discovery_report(catalog, app_id, affiliate_id, request=fetch, *, limit=DISC
     from product_quality import category_rejection, quantity_conflict
     from new_food import RULES, rejection as new_rejection
     out = {}
+    details = {}
     calls = 0
     for category in DISCOVERY_CATEGORIES:
         counts = {"eligible": 0, "queried": 0, "sku_matches": 0,
                   "quantity_matches": 0, "strict_candidates": 0, "errors": 0}
         rows = catalog.get("categories", {}).get(category, {}).get("included", [])
         seen = set()
+        details[category] = []
+        offset = max(0, int((offsets or {}).get(category, 0)))
         for row in rows:
             code = discovery_listing(row)
             q = discovery_signature(row.get("quantity"))
@@ -444,42 +447,62 @@ def discovery_report(catalog, app_id, affiliate_id, request=fetch, *, limit=DISC
                 continue
             seen.add(code)
             counts["eligible"] += 1
-            if counts["queried"] >= max(0, min(limit, DISCOVERY_LIMIT)):
+            if counts["eligible"] <= offset or counts["queried"] >= max(0, min(limit, DISCOVERY_LIMIT)):
                 continue
             if calls:
                 pause(2.5)
             calls += 1
             counts["queried"] += 1
+            item = {"sku":code,"result":"unavailable"}
+            details[category].append(item)
             try:
-                hits = request(None, app_id, affiliate_prefix=prefix, query=code.split("_",1)[1])
+                store = str(row["id"]).split(":",1)[0]
+                hits = request(None, app_id, affiliate_prefix=prefix, query=code[len(store)+1:])
                 if not isinstance(hits, list) or any(not isinstance(h, dict) for h in hits):
                     raise ValueError("schema")
-                matched = [h for h in hits if h.get("code") == code and affiliate_target(h, app_id, sid, pid)]
-                if len(matched) != 1:
+                sku_hits = [h for h in hits if h.get("code") == code]
+                matched = [h for h in sku_hits if affiliate_target(h, app_id, sid, pid)]
+                if len(sku_hits) != 1 or len(matched) != 1:
+                    item["result"] = "sku_missing" if not sku_hits else "sku_ambiguous" if len(sku_hits) != 1 else "ad_invalid"
                     continue
                 counts["sku_matches"] += 1
                 h = matched[0]
                 name = h.get("name")
                 if not isinstance(name, str):
+                    item["result"] = "missing_title"
                     continue
                 reject = new_rejection(category, name) if category in RULES else category_rejection(category, name)
                 parsed = parse_quantity(name, category)
                 if reject or not parsed or quantity_conflict(name, category, parsed) or discovery_signature(parsed) != q:
+                    item["result"] = "category_rejected" if reject else "quantity_unverified"
                     continue
                 counts["quantity_matches"] += 1
                 shipping = h.get("shipping")
                 terms = " ".join(normalize(h.get(k)) for k in ("name","headLine","description"))
-                if (discovery_title(name) == discovery_title(row.get("name"))
-                        and h.get("inStock") is True and h.get("condition") == "new"
-                        and type(h.get("price")) is int and h["price"] > 0
-                        and isinstance(h.get("priceLabel"), dict) and h["priceLabel"].get("taxable") is True
-                        and isinstance(shipping, dict) and shipping.get("code") == 2
-                        and not SHIPPING_CONDITIONS.search(terms + " " + normalize(shipping.get("name")))):
+                reasons = []
+                if discovery_title(name) != discovery_title(row.get("name")):
+                    reasons.append("title_mismatch")
+                if h.get("inStock") is not True or h.get("condition") != "new":
+                    reasons.append("stock_or_condition")
+                if type(h.get("price")) is not int or h["price"] <= 0 or not isinstance(h.get("priceLabel"), dict) or h["priceLabel"].get("taxable") is not True:
+                    reasons.append("price_or_tax_unverified")
+                if not isinstance(shipping, dict) or shipping.get("code") != 2:
+                    reasons.append("shipping_flag")
+                elif SHIPPING_CONDITIONS.search(terms + " " + normalize(shipping.get("name"))):
+                    reasons.append("shipping_conditions")
+                if reasons:
+                    item["result"] = "rejected"
+                    item["reasons"] = reasons
+                else:
                     counts["strict_candidates"] += 1
+                    item["result"] = "strict_candidate"
+                    item["rakuten_id"] = row["id"]
+                    item["rakuten_price_yen"] = row["price"]
+                    item["yahoo_price_yen"] = h["price"]
             except Exception:
                 counts["errors"] += 1
         out[category] = counts
-    return {"categories":out, "api_calls":calls, "publish_allowed":False}
+    return {"categories":out, "details":details, "api_calls":calls, "publish_allowed":False}
 
 if __name__ == "__main__":
     catalog = json.loads(Path("data/products.json").read_text(encoding="utf-8"))
@@ -495,6 +518,7 @@ if __name__ == "__main__":
         result["expansion"] = expansion_report(catalog, app_id, affiliate_id)
     if affiliate_id and result["status"] == "OK":
         time.sleep(2.5)
-        result["discovery"] = discovery_report(catalog, app_id, affiliate_id)
+        result["discovery"] = discovery_report(catalog, app_id, affiliate_id, offsets={
+            "carbonated-water":3, "oatmeal":3, "bag-noodles":3, "cup-noodles":3})
     print(json.dumps(result, ensure_ascii=False, indent=2))
     raise SystemExit(0 if result["status"] == "OK" else 1)
