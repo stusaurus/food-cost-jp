@@ -170,3 +170,36 @@ class YahooProbeTests(unittest.TestCase):
             self.assertEqual(preview(hits=[dict(hit,shipping={"code":2,"name":"条件付き送料無料"})])["status"], "NOT_COMPARABLE")
             if spec[0] == "mineral-water":
                 self.assertEqual(preview(hits=[dict(hit,janCode="wrong")])["reason"], "YAHOO_JAN_UNVERIFIED")
+
+
+    def test_discovery_bounded_and_no_ambiguous_match(self):
+        from yahoo_pack_rice_probe import DISCOVERY_CATEGORIES, discovery_report
+        base = "https://ck.jp.ap.valuecommerce.com/servlet/referral"
+        config = base + "?sid=3790012&pid=456&vc_url="
+        name = "国産 コシヒカリ 無洗米 5kg"
+        rows = [{"id":f"shop:{i}", "name":name, "price":4000,
+                 "quantity":{"unit_weight_g":5000,"total_weight_g":5000,"count":1},
+                 "shipping_status":"included", "postage_included":True,
+                 "url":"https://hb.afl.rakuten.co.jp/hgc/test/?"+urlencode({"pc":f"https://item.rakuten.co.jp/shop/sku-{i}/"})}
+                for i in range(5)]
+        catalog = {"categories":{"rice":{"included":rows}}}
+        queries = []
+        def request(jan,key,affiliate_prefix=None,query=None):
+            queries.append(query)
+            hit = {"code":"shop_"+query,"name":name,"condition":"new","inStock":True,
+                   "price":3900,"priceLabel":{"taxable":True},"shipping":{"code":2,"name":"送料無料"},
+                   "url":base+"?"+urlencode({"sid":"3790012","pid":"456","vc_url":f"https://store.shopping.yahoo.co.jp/shop/{query}.html"})}
+            if query == "sku-1":
+                return [hit, hit]
+            if query == "sku-2":
+                return [dict(hit,name=name.replace("5kg","10kg"))]
+            return [hit]
+        result = discovery_report(catalog,"test-client",config,request,limit=99,pause=lambda n:None)
+        self.assertEqual(set(result["categories"]),set(DISCOVERY_CATEGORIES))
+        self.assertEqual(result["api_calls"],3)
+        self.assertEqual(queries,["sku-0","sku-1","sku-2"])
+        self.assertEqual(result["categories"]["rice"],{"eligible":5,"queried":3,"sku_matches":2,
+                         "quantity_matches":1,"strict_candidates":1,"errors":0})
+        self.assertFalse(result["publish_allowed"])
+        self.assertEqual(discovery_report(catalog,"test-client",config.replace("3790012","3790024"),
+                         request,pause=lambda n:None)["status"],"WRONG_SITE")

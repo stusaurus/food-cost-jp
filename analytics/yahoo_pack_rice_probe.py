@@ -374,6 +374,113 @@ def expansion_report(catalog, app_id, affiliate_id, request=fetch):
             out[category] = {"status":"UNAVAILABLE", "publish_allowed":False}
     return out
 
+
+# Bounded read-only discovery: never turn title similarity into a public offer.
+DISCOVERY_CATEGORIES = ("rice", "carbonated-water", "oatmeal", "granola",
+                        "retort-curry", "bag-noodles", "cup-noodles")
+DISCOVERY_LIMIT = 3
+
+def discovery_listing(row):
+    link = safe_url(row.get("url"))
+    if not link or link.scheme != "https" or link.hostname != "hb.afl.rakuten.co.jp":
+        return None
+    targets = parse_qs(link.query).get("pc", [])
+    target = safe_url(targets[0]) if len(targets) == 1 else None
+    if not target or target.scheme != "https" or target.hostname != "item.rakuten.co.jp":
+        return None
+    match = re.fullmatch(r"/([a-zA-Z0-9_-]+)/([a-zA-Z0-9._-]+)/?", target.path)
+    if not match or not str(row.get("id", "")).startswith(match[1]+":"):
+        return None
+    if row.get("shipping_status") != "included" or row.get("postage_included") is not True:
+        return None
+    if type(row.get("price")) is not int or row["price"] <= 0:
+        return None
+    title = normalize(row.get("name"))
+    if not title or SHIPPING_CONDITIONS.search(title + " " + normalize(row.get("raw_name"))):
+        return None
+    if re.search(r"訳あり|賞味期限間近|選べる|選択|詰め合わせ|定期|ふるさと納税|初回限定", title):
+        return None
+    return match[1] + "_" + match[2]
+
+def discovery_signature(quantity):
+    keys = ("unit_weight_g", "total_weight_g", "unit_volume_ml", "total_volume_ml", "count")
+    if not isinstance(quantity, dict) or type(quantity.get("count")) is not int or quantity["count"] <= 0:
+        return None
+    values = tuple(quantity.get(k) for k in keys)
+    if any(v is not None and (type(v) not in (int, float) or v <= 0) for v in values):
+        return None
+    return values
+
+def discovery_title(name):
+    # Remove only generic shipping words and whitespace; preserve all variant terms.
+    return re.sub(r"[\s【】\[\]（）()]|送料無料|送料込み", "", normalize(name))
+
+def discovery_report(catalog, app_id, affiliate_id, request=fetch, *, limit=DISCOVERY_LIMIT, pause=time.sleep):
+    """Bounded SKU-based discovery; aggregates only, no ads/URLs/secrets or public changes."""
+    if not app_id or not affiliate_id:
+        return {"status": "NOT_CONFIGURED"}
+    try:
+        prefix, sid, pid = affiliate_config(affiliate_id)
+        if sid != "3790012":
+            return {"status": "WRONG_SITE"}
+    except Exception:
+        return {"status": "INVALID_CONFIG"}
+    import sys
+    sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "scripts"))
+    from build_site import parse_quantity
+    from product_quality import category_rejection, quantity_conflict
+    from new_food import RULES, rejection as new_rejection
+    out = {}
+    calls = 0
+    for category in DISCOVERY_CATEGORIES:
+        counts = {"eligible": 0, "queried": 0, "sku_matches": 0,
+                  "quantity_matches": 0, "strict_candidates": 0, "errors": 0}
+        rows = catalog.get("categories", {}).get(category, {}).get("included", [])
+        seen = set()
+        for row in rows:
+            code = discovery_listing(row)
+            q = discovery_signature(row.get("quantity"))
+            if not code or not q or code in seen:
+                continue
+            seen.add(code)
+            counts["eligible"] += 1
+            if counts["queried"] >= max(0, min(limit, DISCOVERY_LIMIT)):
+                continue
+            if calls:
+                pause(2.5)
+            calls += 1
+            counts["queried"] += 1
+            try:
+                hits = request(None, app_id, affiliate_prefix=prefix, query=code.split("_",1)[1])
+                if not isinstance(hits, list) or any(not isinstance(h, dict) for h in hits):
+                    raise ValueError("schema")
+                matched = [h for h in hits if h.get("code") == code and affiliate_target(h, app_id, sid, pid)]
+                if len(matched) != 1:
+                    continue
+                counts["sku_matches"] += 1
+                h = matched[0]
+                name = h.get("name")
+                if not isinstance(name, str):
+                    continue
+                reject = new_rejection(category, name) if category in RULES else category_rejection(category, name)
+                parsed = parse_quantity(name, category)
+                if reject or not parsed or quantity_conflict(name, category, parsed) or discovery_signature(parsed) != q:
+                    continue
+                counts["quantity_matches"] += 1
+                shipping = h.get("shipping")
+                terms = " ".join(normalize(h.get(k)) for k in ("name","headLine","description"))
+                if (discovery_title(name) == discovery_title(row.get("name"))
+                        and h.get("inStock") is True and h.get("condition") == "new"
+                        and type(h.get("price")) is int and h["price"] > 0
+                        and isinstance(h.get("priceLabel"), dict) and h["priceLabel"].get("taxable") is True
+                        and isinstance(shipping, dict) and shipping.get("code") == 2
+                        and not SHIPPING_CONDITIONS.search(terms + " " + normalize(shipping.get("name")))):
+                    counts["strict_candidates"] += 1
+            except Exception:
+                counts["errors"] += 1
+        out[category] = counts
+    return {"categories":out, "api_calls":calls, "publish_allowed":False}
+
 if __name__ == "__main__":
     catalog = json.loads(Path("data/products.json").read_text(encoding="utf-8"))
     app_id = os.getenv("YAHOO_APP_ID", "").strip()
@@ -386,5 +493,8 @@ if __name__ == "__main__":
     if affiliate_id and result["status"] == "OK":
         time.sleep(2.5)
         result["expansion"] = expansion_report(catalog, app_id, affiliate_id)
+    if affiliate_id and result["status"] == "OK":
+        time.sleep(2.5)
+        result["discovery"] = discovery_report(catalog, app_id, affiliate_id)
     print(json.dumps(result, ensure_ascii=False, indent=2))
     raise SystemExit(0 if result["status"] == "OK" else 1)
