@@ -14,6 +14,8 @@ from yahoo_pack_rice_probe import (
     exact_sato_yahoo, fetch, price_pair_preview,
 )
 
+FOOD_SITE_ID = "3790012"  # Public site identifier; not an API credential.
+
 @dataclass(frozen=True)
 class VerifiedPair:
     rakuten_price: int
@@ -29,6 +31,8 @@ def collect_pair(rows, checked_at, app_id="", affiliate_id="", *, approved=False
         return None
     try:
         prefix, sid, pid = affiliate_config(affiliate_id)
+        if sid != FOOD_SITE_ID:
+            return None
         product = PRODUCTS[1]
         hits = request(product[1], app_id, affiliate_prefix=prefix)
         if not isinstance(hits, list) or any(not isinstance(h, dict) for h in hits):

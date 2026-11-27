@@ -2538,10 +2538,11 @@ def main():
                     json.dumps(sample, ensure_ascii=False),
                 )
 
-    # Activation requires a separate reviewed release after food-site ad approval.
+    # Food site approval and its live affiliate link have been verified.
     marketplace_pair = collect_pair(results["pack-rice"][0], updated.isoformat(),
                                     os.getenv("YAHOO_APP_ID", "").strip(),
-                                    os.getenv("YAHOO_AFFILIATE_ID", "").strip(), approved=False)
+                                    os.getenv("YAHOO_AFFILIATE_ID", "").strip(), approved=True)
+    print("MARKETPLACE_COMPARISON", "VERIFIED_PAIR" if marketplace_pair else "NO_VERIFIED_PAIR")
     auto_guides = render_pages(results, updated, marketplace_pair)
     (OUT / "data").mkdir(exist_ok=True)
     (OUT / "data" / "products.json").write_text(
