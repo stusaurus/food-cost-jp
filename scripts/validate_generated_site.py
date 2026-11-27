@@ -39,12 +39,14 @@ class PageAudit(HTMLParser):
                 url = urlparse(a['href'])
                 if url.hostname == 'ck.jp.ap.valuecommerce.com':
                     from yahoo_pack_rice_probe import product_target
+                    from marketplace_comparison import FOOD_SITE_ID
                     params = parse_qs(url.query, keep_blank_values=True)
                     targets = params.get('vc_url', [])
                     if (url.scheme != 'https' or url.netloc != url.hostname or url.path != '/servlet/referral'
                             or a.get('data-affiliate') != 'yahoo' or a.get('data-position') != 'marketplace_comparison'
                             or a.get('data-category') != 'pack-rice' or a.get('data-product-id') != 'likaman_950871-16'
                             or not all(len(params.get(k, [])) == 1 and params[k][0].isascii() and params[k][0].isdigit() for k in ('sid', 'pid'))
+                            or params.get('sid') != [FOOD_SITE_ID]
                             or len(targets) != 1 or not product_target(targets[0], 'likaman_950871-16')):
                         self.affiliate_errors.append('unsafe Yahoo affiliate destination')
         if tag == 'img':
