@@ -14,7 +14,7 @@ class MarketplaceComparisonTests(unittest.TestCase):
     def setUp(self):
         self.now = datetime.now(timezone.utc)
         self.stamp = self.now.isoformat()
-        self.config = "https://ck.jp.ap.valuecommerce.com/servlet/referral?sid=123&pid=456&vc_url="
+        self.config = "https://ck.jp.ap.valuecommerce.com/servlet/referral?sid=3790012&pid=456&vc_url="
         self.target = "https://store.shopping.yahoo.co.jp/likaman/950871-16.html"
         name = "サトウのごはん 銀シャリ (200g×5食)×16袋"
         self.row = {"id":"likaman:10040020","name":name,"price":16300,
@@ -24,7 +24,7 @@ class MarketplaceComparisonTests(unittest.TestCase):
         self.hit = {"code":"likaman_950871-16","janCode":"4973360566850","name":name,
                     "condition":"new","inStock":True,"shipping":{"code":2,"name":"送料無料"},
                     "price":16100,"priceLabel":{"taxable":True},
-                    "url":"https://ck.jp.ap.valuecommerce.com/servlet/referral?" + urlencode({"sid":"123","pid":"456","vc_url":self.target})}
+                    "url":"https://ck.jp.ap.valuecommerce.com/servlet/referral?" + urlencode({"sid":"3790012","pid":"456","vc_url":self.target})}
 
     def pair(self, hit=None, **kw):
         return collect_pair([self.row], self.stamp, "test-client", self.config, approved=True,
@@ -35,6 +35,13 @@ class MarketplaceComparisonTests(unittest.TestCase):
             self.fail("must not contact API")
         self.assertIsNone(collect_pair([self.row], self.stamp, "test-client", self.config, request=unexpected))
         self.assertEqual(render_pair(None), "")
+
+    def test_wrong_site_id_is_rejected_before_network(self):
+        def unexpected(*a, **k):
+            self.fail("wrong site must not contact API")
+        self.assertIsNone(collect_pair([self.row], self.stamp, "test-client",
+                                      self.config.replace("3790012", "3790024"),
+                                      approved=True, request=unexpected, now=self.now))
 
     def test_verified_pair_price_tracking_and_expiry(self):
         pair = self.pair()
