@@ -27,7 +27,7 @@ from product_quality import (
 )
 from price_history import apply_price_history, load_price_history, save_price_history
 from pack_rice_planner import render_planner, render_quantity_only_planner, render_pack_size_comparison
-from marketplace_comparison import collect_pair, render_pair
+from marketplace_comparison import collect_pair, collect_expansion_pair, render_pair
 
 SITE_ID = "food_cost_jp"
 SITE_URL = "https://stusaurus.github.io/food-cost-jp/"
@@ -2222,8 +2222,9 @@ def category_page(category: dict, included: list[dict], other: list[dict], updat
     if len(included) < MIN_CATEGORY_ITEMS:
         parts[0] = parts[0].replace('content="index,follow"', 'content="noindex,follow"')
     parts.append(category_summary(category, included, other))
-    if category["id"] == "pack-rice":
-        parts.append(render_pair(marketplace_pair))
+    pair = marketplace_pair.get(category["id"]) if isinstance(marketplace_pair, dict) else marketplace_pair
+    if pair is not None and getattr(pair, "category", None) == category["id"]:
+        parts.append(render_pair(pair))
     if category['id'] == 'bag-noodles':
         parts.append(bag_noodle_small_pack_notice(included, other))
     if category['id'] in {'oatmeal', 'granola'}:
@@ -2543,7 +2544,16 @@ def main():
                                     os.getenv("YAHOO_APP_ID", "").strip(),
                                     os.getenv("YAHOO_AFFILIATE_ID", "").strip(), approved=True)
     print("MARKETPLACE_COMPARISON", "VERIFIED_PAIR" if marketplace_pair else "NO_VERIFIED_PAIR")
-    auto_guides = render_pages(results, updated, marketplace_pair)
+    marketplace_pairs = {"pack-rice": marketplace_pair}
+    yahoo_app = os.getenv("YAHOO_APP_ID", "").strip()
+    yahoo_affiliate = os.getenv("YAHOO_AFFILIATE_ID", "").strip()
+    for category_id in ("pasta", "mineral-water"):
+        if yahoo_app and yahoo_affiliate:
+            time.sleep(2.5)
+        marketplace_pairs[category_id] = collect_expansion_pair(
+            category_id, results[category_id][0], updated.isoformat(), yahoo_app, yahoo_affiliate, approved=True)
+        print("MARKETPLACE_COMPARISON", category_id, "VERIFIED_PAIR" if marketplace_pairs[category_id] else "NO_VERIFIED_PAIR")
+    auto_guides = render_pages(results, updated, marketplace_pairs)
     (OUT / "data").mkdir(exist_ok=True)
     (OUT / "data" / "products.json").write_text(
         json.dumps(export, ensure_ascii=False, indent=2),

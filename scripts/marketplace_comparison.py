@@ -5,13 +5,14 @@ from zoneinfo import ZoneInfo
 from pathlib import Path
 import html
 import sys
-from urllib.parse import urlsplit, urlunsplit
+from urllib.parse import urlsplit, urlunsplit, parse_qs
 
 # Reuse the already tested probe, rather than duplicate identity/price rules.
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "analytics"))
 from yahoo_pack_rice_probe import (
     PRODUCTS, affiliate_config, affiliate_target, exact_sato_rakuten,
-    exact_sato_yahoo, fetch, price_pair_preview,
+    exact_sato_yahoo, fetch, price_pair_preview, EXPANSION, expansion_title,
+    expansion_price_preview, safe_url,
 )
 
 FOOD_SITE_ID = "3790012"  # Public site identifier; not an API credential.
@@ -24,6 +25,14 @@ class VerifiedPair:
     yahoo_url: str
     rakuten_checked: str
     yahoo_checked: str
+    category: str = "pack-rice"
+
+# Category, display name, set label, divisor, unit, metric, retailer IDs.
+PAIR_SPECS = {
+    "pack-rice": ("サトウのごはん 銀シャリ 200g×80食", "80食セット", 80, "1食", "per_serving", "likaman:10040020", "likaman_950871-16"),
+    "pasta": ("ディチェコ No.12 500g×24袋", "12kgセット", 120, "100g", "per_100g", "likaman:10033183", "likaman_927807-24"),
+    "mineral-water": ("安曇野の天然水 2L×12本", "24Lセット", 24, "1L", "per_liter", "cocodecow:10778153", "cocodecow_y388eb"),
+}
 
 def collect_pair(rows, checked_at, app_id="", affiliate_id="", *, approved=False, request=fetch, now=None):
     """Only approved, live, verified food-site credentials can produce a pair."""
@@ -57,6 +66,51 @@ def collect_pair(rows, checked_at, app_id="", affiliate_id="", *, approved=False
         # Optional functionality never prevents the existing catalog publication.
         return None
 
+def collect_expansion_pair(category, rows, checked_at, app_id="", affiliate_id="", *, approved=False, request=fetch, now=None):
+    """Use reviewed exact listings, current prices, food-specific ads and fail-closed gates."""
+    if approved is not True or not app_id or not affiliate_id:
+        return None
+    try:
+        spec = next(s for s in EXPANSION if s[0] == category)
+        prefix, sid, pid = affiliate_config(affiliate_id)
+        if sid != FOOD_SITE_ID:
+            return None
+        candidates = []
+        for row in rows:
+            link = safe_url(row.get("url"))
+            if not link or link.scheme != "https" or link.hostname != "hb.afl.rakuten.co.jp":
+                continue
+            targets = parse_qs(link.query).get("pc", [])
+            target = safe_url(targets[0]) if len(targets) == 1 else None
+            q = row.get("quantity", {})
+            if (row.get("id") == spec[1] and target and target.scheme == "https"
+                    and target.hostname == "item.rakuten.co.jp" and target.path == spec[2]
+                    and row.get("shipping_status") == "included" and row.get("postage_included") is True
+                    and expansion_title(row.get("name"), spec)
+                    and q.get(spec[8]) == spec[9] and q.get(spec[10]) == spec[11]
+                    and q.get("count") == spec[12]):
+                candidates.append(row)
+        if len(candidates) != 1:
+            return None
+        hits = request(None, app_id, affiliate_prefix=prefix, query=spec[4])
+        if not isinstance(hits, list) or any(not isinstance(h, dict) for h in hits):
+            return None
+        matches = [h for h in hits if h.get("code") == spec[3] and expansion_title(h.get("name"), spec)
+                   and affiliate_target(h, app_id, sid, pid) and h.get("inStock") is True
+                   and h.get("condition") == "new" and type(h.get("price")) is int and h["price"] > 0
+                   and isinstance(h.get("priceLabel"), dict) and h["priceLabel"].get("taxable") is True]
+        now = now or datetime.now(timezone.utc)
+        preview = expansion_price_preview(candidates, matches, spec, checked_at, now)
+        if preview["status"] != "API_PRICE_PREVIEW_ONLY":
+            return None
+        r, y = candidates[0], matches[0]
+        return VerifiedPair(r["price"], y["price"], r["url"],
+                            urlunsplit(urlsplit(y["url"])._replace(scheme="https")),
+                            checked_at, now.isoformat(), category)
+    except Exception:
+        return None
+
+
 def render_pair(pair, now=None):
     if not isinstance(pair, VerifiedPair):
         return ""
@@ -69,6 +123,9 @@ def render_pair(pair, now=None):
             return ""
     except (ValueError, TypeError):
         return ""
+    if pair.category not in PAIR_SPECS:
+        return ""
+    product, set_label, divisor, unit, metric, rid, yid = PAIR_SPECS[pair.category]
     esc = html.escape
     delta = abs(pair.rakuten_price - pair.yahoo_price)
     winner = ("楽天市場" if pair.rakuten_price < pair.yahoo_price else
@@ -76,17 +133,17 @@ def render_pair(pair, now=None):
     summary = f"{winner}の掲載価格が{delta:,}円安い" if winner else "両モールの掲載価格は同額"
     def offer(market, name, price, url, sku, stamp):
         return (f'<div class="intent-card"><strong>{name}</strong>'
-                f'<p><strong>{price:,}円</strong>（80食セット）</p>'
-                f'<p>1食 {price/80:,.2f}円</p>'
+                f'<p><strong>{price:,}円</strong>（{set_label}）</p>'
+                f'<p>{unit} {price/divisor:,.2f}円</p>'
                 f'<p class="fine">確認時刻：{esc(datetime.fromisoformat(stamp).astimezone(ZoneInfo("Asia/Tokyo")).strftime("%Y-%m-%d %H:%M"))} JST</p>'
                 f'<a class="finder-go" href="{esc(url, quote=True)}" target="_blank" rel="nofollow sponsored noopener" '
-                f'data-affiliate="{market}" data-position="marketplace_comparison" data-category="pack-rice" '
-                f'data-product-id="{sku}" data-product-name="サトウのごはん 銀シャリ 200g×80食" '
-                f'data-metric="per_serving" data-unit-price="{price/80:.2f}" data-shipping="included_flag">販売店で確認 →</a></div>')
+                f'data-affiliate="{market}" data-position="marketplace_comparison" data-category="{pair.category}" '
+                f'data-product-id="{sku}" data-product-name="{esc(product, quote=True)}" '
+                f'data-metric="{metric}" data-unit-price="{price/divisor:.2f}" data-shipping="included_flag">販売店で確認 →</a></div>')
     expiry = (min(stamps)+timedelta(hours=48)).isoformat()
     return (f'<section class="section explain" id="marketplace-comparison" data-price-expiry="{esc(expiry)}">'
-            '<h2>同じ商品を楽天・Yahoo!で比較</h2><p>サトウのごはん 銀シャリ 200g×5食×16袋（80食）</p>'
+            f'<h2>同じ商品を楽天・Yahoo!で比較</h2><p>{esc(product)}</p>'
             f'<p><strong>{summary}</strong></p><div class="intent-grid">'
-            + offer("rakuten", "楽天市場", pair.rakuten_price, pair.rakuten_url, "likaman:10040020", pair.rakuten_checked)
-            + offer("yahoo", "Yahoo!ショッピング", pair.yahoo_price, pair.yahoo_url, "likaman_950871-16", pair.yahoo_checked)
+            + offer("rakuten", "楽天市場", pair.rakuten_price, pair.rakuten_url, rid, pair.rakuten_checked)
+            + offer("yahoo", "Yahoo!ショッピング", pair.yahoo_price, pair.yahoo_url, yid, pair.yahoo_checked)
             + '</div><p class="fine">税込掲載価格・送料無料フラグで比較。配送先別の追加送料、在庫、ポイント・クーポン、最終支払額は販売店で確認してください。広告リンクを含みます。</p></section>')

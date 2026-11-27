@@ -6,7 +6,8 @@ from urllib.parse import urlencode
 from dataclasses import replace
 
 sys.path.insert(0, str(Path(__file__).parents[1] / "scripts"))
-from marketplace_comparison import collect_pair, render_pair
+from marketplace_comparison import collect_pair, collect_expansion_pair, render_pair
+from yahoo_pack_rice_probe import EXPANSION
 from build_site import CATEGORIES, category_page
 from validate_generated_site import PageAudit
 
@@ -69,3 +70,40 @@ class MarketplaceComparisonTests(unittest.TestCase):
         self.assertIn('id="marketplace-comparison"', category_page(rice, [], [], self.now, marketplace_pair=pair))
         self.assertNotIn('id="marketplace-comparison"', category_page(rice, [], [], self.now))
         self.assertNotIn('id="marketplace-comparison"', category_page(pasta, [], [], self.now, marketplace_pair=pair))
+
+
+    def test_expansion_pair_collection_render_and_fail_closed(self):
+        for spec, name, jan, unit, price, unit_price in (
+            (EXPANSION[0], "ディチェコ No.12 500g×24袋", "", "100g", 8980, "74.83"),
+            (EXPANSION[1], "ハルナウォーター 安曇野の自然が育んだ天然水 2L×12本", "4510892001338", "1L", 1836, "76.50"),
+        ):
+            with self.subTest(category=spec[0]):
+                store, sku = spec[3].split("_",1)
+                row = dict(self.row, id=spec[1], name=name, price=price,
+                           quantity={spec[8]:spec[9],spec[10]:spec[11],"count":spec[12]},
+                           url="https://hb.afl.rakuten.co.jp/hgc/test/?" + urlencode({"pc":"https://item.rakuten.co.jp"+spec[2]}))
+                hit = dict(self.hit, code=spec[3], name=name, janCode=jan, price=price,
+                           url="https://ck.jp.ap.valuecommerce.com/servlet/referral?" + urlencode({"sid":"3790012","pid":"456","vc_url":f"https://store.shopping.yahoo.co.jp/{store}/{sku}.html"}))
+                def collect(rows=None,hits=None,stamp=None):
+                    return collect_expansion_pair(spec[0], [row] if rows is None else rows,
+                        self.stamp if stamp is None else stamp, "test-client", self.config, approved=True,
+                        request=lambda *a,**k:[hit] if hits is None else hits, now=self.now)
+                pair = collect()
+                self.assertIsNotNone(pair)
+                output = render_pair(pair,self.now)
+                self.assertIn(f"{unit} {unit_price}円",output)
+                self.assertIn(f'data-category="{spec[0]}"',output)
+                self.assertIn("同額",output)
+                audit = PageAudit(); audit.feed(output)
+                self.assertFalse(audit.affiliate_errors)
+                bad = PageAudit(); bad.feed(output.replace(spec[3],"wrong_sku"))
+                self.assertTrue(bad.affiliate_errors)
+                category = next(c for c in CATEGORIES if c["id"] == spec[0])
+                self.assertIn('id="marketplace-comparison"',category_page(category,[],[],self.now,marketplace_pair={spec[0]:pair}))
+                self.assertIsNone(collect(hits=[hit,hit]))
+                self.assertIsNone(collect(hits=[dict(hit, description="沖縄は別途送料")]))
+                self.assertIsNone(collect(hits=[dict(hit, url=hit["url"].replace("pid=456","pid=789"))]))
+                self.assertIsNone(collect(rows=[dict(row,quantity=dict(row["quantity"],count=1))]))
+                self.assertIsNone(collect(stamp=(self.now-timedelta(hours=49)).isoformat()))
+                if spec[0] == "mineral-water":
+                    self.assertIsNone(collect(hits=[dict(hit,janCode="wrong")]))
