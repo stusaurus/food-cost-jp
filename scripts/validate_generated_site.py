@@ -39,15 +39,17 @@ class PageAudit(HTMLParser):
                 url = urlparse(a['href'])
                 if url.hostname == 'ck.jp.ap.valuecommerce.com':
                     from yahoo_pack_rice_probe import product_target
-                    from marketplace_comparison import FOOD_SITE_ID
+                    from marketplace_comparison import FOOD_SITE_ID, PAIR_SPECS
                     params = parse_qs(url.query, keep_blank_values=True)
                     targets = params.get('vc_url', [])
+                    spec = PAIR_SPECS.get(a.get('data-category'))
+                    expected = spec[6] if spec else None
                     if (url.scheme != 'https' or url.netloc != url.hostname or url.path != '/servlet/referral'
                             or a.get('data-affiliate') != 'yahoo' or a.get('data-position') != 'marketplace_comparison'
-                            or a.get('data-category') != 'pack-rice' or a.get('data-product-id') != 'likaman_950871-16'
+                            or not expected or a.get('data-product-id') != expected
                             or not all(len(params.get(k, [])) == 1 and params[k][0].isascii() and params[k][0].isdigit() for k in ('sid', 'pid'))
                             or params.get('sid') != [FOOD_SITE_ID]
-                            or len(targets) != 1 or not product_target(targets[0], 'likaman_950871-16')):
+                            or len(targets) != 1 or not product_target(targets[0], expected)):
                         self.affiliate_errors.append('unsafe Yahoo affiliate destination')
         if tag == 'img':
             if 'alt' not in a or not a.get('width') or not a.get('height'): self.image_errors.append(a.get('src',''))
