@@ -285,6 +285,50 @@ def expansion_title(name, spec):
     return bool(n and not re.search(EXCLUDE + r"|選択|セット内容変更|予約|配送不可", n)
                 and all(re.search(p, n) for p in spec[5:8]))
 
+# Independently reviewed exact retailer listing paths. The water JAN is a
+# Yahoo-side identifier corroborated by another retailer; Rakuten JAN is not asserted.
+# https://item.rakuten.co.jp/likaman/927807-24/
+# https://store.shopping.yahoo.co.jp/likaman/927807-24.html
+# https://item.rakuten.co.jp/cocodecow/r820gf/
+# https://store.shopping.yahoo.co.jp/cocodecow/y388eb.html
+# https://shimojima.live/shop/g/g2501600064181/
+EXPANSION_YAHOO_JAN = {"mineral-water": "4510892001338"}
+
+def expansion_price_preview(candidates, matches, spec, checked_at, now=None):
+    """Require unique listings, fresh prices and explicit shipping safety; never publish."""
+    now = now or datetime.now(timezone.utc)
+    result = {"status": "NOT_COMPARABLE", "publish_allowed": False}
+    try:
+        stamp = datetime.fromisoformat(checked_at)
+        if stamp.tzinfo is None or not timedelta(hours=-1) <= now-stamp <= timedelta(hours=48):
+            return dict(result, reason="STALE_OR_INVALID_RAKUTEN_TIMESTAMP")
+    except (TypeError, ValueError):
+        return dict(result, reason="STALE_OR_INVALID_RAKUTEN_TIMESTAMP")
+    if len(candidates) != 1 or len(matches) != 1:
+        return dict(result, reason="AMBIGUOUS_OR_MISSING_LISTING")
+    r, y = candidates[0], matches[0]
+    expected = EXPANSION_YAHOO_JAN.get(spec[0])
+    if expected and y.get("janCode") != expected:
+        return dict(result, reason="YAHOO_JAN_UNVERIFIED")
+    link = safe_url(r.get("url"))
+    if (not link or link.scheme != "https" or link.hostname != "hb.afl.rakuten.co.jp"
+            or type(r.get("price")) is not int or r["price"] <= 0):
+        return dict(result, reason="RAKUTEN_PRICE_OR_LINK_UNVERIFIED")
+    shipping = y.get("shipping")
+    terms = " ".join(normalize(y.get(k)) for k in ("name", "headLine", "description"))
+    terms += " " + normalize(r.get("name")) + " " + normalize(r.get("raw_name"))
+    if (not isinstance(shipping, dict) or shipping.get("code") != 2
+            or SHIPPING_CONDITIONS.search(terms + " " + normalize(shipping.get("name")))):
+        return dict(result, reason="SHIPPING_CONDITIONS_REQUIRE_REVIEW")
+    divisor = spec[11] / (100 if spec[0] == "pasta" else 1000)
+    return dict(result, status="API_PRICE_PREVIEW_ONLY",
+                identity_basis="merchant_sku" if not expected else "reviewed_listing_and_yahoo_jan",
+                rakuten_listed_price_yen=r["price"], yahoo_listed_price_yen=y["price"],
+                unit="100g" if spec[0] == "pasta" else "1L",
+                rakuten_unit_price_yen=round(r["price"]/divisor, 2),
+                yahoo_unit_price_yen=round(y["price"]/divisor, 2),
+                checkout_total_verified=False)
+
 def expansion_report(catalog, app_id, affiliate_id, request=fetch):
     """Report candidate counts only; no publication and no logging of links."""
     if not app_id or not affiliate_id:
@@ -324,7 +368,8 @@ def expansion_report(catalog, app_id, affiliate_id, request=fetch):
             free = [h for h in matches if isinstance(h.get("shipping"), dict) and h["shipping"].get("code") == 2
                     and not SHIPPING_CONDITIONS.search(" ".join(normalize(h.get(k)) for k in ("name","headLine","description")))]
             out[category] = {"rakuten_listing_matches":len(candidates), "yahoo_ad_listing_matches":len(matches),
-                             "yahoo_shipping_flag_candidates":len(free), "publish_allowed":False}
+                             "yahoo_shipping_flag_candidates":len(free), "publish_allowed":False,
+                             "price_preview":expansion_price_preview(candidates, matches, spec, catalog.get("generated_at"))}
         except Exception:
             out[category] = {"status":"UNAVAILABLE", "publish_allowed":False}
     return out
