@@ -76,6 +76,7 @@ class MarketplaceComparisonTests(unittest.TestCase):
         for spec, name, jan, unit, price, unit_price in (
             (EXPANSION[0], "ディチェコ No.12 500g×24袋", "", "100g", 8980, "74.83"),
             (EXPANSION[1], "ハルナウォーター 安曇野の自然が育んだ天然水 2L×12本", "4510892001338", "1L", 1836, "76.50"),
+            (EXPANSION[2], "カルビー フルグラ 700g×6袋", "4901330748296", "100g", 5200, "123.81"),
         ):
             with self.subTest(category=spec[0]):
                 store, sku = spec[3].split("_",1)
@@ -105,5 +106,8 @@ class MarketplaceComparisonTests(unittest.TestCase):
                 self.assertIsNone(collect(hits=[dict(hit, url=hit["url"].replace("pid=456","pid=789"))]))
                 self.assertIsNone(collect(rows=[dict(row,quantity=dict(row["quantity"],count=1))]))
                 self.assertIsNone(collect(stamp=(self.now-timedelta(hours=49)).isoformat()))
-                if spec[0] == "mineral-water":
+                if spec[0] in {"mineral-water", "granola"}:
                     self.assertIsNone(collect(hits=[dict(hit,janCode="wrong")]))
+                if spec[0] == "granola":
+                    self.assertIsNone(collect(hits=[dict(hit,name=name+" 糖質オフ")]))
+                    self.assertIsNone(collect(hits=[dict(hit,name=name+" 別フレーバー")]))
