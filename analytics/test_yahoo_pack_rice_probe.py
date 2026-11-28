@@ -108,7 +108,7 @@ class YahooProbeTests(unittest.TestCase):
     def test_expansion_rejects_wrong_variant_quantity_and_ad(self):
         from unittest.mock import patch
         from yahoo_pack_rice_probe import EXPANSION, expansion_report, expansion_title
-        p, w = EXPANSION
+        p, w = EXPANSION[:2]
         pn = "ディチェコ No.12 スパゲッティ 500g 24袋"
         wn = "ハルナウォーター 安曇野の自然が育んだ天然水2L×12本"
         self.assertTrue(expansion_title(pn, p))
