@@ -2547,7 +2547,7 @@ def main():
     marketplace_pairs = {"pack-rice": marketplace_pair}
     yahoo_app = os.getenv("YAHOO_APP_ID", "").strip()
     yahoo_affiliate = os.getenv("YAHOO_AFFILIATE_ID", "").strip()
-    for category_id in ("pasta", "mineral-water"):
+    for category_id in ("pasta", "mineral-water", "granola"):
         if yahoo_app and yahoo_affiliate:
             time.sleep(2.5)
         marketplace_pairs[category_id] = collect_expansion_pair(
