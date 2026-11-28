@@ -32,6 +32,7 @@ PAIR_SPECS = {
     "pack-rice": ("サトウのごはん 銀シャリ 200g×80食", "80食セット", 80, "1食", "per_serving", "likaman:10040020", "likaman_950871-16"),
     "pasta": ("ディチェコ No.12 500g×24袋", "12kgセット", 120, "100g", "per_100g", "likaman:10033183", "likaman_927807-24"),
     "mineral-water": ("安曇野の天然水 2L×12本", "24Lセット", 24, "1L", "per_liter", "cocodecow:10778153", "cocodecow_y388eb"),
+    "granola": ("カルビー フルグラ 700g×6袋", "4.2kgセット", 42, "100g", "per_100g", "okagesama-market:10003972", "okagesama-market_4901330748296"),
 }
 
 def collect_pair(rows, checked_at, app_id="", affiliate_id="", *, approved=False, request=fetch, now=None):

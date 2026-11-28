@@ -278,6 +278,12 @@ EXPANSION = (
     ("mineral-water", "cocodecow:10778153", "/cocodecow/r820gf/", "cocodecow_y388eb",
      "ハルナウォーター 安曇野の自然が育んだ天然水 2L 12本", r"ハルナウォーター", r"安曇野の自然が育んだ天然水",
      r"2\s*l\s*[×x*]?\s*12\s*本", "unit_volume_ml", 2000, "total_volume_ml", 24000, 12),
+    # Both retailer pages use the same merchant SKU and list 700g x 6.
+    # https://item.rakuten.co.jp/okagesama-market/4901330748296/
+    # https://store.shopping.yahoo.co.jp/okagesama-market/4901330748296.html
+    ("granola", "okagesama-market:10003972", "/okagesama-market/4901330748296/", "okagesama-market_4901330748296",
+     "カルビー フルグラ 700g 6袋", r"カルビー", r"フルグラ",
+     r"700\s*g\s*[×x*]?\s*6\s*(?:袋|個)", "unit_weight_g", 700, "total_weight_g", 4200, 6),
 )
 
 def expansion_title(name, spec):
@@ -292,7 +298,7 @@ def expansion_title(name, spec):
 # https://item.rakuten.co.jp/cocodecow/r820gf/
 # https://store.shopping.yahoo.co.jp/cocodecow/y388eb.html
 # https://shimojima.live/shop/g/g2501600064181/
-EXPANSION_YAHOO_JAN = {"mineral-water": "4510892001338"}
+EXPANSION_YAHOO_JAN = {"mineral-water": "4510892001338", "granola": "4901330748296"}
 
 def expansion_price_preview(candidates, matches, spec, checked_at, now=None):
     """Require unique listings, fresh prices and explicit shipping safety; never publish."""
@@ -320,11 +326,13 @@ def expansion_price_preview(candidates, matches, spec, checked_at, now=None):
     if (not isinstance(shipping, dict) or shipping.get("code") != 2
             or SHIPPING_CONDITIONS.search(terms + " " + normalize(shipping.get("name")))):
         return dict(result, reason="SHIPPING_CONDITIONS_REQUIRE_REVIEW")
-    divisor = spec[11] / (100 if spec[0] == "pasta" else 1000)
+    if spec[0] == "granola" and discovery_title(r.get("name")) != discovery_title(y.get("name")):
+        return dict(result, reason="TITLE_MISMATCH")
+    divisor = spec[11] / (1000 if spec[0] == "mineral-water" else 100)
     return dict(result, status="API_PRICE_PREVIEW_ONLY",
                 identity_basis="merchant_sku" if not expected else "reviewed_listing_and_yahoo_jan",
                 rakuten_listed_price_yen=r["price"], yahoo_listed_price_yen=y["price"],
-                unit="100g" if spec[0] == "pasta" else "1L",
+                unit="1L" if spec[0] == "mineral-water" else "100g",
                 rakuten_unit_price_yen=round(r["price"]/divisor, 2),
                 yahoo_unit_price_yen=round(y["price"]/divisor, 2),
                 checkout_total_verified=False)

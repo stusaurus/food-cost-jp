@@ -26,7 +26,7 @@ jobs:
       - name: Audit public desktop and mobile pages
         env:
           SEO_BASE: https://stusaurus.github.io/food-cost-jp/
-          SEO_PATHS: "categories/rice/,categories/pack-rice/,categories/pasta/,categories/mineral-water/,categories/carbonated-water/,guides/pack-rice-24-servings-cost/"
+          SEO_PATHS: "categories/rice/,categories/pack-rice/,categories/pasta/,categories/mineral-water/,categories/granola/,categories/carbonated-water/,guides/pack-rice-24-servings-cost/"
         run: |
           node <<'AUDIT_NODE'
             const {chromium}=require('/tmp/seo-audit/node_modules/playwright');
@@ -53,7 +53,7 @@ jobs:
                     if(response.status()!==200)issues.push('HTTP '+response.status());
                     if(!data.title||!data.description||data.canonical!==url||data.h1!==1||!data.viewport.includes('width=device-width')||data.invalidSchemas||/noindex/i.test(data.robots))issues.push('SEO metadata or canonical inconsistent');
                     if(data.documentWidth>data.viewportWidth+2)warnings.push('horizontal overflow '+data.documentWidth+' > '+data.viewportWidth);
-                    const crossPaths={'categories/pack-rice/':'/likaman/950871-16.html','categories/pasta/':'/likaman/927807-24.html','categories/mineral-water/':'/cocodecow/y388eb.html'};
+                    const crossPaths={'categories/pack-rice/':'/likaman/950871-16.html','categories/pasta/':'/likaman/927807-24.html','categories/mineral-water/':'/cocodecow/y388eb.html','categories/granola/':'/okagesama-market/4901330748296.html'};
                     if(crossPaths[p]){
                       const pair=page.locator('#marketplace-comparison');
                       if(await pair.count()===1 && await pair.isVisible()){
